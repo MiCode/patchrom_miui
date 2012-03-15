@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/detaillayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingRight="10dip"
+            android:background="@drawable/resource_detail_title_bg">
+            <TextView
+                android:id="@+id/titlecontent"
+                android:layout_height="wrap_content"
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:textColor="#000000"
+                android:textAppearance="@android:style/TextAppearance.WindowTitle"
+                android:paddingLeft="20dip"
+                android:text="@string/resource_title" />
+            <ImageView
+                android:id="@+id/titleprevious"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/preview_previous" />
+            <ImageView
+                android:id="@+id/titlenext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/preview_next" />
+        </LinearLayout>
+        <ScrollView
+            android:id="@+id/scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fadingEdge="none">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+                <FrameLayout
+                    android:id="@+id/parentlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/detail_background">
+                    <miui.widget.ScrollableScreenView
+                        android:id="@+id/previews"
+                        android:layout_width="match_parent"
+                        android:layout_height="400dip"
+                        android:focusableInTouchMode="true" />
+                </FrameLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dip"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bottom_button_bar">
+                    <LinearLayout
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/componenttitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left|center_vertical"
+                            android:text="@string/resource_detail"
+                            android:textColor="#848B92"
+                            android:textSize="16dip"
+                            android:paddingLeft="10dip"
+                            android:paddingRight="10dip" />
+                    </LinearLayout>
+                    <Button
+                        android:id="@+id/downloadbutton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="20dip"
+                        android:paddingRight="20dip" />
+                    <ImageButton
+                        android:id="@+id/deletebutton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dip"
+                        android:paddingRight="10dip"
+                        android:layout_marginLeft="10dip"
+                        android:background="@drawable/btn_bottom_last"
+                        android:src="@drawable/delete_icon"
+                        android:visibility="gone" />
+                </LinearLayout>
+                <GridView
+                    android:id="@+id/componentGrid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:numColumns="3"
+                    android:stretchMode="columnWidth"
+                    android:gravity="center"
+                    android:visibility="gone" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dip"
+                    android:paddingRight="10dip"
+                    android:paddingTop="20dip"
+                    android:paddingBottom="20dip"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        style="@style/ResourceProperty">
+                        <TextView
+                            android:text="@string/description_designer"
+                            style="@style/ResourcePropertyTitle" />
+                        <TextView
+                            android:id="@+id/resourcedesigner"
+                            style="@style/ResourcePropertyContent" />
+                    </LinearLayout>
+                    <LinearLayout
+                        style="@style/ResourceProperty">
+                        <TextView
+                            android:text="@string/description_author"
+                            style="@style/ResourcePropertyTitle" />
+                        <TextView
+                            android:id="@+id/resourceauthor"
+                            style="@style/ResourcePropertyContent" />
+                    </LinearLayout>
+                    <LinearLayout
+                        style="@style/ResourceProperty">
+                        <TextView
+                            android:text="@string/description_size"
+                            style="@style/ResourcePropertyTitle" />
+                        <TextView
+                            android:id="@+id/resourcesize"
+                            style="@style/ResourcePropertyContent" />
+                    </LinearLayout>
+                    <LinearLayout
+                        style="@style/ResourceProperty">
+                        <TextView
+                            android:text="@string/description_version"
+                            style="@style/ResourcePropertyTitle" />
+                        <TextView
+                            android:id="@+id/resourceversion"
+                            style="@style/ResourcePropertyContent" />
+                    </LinearLayout>
+                    <LinearLayout
+                        style="@style/ResourceProperty">
+                        <TextView
+                            android:text="@string/description_modifiedtime"
+                            style="@style/ResourcePropertyTitle" />
+                        <TextView
+                            android:id="@+id/resourcemodifiedtime"
+                            style="@style/ResourcePropertyContent" />
+                    </LinearLayout>
+                    <LinearLayout
+                        style="@style/ResourceProperty">
+                        <TextView
+                            android:text="@string/description_download"
+                            style="@style/ResourcePropertyTitle" />
+                        <TextView
+                            android:id="@+id/resourcedownload"
+                            style="@style/ResourcePropertyContent" />
+                    </LinearLayout>
+                    <LinearLayout
+                        style="@style/ResourceProperty">
+                        <TextView
+                            android:text="@string/description_file"
+                            style="@style/ResourcePropertyTitle" />
+                        <TextView
+                            android:id="@+id/resourcefile"
+                            style="@style/ResourcePropertyContent" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>
