@@ -94,7 +94,7 @@ import android.view.WindowManagerPolicy;
 public class KeyguardViewMediator implements KeyguardViewCallback,
         KeyguardUpdateMonitor.InfoCallback, KeyguardUpdateMonitor.SimStateCallback {
     private static final int KEYGUARD_DISPLAY_TIMEOUT_DELAY_DEFAULT = 30000;
-    private final static boolean DEBUG = true;
+    private final static boolean DEBUG = false;
     private final static boolean DBG_WAKE = false;
 
     private final static String TAG = "KeyguardViewMediator";
