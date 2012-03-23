@@ -266,6 +266,15 @@ public abstract class PackageManager {
     public static final int COMPONENT_ENABLED_STATE_DISABLED_USER = 3;
 
     /**
+     * Value for {@link #setApplicationEnabledSetting(String, int, int}
+     * Combined with ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD to indicate
+     * this app is password protected, otherwise not.
+     * @hide for libra only
+     */
+    @MiuiHook(MiuiHookType.NEW_FIELD)
+    public static final int COMPONENT_ENABLED_STATE_ACCESS_CONTROL = 1<<31;
+
+    /**
      * Flag parameter for {@link #installPackage(android.net.Uri, IPackageInstallObserver, int)} to
      * indicate that this package should be installed as forward locked, i.e. only the app itself
      * should have access to its code and non-resource assets.
@@ -2648,15 +2657,6 @@ public abstract class PackageManager {
     public static int getAppId(int uid) {
         return uid % PER_USER_RANGE;
     }
-
-    /**
-     * Set access control mode for the application.
-     * @param packageName
-     * @param flag
-     * @hide for libra only
-     */
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    public abstract void setAccessControl(String packageName, int flag);
 
     /**
      * Returns the device identity that verifiers can use to associate their

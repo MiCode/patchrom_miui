@@ -110,8 +110,8 @@ public class LockPatternKeyguardView extends KeyguardViewBase implements Handler
     private volatile boolean mWindowFocused = false;
     private boolean mEnableFallback = false; // assume no fallback UI until we know better
 
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
-    private boolean mShowLockBeforeUnlock = true;
+    @MiuiHook(MiuiHookType.CHANGE_CODE_AND_ACCESS)
+    boolean mShowLockBeforeUnlock = true;
 
     // The following were added to support FaceLock
     private IFaceLockInterface mFaceLockService;
@@ -1028,7 +1028,8 @@ public class LockPatternKeyguardView extends KeyguardViewBase implements Handler
      * Given the current state of things, what should be the initial mode of
      * the lock screen (lock or unlock).
      */
-    private Mode getInitialMode() {
+    @MiuiHook(MiuiHookType.CHANGE_ACCESS)
+    Mode getInitialMode() {
         final IccCard.State simState = mUpdateMonitor.getSimState();
         if (stuckOnLockScreenBecauseSimMissing() ||
                 (simState == IccCard.State.PUK_REQUIRED &&

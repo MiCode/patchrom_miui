@@ -92,7 +92,7 @@ public final class ShutdownThread extends Thread {
 
     @MiuiHook(MiuiHookType.NEW_METHOD)
     private static int getTitleResourceId(){
-        return mReboot ? com.android.internal.R.string.factorytest_reboot : com.android.internal.R.string.power_off;
+        return mReboot ? com.miui.internal.R.string.android_factorytest_reboot : com.miui.internal.R.string.android_power_off;
     }
 
     /**

@@ -7551,8 +7551,10 @@ public class PackageManagerService extends IPackageManager.Stub {
         return num;
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public void setApplicationEnabledSetting(String appPackageName,
             int newState, int flags) {
+        if (setAccessControl(appPackageName, newState, flags)) return;
         setEnabledSetting(appPackageName, null, newState, flags);
     }
 
@@ -8674,8 +8676,9 @@ public class PackageManagerService extends IPackageManager.Stub {
     }
 
     @MiuiHook(MiuiHookType.NEW_METHOD)
-    public void setAccessControl(String packageName, int flags) throws RemoteException {
+    private boolean setAccessControl(String packageName, int newState, int flags){
         synchronized (mPackages) {
+            if (newState != PackageManager.COMPONENT_ENABLED_STATE_ACCESS_CONTROL) return false;
             PackageParser.Package pkg = mPackages.get(packageName);
             PackageSetting pkgSetting = mSettings.mPackages.get(packageName);
             if ((pkg != null) && (pkgSetting != null)) {
@@ -8688,6 +8691,7 @@ public class PackageManagerService extends IPackageManager.Stub {
                 }
                 mSettings.writeLPr();
             }
+            return true;
         }
     }
 

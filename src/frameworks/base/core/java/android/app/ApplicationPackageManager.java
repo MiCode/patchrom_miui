@@ -728,16 +728,6 @@ final class ApplicationPackageManager extends PackageManager {
         mPM = pm;
     }
 
-    @Override
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    public void setAccessControl(String packageName, int flag) {
-        try {
-             mPM.setAccessControl(packageName, flag);
-        } catch (RemoteException e) {
-            // Should never happen!
-        }
-    }
-
     @MiuiHook(MiuiHookType.CHANGE_ACCESS)
     static Drawable getCachedIcon(ResourceName name) {
         synchronized (sSync) {
