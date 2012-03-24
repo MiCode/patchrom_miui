@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory>
+        <miui.preference.RadioButtonPreference
+            android:key="fw_all_day"
+            android:title="@string/fw_all_day"
+            android:persistent="false"/>
+
+        <miui.preference.RadioButtonPreference
+            android:key="fw_period"
+            android:title="@string/fw_period"
+            android:persistent="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory>
+        <PreferenceScreen
+            android:key="fw_start_time"
+            android:dependency="fw_period"
+            android:title="@string/fw_start_time"/>
+
+        <PreferenceScreen
+            android:key="fw_end_time"
+            android:dependency="fw_period"
+            android:title="@string/fw_end_time"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<view
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@null"
+    android:paddingBottom="1dip"
+    android:paddingRight="1dip"
+    class="com.android.contacts.list.ContactTileSecondaryTargetView" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <view
+            class="com.android.contacts.list.ContactTileImageContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/contact_tile_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+        </view>
+
+        <TextView
+            android:id="@+id/contact_tile_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/contact_tile_shadowbox_height"
+            android:background="@color/contact_tile_shadow_box_color"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/white"
+            android:singleLine="true"
+            android:textSize="16sp"
+            android:fadingEdge="horizontal"
+            android:fadingEdgeLength="3dip"
+            android:ellipsize="marquee"
+            android:layout_alignParentBottom="true"
+            android:paddingLeft="8dip"
+            android:paddingRight="47dip"
+            android:drawableRight="@drawable/ic_divider_dashed_holo_dark" />
+
+        <View
+            android:id="@+id/contact_tile_push_state"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:nextFocusRight="@+id/contact_tile_secondary_button"
+            android:background="?android:attr/selectableItemBackground" />
+
+        <ImageButton
+            android:id="@id/contact_tile_secondary_button"
+            android:src="@drawable/ic_contacts_holo_dark"
+            android:background="?android:attr/selectableItemBackground"
+            android:layout_height="@dimen/contact_tile_shadowbox_height"
+            android:layout_width="48dip"
+            android:paddingRight="8dip"
+            android:paddingLeft="8dip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:contentDescription="@string/description_view_contact_detail" />
+
+    </RelativeLayout>
+
+</view>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        android:id="@+id/one_key_update_cancel_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/total_app_num_height"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/one_key_update_bg"
+        android:visibility="gone">
+        <LinearLayout
+            android:id="@+id/one_key_update_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/update_notification"
+                android:scaleType="fitCenter"/>
+            <TextView
+                android:id="@+id/app_update_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/one_key_cancel_bar"
+            android:layout_width="60dip"
+            android:layout_height="wrap_content"
+            android:paddingRight="5dip"
+            android:gravity="right"
+            android:clickable="true">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/cancel_update_n"
+                android:scaleType="fitCenter"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/total_app_num"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/total_app_num_height"
+        android:paddingLeft="5dip"
+        android:background="@drawable/total_app_num_bg"
+        android:gravity="center_vertical"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:visibility="gone"/>
+
+    <ListView
+        android:id="@+id/local_info_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:fastScrollEnabled="true"/>
+
+    <ViewStub android:id="@+id/empty"
+        android:layout="@layout/no_application"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"/>
+</LinearLayout>

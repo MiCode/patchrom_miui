@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Copyright 2009 Google Inc. All Rights Reserved. -->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+  <!-- Application's title (for title bars, the application manager, etc.) [CHAR LIMIT=20] -->
+  <string name="application_name">Instant Upload</string>
+
+  <!-- Default Picasa upload destination: the CameraSync album  [CHAR LIMIT=NONE]-->
+  <string name="picasa_default_destination">Instant Upload Album</string>
+  
+  <!-- Summary screen: title when uploading -->
+  <string name="summary_title_uploading">Uploading</string>
+  
+  <!-- Summary screen: title when displaying finished uploads -->
+  <string name="summary_title_finished">Finished</string>
+  
+  <!-- Summary screen: title when displaying finished uploads -->
+  <string name="summary_title_paused">Paused</string>
+  
+  <!-- Summary screen: subtitle showing the # of photos and videos to be uploaded -->
+  <string name="summary_subtitle_uploading_format">%1$d%% • %2$d photos • %3$d videos</string>
+  
+  <!-- Summary screen: subtitle showing the # of photos and videos that have finished uploading -->
+  <string name="summary_subtitle_counts_format">%1$d photos • %2$d videos</string>
+  
+  <!-- Summary screen: subtitle for when the app is paused due to low battery -->
+  <string name="summary_subtitle_paused_low_battery">low battery</string>
+  
+  <!-- Summary screen: subtitle for when the app is paused due out of photos quota condition -->
+  <string name="summary_subtitle_paused_photos_quota">exceeded photos quota</string>
+  
+  <!-- Summary screen: subtitle for when the app is paused due to Data Roaming -->
+  <string name="summary_subtitle_paused_roaming">roaming</string>
+  
+  <!-- Summary screen: subtitle for when the app is paused due to needing WiFi for this item -->
+  <string name="summary_subtitle_paused_need_wifi">waiting for WiFi</string>
+  
+  <!-- Summary screen: subtitle for when the app is paused due to needing the charger -->
+  <string name="summary_subtitle_paused_need_charger">delayed until charging</string>
+  
+  <!-- Summary screen: subtitle for when the app is paused due to needing a data connection -->
+  <string name="summary_subtitle_paused_need_network">waiting for connection</string>
+  
+  <!-- Summary screen: subtitle for when the app is paused due to needing a data connection -->
+  <string name="summary_subtitle_paused_retry_format">retrying in %s</string>
+  
+  <!-- Summary screen menu: label button to switch to pending uploads view -->
+  <string name="summary_menu_show_pending">Show Pending Uploads</string>
+  
+  <!-- Summary screen menu: label button to switch to finished uploads view -->
+  <string name="summary_menu_show_finished">Show Finished Uploads</string>
+  
+  <!-- Menu label button to launch the browser to view Picasa Web Albums -->
+  <string name="menu_view_online">View Online</string>
+
+  <string name="menu_show_pending_items">Show Pending Uploads</string>
+  <string name="menu_hide_pending_items">Hide Pending Uploads</string>
+
+  <string name="menu_show_completed_items">Show Details</string>
+  <string name="menu_hide_completed_items">Hide Details</string>
+  
+  <!-- Settings menu item title -->
+  <string name="menu_settings">Settings</string>
+  
+  <!-- Finished uploads per-item upload date formatting -->
+  <string name="format_date_uploaded">Uploaded %s</string>
+  
+  <!-- Format a percentage value for use in a progress bar -->
+  <string name="format_progress_percent"><xliff:g id="number" example="50">%d</xliff:g><xliff:g id="percentsign" example="%">%%</xliff:g></string>
+
+  <!-- Label for the account selection spinner. -->
+  <string name="account">Account</string>
+
+  <!-- Button to start an upload (on the upload settings page) -->
+  <string name="upload">Upload</string>
+  <!-- Button to confirm the settings on the initial launch -->
+  <string name="ok">OK</string>
+  <!-- Button to cancel the starting of an upload (on the upload settings page) -->
+  <string name="cancel">Cancel</string>
+
+  <!-- First half of the dialog message shown while an upload is starting - 'Uploading to [destination]' -->
+  <string name="uploading_to">Uploading to <b>%s</b></string>
+  <!-- Second half of the dialog message shown while an upload is starting.
+       In some cases, this is omitted - ' for [username]' -->
+  <string name="uploading_for"> for <b>%s</b></string>
+  <!-- Format for the destination string of an upload - '[Picasa] "[Photo Title]"'. -->
+  <string name="destination_format">%1$s \"%2$s\"</string>
+
+  <!-- Toast shown when the application is started in an incorrect way (by another application). -->
+  <string name="toast_intent_error">Upload initialization failed.</string>
+  <!-- Toast shown when we fail to access a file to upload. -->
+  <string name="toast_file_error">File not available.</string>
+  <!-- Toast shown when we there's a problem retrieving the user account information. -->
+  <string name="account_error">Failed to retrieve account information.</string>
+  <!-- Dialog shown after we failed to log into the user's account -->
+  <string name="toast_failed_auth">There was a problem signing into your account.</string>
+
+  <!-- State of a file while its waiting for its turn to be uploaded: intentionally blank -->
+  <string name="upload_state_queued"></string>
+  <!-- State of an upload while it's waiting to retry after some kind of problem -->
+  <string name="upload_state_waiting_retry">Waiting to retry</string>
+  <!-- State of a large upload while it's waiting for a WiFi connection -->
+  <string name="upload_state_waiting_wifi">Waiting for WiFi</string>
+  <!-- State of a file while it's being uploaded -->
+  <string name="upload_state_uploading">Uploading</string>
+  <!-- State of a file after it failed to be uploaded -->
+  <string name="upload_state_failed">Failed</string>
+  <!-- State of a file after it was uploaded successfully -->
+  <string name="upload_state_completed">Completed</string>
+
+  <!-- Human-readable name of PAUSE_STATE_RUNNING -->
+  <string name="pause_state_running">uploading</string>
+  <!-- Human-readable name of PAUSE_STATE_MANUALLY_PAUSED -->
+  <string name="pause_state_manually_paused">manually paused</string>
+  <!-- Human-readable name of PAUSE_STATE_LOW_BATTERY -->
+  <string name="pause_state_low_battery">paused - low battery</string>
+  <!-- Human-readable name of PAUSE_STATE_NEED_CHARGER -->
+  <string name="pause_state_need_charger">paused - delayed until charging</string>
+  <!-- Human-readable name of PAUSE_STATE_NEED_CONNECTIVITY -->
+  <string name="pause_state_need_connectivity">paused - waiting for connection</string>
+  <!-- Human-readable name of pause_state_need_photos_quota -->
+  <string name="pause_state_need_photos_quota">paused - out of PWA quota</string>
+  <!-- Human-readable name of PAUSE_STATE_NEED_WIFI -->
+  <string name="pause_state_need_wifi">paused - waiting for wifi</string>
+  <!-- Human-readable name of PAUSE_STATE_ROAMING -->
+  <string name="pause_state_roaming">paused - roaming</string>
+  <!-- Human-readable name of PAUSE_STATE_RETRYING -->
+  <string name="pause_state_retrying">waiting to retry</string>
+
+  <!-- State detail for "Waiting to retry", when waiting to retry in 1 minute after a network failure -->
+  <string name="retry_in_1min">1 minute</string>
+  <!-- State detail for "Waiting to retry", when waiting to retry in 2 minutes after a network failure -->
+  <string name="retry_in_2min">2 minutes</string>
+  <!-- State detail for "Waiting to retry", when waiting to retry in 5 minutes after a network failure -->
+  <string name="retry_in_5min">5 minutes</string>
+  <!-- State detail for "Waiting to retry", when waiting for the data connection to come back -->
+  <string name="retry_no_data">No data connection</string>
+  <!-- Toast text for "Out of quota", when waiting for account server space to free up -->
+  <string name="account_out_of_quota">Account is out of disk quota</string>
+
+  <!-- State detail for "Failed", when we couldn't find the file to upload -->
+  <string name="completed_no_file">File not found</string>
+  <!-- State detail for "Failed", when the server responded in an unexpected way -->
+  <string name="failed_bad_response">Service error</string>
+  <!-- State detail for "Failed", when we bail out after several network failures -->
+  <string name="failed_network_error">Network error</string>
+  <!-- State detail for "Failed", when the server failed to authorize the user -->
+  <string name="failed_server_auth">Authentication failed</string>
+
+  <!-- Format for the list switcher button when the pending list is being displayed -->
+  <string name="manager_list_switcher_pending_format">Pending uploads [%d]</string>
+  <!-- Format for the list switcher button when the completed uploads list is being displayed -->
+  <string name="manager_list_switcher_completed_format">Completed uploads [%d]</string>
+
+  <!-- Label for the button to pause the upload service -->
+  <string name="manager_pause">Pause uploads</string>
+  <!-- Label for the button to resume the upload service -->
+  <string name="manager_resume">Resume uploads</string>
+  <!-- Label for the button to mark a photo for immediate upload -->
+  <string name="manager_upload_now">Upload now</string>
+  <!-- Label for the button to change when a photo is to be uploaded -->
+  <string name="manager_upload_later">Upload later</string>
+  <!-- Label for the button to mark a photo as do not upload -->
+  <string name="manager_do_not_upload">Do not upload</string>
+  <!-- Label for the button to view the photo or video -->
+  <string name="manager_view_media">View</string>
+  <!-- Label for the button to retry one failed upload -->
+  <string name="manager_retry">Retry</string>
+  <!-- Toast confirming the canceling of one pending upload -->
+  <string name="manager_toast_canceled">Upload canceled</string>
+  <!-- Toast shown when the user tries to cancel an already finished (completed or failed) upload -->
+  <string name="manager_toast_not_canceled">Upload already finished</string>
+  <!--  Label for the button to resync all photos with the server -->
+  <string name="manager_sync_all">Sync all</string>
+  <!-- Text shown when the uploads list is empty. 1=date; 2=time -->
+  <string name="manager_activity_last_sync_format">Last Sync:\n%1$s\n%2$s</string>
+
+  <!-- Text shown when the finished items list is empty -->
+  <string name="finished_empty">Finished items list is empty.</string>
+
+  <!-- Notification label used in all notifications [CHAR LIMIT=25] -->
+  <string name="notify_uploads">Instant Upload</string>
+  <!-- Notification when all uploads are finished (completed or failed, so this should be neutral) -->
+  <string name="notify_resolved">Uploads finished</string>
+  <!-- Notification when the upload service is paused -->
+  <string name="notify_paused">Uploads paused</string>
+  <!-- Notification when the upload application was not initialized -->
+  <string name="notify_activation_reminder">Instant Upload hasn\'t been activated yet</string>
+
+  <!-- Toast explaining that large files are only uploaded when there is an active WiFi connection (shown on first large upload) -->
+  <!-- TODO: Probably remove this, rename ID if not. -->
+  <string name="dialog_first_wifi">Large files will be uploaded over a WiFi connection only.</string>
+
+  <!-- Sync All progress dialog message when scanning locally and querying the server -->
+  <string name="dialog_sync_all_scanning">Scanning for files...</string>
+
+  <!-- Sync All progress dialog message when enqueueing requests -->
+  <string name="dialog_sync_all_preparing">Preparing <xliff:g id="photocount" example="5">%1$d</xliff:g> photos and <xliff:g id="videocount" example="4">%2$d</xliff:g> videos for upload...</string>
+
+  <!-- Toast displayed when Sync All found nothing to do -->
+  <string name="dialog_sync_all_found_none">No additional photos/videos need to be uploaded.</string>
+
+  <!-- Sync All dialog message when a server error occurs -->
+  <string name="dialog_sync_all_server_error">There was a problem communicating with the server. Please try again later.</string>
+
+  <!-- Sync All toast when the process canceled -->
+  <string name="dialog_sync_all_canceled">Sync all canceled</string>
+
+  <!-- Sync All dialog title for any errors -->
+  <string name="dialog_sync_all_error_title">Sync All</string>
+
+  <!-- ManagerActivity view completed uploads menu title -->
+  <string name="manager_view_completed">View Completed</string>
+
+  <!-- ManagerActivity view pending uploads menu title -->
+  <string name="manager_view_pending">View Pending</string>
+
+  <!-- Preferences category title: general category -->
+  <string name="preference_category_title_general">General</string>
+
+  <!-- Preference title: Pause all uploads -->
+  <string name="preference_title_pause_all_uploads">Pause all uploads</string>
+
+  <!-- Preference title: select if battery recharging is required before uploading -->
+  <string name="preference_title_need_power">Power</string>
+
+  <!-- Preference summary: checkbox to determine if battery recharging is required before uploading  -->
+  <string name="preference_summary_need_power">Upload only when the phone is being charged.</string>
+
+  <!-- Preference title: select if battery recharging is required before uploading -->
+  <string name="preference_title_need_wifi">Wi-Fi</string>
+
+  <!-- Preference summary: checkbox to determine if WiFi/WiMAX must be available  -->
+  <string name="preference_summary_need_wifi">Upload only when Wi-Fi is available.</string>
+
+  <!-- Preferences category title: photos -->
+  <string name="preference_category_title_photos">Photos</string>
+
+  <!-- Preference title: Photos Account -->
+  <string name="preference_title_photos_account">Account</string>
+
+  <!-- Preference title: select the networks to upload photos -->
+  <string name="preference_title_photos_upload_connectivity">Upload conditions</string>
+
+  <!-- Preference title: Photo size -->
+  <string name="preference_title_photo_size">Photo size</string>
+
+  <!-- Preferences category title: videos -->
+  <string name="preference_category_title_videos">Videos</string>
+
+  <!-- Preference title: Photos Account -->
+  <string name="preference_title_videos_account">Account</string>
+  
+  <!-- Preference title: Photos Account -->
+  <string name="preference_title_videos_account_summary">The photos account will be used video uploads.</string>
+
+  <!-- Preference title: select the networks to upload videos -->
+  <string name="preference_title_videos_upload_connectivity">Upload conditions</string>
+
+  <!-- Preference title: select the networks to upload videos -->
+  <string name="preference_title_videos_upload_connectivity_summary">Photos connectivity settings are used for now.</string>
+
+  <!-- Preference mobile data usage: for photos only -->
+  <string name="preference_mobile_data_usage_for_photos_only">Only photos via mobile networks</string>
+
+  <!-- Preference mobile data usage: for all media -->
+  <string name="preference_mobile_data_usage_for_all_media">Photos &amp; videos via mobile networks</string>
+
+  <!-- Preference mobile data usage: never -->
+  <string name="preference_mobile_data_usage_never">Photos &amp; videos via Wi-Fi only</string>
+
+  <!-- Preference category title: "About" -->
+  <string name="preference_category_title_about">About</string>
+
+  <!-- Preference title: CameraSync Version [CHAR LIMIT=20]-->
+  <string name="preference_title_camera_sync_version">Instant Upload Version</string>
+
+  <!-- Preference photos upload dimensions label: 1600px max -->
+  <string name="photos_upload_dimension_1600">Recommended: 1600 pixels (for sharing, prints and screensavers)</string>
+
+  <!-- Preference photos upload dimensions label: original size -->
+  <string name="photos_upload_dimension_original">Original size (slowest upload)</string>
+
+  <!-- Pause state text that shows the SD card is needed -->
+  <string name="pause_state_need_media">paused - SD card unavailable</string>
+
+  <!-- Subtitle text for the summary view, detailing why we are not uploading -->
+  <string name="summary_subtitle_paused_need_media">SD card unavailable</string>
+
+  <!-- Preference screen title: Instant Upload detailed settings button [CHAR LIMIT=20] -->
+  <string name="preference_plus_title">Instant Upload settings</string>
+
+  <!-- Preference title: Enable CameraSync checkbox description [CHAR LIMIT=19]-->
+  <string name="preference_plus_enable_cs">Instant Upload</string>
+
+  <!-- Preference title: description for Enable CameraSync-->
+  <string name="preference_plus_enable_cs_summary">Automatically upload new photos &amp; videos to a private web album</string>
+
+  <!-- Preference title: CameraSync Upload status-->
+  <string name="preference_plus_upload_status">Upload status</string>
+
+  <!-- Preference category: Advanced settings-->
+  <string name="preference_plus_category_advanced">Advanced</string>
+
+  <!-- Preference title: setting for Use mobile data connection-->
+  <string name="preference_plus_mobile_data_connection">Mobile uploads</string>
+
+  <!-- Preference title: Sync while roaming-->
+  <string name="preference_plus_sync_while_roaming">Roaming uploads</string>
+
+  <!-- Preference summary: Sync while roaming-->
+  <string name="preference_plus_sync_while_roaming_summary">Upload photos &amp; videos when roaming on data network</string>
+
+  <!-- Preference title: Delay Sync until charging phone-->
+  <string name="preference_plus_delay_sync_until_charging">Battery uploads</string>
+
+  <!-- Preference summary: Delay Sync until charging phone-->
+  <string name="preference_plus_delay_sync_until_charging_summary">Upload photos &amp; videos only when charging</string>
+
+  <!-- Preference title: Sync all photos and videos-->
+  <string name="preference_plus_sync_all">Upload existing photos</string>
+
+  <!-- Preference title: description for Sync all photos and videos-->
+  <string name="preference_plus_sync_all_description">Upload any existing photos &amp; videos from your phone now</string>
+
+  <!-- Summary screen: subtitle for when the app is disabled-->
+  <string name="summary_subtitle_disabled">Disabled</string>
+
+  <!-- Preference summary: Summary string header, example "paused: waiting for wifi"-->
+  <string name="preference_summary_header_format">%1$s: %2$s</string>
+
+  <!-- Preference summary: uploading format for Uploading and percent number "Uploading (50%)"-->
+  <string name="preference_summary_uploading_percent">Uploading (%1$d%%)</string>
+
+  <!-- Preference summary: format for uploading "3 of 5"-->
+  <string name="preference_summary_uploading_format">: %1$d of %2$d</string>
+
+  <!-- Preference summary: subtitle for when uploading is paused-->
+  <string name="preference_summary_uploading_paused">Paused: touch to resume uploading</string>
+
+  <!-- Preference summary: title for sync all confirm dialog -->
+  <string name="preference_plus_sync_all_prompt_title">Upload existing photos</string>
+
+  <!-- Preference summary: text for sync all confirm dialog -->
+  <string name="preference_plus_sync_all_prompt_text">Uploading photos and videos that have not already been uploaded from your phone to a private album on the web can take a while, but will be done in the background. Are you sure you want to continue?</string>
+
+  <!-- Preference summary: Yes button text for sync all confirm dialog -->
+  <string name="preference_plus_sync_all_prompt_yes">Yes</string>
+
+  <!-- Preference summary: No button text for sync all confirm dialog -->
+  <string name="preference_plus_sync_all_prompt_no">No</string>
+
+</resources>

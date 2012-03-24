@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <!-- Maps a contact kind or mime-type to a RemoteViews XML formatter -->
+    <declare-styleable name="Mapping">
+        <!-- Mime-type handled by this mapping -->
+        <attr name="mimeType" format="string"/>
+        <!-- RemoteViews XML that should be used to format this data -->
+        <attr name="remoteViews" format="reference"/>
+        <!-- Icon that should be used to represent this data -->
+        <attr name="icon" format="reference"/>
+        <!-- Column in data table to summarize this data -->
+        <attr name="summaryColumn" format="string"/>
+        <!-- Column in data table to show details of this data -->
+        <attr name="detailColumn" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="EdgeTriggerView">
+        <attr name="edgeWidth" format="dimension"/>
+        <attr name="listenEdges">
+            <flag name="left" value="0x01"/>
+            <flag name="right" value="0x02"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="InterpolatingLayout_Layout">
+        <attr name="layout_narrowParentWidth" format="dimension"/>
+        <attr name="layout_narrowWidth" format="dimension"/>
+        <attr name="layout_narrowMarginLeft" format="dimension"/>
+        <attr name="layout_narrowMarginRight" format="dimension"/>
+        <attr name="layout_narrowPaddingLeft" format="dimension"/>
+        <attr name="layout_narrowPaddingRight" format="dimension"/>
+        <attr name="layout_wideParentWidth" format="dimension"/>
+        <attr name="layout_wideWidth" format="dimension"/>
+        <attr name="layout_wideMarginLeft" format="dimension"/>
+        <attr name="layout_wideMarginRight" format="dimension"/>
+        <attr name="layout_widePaddingLeft" format="dimension"/>
+        <attr name="layout_widePaddingRight" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="ProportionalLayout">
+        <attr name="direction" format="string"/>
+        <attr name="ratio" format="float"/>
+    </declare-styleable>
+
+    <declare-styleable name="TransitionAnimationView">
+        <attr name="clipMarginLeft" format="dimension"/>
+        <attr name="clipMarginRight" format="dimension"/>
+        <attr name="clipMarginTop" format="dimension"/>
+        <attr name="clipMarginBottom" format="dimension"/>
+        <attr name="enterAnimation" format="reference"/>
+        <attr name="exitAnimation" format="reference"/>
+        <attr name="animationDuration" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="ContactBrowser">
+        <attr name="contact_browser_list_padding_left" format="dimension"/>
+        <attr name="contact_browser_list_padding_right" format="dimension"/>
+        <attr name="contact_browser_background" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="ContactListItemView">
+        <attr name="list_item_height" format="dimension"/>
+        <attr name="list_section_header_height" format="dimension"/>
+        <attr name="activated_background" format="reference"/>
+        <attr name="section_header_background" format="reference"/>
+        <attr name="list_item_divider" format="reference"/>
+        <attr name="list_item_padding_top" format="dimension"/>
+        <attr name="list_item_padding_right" format="dimension"/>
+        <attr name="list_item_padding_bottom" format="dimension"/>
+        <attr name="list_item_padding_left" format="dimension"/>
+        <attr name="list_item_gap_between_image_and_text" format="dimension"/>
+        <attr name="list_item_gap_between_label_and_data" format="dimension"/>
+        <attr name="list_item_call_button_padding" format="dimension"/>
+        <attr name="list_item_vertical_divider_margin" format="dimension"/>
+        <attr name="list_item_presence_icon_margin" format="dimension"/>
+        <attr name="list_item_presence_icon_size" format="dimension"/>
+        <attr name="list_item_photo_size" format="dimension"/>
+        <attr name="list_item_profile_photo_size" format="dimension"/>
+        <attr name="list_item_prefix_highlight_color" format="color"/>
+        <attr name="list_item_header_text_indent" format="dimension" />
+        <attr name="list_item_header_text_color" format="color" />
+        <attr name="list_item_header_text_size" format="dimension" />
+        <attr name="list_item_header_height" format="dimension" />
+        <attr name="list_item_header_underline_height" format="dimension" />
+        <attr name="list_item_header_underline_color" format="color" />
+        <attr name="list_item_contacts_count_text_color" format="color" />
+        <attr name="list_item_text_indent" format="dimension" />
+        <attr name="list_item_contacts_count_text_size" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CallLog">
+        <attr name="call_log_primary_text_color" format="color" />
+        <attr name="call_log_primary_background_color" format="color" />
+        <attr name="call_log_secondary_text_color" format="color" />
+        <attr name="call_log_secondary_background_color" format="color" />
+        <attr name="call_log_header_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="VoicemailStatus">
+        <attr name="call_log_voicemail_status_height" format="dimension" />
+        <attr name="call_log_voicemail_status_background_color" format="color" />
+        <attr name="call_log_voicemail_status_text_color" format="color" />
+        <attr name="call_log_voicemail_status_action_text_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="Favorites">
+        <attr name="favorites_padding_bottom" format="dimension" />
+    </declare-styleable>
+</resources>

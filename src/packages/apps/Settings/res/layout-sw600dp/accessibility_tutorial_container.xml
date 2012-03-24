@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/screen_margin_top"
+    android:paddingLeft="@dimen/screen_margin_sides"
+    android:paddingRight="@dimen/screen_margin_sides"
+    android:paddingBottom="@dimen/screen_margin_bottom">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/title_height"
+        android:layout_marginLeft="@dimen/content_margin_left"
+        android:textAppearance="@style/AccessibilityTutorialTitle"
+        android:gravity="bottom"
+        android:clickable="false" />
+
+    <View
+        android:layout_marginTop="8dip"
+        android:layout_marginBottom="8dip"
+        android:layout_below="@id/title"
+        style="@style/AccessibilityTutorialDivider" />
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1.0"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            style="@style/AccessibilityTutorialDivider" />
+
+        <view
+            class="com.android.settings.AccessibilityTutorialActivity$TutorialTextView"
+            android:id="@+id/instructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/description_margin_top"
+            android:layout_marginLeft="@dimen/description_margin_sides"
+            android:layout_marginRight="@dimen/description_margin_sides"
+            android:layout_marginBottom="16dip"
+            android:lineSpacingExtra="5sp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:layout_marginBottom="16dip"
+            style="@style/AccessibilityTutorialDivider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/skip_button"
+                style="@style/AccessibilityTutorialButton"
+                android:text="@string/accessibility_tutorial_skip"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="right">
+
+                <Button
+                    android:id="@+id/back_button"
+                    style="@style/AccessibilityTutorialButton"
+                    android:text="@string/accessibility_tutorial_back"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/next_button"
+                    style="@style/AccessibilityTutorialButton"
+                    android:text="@string/accessibility_tutorial_next"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@id/finish_button"
+                    style="@style/AccessibilityTutorialButton"
+                    android:text="@string/accessibility_tutorial_finish"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

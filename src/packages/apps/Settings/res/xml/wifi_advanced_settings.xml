@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/wifi_advanced_titlebar">
+
+    <!-- android:dependency="enable_wifi" -->
+    <CheckBoxPreference
+            android:key="notify_open_networks"
+            android:title="@string/wifi_notify_open_networks"
+            android:summary="@string/wifi_notify_open_networks_summary"
+            android:persistent="false" />
+
+    <ListPreference
+            android:key="sleep_policy"
+            android:title="@string/wifi_setting_sleep_policy_title"
+            android:persistent="false"
+            android:entries="@array/wifi_sleep_policy_entries"
+            android:entryValues="@array/wifi_sleep_policy_values"
+            />
+
+    <!-- android:dependency="enable_wifi" -->
+    <CheckBoxPreference
+            android:key="wifi_enable_watchdog_service"
+            android:title="@string/wifi_enable_watchdog_service"
+            android:summary="@string/wifi_enable_watchdog_service_summary"
+            android:persistent="false" />
+
+    <ListPreference
+            android:key="frequency_band"
+            android:title="@string/wifi_setting_frequency_band_title"
+            android:summary="@string/wifi_setting_frequency_band_summary"
+            android:persistent="false"
+            android:entries="@array/wifi_frequency_band_entries"
+            android:entryValues="@array/wifi_frequency_band_values"
+            />
+    
+    <Preference android:key="mac_address" 
+        style="?android:attr/preferenceInformationStyle" 
+        android:title="@string/wifi_advanced_mac_address_title"
+        />
+    
+    <Preference android:key="current_ip_address"
+        style="?android:attr/preferenceInformationStyle"
+        android:title="@string/wifi_advanced_ip_address_title"
+        />
+
+</PreferenceScreen>   

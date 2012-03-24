@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+  <!-- Names of corpora that are enabled by default in QSB.
+       For external single-source corpora, the corpus name is the component name of the
+       searchable activity. -->
+  <string-array name="default_corpora" translatable="false">
+    <item>web</item>
+    <item>apps</item>
+    <item>com.android.providers.applications/.ApplicationLauncher</item>
+  </string-array>
+
+  <!-- Suggestion URIs for which the corresponding content provider will be used as a default
+       corpus. Using a URI instead of hard-coding the activity class (in default_corpora above)
+       allows it to work on devices where the content provider has been replaced with a non-standard
+       one. -->
+  <string-array name="default_corpora_suggest_uris" translatable="false">
+    <item>content://com.android.contacts/search_suggest_query</item>
+  </string-array>
+
+  <!-- Names of corpora that are not shown in the corpus selector, even if they are
+       enabled in Searchable Items. -->
+  <string-array name="hidden_corpora" translatable="false">
+  </string-array>
+
+  <!-- The component name of the installed apps source used in QSB  -->
+  <string name="installed_apps_component" translatable="false">com.android.providers.applications/.ApplicationLauncher</string>
+
+  <!-- The component name of the browser bookmarks and history source used in QSB  -->
+  <string name="browser_search_component" translatable="false">com.android.browser/.BookmarkSearch</string>
+
+  <!-- The component name of the activity that search intents in the Apps corpus are sent to.
+       If not set, Apps search intents are sent to the Apps suggestion source. -->
+  <string name="apps_search_activity" translatable="false"></string>
+
+  <!-- Number of suggestions slots that are visible above
+      the onscreen keyboard. These slots will be shared among
+      the default sources. -->
+  <integer name="num_suggestions_above_keyboard">4</integer>
+
+  <!-- The maximum promoted suggestions -->
+  <integer name="max_promoted_suggestions">8</integer>
+
+  <!-- Maximum number of results to promote -->
+  <integer name="max_promoted_results">4</integer>
+
+  <!-- Maximum number of shortcuts to promote from the web. -->
+  <integer name="max_shortcuts_per_web_source">8</integer>
+
+  <!-- Maximum number of shortcuts to promote from each non-web source. -->
+  <integer name="max_shortcuts_per_non_web_source">2</integer>
+
+  <!-- The number of columns in the corpus selection dialog -->
+  <integer name="corpus_selection_dialog_columns">4</integer>
+
+  <!-- Whether or not to show zero-query suggestions -->
+  <bool name="show_zero_query_suggestions">true</bool>
+
+  <!-- Whether or not to show zero-query shortcuts -->
+  <bool name="show_zero_query_shortcuts">true</bool>
+
+  <!-- Whether or not to show scrolling suggestions. If this returns false, the number of
+   suggestions displayed will be limited by the height of the suggestions view, so that it
+   does not scroll. -->
+  <bool name="show_scrolling_suggestions">false</bool>
+
+  <!-- As show_scrolling_suggestions but for the results shown in two pane mode. This value is not
+   used when the application is running in single pane mode. -->
+  <bool name="show_scrolling_results">true</bool>
+
+  <!-- Whether the Searchable Items list should show corpora that are not included
+       in All mode. -->
+  <bool name="show_non_all_corpora_in_settings">true</bool>
+
+  <!-- Note that this is the standard search url.  It uses the current locale for language -->
+  <!-- (%1$s) and shouldn't need to be replaced by locale or mcc selected resources. -->
+  <!-- Any changes to this (especially in terms of adding/removing the MCC-specific flavors) -->
+  <!-- should be mirrored by changes in GoogleSearch. -->
+  <!-- Do not translate.  This string is an internal URI, not seen in the UI. -->
+  <string name="google_search_base" translatable="false">
+      http://www.google.com/m?hl=%1$s</string>
+
+  <!-- Same as the above, except that the URL suffix is returned by a -->
+  <!-- request to google.com/searchdomaincheck and is of the form -->
+  <!-- .google.co.xx -->
+  <string name="google_search_base_pattern" translatable="false">
+      http://%1$s/m?hl=%2$s</string>
+  <!-- The default search domain for search result pages -->
+  <string name="default_search_domain" translatable="false">
+      .google.com</string>
+
+  <!-- Note that this is the standard suggest url.  It uses the current locale for language -->
+  <!-- (t%1$s) and should not need to be replaced by locale or mcc selected resources. -->
+  <!-- Any changes to this (especially in terms of adding/removing the MCC-specific flavors) -->
+  <!-- should be mirrored by changes in GoogleSuggestClient -->
+  <!-- Do not translate.  This string is an internal URI, not seen in the UI. -->
+  <string name="google_suggest_base" translatable="false">
+      http://www.google.com/complete/search?hl=%1$s&amp;client=android&amp;q=</string>
+
+</resources>

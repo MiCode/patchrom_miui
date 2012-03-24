@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:phone="http://schemas.android.com/apk/res/com.android.phone"
+        android:title="@string/call_settings">
+
+    <PreferenceScreen
+        android:key="button_fdn_key"
+        android:title="@string/fdn"
+        android:summary="@string/sum_fdn"
+        android:persistent="false">
+
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.phone"
+            android:targetClass="com.android.phone.FdnSetting" />
+
+    </PreferenceScreen>
+
+    <PreferenceScreen
+        android:key="button_respond_via_sms_key"
+        android:title="@string/respond_via_sms_setting_title"
+        android:summary="@string/respond_via_sms_setting_summary"
+        android:persistent="false">
+
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.phone"
+            android:targetClass="com.android.phone.RespondViaSmsManager$Settings" />
+    </PreferenceScreen>
+
+    <PreferenceCategory
+        android:key="button_voicemail_category_key"
+        android:title="@string/voicemail"
+        android:persistent="false">
+      <ListPreference
+          android:key="button_voicemail_provider_key"
+          android:title="@string/voicemail_provider"
+          android:summary="@string/sum_voicemail_choose_provider"
+          android:defaultValue=""
+          android:persistent="true"
+      />
+      <PreferenceScreen android:key="button_voicemail_setting_key"
+            android:title="@string/voicemail_settings"
+            android:persistent="false">
+
+            <!-- Note for all com.android.phone.EditPhoneNumberPreference objects
+
+           The last several attributes are for use with the EditText field
+           in the dialog.  These attributes are forwarded to that field
+           when the edittext is created.  The attributes include:
+             1. android:singleLine
+             2. android:autoText
+             3. android:background -->
+
+              <com.android.phone.EditPhoneNumberPreference
+                android:key="button_voicemail_key"
+                android:title="@string/voicemail_settings_number_label"
+                android:persistent="false"
+                android:dialogTitle="@string/voicemail"
+                phone:confirmMode="confirm"
+                android:singleLine="true"
+                android:autoText="false" />
+      </PreferenceScreen>
+  </PreferenceCategory>
+
+  <PreferenceCategory android:key="button_misc_category_key"
+        android:title="@string/other_settings"
+        android:persistent="false" />
+
+    <CheckBoxPreference
+        android:key="button_auto_retry_key"
+        android:title="@string/auto_retry_mode_title"
+        android:persistent="false"
+        android:summary="@string/auto_retry_mode_summary"/>
+
+    <ListPreference
+        android:key="button_tty_mode_key"
+        android:title="@string/tty_mode_option_title"
+        android:summary="@string/tty_mode_option_summary"
+        android:persistent="false"
+        android:entries="@array/tty_mode_entries"
+        android:entryValues="@array/tty_mode_values"/>
+
+     <CheckBoxPreference
+        android:key="button_hac_key"
+        android:title="@string/hac_mode_title"
+        android:persistent="true"
+        android:summary="@string/hac_mode_summary"/>
+
+    <ListPreference
+        android:key="button_dtmf_settings"
+        android:title="@string/dtmf_tones_title"
+        android:summary="@string/dtmf_tones_summary"
+        android:entries="@array/dtmf_tone_entries"
+        android:entryValues="@array/dtmf_tone_values"/>
+
+    <PreferenceScreen
+        android:key="button_gsm_more_expand_key"
+        android:title="@string/labelGSMMore"
+        android:summary="@string/sum_gsm_call_settings"
+        android:persistent="false">
+
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.phone"
+            android:targetClass="com.android.phone.GsmUmtsCallOptions"/>
+    </PreferenceScreen>
+
+    <PreferenceScreen
+        android:key="button_cdma_more_expand_key"
+        android:title="@string/labelCDMAMore"
+        android:summary="@string/sum_cdma_call_settings"
+        android:persistent="false">
+
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.phone"
+            android:targetClass="com.android.phone.CdmaCallOptions"/>
+    </PreferenceScreen>
+</PreferenceScreen>

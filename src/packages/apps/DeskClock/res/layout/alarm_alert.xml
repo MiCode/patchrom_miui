@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <com.android.deskclock.DigitalClock
+        android:id="@+id/digitalClock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="24dip"
+        android:paddingLeft="24dip"
+        android:paddingRight="20dip"
+        android:paddingBottom="80dp"
+        android:baselineAligned="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        >
+
+        <com.android.deskclock.AndroidClockTextView
+            android:id="@+id/timeDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80dp"
+            android:layout_alignParentRight="true"
+            android:textColor="?android:attr/textColorPrimary"
+            android:layout_marginRight="44dip"/>
+
+        <com.android.deskclock.AndroidClockTextView
+            useClockTypeface="false"
+            android:id="@+id/am_pm"
+            android:layout_width="40dip"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignBaseline="@id/timeDisplay"
+            android:textColor="?android:attr/textColorPrimary"/>
+
+    </com.android.deskclock.DigitalClock>
+
+    <Button
+        android:id="@+id/snooze"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignBottom="@id/digitalClock"
+        android:paddingBottom="16dp"
+        android:gravity="bottom|center_horizontal"
+        android:text="@string/alarm_alert_snooze_text" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_marginLeft="16dip"
+        android:layout_marginRight="16dip"
+        android:layout_below="@id/snooze"
+        android:background="?android:attr/dividerHorizontal" />
+
+    <Button
+        android:id="@+id/dismiss"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:layout_below="@id/divider"
+        android:text="@string/alarm_alert_dismiss_text" />
+
+</RelativeLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MusicActivityStyle"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/sd_error" />
+
+    <LinearLayout android:id="@+id/current_album"
+        android:layout_height="@dimen/current_album_height"
+        android:layout_width="match_parent"
+        android:gravity="top|right"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/history_album_space"
+            android:background="@drawable/history_divider"
+        />
+        <include layout="@layout/history_browser"/>
+    </LinearLayout>
+
+    <ListView style="@style/PickerListView"
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="0dip"
+        android:paddingRight="0dip"
+    />
+
+</LinearLayout>

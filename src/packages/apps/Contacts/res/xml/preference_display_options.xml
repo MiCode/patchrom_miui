@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:key="displayOptions"
+        android:title="@string/preference_displayOptions">
+        <com.android.contacts.preference.SortOrderPreference
+            android:key="sortOrder"
+            android:title="@string/display_options_sort_list_by"
+            android:dialogTitle="@string/display_options_sort_list_by" />
+
+        <com.android.contacts.preference.DisplayOrderPreference
+            android:key="displayOrder"
+            android:title="@string/display_options_view_names_as"
+            android:dialogTitle="@string/display_options_view_names_as" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/preference_import">
+        <PreferenceScreen
+            android:key="pref_key_import_from_sdcard"
+            android:title="@string/import_from_sdcard" />
+        <PreferenceScreen
+            android:key="pref_key_import_from_mi_cloud"
+            android:title="@string/sync_xiaomi_cloud_contacts" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/preference_export">
+        <PreferenceScreen
+            android:key="pref_key_export_to_sdcard"
+            android:title="@string/export_to_sdcard" />
+        <PreferenceScreen
+            android:key="pref_key_share_visible_contacts"
+            android:title="@string/share_visible_contacts" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/preference_sim"
+        android:key="displaySim" >
+        <PreferenceScreen
+            android:key="pref_key_import_from_sim"
+            android:title="@string/import_from_sim" />
+        <com.android.contacts.preference.DisplaySimContactPreference
+            android:key="pref_key_display_sim_contacts"
+            android:title="@string/display_sim_contacts"
+            android:dialogTitle="@string/display_sim_contacts" />
+    </PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:title="@string/preference_others">
+
+        <CheckBoxPreference
+            android:key="only_phones"
+            android:title="@string/display_only_phones"
+            android:defaultValue="false"
+            android:persistent="true" />
+
+        <PreferenceScreen
+            android:key="pref_key_wipe_data"
+            android:title="@string/wipe_data" />
+
+        <com.android.contacts.preference.CheckUnsynchronizedPreference
+            android:key="pref_key_check_unsynchronized_accounts"
+            android:title="@string/check_unsynchronized_accounts"
+            android:dialogTitle="@string/check_unsynchronized_accounts" />
+    </PreferenceCategory>
+</PreferenceScreen>

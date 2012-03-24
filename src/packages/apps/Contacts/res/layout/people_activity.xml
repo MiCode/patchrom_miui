@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--
+        ViewPager for swiping between tabs.  We put StrequentContactListFragment,
+        DefaultContactBrowseListFragment and GroupBrowseListFragment at runtime.
+
+        (Adding them directly as the children of this view is not recommended.  ViewPager should
+        be treated like a ListView, which doesn't expect children to be added from the layout.)
+    -->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/tab_pager"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        />
+
+    <FrameLayout
+        android:id="@+id/contacts_unavailable_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+        <FrameLayout
+            android:id="@+id/contacts_unavailable_container"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent" />
+    </FrameLayout>
+</FrameLayout>

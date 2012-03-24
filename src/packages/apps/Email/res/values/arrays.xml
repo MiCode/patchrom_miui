@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <!-- Do not change any of the values in this array without checking/changing -->
+    <!-- related values in: AccountSetupBasics.java & AccountSetupOptions.java  -->
+
+    <!-- In particular, 15 minutes is hardcoded as the default for new accounts. -->
+
+    <string-array name="account_settings_check_frequency_entries">
+        <item>@string/account_setup_options_mail_check_frequency_never</item>
+        <item>@string/account_setup_options_mail_check_frequency_5min</item>
+        <item>@string/account_setup_options_mail_check_frequency_10min</item>
+        <item>@string/account_setup_options_mail_check_frequency_15min</item>
+        <item>@string/account_setup_options_mail_check_frequency_30min</item>
+        <item>@string/account_setup_options_mail_check_frequency_1hour</item>
+    </string-array>
+
+    <string-array name="account_settings_check_frequency_values" translatable="false">
+        <item>-1</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+    </string-array>
+
+
+    <!-- The arrays that are presented to push-enabled accounts -->
+    <string-array name="account_settings_check_frequency_entries_push">
+        <item>@string/account_setup_options_mail_check_frequency_push</item>
+        <item>@string/account_setup_options_mail_check_frequency_never</item>
+        <item>@string/account_setup_options_mail_check_frequency_5min</item>
+        <item>@string/account_setup_options_mail_check_frequency_10min</item>
+        <item>@string/account_setup_options_mail_check_frequency_15min</item>
+        <item>@string/account_setup_options_mail_check_frequency_30min</item>
+        <item>@string/account_setup_options_mail_check_frequency_1hour</item>
+    </string-array>
+
+    <string-array name="account_settings_check_frequency_values_push" translatable="false">
+        <item>-2</item>
+        <item>-1</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+    </string-array>
+
+    <!-- Mail sync window sizes for EAS accounts -->
+    <string-array name="account_settings_mail_window_entries">
+        <item>@string/account_setup_options_mail_window_auto</item>
+        <item>@string/account_setup_options_mail_window_1day</item>
+        <item>@string/account_setup_options_mail_window_3days</item>
+        <item>@string/account_setup_options_mail_window_1week</item>
+        <item>@string/account_setup_options_mail_window_2weeks</item>
+        <item>@string/account_setup_options_mail_window_1month</item>
+        <item>@string/account_setup_options_mail_window_all</item>
+    </string-array>
+
+    <!-- Mail sync window size codes for EAS accounts -->
+    <string-array name="account_settings_mail_window_values" translatable="false">
+        <item>-2</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <!-- Mail sync window sizes for EAS mailboxes.  It's the same thing as
+         account_settings_mail_window_entries, but has 0=default.  -->
+    <string-array name="account_settings_mail_window_entries_with_default">
+        <item>@string/account_setup_options_mail_window_default</item>
+        <item>@string/account_setup_options_mail_window_auto</item>
+        <item>@string/account_setup_options_mail_window_1day</item>
+        <item>@string/account_setup_options_mail_window_3days</item>
+        <item>@string/account_setup_options_mail_window_1week</item>
+        <item>@string/account_setup_options_mail_window_2weeks</item>
+        <item>@string/account_setup_options_mail_window_1month</item>
+        <item>@string/account_setup_options_mail_window_all</item>
+    </string-array>
+
+    <!-- Mail sync window size codes for EAS milboxes.  It's the same thing as
+         account_settings_mail_window_values, but has 0=default.  -->
+    <string-array name="account_settings_mail_window_values_with_default" translatable="false">
+        <item>0</item>
+        <item>-2</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <!-- The vibrate notification modes -->
+    <string-array name="account_settings_vibrate_when_entries">
+        <!-- Always -->
+        <item>@string/account_settings_vibrate_when_always</item>
+        <!-- Only when the phone is in Silent mode -->
+        <item>@string/account_settings_vibrate_when_silent</item>
+        <!-- Never -->
+        <item>@string/account_settings_vibrate_when_never</item>
+    </string-array>
+
+    <!-- The vibrate notification values -->
+    <string-array translatable="false" name="account_settings_vibrate_when_values">
+        <item>always</item>
+        <item>silent</item>
+        <item>never</item>
+    </string-array>
+
+    <!-- Auto-advance options (DO NOT change the order.  Code assumes this order)-->
+    <string-array name="general_preference_auto_advance_entries">
+        <!-- Move to newer -->
+        <item>@string/general_preference_auto_advance_newer</item>
+        <!-- Move to older -->
+        <item>@string/general_preference_auto_advance_older</item>
+        <!-- Move to message list -->
+        <item>@string/general_preference_auto_advance_message_list</item>
+    </string-array>
+
+    <!-- Auto-advance option values (DO NOT change the order.  Code assumes this order)-->
+    <string-array translatable="false" name="general_preference_auto_advance_values">
+        <!-- Move to newer -->
+        <item>newer</item>
+        <!-- Move to older -->
+        <item>older</item>
+        <!-- Move to message list -->
+        <item>list</item>
+    </string-array>
+
+    <!-- Text Zoom options (DO NOT change the order.  Code assumes this order)-->
+    <string-array name="general_preference_text_zoom_entries">
+        <item>@string/general_preference_text_zoom_tiny</item>
+        <item>@string/general_preference_text_zoom_small</item>
+        <item>@string/general_preference_text_zoom_normal</item>
+        <item>@string/general_preference_text_zoom_large</item>
+        <item>@string/general_preference_text_zoom_huge</item>
+    </string-array>
+
+    <!-- Text Zoom option values (DO NOT change the order.  Code assumes this order)-->
+    <string-array translatable="false" name="general_preference_text_zoom_values">
+        <item>tiny</item>
+        <item>small</item>
+        <item>normal</item>
+        <item>large</item>
+        <item>huge</item>
+    </string-array>
+
+    <!-- Arrays "mailbox_display_names" and "mailbox_display_icons" MUST match the order
+         of the types of mailboxes defined in EmailContent -->
+    <string-array name="mailbox_display_names" translatable="false">
+        <!-- TYPE_INBOX = 0 -->
+        <item>@string/mailbox_name_display_inbox</item>
+        <!-- TYPE_MAIL = 1 -->
+        <item></item>
+        <!-- TYPE_PARENT = 2 -->
+        <item></item>
+        <!-- TYPE_DRAFTS = 3 -->
+        <item>@string/mailbox_name_display_drafts</item>
+        <!-- TYPE_OUTBOX = 4 -->
+        <item>@string/mailbox_name_display_outbox</item>
+        <!-- TYPE_SENT = 5 -->
+        <item>@string/mailbox_name_display_sent</item>
+        <!-- TYPE_TRASH = 6 -->
+        <item>@string/mailbox_name_display_trash</item>
+        <!-- TYPE_JUNK = 7 -->
+        <item>@string/mailbox_name_display_junk</item>
+    </string-array>
+
+    <!-- Arrays "mailbox_display_names" and "mailbox_display_icons" MUST match the order
+         of the types of mailboxes defined in EmailContent -->
+    <array name="mailbox_display_icons" translatable="false">
+        <!-- TYPE_INBOX = 0 -->
+        <item>@drawable/ic_folder_inbox_holo_light</item>
+        <!-- TYPE_MAIL = 1 -->
+        <item></item>
+        <!-- TYPE_PARENT = 2 -->
+        <item></item>
+        <!-- TYPE_DRAFTS = 3 -->
+        <item>@drawable/ic_folder_drafts_holo_light</item>
+        <!-- TYPE_OUTBOX = 4 -->
+        <item>@drawable/ic_folder_outbox_holo_light</item>
+        <!-- TYPE_SENT = 5 -->
+        <item>@drawable/ic_folder_sent_holo_light</item>
+        <!-- TYPE_TRASH = 6 -->
+        <item>@drawable/ic_menu_trash_holo_light</item>
+        <!-- TYPE_JUNK = 7 -->
+        <item>@drawable/ic_spam_normal_holo_light</item>
+    </array>
+
+    <!-- Account color chips on combined view -->
+    <array name="combined_view_account_colors" translatable="false">
+        <item>@color/combined_view_account_color_1</item>
+        <item>@color/combined_view_account_color_2</item>
+        <item>@color/combined_view_account_color_3</item>
+        <item>@color/combined_view_account_color_4</item>
+        <item>@color/combined_view_account_color_5</item>
+        <item>@color/combined_view_account_color_6</item>
+        <item>@color/combined_view_account_color_7</item>
+        <item>@color/combined_view_account_color_8</item>
+        <item>@color/combined_view_account_color_9</item>
+    </array>
+
+    <!-- Length of the subject text in the message list items in dips for the
+         various modes: wide, and narrow -->
+    <integer-array name="subject_lengths">
+        <item>50</item>
+        <item>25</item>
+    </integer-array>
+</resources>
