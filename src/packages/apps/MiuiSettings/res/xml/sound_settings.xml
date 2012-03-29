@@ -19,12 +19,14 @@
         android:key="sound_settings"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <com.android.settings.RingerVolumePreference
+    <Preference
             android:key="ring_volume"
             android:title="@string/all_volume_title"
-            android:dialogTitle="@string/all_volume_title"
-            android:persistent="false"
-            android:streamType="ring" />
+            android:persistent="false">
+      <intent
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.sound.RingerVolumeActivity" />
+   </Preference>
 
     <ListPreference
             android:key="silent_mode"

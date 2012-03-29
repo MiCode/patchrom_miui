@@ -18,15 +18,21 @@
         android:title="@string/display_settings"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-        <com.android.settings.BrightnessPreference
-                android:key="brightness"
-                android:title="@string/brightness"
-                android:dialogTitle="@string/brightness" />
+        <Preference
+            android:key="brightness"
+            android:title="@string/brightness">
+            <intent
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.display.BrightnessActivity" />
+        </Preference>
 
         <PreferenceScreen
                 android:key="wallpaper"
-                android:title="@string/wallpaper_settings_title"
-                android:fragment="com.android.settings.WallpaperTypeSettings" />
+                android:title="@string/wallpaper_settings_title">
+                <intent
+                    android:targetPackage="com.android.thememanager"
+                    android:targetClass="com.android.thememanager.WallpaperSettings" />
+       </PreferenceScreen>
 
         <!-- launcher -->
         <PreferenceScreen

@@ -1339,7 +1339,8 @@ public class DownloadManager {
             }
         }
 
-        private int translateStatus(int status) {
+        @MiuiHook(MiuiHookType.CHANGE_ACCESS)
+        static int translateStatus(int status) {
             switch (status) {
                 case Downloads.Impl.STATUS_PENDING:
                     return STATUS_PENDING;
