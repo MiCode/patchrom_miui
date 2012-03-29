@@ -23,6 +23,7 @@
     android:layout_height="wrap_content"
     android:paddingLeft="@dimen/detail_item_side_margin"
     android:paddingRight="@dimen/detail_item_side_margin">
+
     <LinearLayout
         android:id="@+id/primary_action_view"
         android:layout_width="match_parent"
@@ -35,6 +36,14 @@
         android:orientation="horizontal"
         android:gravity="center_vertical">
 
+        <TextView
+            android:id="@+id/network_title"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
         <ImageView
             android:id="@+id/network_icon"
             android:layout_width="@dimen/detail_network_icon_size"
@@ -43,12 +52,5 @@
             android:layout_marginRight="@dimen/detail_item_icon_margin"
             android:layout_gravity="center_vertical"
             android:scaleType="centerInside" />
-
-        <TextView
-            android:id="@+id/network_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
 </FrameLayout>

@@ -2547,6 +2547,7 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
         }
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     protected ViewGroup generateLayout(DecorView decor) {
         // Apply data from current theme.
 
@@ -2615,7 +2616,7 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
         if (targetPreHoneycomb || (targetPreIcs && targetHcNeedsOptions && noActionBar)) {
             addFlags(WindowManager.LayoutParams.FLAG_NEEDS_MENU_KEY);
         } else {
-            clearFlags(WindowManager.LayoutParams.FLAG_NEEDS_MENU_KEY);
+            addFlags(WindowManager.LayoutParams.FLAG_NEEDS_MENU_KEY);
         }
         
         if (mAlwaysReadCloseOnTouchAttr || getContext().getApplicationInfo().targetSdkVersion

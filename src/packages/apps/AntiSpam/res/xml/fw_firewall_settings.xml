@@ -2,43 +2,41 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory>
-        <CheckBoxPreference
-            android:key="fw_enable_firewall"
-            android:title="@string/enable_firewall"
-            android:persistent="false"
-            />
+    <CheckBoxPreference
+        android:key="fw_enable_firewall"
+        android:title="@string/enable_firewall"
+        android:persistent="false"
+        />
 
-        <PreferenceScreen
-            android:key="fw_pattern_settings"
-            android:dependency="fw_enable_firewall"
-            android:title="@string/fw_pattern_settings">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:targetPackage="com.miui.antispam"
-                android:targetClass="com.miui.antispam.firewall.PatternSettings" />
-        </PreferenceScreen>
+    <PreferenceScreen
+        android:key="fw_pattern_settings"
+        android:dependency="fw_enable_firewall"
+        android:title="@string/fw_pattern_settings">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.miui.antispam"
+            android:targetClass="com.miui.antispam.firewall.PatternSettings" />
+    </PreferenceScreen>
 
-        <PreferenceScreen
-            android:key="fw_action_settings"
-            android:dependency="fw_enable_firewall"
-            android:title="@string/fw_action_settings">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:targetPackage="com.miui.antispam"
-                android:targetClass="com.miui.antispam.firewall.ActionSettings" />
-        </PreferenceScreen>
+    <PreferenceScreen
+        android:key="fw_action_settings"
+        android:dependency="fw_enable_firewall"
+        android:title="@string/fw_action_settings">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.miui.antispam"
+            android:targetClass="com.miui.antispam.firewall.ActionSettings" />
+    </PreferenceScreen>
 
-        <PreferenceScreen
-            android:key="fw_enable_time_limit"
-            android:dependency="fw_enable_firewall"
-            android:title="@string/fw_time_settings">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:targetPackage="com.miui.antispam"
-                android:targetClass="com.miui.antispam.firewall.TimeSettings" />
-        </PreferenceScreen>
-    </PreferenceCategory>
+    <PreferenceScreen
+        android:key="fw_enable_time_limit"
+        android:dependency="fw_enable_firewall"
+        android:title="@string/fw_time_settings">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.miui.antispam"
+            android:targetClass="com.miui.antispam.firewall.TimeSettings" />
+    </PreferenceScreen>
 
     <PreferenceCategory
         android:key="fw_advanced_settings"
