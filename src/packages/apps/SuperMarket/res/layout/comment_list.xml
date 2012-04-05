@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_panel"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <include
+            android:id="@+id/app_info_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip"
+            android:layout_marginBottom="5dip"
+            android:layout_gravity="center_vertical"
+            layout="@layout/app_icon_name_desc"/>
+    </LinearLayout>    
+
+    <LinearLayout
+        android:id="@+id/btn_login_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:background="@drawable/commentor_info_background">
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:text="@string/login_to_recommend"/>
+    </LinearLayout>    
+
+    <LinearLayout
+        android:id="@+id/btn_icon_comment_publish"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:background="@drawable/commentor_info_background">
+        <include 
+            android:id="@+id/user_icon"
+            layout="@layout/user_icon"/>
+        <EditText
+            android:id="@+id/text_comment"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="5dip"
+            android:layout_marginBottom="5dip"
+            android:layout_marginLeft="5dip"
+            android:background="@drawable/text_editor_bg"
+            android:gravity="center_vertical"
+            android:hint="@string/comment_hint"/>
+        <Button
+            android:id="@+id/btn_publish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:background="@drawable/publish_btn"/>
+    </LinearLayout>    
+
+    <ListView
+        android:id="@+id/comment_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:fastScrollEnabled="true"/>
+    <ViewStub android:id="@+id/empty"
+        android:layout="@layout/no_application"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1" />
+
+    <include
+        android:id="@+id/bottom_downloading_view"
+        layout="@layout/downloading_view"/>
+
+    <LinearLayout
+        android:id="@+id/bottom_btn_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/install"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@string/install"/>
+        <Button
+            android:id="@+id/uninstall"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@string/uninstall"/>
+    </LinearLayout>
+</LinearLayout>

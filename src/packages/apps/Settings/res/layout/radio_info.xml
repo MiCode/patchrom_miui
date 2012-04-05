@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/* //device/apps/Settings/assets/res/any/layout/radio_info.xml
+**
+** Copyright 2006, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+**
+**     http://www.apache.org/licenses/LICENSE-2.0 
+**
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
+** limitations under the License.
+*/
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout style="@style/info_layout">
+
+        <!-- IMEI -->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_imei_label" style="@style/info_label" />
+            <TextView android:id="@+id/imei" style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Phone Number -->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_phone_number_label" style="@style/info_label" />
+            <TextView android:id="@+id/number" style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Network Identifier -->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_current_network_label" style="@style/info_label" />
+            <TextView android:id="@+id/operator" style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Ping stats -->
+        <Button android:id="@+id/ping_test"
+                android:textSize="14sp"
+                android:layout_marginTop="8dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ping_test_label"
+                />
+ 
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_ping_ipaddr" style="@style/info_label" />
+            <TextView android:id="@+id/pingIpAddr" style="@style/info_value" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_ping_hostname" style="@style/info_label" />
+            <TextView android:id="@+id/pingHostname" style="@style/info_value" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_http_client_test" style="@style/info_label" />
+            <TextView android:id="@+id/httpClientTest" style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Signal Strength -->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_signal_strength_label" style="@style/info_label" />
+            <TextView android:id="@+id/dbm" style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Location -->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_signal_location_label" style="@style/info_label" />
+            <TextView android:id="@+id/location" style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Neighboring Cids -->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_neighboring_location_label"
+                      style="@style/info_label" />
+            <TextView android:id="@+id/neighboring" style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Roaming -->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_roaming_label" style="@style/info_label" />
+            <TextView android:id="@+id/roaming" style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- GSM Service -->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_gsm_service_label" style="@style/info_label" />
+            <TextView android:id="@+id/gsm" style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- GPRS Service -->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_gprs_service_label" style="@style/info_label" />
+            <TextView android:id="@+id/gprs" style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Network Type -->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_network_type_label" style="@style/info_label" />
+            <TextView android:id="@+id/network" style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Message Waiting Indicator -->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_message_waiting_label" style="@style/info_label" />
+            <TextView android:id="@+id/mwi" style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Call Forwarding Indicator -->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_call_redirect_label" style="@style/info_label" />
+            <TextView android:id="@+id/cfi" style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Call Status -->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_call_status_label" style="@style/info_label" />
+            <TextView android:id="@+id/call" style="@style/info_value" />
+        </LinearLayout>
+
+
+        <!-- Radio Resets -->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_radio_resets_label" style="@style/info_label" />
+            <TextView android:id="@+id/resets" style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Attempted Data Connections -->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_data_attempts_label"
+                style="@style/info_label" />
+            <TextView android:id="@+id/attempts" style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Successful Data Connections -->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_data_successes_label"
+                style="@style/info_label" />
+            <TextView android:id="@+id/successes" style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- GSM Disconnects -->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_gsm_disconnects_label"
+                style="@style/info_label" />
+            <TextView android:id="@+id/disconnects" style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- PPP Sent -->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_ppp_sent_label"
+                style="@style/info_label" />
+            <TextView android:id="@+id/sent" style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- PPP Received -->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_ppp_received_label"
+                style="@style/info_label" />
+            <TextView android:id="@+id/received" style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- PPP Sent since last received -->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_ppp_resets_label"
+                style="@style/info_label" />
+            <TextView android:id="@+id/sentSinceReceived" style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Preferred Network Type -->
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/radio_info_set_perferred_label"
+                style="@style/info_label"
+                />
+
+        <Spinner android:id="@+id/preferredNetworkType"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                />
+
+        <!-- Radio Power -->
+        <Button android:id="@+id/radio_power"
+                android:textSize="14sp"
+                android:layout_marginTop="8dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+        <!-- IMS registration required -->
+        <Button android:id="@+id/ims_reg_required"
+                android:textSize="14sp"
+                android:layout_marginTop="8dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+        <!-- SMS over IMS -->
+        <Button android:id="@+id/sms_over_ims"
+                android:textSize="14sp"
+                android:layout_marginTop="8dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+        <!-- LTE ram dump -->
+        <Button android:id="@+id/lte_ram_dump"
+                android:textSize="14sp"
+                android:layout_marginTop="8dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+        <!-- SMSC -->
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+            <TextView android:id="@+id/smsc_label"
+                      android:text="@string/radio_info_smsc_label"
+                      android:layout_alignBaseline="@+id/update_smsc"
+                      style="@style/info_label" />
+            <Button android:id="@+id/refresh_smsc"
+                    android:textSize="14sp"
+                    android:layout_marginTop="8dip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio_info_smsc_refresh_label"
+                    android:layout_alignParentRight="true"
+                    />
+            <Button android:id="@+id/update_smsc"
+                    android:textSize="14sp"
+                    android:layout_marginTop="8dip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio_info_smsc_update_label"
+                    android:layout_toLeftOf="@+id/refresh_smsc"
+                    android:layout_alignBaseline="@+id/refresh_smsc"
+                    />
+            <EditText android:id="@+id/smsc"
+                      style="@style/form_value"
+                      android:layout_alignBaseline="@+id/refresh_smsc"
+                      android:layout_toLeftOf="@id/update_smsc"
+                      android:layout_toRightOf="@id/smsc_label" />
+        </RelativeLayout>
+
+        <!-- Test setting to ignore bad DNS, useful in lab environments -->
+        <LinearLayout style="@style/entry_layout">
+            <Button android:id="@+id/dns_check_toggle"
+                    android:textSize="14sp"
+                    android:layout_marginTop="8dip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio_info_toggle_dns_check_label"
+                    />
+            <TextView android:id="@+id/dnsCheckState" style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Launch OEM-specific Info/Settings Activity (if any) -->
+        <Button android:id="@+id/oem_info"
+                android:textSize="14sp"
+                android:layout_marginTop="8dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/oem_radio_info_label"
+                />
+
+    </LinearLayout>
+</ScrollView>

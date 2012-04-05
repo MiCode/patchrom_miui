@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:paddingTop="@dimen/content_top_margin"
+              android:paddingLeft="@dimen/notice_text_padding_h"
+              android:paddingRight="@dimen/notice_text_padding_h"
+        >
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_adjust_margin_h"
+            android:text="@string/account"
+            style="@style/GrayTextStyle"
+            />
+    <EditText
+            android:id="@+id/et_account_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/title_content_margin_v"
+            android:hint="@string/account_hint_text"
+            android:singleLine="true"
+            />
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_adjust_margin_h"
+            android:layout_marginTop="@dimen/text_items_margin_v"
+            android:text="@string/password"
+            style="@style/GrayTextStyle"
+            />
+    <EditText
+            android:id="@+id/et_account_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/title_content_margin_v"
+            android:hint="@string/password_hint"
+            android:singleLine="true"
+            android:password="true"
+            android:imeOptions="actionDone"
+            />
+
+    <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/button_top_margin"
+            android:background="@drawable/btn_orange_bkg"
+            android:text="@string/login"
+            android:textColor="@android:color/white"
+            />
+
+    <TextView
+            android:id="@+id/tv_forget_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/button_top_margin"
+            android:layout_marginRight="2dp"
+            android:text="@string/forget_password"
+            android:layout_gravity="right"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            style="@style/HyperLinkStyle"
+            />
+
+</LinearLayout>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- The "Manage conference" UI.  This panel is displayed (instead of
+     the inCallPanel) when the user clicks the "Manage conference"
+     button while on a conference call. -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/manageConferencePanel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                >
+    <!-- This original header (with timer) is currently not being used,
+         but may be of use in the future. -->
+    <!-- Header, including chronometer and List divider -->
+    <Chronometer
+        android:id="@+id/manageConferencePanelHeader"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="24sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="5dip"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/manageConferencePanelDivider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/divider_horizontal_dark"
+        android:scaleType="fitXY"
+        android:layout_below="@id/manageConferencePanelHeader"
+        android:visibility="gone"/>
+    <!-- End of the original header -->
+
+    <!-- New header, based on the list separator in Contacts. -->
+    <LinearLayout android:id="@+id/manageConferenceHeader"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:background="@android:drawable/dark_header"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:paddingLeft="8dip"
+            android:text="@string/manageConferenceLabel"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="?android:attr/listDivider"/>
+
+    </LinearLayout>  <!-- End of new header -->
+
+    <!-- The scrollview wrapper for the list of callers on
+         the conference call (in case the list gets too long). -->
+    <ScrollView
+        android:id="@+id/conferenceList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/manageConferenceHeader"
+        android:layout_marginTop="8dip"
+        android:layout_marginBottom="60dip">
+
+        <!-- The actual list of callers; this embedded LinearLayout
+             required since scrollview only supports a single child. -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- A conference can have at most MAX_CALLERS_IN_CONFERENCE (= 5) callers,
+                 so just define all those UI elements here. -->
+
+            <!-- Caller 0 -->
+            <include
+                layout="@layout/caller_in_conference"
+                android:id="@+id/caller0"/>
+
+            <!-- Caller 1 -->
+            <include
+                layout="@layout/caller_in_conference"
+                android:id="@+id/caller1"/>
+
+            <!-- Caller 2 -->
+            <include
+                layout="@layout/caller_in_conference"
+                android:id="@+id/caller2"/>
+
+            <!-- Caller 3 -->
+            <include
+                layout="@layout/caller_in_conference"
+                android:id="@+id/caller3"/>
+
+            <!-- Caller 4 -->
+            <include
+                layout="@layout/caller_in_conference"
+                android:id="@+id/caller4"/>
+
+        </LinearLayout>  <!-- End of "list of callers on conference call" -->
+
+    </ScrollView>  <!-- End of scrolling list wrapper for the linear layout -->
+
+    <!-- The grey footer, background behind the "Back to call" button -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="54dip"
+        android:gravity="center_vertical"
+        android:layout_alignParentBottom="true"
+        android:background="@android:drawable/dark_header"/>
+
+    <!-- The "Back to call" button -->
+    <Button android:id="@+id/manage_done"
+            style="?android:attr/buttonStyleSmall"
+            android:text="@string/caller_manage_manage_done_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="14dip"
+            android:paddingBottom="18dip"
+            android:paddingLeft="42dip"
+            android:paddingRight="42dip"/>
+
+</RelativeLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/MusicActivityStyle"
+    android:paddingTop="0dip"
+>
+    <ImageView
+        android:id="@+id/album"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:paddingTop="@dimen/action_bar_height">
+
+        <include layout="@layout/sd_error" />
+
+        <fragment
+            class="com.miui.player.ui.fragment.TrackListFragment"
+            android:id="@+id/track_list_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:gravity="top|left">
+        </fragment>
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="permission_read_attachment_label" msgid="9208086010625033590">"이메일 첨부파일 읽기"</string>
+    <string name="permission_read_attachment_desc" msgid="6592948507403743153">"애플리케이션이 이메일 첨부파일을 읽도록 허용합니다."</string>
+    <string name="permission_access_provider_label" msgid="378256653525377586">"이메일 제공업체 데이터 액세스"</string>
+    <string name="permission_access_provider_desc" msgid="2221907862438022705">"애플리케이션이 받은 메일, 보낸 메일, 사용자 이름 및 비밀번호를 포함하는 이메일 데이터베이스에 액세스하도록 합니다."</string>
+    <string name="app_name" msgid="5815426892327290362">"이메일"</string>
+    <string name="compose_title" msgid="427986915662706899">"편지쓰기"</string>
+    <string name="debug_title" msgid="5175710493691536719">"디버그"</string>
+    <string name="next_action" msgid="3931301986364184415">"다음"</string>
+    <string name="okay_action" msgid="8365197396795675617">"확인"</string>
+    <string name="cancel_action" msgid="6967435583794021865">"취소"</string>
+    <string name="previous_action" msgid="5181616311579820981">"이전"</string>
+    <string name="send_action" msgid="1729766205562446418">"전송"</string>
+    <string name="reply_action" msgid="4262472229221507619">"답장"</string>
+    <string name="reply_all_action" msgid="6192179825726332152">"전체답장"</string>
+    <string name="delete_action" msgid="8421026208288857155">"삭제"</string>
+    <string name="forward_action" msgid="669174181042344116">"전달"</string>
+    <string name="favorite_action" msgid="4664259801498253756">"별표"</string>
+    <string name="done_action" msgid="7497990549515580249">"완료"</string>
+    <string name="create_action" msgid="3062715563215392251">"새로 만들기"</string>
+    <string name="delete_quick_response_action" msgid="3076922270182841978">"삭제"</string>
+    <string name="quick_responses_empty_view" msgid="1693308598242828422">"빠른 응답이 없습니다."</string>
+    <string name="discard_action" msgid="6532206074859505968">"삭제"</string>
+    <string name="save_draft_action" msgid="6413714270991417223">"임시보관함에 저장"</string>
+    <string name="show_quick_text_list_dialog_action" msgid="4136018559611145202">"빠른 응답 삽입"</string>
+    <string name="read_action" msgid="4701484794504781686">"읽음으로 표시"</string>
+    <string name="unread_action" msgid="6280399049357552826">"읽지않음으로 표시"</string>
+    <string name="set_star_action" msgid="4660317166196258160">"별표 표시"</string>
+    <string name="remove_star_action" msgid="6689770999647007163">"별표 삭제"</string>
+    <string name="refresh_action" msgid="5951383001436708175">"새로고침"</string>
+    <string name="add_account_action" msgid="8835736309476033727">"계정 추가"</string>
+    <string name="compose_action" msgid="4045702519637388045">"편지쓰기"</string>
+    <string name="search_action" msgid="6325101454876682308">"검색"</string>
+    <string name="account_settings_action" msgid="4494079183315085171">"계정 설정"</string>
+    <string name="settings_action" msgid="6334807007967459412">"설정"</string>
+    <string name="mailbox_settings_action" msgid="8008375875310554776">"동기화 옵션"</string>
+    <string name="mark_as_unread_action" msgid="3766298115778767554">"읽지않음으로 표시"</string>
+    <string name="move_action" msgid="3059189775933985898">"이동"</string>
+    <string name="plus_cc_label" msgid="3365150001259912183">"참조/숨은참조 추가"</string>
+    <string name="add_cc_bcc_menu" msgid="4757145078498200242">"참조/숨은참조 추가"</string>
+    <string name="add_file_attachment" msgid="2203398371671979481">"파일 첨부"</string>
+    <string name="close_action" msgid="533058985745238100">"닫기"</string>
+    <string name="message_list_send_pending_messages_action" msgid="8502942186631824114">"메일 모두 보내기"</string>
+    <string name="choose_attachment_dialog_title" msgid="81937507117528954">"첨부파일 선택"</string>
+    <string name="move_to_folder_dialog_title" msgid="2614318192482193898">"이동"</string>
+    <string name="status_loading_messages" msgid="6552307237621292344">"메일 로드 중..."</string>
+    <string name="status_network_error" msgid="2611654064403817391">"연결에 문제가 있습니다."</string>
+    <string name="error_loading_message_body" msgid="6775234299515596760">"메일 텍스트를 로드하지 못했습니다. 메일이 너무 커서 표시할 수 없기 때문일 수 있습니다."</string>
+  <plurals name="move_messages">
+    <item quantity="one" msgid="320885379869442589">"메일 이동"</item>
+    <item quantity="other" msgid="371256717624461324">"메일 이동"</item>
+  </plurals>
+    <string name="cannot_move_protocol_not_supported_toast" msgid="6558083148128616292">"POP3 계정에서는 메일 이동이 지원되지 않습니다."</string>
+    <string name="cannot_move_multiple_accounts_toast" msgid="7922594026384944163">"선택하신 메일에 여러 계정이 포함되어 있어 이동할 수 없습니다."</string>
+    <string name="cannot_move_special_mailboxes_toast" msgid="7093107954841896970">"임시보관함, 보낼편지함, 보낸편지함의 메일은 이동할 수 없습니다."</string>
+  <plurals name="notification_new_one_account_fmt">
+    <item quantity="one" msgid="3422945912787702191">"읽지 않은 메일 <xliff:g id="UNREAD_MESSAGE_COUNT">%1$d</xliff:g>개(<xliff:g id="ACCOUNT">%2$s</xliff:g>)"</item>
+    <item quantity="few" msgid="6543078667692990869">"읽지 않은 메일 <xliff:g id="UNREAD_MESSAGE_COUNT">%1$d</xliff:g>개(<xliff:g id="ACCOUNT">%2$s</xliff:g>)"</item>
+    <item quantity="other" msgid="6937673814351448076">"읽지 않은 메일 <xliff:g id="UNREAD_MESSAGE_COUNT">%1$d</xliff:g>개(<xliff:g id="ACCOUNT">%2$s</xliff:g>)"</item>
+  </plurals>
+  <plurals name="notification_new_multi_account_fmt">
+    <item quantity="few" msgid="1991747245324120305">"<xliff:g id="NUMBER_ACCOUNTS">%d</xliff:g>개 계정"</item>
+    <item quantity="other" msgid="2723797835410343458">"<xliff:g id="NUMBER_ACCOUNTS">%d</xliff:g>개 계정"</item>
+  </plurals>
+    <string name="notification_to_account" msgid="2078557719010667913">"<xliff:g id="RECEIVER_NAME">%1$s</xliff:g>에게 보냄"</string>
+    <string name="notification_multiple_new_messages_fmt" msgid="2606649762841566104">"새 메일 <xliff:g id="ID_1">%1$d</xliff:g>개"</string>
+    <string name="account_name_display_all" msgid="837218861494831989">"모든 계정"</string>
+  <plurals name="number_of_accounts">
+    <item quantity="one" msgid="6343953132237244947">"계정 <xliff:g id="NUM_ACCOUNTS">%1$d</xliff:g>개"</item>
+    <item quantity="other" msgid="8548760449976444566">"계정 <xliff:g id="NUM_ACCOUNTS">%1$d</xliff:g>개"</item>
+  </plurals>
+    <string name="mailbox_name_display_inbox" msgid="3542327124749861736">"받은편지함"</string>
+    <string name="mailbox_name_display_outbox" msgid="2826214174661417662">"보낼편지함"</string>
+    <string name="mailbox_name_display_drafts" msgid="4868718300700514319">"임시보관함"</string>
+    <string name="mailbox_name_display_trash" msgid="9139069064580630647">"휴지통"</string>
+    <string name="mailbox_name_display_sent" msgid="3426058998191869523">"보낸편지함"</string>
+    <string name="mailbox_name_display_junk" msgid="9046762505977999288">"스팸"</string>
+    <string name="mailbox_name_display_unread" msgid="1015674989793998695">"읽지않음"</string>
+    <string name="picker_mailbox_name_all_unread" msgid="6392491216581687644">"받은편지함(읽지않음)"</string>
+    <string name="picker_mailbox_name_all_inbox" msgid="2277030979530376085">"받은편지함(모두)"</string>
+    <string name="picker_combined_view_fmt" msgid="6276294768978512737">"통합 보기(<xliff:g id="COUNT">%s</xliff:g>개)"</string>
+  <plurals name="picker_combined_view_account_count">
+    <item quantity="one" msgid="380235084337895804">"<xliff:g id="ACCOUNT_COUNT">%d</xliff:g>개 계정"</item>
+    <item quantity="other" msgid="4145163147488719025">"<xliff:g id="ACCOUNT_COUNT">%d</xliff:g>개 계정"</item>
+  </plurals>
+    <string name="debug_version_fmt" msgid="6160213145745376955">"버전: <xliff:g id="VERSION">%s</xliff:g>"</string>
+    <string name="account_folder_list_summary_inbox" msgid="7518263761297423255">"받은편지함"</string>
+    <string name="account_folder_list_summary_starred" msgid="3134312269246375723">"별표편지함"</string>
+    <string name="account_folder_list_summary_drafts" msgid="5514845993247300437">"임시보관함"</string>
+    <string name="account_folder_list_summary_outbox" msgid="3059836696049399377">"보낼편지함"</string>
+    <string name="mailbox_list_account_selector_combined_view" msgid="1556327299894225044">"모든 받은편지함 보기"</string>
+    <string name="mailbox_list_account_selector_show_all_folders" msgid="4185052839366909439">"모든 폴더 표시"</string>
+    <string name="mailbox_list_account_selector_account_header" msgid="4261295503836387876">"계정"</string>
+    <string name="mailbox_list_account_selector_mailbox_header_fmt" msgid="3320144348694625092">"최근 폴더(<xliff:g id="EMAIL_ADDRESS">%s</xliff:g>)"</string>
+    <string name="mailbox_list_user_mailboxes" msgid="484260487104726379">"모든 폴더"</string>
+    <string name="mailbox_list_recent_mailboxes" msgid="8922653040520361032">"최근 폴더"</string>
+    <string name="message_subject_description" msgid="3597047441062021199">"제목"</string>
+    <string name="message_is_empty_description" msgid="4004644319382041459">"(제목 없음)"</string>
+    <string name="message_list_load_more_messages_action" msgid="7428302707908825692">"더 많은 메일 표시"</string>
+  <plurals name="message_view_selected_message_count">
+    <item quantity="one" msgid="5064657358375178519">"<xliff:g id="MESSAGE_COUNT">%d</xliff:g>개 선택됨"</item>
+    <item quantity="other" msgid="7901361399231876038">"<xliff:g id="MESSAGE_COUNT">%d</xliff:g>개 선택됨"</item>
+  </plurals>
+    <string name="message_list_no_messages" msgid="7846910091922523867">"메일이 없습니다."</string>
+    <string name="message_compose_to_hint" msgid="2891895306418177013">"받는사람"</string>
+    <string name="message_compose_cc_hint" msgid="8481884461031434144">"참조"</string>
+    <string name="message_compose_bcc_hint" msgid="9177337492358841680">"숨은 참조"</string>
+    <string name="message_compose_subject_hint" msgid="6993487234024160782">"제목"</string>
+    <string name="message_compose_from_label" msgid="4084843296548498041">"보낸사람:"</string>
+    <string name="to" msgid="4392614766835725698">"받는사람"</string>
+    <string name="cc" msgid="7017720927911078193">"참조"</string>
+    <string name="bcc" msgid="3098643138241111579">"숨은참조"</string>
+    <string name="subject_hint" msgid="7253964583324677128">"제목"</string>
+    <string name="body_hint" msgid="4279864165439577668">"이메일 작성"</string>
+    <string name="message_compose_fwd_header_fmt" msgid="5181300290654579434">\n\n"-------- 원본 메일 --------"\n"제목: <xliff:g id="SUBJECT">%1$s</xliff:g>"\n"보낸사람: <xliff:g id="SENDER">%2$s</xliff:g>"\n"받는사람: <xliff:g id="TO">%3$s</xliff:g>"\n"참조: <xliff:g id="CC_0">%4$s</xliff:g>"\n\n</string>
+    <string name="message_compose_reply_header_fmt" msgid="8815624773273454573">\n\n"<xliff:g id="SENDER">%s</xliff:g>님이 작성:"\n\n</string>
+    <string name="message_compose_quoted_text_label" msgid="6950097435198536165">"받은메일 포함"</string>
+    <string name="message_compose_include_quoted_text_checkbox_label" msgid="8165567368956050390">"받은메일 포함"</string>
+    <string name="message_compose_error_no_recipients" msgid="4903715888250785486">"받는 사람을 한 명 이상 추가해야 합니다."</string>
+    <string name="message_compose_error_invalid_email" msgid="1817633338629885643">"일부 이메일 주소가 올바르지 않습니다."</string>
+    <string name="message_compose_attachment_size" msgid="4401081828287333647">"파일이 너무 커서 첨부할 수 없습니다."</string>
+    <string name="message_compose_insert_quick_response_list_title" msgid="5314107302508728189">"빠른 응답 삽입"</string>
+    <string name="message_compose_display_name" msgid="6415258924917140704">"<xliff:g id="NAME">%1$s</xliff:g> 외 <xliff:g id="NUMBER">%2$d</xliff:g>명"</string>
+    <string name="message_view_to_label" msgid="6485191743265527381">"받는사람:"</string>
+    <string name="message_view_cc_label" msgid="6322992216371163122">"참조:"</string>
+    <string name="message_view_bcc_label" msgid="7577479221285310198">"숨은 참조:"</string>
+    <string name="message_view_date_label" msgid="7033814961837313339">"날짜:"</string>
+    <string name="message_view_from_label" msgid="6055076379282772675">"보낸사람:"</string>
+    <string name="message_view_subject_label" msgid="3731022187530000852">"제목:"</string>
+    <string name="message_view_attachment_view_action" msgid="4408093860407096078">"보기"</string>
+    <string name="message_view_attachment_install_action" msgid="381211378884166381">"설치"</string>
+    <string name="message_view_attachment_play_action" msgid="5214215414665114061">"재생"</string>
+    <string name="message_view_attachment_load_action" msgid="8645178445048233745">"로드"</string>
+    <string name="message_view_attachment_info_action" msgid="3908148393469626740">"정보"</string>
+    <string name="message_view_attachment_save_action" msgid="4704436274670997903">"저장"</string>
+    <string name="message_view_attachment_saved" msgid="3432810414785232025">"저장됨"</string>
+    <string name="message_view_attachment_cancel_action" msgid="316700885943712101">"중지"</string>
+    <string name="message_view_status_attachment_saved" msgid="8878790392556284868">"첨부파일을 <xliff:g id="FILENAME">%s</xliff:g>(으)로 저장했습니다."</string>
+    <string name="message_view_status_attachment_not_saved" msgid="2433097334272991035">"첨부파일을 저장할 수 없습니다."</string>
+    <string name="message_view_attachment_background_load" msgid="756797444835526487">"참고: 메일을 전달하기 전에 첨부파일을 다운로드합니다."</string>
+    <string name="message_view_show_message_action" msgid="5134222901019191436">"메일"</string>
+    <string name="message_view_show_invite_action" msgid="8862797393776226777">"초대"</string>
+  <plurals name="message_view_show_attachments_action">
+    <item quantity="one" msgid="7594476368958824007">"첨부파일 <xliff:g id="NUM_ATTACHMENT">%1$d</xliff:g>개"</item>
+    <item quantity="other" msgid="974463163535515223">"첨부파일 <xliff:g id="NUM_ATTACHMENT">%1$d</xliff:g>개"</item>
+  </plurals>
+    <string name="message_view_show_pictures_action" msgid="5059936981743072545">"이미지 표시"</string>
+    <string name="message_view_always_show_pictures_button" msgid="6523810929103546865">"항상 표시"</string>
+    <string name="message_view_always_show_pictures_prompt" msgid="7685500276479967959">"이 발신자가 보낸 사진을 항상 표시"</string>
+    <string name="message_view_always_show_pictures_confirmation" msgid="6838463134312859448">"이 발신자가 보낸 이미지가 자동으로 표시됩니다."</string>
+    <string name="message_view_invite_view" msgid="5521032519960111675">"캘린더에서 보기"</string>
+    <string name="message_view_invite_title" msgid="3418949733434713805">"캘린더 초대"</string>
+    <string name="message_view_invite_text" msgid="1212799906603873708">"참석하시겠습니까?"</string>
+    <string name="message_view_invite_accept" msgid="744546668021679819">" 수락"</string>
+    <string name="message_view_invite_maybe" msgid="7555189462441562318">" 미정"</string>
+    <string name="message_view_invite_decline" msgid="6119797303297149463">" 거절"</string>
+    <string name="message_view_invite_toast_yes" msgid="6802274503171644414">"초대를 수락했습니다."</string>
+    <string name="message_view_invite_toast_maybe" msgid="8547454326090527202">"이 초대에 \'미정\'으로 응답했습니다."</string>
+    <string name="message_view_invite_toast_no" msgid="1842341256942784143">"초대를 거절했습니다."</string>
+    <string name="message_view_show_details" msgid="6287415596441037095">"세부정보 표시"</string>
+    <string name="message_view_message_details_dialog_title" msgid="9042008615386883449">"메일 세부정보"</string>
+    <string name="attachment_info_dialog_default_title" msgid="4995755709689009622">"첨부파일 정보"</string>
+    <string name="attachment_info_dialog_wifi_title" msgid="3174350153882915382">"Wi-Fi 연결 필요"</string>
+    <string name="attachment_info_wifi_settings" msgid="96432970927503597">"Wi-Fi 설정"</string>
+    <string name="attachment_info_application_settings" msgid="4124655487276125596">"앱 설정"</string>
+    <string name="attachment_info_unknown" msgid="8342655396805943320">"첨부파일을 열 수 없습니다."</string>
+    <string name="attachment_info_malware" msgid="6576029010855055528">"이러한 유형의 첨부파일에는 악성 소프트웨어가 포함되어 있을 수 있으므로 파일을 저장하거나 열 수 없습니다."</string>
+    <string name="attachment_info_policy" msgid="3560422300127587508">"계정의 보안 정책으로 인해 이 첨부파일을 저장하거나 열 수 없습니다."</string>
+    <string name="attachment_info_wifi_only" msgid="1481120960014563617">"이 첨부파일은 너무 커서 모바일 네트워크를 통해 다운로드할 수 없습니다. Wi-Fi 네트워크에 연결되면 다운로드할 수 있습니다."</string>
+    <string name="attachment_info_no_intent" msgid="8139209405745777924">"이 첨부파일을 열 수 있는 앱이 설치되어 있지 않습니다. Android 마켓에서 적절한 앱을 다운로드하세요."</string>
+    <string name="attachment_info_sideload_disabled" msgid="3270731101769840006">"이 첨부파일은 앱입니다. 설치하기 전에 설정 &gt; 앱에서 알 수 없는 출처를 확인해야 합니다."</string>
+    <string name="attachment_info_apk_install_disabled" msgid="2817790592227462682">"이메일에서 직접 앱을 설치할 수 없습니다. 먼저 이 앱을 저장한 다음 다운로드 앱을 사용하여 설치하세요."</string>
+    <string name="attachment_not_found" msgid="7155322700141145123">"첨부파일을 다운로드할 수 없습니다."</string>
+    <string name="message_decode_error" msgid="5016042255170947834">"메일을 디코딩하는 동안 오류가 발생했습니다."</string>
+    <string name="eml_view_title" msgid="8827210108543430336">"<xliff:g id="FILENAME">%s</xliff:g> 보기"</string>
+    <string name="message_delete_dialog_title" msgid="6603370107217227252"></string>
+  <plurals name="message_delete_confirm">
+    <item quantity="one" msgid="3799616435056423256">"이 메일을 삭제하시겠습니까?"</item>
+    <item quantity="other" msgid="4437637377522896262">"이 메일을 삭제하시겠습니까?"</item>
+  </plurals>
+  <plurals name="message_deleted_toast">
+    <item quantity="one" msgid="710742672464447084">"메일을 삭제했습니다."</item>
+    <item quantity="other" msgid="6574961322865652255">"메일을 삭제했습니다."</item>
+  </plurals>
+    <string name="message_discarded_toast" msgid="3891461729325584026">"메일을 삭제했습니다."</string>
+    <string name="message_saved_toast" msgid="8443125659172627665">"메일이 임시보관함에 저장되었습니다."</string>
+    <string name="message_view_display_attachment_toast" msgid="7714482237896346836">"첨부파일을 표시할 수 없습니다."</string>
+    <string name="message_view_load_attachment_failed_toast" msgid="8605967295095023587">"첨부파일 \'<xliff:g id="FILENAME">%s</xliff:g>\'을(를) 로드하지 못했습니다."</string>
+    <string name="message_view_parse_message_toast" msgid="8830378966553031281">"메일을 여는 중…"</string>
+  <plurals name="message_moved_toast">
+    <item quantity="one" msgid="3098493230185412871">"메일 <xliff:g id="NUM_MESSAGE">%1$d</xliff:g>개가 <xliff:g id="MAILBOX_NAME">%2$s</xliff:g>(으)로 이동됨"</item>
+    <item quantity="other" msgid="2286739630865943494">"메일 <xliff:g id="NUM_MESSAGE">%1$d</xliff:g>개가 <xliff:g id="MAILBOX_NAME">%2$s</xliff:g>(으)로 이동됨"</item>
+  </plurals>
+    <string name="forward_download_failed_ticker" msgid="6176608320359303255">"하나 이상의 첨부파일을 전달하지 못했습니다."</string>
+    <string name="forward_download_failed_title" msgid="6139701848515572511">"첨부파일을 전달하지 못했습니다."</string>
+    <string name="login_failed_ticker" msgid="5749227022559285302">"<xliff:g id="ACCOUNT_NAME">%s</xliff:g>에 로그인하지 못했습니다."</string>
+    <string name="login_failed_title" msgid="7624349996212476176">"로그인하지 못했습니다."</string>
+  <plurals name="message_view_attachment_bytes">
+    <item quantity="one" msgid="8914124732074848509">"<xliff:g id="SIZE_IN_BYTES">%d</xliff:g>B"</item>
+    <item quantity="other" msgid="4613385949384337840">"<xliff:g id="SIZE_IN_BYTES">%d</xliff:g>B"</item>
+  </plurals>
+  <plurals name="message_view_attachment_kilobytes">
+    <item quantity="one" msgid="869981846437074463">"<xliff:g id="SIZE_IN_KILOBYTES">%d</xliff:g>KB"</item>
+    <item quantity="other" msgid="8869993299924901593">"<xliff:g id="SIZE_IN_KILOBYTES">%d</xliff:g>KB"</item>
+  </plurals>
+  <plurals name="message_view_attachment_megabytes">
+    <item quantity="one" msgid="7527095670565758434">"<xliff:g id="SIZE_IN_MEGABYTES">%d</xliff:g>MB"</item>
+    <item quantity="other" msgid="4365876866570165282">"<xliff:g id="SIZE_IN_MEGABYTES">%d</xliff:g>MB"</item>
+  </plurals>
+  <plurals name="message_view_attachment_gigabytes">
+    <item quantity="one" msgid="6261986598249539093">"<xliff:g id="SIZE_IN_GIGABYTES">%d</xliff:g>GB"</item>
+    <item quantity="other" msgid="1041353825053598633">"<xliff:g id="SIZE_IN_GIGABYTES">%d</xliff:g>GB"</item>
+  </plurals>
+    <string name="message_view_move_to_newer" msgid="2190862552581773765">"다음"</string>
+    <string name="message_view_move_to_older" msgid="4993043091356700890">"이전"</string>
+    <string name="message_list_subject_snippet_divider" msgid="1783589062530679520">" — "</string>
+    <string name="account_setup_basics_title" msgid="3578333196594678422">"계정 설정"</string>
+    <string name="account_setup_basics_exchange_title" msgid="1147638872869594157">"Exchange 계정 추가"</string>
+    <string name="account_setup_basics_exchange_title_alternate" msgid="4980422714586153809">"Exchange ActiveSync 계정 추가"</string>
+    <string name="account_setup_basics_headline" msgid="6726590205905464015">"이메일 계정"</string>
+    <string name="accounts_welcome" msgid="1491126253077950685">"간단한 절차만으로 대부분의 계정에 대해 이메일을 설정할 수 있습니다."</string>
+    <string name="accounts_welcome_exchange" msgid="4432917203403596617">"간단한 절차만으로 Exchange 계정을 설정할 수 있습니다."</string>
+    <string name="accounts_welcome_exchange_alternate" msgid="1319376442032224845">"간단한 절차만으로 Exchange ActiveSync 계정을 설정할 수 있습니다."</string>
+    <string name="account_setup_basics_email_label" msgid="3454164053624112047">"이메일 주소"</string>
+    <string name="account_setup_basics_password_label" msgid="9133549799291519298">"비밀번호"</string>
+    <string name="account_setup_basics_default_label" msgid="5924790142029806711">"기본적으로 이 계정에서 이메일 전송"</string>
+    <string name="account_setup_basics_manual_setup_action" msgid="8053852205391155912">"수동 설정"</string>
+    <string name="account_setup_username_password_toast" msgid="3968270274727947460">"올바른 이메일 주소와 비밀번호를 입력하세요."</string>
+    <string name="account_duplicate_dlg_title" msgid="8089732986912704425">"중복 계정"</string>
+    <string name="account_duplicate_dlg_message_fmt" msgid="6447629283679935840">"이미 \'<xliff:g id="DUPLICATE">%s</xliff:g>\' 계정에 이 사용자 이름을 사용하고 있습니다."</string>
+    <string name="account_password_spaces_error" msgid="8928309156658903257">"비밀번호의 시작 또는 끝에 하나 이상의 공백 문자가 있습니다. 서버 중에는 공백이 포함된 비밀번호를 지원하지 않는 것이 많습니다."</string>
+    <string name="account_setup_check_settings_retr_info_msg" msgid="4121970450267725664">"계정 정보 검색 중..."</string>
+    <string name="account_setup_check_settings_check_incoming_msg" msgid="5356212700221438863">"받는 서버 설정 확인 중..."</string>
+    <string name="account_setup_check_settings_check_outgoing_msg" msgid="4033015234096725343">"발신 서버 설정 확인 중..."</string>
+    <string name="account_setup_names_title" msgid="8483517350241119291">"계정 설정"</string>
+    <string name="account_setup_names_headline" msgid="2413440250372658881">"계정이 설정되었으며 이메일을 사용할 수 있습니다."</string>
+    <string name="account_setup_names_account_name_label" msgid="8033895024273259196">"계정 이름 지정(선택사항)"</string>
+    <string name="account_setup_names_user_name_label" msgid="8967410178488604770">"이름(메일에 표시)"</string>
+    <string name="account_setup_names_user_name_empty_error" msgid="6791427018325367364">"이 입력란은 비워 둘 수 없습니다."</string>
+    <string name="account_setup_account_type_title" msgid="7156551693961182124">"계정 설정"</string>
+    <string name="account_setup_account_type_headline" msgid="3574102329184831086">"계정 유형"</string>
+    <string name="account_setup_account_type_instructions" msgid="114515540798408760">"계정 유형이 무엇입니까?"</string>
+    <string name="account_setup_incoming_title" msgid="6796626791039136005">"계정 설정"</string>
+    <string name="account_setup_incoming_headline" msgid="6183711037633407184">"수신 서버 설정"</string>
+    <string name="account_setup_incoming_username_label" msgid="5700581386104070302">"사용자 이름"</string>
+    <string name="account_setup_incoming_password_label" msgid="6365327603172559859">"비밀번호"</string>
+    <string name="account_setup_incoming_pop_server_label" msgid="4917504440057879152">"POP3 서버"</string>
+    <string name="account_setup_incoming_imap_server_label" msgid="8685076830847734322">"IMAP 서버"</string>
+    <string name="account_setup_incoming_port_label" msgid="8214738923690447796">"포트"</string>
+    <string name="account_setup_incoming_security_label" msgid="2110260791086007424">"보안 유형"</string>
+    <string name="account_setup_incoming_security_none_label" msgid="8300169413118264895">"없음"</string>
+    <string name="account_setup_incoming_security_ssl_trust_certificates_label" msgid="6151855090123117538">"SSL/TLS(모든 인증서 수락)"</string>
+    <string name="account_setup_incoming_security_ssl_label" msgid="2798501138420163861">"SSL/TLS"</string>
+    <string name="account_setup_incoming_security_tls_trust_certificates_label" msgid="6149084428423662620">"STARTTLS(모든 인증서 수락)"</string>
+    <string name="account_setup_incoming_security_tls_label" msgid="6573498431821879660">"STARTTLS"</string>
+    <string name="account_setup_incoming_delete_policy_label" msgid="9213590134693857912">"서버에서 이메일 삭제"</string>
+    <string name="account_setup_incoming_delete_policy_never_label" msgid="3222897501875871041">"안함"</string>
+    <string name="account_setup_incoming_delete_policy_delete_label" msgid="222216840911785631">"받은편지함에서 삭제할 때"</string>
+    <string name="account_setup_incoming_imap_path_prefix_label" msgid="401167247072926810">"IMAP 경로 접두사"</string>
+    <string name="account_setup_incoming_imap_path_prefix_hint" msgid="9190845919067906033">"선택사항"</string>
+    <string name="account_setup_outgoing_title" msgid="7208495965665711539">"계정 설정"</string>
+    <string name="account_setup_outgoing_headline" msgid="2025001060935366394">"발신 서버 설정"</string>
+    <string name="account_setup_outgoing_smtp_server_label" msgid="6035137446691195177">"SMTP 서버"</string>
+    <string name="account_setup_outgoing_port_label" msgid="7573207437835827876">"포트"</string>
+    <string name="account_setup_outgoing_security_label" msgid="911398071120720589">"보안 유형"</string>
+    <string name="account_setup_outgoing_require_login_label" msgid="6371514297854287948">"로그인 필요"</string>
+    <string name="account_setup_outgoing_username_label" msgid="3309680794731596981">"사용자 이름"</string>
+    <string name="account_setup_outgoing_password_label" msgid="227844585493317550">"비밀번호"</string>
+    <string name="account_setup_exchange_title" msgid="396004732514751781">"계정 설정"</string>
+    <string name="account_setup_exchange_headline" msgid="6099049671599242131">"서버 설정"</string>
+    <string name="account_setup_exchange_server_label" msgid="795137797983360826">"서버"</string>
+    <string name="account_setup_exchange_username_label" msgid="6517176180828983060">"도메인\\사용자 이름"</string>
+    <string name="account_setup_exchange_ssl_label" msgid="6704105469083211236">"보안 연결(SSL) 사용"</string>
+    <string name="account_setup_exchange_trust_certificates_label" msgid="6232880757633882678">"모든 SSL 인증서 수락"</string>
+    <string name="account_setup_exchange_certificate_title" msgid="8473793588405277962">"클라이언트 인증서"</string>
+    <string name="account_setup_exchange_select_certificate" msgid="1536103662037268683">"선택"</string>
+    <string name="account_setup_exchange_use_certificate" msgid="8690682770083161349">"클라이언트 인증서 사용"</string>
+    <string name="account_setup_exchange_remove_certificate" msgid="5633249155510301766">"삭제"</string>
+    <string name="account_setup_exchange_no_certificate" msgid="1119542961954780872">"선택 취소"</string>
+    <string name="account_setup_exchange_device_id_label" msgid="1646827333223157658">"휴대기기 ID"</string>
+    <string name="account_setup_options_title" msgid="9016600767888846051">"계정 설정"</string>
+    <string name="account_setup_options_headline" msgid="4181274232835368085">"계정 옵션"</string>
+    <string name="account_setup_options_mail_check_frequency_label" msgid="4824859792882810053">"받은편지함 확인 빈도"</string>
+    <string name="account_setup_options_mail_check_frequency_never" msgid="287951859480505416">"안함"</string>
+    <string name="account_setup_options_mail_check_frequency_push" msgid="5934525907736008673">"자동(푸시)"</string>
+    <string name="account_setup_options_mail_check_frequency_5min" msgid="6388939895878539307">"5분마다"</string>
+    <string name="account_setup_options_mail_check_frequency_10min" msgid="5344463157247877480">"10분마다"</string>
+    <string name="account_setup_options_mail_check_frequency_15min" msgid="5052776740089741793">"15분마다"</string>
+    <string name="account_setup_options_mail_check_frequency_30min" msgid="1097088928685931864">"30분마다"</string>
+    <string name="account_setup_options_mail_check_frequency_1hour" msgid="3767715356039692899">"1시간마다"</string>
+    <string name="account_setup_options_default_label" msgid="8869166381331276697">"기본적으로 이 계정에서 이메일 전송"</string>
+    <string name="account_setup_options_notify_label" msgid="1247525794828820038">"이메일이 오면 알림"</string>
+    <string name="account_setup_options_sync_contacts_label" msgid="7467467090023434271">"이 계정에서 연락처를 동기화합니다."</string>
+    <string name="account_setup_options_sync_calendar_label" msgid="3195979658426293931">"이 계정에서 캘린더를 동기화합니다."</string>
+    <string name="account_setup_options_sync_email_label" msgid="3930927721878987383">"이메일 동기화"</string>
+    <string name="account_setup_options_background_attachments_label" msgid="5247749298276451846">"Wi-Fi에 연결되면 자동으로 첨부파일 다운로드"</string>
+    <string name="account_setup_failed_dlg_title" msgid="9083263347962940552">"완료할 수 없음"</string>
+    <string name="account_setup_options_mail_window_label" msgid="7582247646138987328">"동기화할 일 수"</string>
+    <string name="account_setup_options_mail_window_auto" msgid="4188895354366183790">"자동"</string>
+    <string name="account_setup_options_mail_window_1day" msgid="3965715241135811407">"하루"</string>
+    <string name="account_setup_options_mail_window_3days" msgid="736181102295878114">"3일"</string>
+    <string name="account_setup_options_mail_window_1week" msgid="5639718031108023741">"1주"</string>
+    <string name="account_setup_options_mail_window_2weeks" msgid="4567049268124213035">"2주"</string>
+    <string name="account_setup_options_mail_window_1month" msgid="5846359669750047081">"1달"</string>
+    <string name="account_setup_options_mail_window_all" msgid="5372861827683632364">"전체"</string>
+    <string name="account_setup_options_mail_window_default" msgid="8321351926520165832">"계정 기본값 사용"</string>
+    <string name="account_setup_failed_dlg_auth_message" msgid="42827150104879570">"사용자 이름 또는 비밀번호가 잘못되었습니다."</string>
+    <string name="account_setup_failed_dlg_auth_message_fmt" msgid="8598560266430207606">"사용자 이름 또는 비밀번호가 잘못되었습니다."\n"(<xliff:g id="ERROR">%s</xliff:g>)"</string>
+    <string name="account_setup_failed_dlg_certificate_message" msgid="3836152264696108805">"서버에 안전하게 연결할 수 없습니다."</string>
+    <string name="account_setup_failed_dlg_certificate_message_fmt" msgid="2121921642915593041">"서버에 안전하게 연결할 수 없습니다."\n"(<xliff:g id="ERROR">%s</xliff:g>)"</string>
+    <string name="account_setup_failed_certificate_required" msgid="1280569002588325367">"클라이언트 인증서가 필요합니다. 클라이언트 인증서로 서버에 연결하시겠습니까?"</string>
+    <string name="account_setup_failed_certificate_inaccessible" msgid="7245835883180762722">"인증서가 잘못되었거나 액세스할 수 없습니다."</string>
+    <string name="account_setup_failed_check_credentials_message" msgid="222908719765968691">"서버에서 오류를 발견했습니다. 사용자 이름과 비밀번호를 확인한 다음 다시 시도해 주세요."</string>
+    <string name="account_setup_failed_dlg_server_message" msgid="4942810054116129684">"서버에 연결할 수 없습니다."</string>
+    <string name="account_setup_failed_dlg_server_message_fmt" msgid="2525425638303883232">"서버에 연결할 수 없습니다."\n"(<xliff:g id="ERROR">%s</xliff:g>)"</string>
+    <string name="account_setup_failed_tls_required" msgid="307030406688611327">"TLS가 필요하지만 서버에서 지원하지 않습니다."</string>
+    <string name="account_setup_failed_auth_required" msgid="6799839150250217566">"인증 방법이 서버에서 지원되지 않습니다."</string>
+    <string name="account_setup_failed_security" msgid="925820957665764964">"보안 오류 때문에 서버에 연결하지 못했습니다."</string>
+    <string name="account_setup_failed_ioerror" msgid="7802604687451830378">"서버에 연결할 수 없습니다."</string>
+    <string name="account_setup_failed_protocol_unsupported" msgid="4607759927226943569">"입력한 서버 주소가 잘못되었거나, 서버에 이메일에서 지원하지 않는 프로토콜 버전이 필요합니다."</string>
+    <string name="account_setup_failed_access_denied" msgid="6835358740050287051">"서버와 동기화할 권한이 없습니다. 자세한 내용은 서버 관리자에게 문의해 주세요."</string>
+    <string name="account_setup_security_required_title" msgid="1850321535870447468">"원격 보안 관리"</string>
+    <string name="account_setup_security_policies_required_fmt" msgid="5410714107656671761">"<xliff:g id="SERVER">%s</xliff:g> 서버가 Android 기기의 몇 가지 보안 기능을 원격으로 제어할 수 있도록 해야 합니다. 이 계정 설정을 완료하시겠습니까?"</string>
+    <string name="account_setup_failed_security_policies_unsupported" msgid="3210264746877120355">"이 서버는 <xliff:g id="ERROR">%s</xliff:g> 등 Android 기기가 지원하지 않는 보안 기능을 필요로 합니다."</string>
+    <string name="account_setup_username_uneditable_error" msgid="1618869759801584109">"계정 사용자 이름을 변경할 수 없습니다. 다른 사용자 이름으로 계정을 추가하려면 \'계정 추가\'를 터치하세요."</string>
+    <string name="disable_admin_warning" msgid="6196985268695592382">"경고: 이메일 앱의 기기 관리 권한을 비활성화하면 관련된 모든 이메일 계정 및 이메일, 주소록, 캘린더 일정 및 기타 데이터가 모두 삭제됩니다."</string>
+    <string name="account_security_dialog_title" msgid="430041952584831904">"보안 업데이트"</string>
+    <string name="account_security_dialog_content_fmt" msgid="8843806143923278214">"<xliff:g id="ACCOUNT">%s</xliff:g>의 보안 설정을 업데이트해야 합니다."</string>
+    <string name="security_notification_ticker_fmt" msgid="1108023476125276507">"\'<xliff:g id="ACCOUNT">%s</xliff:g>\' 계정을 사용하려면 보안 설정을 업데이트해야 합니다."</string>
+    <string name="security_notification_content_title" msgid="3352841884304076235">"보안 업데이트가 필요합니다."</string>
+    <string name="account_security_title" msgid="3511543138560418587">"기기 보안"</string>
+    <string name="account_security_policy_explanation_fmt" msgid="6932627044314460766">"<xliff:g id="SERVER">%s</xliff:g> 서버가 Android 기기의 몇 가지 보안 기능을 원격으로 제어할 수 있도록 해야 합니다."</string>
+    <string name="account_setup_failed_dlg_edit_details_action" msgid="5355993309841479360">"세부정보 수정"</string>
+    <string name="password_expire_warning_ticker_fmt" msgid="2459977229180023773">"\'<xliff:g id="ACCOUNT">%s</xliff:g>\'의 화면 잠금 PIN 또는 비밀번호를 변경해야 합니다."</string>
+    <string name="password_expire_warning_content_title" msgid="7174669014074849304">"화면 잠금 비밀번호가 곧 만료될 예정입니다."</string>
+    <string name="password_expired_ticker" msgid="4230570412974108968">"화면 잠금 PIN 또는 비밀번호가 만료되었습니다."</string>
+    <string name="password_expired_content_title" msgid="4349518706602252979">"화면 잠금 비밀번호가 만료되었습니다."</string>
+    <string name="password_expire_warning_dialog_title" msgid="1687074175399798189">"화면 잠금 비밀번호가 곧 만료될 예정입니다."</string>
+    <string name="password_expire_warning_dialog_content_fmt" msgid="4595246020880351045">"곧 화면 잠금 PIN 또는 비밀번호를 변경해야 하며, 변경하지 않으면 <xliff:g id="ACCOUNT">%s</xliff:g>의 데이터가 지워집니다. 지금 변경하시겠습니까?"</string>
+    <string name="password_expired_dialog_title" msgid="2186547998125938084">"화면 잠금 비밀번호가 만료되었습니다."</string>
+    <string name="password_expired_dialog_content_fmt" msgid="5982207349002500211">"<xliff:g id="ACCOUNT">%s</xliff:g>의 데이터가 기기에서 지워졌습니다. 화면 잠금 PIN 또는 비밀번호를 변경하면 데이터를 복구할 수 있습니다. 지금 변경하시겠습니까?"</string>
+    <string name="account_settings_exit_server_settings" msgid="8006323251094711431">"저장되지 않은 변경사항을 삭제하시겠습니까?"</string>
+    <string name="account_settings_login_dialog_title" msgid="4024422579146302775">"로그인하지 못했습니다."</string>
+    <string name="account_settings_login_dialog_content_fmt" msgid="3492735234999710234">"<xliff:g id="ACCOUNT">%s</xliff:g>의 사용자 이름 또는 비밀번호가 잘못되었습니다. 지금 업데이트하시겠습니까?"</string>
+    <string name="account_settings_default_label" msgid="3575963379680943640">"기본 계정"</string>
+    <string name="account_settings_default_summary" msgid="1531901438624688482">"기본적으로 이 계정에서 이메일 전송"</string>
+    <string name="account_settings_background_attachments_label" msgid="2980317599840958688">"첨부파일 다운로드"</string>
+    <string name="account_settings_background_attachments_summary" msgid="5954218549226189376">"Wi-Fi를 통해 최근 메일의 첨부파일을 자동으로 다운로드합니다."</string>
+    <string name="account_settings_notify_label" msgid="1630001017303007974">"이메일 알림"</string>
+    <string name="account_settings_summary" msgid="8403582255413830007">"빈도 및 알림 등을 동기화합니다."</string>
+    <string name="account_settings_notify_summary" msgid="6301122709602752038">"이메일이 오면 시스템 바에서 알림"</string>
+    <string name="account_settings_mail_check_frequency_label" msgid="8271462919214560616">"받은편지함 확인 빈도"</string>
+    <string name="account_settings_incoming_label" msgid="7858928031806297542">"수신 설정"</string>
+    <string name="account_settings_incoming_summary" msgid="2923044634831881068">"사용자 이름, 비밀번호 및 기타 받는 서버 설정"</string>
+    <string name="account_settings_outgoing_label" msgid="4464829249980026745">"발신 설정"</string>
+    <string name="account_settings_outgoing_summary" msgid="3572093624332724311">"사용자 이름, 비밀번호 및 기타 보내는 서버 설정"</string>
+    <string name="account_settings_description_label" msgid="8894815221204511715">"계정 이름"</string>
+    <string name="account_settings_name_label" msgid="8186406122590008449">"이름"</string>
+    <string name="account_settings_signature_label" msgid="4091969938785803201">"서명"</string>
+    <string name="account_settings_edit_quick_responses_label" msgid="3106019627675996480">"빠른 응답"</string>
+    <string name="account_settings_edit_quick_responses_summary" msgid="5284435342418252369">"이메일을 작성할 때 자주 사용하는 텍스트 수정"</string>
+    <string name="account_settings_signature_hint" msgid="7262183168962779403">"보내는 메일에 텍스트 첨부"</string>
+    <string name="account_settings_notifications" msgid="1042620094281375043">"알림 설정"</string>
+    <string name="account_settings_data_usage" msgid="6669107430575866736">"데이터 사용"</string>
+    <string name="edit_quick_response_dialog" msgid="4322494050816995390">"빠른 응답 수정"</string>
+    <string name="save_action" msgid="1988862706623227093">"저장"</string>
+    <string name="account_settings_sync_contacts_enable" msgid="1369272986009573218">"연락처 동기화"</string>
+    <string name="account_settings_sync_contacts_summary" msgid="816919452270997919">"이 계정의 주소록을 동기화합니다."</string>
+    <string name="account_settings_sync_calendar_enable" msgid="3039820725699412208">"캘린더 동기화"</string>
+    <string name="account_settings_sync_calendar_summary" msgid="5241995538395965804">"이 계정의 캘린더를 동기화합니다."</string>
+    <string name="account_settings_sync_email_enable" msgid="3754115565685222477">"이메일 동기화"</string>
+    <string name="account_settings_sync_email_summary" msgid="262964076412310990">"이 계정의 이메일을 동기화합니다."</string>
+    <string name="account_settings_vibrate_when_label" msgid="708477308761702671">"진동"</string>
+    <string name="account_settings_vibrate_when_summary" msgid="3991584445166247189">"이메일이 오면 진동도 함께 울림"</string>
+    <string name="account_settings_vibrate_when_always" msgid="6739506816960483174">"항상"</string>
+    <string name="account_settings_vibrate_when_silent" msgid="6417076436551648924">"무음 시에만"</string>
+    <string name="account_settings_vibrate_when_never" msgid="3759680093309511614">"안함"</string>
+    <string name="account_settings_vibrate_when_dlg_title" msgid="308167729046312952">"진동"</string>
+    <string name="account_settings_ringtone" msgid="8229878374785575207">"벨소리 선택"</string>
+    <string name="account_settings_servers" msgid="4925493817981624242">"서버 설정"</string>
+    <string name="account_delete_dlg_title" msgid="6806087520856396608">"계정 삭제"</string>
+    <string name="account_delete_dlg_instructions_fmt" msgid="8236846322040271280">"<xliff:g id="ACCOUNT">%s</xliff:g> 계정이 이메일에서 삭제됩니다."</string>
+    <string name="account_settings_category_delete_account" msgid="5128545184407925226">"계정 삭제"</string>
+    <string name="account_settings_delete_account_label" msgid="4889158717472601718">"계정 삭제"</string>
+    <string name="mailbox_settings_activity_title" msgid="4705845931573373274">"동기화 옵션"</string>
+    <string name="mailbox_settings_activity_title_with_mailbox" msgid="6485481250424219240">"동기화 옵션(<xliff:g id="MAILBOXX_NAME">%s</xliff:g>)"</string>
+    <string name="mailbox_preferences_header" msgid="9077316556563252246">"동기화 설정"</string>
+    <string name="mailbox_settings_mailbox_check_frequency_label" msgid="1246075442689328906">"주파수 확인"</string>
+    <string name="mailbox_settings_mailbox_sync_window_label" msgid="2957945231022052672">"동기화할 일 수"</string>
+    <string name="account_shortcut_picker_name" msgid="1994861845225243190">"이메일 계정"</string>
+    <string name="account_shortcut_picker_title" msgid="1039929224016048015">"계정 선택"</string>
+    <string name="mailbox_shortcut_picker_title" msgid="4152973927804882131">"폴더 선택"</string>
+    <string name="toast_account_not_found" msgid="8144242451730692816">"계정을 찾을 수 없습니다. 삭제되었을 수 있습니다."</string>
+    <string name="toast_mailbox_not_found" msgid="4960014581292378895">"폴더를 찾을 수 없습니다. 삭제되었을 수 있습니다."</string>
+    <string name="provider_note_live" msgid="2995297671709325333">"일부 \'Plus\' 계정에만 이 프로그램에 연결할 수 있는 POP 액세스 권한이 있습니다. 올바른 이메일 주소와 비밀번호를 입력해도 로그인이 되지 않으면 유료 \'Plus\' 계정이 없기 때문일 수 있습니다. 이러한 이메일 계정에 액세스하려면 웹브라우저를 실행하세요."</string>
+    <string name="provider_note_t_online" msgid="1630642061431427894">"이메일 계정을 설정하기 전에 T-Online 웹사이트를 방문하고 POP3 이메일 액세스용 비밀번호를 만드세요."</string>
+    <string name="exchange_name" msgid="1190783774800310346">"Exchange 계정"</string>
+    <string name="exchange_name_alternate" msgid="5772529644749041052">"Microsoft Exchange ActiveSync"</string>
+    <string name="system_account_create_failed" msgid="3673792980526246177">"계정을 만들지 못했습니다. 다시 시도해 주세요."</string>
+    <string name="device_admin_label" msgid="8680224994637869414">"이메일"</string>
+    <string name="device_admin_description" msgid="426727923791430306">"서버별 보안 정책 사용"</string>
+    <string name="gal_searching_fmt" msgid="6140450617663543464">"<xliff:g id="DOMAIN">%s</xliff:g> 검색 중..."</string>
+  <plurals name="gal_completed_fmt">
+    <item quantity="one" msgid="7496785524617037642">"<xliff:g id="DOMAIN">%2$s</xliff:g>의 검색결과 <xliff:g id="RESULTS">%1$d</xliff:g>개"</item>
+    <item quantity="other" msgid="7816121892960632123">"<xliff:g id="DOMAIN">%2$s</xliff:g>의 검색결과 <xliff:g id="RESULTS">%1$d</xliff:g>개"</item>
+  </plurals>
+    <string name="settings_activity_title" msgid="5185915603716333904">"설정"</string>
+    <string name="header_label_general_preferences" msgid="9204600297009680176">"일반"</string>
+    <string name="category_general_preferences" msgid="2742423840964045801">"애플리케이션"</string>
+    <string name="general_preference_auto_advance_label" msgid="213945004511666631">"자동 진행"</string>
+    <string name="general_preference_auto_advance_summary" msgid="6483439980032715119">"메일을 삭제한 다음 표시할 화면 선택"</string>
+    <string name="general_preference_auto_advance_dialog_title" msgid="5405052109452503909">"이동"</string>
+    <string name="general_preference_auto_advance_newer" msgid="1336720027570509885">"다음 메일"</string>
+    <string name="general_preference_auto_advance_older" msgid="8273143493185128646">"이전 메일"</string>
+    <string name="general_preference_auto_advance_message_list" msgid="7834069275897767359">"메일 목록"</string>
+    <string name="general_preference_text_zoom_label" msgid="4021955890499565713">"글꼴 크기"</string>
+  <string-array name="general_preference_text_zoom_summary_array">
+    <item msgid="4693576184223089069">"아주 작은 텍스트"</item>
+    <item msgid="4415205108584620118">"작은 텍스트"</item>
+    <item msgid="4550219696381691112">"보통 크기의 텍스트"</item>
+    <item msgid="6227813549949219991">"큰 텍스트"</item>
+    <item msgid="1197917420815786571">"아주 큰 텍스트"</item>
+  </string-array>
+    <string name="general_preference_text_zoom_dialog_title" msgid="7446841758331151643">"글꼴 크기"</string>
+    <string name="general_preference_text_zoom_tiny" msgid="2948174583663330937">"아주 작게"</string>
+    <string name="general_preference_text_zoom_small" msgid="6618520238223144876">"작게"</string>
+    <string name="general_preference_text_zoom_normal" msgid="1765540147950855479">"보통"</string>
+    <string name="general_preference_text_zoom_large" msgid="6874323663381586918">"크게"</string>
+    <string name="general_preference_text_zoom_huge" msgid="4270503132355963031">"아주 크게"</string>
+    <string name="general_preference_reply_all_label" msgid="7806833609810003510">"전체답장"</string>
+    <string name="general_preference_reply_all_summary" msgid="9191932552604733245">"메일 답장 시, \'전체답장\'을 기본값으로 설정"</string>
+    <string name="general_preferences_clear_trusted_senders_title" msgid="507988226277210305">"사진을 표시하도록 요청"</string>
+    <string name="general_preferences_clear_trusted_senders_summary" msgid="2648501128162793879">"메일의 사진이 자동으로 표시되지 않음"</string>
+    <string name="trusted_senders_cleared" msgid="4762002183756251723">"\'이미지 표시\'가 초기화되었습니다."</string>
+    <string name="position_of_count" msgid="7989353140376877792">"<xliff:g id="ID_1">%1$d</xliff:g>/<xliff:g id="ID_2">%2$s</xliff:g>"</string>
+    <string name="waitinf_for_sync_message_1" msgid="1393719303955128036">"동기화 대기 중"</string>
+    <string name="waitinf_for_sync_message_2" msgid="5656175205790694016">"이메일이 곧 표시됩니다."</string>
+    <string name="widget_other_views" msgid="4988574907386539499">"변경하려면 아이콘을 터치합니다."</string>
+    <string name="widget_all_mail" msgid="4352573990283094963">"모든 받은편지함"</string>
+    <string name="widget_unread" msgid="4404711399009077833">"읽지않음"</string>
+    <string name="widget_starred" msgid="8290352707134011791">"별표편지함"</string>
+    <string name="widget_loading" msgid="2340962056927255554">"로드 중..."</string>
+    <string name="widget_touch_to_configure" msgid="7062039013915225323">"설정하려면 터치하세요."</string>
+    <string name="widget_no_accounts" msgid="2412482205591224408">"아직 이메일 계정을 설정하지 않았습니다."</string>
+    <string name="more_than_999" msgid="8704425397397918798">"999+"</string>
+    <string name="search_hint" msgid="2200412192574686497">"이메일 검색"</string>
+    <string name="search_mailbox_hint" msgid="7854987729678942790">"<xliff:g id="ID_1">%1$s</xliff:g> 검색"</string>
+    <string name="search_header_text_fmt" msgid="3857004638127418247">"\'<xliff:g id="ID_1">%1$s</xliff:g>\'에 대한 검색결과"</string>
+    <string name="search_slow_warning_title" msgid="2826118321880530239">"결과를 기다리는 중"</string>
+    <string name="search_slow_warning_message" msgid="8494483410797387903">"일부 서버는 시간이 오래 걸릴 수 있습니다."</string>
+    <string name="action_bar_mailbox_list_title" msgid="7484457755531286333">"폴더"</string>
+    <string name="require_manual_sync_message" msgid="7777357288642785955">"계정 백그라운드 동기화가 로밍하는 동안 사용 중지됩니다."</string>
+</resources>

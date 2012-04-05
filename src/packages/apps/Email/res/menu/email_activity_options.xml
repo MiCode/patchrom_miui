@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- Email activity menu options for the phone -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/compose"
+        android:orderInCategory="100"
+        android:alphabeticShortcut="c"
+        android:title="@string/compose_action"
+        android:icon="@drawable/ic_menu_compose_normal_holo_light"
+        android:showAsAction="ifRoom"
+    />
+    <item
+        android:id="@+id/search"
+        android:orderInCategory="200"
+        android:alphabeticShortcut="s"
+        android:title="@string/search_action"
+        android:icon="@drawable/ic_menu_search_holo_light"
+        android:showAsAction="ifRoom"
+    />
+    <item
+        android:id="@+id/show_all_mailboxes"
+        android:orderInCategory="300"
+        android:alphabeticShortcut="c"
+        android:title="@string/mailbox_list_account_selector_show_all_folders"
+        android:icon="@drawable/ic_menu_move_to_holo_light"
+        android:showAsAction="ifRoom"
+    />
+    <item
+        android:id="@+id/refresh"
+        android:orderInCategory="400"
+        android:alphabeticShortcut="r"
+        android:title="@string/refresh_action"
+        android:icon="@drawable/ic_menu_refresh_holo_light"
+        android:showAsAction="ifRoom"
+    />
+    <!-- Note the order; we want to show them to the right of delete/move -->
+    <item
+        android:id="@+id/newer"
+        android:orderInCategory="1500"
+        android:icon="@drawable/menu_item_newer"
+        android:showAsAction="always"
+        android:visible="false"
+    />
+    <item
+        android:id="@+id/older"
+        android:orderInCategory="1600"
+        android:icon="@drawable/menu_item_older"
+        android:showAsAction="always"
+        android:visible="false"
+    />
+    <item
+        android:id="@+id/mailbox_settings"
+        android:orderInCategory="2000"
+        android:title="@string/mailbox_settings_action"
+        android:icon="@android:drawable/ic_menu_preferences"
+    />
+    <item
+        android:id="@+id/account_settings"
+        android:orderInCategory="3000"
+        android:title="@string/settings_action"
+        android:icon="@android:drawable/ic_menu_preferences"
+    />
+</menu>

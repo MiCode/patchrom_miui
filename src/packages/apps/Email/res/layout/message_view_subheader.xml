@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- The expandable list of recipient addressese and date information at
+     the top of a message view -->
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Collapsed version -->
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/sub_header_contents_collapsed"
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:gravity="center_vertical"
+        >
+        <!-- To, Cc, Bcc addresses -->
+        <TextView
+            android:id="@+id/addresses"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="8dip"
+            android:singleLine="true"
+            android:ellipsize="end"
+            style="@style/message_view_text"
+            />
+        <TextView
+            android:id="@+id/datetime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dip"
+            android:singleLine="true"
+            style="@style/message_view_text"
+            />
+        <!--  Set proper background to reflect selected state -->
+        <ImageView
+            android:id="@+id/show_details"
+            android:src="@drawable/expander_open_holo_light"
+            android:layout_width="wrap_content"
+            android:layout_height="48dip"
+            android:layout_marginLeft="4dip"
+            android:scaleType="center"
+            android:background="?android:attr/selectableItemBackground"
+            />
+    </LinearLayout>
+
+    <!-- Expanded version -->
+    <FrameLayout
+        android:id="@+id/sub_header_contents_expanded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        >
+
+        <include layout="@layout/message_view_details" />
+
+        <!-- Overlay the collapse details icon.
+             The height here needs to match the height of the collapsed subheader -->
+        <ImageView
+            android:id="@+id/show_details"
+            android:src="@drawable/expander_close_holo_light"
+            android:layout_width="wrap_content"
+            android:layout_height="48dip"
+            android:layout_marginLeft="4dip"
+            android:scaleType="center"
+            android:layout_gravity="right"
+            />
+    </FrameLayout>
+
+</merge>
+
