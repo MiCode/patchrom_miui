@@ -212,7 +212,6 @@ public final class ShutdownThread extends Thread {
 
         AnimationDrawable animationDrawable= (AnimationDrawable)animationView.getDrawable();
         animationDrawable.start();
-        getCallStack(new Exception());
     }
 
     @MiuiHook(MiuiHookType.CHANGE_CODE)
@@ -470,18 +469,4 @@ public final class ShutdownThread extends Thread {
         Log.i(TAG, "Performing low-level shutdown...");
         Power.shutdown();
     }
-    
-    public static void getCallStack(Exception e) {
-        /*
-        StackTraceElement[] trace = e.getStackTrace();
-        if (trace == null || trace.length == 0) {
-            return -1;
-        }
-        return trace[0].getLineNumber();
-        */
-        e.printStackTrace();
-    }
 }
-
-
-
