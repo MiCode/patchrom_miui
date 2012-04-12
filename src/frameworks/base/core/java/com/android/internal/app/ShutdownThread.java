@@ -31,6 +31,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Handler;
 import android.os.Power;
 import android.os.PowerManager;
@@ -44,7 +45,11 @@ import android.os.storage.IMountShutdownObserver;
 
 import com.android.internal.telephony.ITelephony;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public final class ShutdownThread extends Thread {
     // constants
@@ -187,13 +192,27 @@ public final class ShutdownThread extends Thread {
     }
 
     @MiuiHook(MiuiHookType.NEW_METHOD)
-    private static void setMessage(ProgressDialog pd, Context context){
+    private static void createShutDownDialog(Context context){
+        Dialog bootMsgDialog = new Dialog(context, android.R.style.Theme_Holo_Light_NoActionBar_Fullscreen);
+        LayoutInflater layoutInflater = LayoutInflater.from(bootMsgDialog.getContext());
+        View view = layoutInflater.inflate(com.miui.internal.R.layout.boot_msg, null);
+        TextView msgText = (TextView)view.findViewById(com.miui.internal.R.id.boot_msg_title);
+        ImageView animationView = (ImageView)view.findViewById(com.miui.internal.R.id.boot_msg_animation);
         if (mReboot) {
-            pd.setMessage(context.getText(com.miui.internal.R.string.reboot_progress));
+            msgText.setText(com.miui.internal.R.string.reboot_progress);
         }
         else {
-            pd.setMessage(context.getText(com.android.internal.R.string.shutdown_progress));
+            msgText.setText(com.android.internal.R.string.shutdown_progress);
         }
+
+        bootMsgDialog.setContentView(view);
+        bootMsgDialog.setCancelable(false);
+        bootMsgDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_BOOT_PROGRESS);
+        bootMsgDialog.show();
+
+        AnimationDrawable animationDrawable= (AnimationDrawable)animationView.getDrawable();
+        animationDrawable.start();
+        getCallStack(new Exception());
     }
 
     @MiuiHook(MiuiHookType.CHANGE_CODE)
@@ -208,14 +227,14 @@ public final class ShutdownThread extends Thread {
 
         // throw up an indeterminate system dialog to indicate radio is
         // shutting down.
-        ProgressDialog pd = new ProgressDialog(context, AlertDialog.THEME_HOLO_LIGHT);
-        setMessage(pd, context);
+        ProgressDialog pd = new ProgressDialog(context);
+        pd.setTitle(context.getText(com.android.internal.R.string.power_off));
+        pd.setMessage(context.getText(com.android.internal.R.string.shutdown_progress));
         pd.setIndeterminate(true);
         pd.setCancelable(false);
         pd.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD_DIALOG);
 
-        pd.show();
-
+        createShutDownDialog(context);
         sInstance.mContext = context;
         sInstance.mPowerManager = (PowerManager)context.getSystemService(Context.POWER_SERVICE);
 
@@ -451,4 +470,18 @@ public final class ShutdownThread extends Thread {
         Log.i(TAG, "Performing low-level shutdown...");
         Power.shutdown();
     }
+    
+    public static void getCallStack(Exception e) {
+        /*
+        StackTraceElement[] trace = e.getStackTrace();
+        if (trace == null || trace.length == 0) {
+            return -1;
+        }
+        return trace[0].getLineNumber();
+        */
+        e.printStackTrace();
+    }
 }
+
+
+

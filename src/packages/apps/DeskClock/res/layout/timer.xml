@@ -2,9 +2,10 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+    android:gravity="center_horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/deskclock_bg">
+    android:background="@color/background">
     <com.android.deskclock.WatchDial
         android:id="@+id/watch_dial"
         android:background="@drawable/timer_watch_dial"
@@ -13,57 +14,86 @@
     <LinearLayout
         android:orientation="vertical"
         android:background="@drawable/timer_foot"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/timer_foot_width"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/timer_foot_margin_bottom">
-        <Button
+        android:gravity="bottom"
+        android:layout_marginBottom="@dimen/timer_foot_margin_bottom"
+        android:paddingBottom="@dimen/timer_foot_padding_bottom">
+        <LinearLayout
             android:id="@+id/start_timer"
-            style="@style/TimerStyleStartButton"
-            android:text="@string/start_up"
-            android:background="@drawable/btn_start"
-            android:layout_width="@dimen/timer_control_button_width"
+            android:background="@drawable/btn_bg_green"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:drawableLeft="@drawable/timer_start_up" />
+            android:gravity="center">
+            <TextView
+                android:textColor="@color/white"
+                style="@style/TimerButtonStyle"
+                android:text="@string/start_up"
+                android:drawableLeft="@drawable/ic_start_up" />
+        </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
             android:layout_gravity="center_horizontal"
-            android:layout_width="@dimen/timer_control_button_width"
-            android:layout_height="wrap_content">
-            <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <LinearLayout
                 android:id="@+id/cancel_timer"
-                style="@style/TimerButtonStyle"
-                android:text="@string/cancel"
-                android:textColor="@android:color/white"
-                android:background="@drawable/btn_cancel"
-                android:drawableLeft="@drawable/timer_stop"/>
-            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bg_yellow"
+                android:gravity="center">
+                <TextView
+                    style="@style/TimerButtonStyle"
+                    android:textColor="@color/white"
+                    android:text="@string/cancel"
+                    android:drawableLeft="@drawable/ic_stop"/>
+            </LinearLayout>
+            <LinearLayout
                 android:id="@+id/pause_timer"
-                style="@style/TimerButtonStyle"
-                android:text="@string/pause"
-                android:background="@drawable/btn_pause"
-                android:drawableLeft="@drawable/timer_pause"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bg"
+                android:gravity="center">
+                <TextView
+                    style="@style/TimerButtonStyle"
+                    android:text="@string/pause"
+                    android:drawableLeft="@drawable/ic_timer_pause"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/continue_timer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bg_green"
+                android:gravity="center">
+                <TextView
+                    style="@style/TimerButtonStyle"
+                    android:textColor="@color/white"
+                    android:text="@string/timer_continue"
+                    android:drawableLeft="@drawable/ic_continue"/>
+            </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="@dimen/timer_control_button_width"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/timer_ringtone_button_margin_top"
-            android:layout_marginBottom="@dimen/timer_ringtone_button_margin_bottom">
+            android:layout_marginTop="@dimen/timer_ringtone_button_margin_top">
             <LinearLayout
                 android:id="@+id/ringtone"
                 android:gravity="center"
                 android:background="@drawable/btn_ringtone"
                 android:clickable="true"
                 android:orientation="horizontal"
-                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_vertical">
                     <TextView
@@ -71,7 +101,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/remind_ringtone"
-                        android:textSize="@dimen/timer_button_text_size"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
                         android:layout_marginLeft="@dimen/timer_button_text_margin_left"/>
                     <TextView
                         android:id="@+id/txt_ringtone"
@@ -79,13 +109,14 @@
                         android:layout_marginTop="@dimen/timer_ringtone_text_margin_top"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:layout_marginLeft="@dimen/timer_button_text_margin_left"/>
                 </LinearLayout>
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/timer_image_arrow_right_margin"
-                    android:src="@miui:drawable/arrow_right" />
+                    android:layout_marginRight="@dimen/timer_image_right_margin"
+                    android:src="@drawable/ic_arrow" />
             </LinearLayout>
             <LinearLayout
                 android:gravity="center_vertical"
@@ -93,22 +124,24 @@
                 android:background="@drawable/btn_keepscreen"
                 android:orientation="horizontal"
                 android:clickable="true"
-                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
                 <TextView
                     android:textColor="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/keep_screen_on"
-                    android:textSize="@dimen/timer_button_text_size"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_marginLeft="@dimen/timer_button_text_margin_left"/>
                 <CheckBox
                     android:id="@+id/check_box"
                     android:clickable="false"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/checkbox_background"
+                    android:button="@drawable/ic_checkbox"
+                    android:layout_marginRight="@dimen/timer_image_right_margin"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

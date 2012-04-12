@@ -64,11 +64,25 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- place holder for captured photos, which are displayed in GLRootView -->
     <LinearLayout
         android:id="@+id/albumset_page_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/no_recent_album"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/albumset_page_drag_padding_left"
+        android:visibility="gone">
+        <TextView style="@style/AlbumSetPageNoRecentText"
+            android:text="@string/no_recent_album"/>
+        <ImageView android:id="@+id/no_recent_album_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:src="@drawable/no_recent_album"/>
     </LinearLayout>
 </LinearLayout>

@@ -12441,6 +12441,9 @@ public final class ActivityManagerService extends ActivityManagerNative
 
         if ((receivers != null && receivers.size() > 0)
                 || resultTo != null) {
+
+            ExtraActivityManagerService.adjustMediaButtonReceivers(receivers, getRunningAppProcesses(), intent.getAction());
+
             BroadcastRecord r = new BroadcastRecord(intent, callerApp,
                     callerPackage, callingPid, callingUid, requiredPermission,
                     receivers, resultTo, resultCode, resultData, map, ordered,

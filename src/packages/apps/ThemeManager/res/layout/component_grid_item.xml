@@ -1,20 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="wrap_content"
-    android:layout_width="wrap_content"
-    android:orientation="horizontal"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
     android:gravity="center_vertical"
-    >
-    <ImageView
-        android:id="@+id/item_image_button"
+    android:background="@drawable/component_item_bg">
+
+    <LinearLayout
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        />
+        android:layout_width="match_parent"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@miui:style/TextAppearance.ListView.PrimaryItem"
+            android:textSize="@miui:dimen/text_font_size_medium"
+            android:gravity="left" />
+        <ImageView
+            android:id="@+id/check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/component_item_check"
+            android:visibility="gone" />
+    </LinearLayout>
     <TextView
-        android:id="@+id/item_name_text"
+        android:id="@+id/summary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@android:style/TextAppearance.Small"
-        android:gravity="left" />
+        style="@miui:style/TextAppearance.ListView.SecondaryItem"
+        android:gravity="left"
+        android:visibility="gone" />
+
 </LinearLayout>

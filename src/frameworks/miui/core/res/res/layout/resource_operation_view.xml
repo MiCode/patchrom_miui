@@ -4,73 +4,56 @@
     android:id="@+id/operationBar"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:background="@drawable/bottom_button_bar">
+    android:layout_height="wrap_content"
+    android:background="@drawable/resource_operation_view_bg">
 
-        <ProgressBar
-            android:id="@+id/downloadProgress"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="200dip"
+    <ProgressBar
+        android:id="@+id/downloadProgress"
+        android:layout_width="200dip"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        style="?android:attr/progressBarStyleHorizontal" />
+
+    <LinearLayout
+        android:id="@+id/operationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/magicButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone" />
+            android:src="@drawable/resource_component" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dip"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:id="@+id/componentTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="left|center_vertical"
-                android:textColor="#848B92"
-                android:textSize="16dip"
-                android:paddingLeft="10dip"
-                android:paddingRight="10dip"
-                android:visibility="gone" />
-
-            <ImageButton
-                android:id="@+id/magicButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone" />
-
-            <LinearLayout
+            android:paddingLeft="40dip"
+            android:paddingRight="40dip">
+            <Button
+                android:id="@+id/downloadButton"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="right|center_vertical"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/downloadButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingLeft="20dip"
-                    android:paddingRight="20dip" />
-                <TextView
-                    android:id="@+id/applyButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingLeft="20dip"
-                    android:paddingRight="20dip" />
-                <ImageView
-                    android:id="@+id/deleteButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="10dip"
-                    android:paddingRight="10dip"
-                    android:layout_marginLeft="10dip"
-                    android:src="@drawable/delete_icon" />
-            </LinearLayout>
+                android:gravity="center" />
+            <Button
+                android:id="@+id/applyButton"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center" />
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/deleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/resource_delete" />
     </LinearLayout>
+
 </miui.app.resourcebrowser.view.ResourceOperationView>
