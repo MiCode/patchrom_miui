@@ -17,7 +17,7 @@
 <com.android.browser.NavigationBarTablet
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-    android:background="@drawable/urlbar_bg">
+    android:background="@drawable/bg_urlbar">
     <LinearLayout
         android:id="@+id/navbuttons"
         android:layout_width="wrap_content"
@@ -54,7 +54,8 @@
         android:layout_weight="1.0"
         android:layout_marginLeft="8dip"
         android:layout_marginRight="8dip"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@drawable/url_background">
         <ImageView
             android:id="@+id/url_icon"
             android:layout_width="48dip"
@@ -73,10 +74,10 @@
             android:id="@+id/url"
             android:layout_width="0dip"
             android:layout_weight="1.0"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:paddingLeft="0dip"
             android:paddingRight="0dip"
-            android:background="@drawable/url_input_view_bg"
+            android:background="@null"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:hint="@string/search_hint"
             android:singleLine="true"

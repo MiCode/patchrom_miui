@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 
-<PreferenceScreen
+<PreferenceScreen 
         xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <CheckBoxPreference
@@ -27,6 +27,13 @@
         android:defaultValue="false"
         android:title="@string/pref_development_hardware_accel_skia"
         android:enabled="false" />
+
+    <ListPreference
+        android:key="user_agent"
+        android:title="@string/pref_development_uastring"
+        android:entries="@array/pref_development_ua_choices"
+        android:entryValues="@array/pref_development_ua_values"
+        android:defaultValue="0"/>
 
     <CheckBoxPreference
         android:key="enable_visual_indicator"
