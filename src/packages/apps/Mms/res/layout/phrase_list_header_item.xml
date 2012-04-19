@@ -3,13 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    style="@style/ListItem">
+    android:orientation="vertical"
+    style="@style/ListItem.Narrow">
     <LinearLayout
         android:id="@+id/new_phrase"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        style="@style/ListItemContent">
         <TextView
             android:id="@+id/phrase_body"
             android:layout_height="wrap_content"
@@ -29,5 +31,6 @@
         android:layout_weight="1"
         android:text="@string/full_phrase"
         android:textAppearance="@style/TextAppearance.MessageBody.List"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        style="@style/ListItemContent" />
 </LinearLayout>

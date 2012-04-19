@@ -121,14 +121,14 @@ public class QuickContactBadge extends ImageView implements OnClickListener {
 
         mOverlay.setBounds(0, 0, getWidth(), getHeight());
 
-        if (mPaddingTop == 0 && mPaddingLeft == 0) {
+        if (mPaddingTop == 0 && mPaddingLeft == 0 &&
+                mPaddingBottom == 0 && mPaddingRight == 0) {
             mOverlay.draw(canvas);
         } else {
-            int saveCount = canvas.getSaveCount();
-            canvas.save();
-            canvas.translate(mPaddingLeft, mPaddingTop);
+            int right = getWidth() - mPaddingRight;
+            int bottom =getHeight() - mPaddingBottom;
+            mOverlay.setBounds(mPaddingLeft, mPaddingTop, right, bottom);
             mOverlay.draw(canvas);
-            canvas.restoreToCount(saveCount);
         }
     }
 

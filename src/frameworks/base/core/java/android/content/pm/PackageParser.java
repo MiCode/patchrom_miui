@@ -36,6 +36,9 @@ import android.util.Log;
 import android.util.Slog;
 import android.util.TypedValue;
 import com.android.internal.util.XmlUtils;
+
+import miui.content.pm.ExtraPackageManager;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -558,6 +561,9 @@ public class PackageParser {
                     }
 
                     if (localCerts == null) {
+                        if (ExtraPackageManager.isTrustedAppEntry(je, pkg.packageName)) {
+                            continue;
+                        }
                         Slog.e(TAG, "Package " + pkg.packageName
                                 + " has no certificates at entry "
                                 + je.getName() + "; ignoring!");
@@ -2793,6 +2799,19 @@ public class PackageParser {
     private static final String ANDROID_RESOURCES
             = "http://schemas.android.com/apk/res/android";
 
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private int checkPriority(int flags, int priority) {
+        if ((flags & PARSE_IS_SYSTEM) == 0) { // not a system app
+            if (priority >= IntentFilter.SYSTEM_HIGH_PRIORITY) {
+                priority = IntentFilter.SYSTEM_HIGH_PRIORITY - 1;
+            } else if (priority <= IntentFilter.SYSTEM_LOW_PRIORITY) {
+                priority = IntentFilter.SYSTEM_LOW_PRIORITY + 1;
+            }
+        }
+        return priority;
+    }
+
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private boolean parseIntent(Resources res,
             XmlPullParser parser, AttributeSet attrs, int flags,
             IntentInfo outInfo, String[] outError, boolean isActivity)
@@ -2803,7 +2822,7 @@ public class PackageParser {
 
         int priority = sa.getInt(
                 com.android.internal.R.styleable.AndroidManifestIntentFilter_priority, 0);
-        outInfo.setPriority(priority);
+        outInfo.setPriority(checkPriority(flags, priority));
 
         TypedValue v = sa.peekValue(
                 com.android.internal.R.styleable.AndroidManifestIntentFilter_label);

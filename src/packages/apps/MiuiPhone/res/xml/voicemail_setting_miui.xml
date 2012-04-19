@@ -22,7 +22,8 @@
         android:title="@string/voicemail_provider_miui"
         android:summary="@string/voicemail_provider_sum_miui"
         android:defaultValue="" />
-        <PreferenceScreen android:key="button_voicemail_setting"
+
+  <PreferenceScreen android:key="button_voicemail_setting"
         android:title="@string/voicemail_settings_miui"
         android:persistent="false">
 
@@ -44,5 +45,13 @@
         phone:confirmMode="confirm"
         android:singleLine="true"
         android:autoText="false" />
-    </PreferenceScreen>
+  </PreferenceScreen>
+  <ListPreference
+       android:key="button_voicemail_notification_vibrate_when_key"
+       android:title="@string/voicemail_notification_vibrate_when_title"
+       android:persistent="true"
+       android:entries="@array/voicemail_notification_vibrate_when_entries"
+       android:entryValues="@array/voicemail_notification_vibrate_when_values"
+       android:defaultValue="@string/voicemail_notification_vibrate_when_default"
+       android:dialogTitle="@string/voicemail_notification_vibarte_when_dialog_title" />
 </PreferenceScreen>

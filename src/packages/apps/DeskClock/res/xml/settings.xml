@@ -18,22 +18,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/settings">
 
-    <CheckBoxPreference
-        android:key="alarm_in_silent_mode"
-        android:title="@string/alarm_in_silent_mode_title"
-        android:summary="@string/alarm_in_silent_mode_summary" />
-
-    <CheckBoxPreference
-        android:key="alarm_ascending_mode"
-        android:title="@string/alarm_ascending_mode_title"
-        android:summary="@string/alarm_ascending_mode_summary" />
-
+<PreferenceCategory android:title="@string/common_settings">
     <VolumePreference
         android:title="@string/alarm_volume_title"
         android:summary="@string/alarm_volume_summary"
         android:dialogTitle="@string/alarm_volume_title"
         android:persistent="false"
         android:streamType="alarm" />
+
+    <CheckBoxPreference
+        android:key="alarm_in_silent_mode"
+        android:title="@string/alarm_in_silent_mode_title" />
+
+    <CheckBoxPreference
+        android:key="alarm_ascending_mode"
+        android:title="@string/alarm_ascending_mode_title"
+        android:summary="@string/alarm_ascending_mode_summary" />
 
     <ListPreference
         android:key="snooze_duration"
@@ -59,7 +59,9 @@
         android:entryValues="@array/volume_button_setting_values"
         android:summary="@string/volume_button_setting_summary"
         android:defaultValue="2" />
+</PreferenceCategory>
 
+<PreferenceCategory android:title="@string/alarm_settings">
     <com.android.deskclock.AlarmPreference
         android:key="default_ringtone"
         android:title="@string/default_ringtone_setting_title"
@@ -67,5 +69,6 @@
         android:showDefault="false"
         android:persistent="false"
         android:showSilent="true" />
+</PreferenceCategory>
 
 </PreferenceScreen>

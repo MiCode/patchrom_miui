@@ -41,9 +41,32 @@
     </style>
 
     <style name="ListItem">
-        <item name="android:padding">@dimen/list_item_padding_outer</item>
+        <item name="android:paddingTop">@dimen/list_item_padding_outer</item>
+        <item name="android:paddingBottom">@dimen/list_item_padding_outer</item>
+        <item name="android:paddingLeft">@dimen/list_item_padding_outer</item>
+        <item name="android:paddingRight">@dimen/list_item_padding_outer</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:background">@drawable/normal_list_item_bg</item>
+    </style>
+
+    <style name="ListItem.Narrow">
+        <item name="android:paddingTop">@dimen/list_item_padding_outer</item>
+        <item name="android:paddingBottom">@dimen/list_item_padding_outer</item>
+        <item name="android:paddingLeft">@null</item>
+        <item name="android:paddingRight">@null</item>
+        <item name="android:background">@miui:drawable/list_medium_middle_item_background</item>
+    </style>
+
+    <style name="ListItemContent">
+        <item name="android:paddingLeft">@dimen/list_item_padding_inner</item>
+        <item name="android:paddingRight">@dimen/list_item_padding_inner</item>
+    </style>
+
+    <style name="ExpandableListView" parent="@android:style/Widget.Holo.Light.ExpandableListView">
+        <item name="android:groupIndicator">@drawable/expander_group</item>
+        <item name="android:indicatorLeft">16dip</item>
+        <item name="android:indicatorRight">?android:attr/expandableListPreferredItemIndicatorRight</item>
+        <item name="android:childDivider">?android:attr/listDivider</item>
     </style>
 
     <style name="Widget.Holo.Light.Button"

@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="@drawable/normal_list_item_bg">
+    style="@style/ListItem.Narrow">
     <LinearLayout
         android:layout_width="0dip"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:padding="@dimen/list_item_padding_outer"
-        android:gravity="center_vertical" >
+        android:gravity="center_vertical"
+        style="@style/ListItemContent">
         <LinearLayout
             android:id="@+id/message_content"
             android:layout_width="match_parent"
@@ -44,7 +44,11 @@
                 style="@style/TextAppearance.MessageTitle.List" />
         </LinearLayout>
     </LinearLayout>
-    <include
-        layout="@layout/message_item_list_attachment" />
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/list_item_padding_inner">
+        <include layout="@layout/message_item_list_attachment" />
+    </FrameLayout>
 </com.android.mms.ui.MessageListItem>
 

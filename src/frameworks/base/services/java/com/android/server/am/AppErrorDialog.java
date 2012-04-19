@@ -20,6 +20,7 @@ import static android.view.WindowManager.LayoutParams.FLAG_SYSTEM_ERROR;
 
 import android.annotation.MiuiHook;
 import android.annotation.MiuiHook.MiuiHookType;
+import android.app.ApplicationErrorReport;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Resources;
@@ -33,6 +34,7 @@ class AppErrorDialog extends BaseErrorDialog {
 
     private final AppErrorResult mResult;
     private final ProcessRecord mProc;
+    private final ApplicationErrorReport.CrashInfo mCrashInfo;
 
     // Event 'what' codes
     static final int FORCE_QUIT = 0;
@@ -40,15 +42,17 @@ class AppErrorDialog extends BaseErrorDialog {
 
     // 5-minute timeout, then we automatically dismiss the crash dialog
     static final long DISMISS_TIMEOUT = 1000 * 60 * 5;
-    
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
-    public AppErrorDialog(Context context, AppErrorResult result, ProcessRecord app) {
+
+    @MiuiHook(MiuiHookType.CHANGE_PARAMETER)
+    public AppErrorDialog(Context context, AppErrorResult result, ProcessRecord app,
+            ApplicationErrorReport.CrashInfo crashInfo) {
         super(context);
         
         Resources res = context.getResources();
         
         mProc = app;
         mResult = result;
+        mCrashInfo = crashInfo; // MiuiHook
         CharSequence name;
         if ((app.pkgList.size() == 1) &&
                 (name=context.getPackageManager().getApplicationLabel(app.info)) != null) {
@@ -89,17 +93,18 @@ class AppErrorDialog extends BaseErrorDialog {
     @MiuiHook(MiuiHookType.CHANGE_CODE)
     private final Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
+            // MiuiHook: send fc report back to miui
+            if (mProc != null && mCrashInfo != null) {
+                MiuiErrorReport.sendFcErrorReport(getContext(), mProc, mCrashInfo,
+                        msg.what == FORCE_QUIT_AND_REPORT);
+            }
+
             synchronized (mProc) {
                 if (mProc != null && mProc.crashDialog == AppErrorDialog.this) {
                     mProc.crashDialog = null;
                 }
             }
             mResult.set(msg.what);
-
-            // MiuiHook: send out error report
-            if (msg.what == FORCE_QUIT_AND_REPORT && mProc != null && mProc.crashingReport != null) {
-                MiuiBugReport.sendMiuiErrorReport(getContext(), mProc);
-            }
 
             // If this is a timeout we won't be automatically closed, so go
             // ahead and explicitly dismiss ourselves just in case.

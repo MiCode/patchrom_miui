@@ -880,6 +880,7 @@ public final class ActivityManagerService extends ActivityManagerNative
         //    if (localLOGV) Slog.v(TAG, "Handler started!");
         //}
 
+        @MiuiHook(MiuiHookType.CHANGE_CODE)
         public void handleMessage(Message msg) {
             switch (msg.what) {
             case SHOW_ERROR_MSG: {
@@ -892,7 +893,9 @@ public final class ActivityManagerService extends ActivityManagerNative
                     }
                     AppErrorResult res = (AppErrorResult) data.get("result");
                     if (!mSleeping && !mShuttingDown) {
-                        Dialog d = new AppErrorDialog(mContext, res, proc);
+                        // MiuiHook: crash info is required to send error report
+                        Dialog d = new AppErrorDialog(mContext, res, proc,
+                                (ApplicationErrorReport.CrashInfo) data.get("crash"));
                         d.show();
                         proc.crashDialog = d;
                     } else {
@@ -7724,6 +7727,7 @@ public final class ActivityManagerService extends ActivityManagerNative
      * @param r the application crashing
      * @param crashInfo describing the failure
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private void crashApplication(ProcessRecord r, ApplicationErrorReport.CrashInfo crashInfo) {
         long timeMillis = System.currentTimeMillis();
         String shortMsg = crashInfo.exceptionClassName;
@@ -7781,6 +7785,7 @@ public final class ActivityManagerService extends ActivityManagerNative
             HashMap data = new HashMap();
             data.put("result", result);
             data.put("app", r);
+            data.put("crash", crashInfo); // MiuiHook
             msg.obj = data;
             mHandler.sendMessage(msg);
 

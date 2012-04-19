@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="0dip"
-    android:layout_weight="1"
+    android:id="@+id/yellow_page_header"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="false"
     android:focusable="false"
-    android:layout_gravity="bottom"
-    android:paddingBottom="2dip" >
+    android:gravity="bottom"
+    android:paddingBottom="2dip"
+    android:background="@miui:drawable/list_item_with_title_background" >
 
     <TextView
-        android:layout_width="0dip"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_alignParentLeft="true"
         android:text="@string/service_provider"
         android:textAppearance="@miui:style/TextAppearance.ListView.SecondaryItem"
-        android:textColor="@miui:color/information_warning"
-        android:background="@null" />
+        android:textColor="@miui:color/information_warning"/>
 
     <TextView
         android:id="@+id/yellow_page_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
         android:textAppearance="@miui:style/TextAppearance.ListView.SecondaryItem"
         android:textColor="@miui:color/information_warning" />
-</LinearLayout>
+</RelativeLayout>

@@ -1035,6 +1035,21 @@ class ContextImpl extends Context {
                 scheduler, getOuterContext());
     }
 
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private void checkPriority(IntentFilter filter) {
+        if (mPackageInfo != null) {
+            ApplicationInfo ai = mPackageInfo.getApplicationInfo();
+            if (ai != null && (ai.flags & ApplicationInfo.FLAG_SYSTEM) == 0) { // not a system app
+                if (filter.getPriority() >= IntentFilter.SYSTEM_HIGH_PRIORITY) {
+                    filter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY - 1);
+                } else if (filter.getPriority() <= IntentFilter.SYSTEM_LOW_PRIORITY) {
+                    filter.setPriority(IntentFilter.SYSTEM_LOW_PRIORITY + 1);
+                }
+            }
+        }
+    }
+
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private Intent registerReceiverInternal(BroadcastReceiver receiver,
             IntentFilter filter, String broadcastPermission,
             Handler scheduler, Context context) {
@@ -1055,6 +1070,7 @@ class ContextImpl extends Context {
                         receiver, context, scheduler, null, true).getIIntentReceiver();
             }
         }
+        checkPriority(filter);
         try {
             return ActivityManagerNative.getDefault().registerReceiver(
                     mMainThread.getApplicationThread(), mBasePackageName,

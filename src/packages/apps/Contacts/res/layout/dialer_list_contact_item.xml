@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical">
+    <QuickContactBadge
+        android:id="@+id/photo"
+        android:layout_height="@dimen/call_log_contact_photo_height"
+        android:layout_width="@dimen/call_log_contact_photo_width"
+        android:paddingTop="@dimen/call_log_contact_photo_padding"
+        android:paddingBottom="@dimen/call_log_contact_photo_padding"
+        android:scaleType="centerCrop"
+        android:cropToPadding="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:focusable="false" />
+    <LinearLayout
+        android:id="@+id/list_item_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dip"
+        android:layout_toRightOf="@+id/photo"
+        android:layout_toLeftOf="@+id/list_item_right"
+        android:orientation="vertical"
+        android:focusable="false">
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textAppearance="@miui:style/TextAppearance.ListView.PrimaryItem" />
+        <TextView
+            android:id="@+id/highlighted_name_pinyin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textAppearance="@miui:style/TextAppearance.ListView.SecondaryItem" />
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <TextView
+                android:id="@+id/number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dip"
+                android:singleLine="true"
+                android:textAppearance="@miui:style/TextAppearance.ListView.SecondaryItem" />
+            <TextView
+                android:id="@+id/telocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textAppearance="@miui:style/TextAppearance.ListView.SecondaryItem" />
+        </LinearLayout>
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/list_item_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true">
+        <ImageView
+            android:id="@+id/contact_detail_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@miui:drawable/list_item_detail_arrow"
+            android:focusable="false" />
+        <CheckBox
+            android:id="@android:id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:focusable="false"
+            android:clickable="false" />
+    </FrameLayout>
+</RelativeLayout>

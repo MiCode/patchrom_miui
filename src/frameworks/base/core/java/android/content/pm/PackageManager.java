@@ -184,6 +184,13 @@ public abstract class PackageManager {
     public static final int MATCH_DEFAULT_ONLY   = 0x00010000;
 
     /**
+     * {@link PackageInfo} flag: return PackageInfo who has at least one activity
+     * @hide
+     */
+    @MiuiHook(MiuiHookType.NEW_FIELD)
+    public static final int HAS_ACTIVITY = 0x00020000;
+
+    /**
      * Permission check result: this is returned by {@link #checkPermission}
      * if the permission has been granted to the given package.
      */

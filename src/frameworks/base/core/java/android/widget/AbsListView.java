@@ -322,10 +322,16 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
     Rect mListPadding = new Rect();
 
     /**
-     * This view's touch padding(left and right)
+     * This view's left touch padding
      */
     @MiuiHook(MiuiHookType.NEW_FIELD)
-    int mTouchPadding = 0;
+    int mTouchPaddingLeft = 0;
+
+    /**
+     * This view's right touch padding
+     */
+    @MiuiHook(MiuiHookType.NEW_FIELD)
+    int mTouchPaddingRight = 0;
 
     /**
      * Subclasses must retain their measure spec from onMeasure() into this member
@@ -2198,14 +2204,15 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
      * @hide for libra only
      */
     @MiuiHook(MiuiHookType.NEW_METHOD)
-    public void setTouchPadding(int padding) {
-        mTouchPadding = padding;
+    public void setTouchPadding(int paddingLeft, int paddingRight) {
+        mTouchPaddingLeft = paddingLeft;
+        mTouchPaddingRight = paddingRight;
     }
 
     @MiuiHook(MiuiHookType.NEW_METHOD)
     private boolean isOutOfTouchRange(MotionEvent ev) {
-        if (ev.getX() < (mPaddingLeft + mTouchPadding)
-                || ev.getX() > (getWidth() - mPaddingLeft - mTouchPadding)) {
+        if (ev.getX() < mTouchPaddingLeft
+                || ev.getX() > (getWidth() - mTouchPaddingRight)) {
             return true;
         }
         return false;

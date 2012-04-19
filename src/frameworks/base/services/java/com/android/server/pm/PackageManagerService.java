@@ -2544,6 +2544,7 @@ public class PackageManagerService extends IPackageManager.Stub {
         return index;
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public ParceledListSlice<PackageInfo> getInstalledPackages(int flags, String lastRead) {
         final ParceledListSlice<PackageInfo> list = new ParceledListSlice<PackageInfo>();
         final boolean listUninstalled = (flags & PackageManager.GET_UNINSTALLED_PACKAGES) != 0;
@@ -2577,7 +2578,7 @@ public class PackageManagerService extends IPackageManager.Stub {
                     }
                 }
 
-                if (pi != null && !list.append(pi)) {
+                if (pi != null && !addPackageToSlice(list, pi, flags)) {
                     break;
                 }
             }
@@ -2588,6 +2589,21 @@ public class PackageManagerService extends IPackageManager.Stub {
         }
 
         return list;
+    }
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private boolean addPackageToSlice(final ParceledListSlice<PackageInfo> list, PackageInfo pi, int flags) {
+        if ((flags & PackageManager.GET_ACTIVITIES) != 0
+                && (flags & PackageManager.HAS_ACTIVITY) != 0 ) { // used only in access control
+            if (pi.activities != null && pi.activities.length > 0) {
+                pi.activities = null; // remove useless activities[]
+                return list.append(pi);
+            } else {
+                return true;
+            }
+        } else {
+            return list.append(pi);
+        }
     }
 
     public ParceledListSlice<ApplicationInfo> getInstalledApplications(int flags,
