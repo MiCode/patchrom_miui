@@ -17,19 +17,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/TextAppearance.MessageTitle.List" />
-        <LinearLayout
-            android:id="@+id/message_content"
+        <ViewStub
+            android:id="@+id/message_body_list_stub"
+            android:layout="@layout/message_item_list_body"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ViewStub
-                android:id="@+id/message_body_list_stub"
-                android:layout="@layout/message_item_list_body"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_gravity="left" />
-        </LinearLayout>
+            android:layout_height="wrap_content" />
         <Button
             android:id="@+id/send_mms"
             android:visibility="gone"
@@ -38,7 +30,7 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
     <include
-        layout="@layout/message_item_list_attachment" />
+        layout="@layout/message_item_attachment" />
     <Button
         android:layout_gravity="center_vertical"
         android:layout_marginRight="@dimen/list_item_padding_outer"

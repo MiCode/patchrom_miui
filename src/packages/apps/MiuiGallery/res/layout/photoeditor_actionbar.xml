@@ -14,52 +14,49 @@
      limitations under the License.
 -->
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/ActionBarInner"
-    android:background="@drawable/photoeditor_actionbar_translucent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top"
+    android:orientation="horizontal"
+    android:background="@drawable/single_view_menu_bg"
+ >
+    <LinearLayout android:gravity="left"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content">
+        <ImageView android:id="@+id/action_bar_back"
+            style="@style/SingleViewBackButton"
+            android:src="@drawable/single_view_back_n"
+        />
+     </LinearLayout>
 
-    <LinearLayout style="@style/ActionBarLinearLayout">
-
-        <LinearLayout
-            android:id="@+id/action_bar_back"
-            style="@style/ActionBarBackLinearLayout">
-            <ImageView style="@style/ActionBarArrow"/>
-            <ImageView style="@style/ActionBarIcon"/>
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/action_bar_title"
-            style="@style/ActionBarTitle"
-            android:text="@string/edit"/>
-    </LinearLayout>
-
-    <LinearLayout style="@style/ActionBarLinearLayout" android:layout_alignParentRight="true">
+    <LinearLayout android:layout_width="fill_parent"
+         android:layout_height="wrap_content">
 
         <ImageButton
             android:id="@+id/undo_button"
-            style="@style/ImageActionButton"
+            style="@style/SingleViewButton"
             android:src="@drawable/photoeditor_undo"/>
         <ImageButton
             android:id="@+id/redo_button"
-            style="@style/ImageActionButton"
+            style="@style/SingleViewButton"
             android:src="@drawable/photoeditor_redo"/>
 
         <ViewSwitcher
             android:id="@+id/save_share_buttons"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent">
-            <Button
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <ImageButton
                 android:id="@+id/save_button"
-                style="@style/TextActionButton"
+                style="@style/SingleViewButton"
                 android:layout_width="fill_parent"
-                android:text="@string/save"/>
+                android:src="@drawable/ic_menu_save"/>
             <ImageButton
                 android:id="@+id/share_button"
-                style="@style/ImageActionButton"
+                style="@style/SingleViewButton"
                 android:layout_width="fill_parent"
-                android:src="@drawable/ic_menu_share"/>
+                android:src="@drawable/ic_menu_share_holo_light"/>
         </ViewSwitcher>
-
     </LinearLayout>
-</RelativeLayout>
+</LinearLayout>

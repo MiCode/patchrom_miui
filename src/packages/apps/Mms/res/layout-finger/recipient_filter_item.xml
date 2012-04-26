@@ -1,60 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/normal_list_item_bg_nodivider"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <LinearLayout
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="@miui:drawable/list_medium_single_item_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:layout_weight="1.0">
-        <android.widget.QuickContactBadge
+        >
+    <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            />
+    <android.widget.QuickContactBadge
             android:id="@+id/avatar"
             android:visibility="gone"
             android:layout_height="@dimen/avatar_size_small"
             android:layout_width="@dimen/avatar_size_small"
-            android:layout_centerVertical="true" />
-        <LinearLayout
+            android:layout_marginTop="@dimen/list_item_padding_inner"
+            android:layout_marginBottom="@dimen/list_item_padding_inner"
+            android:cropToPadding="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            />
+    <RelativeLayout
             android:id="@+id/contact"
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1.0"
-            android:paddingLeft="@dimen/list_item_padding_outer"
-            android:paddingRight="@dimen/list_item_padding_outer"
-            android:gravity="center_vertical">
-            <TextView
+            android:layout_toRightOf="@id/avatar"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/list_item_padding_outer"
+            android:layout_marginRight="@dimen/list_item_padding_outer"
+            >
+        <TextView
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
                 android:textAppearance="@style/TextAppearance.Primary"
-                android:singleLine="true" />
-            <LinearLayout
-                android:id="@+id/name_and_label"
+                android:singleLine="true"/>
+        <TextView
+                android:id="@+id/number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.Secondary"
-                    android:singleLine="true" />
-                <TextView
-                    android:id="@+id/label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.Secondary"
-                    android:layout_marginLeft="5dip"
-                    android:singleLine="true" />
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-</LinearLayout>
+                android:layout_alignLeft="@id/name"
+                android:layout_below="@id/name"
+                android:textAppearance="@style/TextAppearance.Secondary"
+                android:singleLine="true"/>
+        <TextView
+                android:id="@+id/label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/number"
+                android:layout_alignBottom="@id/number"
+                android:textAppearance="@style/TextAppearance.Secondary"
+                android:layout_marginLeft="5dip"
+                android:singleLine="true"
+                />
+    </RelativeLayout>
+</RelativeLayout>

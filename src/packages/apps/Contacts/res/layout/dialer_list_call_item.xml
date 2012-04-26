@@ -6,7 +6,7 @@
     android:gravity="center_vertical">
     <QuickContactBadge
         android:id="@+id/photo"
-        android:layout_height="@dimen/call_log_contact_photo_height"
+        android:layout_height="@dimen/call_log_item_height"
         android:layout_width="@dimen/call_log_contact_photo_width"
         android:paddingTop="@dimen/call_log_contact_photo_padding"
         android:paddingBottom="@dimen/call_log_contact_photo_padding"
@@ -90,9 +90,10 @@
         <ImageView
             android:id="@+id/contact_detail_action"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@miui:drawable/list_item_detail_arrow"
-            android:focusable="false" />
+            android:layout_height="@dimen/call_log_item_height"
+            android:src="@miui:drawable/list_item_detail_arrow"
+            android:focusable="false"
+            android:clickable="false" />
         <CheckBox
             android:id="@android:id/checkbox"
             android:layout_width="wrap_content"

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/message_content"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal" >
@@ -14,7 +13,8 @@
         android:paddingBottom="5dip"
         android:linksClickable="false"
         android:lineSpacingMultiplier="1.2"
-        style="@style/TextAppearance.MessageBody.Bubble" />
+        style="@style/TextAppearance.MessageBody.Bubble"
+        android:layout_marginRight="5dip" />
     <LinearLayout
         android:id="@+id/contact_message_body"
         android:layout_width="wrap_content"
@@ -22,9 +22,10 @@
         android:paddingTop="3dip"
         android:paddingBottom="5dip"
         android:orientation="vertical"
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:layout_marginRight="5dip" />
     <include
-        layout="@layout/mms_attachment_padding_view" />
+        layout="@layout/message_item_attachment" />
 </LinearLayout>
 
 

@@ -5,6 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/step"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/info"
+        android:drawableLeft="@drawable/merge_contact_info"
+        android:layout_width="wrap_content"
+        android:layout_height="40dip"
+        android:gravity="center_vertical"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
     <ListView
         android:id="@+id/list_view"
         android:layout_marginLeft="10dip"
@@ -42,33 +57,47 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:background="@miui:drawable/android_ab_bottom_solid_inverse_holo">
+        android:background="@drawable/merge_contact_bottombar">
         <Button
             android:id="@+id/button_cancel"
             android:text="@android:string/cancel"
             android:layout_height="wrap_content"
             android:layout_width="0dip"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="@drawable/bottombar_btn" />
+
+        <ImageView
+            android:layout_width="1px"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bottombar_divider" />
 
         <Button
             android:id="@+id/button_ok"
             android:text="@string/delete_duplicate"
             android:layout_height="wrap_content"
             android:layout_width="0dip"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="@drawable/bottombar_btn" />
 
         <Button
             android:id="@+id/button_merge"
             android:text="@string/delete_duplicate"
             android:layout_height="wrap_content"
             android:layout_width="0dip"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="@drawable/bottombar_btn" />
+
+        <ImageView
+            android:layout_width="1px"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bottombar_divider" />
 
         <Button
             android:id="@+id/button_check_all"
             android:text="@string/select_all"
             android:layout_height="wrap_content"
             android:layout_width="0dip"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="@drawable/bottombar_btn" />
     </LinearLayout>
 </LinearLayout>
