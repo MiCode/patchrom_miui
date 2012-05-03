@@ -417,7 +417,7 @@ public class WindowManagerService extends IWindowManager.Stub
     Surface mBlurSurface;
     boolean mBlurShown;
     @MiuiHook(MiuiHookType.NEW_FIELD)
-    com.miui.server.wm.RoundedCornersSurface mRoundedCorners;
+    RoundedCornersSurface mRoundedCorners;
     Watermark mWatermark;
     StrictModeFlash mStrictModeFlash;
     ScreenRotationAnimation mScreenRotationAnimation;
@@ -7537,13 +7537,10 @@ public class WindowManagerService extends IWindowManager.Stub
     @MiuiHook(MiuiHookType.NEW_METHOD)
     private void createRoundCorners(int dw, int dh) {
         if (mRoundedCorners == null) {
-            mRoundedCorners = new com.miui.server.wm.RoundedCornersSurface(mContext, mFxSession,
-                    mPolicy.windowTypeToLayerLw(WindowManager.LayoutParams.TYPE_HIDDEN_NAV_CONSUMER)
+            mRoundedCorners = new RoundedCornersSurface(mContext, mFxSession,
+                    mPolicy.windowTypeToLayerLw(WindowManager.LayoutParams.TYPE_STATUS_BAR_SUB_PANEL)
                             * TYPE_LAYER_MULTIPLIER + TYPE_LAYER_OFFSET,
                     mInitialDisplayWidth, mInitialDisplayHeight);
-        }
-        if (mRoundedCorners != null) {
-            mRoundedCorners.positionSurface(dw, dh);
         }
     }
 
@@ -8701,12 +8698,11 @@ public class WindowManagerService extends IWindowManager.Stub
             Log.wtf(TAG, "Unhandled exception in Window Manager", e);
         }
 
+        mRoundedCorners.draw(dw, dh, mWindows, mRotation); // MIUI HOOK
         Surface.closeTransaction();
 
         if (SHOW_LIGHT_TRANSACTIONS) Slog.i(TAG,
                 "<<< CLOSE TRANSACTION performLayoutAndPlaceSurfaces");
-
-        mRoundedCorners.drawIfNeeded();
 
         if (mWatermark != null) {
             mWatermark.drawIfNeeded();

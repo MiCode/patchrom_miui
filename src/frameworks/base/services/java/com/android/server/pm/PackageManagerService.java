@@ -2578,7 +2578,8 @@ public class PackageManagerService extends IPackageManager.Stub {
                     }
                 }
 
-                if (pi != null && !addPackageToSlice(list, pi, flags)) {
+                // MiuiHook
+                if (pi != null && addPackageToSlice(list, pi, flags)) {
                     break;
                 }
             }
@@ -2592,18 +2593,37 @@ public class PackageManagerService extends IPackageManager.Stub {
     }
 
     @MiuiHook(MiuiHookType.NEW_METHOD)
+    /**
+     * @return true when the list slice is full and should not be appended to anymore
+     */
     private boolean addPackageToSlice(final ParceledListSlice<PackageInfo> list, PackageInfo pi, int flags) {
-        if ((flags & PackageManager.GET_ACTIVITIES) != 0
-                && (flags & PackageManager.HAS_ACTIVITY) != 0 ) { // used only in access control
+        /* PackageManager.HAS_ACTIVITY is used by access control to query packages which has at
+         * least one activity,
+         * but information about activities is useless and dropped here
+        */
+        if ((flags & PackageManager.HAS_ACTIVITY) != 0) {
             if (pi.activities != null && pi.activities.length > 0) {
-                pi.activities = null; // remove useless activities[]
-                return list.append(pi);
+                pi.activities = null;
             } else {
-                return true;
+                pi = null;
             }
-        } else {
-            return list.append(pi);
         }
+
+        /* PackageManager.HAS_ACTIVITY_OR_SERVICES is used by notification filter setting to
+         * query packages which has at least one activity or service,
+         * but information about activities and services is useless and dropped here
+        */
+        if ((flags & PackageManager.HAS_ACTIVITY_OR_SERVICES) != 0) {
+            if ((pi.activities != null && pi.activities.length > 0)
+                || (pi.services != null && pi.services.length > 0)) {
+                pi.activities = null;
+                pi.services = null;
+            } else {
+                pi = null;
+            }
+        }
+
+        return pi != null ? list.append(pi) : false;
     }
 
     public ParceledListSlice<ApplicationInfo> getInstalledApplications(int flags,
@@ -2640,7 +2660,7 @@ public class PackageManagerService extends IPackageManager.Stub {
                     }
                 }
 
-                if (ai != null && !list.append(ai)) {
+                if (ai != null && list.append(ai)) {    // MiuiHook
                     break;
                 }
             }

@@ -52,12 +52,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/list_section_divider_holo_custom"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="@string/empty_divider_title" />
+            <include
+                android:id="@+id/list_separator"
+                layout="@layout/list_separator" />
 
             <LinearLayout
                 android:id="@+id/add_account_button"
@@ -65,12 +62,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center_vertical"
-                android:background="@drawable/btn_import_contact_bg">
+                android:background="@miui:drawable/list_medium_top_item_background">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_gravity="center_vertical"
+                    android:paddingLeft="@dimen/contact_detail_padding_left"
                     android:text="@string/contacts_unavailable_add_account" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -78,6 +76,7 @@
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="?android:attr/textColorSecondary"
                     android:layout_gravity="center_vertical"
+                    android:paddingLeft="@dimen/contact_detail_padding_left"
                     android:text="@string/noContactHelpTextAccountsInfo"/>
             </LinearLayout>
 
@@ -87,12 +86,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center_vertical"
-                android:background="@drawable/btn_import_contact_bg">
+                android:background="@miui:drawable/list_medium_middle_item_background">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_gravity="center_vertical"
+                    android:paddingLeft="@dimen/contact_detail_padding_left"
                     android:text="@string/sync_xiaomi_cloud_contacts" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -100,6 +100,7 @@
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="?android:attr/textColorSecondary"
                     android:layout_gravity="center_vertical"
+                    android:paddingLeft="@dimen/contact_detail_padding_left"
                     android:text="@string/noContactHelpTextImportXiaomiAccountInfo" />
             </LinearLayout>
 
@@ -109,12 +110,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center_vertical"
-                android:background="@drawable/btn_import_contact_bg">
+                android:background="@miui:drawable/list_medium_middle_item_background">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_gravity="center_vertical"
+                    android:paddingLeft="@dimen/contact_detail_padding_left"
                     android:text="@string/import_from_sim" />
             </LinearLayout>
 
@@ -124,12 +126,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center_vertical"
-                android:background="@drawable/btn_import_contact_bg">
+                android:background="@miui:drawable/list_medium_middle_item_background">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_gravity="center_vertical"
+                    android:paddingLeft="@dimen/contact_detail_padding_left"
                     android:text="@string/contacts_unavailable_import_contacts" />
             </LinearLayout>
 
@@ -139,12 +142,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center_vertical"
-                android:background="@drawable/btn_import_contact_last_bg">
+                android:background="@miui:drawable/list_medium_bottom_item_background">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_gravity="center_vertical"
+                    android:paddingLeft="@dimen/contact_detail_padding_left"
                     android:text="@string/contacts_unavailable_create_contact" />
             </LinearLayout>
 
@@ -154,12 +158,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center_vertical"
-                android:background="@drawable/btn_import_contact_bg">
+                android:background="@miui:drawable/list_medium_single_item_background">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_gravity="center_vertical"
+                    android:paddingLeft="@dimen/contact_detail_padding_left"
                     android:text="@string/upgrade_out_of_memory_uninstall" />
             </LinearLayout>
 
@@ -169,12 +174,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center_vertical"
-                android:background="@drawable/btn_import_contact_bg">
+                android:background="@miui:drawable/list_medium_single_item_background">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_gravity="center_vertical"
+                    android:paddingLeft="@dimen/contact_detail_padding_left"
                     android:text="@string/upgrade_out_of_memory_retry" />
             </LinearLayout>
 

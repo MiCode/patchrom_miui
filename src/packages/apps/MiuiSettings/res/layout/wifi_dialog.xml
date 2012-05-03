@@ -150,6 +150,19 @@
                 </LinearLayout>
             </LinearLayout>
 
+<!-- Broadcom, WAPI -->
+            <LinearLayout android:id="@+id/wapi_psk"
+                    style="@style/wifi_section"
+                    android:visibility="gone">
+                    <TextView
+                            style="@style/wifi_item_label"
+                            android:text="@string/wifi_wapi_psk_type" />
+                    <Spinner android:id="@+id/wapi_psk_type"
+                            style="@style/wifi_item_content"
+                            android:prompt="@string/wifi_wapi_psk_type"
+                            android:entries="@array/wifi_wapi_psk_type" />
+            </LinearLayout>
+
             <LinearLayout
                        style="@style/wifi_item" >
                 <TextView
@@ -171,6 +184,23 @@
                     android:text="@string/wifi_show_password" />
             </LinearLayout>
         </LinearLayout>
+        <LinearLayout android:id="@+id/wapi_cert"
+                style="@style/wifi_item"
+                android:visibility="gone">
+                <TextView
+                        style="@style/wifi_item_label"
+                        android:text="@string/wifi_wapi_as_certificate" />
+                <Spinner android:id="@+id/wapi_as_cert"
+                        style="@style/wifi_item_content"
+                        android:prompt="@string/wifi_wapi_as_certificate" />
+                <TextView
+                         style="@style/wifi_item_label"
+                         android:text="@string/wifi_wapi_user_certificate" />
+                <Spinner android:id="@+id/wapi_user_cert"
+                         style="@style/wifi_item_content"
+                         android:prompt="@string/wifi_wapi_user_certificate" />
+       </LinearLayout>
+<!-- Broadcom, WAPI -->
 
         <LinearLayout android:id="@+id/wifi_advanced_toggle"
                     style="@style/wifi_item"
