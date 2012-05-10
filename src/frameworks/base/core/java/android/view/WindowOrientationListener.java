@@ -16,6 +16,8 @@
 
 package android.view;
 
+import android.annotation.MiuiHook;
+import android.annotation.MiuiHook.MiuiHookType;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -61,8 +63,9 @@ public abstract class WindowOrientationListener {
      * 
      * @param context for the WindowOrientationListener.
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public WindowOrientationListener(Context context) {
-        this(context, SensorManager.SENSOR_DELAY_UI);
+        this(context, SensorManager.SENSOR_DELAY_NORMAL);
     }
     
     /**

@@ -1766,7 +1766,7 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
         }
     }
 
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
+    @MiuiHook(MiuiHookType.NEW_METHOD)
     protected boolean handleCameraKeyEvent(DecorView decor, KeyEvent event, int featureId) {
         return false;
     }
@@ -1789,6 +1789,8 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
         private boolean mChanging;
 
         private Drawable mMenuBackground;
+        @MiuiHook(MiuiHookType.NEW_FIELD)
+        private RoundedCorners mRoundedCorners;
         private boolean mWatchingForMenu;
         private int mDownY;
 
@@ -2151,6 +2153,29 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
             if (measure) {
                 super.onMeasure(widthMeasureSpec, heightMeasureSpec);
             }
+        }
+
+        @MiuiHook(MiuiHookType.NEW_METHOD)
+        private void drawRoundedCorners(Canvas c) {
+            if ((getAttributes().type > WindowManager.LayoutParams.LAST_APPLICATION_WINDOW)
+                    || mFrameOffsets.left != 0 || mFrameOffsets.right != 0
+                    || mFrameOffsets.bottom != 0) {
+                return;
+            }
+
+            if (mRoundedCorners == null) {
+                mRoundedCorners = new RoundedCorners(mContext);
+            }
+
+            mRoundedCorners.draw(c, mDrawingBounds.left, mDrawingBounds.top + mFrameOffsets.top,
+                    mDrawingBounds.right, mDrawingBounds.bottom);
+        }
+
+        @MiuiHook(MiuiHookType.NEW_METHOD)
+        @Override
+        protected void dispatchDraw(Canvas canvas) {
+            super.dispatchDraw(canvas);
+            drawRoundedCorners(canvas);
         }
 
         @Override

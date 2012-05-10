@@ -1340,6 +1340,7 @@ public final class ActivityManagerService extends ActivityManagerNative
         mWindowManager = wm;
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public static final Context main(int factoryTest) {
         AThread thr = new AThread();
         thr.start();
@@ -1358,7 +1359,7 @@ public final class ActivityManagerService extends ActivityManagerNative
         ActivityThread at = ActivityThread.systemMain();
         mSystemThread = at;
         Context context = at.getSystemContext();
-        context.setTheme(android.R.style.Theme_Holo);
+        context.setTheme(android.R.style.Theme_Holo_Light);
         m.mContext = context;
         m.mFactoryTest = factoryTest;
         m.mMainStack = new ActivityStack(m, context, true);

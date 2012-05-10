@@ -29,6 +29,7 @@ import android.graphics.Canvas;
 import android.os.IBinder;
 import android.os.SystemProperties;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewManager;
@@ -71,10 +72,11 @@ public class KeyguardViewManager implements KeyguardWindowController {
      * @param viewManager Keyguard will be attached to this.
      * @param callback Used to notify of changes.
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public KeyguardViewManager(Context context, ViewManager viewManager,
             KeyguardViewCallback callback, KeyguardViewProperties keyguardViewProperties,
             KeyguardUpdateMonitor updateMonitor) {
-        mContext = context;
+        mContext = new ContextThemeWrapper(context, android.R.style.Theme_Holo); // MiuiHook
         mViewManager = viewManager;
         mCallback = callback;
         mKeyguardViewProperties = keyguardViewProperties;

@@ -2626,6 +2626,7 @@ public class PackageManagerService extends IPackageManager.Stub {
         return pi != null ? list.append(pi) : false;
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public ParceledListSlice<ApplicationInfo> getInstalledApplications(int flags,
             String lastRead) {
         final ParceledListSlice<ApplicationInfo> list = new ParceledListSlice<ApplicationInfo>();

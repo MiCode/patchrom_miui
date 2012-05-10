@@ -120,82 +120,70 @@
         <item name="android:background">@miui:drawable/textview_floatpanel_button_bg</item>
     </style>
 
-    <!--  preview item styles -->
-    <style name="PreviewInMultipleItem">
-        <item name="android:layout_width">81.6dip</item>
-        <item name="android:layout_height">136dip</item>
-        <item name="android:layout_marginLeft">1px</item>
-        <item name="android:scaleType">centerCrop</item>
-        <item name="android:focusable">false</item>
-    </style>
-
-    <style name="PreviewInCombineTextItem">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginLeft">5dip</item>
-        <item name="android:layout_marginRight">5dip</item>
-    </style>
-
-    <style name="PreviewInCombineTextItemImage">
-        <item name="android:layout_width">92dip</item>
-        <item name="android:layout_height">144dip</item>
-        <item name="android:background">@miui:drawable/thumbnail_frame</item>
-    </style>
-
-    <style name="PreviewInCombineTextItemText">
-        <item name="android:layout_width">92dip</item>
+    <!--  resource browser styles -->
+    <style name="ResourceBrowser">
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <style name="PreviewInCombineThinItem">
-        <item name="android:layout_width">92dip</item>
-        <item name="android:layout_height">144dip</item>
-        <item name="android:layout_marginLeft">5dip</item>
-        <item name="android:layout_marginRight">5dip</item>
-        <item name="android:background">@miui:drawable/thumbnail_frame</item>
+    <style name="ResourceBrowser.ListItem">
+        <item name="android:layout_width">1dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:padding">2dip</item>
     </style>
 
-    <style name="PreviewInCombineItem">
-        <item name="android:layout_width">92dip</item>
-        <item name="android:layout_height">83dip</item>
-        <item name="android:layout_marginLeft">2dip</item>
-        <item name="android:layout_marginRight">2dip</item>
-        <item name="android:background">@miui:drawable/thumbnail_frame</item>
+    <style name="ResourceBrowser.HorizontalLine">
+        <item name="android:gravity">center_vertical</item>
     </style>
 
-    <style name="PreviewItemImage">
+    <style name="ResourceBrowser.ResourceImage">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:adjustViewBounds">true</item>
         <item name="android:scaleType">centerCrop</item>
     </style>
 
-    <!-- Resource browser styles -->
-    <style name="ResourceProperty">
+    <style name="ResourceBrowser.ResourceDescription">
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:paddingLeft">6dip</item>
+        <item name="android:paddingRight">6dip</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="ResourceBrowser.ResourceDescription.Vertical">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
     </style>
 
-    <style name="ResourcePropertyTitle">
-        <item name="android:layout_width">0dip</item>
+    <style name="ResourceBrowser.ResourceDescription.Horizontal">
+        <item name="android:layout_width">1dip</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:gravity">right</item>
+        <item name="android:paddingLeft">10dip</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+
+    <style name="ResourceBrowser.ResourceProperty">
+        <item name="android:layout_width">1dip</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:singleLine">true</item>
         <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="ResourcePropertyContent">
-        <item name="android:layout_width">0dip</item>
-        <item name="android:layout_height">wrap_content</item>
+    <style name="ResourceBrowser.ResourceProperty.Title">
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">right</item>
+    </style>
+
+    <style name="ResourceBrowser.ResourceProperty.Content">
         <item name="android:layout_weight">2</item>
-        <item name="android:gravity">left</item>
-        <item name="android:singleLine">true</item>
         <item name="android:layout_marginLeft">10dip</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
-        <item name="android:textColor">@android:color/white</item>
     </style>
 
     <style name="Widget.Holo.Light.ActionBar.Solid.HomeUp" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
@@ -275,5 +263,19 @@
     </style>
 
     <style name="Widget.Holo.Light.ExpandableListView.White">
+    </style>
+
+    <!-- default AlphabetFastIndexer style -->
+    <style name="AlphabetFastIndexerStyle">
+        <item name="miui:indexerTable">@array/alphabet_table</item>
+        <item name="miui:indexerTextSize">@dimen/alphabet_indexer_text_size</item>
+        <item name="miui:indexerTextColor">@color/alphabet_indexer_text_color</item>
+        <item name="miui:indexerTextHighlightColor">@color/alphabet_indexer_highlight_text_color</item>
+        <item name="miui:indexerBackground">@drawable/alphabet_indexer_bg</item>
+        <item name="miui:overlayBackground">@drawable/alphabet_indexer_overlay</item>
+        <item name="miui:overlayMarginLeft">@dimen/alphabet_indexer_overlay_text_size</item>
+        <item name="miui:overlayMarginTop">@dimen/alphabet_indexer_overlay_padding_top</item>
+        <item name="miui:overlayTextSize">@dimen/alphabet_indexer_overlay_text_size</item>
+        <item name="miui:overlayTextColor">@color/alphabet_indexer_overlay_text_color</item>
     </style>
 </resources>

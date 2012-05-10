@@ -52,6 +52,22 @@
   <!--  for the answer hint animation of horizontal incall screen widget -->
   <public type="attr" name ="rightHintAnimationDrawable" id="0x0301000f"/>
 
+  <!-- for GradientTextView -->
+  <public type="attr" name ="startColor" id="0x03010010"/>
+  <public type="attr" name ="endColor" id="0x03010011"/>
+
+  <!-- for AlphabetFastIndexer -->
+  <public type="attr" name ="indexerTable" id="0x03010012"/>
+  <public type="attr" name ="indexerTextSize" id="0x03010013"/>
+  <public type="attr" name ="indexerTextColor" id="0x03010014"/>
+  <public type="attr" name ="indexerTextHighlightColor" id="0x03010015"/>
+  <public type="attr" name ="indexerBackground" id="0x03010016"/>
+  <public type="attr" name ="overlayBackground" id="0x03010017"/>
+  <public type="attr" name ="overlayMarginLeft" id="0x03010018"/>
+  <public type="attr" name ="overlayMarginTop" id="0x03010019"/>
+  <public type="attr" name ="overlayTextSize" id="0x0301001a"/>
+  <public type="attr" name ="overlayTextColor" id="0x0301001b"/>
+
   <public type="drawable" name="alphabet_indexer_bg" id="0x03020000" />
   <public type="drawable" name="alphabet_indexer_bg_normal" id="0x03020001" />
   <public type="drawable" name="alphabet_indexer_bg_pressed" id="0x03020002" />
@@ -501,21 +517,42 @@
   <public type="drawable" name="expander_close_holo_light" id="0x030201bd" />
   <public type="drawable" name="android_ab_bottom_solid_light_holo" id="0x030201be" />
   <public type="drawable" name="expander_group_header_bg" id="0x030201bf" />
+  <public type="drawable" name="android_tab_indicator_ab_holo" id="0x030201c0" />
+  <public type="drawable" name="tab_indicator_ab_holo" id="0x030201c1" />
+  <public type="drawable" name="tab_indicator_ab_holo_left" id="0x030201c2" />
+  <public type="drawable" name="tab_indicator_ab_holo_right" id="0x030201c3" />
+  <public type="drawable" name="tab_selected_holo" id="0x030201c4" />
+  <public type="drawable" name="tab_selected_pressed_holo" id="0x030201c5" />
+  <public type="drawable" name="tab_unselected_holo" id="0x030201c6" />
+  <public type="drawable" name="tab_unselected_pressed_holo" id="0x030201c7" />
+  <public type="drawable" name="tab_selected_holo_left" id="0x030201c8" />
+  <public type="drawable" name="tab_selected_pressed_holo_left" id="0x030201c9" />
+  <public type="drawable" name="tab_unselected_holo_left" id="0x030201ca" />
+  <public type="drawable" name="tab_unselected_pressed_holo_left" id="0x030201cb" />
+  <public type="drawable" name="tab_selected_holo_right" id="0x030201cc" />
+  <public type="drawable" name="tab_selected_pressed_holo_right" id="0x030201cd" />
+  <public type="drawable" name="tab_unselected_holo_right" id="0x030201ce" />
+  <public type="drawable" name="tab_unselected_pressed_holo_right" id="0x030201cf" />
+  <public type="drawable" name="android_ic_menu_moreoverflow_normal_holo_dark" id="0x030201d0" />
+  <public type="drawable" name="android_ic_menu_forward" id="0x030201d1" />
+  <public type="drawable" name="android_ic_menu_stop" id="0x030201d2" />
+  <public type="drawable" name="android_btn_close" id="0x030201d3" />
+  <public type="drawable" name="android_edit_text_holo_dark" id="0x030201d4" />
 
   <public type="layout" name="contact_header" id="0x03030000" />
-  <public type="layout" name="flag" id="0x03030001" />
+  <public type="layout" name="resource_flag" id="0x03030001" />
   <public type="layout" name="guide_popup_window" id="0x03030002" />
   <public type="layout" name="image_text_button" id="0x03030003" />
   <public type="layout" name="keyguard_screen_tab_unlock" id="0x03030004" />
-  <public type="layout" name="list_item_combine" id="0x03030005" />
-  <public type="layout" name="list_item_combine_text" id="0x03030006" />
-  <public type="layout" name="list_item_combine_thin" id="0x03030007" />
-  <public type="layout" name="list_item_multiple" id="0x03030008" />
-  <public type="layout" name="list_item_single" id="0x03030009" />
-  <public type="layout" name="list_item_single_detail" id="0x0303000a" />
-  <public type="layout" name="list_item_single_small" id="0x0303000b" />
-  <public type="layout" name="list_item_single_thin" id="0x0303000c" />
-  <public type="layout" name="local_list" id="0x0303000d" />
+  <public type="layout" name="resource_item_vertical" id="0x03030005" />
+  <public type="layout" name="resource_item_vertical_flat" id="0x03030006" />
+  <public type="layout" name="resource_item_vertical_flat_big" id="0x03030007" />
+  <public type="layout" name="resource_item_vertical_text" id="0x03030008" />
+  <public type="layout" name="resource_item_horizontal" id="0x03030009" />
+  <public type="layout" name="resource_item_horizontal_small" id="0x0303000a" />
+  <public type="layout" name="resource_item_horizontal_detail" id="0x0303000b" />
+  <public type="layout" name="resource_item_horizontal_gallery" id="0x0303000c" />
+  <public type="layout" name="resource_local_list" id="0x0303000d" />
   <public type="layout" name="lock_screen_battery_info" id="0x0303000e" />
   <public type="layout" name="lock_screen_call_hint" id="0x0303000f" />
   <public type="layout" name="lock_screen_call_preview_list" id="0x03030010" />
@@ -526,7 +563,7 @@
   <public type="layout" name="lock_screen_sms_preview_list_item" id="0x03030015" />
   <public type="layout" name="lock_screen_tab_unlock_hint" id="0x03030016" />
   <public type="layout" name="lock_screen_tab_unlock_time" id="0x03030017" />
-  <public type="layout" name="online_list" id="0x03030018" />
+  <public type="layout" name="resource_online_list" id="0x03030018" />
   <public type="layout" name="preference_widget_radiobutton" id="0x03030019" />
   <public type="layout" name="resource_detail" id="0x0303001a" />
   <public type="layout" name="resource_detail_ringtone" id="0x0303001b" />
@@ -550,6 +587,10 @@
   <public type="layout" name="list_item_padding_right" id="0x0303002d" />
   <public type="layout" name="boot_msg" id="0x0303002e" />
   <public type="layout" name="resource_detail_info" id="0x0303002f" />
+  <public type="layout" name="text_list_float_panel" id="0x03030030" />
+  <public type="layout" name="text_list_float_panel_item" id="0x03030031" />
+  <public type="layout" name="text_selection_float_panel" id="0x03030032" />
+  <public type="layout" name="text_insertion_float_panel" id="0x03030033" />
 
   <public type="anim" name="alert_dialog_enter" id="0x03040000" />
   <public type="anim" name="alert_dialog_exit" id="0x03040001" />
@@ -679,6 +720,7 @@
   <public type="dimen" name="android_default_app_widget_padding_top" id="0x030a0022" />
   <public type="dimen" name="android_default_app_widget_padding_bottom" id="0x030a0023" />
   <public type="dimen" name="two_floors_action_bar_height" id="0x030a0024" />
+  <public type="dimen" name="android_preference_icon_minWidth" id="0x030a0025" />
 
   <public type="id" name="delete_button" id="0x030b0000" />
   <public type="id" name="paste_list" id="0x030b0001" />
@@ -701,6 +743,21 @@
   <public type="id" name="seekbar" id="0x030b0012" />
   <public type="id" name="timeDisplayBackground" id="0x030b0013" />
   <public type="id" name="timeDisplayForeground" id="0x030b0014" />
+  <public type="id" name="buttonCopy" id="0x030b0015" />
+  <public type="id" name="buttonCut" id="0x030b0016" />
+  <public type="id" name="buttonPaste" id="0x030b0017" />
+  <public type="id" name="buttonPasteList" id="0x030b0018" />
+  <public type="id" name="buttonSelect" id="0x030b0019" />
+  <public type="id" name="buttonSelectAll" id="0x030b001a" />
+  <public type="id" name="panel" id="0x030b001b" />
+  <public type="id" name="separator1" id="0x030b001c" />
+  <public type="id" name="separator2" id="0x030b001d" />
+  <public type="id" name="separator3" id="0x030b001e" />
+  <public type="id" name="arrow_up" id="0x030b001f" />
+  <public type="id" name="arrow_down" id="0x030b0020" />
+  <public type="id" name="boot_msg_title" id="0x030b0021" />
+  <public type="id" name="boot_msg_animation" id="0x030b0022" />
+  <public type="id" name="android_placeholder" id="0x030b0023" />
 
   <public type="string" name="reboot_confirm" id="0x030c0000" />
   <public type="string" name="reboot_progress" id="0x030c0001" />
@@ -1128,6 +1185,11 @@
   <public type="string" name="sim_account_name" id="0x030c01a7" />
   <public type="string" name="android_yesterday" id="0x030c01a8" />
   <public type="string" name="android_tomorrow" id="0x030c01a9" />
+  <public type="string" name="android_shutdown_progress" id="0x030c01aa" />
+  <public type="string" name="text_pastelist" id="0x030c01ab" />
+  <public type="string" name="select" id="0x030c01ac" />
+  <public type="string" name="android_ssl_certificate_is_valid" id="0x030c01ad" />
+  <public type="string" name="android_find_on_page" id="0x030c01ae" />
 
   <public type="style" name="Widget.ListView.NoDivider" id="0x030d0000" />
   <public type="style" name="Widget.TabWidget.Secondary" id="0x030d0001" />
@@ -1139,16 +1201,16 @@
   <public type="style" name="TextAppearanceSecondaryTab.Middle" id="0x030d0007" />
   <public type="style" name="TextAppearanceSecondaryTab.Right" id="0x030d0008" />
   <public type="style" name="TextViewFloatPanelButton" id="0x030d0009" />
-  <public type="style" name="PreviewInMultipleItem" id="0x030d000a" />
-  <public type="style" name="PreviewInCombineTextItem" id="0x030d000b" />
-  <public type="style" name="PreviewInCombineTextItemImage" id="0x030d000c" />
-  <public type="style" name="PreviewInCombineTextItemText" id="0x030d000d" />
-  <public type="style" name="PreviewInCombineThinItem" id="0x030d000e" />
-  <public type="style" name="PreviewInCombineItem" id="0x030d000f" />
-  <public type="style" name="PreviewItemImage" id="0x030d0010" />
-  <public type="style" name="ResourceProperty" id="0x030d0011" />
-  <public type="style" name="ResourcePropertyTitle" id="0x030d0012" />
-  <public type="style" name="ResourcePropertyContent" id="0x030d0013" />
+  <public type="style" name="ResourceBrowser" id="0x030d000a" />
+  <public type="style" name="ResourceBrowser.ListItem" id="0x030d000b" />
+  <public type="style" name="ResourceBrowser.HorizontalLine" id="0x030d000c" />
+  <public type="style" name="ResourceBrowser.ResourceImage" id="0x030d000d" />
+  <public type="style" name="ResourceBrowser.ResourceDescription" id="0x030d000e" />
+  <public type="style" name="ResourceBrowser.ResourceDescription.Vertical" id="0x030d000f" />
+  <public type="style" name="ResourceBrowser.ResourceDescription.Horizontal" id="0x030d0010" />
+  <public type="style" name="ResourceBrowser.ResourceProperty" id="0x030d0011" />
+  <public type="style" name="ResourceBrowser.ResourceProperty.Title" id="0x030d0012" />
+  <public type="style" name="ResourceBrowser.ResourceProperty.Content" id="0x030d0013" />
   <public type="style" name="Theme" id="0x030d0014" />
   <public type="style" name="Theme.Light" id="0x030d0015" />
   <public type="style" name="Widget.Holo.Light.ActionBar.Solid.HomeUp" id="0x030d0016" />
@@ -1172,6 +1234,7 @@
   <public type="style" name="Widget.Holo.Light.ExpandableListView" id="0x030d0028" />
   <public type="style" name="Widget.Holo.Light.ExpandableListView.White" id="0x030d0029" />
   <public type="style" name="Widget.Holo.Light.ActionBar.TabText" id="0x030d002a" />
+  <public type="style" name="AlphabetFastIndexerStyle" id="0x030d002b" />
 
   <public type="menu" name="multi_select_dropdown_menu" id="0x030e0000" />
   <public type="menu" name="multi_select_menu" id="0x030e0001" />

@@ -33,7 +33,7 @@
             android:orientation="horizontal"
             android:visibility="gone" >
 
-            <com.miui.player.ui.view.GradualTextView
+            <miui.widget.GradientTextView
                 android:id="@+id/primary_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -41,7 +41,11 @@
                 android:textStyle="bold"
                 android:gravity="left|center_vertical"
                 android:singleLine="true"
-                android:textSize="30dp" />
+                android:textSize="30dp"
+                xmlns:miui="http://schemas.android.com/apk/res/miui"
+                miui:startColor="@color/title_primary_gradual_start"
+                miui:endColor="@color/title_primary_gradual_end"
+                />
 
             <TextView
                 android:id="@+id/secondary_item"

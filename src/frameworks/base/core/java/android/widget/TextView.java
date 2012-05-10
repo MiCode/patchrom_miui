@@ -3179,6 +3179,8 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
             text = removeSuggestionSpans(text);
         }
 
+        boolean textChanged = !text.equals(mText);
+
         if (!mUserSetTextScaleX) mTextPaint.setTextScaleX(1.0f);
 
         if (text instanceof Spanned &&
@@ -3308,8 +3310,10 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
             checkForRelayout();
         }
 
-        sendOnTextChanged(text, 0, oldlen, textLength);
-        onTextChanged(text, 0, oldlen, textLength);
+        if (textChanged) {
+            sendOnTextChanged(text, 0, oldlen, textLength);
+            onTextChanged(text, 0, oldlen, textLength);
+        }
 
         if (needEditableForNotification) {
             sendAfterTextChanged((Editable) text);
@@ -8383,7 +8387,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
 
                 boolean selectAllGotFocus = mSelectAllOnFocus && didTouchFocusSelect();
                 hideControllers();
-                if (!selectAllGotFocus && mText.length() > 0) {
+                if (!selectAllGotFocus && mText.length() >= 0) {
                     if (mSpellChecker != null) {
                         // When the cursor moves, the word that was typed may need spell check
                         mSpellChecker.onSelectionChanged();
@@ -8898,13 +8902,16 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
             return selectAll();
         }
 
-        long lastTouchOffsets = getLastTouchOffsets();
+        // instead of the last touch offset, use the current handle position
+        // to select the currentg word
+        //long lastTouchOffsets = getLastTouchOffsets();
+        long lastTouchOffsets = getCurrentSelection();
         final int minOffset = extractRangeStartFromLong(lastTouchOffsets);
         final int maxOffset = extractRangeEndFromLong(lastTouchOffsets);
 
         // Safety check in case standard touch event handling has been bypassed
-        if (minOffset < 0 || minOffset >= mText.length()) return false;
-        if (maxOffset < 0 || maxOffset >= mText.length()) return false;
+        if (minOffset < 0 || minOffset > mText.length()) return false;
+        if (maxOffset < 0 || maxOffset > mText.length()) return false;
 
         int selectionStart, selectionEnd;
 
@@ -8996,9 +9003,15 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
     }
 
     private long getLastTouchOffsets() {
-        SelectionModifierCursorController selectionController = getSelectionController();
+        MiuiCursorController selectionController = getSelectionController();
         final int minOffset = selectionController.getMinTouchOffset();
         final int maxOffset = selectionController.getMaxTouchOffset();
+        return packRangeInLong(minOffset, maxOffset);
+    }
+
+    private long getCurrentSelection() {
+        final int minOffset = getSelectionStart();
+        final int maxOffset = minOffset;
         return packRangeInLong(minOffset, maxOffset);
     }
 
@@ -9231,6 +9244,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
 
     @Override
     public boolean performLongClick() {
+    /*
         boolean handled = false;
         boolean vibrate = true;
 
@@ -9281,7 +9295,8 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
             mDiscardNextActionUp = true;
         }
 
-        return handled;
+        return handled;*/
+        return super.performLongClick();
     }
 
     private boolean touchPositionIsInSelection() {
@@ -9299,7 +9314,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
             Selection.setSelection((Spannable) mText, selectionStart, selectionEnd);
         }
 
-        SelectionModifierCursorController selectionController = getSelectionController();
+        MiuiCursorController selectionController = getSelectionController();
         int minOffset = selectionController.getMinTouchOffset();
         int maxOffset = selectionController.getMaxTouchOffset();
 
@@ -10718,7 +10733,291 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
         }
     }
 
-    private class InsertionHandleView extends HandleView {
+    MiuiHandleView initHandleView(int type, MiuiCursorController cc) {
+        MiuiHandleView handle = null;
+        if (type == MiuiHandleView.HANDLE_INSERT) {
+            if (mSelectHandleCenter == null) {
+                mSelectHandleCenter = mContext.getResources().getDrawable(mTextSelectHandleRes);
+            }
+            handle = new InsertionHandleView(mSelectHandleCenter);
+        }
+        else {
+            if (mSelectHandleLeft == null) {
+                mSelectHandleLeft = mContext.getResources().getDrawable(mTextSelectHandleLeftRes);
+            }
+            if (mSelectHandleRight == null) {
+                mSelectHandleRight = mContext.getResources().getDrawable(mTextSelectHandleRightRes);
+            }
+
+            if (type == MiuiHandleView.HANDLE_START) {
+                handle = new SelectionStartHandleView(mSelectHandleLeft, mSelectHandleRight);
+            }
+
+            if (type == MiuiHandleView.HANDLE_END) {
+                handle = new SelectionEndHandleView(mSelectHandleRight, mSelectHandleLeft);
+            }
+        }
+
+        if (handle == null){
+            Log.e(LOG_TAG, "Failed to init handle view.");
+        }
+        else {
+            handle.setCursorController(cc);
+        }
+        return handle;
+    }
+
+    abstract class MiuiHandleView extends HandleView {
+        public static final int HANDLE_INSERT = 0;
+        public static final int HANDLE_START  = 1;
+        public static final int HANDLE_END   = 2;
+
+        private MiuiCursorController mCursorController;
+
+        public MiuiHandleView(Drawable drawableLtr, Drawable drawableRtl) {
+            super(drawableLtr, drawableRtl);
+        }
+
+        public void getHotspotLocationOnScreen(int[] location) {
+            getLocationOnScreen(location);
+            location[0] += mHotspotX;
+        }
+
+        public void setCursorController(MiuiCursorController cc) {
+            mCursorController = cc;
+        }
+
+        public void updatePosition(int parentPositionX, int parentPositionY,
+                boolean parentPositionChanged, boolean parentScrolled) {
+            super.updatePosition(parentPositionX, parentPositionY, parentPositionChanged, parentScrolled);
+            mCursorController.updatePosition();
+        }
+
+        public boolean onTouchEvent(MotionEvent ev) {
+            if(mCursorController.onHandleTouchEvent(this, ev)) {
+                return true;
+            }
+            else {
+                return super.onTouchEvent(ev);
+            }
+        }
+
+        // Helper functions used by MiuiCursorController
+        //TODO etHysteresisOffset?
+        int getHysteresisOffset(int x, int y, int previousOffset) {
+            final Layout layout = getLayout();
+            if (layout == null) return -1;
+
+            y -= getTotalPaddingTop();
+            // Clamp the position to inside of the view.
+            y = Math.max(0, y);
+            y = Math.min(getHeight() - getTotalPaddingBottom() - 1, y);
+            y += getScrollY();
+
+            int line = getLayout().getLineForVertical(y);
+
+            final int previousLine = layout.getLineForOffset(previousOffset);
+            final int previousLineTop = layout.getLineTop(previousLine);
+            final int previousLineBottom = layout.getLineBottom(previousLine);
+            final int hysteresisThreshold = (previousLineBottom - previousLineTop) / 8;
+
+            // If new line is just before or after previous line and y position is less than
+            // hysteresisThreshold away from previous line, keep cursor on previous line.
+            if (((line == previousLine + 1) && ((y - previousLineBottom) < hysteresisThreshold)) ||
+                ((line == previousLine - 1) && ((previousLineTop - y)    < hysteresisThreshold))) {
+                line = previousLine;
+            }
+
+            return getOffsetForHorizontal(line, x);
+        }
+
+        private int getOffsetForHorizontal(int line, int x) {
+            x -= getTotalPaddingLeft();
+            // Clamp the position to inside of the view.
+            x = Math.max(0, x);
+            x = Math.min(getWidth() - getTotalPaddingRight() - 1, x);
+            x += getScrollX();
+            return getLayout().getOffsetForHorizontal(line, x);
+        }
+
+        private void startTextSelectionMode() {
+            if (!mIsInTextSelectionMode) {
+                if (!hasSelectionController()) {
+                    Log.w(LOG_TAG, "TextView has no selection controller. Action mode cancelled.");
+                    return;
+                }
+
+                if (!canSelectText() || !TextView.this.requestFocus()) {
+                    return;
+                }
+
+                if (!hasSelection()) {
+                    selectCurrentWord();
+                }
+
+                getSelectionController().show();
+                mIsInTextSelectionMode = true;
+            }
+        }
+
+        private void stopTextSelectionMode() {
+            if (mIsInTextSelectionMode) {
+                Selection.setSelection((Spannable) mText, getSelectionEnd());
+                if (mSelectionModifierCursorController != null) {
+                    mSelectionModifierCursorController.hide();
+                }
+                mIsInTextSelectionMode = false;
+            }
+        }
+
+        void handleFloatPanelClick (View v, final MiuiCursorController cc) {
+            int min = 0;
+            int max = mText.length();
+
+            if (TextView.this.isFocused()) {
+                final int selStart = getSelectionStart();
+                final int selEnd = getSelectionEnd();
+
+                min = Math.max(0, Math.min(selStart, selEnd));
+                max = Math.max(0, Math.max(selStart, selEnd));
+            }
+
+            ClipboardManager clip = (ClipboardManager)getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipData data = clip.getPrimaryClip();
+
+            switch (v.getId()) {
+                case miui.R.id.buttonSelect:
+                    if (mSelectionControllerEnabled) {
+                        startTextSelectionMode();
+                        getSelectionController().show();
+                    }
+                    break;
+                case miui.R.id.buttonSelectAll:
+                    // fix bug, some IME could send select all command when the editview does not support selecting
+                    if(mSelectionControllerEnabled) {
+                        Selection.setSelection((Spannable) mText, 0, mText.length());
+                        startTextSelectionMode();
+                        getSelectionController().show();
+                    }
+                    break;
+                case miui.R.id.buttonPaste:
+                    CharSequence paste = null;
+                    int count = data.getItemCount();
+                    if (count > 0) {
+                        paste = data.getItemAt(count-1).coerceToText(mContext);
+                    }
+
+                    if (paste != null && paste.length() > 0) {
+                        long minMax = prepareSpacesAroundPaste(min, max, paste);
+                        min = extractRangeStartFromLong(minMax);
+                        max = extractRangeEndFromLong(minMax);
+                        Selection.setSelection((Spannable) mText, max);
+                        ((Editable) mText).replace(min, max, paste);
+                        stopTextSelectionMode();
+                    }
+                    break;
+                case miui.R.id.buttonPasteList:
+                    final int min1 = min;
+                    final int max2 = max;
+                    OnClickListener l = new OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            TextView t = (TextView) v;
+                            ((Editable) mText).replace(min1, max2, t.getText());
+                            stopTextSelectionMode();
+                            ((MiuiCursorController.InsertionPointCursorController)cc).onClipBoardPancelClick();
+                        }
+                    };
+                    if (data != null) {
+                        ((MiuiCursorController.InsertionPointCursorController)cc).setupClipBoardPanel(data, l);
+                    }
+                    break;
+                case miui.R.id.buttonCopy:
+                    addPrimaryClip(clip, data, mTransformed.subSequence(min, max));
+                    Toast.makeText(mContext, mContext.getResources().getString(
+                                com.android.internal.R.string.text_copied), Toast.LENGTH_SHORT).show();
+                    break;
+                case miui.R.id.buttonCut:
+                    addPrimaryClip(clip, data, mTransformed.subSequence(min, max));
+                    deleteText_internal(min, max);
+                    Toast.makeText(mContext, mContext.getResources().getString(
+                                com.android.internal.R.string.text_copied), Toast.LENGTH_SHORT).show();
+                    break;
+            }
+        }
+
+        private void addPrimaryClip(ClipboardManager clipboard, ClipData data, CharSequence selected) {
+            if (data == null) {
+                clipboard.setPrimaryClip(ClipData.newPlainText(null,selected));
+            }
+            else {
+                data.addItem(new ClipData.Item(selected));
+                clipboard.setPrimaryClip(data);
+            }
+            stopTextSelectionMode();
+            //sLastCutOrCopyTime = SystemClock.uptimeMillis();
+        }
+
+        ArrayList<Boolean> getFloatPanelShowHides(int[] buttons) {
+            ArrayList<Boolean> showHides = new ArrayList<Boolean>();
+            Boolean isTextEditable = isTextEditable();
+            for(int button:buttons) {
+                showHides.add(getButtonShowHides(isTextEditable, button));
+            }
+            return showHides;
+        }
+
+        private boolean getButtonShowHides(boolean isTextEditable, int id) {
+            switch (id) {
+                case miui.R.id.buttonSelect:
+                case miui.R.id.buttonSelectAll:
+                    return canSelectText();
+
+                case miui.R.id.buttonPaste:
+                    return isTextEditable && canPaste();
+
+                case miui.R.id.buttonPasteList:
+                    ClipboardManager cm = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+                    if (cm.getPrimaryClip() != null) {
+                        int historyCount = cm.getPrimaryClip().getItemCount();
+                        return isTextEditable && historyCount > 0;
+                    }
+                    return false;
+
+                case miui.R.id.buttonCopy:
+                    return canCopy();
+
+                case miui.R.id.buttonCut:
+                    return isTextEditable && canCut();
+            }
+            return false;
+        }
+
+        void startTextSelectionModeIfDouleTap(long previousTapUpTime, float x, float y, float previousX, float previousY) {
+            long duration = SystemClock.uptimeMillis() - previousTapUpTime;
+            if (duration <= ViewConfiguration.getDoubleTapTimeout() && isPositionOnText(x, y)) {
+                final float deltaX = x - previousX;
+                final float deltaY = y - previousY;
+                final float distanceSquared = deltaX * deltaX + deltaY * deltaY;
+                if (distanceSquared < mSquaredTouchSlopDistance) {
+                    startTextSelectionMode();
+                    mDiscardNextActionUp = true;
+                }
+            }
+        }
+
+        boolean needInsertPanel() {
+            return canSelectText() || canPaste();
+        }
+
+        void onTapUpEvent() {
+            if (!mDiscardNextActionUp) {
+                stopTextSelectionMode();
+            }
+        }
+    }
+
+    class InsertionHandleView extends MiuiHandleView {
         private static final int DELAY_BEFORE_HANDLE_FADES_OUT = 4000;
         private static final int RECENT_CUT_COPY_DURATION = 15 * 1000; // seconds
 
@@ -10781,7 +11080,8 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
                     break;
 
                 case MotionEvent.ACTION_UP:
-                    if (!offsetHasBeenChanged()) {
+                   // do not show actionPopup
+                   /* if (!offsetHasBeenChanged()) {
                         final float deltaX = mDownPositionX - ev.getRawX();
                         final float deltaY = mDownPositionY - ev.getRawY();
                         final float distanceSquared = deltaX * deltaX + deltaY * deltaY;
@@ -10794,7 +11094,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
                             }
                         }
                     }
-                    hideAfterDelay();
+                    hideAfterDelay();*/
                     break;
 
                 case MotionEvent.ACTION_CANCEL:
@@ -10836,7 +11136,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
         }
     }
 
-    private class SelectionStartHandleView extends HandleView {
+    class SelectionStartHandleView extends MiuiHandleView {
 
         public SelectionStartHandleView(Drawable drawableLtr, Drawable drawableRtl) {
             super(drawableLtr, drawableRtl);
@@ -10878,7 +11178,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
         }
     }
 
-    private class SelectionEndHandleView extends HandleView {
+    class SelectionEndHandleView extends MiuiHandleView {
 
         public SelectionEndHandleView(Drawable drawableLtr, Drawable drawableRtl) {
             super(drawableLtr, drawableRtl);
@@ -11141,13 +11441,12 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
         }
     }
 
-    private void hideInsertionPointCursorController() {
+    void hideInsertionPointCursorController() {
         // No need to create the controller to hide it.
         if (mInsertionPointCursorController != null) {
             mInsertionPointCursorController.hide();
         }
     }
-
     /**
      * Hides the insertion controller and stops text selection mode, hiding the selection controller
      */
@@ -11323,13 +11622,13 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
         return mSelectionControllerEnabled;
     }
 
-    InsertionPointCursorController getInsertionController() {
+    MiuiCursorController getInsertionController() {
         if (!mInsertionControllerEnabled) {
             return null;
         }
 
         if (mInsertionPointCursorController == null) {
-            mInsertionPointCursorController = new InsertionPointCursorController();
+            mInsertionPointCursorController = MiuiCursorController.create(this, mContext, MiuiCursorController.INSERT_CURSOR_TYPE);
 
             final ViewTreeObserver observer = getViewTreeObserver();
             observer.addOnTouchModeChangeListener(mInsertionPointCursorController);
@@ -11338,13 +11637,13 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
         return mInsertionPointCursorController;
     }
 
-    SelectionModifierCursorController getSelectionController() {
+    private MiuiCursorController getSelectionController() {
         if (!mSelectionControllerEnabled) {
             return null;
         }
 
         if (mSelectionModifierCursorController == null) {
-            mSelectionModifierCursorController = new SelectionModifierCursorController();
+            mSelectionModifierCursorController = MiuiCursorController.create(this, mContext, MiuiCursorController.SELECT_CURSOR_TYPE);
 
             final ViewTreeObserver observer = getViewTreeObserver();
             observer.addOnTouchModeChangeListener(mSelectionModifierCursorController);
@@ -11532,9 +11831,10 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
     private Blink                   mBlink;
     private boolean                 mCursorVisible = true;
 
+    private boolean                 mIsInTextSelectionMode = false;
     // Cursor Controllers.
-    private InsertionPointCursorController mInsertionPointCursorController;
-    private SelectionModifierCursorController mSelectionModifierCursorController;
+    private MiuiCursorController    mInsertionPointCursorController;
+    private MiuiCursorController    mSelectionModifierCursorController;
     private ActionMode              mSelectionActionMode;
     private boolean                 mInsertionControllerEnabled;
     private boolean                 mSelectionControllerEnabled;

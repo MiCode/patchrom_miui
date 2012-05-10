@@ -2101,8 +2101,10 @@ public final class GsmDataConnectionTracker extends DataConnectionTracker {
 
         apnContext.setState(State.IDLE);
 
-        FirewallManager.getInstance().onDataDisconnected(ConnectivityManager.TYPE_MOBILE,
-                FirewallManager.encodeApnSetting(apnContext.getApnSetting()));
+        if (apnContext.getApnSetting() != null) {
+            FirewallManager.getInstance().onDataDisconnected(ConnectivityManager.TYPE_MOBILE,
+                    FirewallManager.encodeApnSetting(apnContext.getApnSetting()));
+        }
 
         mPhone.notifyDataConnection(apnContext.getReason(), apnContext.getApnType());
 

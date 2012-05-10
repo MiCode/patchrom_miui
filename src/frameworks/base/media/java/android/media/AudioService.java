@@ -20,6 +20,8 @@ import static android.media.AudioManager.RINGER_MODE_NORMAL;
 import static android.media.AudioManager.RINGER_MODE_SILENT;
 import static android.media.AudioManager.RINGER_MODE_VIBRATE;
 
+import android.annotation.MiuiHook;
+import android.annotation.MiuiHook.MiuiHookType;
 import android.app.ActivityManagerNative;
 import android.app.KeyguardManager;
 import android.app.PendingIntent;
@@ -498,6 +500,7 @@ public class AudioService extends IAudioService.Stub {
     }
 
     /** @see AudioManager#adjustVolume(int, int, int) */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public void adjustSuggestedStreamVolume(int direction, int suggestedStreamType, int flags) {
 
         int streamType;
@@ -514,6 +517,7 @@ public class AudioService extends IAudioService.Stub {
             flags &= ~AudioManager.FLAG_PLAY_SOUND;
         }
 
+        direction = adjustDirection(flags, direction);
         adjustStreamVolume(streamType, direction, flags);
     }
 
@@ -3758,6 +3762,18 @@ public class AudioService extends IAudioService.Stub {
             mArtworkExpectedWidth = w;
             mArtworkExpectedHeight = h;
         }
+    }
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private int adjustDirection(int flags, int direction) {
+        // Do not change volume when panel is invisible
+        if ((flags & AudioManager.FLAG_SHOW_UI) != 0) {
+            if (! mVolumePanel.isVisible()) {
+                direction = AudioManager.ADJUST_SAME;
+            }
+        }
+
+        return direction;
     }
 
     @Override
