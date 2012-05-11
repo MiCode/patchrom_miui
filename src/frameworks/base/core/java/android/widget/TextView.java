@@ -11018,7 +11018,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
     }
 
     class InsertionHandleView extends MiuiHandleView {
-        private static final int DELAY_BEFORE_HANDLE_FADES_OUT = 4000;
+        private static final int DELAY_BEFORE_HANDLE_FADES_OUT = 3000;
         private static final int RECENT_CUT_COPY_DURATION = 15 * 1000; // seconds
 
         // Used to detect taps on the insertion handle, which will affect the ActionPopupWindow
