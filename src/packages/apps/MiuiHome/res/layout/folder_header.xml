@@ -1,0 +1,47 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/folder_header"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:background="@drawable/folder_title_background" >
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="left|center_vertical"
+        android:textSize="21sp"
+        android:textColor="@color/folder_title_text"
+        android:singleLine="true"
+        android:shadowColor="@color/folder_title_text_shadow"
+        android:shadowRadius="1.0"
+        android:shadowDy="-1" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" >
+        <EditText
+            android:id="@+id/rename_edit"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_weight="1"
+            android:scrollHorizontally="true"
+            android:autoText="false"
+            android:textSize="21sp"
+            android:textColor="@color/folder_setting_remane_text"
+            android:singleLine="true"
+            android:capitalize="none"
+            android:maxLength="30"
+            android:background="@drawable/rename_folder_edit_bg"
+            android:visibility="invisible" />
+        <Button
+            android:id="@+id/confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right|center_vertical"
+            android:text="@string/confirm_btn_label"
+            android:visibility="invisible" />
+    </LinearLayout>
+</FrameLayout>
+

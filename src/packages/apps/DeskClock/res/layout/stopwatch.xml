@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  android:background="@color/background">
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/stopwatch_header_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+    <com.android.deskclock.StopwatchChronometer
+        android:id="@+id/elapsed_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="108dip"
+        android:gravity="center"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center">
+            <ImageView android:id="@+id/first_digital"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content" />
+            <ImageView android:id="@+id/second_digital"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content" />
+            <ImageView android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/time_large_colon" />
+            <ImageView android:id="@+id/third_digital"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content" />
+            <ImageView android:id="@+id/fourth_digital"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content" />
+            <ImageView android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/time_large_dot" />
+            <ImageView android:id="@+id/fifth_digital"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content" />
+        </LinearLayout>
+        <TextView android:id="@+id/hours"
+            android:textAppearance="?android:attr/textAppearanceLargeInverse"
+            android:paddingTop="10dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"/>
+    </com.android.deskclock.StopwatchChronometer>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:paddingTop="22dip"
+        android:paddingBottom="10dip"
+        android:paddingLeft="22dip"
+        android:paddingRight="22dip">
+        <Button
+            android:id="@+id/start_btn"
+            style="@style/OperationButtonStyle"
+            android:text="@string/start"
+            android:textColor="@android:color/white"
+            android:background="@drawable/btn_bg_green"
+            android:drawableLeft="@drawable/ic_start"
+            android:layout_marginRight="10dip" />
+        <Button
+            android:id="@+id/pause_btn"
+            style="@style/OperationButtonStyle"
+            android:text="@string/pause"
+            android:textColor="@android:color/white"
+            android:background="@drawable/btn_bg_yellow"
+            android:drawableLeft="@drawable/ic_pause"
+            android:layout_marginRight="10dip" />
+        <Button
+            android:id="@+id/reset_btn"
+            style="@style/OperationButtonStyle"
+            android:text="@string/reset"
+            android:background="@drawable/btn_bg"
+            android:drawableLeft="@drawable/ic_reset" />
+        <Button
+            android:id="@+id/lap_btn"
+            style="@style/OperationButtonStyle"
+            android:text="@string/lap"
+            android:background="@drawable/btn_bg"
+            android:drawableLeft="@drawable/ic_lap" />
+    </LinearLayout>
+  </LinearLayout>
+  <ListView
+      android:id="@+id/android:list"
+      android:layout_width="match_parent"
+      android:layout_height="0dip"
+      android:layout_weight="1"
+      android:background="@drawable/stopwatch_bottom_bg"
+      android:paddingBottom="8dip"
+      android:layout_marginBottom="12dip" />
+</LinearLayout>

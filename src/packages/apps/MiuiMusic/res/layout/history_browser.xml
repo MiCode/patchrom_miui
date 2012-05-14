@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <LinearLayout
+        android:id="@+id/no_history_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/current_default_big"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/click_to_shuffle"
+            style="@style/NowplayingPrimaryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/click_to_shuffle"
+            />
+
+        <TextView
+            android:id="@+id/track_count"
+            style="@style/NowplayingSecondaryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/playing_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" >
+
+        <FrameLayout
+            android:id="@+id/nowplaying_frame"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView android:id="@+id/nowplaying_album_helper"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"/>
+
+            <ImageView android:id="@+id/nowplaying_album"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/current_album_mask">
+
+                <TextView
+                    android:id="@+id/primary_text"
+                    style="@style/NowplayingPrimaryText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/spacing_to_border"
+                    />
+
+                <TextView
+                    android:id="@+id/secondary_text"
+                    style="@style/NowplayingSecondaryText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/spacing_to_border"
+                    android:layout_below="@id/primary_text"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/common_tabs"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="4.67dip"
+                    android:layout_marginRight="4.67dip">
+
+                    <include layout="@layout/audio_player_common" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="@dimen/recently_album_width"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/history_frame"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/history_album_space"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/latest_album_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/history_default_small" />
+
+                <ImageView
+                    android:id="@+id/latest_album_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_marginBottom="@dimen/history_album_space"
+                    android:layout_marginTop="@dimen/history_album_space"
+                    android:layout_weight="1"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/history_default_small" />
+
+                <ImageView
+                    android:id="@+id/latest_album_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/history_default_small" />
+            </LinearLayout>
+            <View android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/current_album_mask"
+            />
+        </FrameLayout>
+
+    </LinearLayout>
+
+</merge>

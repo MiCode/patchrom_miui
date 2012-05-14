@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:gravity="center_horizontal">
+
+    <TextView
+            android:id="@android:id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal"
+            android:text="@string/quick_login_title"
+            style="@style/DialogTitleStyle"
+            />
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:scaleType="fitXY"
+            android:gravity="fill_horizontal"
+            android:src="@android:drawable/divider_horizontal_bright"/>
+
+    <!-- Container in which we are going to add and remove views, to demonstrate
+how the layout adjusts based on size. -->
+    <LinearLayout android:id="@+id/inner_content"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:paddingTop="16dp"
+                  android:paddingBottom="20dp"
+                  android:paddingLeft="8dp"
+                  android:paddingRight="8dp"
+            >
+        <TextView
+                android:id="@+id/account_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                style="?android:attr/textAppearance"
+                />
+        <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:hint="@string/input_password_hint"
+                android:singleLine="true"
+                android:password="true"
+                style="?android:attr/textAppearance"
+                />
+    </LinearLayout>
+
+    <!-- Alert dialog style buttons along the bottom. -->
+    <LinearLayout style="?android:attr/buttonBarStyle"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:measureWithLargestChild="true">
+        <Button style="?android:attr/buttonBarButtonStyle"
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@android:string/cancel"/>
+        <Button style="?android:attr/buttonBarButtonStyle"
+                android:id="@+id/confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/confirm"/>
+    </LinearLayout>
+</LinearLayout>

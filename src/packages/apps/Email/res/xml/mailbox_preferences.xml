@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- summary is set at runtime -->
+    <ListPreference
+        android:key="check_frequency"
+        android:title="@string/mailbox_settings_mailbox_check_frequency_label"
+        android:dialogTitle="@string/mailbox_settings_mailbox_check_frequency_label"
+        android:entries="@array/account_settings_check_frequency_entries_push"
+        android:entryValues="@array/account_settings_check_frequency_values_push"
+        android:persistent="false"
+        />
+
+    <!-- summary is set at runtime -->
+    <ListPreference
+        android:key="sync_window"
+        android:title="@string/mailbox_settings_mailbox_sync_window_label"
+        android:dialogTitle="@string/mailbox_settings_mailbox_sync_window_label"
+        android:entries="@array/account_settings_mail_window_entries_with_default"
+        android:entryValues="@array/account_settings_mail_window_values_with_default"
+        android:persistent="false"
+        />
+
+</PreferenceScreen>

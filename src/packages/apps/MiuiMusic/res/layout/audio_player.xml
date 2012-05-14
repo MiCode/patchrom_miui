@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/MusicActivityStyle" >
+
+    <!-- Nowplaying playlist -->
+    <fragment
+        class="com.miui.player.ui.fragment.TrackListFragment"
+        android:id="@+id/track_list_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top|left">
+    </fragment>
+
+    <!-- AudioPlayer -->
+    <fragment
+        class="com.miui.player.ui.fragment.AudioPlayerFragment"
+        android:id="@+id/audio_player_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top|left">
+    </fragment>
+
+</FrameLayout>

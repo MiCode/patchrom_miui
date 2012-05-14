@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/pref_mms_settings_title"
+        android:key="pref_key_mms_settings">
+        <CheckBoxPreference
+            android:key="pref_key_mms_read_reports"
+            android:summary="@string/pref_summary_mms_read_reports"
+            android:title="@string/pref_title_mms_read_reports"
+            android:defaultValue="false" />
+        <CheckBoxPreference
+            android:key="pref_key_mms_auto_retrieval"
+            android:title="@string/pref_title_mms_auto_retrieval"
+            android:summary="@string/pref_summary_mms_auto_retrieval"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:layout="?android:attr/preferenceLayoutChild"
+            android:key="pref_key_mms_retrieval_during_roaming"
+            android:dependency="pref_key_mms_auto_retrieval"
+            android:title="@string/pref_title_mms_retrieval_during_roaming"
+            android:summary="@string/pref_summary_mms_retrieval_during_roaming"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="pref_key_storage_settings"
+        android:title="@string/pref_sms_storage_title">
+        <CheckBoxPreference
+            android:key="pref_key_auto_delete"
+            android:title="@string/pref_title_auto_delete"
+            android:summary="@string/pref_summary_auto_delete"
+            android:defaultValue="false" />
+        <Preference
+            android:layout="?android:attr/preferenceLayoutChild"
+            android:key="pref_key_sms_delete_limit"
+            android:dependency="pref_key_auto_delete"
+            android:title="@string/pref_title_sms_delete"
+            android:persistent="false" />
+        <Preference
+            android:layout="?android:attr/preferenceLayoutChild"
+            android:key="pref_key_mms_delete_limit"
+            android:dependency="pref_key_auto_delete"
+            android:title="@string/pref_title_mms_delete"
+            android:persistent="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="pref_key_other_settings"
+        android:title="@string/pref_other_title">
+        <CheckBoxPreference
+            android:key="pref_key_filter_phone"
+            android:title="@string/pref_title_filter_phone"
+            android:summary="@string/pref_summary_filter_phone"
+            android:defaultValue="false" />
+        <CheckBoxPreference
+            android:key="pref_key_hide_festival"
+            android:title="@string/pref_title_hide_festival"
+            android:summary="@string/pref_summary_hide_festival"
+            android:defaultValue="false" />
+        <Preference
+            android:key="pref_key_edit_sim_smsc_address"
+            android:title="@string/pref_edit_smsc_address" />
+        <Preference
+            android:key="pref_key_manage_sim_messages"
+            android:title="@string/pref_title_manage_sim_messages" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- Top-level container for UI elements used during the OTASP call;
+     see OtaUtils.java.
+
+     This layout file contains the entire OTASP screen, including the
+     status area at the top and touch controls at the bottom of the
+     screen.  The regular CallCard and the InCallTouchUi widget are not
+     used at all during an OTASP call.
+
+     The OTASP screen contains (in order, from top to bottom):
+     - Title and explanatory text
+     - Progress status message
+     - Progress bar
+     - Success / failure message
+     - DTMF dialpad
+     [ Separator / placeholder view between the "upper widgets" above and the buttons below ]
+     - Speaker button
+     - Action buttons like "Activate"/"Skip", or "End", or "Next"
+       (depending on whether we're in the listen/progress state
+       of the final success/failure state.
+
+     Only some of these elements are visible in any given state.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/otaTopLevel"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout android:id="@+id/otaUpperWidgets"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" >
+
+        <!-- Title: "Activate your phone" -->
+        <TextView android:id="@+id/otaTitle"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:textAppearance="@style/ccOtaWizardTitle"
+                  android:text="@string/ota_title_activate"
+        />
+
+        <View
+                  android:layout_width="wrap_content"
+                  android:layout_height="1dip"
+                  android:layout_gravity="center"
+                  android:background="@drawable/green_divider"
+                  android:layout_marginTop="10dip"
+                  android:focusable="false"
+                  android:clickable="false"
+        />
+
+        <!-- Explanatory text: "A special call needs to be made to activate
+             your phone service"... -->
+        <TextView android:id="@+id/otaActivate"
+                  android:layout_marginTop="@dimen/otaactivate_layout_marginTop"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:textAppearance="@style/ccOtaTextPrimary"
+                  android:visibility="gone"
+                  android:text="@string/ota_touch_activate"
+                  />
+
+        <!-- Progress status message, e.g. "Please wait while your phone
+             is being programmed" (in some states) -->
+        <TextView android:id="@+id/otaListenProgress"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="@dimen/otalistenprogress_layout_marginTop"
+                  android:textAppearance="@style/ccOtaTextPrimary"
+                  android:visibility="gone"
+                  />
+
+        <!-- Progress bar -->
+        <ProgressBar android:id="@+android:id/progress_large"
+                     style="?android:attr/progressBarStyleHorizontal"
+                     android:layout_marginTop="20dip"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:visibility="gone"/>
+
+        <!-- Success or failure message (in some states) -->
+        <TextView android:id="@+id/otaSuccessFailStatus"
+                  android:gravity="left"
+                  android:layout_marginTop="@dimen/otasuccessfail_layout_marginTop"
+                  android:layout_marginLeft="5dip"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:textAppearance="@style/ccOtaTextPrimary"
+                  android:visibility="gone"
+                  />
+
+        <!-- DTMF dialpad -->
+        <com.android.phone.DTMFTwelveKeyDialerView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/otaDtmfDialerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="1dip"
+                android:visibility="gone" >
+
+            <!-- Note there's no "dtmfDialerField" EditText here;
+                 in the OTA UI there's no visible "digits" display
+                 attached to the dialpad. -->
+
+            <!-- Keypad section -->
+            <include layout="@layout/dialpad" />
+
+        </com.android.phone.DTMFTwelveKeyDialerView>
+
+    </LinearLayout>
+
+    <!-- Separator / placeholder view between the widgets at the upper
+         part of the screen and the buttons at the bottom.  This view sets
+         layout_weight="1" to ensure that the buttons will be positioned
+         at the very bottom of the screen. -->
+    <View android:id="@+id/otaSeparator"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+    />
+
+    <!-- "Speaker" button -->
+    <ToggleButton android:id="@+id/otaSpeakerButton"
+              android:layout_gravity="center"
+              android:textOn="@string/ota_speaker"
+              android:textOff="@string/ota_speaker"
+              style="@style/ccOtaButton" />
+
+    <!-- (2) Activate/cancel buttons -->
+    <RelativeLayout android:id="@+id/callCardOtaActivate"
+                    android:visibility="gone"
+                    style="@style/ccOtaButtonBar" >
+
+        <!-- "Activate" button -->
+        <Button android:id="@+id/otaActivateButton"
+                android:text="@string/ota_activate"
+                style="@style/ccOtaNextButton" />
+
+        <!-- "Skip" button -->   <!--  TODO: borrowing another button's label for now because I missed the localization deadline for adding a @string/ota_skip -->
+        <Button android:id="@+id/otaSkipButton"
+                android:text="@string/ota_skip_activation_dialog_skip_label"
+                style="@style/ccOtaSkipButton" />
+
+    </RelativeLayout>
+
+    <!-- (3) OTA listen/progress buttons -->
+    <RelativeLayout android:id="@+id/callCardOtaListenProgress"
+                    android:visibility="gone"
+                    style="@style/ccOtaButtonBar" >
+
+        <!-- "End" button -->
+        <Button android:id="@+id/otaEndButton"
+                android:text="@string/ota_call_end"
+                android:drawableLeft="@drawable/ic_btn_back"
+                android:drawablePadding="3dip"
+                style="@style/ccOtaSkipButton" />
+    </RelativeLayout>
+
+    <!-- (4) OTA Success/Failure button -->
+    <RelativeLayout android:id="@+id/callCardOtaFailOrSuccessful"
+                    android:visibility="gone"
+                    style="@style/ccOtaButtonBar" >
+
+        <!-- "Next" button -->
+        <Button android:id="@+id/otaNextButton"
+                android:text="@string/ota_next"
+                android:drawableRight="@drawable/ic_btn_next"
+                android:drawablePadding="10dip"
+                style="@style/ccOtaNextButton" />
+
+        <!-- "Try Again" button -->
+        <Button android:id="@+id/otaTryAgainButton"
+                android:text="@string/ota_try_again"
+                style="@style/ccOtaSkipButton" />
+    </RelativeLayout>
+</LinearLayout>

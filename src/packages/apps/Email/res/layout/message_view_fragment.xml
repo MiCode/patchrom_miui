@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- small -->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    >
+    <ProgressBar
+        android:id="@+id/loading_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="?android:attr/progressBarStyleLarge"
+        />
+    <com.android.email.view.NonLockingScrollView
+        android:id="@+id/main_panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:id="@+id/subject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dip"
+                android:layout_marginBottom="4dip"
+                android:layout_marginLeft="8dip"
+                android:layout_marginRight="8dip"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textStyle="bold"
+                />
+            <!-- Upper header area. -->
+            <include layout="@layout/message_view_header_upper" />
+
+            <!-- Addresses, timestamp, "show details" -->
+            <FrameLayout
+                android:id="@+id/message_view_subheader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dip"
+                android:layout_marginRight="16dip"
+                >
+                <include layout="@layout/message_view_subheader" />
+            </FrameLayout>
+
+            <!-- divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginLeft="16dip"
+                android:layout_marginRight="16dip"
+                style="@style/message_view_horizontal_divider"
+                />
+
+            <LinearLayout
+                android:id="@+id/message_tabs_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dip"
+                android:layout_marginRight="16dip"
+                android:orientation="vertical"
+                >
+                <Button
+                    android:id="@+id/show_pictures"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dip"
+                    android:drawableLeft="@drawable/ic_show_images_holo_light"
+                    android:drawablePadding="8dip"
+                    android:text="@string/message_view_show_pictures_action"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    />
+
+                <Button
+                    android:id="@+id/always_show_pictures_button"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dip"
+                    android:drawableLeft="@drawable/ic_show_images_holo_light"
+                    android:drawablePadding="8dip"
+                    android:text="@string/message_view_always_show_pictures_prompt"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <Button
+                        android:id="@+id/show_message"
+                        android:text="@string/message_view_show_message_action"
+                        android:layout_width="wrap_content"
+                        style="@style/message_view_tab"
+                        />
+                    <!--
+                        Even though the "invite" section is only for MessageViewFragment, it's managed
+                        by MessageViewFragmentBase for simplicity.
+                    -->
+                    <Button
+                        android:id="@+id/show_invite"
+                        android:text="@string/message_view_show_invite_action"
+                        android:layout_width="wrap_content"
+                        style="@style/message_view_tab"
+                        />
+                    <Button
+                        android:id="@+id/show_attachments"
+                        android:layout_width="wrap_content"
+                        style="@style/message_view_tab"
+                        />
+                    <View
+                        android:layout_width="0dip"
+                        android:layout_height="0dip"
+                        android:layout_weight="1"
+                        />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    style="@style/message_view_horizontal_divider"
+                    />
+            </LinearLayout>
+            <!-- end of tab area -->
+            <!--
+                content area - only one of them is visible at a time.
+            -->
+            <com.android.email.view.RigidWebView
+                android:id="@+id/message_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dip"
+                android:layout_marginRight="16dip"
+                android:background="@android:color/white"
+                android:visibility="gone"
+                />
+
+            <!-- TODO: remove these useless scroll views. They are carry-over
+                 from an existing design and are no longer needed. -->
+            <!--
+                Even though the "invite" section is only for MessageViewFragment,
+                Its visibility is controlled by MessageViewFragmentBase for simplicity.
+            -->
+            <ScrollView
+                android:id="@+id/invite_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dip"
+                android:layout_marginRight="16dip"
+                android:paddingTop="16dip"
+                android:paddingBottom="16dip"
+                android:visibility="gone"
+                >
+                <!--
+                    Invite section - the views in it are controlled only by MessageViewFragment.
+                    MessageViewFragment shouldn't know what's inside it.
+                -->
+                <include layout="@layout/message_view_invitation" />
+            </ScrollView>
+            <ScrollView
+                android:id="@+id/attachments_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dip"
+                android:layout_marginRight="16dip"
+                android:visibility="gone"
+                >
+                <LinearLayout
+                    android:id="@+id/attachments"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dip"
+                    android:background="@android:color/white"
+                    />
+            </ScrollView>
+            <!-- end of content area -->
+        </LinearLayout>
+    </com.android.email.view.NonLockingScrollView>
+</FrameLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- Onscreen in-call DTMF dialpad.  This element contains the grid of
+     DTMF buttons (dialpad.xml) along with a TextView showing
+     the digits you've typed.
+
+     When the user presses the "Dialpad" button, this UI appears in the
+     upper part of the in-call screen, covering up the "call card" area.
+     The regular in-call controls (i.e. the InCallTouchUi widget) are
+     still visible at the lower part of the screen.
+
+     This layout is inflated in place of dtmf_twelve_key_dialer_stub
+     in incall_touch_ui.xml. -->
+<com.android.phone.DTMFTwelveKeyDialerView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dtmf_twelve_key_dialer_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="1dip"
+    android:visibility="gone"
+    >
+
+    <!-- Display of the digits you've typed so far.
+         This widget appears completely non-interactive to the user: you
+         can't edit or "hit backspace" since these are DTMF tones you've
+         already sent over the network.  But it's still an EditText rather
+         than a TextView because it needs to receive key events from a
+         hard keyboard, if present (see mDialerKeyListener). -->
+    <EditText
+        android:id="@+id/dtmfDialerField"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
+        android:singleLine="true"
+        android:scrollHorizontally="true"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:freezesText="true"
+        android:background="@null"
+        android:textColor="@color/dtmf_dialer_display_text"
+        android:focusableInTouchMode="false"
+        android:clickable="false"/>
+
+    <!-- The dialpad itself -->
+    <include layout="@layout/dialpad" />
+
+</com.android.phone.DTMFTwelveKeyDialerView>

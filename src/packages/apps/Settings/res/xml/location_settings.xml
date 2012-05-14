@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/location_settings_title">
+
+        <CheckBoxPreference
+            android:key="location_network"
+            android:title="@string/location_network_based"
+            android:summary="@string/location_neighborhood_level"/>
+
+        <CheckBoxPreference
+            android:key="location_gps"
+            android:title="@string/location_gps"
+            android:summary="@string/location_street_level"/>
+
+<!-- Disabled to avoid confusion on devices with no AGPS
+     For Google experience devices we want AGPS on by default (if supported) so we don't really need this.
+        <CheckBoxPreference
+            android:key="assisted_gps"
+            android:title="@string/assisted_gps"
+            android:summaryOn="@string/assisted_gps_enabled"
+            android:summaryOff="@string/assisted_gps_disabled"/>
+-->
+
+</PreferenceScreen>

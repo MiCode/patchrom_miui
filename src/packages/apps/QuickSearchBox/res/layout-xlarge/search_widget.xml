@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- Fills the entire widget slot to allow position the visible widget inside. -->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+<!-- The visible widget. -->
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentLeft="true"
+    android:layout_marginTop="1dip"
+    android:layout_marginLeft="12dip"
+    android:layout_marginRight="12dip"
+    android:background="@drawable/bg_search_widget_holo"
+    >
+
+            <LinearLayout
+                android:id="@+id/search_plate"
+                android:layout_width="match_parent"
+                android:layout_height="62dip"
+                android:gravity="top|left"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:paddingTop="8dip"
+                android:paddingBottom="12dip"
+                android:paddingLeft="16dip"
+                android:paddingRight="16dip"
+                android:background="@drawable/bg_stripe_pattern_search_widget_holo"
+                >
+
+                <LinearLayout
+                    android:id="@+id/search_edit_frame"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:orientation="horizontal"
+                    android:background="@drawable/textfield_search_widget_start_holo"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/search_widget_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="8dp"
+                        android:paddingBottom="2dip"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_google_logo_search_widget"
+                        android:background="@drawable/highlight_search_widget"
+                    />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/textfield_search_widget_end_holo"
+                    >
+                    <ImageButton
+                            android:id="@+id/search_widget_voice_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="24dip"
+                            android:paddingRight="24dip"
+                            android:paddingBottom="2dip"
+                            android:src="@drawable/ic_voice_search_widget_holo"
+                            android:background="@drawable/highlight_search_widget"
+                    />
+                </LinearLayout>
+
+            </LinearLayout>
+
+</FrameLayout>
+</FrameLayout>
