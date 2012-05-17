@@ -18,11 +18,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:background="@drawable/title_bar_nav_bg">
+    <FrameLayout
+        android:layout_width="0dip"
+        android:layout_weight="1.0"
+        android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/url_part"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1.0"
         android:gravity="center_vertical"
         android:orientation="horizontal">
         <ImageView
@@ -108,41 +111,81 @@
                 android:src="@drawable/ic_go"
                 android:visibility="gone" />
         </LinearLayout>
+        <ImageView
+            android:id="@+id/show_search"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="2dip"
+            android:paddingRight="2dip"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/accessibility_button_goto"
+            android:src="@drawable/ic_show_search"
+            android:visibility="gone" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/search_part"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1.0"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="10px"
         android:orientation="horizontal"
-        android:background="@drawable/search_bg"
         android:visibility="gone">
-        <com.android.browser.MiuiUrlInputView
-            android:id="@+id/search"
-            android:focusable="true"
+        <LinearLayout
+            android:id="@+id/search_view_container"
             android:layout_width="0dip"
             android:layout_weight="1.0"
             android:layout_height="wrap_content"
-            android:paddingLeft="4dip"
-            android:fadingEdge="horizontal"
-            android:fadingEdgeLength="24dip"
-            android:textSize="@miui:dimen/text_font_size_medium"
-            android:textColor="@color/black"
-            android:hint="@string/search_hint"
-            android:singleLine="true"
-            android:ellipsize="end"
-            android:lines="1"
-            android:scrollHorizontally="true"
-            android:inputType="textUri"
-            android:imeOptions="actionGo|flagNoExtractUi|flagNoFullscreen"
-            style="@style/Suggestions" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:focusable="false"
+            android:background="@miui:drawable/search_input_bg">
+            <ImageView
+                android:id="@+id/search_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <ImageView
+                android:id="@+id/arrow_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@miui:drawable/arrow_down"
+                />
+            <com.android.browser.MiuiSearchInputView
+                android:id="@+id/search"
+                android:focusable="true"
+                android:layout_width="0dip"
+                android:layout_weight="1.0"
+                android:layout_height="match_parent"
+                android:paddingLeft="0dip"
+                android:fadingEdge="horizontal"
+                android:fadingEdgeLength="24dip"
+                android:textSize="@miui:dimen/text_font_size_medium"
+                android:textColor="@color/black"
+                android:hint="@string/search_hint"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:lines="1"
+                android:scrollHorizontally="true"
+                android:imeOptions="actionGo|flagNoExtractUi|flagNoFullscreen"
+                style="@style/Suggestions"
+                android:background="@null"
+                />
+        </LinearLayout>
         <ImageView
             android:id="@+id/search_go"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/accessibility_button_goto"
-            android:src="@drawable/ic_search_go"
-            android:visibility="gone" />
+            android:src="@miui:drawable/search_button"
+            />
+        <TextView
+            android:id="@+id/search_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dip"
+            android:gravity="center_vertical"
+            android:text="@string/search_cancel"
+            android:textSize="14sp"
+            />
     </LinearLayout>
+    </FrameLayout>
 </com.android.browser.MiuiNavigationBarPhone>

@@ -1576,6 +1576,7 @@ public class PhoneNumberUtils
      * @return true if the number is in the list of emergency numbers
      *         listed in the RIL / sim, otherwise return false.
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private static boolean isEmergencyNumberInternal(String number, boolean useExactMatch) {
         // If the number passed in is null, just return false:
         if (number == null) return false;
@@ -1596,6 +1597,10 @@ public class PhoneNumberUtils
         number = extractNetworkPortionAlt(number);
 
         number = miui.telephony.PhoneNumberUtils.parseNumber(number); // MIUIHOOK
+
+        if (miui.telephony.PhoneNumberUtils.isMiuiEmergencyNumber(number, useExactMatch)) {
+            return true;
+        }
 
         // retrieve the list of emergency numbers
         // check read-write ecclist property first

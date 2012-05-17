@@ -19,17 +19,19 @@
         android:layout_width="0dip"
         android:layout_height="63dip"
         android:layout_weight="1"
+        android:paddingRight="5dip"
         android:gravity="center_vertical"
         android:orientation="vertical">
 
-        <TextView
+        <miui.widget.MarqueeTextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:singleLine="true"
             android:gravity="center_vertical"
-            android:textAppearance="@miui:style/TextAppearance.ListView.PrimaryItem" />
+            android:textAppearance="@miui:style/TextAppearance.ListView.PrimaryItem"
+            android:marqueeRepeatLimit="marquee_forever" />
 
         <TextView
             android:id="@+id/sub_title"
