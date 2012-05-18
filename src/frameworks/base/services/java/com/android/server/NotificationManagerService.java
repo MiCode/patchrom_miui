@@ -18,6 +18,8 @@ package com.android.server;
 
 import com.android.internal.statusbar.StatusBarNotification;
 
+import android.annotation.MiuiHook;
+import android.annotation.MiuiHook.MiuiHookType;
 import android.app.ActivityManagerNative;
 import android.app.IActivityManager;
 import android.app.INotificationManager;
@@ -60,6 +62,9 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import miui.app.ExtraNotification;
+import miui.provider.ExtraSettings;
 
 /** {@hide} */
 public class NotificationManagerService extends INotificationManager.Stub
@@ -1063,6 +1068,7 @@ public class NotificationManagerService extends INotificationManager.Stub
     }
 
     // lock on mNotificationList
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private void updateLightsLocked()
     {
         // handle notification lights
@@ -1085,6 +1091,11 @@ public class NotificationManagerService extends INotificationManager.Stub
                 ledARGB = mDefaultNotificationColor;
                 ledOnMS = mDefaultNotificationLedOn;
                 ledOffMS = mDefaultNotificationLedOff;
+
+                updateNotificationLight();
+                ledARGB = mLedNotification.notification.ledARGB;
+                ledOnMS = mLedNotification.notification.ledOnMS;
+                ledOffMS = mLedNotification.notification.ledOffMS;
             }
             if (mNotificationPulseEnabled) {
                 // pulse repeatedly
@@ -1092,6 +1103,22 @@ public class NotificationManagerService extends INotificationManager.Stub
                         ledOnMS, ledOffMS);
             }
         }
+    }
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private void updateNotificationLight() {
+        int color = Settings.System.getInt(mContext.getContentResolver(),
+                ExtraSettings.System.BREATHING_LIGHT_COLOR, mDefaultNotificationColor);
+
+        int defaultFreq = mContext.getResources().getInteger(
+                miui.R.integer.config_defaultNotificationLedFreq);
+        int freq = Settings.System.getInt(mContext.getContentResolver(),
+                ExtraSettings.System.BREATHING_LIGHT_FREQ, defaultFreq);
+
+        int[] offOn = ExtraNotification.getLedPwmOffOn(freq);
+        mLedNotification.notification.ledARGB = color;
+        mLedNotification.notification.ledOnMS = offOn[1];
+        mLedNotification.notification.ledOffMS = offOn[0];
     }
 
     // lock on mNotificationList
