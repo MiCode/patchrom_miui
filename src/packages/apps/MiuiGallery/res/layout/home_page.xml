@@ -80,38 +80,29 @@
         />
     </FrameLayout>
 
-    <!-- bottom section: storage explorer -->
-    <FrameLayout
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/bottom_panel"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="bottom">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="bottom"
-            >
-            <!-- separator -->
-            <ImageView style="@style/HomePageGarySeparator" />
+        android:orientation="vertical"
+        android:gravity="bottom">
 
-            <RelativeLayout
-                android:id="@+id/storage_explorer"
-                style="@style/HomePageTitleContainer"
-                android:background="@drawable/title_large_selector"
-                android:layout_height="@dimen/home_page_title_height"
-                >
-                <TextView
-                    android:text="@string/sd_explorer"
-                    style="@style/HomePageTitleText"
-                    android:layout_alignParentLeft="true"
-                    />
-                <ImageView style="@style/HomePageTitleNavigatorIcon" />
-            </RelativeLayout>
-        </LinearLayout>
-        <ImageView
-            android:id="@+id/home_page_selection_mask_bottom"
-            style="@style/HomePageSelectionMask"
-        />
-    </FrameLayout>
+        <!-- bottom section: storage explorer -->
+        <com.miui.gallery.ui.HomePageItemView
+            android:id="@+id/home_page_item_storage_explorer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </com.miui.gallery.ui.HomePageItemView>
+        <!-- separator -->
+        <ImageView style="@style/HomePageGarySeparator" android:visibility="gone"/>
+        <!-- bottom section: cloud albums -->
+        <com.miui.gallery.ui.HomePageItemView
+            android:id="@+id/home_page_item_cloud_albums"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </com.miui.gallery.ui.HomePageItemView>
+
+    </LinearLayout>
 
 </LinearLayout>

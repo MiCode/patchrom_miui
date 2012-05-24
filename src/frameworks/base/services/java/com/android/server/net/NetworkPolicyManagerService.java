@@ -532,11 +532,11 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
      * Show notification for combined {@link NetworkPolicy} and specific type,
      * like {@link #TYPE_LIMIT}. Okay to call multiple times.
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private void enqueueNotification(NetworkPolicy policy, int type, long totalBytes) {
         final String tag = buildNotificationTag(policy, type);
         final Notification.Builder builder = new Notification.Builder(mContext);
         builder.setOnlyAlertOnce(true);
-        builder.setOngoing(true);
 
         final Resources res = mContext.getResources();
         switch (type) {

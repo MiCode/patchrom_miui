@@ -16,6 +16,8 @@
 
 package android.media;
 
+import miui.provider.ExtraSettings;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.SAXException;
@@ -898,6 +900,8 @@ public class MediaScanner
                 if (TextUtils.isEmpty(mDefaultNotificationFilename) ||
                         doesPathHaveFilename(entry.mPath, mDefaultNotificationFilename)) {
                     setSettingIfNotSet(Settings.System.NOTIFICATION_SOUND, entry.mPath); //MIUI hook
+                    setSettingIfNotSet(ExtraSettings.System.SMS_DELIVERED_SOUND, entry.mPath); //MIUI hook
+                    setSettingIfNotSet(ExtraSettings.System.SMS_RECEIVED_SOUND, entry.mPath); //MIUI hook
                     mDefaultNotificationSet = true;
                 }
             } else if (ringtones && mWasEmptyPriorToScan && !mDefaultRingtoneSet) {

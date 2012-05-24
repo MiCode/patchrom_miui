@@ -1766,11 +1766,6 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
         }
     }
 
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    protected boolean handleCameraKeyEvent(DecorView decor, KeyEvent event, int featureId) {
-        return false;
-    }
-
     @MiuiHook(MiuiHookType.CHANGE_CODE)
     final class DecorView extends FrameLayout implements RootViewSurfaceTaker {
         /* package */int mDefaultOpacity = PixelFormat.OPAQUE;
@@ -1804,7 +1799,6 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
             mFeatureId = featureId;
         }
 
-        @MiuiHook(MiuiHookType.CHANGE_CODE)
         @Override
         public boolean dispatchKeyEvent(KeyEvent event) {
             final int keyCode = event.getKeyCode();
@@ -1835,11 +1829,6 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
                 final boolean handled = cb != null && mFeatureId < 0 ? cb.dispatchKeyEvent(event)
                         : super.dispatchKeyEvent(event);
                 if (handled) {
-                    return true;
-                }
-
-                // MIUI Hook
-                if (PhoneWindow.this.handleCameraKeyEvent(this, event, mFeatureId)) {
                     return true;
                 }
             }

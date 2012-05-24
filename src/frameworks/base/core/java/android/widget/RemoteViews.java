@@ -23,6 +23,8 @@ import java.lang.annotation.Target;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
+import android.annotation.MiuiHook;
+import android.annotation.MiuiHook.MiuiHookType;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetHostView;
 import android.content.Context;
@@ -1608,6 +1610,7 @@ public class RemoteViews implements Parcelable, Filter {
         }
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private Context prepareContext(Context context) {
         Context c;
         String packageName = mPackage;
@@ -1615,6 +1618,7 @@ public class RemoteViews implements Parcelable, Filter {
         if (packageName != null) {
             try {
                 c = context.createPackageContext(packageName, Context.CONTEXT_RESTRICTED);
+                c.setTheme(context.getThemeResId()); //MiuiHook
             } catch (NameNotFoundException e) {
                 Log.e(LOG_TAG, "Package name " + packageName + " not found");
                 c = context;

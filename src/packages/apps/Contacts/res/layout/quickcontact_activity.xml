@@ -36,9 +36,22 @@
         <include
             android:id="@+id/list_separator"
             layout="@layout/list_separator" />
-        <android.support.v4.view.ViewPager
-            android:id="@+id/item_list_pager"
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/quickcontact_window_list_height" />
+            android:layout_height="@dimen/quickcontact_window_list_height">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/item_list_pager"
+                android:layout_marginBottom="10dip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:src="@drawable/quickcontact_window_footer" />
+        </RelativeLayout>
     </LinearLayout>
 </view>

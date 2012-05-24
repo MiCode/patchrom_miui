@@ -27,25 +27,41 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <CheckBox
-        android:id="@+id/yearToggle"
-        android:text="@string/date_year_toggle"
+    <TextView
+        android:id="@+id/label"
+        android:text="@string/date_picker_label"
         android:paddingTop="5dip"
         android:paddingBottom="5dip"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="?android:attr/textColorSecondary"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
     <LinearLayout
         android:id="@+id/parent"
         android:orientation="horizontal"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="0dip"
+        android:layout_weight="1">
+
+        <!-- Type -->
+        <NumberPicker
+            android:id="@+id/type"
+            android:layout_width="60dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dip"
+            android:layout_marginRight="1dip"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:visibility="gone"
+            />
 
         <!-- Month -->
         <NumberPicker
             android:id="@+id/month"
-            android:layout_width="80dip"
+            android:layout_width="@dimen/date_picker_month_width_wide"
             android:layout_height="wrap_content"
             android:layout_marginLeft="1dip"
             android:layout_marginRight="1dip"
@@ -56,7 +72,7 @@
         <!-- Day -->
         <NumberPicker
             android:id="@+id/day"
-            android:layout_width="80dip"
+            android:layout_width="@dimen/date_picker_day_width_wide"
             android:layout_height="wrap_content"
             android:layout_marginLeft="1dip"
             android:layout_marginRight="1dip"
@@ -67,7 +83,7 @@
         <!-- Year -->
         <NumberPicker
             android:id="@+id/year"
-            android:layout_width="95dip"
+            android:layout_width="@dimen/date_picker_year_width_wide"
             android:layout_height="wrap_content"
             android:layout_marginLeft="1dip"
             android:layout_marginRight="1dip"
@@ -75,4 +91,14 @@
             android:focusableInTouchMode="true"
             />
     </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/yearToggle"
+        android:text="@string/date_year_toggle"
+        android:paddingTop="5dip"
+        android:paddingBottom="5dip"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>

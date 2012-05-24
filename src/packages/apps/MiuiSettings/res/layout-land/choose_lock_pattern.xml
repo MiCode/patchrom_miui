@@ -16,6 +16,7 @@
 
 <com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:miui="http://schemas.android.com/apk/res/miui"
     android:id="@+id/topLayout"
     android:orientation="horizontal"
     android:layout_width="match_parent"
@@ -44,28 +45,7 @@
                 android:layout_weight="1.0">
 
             <!-- right / bottom button: confirm or ok -->
-            <Button android:id="@+id/footerRightButton"
-                android:layout_height="wrap_content"
-                android:layout_width="140dip"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:ellipsize="marquee"
-                android:singleLine="true"
-                android:drawableRight="@drawable/ic_btn_next"
-                android:drawablePadding="3dip"
-                android:text="@string/lockpattern_confirm_button_text"/>
-
-
-            <!-- left / top button: skip, or re-try -->
-            <Button android:id="@+id/footerLeftButton"
-                android:layout_height="wrap_content"
-                android:layout_width="140dip"
-                android:layout_above="@id/footerRightButton"
-                android:layout_centerHorizontal="true"
-                android:ellipsize="marquee"
-                android:singleLine="true"
-                android:text="@string/lockpattern_restart_button_text"/>
-
+        <include layout="@layout/choose_lock_pattern_button" />
 
             <!-- message above buttons -->
             <TextView android:id="@+id/footerText"
@@ -84,9 +64,8 @@
          android:layout_height="match_parent" />
 
     <!-- right side: lock pattern -->
-    <com.android.internal.widget.LockPatternView android:id="@+id/lockPattern"
-         android:layout_width="match_parent"
-         android:layout_height="match_parent" />
+    <miui.widget.LockPatternView android:id="@+id/lockPattern"
+        style="@style/SecurityLockPatternView" />
 
 
 </com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient>

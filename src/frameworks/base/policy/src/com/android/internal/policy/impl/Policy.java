@@ -61,9 +61,8 @@ public class Policy implements IPolicy {
         }
     }
 
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public Window makeNewWindow(Context context) {
-        return MiuiClassFactory.createPhoneWindow(context);
+        return new PhoneWindow(context);
     }
 
     public LayoutInflater makeNewLayoutInflater(Context context) {
@@ -75,7 +74,8 @@ public class Policy implements IPolicy {
         return MiuiClassFactory.createPhoneWindowManager();
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public FallbackEventHandler makeNewFallbackEventHandler(Context context) {
-        return new PhoneFallbackEventHandler(context);
+        return MiuiClassFactory.createPhoneFallbackEventHandler(context);
     }
 }

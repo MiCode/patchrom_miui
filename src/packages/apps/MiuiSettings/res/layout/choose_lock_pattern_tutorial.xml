@@ -15,11 +15,11 @@
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miui="http://schemas.android.com/apk/res/miui"
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:gravity="center_horizontal"
-    android:background="@drawable/lock_pattern_background">
+    android:gravity="center_horizontal">
 
     <!-- top: instructions and buttons -->
     <!-- header message -->
@@ -53,30 +53,15 @@
             />
 
             <!-- bottom: lock pattern -->
-            <com.android.internal.widget.LockPatternView android:id="@+id/lockPattern"
-                 android:layout_width="200dip"
-                 android:layout_height="200dip"
+            <miui.widget.LockPatternView android:id="@+id/lockPattern"
+                 style="@style/SecurityLockPatternView"
                  android:layout_marginTop="10dip"
-                 android:layout_gravity="left"/>
+                 android:layout_gravity="center" />
 
         </LinearLayout>
 
     </ScrollView>
 
-    <LinearLayout
-        style="@style/SecurityPreferenceButtonContainer"
-        android:orientation="horizontal">
-
-        <!-- left / top button: skip, or re-try -->
-        <Button android:id="@+id/skip_button"
-            style="@style/SecurityPreferenceButton"
-            android:text="@string/lockpattern_tutorial_cancel_label"/>
-
-        <!-- right / bottom button: confirm or ok -->
-        <Button android:id="@+id/next_button"
-            style="@style/SecurityPreferenceButton"
-            android:text="@string/lockpattern_tutorial_continue_label"/>
-
-    </LinearLayout>
+    <include layout="@layout/choose_lock_pattern_button" />
 
 </LinearLayout>

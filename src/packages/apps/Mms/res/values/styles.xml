@@ -15,12 +15,19 @@
     <style name="Theme.Holo.Light.Main"
            parent="@style/Theme.Holo.Light">
         <item name="android:actionBarStyle">@style/ActionBarStyle</item>
+        <item name="android:windowAnimationStyle">@style/MiuiPhoneAnimations</item>
     </style>
 
     <style name="Theme.Holo.Light.NoActionBar"
            parent="@style/Theme.Holo.Light">
         <item name="android:actionBarStyle">@style/ActionBarStyle.NoActionBar</item>
         <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowAnimationStyle">@style/MiuiPhoneAnimations</item>
+    </style>
+
+    <style name="MiuiPhoneAnimations" parent="@android:style/Animation.Activity">
+         <item name="android:taskToBackEnterAnimation">@miui:anim/miui_phone_close_enter</item>
+         <item name="android:taskToBackExitAnimation">@miui:anim/miui_phone_close_exit</item>
     </style>
 
     <style name="Theme.Holo.Light.Dialog"

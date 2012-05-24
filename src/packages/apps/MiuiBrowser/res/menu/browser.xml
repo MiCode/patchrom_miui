@@ -16,6 +16,35 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:id="@+id/MAIN_MENU">
+        <!-- followings are debug only -->
+        <group android:id="@+id/DEBUG_MENU">
+            <item
+                android:id="@+id/dump_nav_menu_id"
+                android:title="@string/dump_nav"
+                android:visible="false" />
+            <item
+                android:id="@+id/dump_counters_menu_id"
+                android:title="@string/dump_counters"
+                android:visible="false" />
+            <item
+                android:id="@+id/dump_dom_tree_menu_id"
+                android:title="@string/dump_dom_tree"
+                android:visible="false" />
+            <item
+                android:id="@+id/dump_render_tree_menu_id"
+                android:title="@string/dump_render_tree"
+                android:visible="false" />
+            <item
+                android:id="@+id/dump_display_tree_menu_id"
+                android:title="@string/dump_display_tree"
+                android:visible="false" />
+        </group>
+        <group android:id="@+id/DEVELOPER_OPTIONS_MENU">
+            <item
+                android:id="@+id/report_reading_mode_issue_menu_id"
+                android:title="@string/report_reading_mode_issue"
+                android:visible="false" />
+        </group>
         <group
             android:id="@+id/NAV_MENU"
             android:visible="@bool/menu_show_navigation">
@@ -86,6 +115,9 @@
             android:id="@+id/page_info_menu_id"
             android:title="@string/page_info" />
         <item
+            android:id="@+id/night_mode_menu_id"
+            android:title="@string/menu_enable_night_mode" />
+        <item
             android:id="@+id/preferences_menu_id"
             android:title="@string/menu_preferences"
             android:icon="@drawable/ic_settings_holo_dark"
@@ -94,27 +126,6 @@
             android:id="@+id/exit_menu_id"
             android:title="@string/menu_exit"
             android:alphabeticShortcut="q" />
-        <!-- followings are debug only -->
-        <item
-            android:id="@+id/dump_nav_menu_id"
-            android:title="@string/dump_nav"
-            android:visible="false" />
-        <item
-            android:id="@+id/dump_counters_menu_id"
-            android:title="@string/dump_counters"
-            android:visible="false" />
-        <item
-            android:id="@+id/dump_dom_tree_menu_id"
-            android:title="@string/dump_dom_tree"
-            android:visible="false" />
-        <item
-            android:id="@+id/dump_render_tree_menu_id"
-            android:title="@string/dump_render_tree"
-            android:visible="false" />
-        <item
-            android:id="@+id/dump_display_tree_menu_id"
-            android:title="@string/dump_display_tree"
-            android:visible="false" />
     </group>
     <group android:id="@+id/MAIN_SHORTCUT_MENU" android:visible="false">
         <item android:id="@+id/view_downloads_menu_id"

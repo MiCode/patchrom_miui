@@ -15,11 +15,11 @@
 -->
 <com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:miui="http://schemas.android.com/apk/res/miui"
     android:id="@+id/topLayout"
     android:orientation="vertical"
     android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:background="@drawable/lock_pattern_background">
+    android:layout_height="match_parent">
 
     <!-- takes up all space above button bar at bottom -->
     <LinearLayout
@@ -40,9 +40,11 @@
              android:layout_width="match_parent"
              android:layout_height="2dip" />
 
-        <com.android.internal.widget.LockPatternView android:id="@+id/lockPattern"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent" />
+        <miui.widget.LockPatternView android:id="@+id/lockPattern"
+             style="@style/SecurityLockPatternView"
+             android:layout_marginTop="70dip"
+             android:layout_marginLeft="18dip"
+             android:layout_marginRight="18dip" />
 
         <!-- bottom line looks bad when button bar is their too, omit in this case -->
         <!--View
@@ -59,20 +61,6 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        style="@style/SecurityPreferenceButtonContainer"
-        android:orientation="horizontal">
-
-        <!-- left : cancel, or re-try -->
-        <Button android:id="@+id/footerLeftButton"
-            style="@style/SecurityPreferenceButton"
-            android:text="@string/lockpattern_tutorial_cancel_label"/>
-
-        <!-- right : confirm or ok -->
-        <Button android:id="@+id/footerRightButton"
-            style="@style/SecurityPreferenceButton"
-            android:text="@string/lockpattern_tutorial_continue_label"/>
-
-    </LinearLayout>
+    <include layout="@layout/choose_lock_pattern_button" />
 
 </com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient>

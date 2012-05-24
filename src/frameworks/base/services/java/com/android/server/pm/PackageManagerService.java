@@ -138,6 +138,7 @@ import java.util.zip.ZipOutputStream;
 
 import libcore.io.ErrnoException;
 import libcore.io.Libcore;
+import miui.provider.ExtraGuard;
 
 /**
  * Keep track of all those .apks everywhere.
@@ -477,12 +478,34 @@ public class PackageManagerService extends IPackageManager.Stub {
                 Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND);
             }
         }
-        
+
+        @MiuiHook(MiuiHookType.NEW_METHOD)
+        private boolean checkApk(HandlerParams params) {
+            if (params instanceof InstallParams) {
+                InstallParams insallParams = (InstallParams)params;
+                if (!ExtraGuard.checkApk(mContext, insallParams.packageURI)) {
+                    if (insallParams.observer != null) {
+                        try {
+                            insallParams.observer.packageInstalled(null, PackageManager.INSTALL_FAILED_VERIFICATION_FAILURE);
+                        } catch (RemoteException e) {
+                        }
+                    }
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        @MiuiHook(MiuiHookType.CHANGE_CODE)
         void doHandleMessage(Message msg) {
             switch (msg.what) {
                 case INIT_COPY: {
                     if (DEBUG_INSTALL) Slog.i(TAG, "init_copy");
                     HandlerParams params = (HandlerParams) msg.obj;
+                    if (!checkApk(params)) {
+                        return;
+                    }
+
                     int idx = mPendingInstalls.size();
                     if (DEBUG_INSTALL) Slog.i(TAG, "idx=" + idx);
                     // If a bind was already initiated we dont really
