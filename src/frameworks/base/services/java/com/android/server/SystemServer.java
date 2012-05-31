@@ -51,6 +51,7 @@ import com.android.internal.os.BinderInternal;
 import com.android.internal.os.SamplingProfilerIntegration;
 import com.android.server.accessibility.AccessibilityManagerService;
 import com.android.server.am.ActivityManagerService;
+import com.android.server.net.MiuiNetworkPolicyManagerService;
 import com.android.server.net.NetworkPolicyManagerService;
 import com.android.server.net.NetworkStatsService;
 import com.android.server.pm.PackageManagerService;
@@ -353,7 +354,7 @@ class ServerThread extends Thread {
 
             try {
                 Slog.i(TAG, "NetworkPolicy Service");
-                networkPolicy = new NetworkPolicyManagerService(
+                networkPolicy = new MiuiNetworkPolicyManagerService(
                         context, ActivityManagerService.self(), power,
                         networkStats, networkManagement);
                 ServiceManager.addService(Context.NETWORK_POLICY_SERVICE, networkPolicy);

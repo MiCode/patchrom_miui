@@ -27,6 +27,8 @@ import com.android.server.Watchdog;
 import com.android.server.am.ActivityStack.ActivityState;
 import com.android.server.wm.WindowManagerService;
 
+import miui.provider.ExtraSettings;
+
 import dalvik.system.Zygote;
 
 import android.annotation.MiuiHook;
@@ -893,11 +895,8 @@ public final class ActivityManagerService extends ActivityManagerNative
                     }
                     AppErrorResult res = (AppErrorResult) data.get("result");
                     if (!mSleeping && !mShuttingDown) {
-                        // MiuiHook: crash info is required to send error report
-                        Dialog d = new AppErrorDialog(mContext, res, proc,
-                                (ApplicationErrorReport.CrashInfo) data.get("crash"));
-                        d.show();
-                        proc.crashDialog = d;
+                        // MiuiHook: show crash dialog if necessary
+                        showAppCrashDialog(data);
                     } else {
                         // The device is asleep, so just pretend that the user
                         // saw a crash dialog and hit "force quit".
@@ -2132,6 +2131,24 @@ public final class ActivityManagerService extends ActivityManagerNative
         }
     }
     
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private void showAppCrashDialog(HashMap data) {
+        ProcessRecord proc = (ProcessRecord) data.get("app");
+        AppErrorResult res = (AppErrorResult) data.get("result");
+        ApplicationErrorReport.CrashInfo crashInfo = (ApplicationErrorReport.CrashInfo) data.get("crash");
+        if (ExtraSettings.Secure.isForceCloseDialogEnabled(mContext)) {
+            Dialog d = new AppErrorDialog(mContext, res, proc, crashInfo);
+            d.show();
+            proc.crashDialog = d;
+        } else {
+            if (proc != null && crashInfo != null) {
+                MiuiErrorReport.sendFcErrorReport(mContext, proc, crashInfo, false);
+            }
+            mMainStack.moveHomeToFrontLocked();
+            res.set(0);
+        }
+    }
+
     CompatibilityInfo compatibilityInfoForPackageLocked(ApplicationInfo ai) {
         return mCompatModePackages.compatibilityInfoForPackageLocked(ai);
     }

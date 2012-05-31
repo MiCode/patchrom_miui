@@ -77,13 +77,18 @@ public class CheckBoxPreference extends TwoStatePreference {
     @MiuiHook(MiuiHookType.NEW_METHOD)
     private void setSlidingButtonListener(View checkboxView) {
         if (checkboxView != null && checkboxView instanceof SlidingButton) {
-            SlidingButton slidingButton = (SlidingButton)checkboxView;
+            final SlidingButton slidingButton = (SlidingButton)checkboxView;
             slidingButton.setOnCheckedChangedListener(new SlidingButton.OnCheckedChangedListener() {
                 @Override
                 public void onCheckedChanged(boolean isChecked) {
+                    if (!callChangeListener(isChecked)) {
+                        slidingButton.setOnCheckedChangedListener(null);
+                        slidingButton.setChecked(!isChecked);
+                        slidingButton.setOnCheckedChangedListener(this);
+                        return;
+                    }
                     performClick(CheckBoxPreference.this.getPreferenceManager().getPreferenceScreen());
                 }
-
             });
         }
     }

@@ -1558,6 +1558,15 @@ public class RemoteViews implements Parcelable, Filter {
         setCharSequence(viewId, "setContentDescription", contentDescription);
     }
 
+    @MiuiHook(MiuiHookType.NEW_FIELD)
+    int mDefaultTheme;
+
+    /** @hide */
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    public void setDefaultTheme(int id) {
+        mDefaultTheme = id;
+    }
+
     /**
      * Inflates the view hierarchy represented by this object and applies
      * all of the actions.
@@ -1569,10 +1578,12 @@ public class RemoteViews implements Parcelable, Filter {
      * does <strong>not</strong> attach the hierarchy. The caller should do so when appropriate.
      * @return The inflated view hierarchy
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public View apply(Context context, ViewGroup parent) {
         View result;
 
         Context c = prepareContext(context);
+        c.setTheme(mDefaultTheme); //MiuiHook
 
         LayoutInflater inflater = (LayoutInflater)
                 c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -1610,7 +1621,6 @@ public class RemoteViews implements Parcelable, Filter {
         }
     }
 
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private Context prepareContext(Context context) {
         Context c;
         String packageName = mPackage;
@@ -1618,7 +1628,6 @@ public class RemoteViews implements Parcelable, Filter {
         if (packageName != null) {
             try {
                 c = context.createPackageContext(packageName, Context.CONTEXT_RESTRICTED);
-                c.setTheme(context.getThemeResId()); //MiuiHook
             } catch (NameNotFoundException e) {
                 Log.e(LOG_TAG, "Package name " + packageName + " not found");
                 c = context;

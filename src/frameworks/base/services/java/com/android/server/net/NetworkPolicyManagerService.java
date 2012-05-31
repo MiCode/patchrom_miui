@@ -532,8 +532,8 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
      * Show notification for combined {@link NetworkPolicy} and specific type,
      * like {@link #TYPE_LIMIT}. Okay to call multiple times.
      */
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
-    private void enqueueNotification(NetworkPolicy policy, int type, long totalBytes) {
+    @MiuiHook(MiuiHookType.CHANGE_CODE_AND_ACCESS)
+    protected void enqueueNotification(NetworkPolicy policy, int type, long totalBytes) {
         final String tag = buildNotificationTag(policy, type);
         final Notification.Builder builder = new Notification.Builder(mContext);
         builder.setOnlyAlertOnce(true);
@@ -733,7 +733,8 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
      * Control {@link IConnectivityManager#setPolicyDataEnable(int, boolean)}
      * for the given {@link NetworkTemplate}.
      */
-    private void setNetworkTemplateEnabled(NetworkTemplate template, boolean enabled) {
+    @MiuiHook(MiuiHookType.CHANGE_ACCESS)
+    protected void setNetworkTemplateEnabled(NetworkTemplate template, boolean enabled) {
         switch (template.getMatchRule()) {
             case MATCH_MOBILE_3G_LOWER:
             case MATCH_MOBILE_4G:
