@@ -9,7 +9,13 @@
             android:key="enable_back_long_press"
             android:title="@string/enable_back_long_press"
             android:disableDependentsState="false" />
-
+        <ListPreference
+            android:key="back_long_press_timeout"
+            android:title="@string/back_long_press_timeout"
+            android:entries="@array/back_long_press_timeout"
+            android:entryValues="@array/back_long_press_timeout_value"
+            android:dependency="enable_back_long_press"
+            android:dialogTitle="@string/back_long_press_timeout" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/power_key">

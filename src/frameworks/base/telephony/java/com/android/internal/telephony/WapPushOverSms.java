@@ -137,7 +137,7 @@ public class WapPushOverSms {
      *         to applications
      */
     @MiuiHook(MiuiHookType.CHANGE_CODE)
-    public int dispatchWapPdu(byte[] pdu) {
+    public int dispatchWapPdu(byte[] pdu, String address) {
 
         if (false) Log.d(LOG_TAG, "Rx: " + IccUtils.bytesToHexString(pdu));
 
@@ -282,6 +282,7 @@ public class WapPushOverSms {
         intent.putExtra("header", header);
         intent.putExtra("data", intentData);
         intent.putExtra("contentTypeParameters", pduDecoder.getContentParameters());
+        intent.putExtra("address", address);
 
         mSmsDispatcher.dispatch(intent, permission);
 

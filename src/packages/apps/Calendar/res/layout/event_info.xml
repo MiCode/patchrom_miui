@@ -238,46 +238,52 @@
             android:visibility="gone" />
 
         <!-- REMINDERS -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:paddingLeft="8dip"
-            android:paddingRight="8dip"
-            android:layout_marginLeft="8dip"
-            android:layout_marginRight="8dip"
-            android:layout_marginTop="4dip"
-            android:layout_marginBottom="0dip"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            style="?android:attr/listSeparatorTextViewStyle"
-            android:textColor="@color/event_info_label_color"
-            android:text="@string/event_info_reminders_label" />
         <LinearLayout
-            android:id="@+id/reminder_items_container"
+            android:id="@+id/reminder_panel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dip"
-            android:layout_marginLeft="-8dip"
-            android:layout_marginRight="8dip"
-            android:orientation="vertical" />
-        <Button
-            android:id="@+id/reminder_add"
-            android:text="@string/reminders_label"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_gravity="center_vertical"
-            android:gravity="top"
-            android:paddingBottom="12dp"
-            android:layout_marginTop="0dip"
-            android:layout_marginBottom="0dip"
-            android:textAllCaps="false"
-            android:textSize="18sp"
-            android:textColor="#FF777777"
-            android:minHeight="20dip"
-            android:background="@null"
-            android:contentDescription="@string/accessibility_add_reminder"
-            style="@style/TextAppearance.EditEvent_LabelSmall" />
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:paddingLeft="8dip"
+                android:paddingRight="8dip"
+                android:layout_marginLeft="8dip"
+                android:layout_marginRight="8dip"
+                android:layout_marginTop="4dip"
+                android:layout_marginBottom="0dip"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:textColor="@color/event_info_label_color"
+                android:text="@string/event_info_reminders_label" />
+            <LinearLayout
+                android:id="@+id/reminder_items_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dip"
+                android:layout_marginLeft="-8dip"
+                android:layout_marginRight="8dip"
+                android:orientation="vertical" />
+            <Button
+                android:id="@+id/reminder_add"
+                android:text="@string/reminders_label"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="top"
+                android:paddingBottom="12dp"
+                android:layout_marginTop="0dip"
+                android:layout_marginBottom="0dip"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:textColor="#FF777777"
+                android:minHeight="20dip"
+                android:background="@null"
+                android:contentDescription="@string/accessibility_add_reminder"
+                style="@style/TextAppearance.EditEvent_LabelSmall" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

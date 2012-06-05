@@ -285,6 +285,9 @@ public class Toast {
         tv.setText(s);
     }
 
+    /**
+     * @hide
+     */
     @MiuiHook(MiuiHookType.NEW_METHOD)
     public void setType(int type) {
         mTN.mParams.type = type;

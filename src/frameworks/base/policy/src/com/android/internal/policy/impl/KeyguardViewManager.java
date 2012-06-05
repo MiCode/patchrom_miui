@@ -16,6 +16,8 @@
 
 package com.android.internal.policy.impl;
 
+import miui.view.ExtraWindowManager;
+
 import com.android.internal.R;
 
 import android.annotation.MiuiHook;
@@ -189,9 +191,21 @@ public class KeyguardViewManager implements KeyguardWindowController {
                 );
         mKeyguardHost.setSystemUiVisibility(visFlags);
 
+        updateDisplayDesktopFlag();
         mViewManager.updateViewLayout(mKeyguardHost, mWindowLayoutParams);
         mKeyguardHost.setVisibility(View.VISIBLE);
         mKeyguardView.requestFocus();
+    }
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private void updateDisplayDesktopFlag() {
+        if (mKeyguardView.isDisplayDesktop() && !mKeyguardViewProperties.isSecure()) {
+            mWindowLayoutParams.flags &= ~WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER;
+            mWindowLayoutParams.privateFlags |= ExtraWindowManager.LayoutParams.PRIVATE_FLAG_LOCKSCREEN_DISPALY_DESKTOP;
+        } else {
+            mWindowLayoutParams.flags |= WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER;
+            mWindowLayoutParams.privateFlags &= ~ExtraWindowManager.LayoutParams.PRIVATE_FLAG_LOCKSCREEN_DISPALY_DESKTOP;
+        }
     }
 
     public void setNeedsInput(boolean needsInput) {

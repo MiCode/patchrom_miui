@@ -43,10 +43,21 @@
             android:textAppearance="@miui:style/TextAppearance.ListView.SecondaryItem" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/action_bar_photo"
+    <FrameLayout
         android:layout_width="@dimen/small_photo_size"
         android:layout_height="@dimen/small_photo_size"
-        android:scaleType="centerCrop"
-        android:layout_gravity="center_vertical" />
+        android:layout_gravity="center_vertical" >
+        <ImageView
+            android:id="@+id/action_bar_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center_vertical" />
+
+        <View
+            android:id="@+id/action_bar_photo_clickable"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground" />
+    </FrameLayout>
 </LinearLayout>
