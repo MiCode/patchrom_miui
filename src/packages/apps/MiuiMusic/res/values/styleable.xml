@@ -6,13 +6,26 @@
         <attr name="curve_shadow_radius" format="float"/>
     </declare-styleable>
 
-    <declare-styleable name="SpectrumVisualizer">
-        <attr name="sliding_panel" format="reference"/>
-        <attr name="sliding_dot_bar" format="reference"/>
-        <attr name="sliding_shadow_dot_bar" format="reference"/>
-        <attr name="symmetry" format="boolean"/>
-        <attr name="alpha_width" format="integer"/>
-        <attr name="update_enable" format="boolean"/>
+    <declare-styleable name="PreferenceCommon">
+        <attr name="summaryOn" format="string" />
+        <attr name="summaryOff" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="ComboPreference">
+        <attr name="progressKey" format="string" />
+        <attr name="title" format="string" />
+        <attr name="minName" format="string" />
+        <attr name="maxName" format="string" />
+        <attr name="minValue" format="integer" />
+        <attr name="maxValue" format="integer" />
+        <attr name="convertType">
+            <enum name="raw" value="0" />
+            <enum name="size" value="1" />
+            <enum name="duration" value="2" />
+            <enum name="constant" value="3" />
+        </attr>
+        <attr name="constantValue" format="string"/>
+        <attr name="currentPrefix" format="string"/>
     </declare-styleable>
 
 </resources>

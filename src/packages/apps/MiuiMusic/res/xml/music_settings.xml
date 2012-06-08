@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2008 The Android Open Source Project
-
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-
-          http://www.apache.org/licenses/LICENSE-2.0
-
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miui="http://schemas.android.com/apk/res/com.miui.player"
     android:title="@string/music_settings" >
 
     <PreferenceCategory android:title="@string/mobile_connect_settings" >
@@ -49,13 +35,41 @@
         android:key="music_filter"
         android:title="@string/music_filter" >
 
-        <com.miui.player.ui.view.SeekBarPreference
-            android:defaultValue="819600"
-            android:key="min_music_filter_size" />
+        <!-- minValue="0K" maxValue="2M" defaultValue="800K"-->
+        <com.miui.player.ui.view.ComboPreference
+            android:key="filter_by_size"
+            miui:progressKey="filter_by_size_progress"
+            miui:title="@string/filter_by_size"
+            miui:minValue="@integer/filter_by_size_min"
+            miui:minName="@string/filter_by_size_min"
+            miui:maxValue="@integer/filter_by_size_max"
+            miui:maxName="@string/filter_by_size_max"
+            miui:summaryOn="@string/filter_by_size_summary"
+            miui:summaryOff="@string/filter_by_size_summary"
+            miui:convertType="size"
+            miui:currentPrefix="@string/filter_by_size_prefix" />
+
+        <!-- minValue="10s" maxValue="5m" defaultValue="30s"-->
+        <com.miui.player.ui.view.ComboPreference
+            android:key="filter_by_duration"
+            miui:progressKey="filter_by_duration_progress"
+            miui:title="@string/filter_by_duration"
+            miui:minValue="@integer/filter_by_duration_min"
+            miui:minName="@string/filter_by_duration_min"
+            miui:maxValue="@integer/filter_by_duration_max"
+            miui:maxName="@string/filter_by_duration_max"
+            miui:summaryOn="@string/filter_by_duration_summary"
+            miui:summaryOff="@string/filter_by_duration_summary"
+            miui:convertType="duration"
+            miui:currentPrefix="@string/filter_by_duration_prefix" />
 
         <com.miui.player.ui.FolderSelectDialog
             android:key="filter_music_folder"
-            android:title="@string/filter_by_folder" />
+            android:title="@string/filter_by_folder"
+            xmlns:miui="http://schemas.android.com/apk/res/com.miui.player"
+            miui:summaryOn="@string/filter_by_folder_summary_on"
+            miui:summaryOff="@string/filter_by_folder_summary_off"
+            />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/other_settings" >
@@ -84,22 +98,25 @@
             android:summary="@string/keep_quit_position_summary"
             android:title="@string/keep_quit_position_settings" />
 
-        <CheckBoxPreference
-            android:defaultValue="false"
+        <!-- minValue="5" maxValue="20" defaultValue="10" 值越大感应越迟钝 -->
+        <com.miui.player.ui.view.ComboPreference
             android:key="shake"
-            android:summary="@string/shake_summary"
-            android:title="@string/shake_settings" />
+            miui:progressKey="shake_degree"
+            miui:title="@string/shake_settings"
+            miui:minValue="@integer/shake_degree_min"
+            miui:minName="@string/shake_degree_high"
+            miui:maxValue="@integer/shake_degree_max"
+            miui:maxName="@string/shake_degree_low"
+            miui:summaryOn="@string/shake_summary"
+            miui:summaryOff="@string/shake_summary"
+            miui:convertType="constant"
+            miui:currentPrefix="@string/shake_degree_desc" />
+
         <CheckBoxPreference
             android:dependency="shake"
             android:defaultValue="false"
             android:key="shake_while_screen_on"
             android:title="@string/shake_while_screen_on_title" />
-
-        <com.miui.player.ui.ShakeSensitivityAdjustDialog
-            android:dependency="shake"
-            android:key="shake_degree"
-            android:summary="@string/shake_sensitivity_summary"
-            android:title="@string/shake_sensitivity_settings" />
 
         <CheckBoxPreference
             android:defaultValue="true"

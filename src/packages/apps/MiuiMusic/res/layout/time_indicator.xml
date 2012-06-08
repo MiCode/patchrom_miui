@@ -1,37 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
->
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="-8dp">
+        <TextView android:id="@+id/currenttime"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            style="@style/IndicatorTextStyle"
+            android:layout_gravity="left|bottom"
+            android:gravity="left"/>
+
+        <TextView android:id="@+id/totaltime"
+            style="@style/IndicatorTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="right|bottom"
+            android:gravity="right"/>
+    </LinearLayout>
+
     <view
         class="com.miui.player.ui.view.NinePatchSeekBar"
         android:id="@android:id/progress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="-18dp"
+        android:layout_marginRight="-18dp"
         android:thumb="@drawable/time_indicator_thumb_selector"
         android:progressDrawable="@drawable/time_indicator_progress_drawable"
         android:thumbOffset="8.67dip"
-        android:layout_marginLeft="-2dip"
-        android:layout_marginRight="-2dip"
         android:gravity="center_vertical"
       />
-
-    <TextView android:id="@+id/currenttime"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        style="@style/IndicatorTextStyle"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@android:id/progress"
-        android:layout_marginLeft="@dimen/spacing_to_border"
-        android:gravity="left"/>
-
-    <TextView android:id="@+id/totaltime"
-        style="@style/IndicatorTextStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@android:id/progress"
-        android:layout_marginRight="@dimen/spacing_to_border"
-        android:gravity="right"/>
-
 </merge>

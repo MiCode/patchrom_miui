@@ -2,141 +2,102 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">应用超市</string>
-    <string name="recommended_apps_tab_title">推荐</string>
-    <string name="necessary_apps_tab_title">必备</string>
-    <string name="elite_apps_tab_title">精选应用包</string>
-    <string name="self_tab_title">个人</string>
-    <string name="search_tab_title">搜索</string>
-    <string name="necessary_fragment_title">装机必备</string>
-    <string name="app_management_fragment_title">软件管理</string>
+    <string name="recommendation_tag">精品</string>
+    <string name="rank_tag">排行</string>
+    <string name="category_tag">分类</string>
+    <string name="management_tag">管理</string>
+    <string name="hot_rank_tag">热门排行</string>
+    <string name="new_app_tag">新品上线</string>
+
+    <string name="menu_search">搜索</string>
+    <string name="menu_preferences">设置</string>
+    <string name="menu_install_all">一键安装</string>
+
+    <!-- preferences -->
+    <string name="pref_title_update_notification">更新通知</string>
+    <string name="pref_title_auto_update_setting">自动更新设置</string>
+    <string name="pref_title_update_onlyby_wifi">仅使用WiFi自动更新</string>
+    <string name="pref_title_data_save_mode">省流量模式</string>
+    <string name="pref_title_clear_search_record">清除搜索记录</string>
+    <string name="pref_summary_update_notification">我安装的应用可以升级新版时通知我</string>
+    <string name="pref_summary_auto_update_setting">下载后提醒我</string>
+    <string name="pref_summary_data_save_mode">不加载图标等媒体内容</string>
+    <string name="pref_summary_clear_search_record">清除所有历史记录结果</string>
+    <string name="pref_list_auto_update">自动更新</string>
+    <string name="pref_list_always_enable">始终启用</string>
+    <string name="pref_list_remind_me_after_download">下载后提醒我</string>
+    <string name="pref_list_data_network">仅数据网络</string>
+    <string name="pref_list_disable">关闭</string>
+    <string name="pref_title_use_staging">使用staging服务器</string>
+
+    <string name="app_comments_title"><xliff:g id="app_name">%1$s</xliff:g>应用评论</string>
+    <string name="edit_comment_title"><xliff:g id="app_name">%1$s</xliff:g>撰写评论</string>
+    <string name="app_comments">应用评论</string>
+    <string name="edit_comment">撰写评论</string>
+    <string name="edit_text_default">请输入评论信息</string>
+    <string name="comment_publish">发布</string>
+    <string name="comment_description"><xliff:g id="commentor_name">%1$s</xliff:g><xliff:g id="comment_time">%2$1s</xliff:g></string>
+    <string name="comment_count">总共有<xliff:g id="comment_count_total">%1$s</xliff:g>条评论</string>
+
+    <string name="rating_button"><xliff:g id="rating_count">%1$s</xliff:g>次评分</string>
+    <string name="permission_button">权限详情(<xliff:g id="permission_count">%1$s</xliff:g>)</string>
+    <string name="update_date_label">更新日期：</string>
+    <string name="update_date"><xliff:g id="year">%1$s</xliff:g>年<xliff:g id="month">%2$s</xliff:g>月<xliff:g id="date">%3$s</xliff:g>日</string>
+    <string name="version_label">版本号：</string>
+    <string name="share_button">分享给好友</string>
+
     <string name="install">安装</string>
-    <string name="uninstall">卸载</string>
-    <string name="install_from_other_market">去其它市场安装</string>
-    <string name="install_apps">安装 (%d)</string>
-    <string name="refresh_app_list">刷新</string>
-    <string name="one_click_upload">上传</string>
-    <string name="install_successful">%s安装成功</string>
-    <string name="install_failed">%s安装失败</string>
-    <string name="downloading">正在加载...</string>
-    <string name="confirm">确定</string>
-    <string name="cancel">取消</string>
-    <string name="retry">重试</string>
-    <string name="report">举报</string>
-    <string name="comment_succeeded">评论成功，谢谢您的评论</string>
-    <string name="report_succeeded">提交举报成功，谢谢您的举报</string>
-    <string name="about">关于</string>
-    <string name="download_page">下载内容</string>
-    <string name="one_key_to_install">一键装机</string>
-    <string name="app_version_size_format">版本:<xliff:g id="version">%s</xliff:g>    大小:<xliff:g id="size">%s</xliff:g></string>
-    <string name="app_version_format">版本:<xliff:g id="version">%s</xliff:g></string>
-    <string name="app_category_size_format">分类 : <xliff:g id="category">%s</xliff:g>  |  大小 : <xliff:g id="size">%d</xliff:g>KB</string>
-    <string name="no_application">该列表为空，没有任何内容</string>
-    <string name="no_favorite_apps">当前没有热门应用</string>
-    <string name="no_friend_recommendations">当前没有好友推荐</string>
-    <string name="no_necessary_apps">当前没有装机必备</string>
-    <string name="no_elite_apps">当前没有精选包</string>
-    <string name="no_local_apps">当前没有已安装应用</string>
-    <string name="no_recommendations">当前还没有推荐过应用</string>
-    <string name="user_no_recommendations_format">当前<xliff:g id="name">%s</xliff:g>还没有推荐过应用</string>
-    <string name="no_cares">当前你还没有关注过其它用户</string>
-    <string name="user_no_cares_format">当前<xliff:g id="name">%s</xliff:g>还没有关注过其它用户</string>
-    <string name="no_fans">当前还没有粉丝关注你</string>
-    <string name="user_no_fans_format">当前还没有粉丝关注<xliff:g id="name">%s</xliff:g></string>
-    <string name="no_search_users">抱歉，没有找到相关的内容，请重新输入关键词搜索</string>
-    <string name="no_search_apps">抱歉，没有找到相关的内容，请重新输入关键词搜索</string>
-    <string name="no_comments">当前还没有人推荐此应用</string>
-    <string name="no_updates">当前没有软件更新</string>
-    <string name="input_keywords_to_search">请输入关键词搜索用户或者应用</string>
-    <string name="settings">设置</string>
-    <string name="appshare_settings">网盘设置</string>
-    <string name="appshare_pref_use_in_wifi">在WLAN下使用</string>
-    <string name="appshare_pref_use_in_no_wifi">在运营商网络使用(包括GPRS和3G等)</string>
-    <string name="appshare_pref_auto_update">自动更新装机必备软件</string>
-    <string name="appshare_pref_remind_update">提醒装机必备软件更新</string>
-    <string name="supermarket_notification_title">应用超市更新信息</string>
-    <string name="supermarket_notification_text">应用超市中%d款软件可更新。</string>
-    <string name="appshare_pref_auto_refresh_app_infos">刷新软件列表</string>
-    <string name="appshare_pref_auto_refresh_app_infos_summary">打开MIUI网盘时自动刷新软件列表。</string>
-    <string name="connect_error">网络连接失败。</string>
-    <string name="unavailable_network">网络连接错误。请按“重试”，或按“取消”返回上一屏幕。</string>
-    <string name="update_installed_apps_number">软件更新</string>
-    <string name="update_btn_text">更新</string>
-    <string name="update_app_number">更新 (%d)</string>
-    <string name="menu_update_apps">查看更新</string>
-    <string name="login">登录</string>
-    <string name="search_box_hint_text">"请输入搜索内容"</string>
-    <string name="favorite_apps">热门应用</string>
-    <string name="cared_actions">好友推荐</string>
-    <string name="necessary_apps">装机必备</string>
-    <string name="comment_hint">一句话推荐给朋友吧</string>
-    <string name="report_hint">请输入举报内容</string>
-    <string name="cancel_care">取消关注</string>
-    <string name="add_care">加关注</string>
-    <string name="care_added">已关注</string>
-    <string name="search_user_info_format">推荐: <xliff:g id="name">%s</xliff:g> | 关注: <xliff:g id="version">%s</xliff:g> | 粉丝: <xliff:g id="downloads">%s</xliff:g></string>
-    <string name="search_user">搜索用户</string>
-    <string name="recommend_user">为我推荐用户</string>
-    <string name="love_app">喜欢这个软件</string>
-    <string name="local">本机安装</string>
-    <string name="recommend">推荐</string>
-    <string name="care">关注</string>
-    <string name="fans">粉丝</string>
-    <string name="send">发送</string>
-    <string name="recommended_users">为您推荐下列好友</string>
-    <string name="elite_packages"><xliff:g id="elite">精选包</xliff:g></string>
-    <string name="send_app_subject">推荐一个很棒的应用</string>
-    <string name="send_app_body">我刚用过<xliff:g id="pkgName">%s</xliff:g>，很棒，推荐你也安装体验下。</string>
-    <string name="package_uninstalled_successfully_format">“<xliff:g id="pkgName">%s</xliff:g>”已成功卸载</string>
-    <string name="package_uninstalled_failed_format">卸载“<xliff:g id="pkgName">%s</xliff:g>”失败</string>
-    <string name="app_not_exist_in_server">服务器上没有这个应用</string>
-    <string name="choose_app_in_market">请选择其他市场进行下载</string>
-    <string name="install_market_or_not">是否先安装Android电子市场，再下载这个应用？</string>
-    <string name="install_market_then_install_app">服务器上没有“<xliff:g id="pkgName">%s</xliff:g>”，请安装Android电子市场后从市场内下载</string>
-    <string name="market_installed">Android电子市场安装成功</string>
-    <string name="install_app_or_not_format">是否安装<xliff:g id="pkgName">%s</xliff:g>？</string>
-    <string name="server_resp_bad_auth">服务器认证错误</string>
-    <string name="server_resp_app_not_exist">应用在服务器上不存在</string>
-    <string name="server_resp_invalid_argument">无效的参数</string>
-    <string name="server_resp_internal_server_error">服务器内部错误</string>
-    <string name="server_resp_account_not_exist">该用户不存在，可能已经注销</string>
-    <string name="server_resp_connection_time_out">连接服务器超时</string>
-    <string name="server_resp_connection_exception">网络连接异常</string>
-    <string name="server_resp_ivalid_response_data">服务器返回数据格式错误</string>
-    <string name="server_resp_server_io_error">读写服务器出错</string>
-    <string name="server_resp_general_error">网络错误，请稍候再试</string>
-    <string name="server_resp_unbound_userid">帐号未绑定，请访问MIUI论坛绑定小米帐号后重试</string>
-    <string name="server_resp_token_expired">帐号过期，请删除帐号后重新登录</string>
-    <string name="server_error_hint_format"><xliff:g id="errorMsg">%s</xliff:g>，请在菜单项中刷新重试</string>
-    <string name="need_login_account">你需要登录才能查看好友推荐</string>
-    <string name="need_login_account_to_operate">需登录MIUI账号后才能成功执行此操作</string>
-    <string name="zero">0</string>
-    <string name="uninstall_app">卸载应用</string>
-    <string name="uninstall_app_format">确认要卸载“<xliff:g id="pkgName">%s</xliff:g>吗”？</string>
-    <string name="empty_comment_input">评论内容为空，请输入评论内容后再提交</string>
-    <string name="duplicate_comment">评论已经发布，别重复发送啦</string>
-    <string name="empty_report_input">举报内容为空，请输入举报内容后再提交</string>
-    <string name="error_when_downloading_app_format">下载“<xliff:g id="pkgName">%s</xliff:g>”时出错</string>
-    <string name="download_recommend_pieces_format"><xliff:g id="downloadNum">%s</xliff:g> 次下载，<xliff:g id="recommendNum">%s</xliff:g> 条推荐</string>
-    <string name="recommendation_pieces_format"><xliff:g id="num">%s</xliff:g> 条推荐</string>
-    <string name="friend_recommendation_format">有<xliff:g id="friend_num">%s</xliff:g>个好友推荐，共<xliff:g id="num">%s</xliff:g>条推荐</string>
-    <string name="app_update_num_format"><xliff:g id="num">%d</xliff:g>个应用有新版本，点击更新全部</string>
-    <string name="total_app_num_format">本机共安装了<xliff:g id="num">%d</xliff:g>个应用</string>
-    <string name="login_to_recommend">登录并推荐给朋友</string>
-    <string name="my_recommendations_and_friends">我的推荐和好友</string>
-    <string name="press_to_login">点击登录MIUI账户</string>
-    <string name="login_to_miui">登录MIUI账号</string>
-    <string name="search_user_format">搜索名字为“<xliff:g id="num">%s</xliff:g>”的人</string>
-    <string name="search_app_format">搜索名字为“<xliff:g id="num">%s</xliff:g>”的应用</string>
-    <string name="installing_app">正在安装该应用</string>
-    <string name="uninstalling_app">正在卸载该应用</string>
-    <string name="android_market_pkg_name">com.android.vending</string>
-    <string name="android_market_display_name">电子市场</string>
-    <string name="agree_get_appinfo_in_no_wifi">你现在使用的是运营商网络，获取信息将会消耗流量。是否继续？</string>
-    <string name="app_install_error_format">下载‘<xliff:g id="pkgName">%s</xliff:g>’时出错，请重新下载</string>
-    <string name="signature_changed_format">‘<xliff:g id="pkgName">%s</xliff:g>’签名不一致</string>
-    <string name="uninstall_then_install">是否先卸载旧版本后再安装新版本？</string>
-    <string name="package_not_found">安装包已损坏，请重新下载安装</string>
-    <string name="deselect_all" msgid="7986832738563338661">"取消全选"</string>
-    <string name="select_all" msgid="5854385570247421586">"全选"</string>
-    <string name="selected_format" >"已选择 <xliff:g id="NUMBER">%1$d</xliff:g> 个"</string>
+    <string name="update">升级</string>
+    <string name="installed">已安装</string>
+    <string name="price">￥<xliff:g id="priceNumber">%1$s</xliff:g></string>
+    <string name="progress"><xliff:g id="precentage">%1$s</xliff:g>%%</string>
+    <string name="bytes"><xliff:g id="currBytes">%1$s</xliff:g>/<xliff:g id="totalBytes">%2$s</xliff:g></string>
+    <string name="pending">等待</string>
+    <string name="paused">暂停中</string>
+    <string name="connecting">连接中</string>
+    <string name="installing">安装中</string>
+    <string name="size">(<xliff:g id="sizeNumber">%1$s</xliff:g>)</string>
+    <string name="bytes_unit"><xliff:g id="size">%1$s</xliff:g>B</string>
+    <string name="kilobytes_unit"><xliff:g id="size">%1$s</xliff:g>KB</string>
+    <string name="megabytes_unit"><xliff:g id="size">%1$s</xliff:g>MB</string>
+
+    <string name="rank_app_name"><xliff:g id="rank">%1$s</xliff:g>. <xliff:g id="app_name">%2$s</xliff:g></string>
+    <string name="category_header">全部<xliff:g id="category_name">%1$s</xliff:g></string>
+    <string name="publish_info"><xliff:g id="month">%1$s</xliff:g>月<xliff:g id="date">%2$s</xliff:g>日发布<xliff:g id="version">%3$s</xliff:g>版</string>
+    <string name="permissions_title"><xliff:g id="app_name">%1$s</xliff:g>权限详情</string>
+    <string name="permissions_expand_title">全部权限</string>
+
+    <!-- management -->
+    <string name="show_all_local_app">查看全部应用</string>
+    <string name="enable_updata_local_app"><xliff:g id="app">%1$s</xliff:g>个应用可以升级</string>
+    <string name="update_all">全部升级</string>
+
+    <!-- error handling -->
+    <string name="connect_fail"><xliff:g id="app">%1$s</xliff:g>安装失败：连接错误，请检查网络链接</string>
+    <string name="connect_no_fit_fail"><xliff:g id="app">%1$s</xliff:g>安装失败：没有适合您手机的安装包</string>
+    <string name="download_start_fail"><xliff:g id="app">%1$s</xliff:g>安装失败：无法建立下载任务</string>
+    <string name="download_deleted_fail"><xliff:g id="app">%1$s</xliff:g>安装失败：任务被删除</string>
+    <string name="download_fail"><xliff:g id="app">%1$s</xliff:g>安装失败：下载错误</string>
+    <string name="install_inconsistent_fail"><xliff:g id="app">%1$s</xliff:g>安装失败：签名不一致，请先卸载该应用</string>
+    <string name="install_fail"><xliff:g id="app">%1$s</xliff:g>安装失败</string>
+
+    <string name="no_data">获取数据失败，请检查网络</string>
+    <string name="no_update">没有可升级应用</string>
+    <string name="no_local_apps">没有已安装应用</string>
+    <string name="no_description">无应用介绍</string>
+    <string name="no_change_log">无应用更新信息</string>
+    <string name="no_search">没有找到应用</string>
+
+    <!-- notifications -->
+    <string name="notif_title_update"><xliff:g id="update_count">%1$s</xliff:g>款应用有更新！</string>
+
+    <string name="notif_installing">正在安装“<xliff:g id="app">%1$s</xliff:g>”…</string>
+    <string name="notif_install_successful"><xliff:g id="app">%1$s</xliff:g>安装成功</string>
+    <string name="notif_install_failed"><xliff:g id="app">%1$s</xliff:g>安装失败</string>
+
+    <string name="share_subject">分享一个应用：<xliff:g id="app_name">%1$s</xliff:g></string>
+    <string name="share_text">在小米应用商店发现一个有趣的APP：<xliff:g id="app_name">%1$s</xliff:g>，分享一下！传送门：<xliff:g id="app_url">%2$s</xliff:g></string>
+
+    <string name="update_all_description">是否要升级所有应用？</string>
+    <string name="install_all_description">是否要一键安装该专题中所有未安装的应用？</string>
 </resources>

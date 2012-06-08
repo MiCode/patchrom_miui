@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/lyric_wrap"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:alwaysDrawnWithCache="true"
-    android:layout_marginTop="70dip"
-    android:visibility="gone" >
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <com.miui.player.ui.view.ExtendScrollView
         android:id="@+id/lyric_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="left|top"
-        android:layout_marginTop="20dip"
+        android:paddingBottom="80dp"
+        android:paddingTop="@dimen/spacing_to_border"
+        android:paddingLeft="@dimen/spacing_to_border"
+        android:paddingRight="@dimen/spacing_to_border"
+        android:fadingEdge="vertical" android:fadingEdgeLength="100dp"
         android:scrollbars="none" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="20dip"
-            android:paddingRight="20dip" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/lyric_before"
@@ -44,6 +40,7 @@
                 android:minHeight="120dip" />
         </LinearLayout>
     </com.miui.player.ui.view.ExtendScrollView>
+
     <RelativeLayout android:id="@+id/lyric_status"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
@@ -65,7 +62,39 @@
             android:includeFontPadding="true"
             android:layout_below="@id/no_lyric_indicator"
             android:gravity="center"/>
-
     </RelativeLayout>
 
-</FrameLayout>
+    <LinearLayout
+        android:id="@+id/track_detail"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_above="@+id/tool_bar"
+        android:layout_marginLeft="20dp"
+        android:visibility="gone"
+        android:orientation="vertical">
+        <include layout="@layout/nowplaying_track_detail"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tool_bar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_above="@+id/time_indicator"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp">
+        <include layout="@layout/playing_tool_bar"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/time_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical">
+
+        <include layout="@layout/time_indicator" />
+    </LinearLayout>
+</merge>

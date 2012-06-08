@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
->
-    <ImageView
-        android:id="@+id/album_wrap"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/audio_player_default_album"
-        android:scaleType="fitXY">
-    </ImageView>
-
-    <ImageView
-        android:id="@+id/album_helper"
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageSwitcher
+        android:id="@+id/album"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY">
+    </ImageSwitcher>
+    <ImageView
+        android:id="@+id/album_mask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/audio_player_album_mask"
+        android:scaleType="fitXY"
+        android:visibility="gone"
+        >
     </ImageView>
-
-</FrameLayout>
+</merge>
 

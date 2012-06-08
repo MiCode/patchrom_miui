@@ -9,22 +9,14 @@
 
     <include layout="@layout/sd_error" />
 
-    <FrameLayout
-        android:id="@+id/main_list_frame"
+    <GridView
+        android:id="@android:id/list"
+        style="@style/PickerListView"
         android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1">
-
-        <ListView
-            android:id="@android:id/list"
-            style="@style/PickerListView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <miui.widget.AlphabetFastIndexer
-            style="@style/AlphaFastIndexerStyle"
-            android:id="@+id/fast_indexer"
-            />
-    </FrameLayout>
+        android:layout_height="match_parent"
+        android:numColumns="3"
+        android:listSelector="@android:color/transparent"
+        android:paddingLeft="@dimen/spacing_picker_item"
+        android:paddingRight="@dimen/spacing_picker_item"/> <!-- 专辑grid的播放indicator可以边界，所以这里paddingLeft是10px，而不是20px -->
 
 </LinearLayout>

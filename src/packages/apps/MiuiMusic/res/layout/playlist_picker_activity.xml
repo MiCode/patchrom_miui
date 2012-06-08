@@ -1,19 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_vertical"
+    android:layout_height="wrap_content"
     style="@style/MusicActivityStyle">
-
-    <include layout="@layout/sd_error" />
-
-
-    <ListView
-        android:id="@android:id/list"
-        style="@style/PickerListView"
+    <LinearLayout
+        android:id="@+id/main_list_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:paddingBottom="@dimen/spacing_to_border">
 
-</LinearLayout>
+        <include layout="@layout/sd_error" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="@string/playlist_custom"
+            style="@style/PlaylistGroupTitleStyle" />
+
+        <view
+            class="com.miui.player.ui.view.FixedGridView"
+            android:id="@android:id/list"
+            style="@style/PickerGridView"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:numColumns="3" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            style="@style/PlaylistGroupTitleStyle"
+            android:text="@string/playlist_system" />
+
+        <view
+            class="com.miui.player.ui.view.FixedGridView"
+            android:id="@+id/system_list"
+            style="@style/PickerGridView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:numColumns="3" />
+
+    </LinearLayout>
+
+</ScrollView>

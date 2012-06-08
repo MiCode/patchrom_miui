@@ -39,9 +39,21 @@
         <item name="android:cacheColorHint">@null</item>
         <item name="android:listSelector">@drawable/item_bg_selector</item>
         <item name="android:scrollbars">none</item>
-        <item name="android:paddingRight">@dimen/spacing_picker_list</item>
+        <item name="android:paddingLeft">@dimen/spacing_to_border</item>
         <item name="android:layout_gravity">top|left</item>
-        <item name="android:footerDividersEnabled">false</item>
+    </style>
+
+        <!-- For all ListViews of list activity -->
+    <style name="PickerGridView">
+        <item name="android:divider">@drawable/picker_list_divider</item>
+        <item name="android:cacheColorHint">@null</item>
+        <item name="android:listSelector">@drawable/item_bg_selector</item>
+        <item name="android:scrollbars">none</item>
+        <item name="android:paddingLeft">@dimen/spacing_to_border</item>
+        <item name="android:paddingRight">@dimen/spacing_to_border</item>
+        <item name="android:layout_gravity">top|left</item>
+        <item name="android:horizontalSpacing">2.67dp</item>
+        <item name="android:verticalSpacing">2.67dp</item>
     </style>
 
     <!-- For primary text of list item -->
@@ -70,7 +82,7 @@
     <style name="PickerItemStyle">
         <item name="android:background">@drawable/item_bg_selector</item>
         <item name="android:paddingLeft">@dimen/spacing_picker_item</item>
-        <item name="android:paddingRight">@dimen/spacing_picker_item</item>
+        <item name="android:paddingRight">0dp</item>
     </style>
 
     <style name="BottomBarText">
@@ -145,7 +157,6 @@
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:layout_height">32dip</item>
         <item name="android:layout_width">32dip</item>
-        <item name="android:layout_marginRight">-6.67dip</item>
     </style>
 
     <!-- For now playing item in MediaPlaybackActivity -->
@@ -156,14 +167,46 @@
     </style>
 
     <!-- 首页播放信息中的 primary text -->
-    <style name="NowplayingPrimaryText">
-        <item name="android:textSize">@dimen/item_primary_text</item>
+    <style name="MainPrimaryText">
+        <item name="android:textSize">@dimen/main_primary_text</item>
         <item name="android:singleLine">true</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:shadowColor">@color/black_50_transparent</item>
+        <item name="android:shadowColor">@color/black_70_transparent</item>
         <item name="android:shadowDx">0</item>
-        <item name="android:shadowDy">2</item>
+        <item name="android:shadowDy">3</item>
+        <item name="android:shadowRadius">5</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:maxWidth">@dimen/item_text_width</item>
+    </style>
+
+    <!-- 首页播放信息中的 secondary text -->
+    <style name="MainSecondaryText">
+        <item name="android:textSize">@dimen/main_secondary_text</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:shadowColor">@color/black_70_transparent</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">3</item>
+        <item name="android:shadowRadius">5</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxWidth">@dimen/item_text_width</item>
+    </style>
+
+    <!-- 首页播放信息中的 primary text -->
+    <style name="NowplayingPrimaryText">
+        <item name="android:textSize">@dimen/nowplaying_primary_text</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:shadowColor">@color/black_70_transparent</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">3</item>
         <item name="android:shadowRadius">5</item>
         <item name="android:ellipsize">marquee</item>
         <item name="android:marqueeRepeatLimit">marquee_forever</item>
@@ -175,16 +218,30 @@
 
     <!-- 首页播放信息中的 secondary text -->
     <style name="NowplayingSecondaryText">
-        <item name="android:textSize">@dimen/item_secondary_text</item>
+        <item name="android:textSize">@dimen/nowplaying_secondary_text</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:shadowColor">@color/black_50_transparent</item>
+        <item name="android:shadowColor">@color/black_70_transparent</item>
         <item name="android:shadowDx">0</item>
-        <item name="android:shadowDy">2</item>
+        <item name="android:shadowDy">3</item>
         <item name="android:shadowRadius">5</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>
         <item name="android:maxWidth">@dimen/item_text_width</item>
+    </style>
+
+    <!-- 首页列表item信息 -->
+    <style name="MainItemPrimaryText">
+        <item name="android:textSize">@dimen/main_item_primary_text</item>
+        <item name="android:textColor">@color/main_item_primary_text</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">left|center_vertical</item>
+    </style>
+
+    <style name="MainItemSecondaryText">
+        <item name="android:textSize">@dimen/main_item_secondary_text</item>
+        <item name="android:textColor">@color/main_item_secondary_text</item>
+        <item name="android:gravity">center_vertical</item>
     </style>
 
     <!-- 文字跑马灯效果 -->
@@ -212,5 +269,14 @@
         <item name="android:layout_height">match_parent</item>
         <item name="miui:indexerBackground">@drawable/alphabet_indexer_bg</item>
         <item name="miui:indexerTextColor">@color/white_30_transparent</item>
+    </style>
+
+    <!-- Style of playlist group title -->
+    <style name="PlaylistGroupTitleStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/playlist_group_title_text</item>
+        <item name="android:background">@drawable/playlist_group_title_bg</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">14dp</item>
     </style>
 </resources>
