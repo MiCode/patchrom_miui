@@ -582,7 +582,14 @@ public final class GsmDataConnectionTracker extends DataConnectionTracker {
         }
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private boolean isDataAllowed(ApnContext apnContext) {
+        if (!(mInternalDataEnabled && mUserDataEnabled && sPolicyDataEnabled)) {
+            if (!Phone.APN_TYPE_MMS.equals(apnContext.getApnType())
+                    || !isMmsDataEnabled()) {
+                return false;
+            }
+        }
         return apnContext.isReady() && isDataAllowed();
     }
 

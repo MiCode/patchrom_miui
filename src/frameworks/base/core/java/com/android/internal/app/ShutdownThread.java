@@ -208,6 +208,7 @@ public final class ShutdownThread extends Thread {
         bootMsgDialog.setContentView(view);
         bootMsgDialog.setCancelable(false);
         bootMsgDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_BOOT_PROGRESS);
+        bootMsgDialog.getWindow().setBackgroundDrawableResource(miui.R.drawable.boot_msg_bg);
         bootMsgDialog.show();
 
         AnimationDrawable animationDrawable= (AnimationDrawable)animationView.getDrawable();

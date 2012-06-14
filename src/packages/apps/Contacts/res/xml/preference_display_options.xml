@@ -32,40 +32,14 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/preference_import">
+        android:title="@string/preference_import_export">
         <PreferenceScreen
-            android:key="pref_key_import_from_sdcard"
-            android:title="@string/import_from_sdcard" />
-        <PreferenceScreen
-            android:key="pref_key_import_from_mi_cloud"
-            android:title="@string/sync_xiaomi_cloud_contacts" />
+            android:key="pref_key_import_export"
+            android:title="@string/preference_import_export_title" />
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/preference_export">
-        <PreferenceScreen
-            android:key="pref_key_export_to_sdcard"
-            android:title="@string/export_to_sdcard" />
-        <PreferenceScreen
-            android:key="pref_key_share_visible_contacts"
-            android:title="@string/share_visible_contacts" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/preference_sim"
-        android:key="displaySim" >
-        <PreferenceScreen
-            android:key="pref_key_import_from_sim"
-            android:title="@string/import_from_sim" />
-        <CheckBoxPreference
-            android:key="pref_key_display_sim_contacts"
-            android:title="@string/display_sim_contacts"
-            android:defaultValue="true"
-            android:persistent="false" />
-    </PreferenceCategory>
-
-
-    <PreferenceCategory
+        android:key="others"
         android:title="@string/preference_others">
 
         <CheckBoxPreference
@@ -73,6 +47,12 @@
             android:title="@string/display_only_phones"
             android:defaultValue="false"
             android:persistent="true" />
+
+        <CheckBoxPreference
+            android:key="pref_key_display_sim_contacts"
+            android:title="@string/display_sim_contacts"
+            android:defaultValue="true"
+            android:persistent="false" />
 
         <PreferenceScreen
             android:key="pref_key_remove_duplicate_contact"

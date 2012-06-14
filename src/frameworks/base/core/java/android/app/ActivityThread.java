@@ -38,6 +38,7 @@ import android.content.pm.ServiceInfo;
 import android.content.res.AssetManager;
 import android.content.res.CompatibilityInfo;
 import android.content.res.Configuration;
+import android.content.res.MiuiResources;
 import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDebug;
@@ -1517,6 +1518,13 @@ public final class ActivityThread {
      */
     Resources getTopLevelResources(String resDir, LoadedApk pkgInfo) {
         return getTopLevelResources(resDir, pkgInfo.mCompatibilityInfo.get());
+    }
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    Resources getTopLevelResources(String packageName, String resDir, CompatibilityInfo compInfo) {
+        Resources r = getTopLevelResources(resDir, compInfo);
+        ((MiuiResources)r).init(packageName);
+        return r;
     }
 
     final Handler getHandler() {

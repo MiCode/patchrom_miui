@@ -11846,6 +11846,16 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
         return com.android.internal.R.attr.textSelectHandleWindowStyle;
     }
 
+    /**
+     * set cursor drawable resource
+     * @param cursorDrawableRes
+     * @hide
+     */
+    @MiuiHook(MiuiHook.MiuiHookType.NEW_METHOD)
+    public void setCursorDrawableRes(int cursorDrawableRes) {
+        mCursorDrawableRes = cursorDrawableRes;
+    }
+
     @ViewDebug.ExportedProperty(category = "text")
     private CharSequence            mText;
     private CharSequence            mTransformed;

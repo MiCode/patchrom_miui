@@ -36,6 +36,7 @@ import android.content.pm.IPackageManager;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.content.res.CompatibilityInfo;
+import android.content.res.MiuiResources;
 import android.content.res.Resources;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
@@ -1505,6 +1506,7 @@ class ContextImpl extends Context {
         init(packageInfo, activityToken, mainThread, null, null);
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     final void init(LoadedApk packageInfo,
                 IBinder activityToken, ActivityThread mainThread,
                 Resources container, String basePackageName) {
@@ -1519,8 +1521,8 @@ class ContextImpl extends Context {
                 Log.d(TAG, "loaded context has different scaling. Using container's" +
                         " compatiblity info:" + container.getDisplayMetrics());
             }
-            mResources = mainThread.getTopLevelResources(
-                    mPackageInfo.getResDir(), container.getCompatibilityInfo());
+            mResources = mainThread.getTopLevelResources(mPackageInfo.mPackageName,
+                    mPackageInfo.getResDir(), container.getCompatibilityInfo());    //MiuiHook
         }
         mMainThread = mainThread;
         mContentResolver = new ApplicationContentResolver(this, mainThread);

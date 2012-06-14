@@ -45,6 +45,7 @@ import android.content.pm.ServiceInfo;
 import android.content.pm.UserInfo;
 import android.content.pm.ManifestDigest;
 import android.content.pm.VerifierDeviceIdentity;
+import android.content.res.MiuiResources;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.graphics.drawable.Drawable;
@@ -683,14 +684,15 @@ final class ApplicationPackageManager extends PackageManager {
             getActivityInfo(activityName, 0).applicationInfo);
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     @Override public Resources getResourcesForApplication(
         ApplicationInfo app) throws NameNotFoundException {
         if (app.packageName.equals("system")) {
             return mContext.mMainThread.getSystemContext().getResources();
         }
-        Resources r = mContext.mMainThread.getTopLevelResources(
+        Resources r = mContext.mMainThread.getTopLevelResources(app.packageName,
             app.uid == Process.myUid() ? app.sourceDir
-            : app.publicSourceDir, mContext.mPackageInfo);
+            : app.publicSourceDir, mContext.mPackageInfo.mCompatibilityInfo.get());    //MiuiHook
         if (r != null) {
             return r;
         }

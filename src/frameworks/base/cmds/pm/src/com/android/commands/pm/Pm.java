@@ -36,6 +36,7 @@ import android.content.pm.ParceledListSlice;
 import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
 import android.content.res.AssetManager;
+import android.content.res.MiuiResources;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Parcel;
@@ -1056,6 +1057,7 @@ public final class Pm {
             AssetManager am = new AssetManager();
             am.addAssetPath(ai.publicSourceDir);
             res = android.content.res.MiuiClassFactory.newResources(am, null, null); // MIUIHOOK
+            ((MiuiResources)res).init(pii.packageName);    //MiuiHook
             mResourceCache.put(pii.packageName, res);
             return res;
         } catch (RemoteException e) {

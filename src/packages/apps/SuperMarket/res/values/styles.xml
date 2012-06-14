@@ -8,19 +8,19 @@
         <item name="android:windowActionBarOverlay">true</item>
     </style>
 
-    <style name="Theme.Holo.Light.Main" parent="Theme.Holo.Light.Overlay" >
+    <style name="Theme.Holo.Light.Normal" parent="Theme.Holo.Light.Overlay" >
         <item name="actionBarStyle">@style/Theme.Holo.Light.ActionBar</item>
         <item name="android:actionBarStyle">@style/Theme.Holo.Light.ActionBar</item>
     </style>
 
-    <style name="Theme.Holo.Light.Child" parent="Theme.Holo.Light.Overlay">
-        <item name="actionBarStyle">@style/Theme.Holo.Light.ActionBar</item>
-        <item name="android:actionBarStyle">@style/Theme.Holo.Light.ActionBar</item>
+    <style name="Theme.Holo.Light.TitleLine" parent="Theme.Holo.Light.Overlay">
+        <item name="actionBarStyle">@style/Theme.Holo.Light.ActionBar.TitleLine</item>
+        <item name="android:actionBarStyle">@style/Theme.Holo.Light.ActionBar.TitleLine</item>
     </style>
 
     <style name="Theme.Holo.Light.Preference" parent="Theme.Holo.Light">
-        <item name="actionBarStyle">@style/Theme.Holo.Light.ActionBar.Preference</item>
-        <item name="android:actionBarStyle">@style/Theme.Holo.Light.ActionBar.Preference</item>
+        <item name="actionBarStyle">@style/Theme.Holo.Light.ActionBar.TitleLine</item>
+        <item name="android:actionBarStyle">@style/Theme.Holo.Light.ActionBar.TitleLine</item>
     </style>
 
     <style name="Theme.Holo.Light.ActionBar" parent="Widget.Sherlock.Light.ActionBar.Solid">
@@ -32,18 +32,18 @@
         <item name="android:logo">@drawable/logo</item>
     </style>
 
-    <style name="Theme.Holo.Light.ActionBar.Preference" parent="Widget.Sherlock.Light.ActionBar.Solid">
-        <item name="background">@null</item>
-        <item name="android:background">@null</item>
-        <item name="icon">@drawable/logo</item>
-        <item name="android:icon">@drawable/logo</item>
-        <item name="logo">@drawable/logo</item>
-        <item name="android:logo">@drawable/logo</item>
+    <style name="Theme.Holo.Light.ActionBar.TitleLine">
+        <item name="background">@drawable/title_line_bg</item>
+        <item name="android:background">@drawable/title_line_bg</item>
     </style>
 
     <style name="Background">
         <item name="android:paddingTop">@dimen/main_padding_top</item>
         <item name="android:background">@drawable/main_bg</item>
+    </style>
+
+    <style name="Background.LargeTitle">
+        <item name="android:paddingTop">@dimen/main_padding_top_large</item>
     </style>
 
     <style name="Background.Split">
@@ -69,7 +69,7 @@
         <item name="android:background">@drawable/action_btn</item>
         <item name="android:textAppearance">@style/TextAppearance.Button.Action</item>
         <item name="android:layout_width">@dimen/action_button_width</item>
-        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_height">@dimen/action_button_height</item>
         <item name="android:gravity">center</item>
     </style>
 
@@ -128,7 +128,7 @@
 
     <style name="TextAppearance.Content"><!-- 不需要反色 -->
         <item name="android:textColor">@color/text_color_primary</item>
-        <item name="android:textSize">@dimen/text_font_size_small</item>
+        <item name="android:textSize">@dimen/text_font_size_medium</item>
     </style>
 
     <style name="TextAppearance.Subject"><!-- 不需要反色 -->
