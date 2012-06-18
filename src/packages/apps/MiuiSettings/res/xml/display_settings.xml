@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/display_settings"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+        <Preference
+            android:key="brightness"
+            android:title="@string/brightness">
+            <intent
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.display.BrightnessActivity" />
+        </Preference>
+
+        <PreferenceScreen
+                android:key="wallpaper"
+                android:title="@string/wallpaper_settings_title">
+                <intent
+                    android:targetPackage="com.android.thememanager"
+                    android:targetClass="com.android.thememanager.WallpaperSettings" />
+       </PreferenceScreen>
+
+        <!-- launcher -->
+        <PreferenceScreen
+            android:key="launcher_settings"
+            android:title="@string/launcher_settings_title">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.miui.home"
+                android:targetClass="com.miui.home.launcher.LauncherPreferenceActivity" />
+        </PreferenceScreen>
+
+        <ListPreference
+                android:key="font_size"
+                android:title="@string/title_font_size"
+                android:summary="@string/summary_font_size"
+                android:entries="@array/entries_font_size"
+                android:entryValues="@array/entryvalues_font_size"
+                android:dialogTitle="@string/dialog_title_font_size" />
+
+        <CheckBoxPreference
+            android:key="accelerometer"
+            android:title="@string/accelerometer_title"/>
+
+        <ListPreference
+                android:key="screen_timeout"
+                android:title="@string/screen_timeout"
+                android:summary="@string/screen_timeout_summary"
+                android:persistent="false"
+                android:entries="@array/screen_timeout_entries"
+                android:entryValues="@array/screen_timeout_values" />
+
+        <CheckBoxPreference
+            android:key="notification_pulse"
+            android:title="@string/notification_pulse_title"
+            android:persistent="false" />
+
+</PreferenceScreen>

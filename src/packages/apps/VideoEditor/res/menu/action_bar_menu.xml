@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- Main action bar contains two sub-menus: one for adding media item into the project,
+and one for project preferences and operations. -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/add_new_media_item_menu"
+        android:icon="@drawable/ic_menu_add_clip_normal"
+        android:title="@string/editor_add"
+        android:showAsAction="ifRoom|withText">
+        <menu>
+            <item android:id="@+id/menu_item_capture_video"
+                android:title="@string/editor_capture_video" />
+            <item android:id="@+id/menu_item_capture_image"
+                android:title="@string/editor_capture_image" />
+            <item android:id="@+id/menu_item_import_video"
+                android:title="@string/editor_import_video" />
+            <item android:id="@+id/menu_item_import_image"
+                android:title="@string/editor_import_image" />
+            <item android:id="@+id/menu_item_import_audio"
+                android:title="@string/editor_import_audio" />
+        </menu>
+    </item>
+
+    <!-- Project related menu are always grouped into the more option. -->
+    <item android:id="@+id/menu_item_change_aspect_ratio"
+        android:title="@string/editor_change_aspect_ratio"
+        android:showAsAction="never" />
+    <item android:id="@+id/menu_item_edit_project_name"
+        android:title="@string/editor_edit_project_name"
+        android:showAsAction="never" />
+    <item android:id="@+id/menu_item_export_movie"
+        android:title="@string/editor_export_movie"
+        android:showAsAction="never" />
+    <item android:id="@+id/menu_item_delete_project"
+        android:title="@string/editor_delete_project"
+        android:showAsAction="never" />
+    <item android:id="@+id/menu_item_play_exported_movie"
+        android:title="@string/editor_play_exported_movie"
+        android:showAsAction="never" />
+    <item android:id="@+id/menu_item_share_movie"
+        android:title="@string/editor_share_movie"
+        android:showAsAction="never" />
+</menu>

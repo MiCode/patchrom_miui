@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- Array resources for the Phone app. -->
+<resources>
+    <string-array translatable="false" name="transport_types">
+        <item>UDP</item>
+        <item>TCP</item>
+    </string-array>
+
+    <string-array translatable="true" name="sip_call_options_entries">
+        <item>@string/sip_call_options_entry_1</item>
+        <item>@string/sip_call_options_entry_2</item>
+        <item>@string/sip_call_options_entry_3</item>
+    </string-array>
+
+    <string-array translatable="true" name="sip_call_options_wifi_only_entries">
+        <item>@string/sip_call_options_wifi_only_entry_1</item>
+        <item>@string/sip_call_options_entry_2</item>
+        <item>@string/sip_call_options_entry_3</item>
+    </string-array>
+
+    <string-array translatable="false" name="sip_call_options_values">
+        <item>@string/sip_always</item>
+        <item>@string/sip_address_only</item>
+        <item>@string/sip_ask_me_each_time</item>
+    </string-array>
+
+    <string-array translatable="false" name="phone_type_values">
+        <item>@string/pstn_phone</item>
+        <item>@string/internet_phone</item>
+    </string-array>
+
+    <string-array translatable="true" name="sip_send_keepalive_options">
+        <item>@string/sip_system_decide</item>
+        <item>@string/sip_always_send_keepalive</item>
+    </string-array>
+
+    <!-- "Target" resources for the MultiWaveView widget used for incoming calls;
+         see InCallTouchUi.showIncomingCallWidget() and incall_touch_ui.xml.  -->
+
+    <!-- For most incoming calls the MultiWaveView widget provides 3 choices:
+         - Answer (drag right)
+         - Reject (drag left)
+         - Respond via SMS (drag up) -->
+    <array name="incoming_call_widget_3way_targets">
+        <item>@*android:drawable/ic_lockscreen_answer</item>
+        <item>@*android:drawable/ic_lockscreen_send_sms</item>
+        <item>@*android:drawable/ic_lockscreen_decline</item>
+        <item>@null</item>"
+    </array>
+    <array name="incoming_call_widget_3way_target_descriptions">
+        <item>@string/description_target_answer</item>
+        <item>@string/description_target_send_sms</item>
+        <item>@string/description_target_decline</item>
+        <item>@null</item>"
+    </array>
+    <array name="incoming_call_widget_3way_direction_descriptions">
+        <item>@*android:string/description_direction_right</item>
+        <item>@*android:string/description_direction_up</item>
+        <item>@*android:string/description_direction_left</item>
+        <item>@null</item>
+    </array>
+
+    <!-- But in some cases "Respond via SMS" isn't available, so there are
+         only 2 choices:
+         - Answer (drag right)
+         - Reject (drag left) -->
+    <array name="incoming_call_widget_2way_targets">
+        <item>@*android:drawable/ic_lockscreen_answer</item>
+        <item>@null</item>
+        <item>@*android:drawable/ic_lockscreen_decline</item>
+        <item>@null</item>"
+    </array>
+    <array name="incoming_call_widget_2way_target_descriptions">
+        <item>@string/description_target_answer</item>
+        <item>@null</item>
+        <item>@string/description_target_decline</item>
+        <item>@null</item>"
+    </array>
+    <array name="incoming_call_widget_2way_direction_descriptions">
+        <item>@*android:string/description_direction_right</item>
+        <item>@null</item>
+        <item>@*android:string/description_direction_left</item>
+        <item>@null</item>
+    </array>
+
+</resources>

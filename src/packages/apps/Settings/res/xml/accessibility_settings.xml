@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+        android:title="@string/accessibility_settings_title">
+
+    <PreferenceCategory
+            android:key="services_category"
+            android:title="@string/accessibility_services_title">
+    </PreferenceCategory>
+
+    <PreferenceCategory
+            android:key="system_category"
+            android:title="@string/accessibility_system_title">
+
+        <CheckBoxPreference
+                android:key="toggle_large_text_preference"
+                android:title="@string/accessibility_toggle_large_text_title"
+                android:persistent="false"
+                android:order="1"/>
+
+        <CheckBoxPreference
+                android:key="toggle_power_button_ends_call_preference"
+                android:title="@string/accessibility_power_button_ends_call_title"
+                android:persistent="false"
+                android:order="2"/>
+
+        <CheckBoxPreference
+                android:key="toggle_auto_rotate_screen_preference"
+                android:title="@string/accelerometer_title"
+                android:persistent="false"
+                android:order="3"/>
+
+        <CheckBoxPreference
+                android:key="toggle_speak_password_preference"
+                android:title="@string/accessibility_speak_password_title"
+                android:persistent="false"
+                android:order="4"/>
+
+        <PreferenceScreen
+                android:key="toggle_touch_exploration_preference"
+                android:title="@string/accessibility_touch_exploration_title"
+                android:fragment="com.android.settings.AccessibilitySettings$ToggleTouchExplorationFragment"
+                android:order="5" >
+                <extra android:name="title" android:value="@string/accessibility_touch_exploration_title" />
+                <extra android:name="summary" android:value="@string/accessibility_touch_exploration_summary" />
+                <extra android:name="enable_warning_title" android:value="@android:string/dialog_alert_title" />
+                <extra android:name="enable_warning_message" android:value="@string/accessibility_touch_exploration_warning" />
+                <extra android:name="settings_title" android:value="@string/accessibility_menu_item_tutorial" />
+                <extra android:name="settings_component_name" android:value="com.android.settings/com.android.settings.AccessibilityTutorialActivity" />
+        </PreferenceScreen>
+
+        <ListPreference android:key="select_long_press_timeout_preference"
+                android:title="@string/accessibility_long_press_timeout_title"
+                android:entries="@array/long_press_timeout_selector_titles"
+                android:entryValues="@array/long_press_timeout_selector_values"
+                android:persistent="false"
+                android:order="6"/>
+
+        <com.android.settings.AccessibilityEnableScriptInjectionPreference
+                android:key="toggle_script_injection_preference"
+                android:title="@string/accessibility_script_injection_title"
+                android:dialogTitle="@string/accessibility_script_injection_security_warning_title"
+                android:dialogIcon="@android:drawable/ic_dialog_alert"
+                android:dialogMessage="@string/accessibility_script_injection_security_warning_summary"
+                android:positiveButtonText="@string/accessibility_script_injection_button_allow"
+                android:negativeButtonText="@string/accessibility_script_injection_button_disallow"
+                android:persistent="false"
+                android:order="7"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

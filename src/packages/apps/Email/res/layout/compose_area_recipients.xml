@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<!-- We must have unique ID's for the address fields in order to have the text
+automatically saved by framework.-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/compose_recipients_wrapper"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- To -->
+
+    <LinearLayout android:id="@+id/to_content"
+        style="@style/RecipientComposeFieldLayout">
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:addStatesFromChildren="true"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical">
+
+            <TextView style="@style/RecipientComposeHeading"
+                android:text="@string/to"
+                android:id="@+id/to_label"
+                android:contentDescription="@string/to"/>
+
+            <com.android.email.activity.AddressTextView
+                android:id="@+id/to"
+                style="@style/RecipientEditTextViewStyle"/>
+
+        </LinearLayout>
+
+        <View style="@style/RecipientComposeFieldSpacer"/>
+    </LinearLayout>
+
+
+    <RelativeLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/cc_bcc_wrapper"
+        android:layout_below="@id/to_content"
+        android:visibility="gone">
+
+        <LinearLayout style="@style/RecipientComposeFieldLayout"
+            android:id="@+id/cc_content"
+            android:layout_alignParentTop="true">
+
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:addStatesFromChildren="true"
+                android:gravity="center_vertical">
+
+                <TextView
+                    style="@style/RecipientComposeHeading"
+                    android:text="@string/cc"
+                    android:id="@+id/cc_label"
+                    android:contentDescription="@string/cc"/>
+
+                <com.android.email.activity.AddressTextView
+                    android:id="@+id/cc"
+                    style="@style/RecipientEditTextViewStyle"/>
+            </LinearLayout>
+
+            <View style="@style/RecipientComposeFieldSpacer"/>
+        </LinearLayout>
+
+        <LinearLayout style="@style/RecipientComposeFieldLayout"
+            android:id="@+id/bcc_content"
+            android:layout_below="@id/cc_content">
+
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:addStatesFromChildren="true"
+                android:gravity="center_vertical">
+
+                <TextView style="@style/RecipientComposeHeading"
+                    android:text="@string/bcc"
+                    android:id="@+id/bcc_label"
+                    android:contentDescription="@string/bcc"/>
+
+                <com.android.email.activity.AddressTextView
+                    android:id="@+id/bcc"
+                    style="@style/RecipientEditTextViewStyle"/>
+
+            </LinearLayout>
+
+            <View style="@style/RecipientComposeFieldSpacer"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout style="@style/ComposeFieldLayout"
+                android:layout_below="@id/cc_bcc_wrapper">
+        <!-- Subject: localization cannot control what field pressing tab will bring the user to. This is controlled at runtime.  -->
+        <EditText android:id="@+id/subject"
+            android:inputType="textEmailSubject|textAutoCorrect|textCapSentences|textImeMultiLine|textMultiLine"
+            android:hint="@string/subject_hint"
+            android:textColorHint="@color/compose_label_text"
+            android:imeOptions="actionDone|flagNoExtractUi"
+            style="@style/ComposeEditTextView" />
+    </RelativeLayout>
+</RelativeLayout>

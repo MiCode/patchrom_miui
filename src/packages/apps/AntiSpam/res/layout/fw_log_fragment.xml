@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dip"
+        android:paddingLeft="40dip"
+        android:paddingRight="40dip"
+        android:gravity="center|top">
+
+        <TextView
+            android:id="@+id/call_button"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/call_log_tab_title"
+            android:background="@miui:drawable/secondary_tab_left" />
+        <TextView
+            android:id="@+id/sms_button"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/mms_log_tab_title"
+            android:gravity="center"
+            android:background="@miui:drawable/secondary_tab_right" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/fw_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:paddingLeft="14dip"
+        android:paddingRight="14dip"
+        android:fastScrollEnabled="true"
+        android:cacheColorHint="@null"
+        android:fadingEdge="none"
+        />
+    <include
+        layout="@layout/fw_log_list_empty_call" />
+</LinearLayout>

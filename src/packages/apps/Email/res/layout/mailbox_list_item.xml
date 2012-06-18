@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- extends RelativeLayout  -->
+<!--
+  NOTE: Don't set padding for this.
+  Background of this view will be changed by code for D&D, which resets padding.
+-->
+<com.android.email.activity.MailboxListItem
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dip"
+    android:background="?android:attr/activatedBackgroundIndicator"
+    >
+    <TextView
+        android:id="@+id/message_count"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/mailbox_list_padding_right"
+        style="@style/unreadCount"
+        />
+    <RelativeLayout
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/mailbox_list_padding_left"
+        android:layout_toLeftOf="@id/message_count"
+        >
+        <ImageView
+            android:id="@+id/folder_icon"
+            android:layout_width="32dip"
+            android:layout_height="32dip"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dip"
+            />
+        <TextView
+            android:id="@+id/mailbox_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/folder_icon"
+            android:layout_centerVertical="true"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textSize="18dip"
+            android:textColor="@color/text_color_primary_invertible"
+            />
+    </RelativeLayout>
+    <!-- Color chips are shown only for account rows on combined view. -->
+    <View
+        android:id="@+id/color_chip"
+        android:layout_width="32dip"
+        android:layout_height="8dip"
+        android:layout_marginLeft="@dimen/mailbox_list_padding_left"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:visibility="gone"
+        />
+    <ImageView
+        android:id="@+id/folder_expanded_icon"
+        android:layout_width="16dip"
+        android:layout_height="16dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        />
+</com.android.email.activity.MailboxListItem>

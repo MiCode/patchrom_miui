@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:phone="http://schemas.android.com/apk/res/com.android.phone"
+        android:title="@string/voicemail_settings_miui">
+
+  <ListPreference
+        android:key="button_voicemail_provider"
+        android:title="@string/voicemail_provider_miui"
+        android:summary="@string/voicemail_provider_sum_miui"
+        android:defaultValue="" />
+
+  <PreferenceScreen android:key="button_voicemail_setting"
+        android:title="@string/voicemail_settings_miui"
+        android:persistent="false">
+
+            <!-- Note for all com.android.phone.EditPhoneNumberPreference objects
+
+           The last several attributes are for use with the EditText field
+           in the dialog.  These attributes are forwarded to that field
+           when the edittext is created.  The attributes include:
+             1. android:singleLine
+             2. android:autoText
+             3. android:background -->
+
+    <com.android.phone.EditPhoneNumberPreference
+        android:key="button_voicemail"
+        android:title="@string/voicemail_settings_number_title_miui"
+        android:hint="@string/voicemail_settings_number_hint_miui"
+        android:persistent="false"
+        android:dialogTitle="@string/voicemail_miui"
+        phone:confirmMode="confirm"
+        android:singleLine="true"
+        android:autoText="false" />
+  </PreferenceScreen>
+  <ListPreference
+       android:key="button_voicemail_notification_vibrate_when_key"
+       android:title="@string/voicemail_notification_vibrate_when_title"
+       android:persistent="true"
+       android:entries="@array/voicemail_notification_vibrate_when_entries"
+       android:entryValues="@array/voicemail_notification_vibrate_when_values"
+       android:defaultValue="@string/voicemail_notification_vibrate_when_default"
+       android:dialogTitle="@string/voicemail_notification_vibarte_when_dialog_title" />
+</PreferenceScreen>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+    <!-- Dimensions for CallCard elements (the normal in-call UI) -->
+
+    <!-- Height of the "call banner" overlay on top of the upper part of
+         the call info area. -->
+    <dimen name="call_banner_height">80dp</dimen>
+
+    <!-- Margin between the bottom of the "call card" photo
+         and the top of the in-call button cluster. -->
+    <dimen name="in_call_touch_ui_upper_margin">2dp</dimen>
+
+    <!-- Amount of vertical space to reserve for the MultiWaveView widget
+         while an incoming call is ringing.
+         This is used as the bottom margin for the "call info container"
+         of the in-call UI while an incoming call is ringing, to prevent
+         the call info from overlapping with the incoming-call widget.
+
+         The incoming-call widget takes up more vertical space than the
+         regular in-call button cluster, so this value is larger than
+         in_call_control_height_active. -->
+    <dimen name="in_call_incoming_call_widget_height">260dp</dimen>
+
+    <!-- Padding at the left and right edges of the "call banner". -->
+    <dimen name="call_banner_side_padding">24dp</dimen>
+    <!-- Padding at the top and bottom edges of the "call banner". -->
+    <dimen name="call_banner_top_bottom_padding">16dp</dimen>
+
+    <!-- Padding for the "call state label" at the bottom of the banner. -->
+    <dimen name="call_state_label_right_padding">10dp</dimen>
+    <dimen name="call_state_label_top_bottom_padding">5dp</dimen>
+
+    <!-- Right padding for name and number fields in the call banner.
+         This padding is used to ensure that ultra-long names or
+         numbers won't overlap the elapsed time indication. -->
+    <dimen name="call_banner_name_number_right_padding">50sp</dimen>
+
+    <!-- Height of the main row of in-call buttons. -->
+    <dimen name="in_call_button_height">76dp</dimen>
+
+    <!-- Width of buttons in the main row of in-call buttons.
+         NOTE these buttons are wider on some devices; see values-w360dp/dimens.xml -->
+    <dimen name="in_call_button_width">56dp</dimen>
+
+    <!-- Height of the in-call "End" button. -->
+    <dimen name="in_call_end_button_height">74dp</dimen>
+
+    <!-- Padding at the left and right edges of the incall_touch_ui button
+         cluster.  This padding is necessary because we can't allow the
+         buttons to be very close to the edges of the screen, due to the
+         risk of false touches (from your finger wrapping around while
+         holding the phone, *before* moving it up to your face and having
+         the prox sensor kick in.) -->
+    <dimen name="button_cluster_side_padding">20dp</dimen>
+
+
+    <!-- Contact photo dimensions -->
+    <dimen name="contact_photo_inset_width">180dp</dimen>
+    <dimen name="contact_photo_inset_height">180dp</dimen>
+    <dimen name="contact_photo_inset_left_margin">0dp</dimen>
+
+
+    <!-- Dimensions for OTA Call Card -->
+    <dimen name="otabase_layout_marginTop">30dp</dimen>
+    <dimen name="otabase_minHeight">270dp</dimen>
+    <dimen name="otaactivate_layout_marginTop">10dp</dimen>
+    <dimen name="otalistenprogress_layout_marginTop">5dp</dimen>
+    <dimen name="otasuccessfail_layout_marginTop">10dp</dimen>
+
+
+    <!-- Dimensions for Emergency Dialer and dialpad inside the in-call screen -->
+    <dimen name="dialpad_horizontal_margin">4dp</dimen>
+    <dimen name="dialpad_vertical_margin">2dp</dimen>
+    <dimen name="dialpad_digits_text_size">35sp</dimen>
+    <!-- Just used in landscape mode -->
+    <dimen name="emergency_dialer_digits_height">0px</dimen>
+
+    <!-- Top margin for the "Calling via ..." provider badge, which is
+         displayed for a few seconds at the start of any outgoing call
+         using a gateway provider (see InCallScreen.updateProviderOverlay()).
+           Currently, this badge floats on top of the normal in-call UI, and
+         the value here is used to position the badge vertically so that
+         it doesn't cover up the "call banner" or any onscreen buttons.
+           TODO: Integrate the badge more smoothly into the call banner,
+         rather than using an overlay element at all (bug 5045539). -->
+    <dimen name="provider_overlay_top_margin">160dp</dimen>
+
+    <!-- Layout weight values for dialpad screen. These layouts will be used in one
+         LinearLayout (dialpad_fragment.xml), configuring dialpad screen's vertical
+         ratio. -->
+    <integer name="dialpad_layout_weight_digits">20</integer>
+    <integer name="dialpad_layout_weight_dialpad">65</integer>
+    <integer name="dialpad_layout_weight_additional_buttons">15</integer>
+</resources>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/main_padding"
+        android:layout_marginRight="@dimen/main_padding"
+        android:orientation="horizontal"
+        android:baselineAligned="false" >
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+                <ImageSwitcher
+                    android:id="@+id/icon"
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/common_padding" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical" >
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:textAppearance="@style/TextAppearance.Primary" />
+                    <RatingBar
+                        android:id="@+id/ratingbar"
+                        style="@style/RatingBar.ReadOnly"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical" />
+                    <TextView
+                        android:id="@+id/developer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:textAppearance="@style/TextAppearance.Secondary" />
+                </LinearLayout>
+            </LinearLayout>
+            <com.xiaomi.market.ui.ActionDetailArea
+                android:id="@+id/action_area"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/large_button_height"
+                android:layout_marginTop="@dimen/common_padding"
+                android:layout_marginBottom="@dimen/main_padding"
+                android:gravity="center" >
+                <LinearLayout
+                    android:id="@+id/install_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/common_btn"
+                    android:gravity="center" >
+                    <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="2dip"
+                        android:contentDescription="@string/install"
+                        android:duplicateParentState="true" />
+                    <TextView
+                        android:id="@+id/install"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="2dip"
+                        android:duplicateParentState="true"
+                        android:text="@string/install"
+                        android:textAppearance="@style/TextAppearance.Button.Large.Primary" />
+                    <TextView
+                        android:id="@+id/size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:duplicateParentState="true"
+                        android:textAppearance="@style/TextAppearance.Button.Large.Secondary" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/progress_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center" >
+                    <LinearLayout
+                        android:layout_width="0dip"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical" >
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+                            <TextView
+                                android:id="@+id/bytes"
+                                android:layout_width="0dip"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:singleLine="true"
+                                android:textAppearance="@style/TextAppearance.Secondary" />
+                            <TextView
+                                android:id="@+id/precentage"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true"
+                                android:textAppearance="@style/TextAppearance.Secondary" />
+                        </LinearLayout>
+                        <ProgressBar
+                            android:id="@+id/progress"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="10dip"
+                            android:layout_gravity="center"
+                            android:max="100" />
+                    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/stop"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dip"
+                        android:gravity="center"
+                        android:src="@drawable/ic_cancel" />
+                </LinearLayout>
+            </com.xiaomi.market.ui.ActionDetailArea>
+        </LinearLayout>
+        <FrameLayout
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="2" >
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fadingEdge="none"
+                android:fillViewport="true" >
+                <com.xiaomi.market.ui.AppDetailView
+                    android:id="@+id/extra_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+                    <TextView
+                        android:id="@+id/description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/common_padding"
+                        android:textAppearance="@style/TextAppearance.Content" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/divider"
+                        android:layout_marginLeft="@dimen/common_padding"
+                        android:layout_marginTop="@dimen/common_padding"
+                        android:background="@drawable/divider_bg" />
+                    <miui.util.ScrollableScreenView
+                        android:id="@+id/screen_shots"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/common_padding"
+                        android:focusableInTouchMode="true" />
+                    <View
+                        android:id="@+id/screenshot_divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/divider"
+                        android:layout_marginLeft="@dimen/common_padding"
+                        android:layout_marginTop="@dimen/common_padding"
+                        android:background="@drawable/divider_bg" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/common_padding"
+                        android:layout_marginTop="@dimen/common_padding"
+                        android:gravity="center" >
+                        <Button
+                            android:id="@+id/rating_button"
+                            style="@style/Button.Large"
+                            android:layout_width="0dip"
+                            android:layout_marginRight="@dimen/common_padding"
+                            android:layout_weight="1"
+                            android:gravity="center" />
+                        <Button
+                            android:id="@+id/permission_button"
+                            style="@style/Button.Large"
+                            android:layout_width="0dip"
+                            android:layout_weight="1"
+                            android:gravity="center" />
+                    </LinearLayout>
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/common_padding"
+                        android:layout_marginTop="@dimen/common_padding"
+                        android:layout_marginBottom="@dimen/main_padding" > <!-- TODO(chenyinli) remove margin bottom -->
+                        <TableRow android:gravity="center" >
+                            <TextView
+                                android:gravity="right|center_vertical"
+                                android:text="@string/update_date_label"
+                                android:textAppearance="@style/TextAppearance.Secondary" />
+                            <TextView
+                                android:id="@+id/update_date"
+                                android:gravity="left|center_vertical"
+                                android:textAppearance="@style/TextAppearance.Secondary" />
+                        </TableRow>
+                        <TableRow android:gravity="center" >
+                            <TextView
+                                android:gravity="right|center_vertical"
+                                android:text="@string/version_label"
+                                android:textAppearance="@style/TextAppearance.Secondary" />
+                            <TextView
+                                android:id="@+id/version"
+                                android:gravity="left|center_vertical"
+                                android:textAppearance="@style/TextAppearance.Secondary" />
+                        </TableRow>
+                    </TableLayout>
+                    <Button
+                        android:id="@+id/share_button"
+                        android:text="@string/share_button"
+                        android:layout_marginLeft="@dimen/common_padding"
+                        android:layout_marginTop="@dimen/common_padding"
+                        android:layout_marginBottom="@dimen/main_padding"
+                        style="@style/Button.Large" />
+                </com.xiaomi.market.ui.AppDetailView>
+            </ScrollView>
+            <com.xiaomi.market.ui.EmptyLoadingView
+                android:id="@+id/loading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:gravity="center"/>
+        </FrameLayout>
+    </LinearLayout>
+    <fragment
+        android:id="@+id/search_fragment"
+        android:name="com.xiaomi.market.ui.CommonSearchFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
