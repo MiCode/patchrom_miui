@@ -24,5 +24,13 @@
             android:persistent="true"
             android:inputType="phone"
             android:dependency="button_autoip" />
+        <PreferenceScreen
+            android:key="button_autoip_exceptions"
+            android:title="@string/auto_ip_exception_miui"
+            android:dependency="button_autoip">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.phone"
+                android:targetClass="com.android.phone.MiuiAutoIpExceptionSetting" />
+        </PreferenceScreen>
     </PreferenceCategory>
 </PreferenceScreen>

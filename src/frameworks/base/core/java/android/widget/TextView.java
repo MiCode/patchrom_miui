@@ -11617,7 +11617,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
         @Override
         public void onClick(View v) {
             TextView t = (TextView) v;
-            ((Editable) mText).replace(mMin, mMax, t.getText());
+            replaceText_internal(mMin, mMax, t.getText());
             stopTextSelectionMode();
             ((MiuiCursorController.InsertionPointCursorController)mController).onClipBoardPancelClick();
         }
@@ -11663,11 +11663,8 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
                 }
 
                 if (paste != null && paste.length() > 0) {
-                    long minMax = prepareSpacesAroundPaste(min, max, paste);
-                    min = extractRangeStartFromLong(minMax);
-                    max = extractRangeEndFromLong(minMax);
                     Selection.setSelection((Spannable) mText, max);
-                    ((Editable) mText).replace(min, max, paste);
+                    replaceText_internal(min,max,paste);
                     stopTextSelectionMode();
                 }
                 break;
@@ -11678,13 +11675,13 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
                 }
                 break;
             case miui.R.id.buttonCopy:
-                ((MiuiCursorController.SelectionModifierCursorController)cc).addClipDate(clip, data, mTransformed.subSequence(min, max));
+                ((MiuiCursorController.SelectionModifierCursorController)cc).addClipData(clip, data, mTransformed.subSequence(min, max));
                 stopTextSelectionMode();
                 Toast.makeText(mContext, mContext.getResources().getString(
                             com.android.internal.R.string.text_copied), Toast.LENGTH_SHORT).show();
                 break;
             case miui.R.id.buttonCut:
-                ((MiuiCursorController.SelectionModifierCursorController)cc).addClipDate(clip, data, mTransformed.subSequence(min, max));
+                ((MiuiCursorController.SelectionModifierCursorController)cc).addClipData(clip, data, mTransformed.subSequence(min, max));
                 stopTextSelectionMode();
                 deleteText_internal(min, max);
                 Toast.makeText(mContext, mContext.getResources().getString(
