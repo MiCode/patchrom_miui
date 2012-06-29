@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/frame_layout"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_weight="1">
+    <com.android.camera.PreviewFrameLayout android:id="@+id/frame"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_centerInParent="true">
+        <SurfaceView android:id="@+id/camera_preview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        <FrameLayout android:id="@+id/preview_border"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:background="@drawable/ic_snapshot_border" />
+        <com.android.camera.ui.RotateLayout android:id="@+id/recording_time_rect"
+                style="@style/ViewfinderLableLayout">
+
+            <include layout="@layout/viewfinder_labels_video" android:id="@+id/labels" />
+        </com.android.camera.ui.RotateLayout>
+        <ImageView android:id="@+id/review_image"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:background="@android:color/black"/>
+        <com.android.camera.ui.RotateImageView
+                android:id="@+id/btn_play"
+                style="@style/ReviewControlIcon"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_gallery_play"
+                android:visibility="gone"
+                android:onClick="onReviewPlayClicked"/>
+    </com.android.camera.PreviewFrameLayout>
+
+    <!-- Fill up the space below preview frame with black. -->
+    <View
+        android:background="#ff000000"
+        android:layout_height="match_parent"
+        android:layout_width="0dip"
+        android:layout_below="@+id/frame"
+        android:layout_alignParentBottom="true" />
+
+    <!-- Indicator control and popup window frame.
+         Listed last for highest Z-order -->
+    <include layout="@layout/indicator_bar" />
+
+</RelativeLayout>
+

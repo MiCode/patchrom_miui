@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/base_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:background="@drawable/listview_bg">
+        <EditableListView
+            android:id="@+id/alarms_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@miui:style/Widget.ListView.NoDivider"
+            android:listSelector="@android:color/transparent" />
+        <TextView
+            android:id="@+id/empty"
+            style="@style/EmptyViewTextStyle"
+            android:drawableTop="@drawable/alarmclock_empty"
+            android:text="@string/alarmclock_empty_text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/add_alarm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@drawable/bottom_bar_bg">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:drawableLeft="@drawable/ic_menu_add"
+            android:drawablePadding="10dip"
+            android:gravity="center"
+            android:text="@string/add_alarm" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- tablet -->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    >
+    <ProgressBar
+        android:id="@+id/loading_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="?android:attr/progressBarStyleLarge"
+        />
+    <com.android.email.view.NonLockingScrollView
+        android:id="@+id/main_panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dip"
+            android:paddingRight="16dip"
+            android:orientation="vertical"
+            >
+
+            <!-- Subject -->
+            <TextView
+                android:id="@+id/subject"
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:gravity="center_vertical"
+                style="@style/message_view_subject"
+                />
+
+            <View
+                android:id="@+id/subject_divider"
+                android:layout_marginBottom="16dip"
+                android:layout_width="match_parent"
+                style="@style/message_view_horizontal_divider"
+                />
+
+            <!-- Upper header. Outer container needed only since the relative layout
+                 params can't be passed in an include tag.-->
+            <FrameLayout
+                android:id="@+id/message_view_header_upper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <include layout="@layout/message_view_header_upper" />
+            </FrameLayout>
+
+            <!-- Addresses, timestamp  -->
+            <FrameLayout
+                android:id="@+id/message_view_subheader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dip"
+                android:layout_marginRight="16dip"
+                >
+                <include layout="@layout/message_view_subheader" />
+            </FrameLayout>
+
+            <View
+                android:id="@+id/address_divider"
+                android:layout_width="match_parent"
+                style="@style/message_view_horizontal_divider"
+                />
+
+            <!-- The rest: tab + body + command buttons.  -->
+            <!-- Tabs + divider -->
+            <LinearLayout
+                android:id="@+id/message_tabs_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dip"
+                    android:layout_marginLeft="14dip"
+                    android:orientation="horizontal"
+                    >
+                    <Button
+                        android:id="@+id/show_message"
+                        android:layout_width="128dip"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/message_view_show_message_action"
+                        android:textSize="14dip"
+                        android:textColor="@color/text_primary_color"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        style="@android:style/Widget.Holo.Light.Tab"
+                        />
+                    <Button
+                        android:id="@+id/show_invite"
+                        android:layout_width="128dip"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/message_view_show_invite_action"
+                        android:textSize="14dip"
+                        android:textColor="@color/text_primary_color"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        style="@android:style/Widget.Holo.Light.Tab"
+                        />
+                    <Button
+                        android:id="@+id/show_attachments"
+                        android:layout_width="128dip"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="14dip"
+                        android:textColor="@color/text_primary_color"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        style="@android:style/Widget.Holo.Light.Tab"
+                        />
+                    <!-- filler -->
+                    <View
+                        android:layout_width="0dip"
+                        android:layout_height="0dip"
+                        android:layout_weight="1"
+                        />
+                    <Button
+                        android:id="@+id/show_pictures"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:padding="0dip"
+                        android:text="@string/message_view_show_pictures_action"
+                        android:textSize="14dip"
+                        android:textColor="@color/text_ternary_color"
+                        android:drawableRight="@drawable/ic_show_images_holo_light"
+                        android:drawablePadding="8dip"
+                        />
+                    <Button
+                        android:id="@+id/always_show_pictures_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:padding="0dip"
+                        android:text="@string/message_view_always_show_pictures_prompt"
+                        android:textSize="14dip"
+                        android:textColor="@color/text_ternary_color"
+                        android:drawableRight="@drawable/ic_show_images_holo_light"
+                        android:drawablePadding="8dip"
+                        android:visibility="gone"
+                        />
+                    <View
+                        android:layout_width="16dip"
+                        android:layout_height="0dip"
+                        />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    style="@style/message_view_horizontal_divider"
+                    />
+            </LinearLayout>
+
+            <!-- margin -->
+            <View
+                android:layout_width="0dip"
+                android:layout_height="16dip"
+                />
+
+            <!-- content area - only one of them is visible at a time -->
+            <!-- Message body -->
+            <com.android.email.view.RigidWebView
+                android:id="@+id/message_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:visibility="gone"
+                />
+
+            <!-- TODO: get rid of these useless _scroll elements now that
+                 they're no longer needed -->
+            <!-- Invite: Even though this section is only for MessageViewFragment,
+                 Its visibility is controlled by MessageViewFragmentBase for simplicity.
+                 MessageFileViewFragment shouldn't touch this. -->
+            <FrameLayout
+                android:id="@+id/invite_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                >
+                <include layout="@layout/message_view_invitation" />
+            </FrameLayout>
+
+            <!-- Attachments -->
+            <FrameLayout
+                android:id="@+id/attachments_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                >
+                <LinearLayout
+                    android:id="@+id/attachments"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="?android:attr/dividerHorizontal"
+                    android:showDividers="beginning|middle|end"
+                    />
+            </FrameLayout>
+        </LinearLayout>
+    </com.android.email.view.NonLockingScrollView>
+</FrameLayout>

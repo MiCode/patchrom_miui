@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="true">
+        <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+            <!-- First item is the outer transparent sphere. -->
+            <item>
+                <shape
+                    android:shape="oval"
+                >
+                    <size
+                        android:width="16dip"
+                        android:height="16dip"
+                    />
+                    <solid
+                        android:color="@color/voicemail_playback_seek_bar_yet_to_play"
+                    />
+                </shape>
+            </item>
+            <!-- Second item is the inner almost-opaque sphere.
+                 Seems to derive its size from the outer, a size element doesn't change anything.
+                 Looks like using left, right, top and bottom on the item is best to fix inner sphere. -->
+            <item
+                android:left="3dip"
+                android:right="3dip"
+                android:top="3dip"
+                android:bottom="3dip"
+            >
+                <shape
+                    android:shape="oval"
+                >
+                    <solid
+                        android:color="@color/voicemail_playback_seek_bar_already_played"
+                    />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+    <!-- Do not show the thumb when disabled -->
+    <item android:drawable="@android:color/transparent" />
+</selector>

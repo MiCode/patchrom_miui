@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+/*
+ * Copyright (C) 2008, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at 
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0 
+ *
+ * Unless required by applicable law or agreed to in writing, software 
+ * distributed under the License is distributed on an "AS IS" BASIS, 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing permissions and 
+ * limitations under the License.
+ */
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#ff000000">
+    <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="0dp"
+         android:layout_weight="2"
+         >
+
+        <com.android.calculator2.CalculatorDisplay
+             android:id="@+id/display"
+             android:layout_width="0dp"
+             android:layout_weight="5"
+             android:layout_height="match_parent"
+             maxDigits="@integer/max_digits">
+
+            <com.android.calculator2.CalculatorEditText
+                style="@style/display_style" />
+            <com.android.calculator2.CalculatorEditText
+                style="@style/display_style" />
+
+        </com.android.calculator2.CalculatorDisplay>
+        <ImageButton android:id="@+id/overflow_menu"
+            android:layout_width="48dip"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_menu_overflow"
+            android:background="@android:color/transparent"
+            android:layout_marginLeft="8dip"
+            android:visibility="gone"/>
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <!-- marginRight has to be 0 to catch border-touch -->
+            <com.android.calculator2.ColorButton
+                 android:id="@+id/clear"
+                 android:text="@string/clear"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:layout_marginRight="0dp"
+                 android:textSize="15dp"
+                 style="@style/button_style"
+                 />
+            <!-- marginRight has to be 0 to catch border-touch -->
+            <com.android.calculator2.ColorButton
+                 android:id="@+id/del"
+                 android:text="@string/del"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:layout_marginRight="0dp"
+                 android:textSize="15dp"
+                 style="@style/button_style"
+                 />
+        </FrameLayout>
+    </LinearLayout>
+
+    <com.android.calculator2.CalculatorViewPager
+         android:id="@+id/panelswitch"
+         android:layout_width="match_parent"
+         android:layout_height="0dp"
+         android:layout_weight="4"
+         />
+
+</LinearLayout>
