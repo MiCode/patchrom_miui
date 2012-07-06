@@ -4192,12 +4192,37 @@ public final class ActivityManagerService extends ActivityManagerNative
         if (DEBUG_SWITCH) Slog.v(TAG, "ACTIVITY DESTROYED: " + token);
         mMainStack.activityDestroyed(token);
     }
-    
+
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public String getCallingPackage(IBinder token) {
+        int callingUid = 0;
         synchronized (this) {
-            ActivityRecord r = getCallingRecordLocked(token);
-            return r != null && r.app != null ? r.info.packageName : null;
+            ActivityRecord r = mMainStack.isInStackLocked(token);
+
+            if (r == null) {
+                return null;
+            }
+
+            if (r.resultTo != null) {
+                r = r.resultTo;
+                return r != null && r.app != null ? r.info.packageName : null;
+            }
+
+            callingUid = r.launchedFromUid;
         }
+
+        // HACK: getCallingPackage is only used when startActivityForResult is called, and useless when there's no result
+        // Reuse it here to return the calling package who started the current activity.
+        if (callingUid > 0) {
+            try {
+                String[] packages = AppGlobals.getPackageManager().getPackagesForUid(callingUid);
+                if (packages.length > 0) {
+                    return packages[0];
+                }
+            } catch (RemoteException e) {
+            }
+        }
+        return null;
     }
 
     public ComponentName getCallingActivity(IBinder token) {

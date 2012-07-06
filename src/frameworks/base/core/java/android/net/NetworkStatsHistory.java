@@ -27,8 +27,6 @@ import static android.net.NetworkStatsHistory.Entry.UNKNOWN;
 import static android.net.NetworkStatsHistory.ParcelUtils.readLongArray;
 import static android.net.NetworkStatsHistory.ParcelUtils.writeLongArray;
 
-import android.annotation.MiuiHook;
-import android.annotation.MiuiHook.MiuiHookType;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.MathUtils;
@@ -264,16 +262,10 @@ public class NetworkStatsHistory implements Parcelable {
                 IFACE_ALL, UID_ALL, SET_DEFAULT, TAG_NONE, rxBytes, 0L, txBytes, 0L, 0L));
     }
 
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    private long getUTCTime(long time) {
-        return time - TimeZone.getDefault().getRawOffset() ;
-    }
-
     /**
      * Record that data traffic occurred in the given time range. Will
      * distribute across internal buckets, creating new buckets as needed.
      */
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public void recordData(long start, long end, NetworkStats.Entry entry) {
         if (entry.rxBytes < 0 || entry.rxPackets < 0 || entry.txBytes < 0 || entry.txPackets < 0
                 || entry.operations < 0) {
@@ -285,8 +277,6 @@ public class NetworkStatsHistory implements Parcelable {
             return;
         }
 
-        start = getUTCTime(start);
-        end = getUTCTime(end);
         // create any buckets needed by this range
         ensureBuckets(start, end);
 
@@ -441,11 +431,7 @@ public class NetworkStatsHistory implements Parcelable {
      * Return interpolated data usage across the requested range. Interpolates
      * across buckets, so values may be rounded slightly.
      */
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public Entry getValues(long start, long end, long now, Entry recycle) {
-        start = getUTCTime(start);
-        end = getUTCTime(end);
-        now = getUTCTime(now);
         final Entry entry = recycle != null ? recycle : new Entry();
         entry.bucketDuration = end - start;
         entry.bucketStart = start;

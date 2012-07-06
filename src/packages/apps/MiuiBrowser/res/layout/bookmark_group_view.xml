@@ -18,16 +18,45 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:background="@miui:drawable/list_fold_background">
+    android:orientation="horizontal">
 
-    <TextView style="@style/GroupNameTextView"
-        android:id="@+id/group_name" />
-
-    <FrameLayout
-        android:id="@+id/crumb_holder"
+    <LinearLayout
+        android:id="@+id/group_content_wrapper"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@miui:drawable/list_fold_background">
+
+        <ImageView
+            android:id="@+id/up_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/up_level"/>
+
+        <LinearLayout
+            android:id="@+id/group_name_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical">
+
+            <TextView style="@style/GroupNameTextView"
+                android:id="@+id/group_name"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/arrow_mark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:layout_gravity="center_vertical"
+                android:src="@miui:drawable/arrow_down"
+                android:visibility="visible"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
 
