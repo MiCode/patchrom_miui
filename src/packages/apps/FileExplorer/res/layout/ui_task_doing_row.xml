@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent" android:layout_height="match_parent">
+	<LinearLayout android:id="@+id/ui_task_doing_left"
+		android:layout_width="48dip" android:layout_height="55dip"
+		android:layout_alignParentTop="true" android:layout_alignParentBottom="true"
+		android:layout_alignParentLeft="true" android:gravity="center">
+		<ImageView android:id="@+id/ui_task_doing_icon"
+			android:layout_width="20dip" android:layout_height="20dip"
+			android:src="@drawable/image_task_upload" />
+	</LinearLayout>
+	<TextView android:id="@+id/ui_task_doing_txt_name"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_toRightOf="@+id/ui_task_doing_left"
+		android:layout_toLeftOf="@+id/ui_task_doing_btn_close" android:singleLine="true"
+		android:layout_marginRight="20dip"
+		style="@style/larger_title_text_style" />
+	<Button android:id="@+id/ui_task_doing_btn_close"
+		android:layout_alignParentRight="true" android:layout_centerVertical="true"
+		android:layout_width="40dip" android:layout_height="40dip" android:layout_marginRight="10dip"/>
+	<TextView android:id="@+id/ui_task_doing_txt_bar"
+		android:layout_width="match_parent" android:layout_height="wrap_content"
+		android:layout_toRightOf="@+id/ui_task_doing_left"
+		android:layout_below="@+id/ui_task_doing_txt_name"
+		android:layout_marginTop="5dip" android:layout_marginBottom="10dip"
+		android:layout_marginRight="10dip" android:visibility="invisible"
+		android:text="@string/ui_task_doing_txt_waitting" style="@style/row_detail_text_style" />
+	<ProgressBar android:id="@+id/ui_task_doing_progress_bar"
+		android:layout_toRightOf="@+id/ui_task_doing_left"
+		android:layout_toLeftOf="@id/ui_task_doing_btn_close" style="?android:attr/progressBarStyleHorizontal"
+		android:layout_below="@+id/ui_task_doing_txt_name"
+		android:layout_width="match_parent" android:layout_height="10dip"
+		android:layout_marginTop="5dip" android:layout_marginBottom="10dip"
+		android:layout_marginRight="10dip" android:layout_centerHorizontal="true"
+		android:visibility="gone" />
+</RelativeLayout>

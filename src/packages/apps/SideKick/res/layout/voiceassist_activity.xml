@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#00000000"
+    android:gravity="bottom"
+    >
+
+    <LinearLayout android:id="@+id/layout_fit"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="#00000000"></LinearLayout>
+    
+    <FrameLayout
+        android:id="@+id/layout_main"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff000000" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/main_bg"
+            android:orientation="vertical" >
+
+            <ListView
+                android:id="@+id/lv_voiceassist"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:cacheColorHint="#00000000"
+                android:divider="#00000000"
+                android:dividerHeight="0.0sp"
+                android:listSelector="#00000000"
+                android:scrollbars="none"
+                android:descendantFocusability="blocksDescendants" />
+
+            <Button
+                android:id="@+id/bt_voice"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="talk"
+                android:visibility="gone" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:longClickable="false"
+                android:src="@drawable/list_fix_transparent" />
+        </LinearLayout>
+
+        <include layout="@layout/phone" />
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,62 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+
+<view
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/note_item"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    class="com.miui.notes.ui.NotesListItem"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="fill_parent"
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dip"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:gravity="center_vertical">
+        android:layout_weight="1"
+        android:singleLine="true"
+        android:textAppearance="@style/TextAppearancePrimaryItem" />
 
-        <LinearLayout
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tv_name"
-                android:layout_width="wrap_content"
-                android:layout_height="0dip"
-                android:layout_weight="1"
-                android:textAppearance="@style/TextAppearancePrimaryItem"
-                android:visibility="gone" />
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical">
-
-                <TextView
-                    android:id="@+id/tv_title"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:singleLine="true" />
-
-                <TextView
-                    android:id="@+id/tv_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearanceSecondaryItem" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <CheckBox
-            android:id="@android:id/checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:focusable="false"
-            android:clickable="false"
-            android:visibility="gone" />
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/iv_alert_icon"
+    <TextView
+        android:id="@+id/tv_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="top|right"/>
-</FrameLayout>
+        android:textAppearance="@style/TextAppearanceSecondaryItem"
+        android:visibility="gone" />
+
+    <include layout="@layout/note_item_indicators" />
+
+</view>

@@ -16,6 +16,7 @@
         android:background="@drawable/insert_attachment_button_n" />
 
     <ScrollView
+        android:id="@+id/editor_container"
         android:addStatesFromChildren="true"
         android:layout_weight="1"
         android:layout_width="0dip"
@@ -23,7 +24,7 @@
         android:fadingEdge="none"
         android:scrollbars="none"
         android:overScrollMode="never"
-        android:background="@drawable/compose_text_editor_bg">
+        >
         <LinearLayout
             android:addStatesFromChildren="true"
             android:layout_width="match_parent"
@@ -98,8 +99,6 @@
                     android:autoText="true"
                     android:capitalize="sentences"
                     android:nextFocusRight="@+id/send_button"
-                    android:hint="@string/type_to_compose_text_enter_to_send"
-                    android:inputType="textAutoCorrect|textCapSentences|textMultiLine"
                     android:imeOptions="actionSend|flagNoEnterAction"
                     android:maxLength="2000"
                     android:textAppearance="@style/TextAppearance.MmsEditor"

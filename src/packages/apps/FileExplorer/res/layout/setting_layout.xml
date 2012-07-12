@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/secondary_title_background"
+    android:orientation="vertical" >
+    <RelativeLayout android:layout_alignParentTop="true" android:id="@+id/task_manager_window" android:background="@drawable/secondary_title_background"  android:layout_height="45dip" android:layout_width="match_parent" android:gravity="center_vertical">
+	   <LinearLayout 
+	       android:id="@+id/setting_title_left_back_layout"
+	       android:layout_width="40dip"
+	       android:gravity="center|left"
+	       android:layout_height="match_parent"
+	      >
+	       <ImageView 
+	           	android:layout_marginLeft="0dip"
+	       		android:id="@+id/title_left_back"
+	       		android:src="@drawable/title_left_back"
+				android:layout_width="wrap_content" android:layout_height="wrap_content">
+               </ImageView>
+	   </LinearLayout>
+	    
+	    <TextView
+	        android:layout_marginTop="6dip"
+	        android:layout_toRightOf="@id/setting_title_left_back_layout"
+	        android:textSize="22sp"
+	        android:textStyle="bold"
+	        android:textColor="@android:color/black"
+	        android:layout_width="wrap_content" android:layout_height="wrap_content" >
+	    </TextView>
+	</RelativeLayout>
+	<ListView android:id="@+id/setting_list" 
+		android:layout_width="match_parent"  android:layout_height="match_parent"
+		android:dividerHeight="0dip"
+		android:cacheColorHint="#00000000"  />
+
+</LinearLayout>

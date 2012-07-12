@@ -29,6 +29,27 @@
         android:paddingLeft="8dip"
         android:paddingRight="8dip">
 
+     <LinearLayout
+            android:id="@+id/caller"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:background="@drawable/caller_app_bg">
+            <TextView
+                    android:id="@+id/caller_app"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+            <ImageView
+                    android:id="@+id/caller_app_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@miui:drawable/ic_arrow_right"/>
+    </LinearLayout>
+
     <TextView
             android:id="@+id/install_confirm_question"
             android:layout_width="wrap_content"

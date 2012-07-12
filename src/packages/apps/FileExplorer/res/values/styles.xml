@@ -31,7 +31,7 @@
     </style>
 
     <style name="HomeButtonStytle">
-        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">20dip</item>
         <item name="android:gravity">center</item>
@@ -81,13 +81,13 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textSize">19px</item>
-        <item name="android:textColor">@miui:color/primary_text</item>
+        <item name="android:textColor">#111111</item>
     </style>
     <style name="CategoryButtonCountTextStyle">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textSize">15px</item>
-        <item name="android:textColor">@miui:color/secondary_text</item>
+        <item name="android:textColor">#A6A6A6</item>
         <item name="android:text">@string/category_default_number_text</item>
     </style>
 
@@ -109,7 +109,7 @@
     </style>
     <style name="InformationItemStyle">
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:paddingLeft">5dip</item>
         <item name="android:layout_marginBottom">5dip</item>
         <item name="android:orientation">horizontal</item>
@@ -118,7 +118,7 @@
     <style name="InformationTextStyle">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:textColor">@miui:color/primary_text</item>
+        <item name="android:textColor">#222222</item>
         <item name="android:textSize">12dip</item>
         <item name="android:drawablePadding">5dip</item>
     </style>
@@ -128,7 +128,7 @@
         <item name="android:layout_weight">1</item>
         <item name="android:gravity">left</item>
         <item name="android:drawablePadding">5px</item>
-        <item name="android:textColor">@miui:color/primary_text</item>
+        <item name="android:textColor">#222222</item>
         <item name="android:textSize">10dip</item>
         <item name="android:layout_marginLeft">2dip</item>
     </style>
@@ -171,15 +171,15 @@
         <item name="android:layout_width">0dip</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:background">@drawable/btn_bottom</item>
         <item name="android:textSize">17sp</item>
     </style>
 
     <style name="BottomButton.Left">
+        <item name="android:background">@drawable/bottom_btn_left</item>
     </style>
 
     <style name="BottomButton.Right">
-        <item name="android:background">@drawable/btn_bottom_last</item>
+        <item name="android:background">@drawable/bottom_btn_right</item>
     </style>
 
     <style name="BottomButtonBar">
@@ -191,28 +191,133 @@
         <item name="android:background">@drawable/bottom_button_bar</item>
     </style>
 
+    <style name="larger_title_text_style" parent="android:Theme">
+        <item name="android:textColor">#132740</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:shadowColor">#FFFFFF</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
+      <style name="row_name_text_style" parent="android:Theme">
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
+    <style name="row_detail_text_style" parent="android:Theme">
+        <item name="android:textColor">#587BA8</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
+    <style name="normal_title_text_style" parent="android:Theme">
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:shadowColor">#FFFFFF</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
+    <style name="detail_text_style" parent="android:Theme">
+        <item name="android:textColor">#cdcdcd</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
+
     <style name="FileExplorerActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
         <item name="android:displayOptions"></item>
     </style>
 
-    <style name="FileExplorerTheme" parent="@miui:style/Theme.Light">
-        <item name="android:actionBarStyle">@style/FileExplorerActionBarStyle</item>
+    <style name="Widget.Holo.Light.ActionBar.TabText" parent="@android:style/Widget.Holo.Light.ActionBar.TabText.Inverse">
+        <item name="android:textColor">@color/primary_tab_text</item>
     </style>
 
-    <style name="Theme.Holo.Light" parent="@miui:style/Theme.Light">
+    <style name="FileExplorerTheme" parent="@android:style/Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/FileExplorerActionBarStyle</item>
+        <item name="android:actionBarTabTextStyle">@style/Widget.Holo.Light.ActionBar.TabText</item>
+    </style>
+
+    <style name="Widget.Holo.Light.ActionBar.Solid.HomeUp" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
+        <item name="android:logo">@drawable/ab_home_up_divider</item>
+        <item name="android:displayOptions">homeAsUp|useLogo|showHome|showTitle</item>
+    </style>
+
+    <style name="Theme.Light" parent="@android:Theme.Holo.Light">
+        <item name="android:homeAsUpIndicator">@drawable/ab_home_up</item>
+        <item name="android:actionBarStyle">@style/Widget.Holo.Light.ActionBar.Solid.HomeUp</item>
+    </style>
+
+    <style name="FtpMessageStyle">
+        <item name="android:textSize">15dip</item>
+        <item name="android:layout_width">225dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:lineSpacingExtra">6dip</item>
+    </style>
+
+    <style name="Widget.ListView.NoDivider" parent="@android:Widget.ListView">
+        <item name="android:divider">@null</item>
+        <item name="android:dividerHeight">0dp</item>
+        <item name="android:cacheColorHint">@null</item>
+        <item name="android:listSelector">@null</item>
+        <item name="android:fadingEdge">none</item>
+    </style>
+
+    <style name="TextViewListSeparator">
+        <item name="android:background">@drawable/list_section_divider_holo_light</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/orange</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">8dip</item>
+    </style>
+
+    <style name="LogInPageButtonStyle">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">#222222</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="SupplyMessageStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#bfbfbf</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginTop">12dip</item>
+        <item name="android:layout_marginBottom">12dip</item>
+        <item name="android:drawablePadding">5dip</item>
+    </style>
+
+    <style name="KuaipanIntroduceMessageStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#919191</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:drawablePadding">24dip</item>
+        <item name="android:paddingLeft">46dip</item>
+        <item name="android:paddingRight">46dip</item>
+    </style>
+
+     <style name="SearchThemeStyle" parent="@style/Theme.Light">
         <item name="android:buttonStyle">@style/Widget.Holo.Light.Button</item>
         <item name="android:actionBarStyle">@style/SearchActionBarStyle</item>
-        <item name="android:actionOverflowButtonStyle">@miui:style/Widget.Holo.Light.ActionButton.Overflow
-        </item>
+    </style>
+
+    <style name="SearchActionBarStyle" parent="@style/Widget.Holo.Light.ActionBar.Solid.HomeUp">
+        <item name="android:displayOptions">homeAsUp|showCustom|showHome</item>
     </style>
 
     <style name="Widget.Holo.Light.Button" parent="@android:style/Widget.Holo.Light.Button">
         <item name="android:minHeight">0dip</item>
         <item name="android:minWidth">0dip</item>
     </style>
-
-    <style name="SearchActionBarStyle" parent="@miui:style/Widget.Holo.Light.ActionBar.Solid.HomeUp">
-        <item name="android:displayOptions">homeAsUp|showCustom|showHome</item>
-    </style>
-
 </resources>

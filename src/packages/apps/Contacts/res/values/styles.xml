@@ -431,7 +431,7 @@
     </style>
 
     <style name="TwelveKeyDialerTheme" parent="@miui:style/Theme.Light">
-        <item name="android:actionBarStyle">@style/TwelveKeyDialerActionBarStyle</item>
+        <item name="android:actionBarStyle">@style/NoActionBarStyle</item>
         <item name="android:windowAnimationStyle">@style/MiuiPhoneAnimations</item>
     </style>
 
@@ -440,7 +440,7 @@
          <item name="android:taskToBackExitAnimation">@miui:anim/miui_phone_close_exit</item>
     </style>
 
-    <style name="TwelveKeyDialerActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
+    <style name="NoActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
         <item name="android:displayOptions" />
         <item name="android:visibility">gone</item>
     </style>
@@ -468,4 +468,10 @@
         <item name="android:title">@string/photo_package_activity_title</item>
     </style>
 
+    <style name="TranslucentWithoutActionBarTheme" parent="@miui:style/Theme.Light">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+        <item name="android:actionBarStyle">@style/NoActionBarStyle</item>
+    </style>
 </resources>

@@ -247,6 +247,32 @@ public class CallLog {
          */
         public static final String CACHED_FORMATTED_NUMBER = "formatted_number";
 
+        @MiuiHook(MiuiHookType.NEW_FIELD)
+        private static ContentValues sExtraCallLogValues = null;
+
+        /**
+         * @hide
+         */
+        @MiuiHook(MiuiHookType.NEW_METHOD)
+        public static void setExtraCallLogValues(ContentValues extraCallLogValues) {
+            sExtraCallLogValues = extraCallLogValues;
+        }
+
+        /**
+         * @hide
+         */
+        @MiuiHook(MiuiHookType.NEW_METHOD)
+        private static ContentValues getExtraCallLogValues() {
+            ContentValues values;
+            if (sExtraCallLogValues == null) {
+                values = new ContentValues(5);
+            } else {
+                values = sExtraCallLogValues;
+                sExtraCallLogValues = null;
+            }
+            return values;
+        }
+
         /**
          * Adds a call to the call log.
          *
@@ -281,7 +307,7 @@ public class CallLog {
                 if (ci != null) ci.name = "";
             }
 
-            ContentValues values = new ContentValues(5);
+            ContentValues values = getExtraCallLogValues();
 
             values.put(NUMBER, number);
             values.put(TYPE, Integer.valueOf(callType));

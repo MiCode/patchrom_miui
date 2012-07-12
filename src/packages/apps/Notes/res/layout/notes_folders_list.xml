@@ -1,35 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@drawable/list_background">
+    android:layout_height="fill_parent">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:background="@drawable/list_background"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_title_bar"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/list_padding"
+            android:layout_marginRight="@dimen/list_padding"
+            android:layout_marginTop="@dimen/list_padding"
             android:background="@drawable/title_bar_bg"
             android:visibility="gone"
             android:gravity="center_vertical"
             android:singleLine="true"
-            android:textColor="#FFEAD1AE"
+            android:textColor="@color/title_text_yellow"
             android:textSize="@dimen/text_font_size_medium" />
 
-        <ListView
-            android:id="@+id/notes_list"
-            android:layout_width="fill_parent"
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="0dip"
-            android:layout_weight="1"
-            android:cacheColorHint="@null"
-            android:listSelector="@android:color/transparent"
-            android:divider="@null"
-            android:fadingEdge="@null" />
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/trash"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/trash"
+                android:layout_gravity="bottom" />
+
+            <TextView
+                android:id="@+id/trash_cover"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/trash_cover"
+                android:layout_gravity="bottom"
+                android:visibility="gone" />
+
+            <view
+                class="com.miui.notes.list.SortableListView"
+                android:id="@+id/notes_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/list_padding"
+                android:layout_marginRight="@dimen/list_padding"
+                android:cacheColorHint="@null"
+                android:listSelector="@android:color/transparent"
+                android:scrollbars="none"
+                android:divider="@null"
+                android:fadingEdge="@null" />
+        </FrameLayout>
+
     </LinearLayout>
 
     <Button
@@ -39,4 +68,5 @@
         android:layout_height="wrap_content"
         android:focusable="false"
         android:layout_gravity="bottom" />
+
 </FrameLayout>

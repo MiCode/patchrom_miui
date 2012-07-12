@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent" android:layout_height="match_parent">
+	<LinearLayout android:id="@+id/ui_task_done_left"
+		android:layout_width="48dip" android:layout_height="55dip"
+		android:layout_alignParentTop="true" android:layout_alignParentBottom="true"
+		android:layout_alignParentLeft="true" android:gravity="center">
+		<ImageView android:id="@+id/ui_task_done_icon"
+			android:layout_width="20dip" android:layout_height="20dip"
+			android:src="@drawable/image_task_upload" />
+	</LinearLayout>
+	<TextView android:id="@+id/ui_task_done_txt_name"
+		android:layout_width="match_parent" android:layout_height="wrap_content"
+		android:layout_toRightOf="@+id/ui_task_done_left"
+		android:layout_marginRight="38dip" android:layout_marginTop="10dip"
+		style="@style/row_name_text_style" />
+	<TextView android:id="@+id/ui_task_done_txt_size"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_toRightOf="@+id/ui_task_done_left"
+		android:layout_below="@+id/ui_task_done_txt_name" android:layout_marginTop="6dip"
+		android:layout_marginRight="38dip"
+		style="@style/row_detail_text_style" />
+	<TextView android:id="@+id/ui_task_done_txt_time"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_below="@+id/ui_task_done_txt_name" android:layout_marginTop="6dip"
+		android:layout_marginRight="10dip" android:layout_alignParentRight="true"
+		style="@style/row_detail_text_style" />
+</RelativeLayout>
