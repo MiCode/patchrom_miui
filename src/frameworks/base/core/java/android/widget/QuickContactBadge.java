@@ -18,6 +18,8 @@ package android.widget;
 
 import com.android.internal.R;
 
+import android.annotation.MiuiHook;
+import android.annotation.MiuiHook.MiuiHookType;
 import android.content.AsyncQueryHandler;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -105,6 +107,7 @@ public class QuickContactBadge extends ImageView implements OnClickListener {
     }
 
     @Override
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
@@ -243,7 +246,7 @@ public class QuickContactBadge extends ImageView implements OnClickListener {
             super(cr);
         }
 
-        @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
+        @MiuiHook(MiuiHookType.CHANGE_CODE)
         @Override
         protected void onQueryComplete(int token, Object cookie, Cursor cursor) {
             Uri lookupUri = null;

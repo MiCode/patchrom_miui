@@ -178,23 +178,6 @@ public class TimePicker extends FrameLayout {
         mMinuteSpinner.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             public void onValueChange(NumberPicker spinner, int oldVal, int newVal) {
                 updateInputState();
-                int minValue = mMinuteSpinner.getMinValue();
-                int maxValue = mMinuteSpinner.getMaxValue();
-                if (oldVal == maxValue && newVal == minValue) {
-                    int newHour = mHourSpinner.getValue() + 1;
-                    if (!is24HourView() && newHour == HOURS_IN_HALF_DAY) {
-                        mIsAm = !mIsAm;
-                        updateAmPmControl();
-                    }
-                    mHourSpinner.setValue(newHour);
-                } else if (oldVal == minValue && newVal == maxValue) {
-                    int newHour = mHourSpinner.getValue() - 1;
-                    if (!is24HourView() && newHour == HOURS_IN_HALF_DAY - 1) {
-                        mIsAm = !mIsAm;
-                        updateAmPmControl();
-                    }
-                    mHourSpinner.setValue(newHour);
-                }
                 onTimeChanged();
             }
         });

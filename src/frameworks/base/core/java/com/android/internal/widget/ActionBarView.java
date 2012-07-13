@@ -26,6 +26,8 @@ import com.android.internal.view.menu.MenuPresenter;
 import com.android.internal.view.menu.MenuView;
 import com.android.internal.view.menu.SubMenuBuilder;
 
+import android.annotation.MiuiHook;
+import android.annotation.MiuiHook.MiuiHookType;
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
@@ -1191,7 +1193,9 @@ public class ActionBarView extends AbsActionBarView {
     private static class HomeView extends FrameLayout {
         private View mUpView;
         private ImageView mIconView;
+        @MiuiHook(MiuiHookType.NEW_FIELD)
         private Drawable mIconDrawable;
+        @MiuiHook(MiuiHookType.NEW_FIELD)
         private boolean mCompactMode;
         private int mUpWidth;
 
@@ -1203,6 +1207,7 @@ public class ActionBarView extends AbsActionBarView {
             super(context, attrs);
         }
 
+        @MiuiHook(MiuiHookType.CHANGE_CODE)
         public void setUp(boolean isUp) {
             mUpView.setVisibility(isUp ? VISIBLE : GONE);
             setIcon();
@@ -1213,6 +1218,7 @@ public class ActionBarView extends AbsActionBarView {
             setIcon();
         }
 
+        @MiuiHook(MiuiHookType.NEW_METHOD)
         private void setIcon() {
             if (mCompactMode && (mUpView.getVisibility() == VISIBLE)) {
                 mIconView.setImageDrawable(null);
@@ -1243,6 +1249,7 @@ public class ActionBarView extends AbsActionBarView {
         }
 
         @Override
+        @MiuiHook(MiuiHookType.CHANGE_CODE)
         protected void onFinishInflate() {
             mUpView = findViewById(com.android.internal.R.id.up);
             mIconView = (ImageView) findViewById(com.android.internal.R.id.home);
@@ -1258,6 +1265,7 @@ public class ActionBarView extends AbsActionBarView {
             }
         }
 
+        @MiuiHook(MiuiHookType.CHANGE_CODE)
         public int getLeftOffset() {
             return !mCompactMode && (mUpView.getVisibility() == GONE) ? mUpWidth : 0;
         }

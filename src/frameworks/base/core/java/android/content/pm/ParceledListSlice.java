@@ -16,6 +16,8 @@
 
 package android.content.pm;
 
+import android.annotation.MiuiHook;
+import android.annotation.MiuiHook.MiuiHookType;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -138,6 +140,7 @@ public class ParceledListSlice<T extends Parcelable> implements Parcelable {
         return mIsLastSlice;
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     @SuppressWarnings("unchecked")
     public static final Parcelable.Creator<ParceledListSlice> CREATOR =
             new Parcelable.Creator<ParceledListSlice>() {
