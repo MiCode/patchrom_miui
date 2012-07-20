@@ -3442,6 +3442,7 @@ class BackupManagerService extends IBackupManager.Stub {
         final RestoreInstallObserver mInstallObserver = new RestoreInstallObserver();
         final RestoreDeleteObserver mDeleteObserver = new RestoreDeleteObserver();
 
+        @MiuiHook(MiuiHookType.CHANGE_CODE)
         boolean installApk(FileMetadata info, String installerPackage, InputStream instream) {
             boolean okay = true;
 
@@ -3458,6 +3459,7 @@ class BackupManagerService extends IBackupManager.Stub {
                     long toRead = (buffer.length < size) ? buffer.length : size;
                     int didRead = instream.read(buffer, 0, (int)toRead);
                     if (didRead >= 0) mBytes += didRead;
+                    else break;
                     apkStream.write(buffer, 0, didRead);
                     size -= didRead;
                 }

@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="ShadowStyle">
-        <item name="android:shadowColor">#6e6e6e</item>
-        <item name="android:shadowDx">0.5</item>
-        <item name="android:shadowDy">0.5</item>
-        <item name="android:shadowRadius">0.5</item>
-    </style>
-
-    <style name="DeepStyle">
-        <item name="android:shadowColor">#000000</item>
-        <item name="android:shadowDx">-0.5</item>
-        <item name="android:shadowDy">-0.5</item>
-        <item name="android:shadowRadius">0.5</item>
-    </style>
-    <style name="OrangeStyle">
-        <item name="android:shadowColor">#742061</item>
-        <item name="android:shadowDx">-0.5</item>
-        <item name="android:shadowDy">-0.5</item>
-        <item name="android:shadowRadius">0.5</item>
-    </style>
-
     <style name="Dialog_Fullscreen">
         <item name="android:windowNoTitle">true</item>
-    </style>
-    <style name="GreenStyle">
-        <item name="android:shadowColor">#003300</item>
-        <item name="android:shadowDx">-0.5</item>
-        <item name="android:shadowDy">-0.5</item>
-        <item name="android:shadowRadius">0.5</item>
     </style>
 
     <style name="HomeButtonStytle">
@@ -45,25 +19,6 @@
         <item name="android:gravity">center</item>
     </style>
 
-    <style name="FileViewOperationButtonStytle">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">14dip</item>
-        <item name="android:textColor">#666666</item>
-        <item name="android:gravity">center</item>
-        <item name="android:background">@drawable/operation_button_background</item>
-    </style>
-
-    <style name="FileViewOperationMoveButtonStytle">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">18dip</item>
-        <item name="android:textColor">#666666</item>
-        <item name="android:gravity">center</item>
-        <item name="android:layout_marginLeft">5dip</item>
-        <item name="android:layout_marginRight">5dip</item>
-        <item name="android:background">@drawable/remote_button_bg</item>
-    </style>
-
     <style name="CategoryButtonStyle">
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">match_parent</item>
@@ -77,17 +32,15 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_marginBottom">3px</item>
     </style>
-    <style name="CategoryButtonTextStyle">
+    <style name="CategoryButtonTextStyle" parent="@android:style/TextAppearance.Medium">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textSize">19px</item>
-        <item name="android:textColor">#111111</item>
     </style>
-    <style name="CategoryButtonCountTextStyle">
+    <style name="CategoryButtonCountTextStyle" parent="@android:style/TextAppearance.Small">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textSize">15px</item>
-        <item name="android:textColor">#A6A6A6</item>
         <item name="android:text">@string/category_default_number_text</item>
     </style>
 
@@ -99,14 +52,6 @@
         <item name="android:textSize">14dip</item>
     </style>
 
-    <style name="InformationItemContentStyle">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:gravity">left</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:textSize">14dip</item>
-        <item name="android:layout_marginLeft">5dip</item>
-    </style>
     <style name="InformationItemStyle">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
@@ -115,30 +60,27 @@
         <item name="android:orientation">horizontal</item>
         <item name="android:gravity">center_vertical</item>
     </style>
-    <style name="InformationTextStyle">
+    <style name="InformationTextStyle" parent="@android:style/TextAppearance.Medium">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:textColor">#222222</item>
-        <item name="android:textSize">12dip</item>
         <item name="android:drawablePadding">5dip</item>
+        <item name="android:textSize">14sp</item>
     </style>
-    <style name="CategoryLegendStyle">
+    <style name="CategoryLegendStyle" parent="@android:style/TextAppearance.Medium">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">0dip</item>
         <item name="android:layout_weight">1</item>
         <item name="android:gravity">left</item>
         <item name="android:drawablePadding">5px</item>
-        <item name="android:textColor">#222222</item>
         <item name="android:textSize">10dip</item>
         <item name="android:layout_marginLeft">2dip</item>
     </style>
-    <style name="CategoryLegendStyleLand">
+    <style name="CategoryLegendStyleLand" parent="@android:style/TextAppearance.Medium">
         <item name="android:layout_height">0dip</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_weight">1</item>
         <item name="android:gravity">left</item>
         <item name="android:drawablePadding">5px</item>
-        <item name="android:textColor">#222222</item>
         <item name="android:textSize">10dip</item>
         <item name="android:layout_marginLeft">2dip</item>
     </style>
@@ -163,7 +105,7 @@
         <item name="android:focusable">true</item>
         <item name="android:clickable">true</item>
         <item name="android:textAppearance">?android:attr/textAppearanceSmallInverse</item>
-        <item name="android:textColor">#cc000000</item>
+        <item name="android:textColor">@color/bottom_button_text_color</item>
         <item name="android:gravity">center_vertical|center_horizontal</item>
         <item name="android:shadowColor">#80ffffff</item>
         <item name="android:shadowRadius">0.2</item>
@@ -191,60 +133,19 @@
         <item name="android:background">@drawable/bottom_button_bar</item>
     </style>
 
-    <style name="larger_title_text_style" parent="android:Theme">
-        <item name="android:textColor">#132740</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:shadowColor">#FFFFFF</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:ellipsize">marquee</item>
-    </style>
-      <style name="row_name_text_style" parent="android:Theme">
-        <item name="android:textColor">#000000</item>
-        <item name="android:textSize">15sp</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:ellipsize">marquee</item>
-    </style>
-    <style name="row_detail_text_style" parent="android:Theme">
-        <item name="android:textColor">#587BA8</item>
-        <item name="android:textSize">15sp</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:ellipsize">marquee</item>
-    </style>
-    <style name="normal_title_text_style" parent="android:Theme">
-        <item name="android:textColor">#000000</item>
-        <item name="android:textSize">15sp</item>
-        <item name="android:shadowColor">#FFFFFF</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:ellipsize">marquee</item>
-    </style>
-    <style name="detail_text_style" parent="android:Theme">
-        <item name="android:textColor">#cdcdcd</item>
-        <item name="android:textSize">12sp</item>
-        <item name="android:ellipsize">marquee</item>
-    </style>
-
     <style name="FileExplorerActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
         <item name="android:displayOptions"></item>
     </style>
 
-    <style name="Widget.Holo.Light.ActionBar.TabText" parent="@android:style/Widget.Holo.Light.ActionBar.TabText.Inverse">
-        <item name="android:textColor">@color/primary_tab_text</item>
-    </style>
-
-    <style name="FileExplorerTheme" parent="@android:style/Theme.Holo.Light">
+    <style name="FileExplorerTheme" parent="@style/Theme.Light">
         <item name="android:actionBarStyle">@style/FileExplorerActionBarStyle</item>
-        <item name="android:actionBarTabTextStyle">@style/Widget.Holo.Light.ActionBar.TabText</item>
     </style>
 
     <style name="Widget.Holo.Light.ActionBar.Solid.HomeUp" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
-        <item name="android:logo">@drawable/ab_home_up_divider</item>
         <item name="android:displayOptions">homeAsUp|useLogo|showHome|showTitle</item>
     </style>
 
-    <style name="Theme.Light" parent="@android:Theme.Holo.Light">
-        <item name="android:homeAsUpIndicator">@drawable/ab_home_up</item>
+    <style name="Theme.Light" parent="@miui:Theme.Light">
         <item name="android:actionBarStyle">@style/Widget.Holo.Light.ActionBar.Solid.HomeUp</item>
     </style>
 
@@ -264,25 +165,13 @@
         <item name="android:fadingEdge">none</item>
     </style>
 
-    <style name="TextViewListSeparator">
-        <item name="android:background">@drawable/list_section_divider_holo_light</item>
-        <item name="android:textAllCaps">true</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/orange</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:paddingLeft">8dip</item>
-    </style>
-
-    <style name="LogInPageButtonStyle">
+    <style name="LogInPageButtonStyle" parend="@android:style/Widget.Button">
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:textColor">#222222</item>
         <item name="android:textSize">16sp</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:gravity">center</item>
+        <item name="android:textColor">@miui:color/button_text</item>
     </style>
 
     <style name="SupplyMessageStyle">
@@ -290,7 +179,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_gravity">center</item>
-        <item name="android:textColor">#787878</item>
+        <item name="android:textColor">@color/kuaipan_supply_text_color</item>
         <item name="android:textSize">14sp</item>
         <item name="android:layout_marginTop">30dip</item>
         <item name="android:layout_marginBottom">16dip</item>
@@ -301,7 +190,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">#919191</item>
+        <item name="android:textColor">@color/kuaipan_introduce_message_text_color</item>
         <item name="android:textSize">16sp</item>
         <item name="android:drawablePadding">24dip</item>
         <item name="android:paddingLeft">46dip</item>

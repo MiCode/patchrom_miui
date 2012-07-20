@@ -81,13 +81,12 @@ public class CheckBoxPreference extends TwoStatePreference {
             slidingButton.setOnCheckedChangedListener(new SlidingButton.OnCheckedChangedListener() {
                 @Override
                 public void onCheckedChanged(boolean isChecked) {
-                    if (!callChangeListener(isChecked)) {
+                    performClick(CheckBoxPreference.this.getPreferenceManager().getPreferenceScreen());
+                    if (isChecked != isChecked()) {
                         slidingButton.setOnCheckedChangedListener(null);
                         slidingButton.setChecked(!isChecked);
                         slidingButton.setOnCheckedChangedListener(this);
-                        return;
                     }
-                    performClick(CheckBoxPreference.this.getPreferenceManager().getPreferenceScreen());
                 }
             });
         }
