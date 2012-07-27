@@ -85,7 +85,8 @@ class UiModeManagerService extends IUiModeManager.Stub {
 
     private static final String ACTION_UPDATE_NIGHT_MODE = "com.android.server.action.UPDATE_NIGHT_MODE";
 
-    private final Context mContext;
+    @MiuiHook(MiuiHookType.CHANGE_ACCESS)
+    final Context mContext;
 
     final Object mLock = new Object();
 
@@ -105,7 +106,8 @@ class UiModeManagerService extends IUiModeManager.Stub {
     private boolean mHoldingConfiguration = false;
     private Configuration mConfiguration = new Configuration();
 
-    private boolean mSystemReady;
+    @MiuiHook(MiuiHookType.CHANGE_ACCESS)
+    boolean mSystemReady;
 
     private NotificationManager mNotificationManager;
 
@@ -255,10 +257,13 @@ class UiModeManagerService extends IUiModeManager.Stub {
     };
 
     @MiuiHook(MiuiHookType.NEW_FIELD)
-    private int mNormalType = Configuration.UI_MODE_TYPE_NORMAL;
+    int mNormalType = Configuration.UI_MODE_TYPE_NORMAL;
 
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    private final ContentObserver mUIModeScaleChangedObserver = new ContentObserver(new Handler()) {
+    @MiuiHook(MiuiHookType.NEW_CLASS)
+    private class UIModeScaleChangedObserver extends ContentObserver{
+        public UIModeScaleChangedObserver(Handler h) {
+            super(h);
+        }
         @Override
         public void onChange(boolean selfChange) {
             mNormalType = Settings.System.getInt(
@@ -272,7 +277,19 @@ class UiModeManagerService extends IUiModeManager.Stub {
                 }
             }
         }
-    };
+    }
+
+    @MiuiHook(MiuiHookType.NEW_FIELD)
+    final UIModeScaleChangedObserver mUIModeScaleChangedObserver = new UIModeScaleChangedObserver(new Handler());
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private void initializeUIModeScaleChangedObserver(){
+        mContext.getContentResolver().registerContentObserver(
+                Settings.System.getUriFor(ExtraSettings.System.UI_MODE_SCALE),
+                false,
+                mUIModeScaleChangedObserver);
+        mUIModeScaleChangedObserver.onChange(false);
+    }
 
     // A LocationListener to initialize the network location provider. The location updates
     // are handled through the passive location provider.
@@ -368,11 +385,7 @@ class UiModeManagerService extends IUiModeManager.Stub {
         filter.addAction(Intent.ACTION_TIMEZONE_CHANGED);
         mContext.registerReceiver(mUpdateLocationReceiver, filter);
 
-        mContext.getContentResolver().registerContentObserver(
-                Settings.System.getUriFor(ExtraSettings.System.UI_MODE_SCALE),
-                false,
-                mUIModeScaleChangedObserver);    //MiuiHook
-        mUIModeScaleChangedObserver.onChange(false);    //MiuiHook
+        initializeUIModeScaleChangedObserver();    //MiuiHook
 
         PowerManager powerManager = (PowerManager)context.getSystemService(Context.POWER_SERVICE);
         mWakeLock = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK, TAG);

@@ -21,13 +21,19 @@
             android:paddingTop="10dip"
             android:paddingBottom="10dip" />
 
-        <GridView
-            android:id="@+id/componentGrid"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:numColumns="3"
-            android:stretchMode="columnWidth"
-            android:gravity="center" />
+            android:layout_height="wrap_content" >
+
+            <com.android.thememanager.view.FixedHeightGridView
+                android:id="@+id/componentGrid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:numColumns="3"
+                android:stretchMode="columnWidth" />
+        </ScrollView>
+
     </LinearLayout>
     <include
         layout="@miui:layout/resource_operation_view" />

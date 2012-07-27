@@ -21,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dip"
                 android:layout_weight="4"
-                android:paddingTop="40dip"
+                android:paddingTop="@dimen/time_calculator_padding_top"
                 android:gravity="center"
                 android:orientation="horizontal">
             </LinearLayout>
@@ -41,8 +41,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|top"
-                    android:layout_marginLeft="44dip"
-                    android:layout_marginTop="60dip"
+                    android:layout_marginLeft="@dimen/wheel_margin_horizontal"
+                    android:layout_marginTop="@dimen/wheel_margin_top"
                     android:src="@drawable/wheel_left" />
 
                 <com.android.soundrecorder.WheelImageView
@@ -50,8 +50,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right|top"
-                    android:layout_marginRight="45dip"
-                    android:layout_marginTop="60dip"
+                    android:layout_marginRight="@dimen/wheel_margin_horizontal"
+                    android:layout_marginTop="@dimen/wheel_margin_top"
                     android:src="@drawable/wheel_right" />
 
                 <com.android.soundrecorder.WheelImageView
@@ -59,8 +59,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|bottom"
-                    android:layout_marginLeft="30dip"
-                    android:layout_marginBottom="15dip"
+                    android:layout_marginLeft="@dimen/wheel_small_margin_horizontal"
+                    android:layout_marginBottom="@dimen/wheel_small_margin_bottom"
                     android:src="@drawable/wheel_small_left" />
 
                 <com.android.soundrecorder.WheelImageView
@@ -68,8 +68,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right|bottom"
-                    android:layout_marginRight="30dip"
-                    android:layout_marginBottom="15dip"
+                    android:layout_marginRight="@dimen/wheel_small_margin_horizontal"
+                    android:layout_marginBottom="@dimen/wheel_small_margin_bottom"
                     android:src="@drawable/wheel_small_right" />
 
                 <ImageView
@@ -82,8 +82,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_gravity="left|top"
-                    android:layout_marginLeft="55dip"
-                    android:layout_marginTop="39dip">
+                    android:layout_marginLeft="@dimen/file_name_layout_margin_left"
+                    android:layout_marginTop="@dimen/file_name_layout_margin_top">
 
                     <LinearLayout
                         android:focusable="true"
@@ -93,8 +93,8 @@
 
                     <com.android.soundrecorder.RecordNameEditText
                         android:id="@+id/file_name"
-                        android:layout_width="220dip"
-                        android:layout_height="25dip"
+                        android:layout_width="@dimen/file_name_width"
+                        android:layout_height="@dimen/file_name_height"
                         android:selectAllOnFocus="true"
                         android:singleLine="true"
                         android:background="#00000000" />
@@ -130,7 +130,7 @@
                         android:id="@+id/starttime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="10dip"
+                        android:paddingLeft="@dimen/time_padding_horizontal"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="#7FFFFFFF" />
 
@@ -140,14 +140,14 @@
                         android:layout_width="0dip"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:paddingLeft="10dip"
-                        android:paddingRight="10dip" />
+                        android:paddingLeft="@dimen/play_seek_bar_padding_horizontal"
+                        android:paddingRight="@dimen/play_seek_bar_padding_horizontal" />
 
                     <TextView
                         android:id="@+id/totaltime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingRight="10dip"
+                        android:paddingRight="@dimen/time_padding_horizontal"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="#7FFFFFFF" />
 
@@ -227,7 +227,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="90dip"
+        android:layout_marginBottom="@dimen/no_sdcard_toast_margin_bottom"
         android:visibility="gone" />
 
 </FrameLayout>

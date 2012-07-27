@@ -11702,29 +11702,35 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
 
     @MiuiHook(MiuiHook.MiuiHookType.NEW_METHOD)
     boolean getButtonShowHides(boolean isTextEditable, int id) {
-        switch (id) {
-            case miui.R.id.buttonSelect:
-            case miui.R.id.buttonSelectAll:
-                return canSelectText();
+        try {
+            switch (id) {
+                case miui.R.id.buttonSelect:
+                case miui.R.id.buttonSelectAll:
+                    return canSelectText();
 
-            case miui.R.id.buttonPaste:
-                return isTextEditable && canPaste();
+                case miui.R.id.buttonPaste:
+                    return isTextEditable && canPaste();
 
-            case miui.R.id.buttonPasteList:
-                ClipboardManager cm = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
-                if (cm.getPrimaryClip() != null) {
-                    int historyCount = cm.getPrimaryClip().getItemCount();
-                    return isTextEditable && historyCount > 0;
-                }
-                return false;
+                case miui.R.id.buttonPasteList:
+                    ClipboardManager cm = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+                    if (cm.getPrimaryClip() != null) {
+                        int historyCount = cm.getPrimaryClip().getItemCount();
+                        return isTextEditable && historyCount > 0;
+                    }
+                    return false;
 
-            case miui.R.id.buttonCopy:
-                return canCopy();
+                case miui.R.id.buttonCopy:
+                    return canCopy();
 
-            case miui.R.id.buttonCut:
-                return isTextEditable && canCut();
+                case miui.R.id.buttonCut:
+                    return isTextEditable && canCut();
+            }
+            return false;
         }
-        return false;
+        catch (java.lang.SecurityException e){
+            Log.e(LOG_TAG, e.toString());
+            return false;
+        }
     }
 
     @MiuiHook(MiuiHook.MiuiHookType.NEW_METHOD)
@@ -11768,7 +11774,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
 
     @MiuiHook(MiuiHook.MiuiHookType.NEW_METHOD)
     boolean hasMagnifierController() {
-        return MagnifierController.isMagnifierEnabled() &&
+        return MagnifierController.isMagnifierEnabled(mContext) &&
                 mInsertionControllerEnabled && mSelectionControllerEnabled;
     }
 
