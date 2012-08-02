@@ -948,6 +948,7 @@ public class LockPatternKeyguardView extends KeyguardViewBase implements Handler
         return lockView;
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     View createUnlockScreenFor(UnlockMode unlockMode) {
         View unlockView = null;
 
@@ -980,7 +981,7 @@ public class LockPatternKeyguardView extends KeyguardViewBase implements Handler
                     mLockPatternUtils);
         } else if (unlockMode == UnlockMode.Account) {
             try {
-                unlockView = new AccountUnlockScreen(
+                unlockView = new MiuiAccountUnlockScreen(
                         mContext,
                         mConfiguration,
                         mUpdateMonitor,

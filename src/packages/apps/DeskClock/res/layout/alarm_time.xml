@@ -20,7 +20,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/list_item_large_bg"
     android:gravity="center_vertical"
-    android:paddingRight="14dip">
+    android:paddingRight="@dimen/alarm_time_layout_padding_right">
 
     <com.android.deskclock.DontPressWithParentLayout
         android:id="@+id/indicator"
@@ -28,8 +28,8 @@
         android:layout_width="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingLeft="14dip"
-        android:paddingRight="14dip">
+        android:paddingLeft="@dimen/indicator_padding_horizontal"
+        android:paddingRight="@dimen/indicator_padding_horizontal">
         <CheckBox
             android:id="@+id/clock_onoff"
             style="@style/AlarmCheckBoxStyle"
@@ -58,7 +58,7 @@
                 android:id="@+id/timeDisplay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="7dip"
+                android:paddingRight="@dimen/time_display_padding_right"
                 useClockTypeface="false"
                 style="@style/TimeDigitsStyle" />
 
@@ -66,7 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:paddingRight="7dip"
+                android:paddingRight="@dimen/am_pm_padding_right"
                 style="@miui:style/TextAppearance.ListView.SecondaryItem" />
 
             <TextView android:id="@+id/label"
@@ -82,14 +82,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@miui:style/TextAppearance.ListView.SecondaryItem"
-            android:paddingLeft="2dip"/>
+            android:paddingLeft="@dimen/days_of_week_padding_left"/>
 
         <TextView android:id="@+id/alarmInFurture"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/app_label"
             style="@miui:style/TextAppearance.ListView.SecondaryItem"
-            android:paddingLeft="2dip"/>
+            android:paddingLeft="@dimen/alarm_in_furture_padding_left"/>
     </com.android.deskclock.DigitalClock>
 
     <ImageView android:id="@+id/arrow_right"

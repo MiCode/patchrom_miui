@@ -44,13 +44,14 @@
                 android:targetClass="com.miui.home.launcher.LauncherPreferenceActivity" />
         </PreferenceScreen>
 
-        <ListPreference
-                android:key="font_size"
-                android:title="@string/title_font_size"
-                android:summary="@string/summary_font_size"
-                android:entries="@array/entries_font_size"
-                android:entryValues="@array/entryvalues_font_size"
-                android:dialogTitle="@string/dialog_title_font_size" />
+        <PreferenceScreen
+            android:key="font_size"
+            android:title="@string/title_font_size">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.display.FontSizeSettings" />
+        </PreferenceScreen>
 
         <CheckBoxPreference
             android:key="accelerometer"

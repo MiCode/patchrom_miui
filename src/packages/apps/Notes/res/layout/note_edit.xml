@@ -1,229 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@drawable/list_background"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="fill_parent">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/note_title"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+        <include layout="@layout/note_edit_header" />
 
-            <TextView
-                android:id="@+id/tv_modified_date"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_gravity="left|center_vertical"
-                android:layout_marginRight="8dip"
-                android:textAppearance="@style/TextAppearanceSecondaryItem" />
-
-            <ImageView
-                android:id="@+id/iv_alert_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:background="@drawable/title_alert" />
-
-            <TextView
-                android:id="@+id/tv_alert_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="2dip"
-                android:layout_marginRight="8dip"
-                android:textAppearance="@style/TextAppearanceSecondaryItem" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/bg_btn_set_color" />
-        </LinearLayout>
-
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/sv_note_edit"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical">
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:paddingTop="7dip"
+            android:paddingBottom="7dip">
 
-            <ImageView
+            <view
+                class="com.miui.notes.editor.RichEditor"
+                android:id="@+id/rich_editor"
                 android:layout_width="fill_parent"
-                android:layout_height="7dip"
-                android:background="@drawable/bg_color_btn_mask" />
-
-            <ScrollView
-                android:layout_width="fill_parent"
-                android:layout_height="0dip"
-                android:layout_weight="1"
+                android:layout_height="fill_parent"
                 android:scrollbars="none"
                 android:overScrollMode="never"
-                android:layout_gravity="left|top"
                 android:fadingEdgeLength="0dip">
+            </view>
 
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent">
-
-                    <com.miui.notes.ui.NoteEditText
-                        android:id="@+id/note_edit_view"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="left|top"
-                        android:background="@null"
-                        android:autoLink="all"
-                        android:linksClickable="false"
-                        android:minLines="12"
-                        android:lineSpacingMultiplier="1.2" />
-
-                    <LinearLayout
-                        android:id="@+id/note_edit_list"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="-10dip"
-                        android:visibility="gone" />
-                </LinearLayout>
-            </ScrollView>
-
-            <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="7dip"
-                android:background="@drawable/bg_color_btn_mask" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/btn_set_bg_color"
-        android:layout_height="43dip"
-        android:layout_width="wrap_content"
-        android:background="@drawable/bg_color_btn_mask"
-        android:layout_gravity="top|right" />
-
-    <LinearLayout
-        android:id="@+id/note_bg_color_selector"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/note_edit_color_selector_panel"
-        android:layout_marginTop="30dip"
-        android:layout_marginRight="8dip"
-        android:layout_gravity="top|right"
-        android:visibility="gone">
-
-        <FrameLayout
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <ImageView
-                android:id="@+id/iv_bg_yellow"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <ImageView
-                android:id="@+id/iv_bg_yellow_select"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
-                android:layout_marginRight="5dip"
-                android:focusable="false"
-                android:visibility="gone"
-                android:src="@drawable/selected" />
         </FrameLayout>
 
-        <FrameLayout
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <ImageView
-                android:id="@+id/iv_bg_blue"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <ImageView
-                android:id="@+id/iv_bg_blue_select"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
-                android:focusable="false"
-                android:visibility="gone"
-                android:layout_marginRight="3dip"
-                android:src="@drawable/selected" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <ImageView
-                android:id="@+id/iv_bg_white"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <ImageView
-                android:id="@+id/iv_bg_white_select"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
-                android:focusable="false"
-                android:visibility="gone"
-                android:layout_marginRight="2dip"
-                android:src="@drawable/selected" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <ImageView
-                android:id="@+id/iv_bg_green"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <ImageView
-                android:id="@+id/iv_bg_green_select"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
-                android:focusable="false"
-                android:visibility="gone"
-                android:src="@drawable/selected" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <ImageView
-                android:id="@+id/iv_bg_red"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <ImageView
-                android:id="@+id/iv_bg_red_select"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
-                android:focusable="false"
-                android:visibility="gone"
-                android:src="@drawable/selected" />
-        </FrameLayout>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/font_size_selector"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:baselineAligned="false"
         android:background="@drawable/font_size_selector_bg"
         android:layout_gravity="bottom"
         android:visibility="gone">

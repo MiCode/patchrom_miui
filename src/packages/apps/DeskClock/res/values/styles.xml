@@ -60,16 +60,16 @@
     </style>
 
     <style name="alarm_list_left_column">
-        <item name="android:layout_width">68dip</item>
-        <item name="android:layout_height">68dip</item>
+        <item name="android:layout_width">@dimen/alarm_list_left_column_width</item>
+        <item name="android:layout_height">@dimen/alarm_list_left_column_height</item>
     </style>
 
     <style name="AlarmItemTimezoneStyle" parent="@miui:style/TextAppearance.ListView.PrimaryItem">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:textSize">24px</item>
-        <item name="android:drawablePadding">7dip</item>
+        <item name="android:textSize">@dimen/alarm_item_time_zone_text_size</item>
+        <item name="android:drawablePadding">@dimen/alarm_item_time_zone_drawable_padding</item>
     </style>
 
     <style name="TimeDigitsStyle" parent="@miui:style/TextAppearance.ListView.PrimaryItem">
@@ -89,7 +89,7 @@
     <style name="DeskClockDarkActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
         <item name="android:background">@drawable/ab_solid_light_holo</item>
         <item name="android:backgroundStacked">@drawable/ab_solid_light_holo</item>
-        <item name="android:height">50dip</item>
+        <item name="android:height">@dimen/desk_clock_dark_action_bar_height</item>
         <item name="android:displayOptions"></item>
     </style>
 
@@ -105,17 +105,17 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
         <item name="android:gravity">center</item>
-        <item name="android:paddingLeft">30dip</item>
-        <item name="android:paddingRight">30dip</item>
+        <item name="android:paddingLeft">@dimen/operation_button_padding_horizontal</item>
+        <item name="android:paddingRight">@dimen/operation_button_padding_horizontal</item>
     </style>
 
     <style name="EmptyViewTextStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
-        <item name="android:paddingTop">108dip</item>
+        <item name="android:paddingTop">@dimen/empty_view_text_padding_top</item>
         <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
-        <item name="android:drawablePadding">24dip</item>
+        <item name="android:drawablePadding">@dimen/empty_view_text_drawable_padding</item>
         <item name="android:textColor">@color/grey</item>
     </style>
 
@@ -125,20 +125,21 @@
     </style>
 
     <style name="TimerButtonStyle">
-        <item name="android:drawablePadding">10dip</item>
+        <item name="android:drawablePadding">@dimen/timer_button_drawable_padding</item>
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="NumberViewTextStyle">
-        <item name="android:textSize">15dip</item>
+        <item name="android:textSize">@dimen/number_view_text_size</item>
         <item name="android:textColor">@color/grey</item>
         <item name="android:shadowColor">#80ffffff</item>
     </style>
 
     <style name="TutorialTextStyle">
-        <item name="android:textSize">19dip</item>
+        <item name="android:textSize">@dimen/tutorial_text_size</item>
         <item name="android:textColor">@color/white</item>
     </style>
 
@@ -146,7 +147,14 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
-        <item name="android:layout_marginTop">15dip</item>
-        <item name="android:layout_marginBottom">5dip</item>
+        <item name="android:layout_marginTop">@dimen/alarm_duration_text_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/alarm_duration_text_margin_bottom</item>
+    </style>
+
+    <style name="AddButtonTextStyle">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:drawableLeft">@drawable/ic_menu_add</item>
+        <item name="android:drawablePadding">@dimen/add_button_text_padding</item>
+        <item name="android:gravity">center</item>
     </style>
 </resources>

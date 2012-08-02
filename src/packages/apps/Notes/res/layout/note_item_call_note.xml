@@ -8,37 +8,42 @@
     android:orientation="horizontal"
     android:gravity="center_vertical">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="0dip"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="vertical">
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:textAppearance="@style/TextAppearancePrimaryItem"
+            android:ellipsize="end"
             android:singleLine="true" />
-        <TextView
-            android:id="@+id/tv_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/tv_name"
-            android:textAppearance="@style/TextAppearanceSecondaryItem" />
+
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@id/tv_time"
-            android:layout_below="@id/tv_name"
             android:textAppearance="@style/TextAppearanceSecondaryItem"
+            android:ellipsize="end"
             android:singleLine="true" />
-    </RelativeLayout>
+    </LinearLayout>
 
     <include layout="@layout/note_item_indicators" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearanceSecondaryItem" />
+
+    <ImageView
+        android:id="@+id/iv_folder_edge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1dip"
+        android:visibility="invisible"
+        android:src="@drawable/list_folder_edge" />
 
 </view>

@@ -833,8 +833,7 @@ public class MultiWaveView extends View {
         }
     }
 
-    @MiuiHook(MiuiHookType.CHANGE_ACCESS)
-    boolean trySwitchToFirstTouchState(MotionEvent event) {
+    private boolean trySwitchToFirstTouchState(MotionEvent event) {
         final float x = event.getX();
         final float y = event.getY();
         final float dx = x - mWaveCenterX;

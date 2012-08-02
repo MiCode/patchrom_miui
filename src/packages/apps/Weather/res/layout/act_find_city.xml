@@ -3,28 +3,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="@drawable/app_main_bg"
     xmlns:android="http://schemas.android.com/apk/res/android"
 >
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="48dip"
-        android:background="@drawable/line_bg_73_bottom"
-    >
-        <TextView
-            android:id="@+id/act_find_city_title"
-            android:layout_width="0dip"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:layout_marginLeft="10dip"
-            android:gravity="left|center_vertical"
-            android:textSize="24sp"
-            android:textColor="#FFFFFFFF"
-            android:text="@string/act_find_city_title"
-            android:singleLine="true"
-            android:cursorVisible="false"
-        />
-    </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0dip"
@@ -42,12 +22,10 @@
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginLeft="17dip"
                 android:layout_gravity="center"
                 android:gravity="left|center_vertical"
                 android:background="#00000000"
-                android:textSize="20sp"
-                android:textColor="#FFFFFFFF"
+                android:textSize="16sp"
                 android:singleLine="true"
                 android:hint="@string/act_find_city_hint"
                 android:textColorHighlight="#A0FFFFFF"
@@ -62,14 +40,20 @@
                 android:src="@drawable/app_city_btn_clear"
             />
         </LinearLayout>
+        <TextView
+            android:id="@+id/act_find_city_hot_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/act_find_city_hot_title"
+            style="@style/text_group_title"/>
+
         <LinearLayout
             android:id="@+id/act_find_city_layout_main"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dip"
+            android:layout_marginLeft="12dip"
             android:layout_marginTop="0dip"
-            android:layout_marginRight="10dip"
-            android:layout_marginBottom="10dip"
+            android:layout_marginRight="11dip"
             android:orientation="vertical"
             android:background="@drawable/app_city_info_bg"
         >
@@ -79,21 +63,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textSize="20sp"
-                android:textColor="#FFFFFFFF"
+                android:textColor="@android:color/black"
                 android:text="@string/act_find_city_null_data"
                 android:background="#00000000"
             />
-            <TextView
-                android:id="@+id/act_find_city_hot_title"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left|center_vertical"
-                android:layout_marginLeft="5dip"
-                android:textSize="20sp"
-                android:textColor="#A0FFFFFF"
-                android:text="@string/act_find_city_hot_title"
-                android:background="@drawable/xml_line_bg_50_bottom"
-            />
+
             <GridView
                 android:id="@+id/act_find_city_grid"
                 android:layout_width="fill_parent"

@@ -130,6 +130,8 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
+import miui.provider.ExtraSettings;
+
 class BackupManagerService extends IBackupManager.Stub {
     private static final String TAG = "BackupManagerService";
     private static final boolean DEBUG = true;
@@ -4999,7 +5001,8 @@ class BackupManagerService extends IBackupManager.Stub {
                 final int verb = params instanceof FullBackupParams ? MSG_RUN_FULL_BACKUP : MSG_RUN_FULL_RESTORE;
                 params.observer = null;
                 params.curPassword = "";
-                params.encryptPassword = "";
+                params.encryptPassword = Settings.Secure.getString(mContext.getContentResolver(),
+                        ExtraSettings.Secure.APP_ENCRYPT_PASSWORD);
 
                 if (DEBUG)
                     Slog.d(TAG, "Sending conf message with verb " + verb);

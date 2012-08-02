@@ -3,46 +3,60 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:gravity="top|center_horizontal"
-    android:orientation="vertical"
->
+    android:gravity="top|center_vertical"
+    android:paddingLeft="16dip"
+    android:orientation="vertical">
+
     <TextView
         android:id="@+id/listitem_weather_cycle_now_txt_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="160dip"
         android:textSize="24sp"
+        android:text="@string/alert_provider_title"
         android:textColor="#FFFFFFFF"
-    />
-    <TextView
-        android:id="@+id/listitem_weather_cycle_now_txt_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-5dip"
-        android:textSize="32sp"
-        android:textColor="#FFFFFFFF"
-    />
-    <TextView
-        android:id="@+id/listitem_weather_cycle_now_txt_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-6dip"
-        android:textSize="14sp"
-        android:textColor="#A0FFFFFF"
-    />
-    <TextView
-        android:id="@+id/listitem_weather_cycle_now_txt_4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textColor="#A0FFFFFF"
-    />
+        style="@style/text_shadow" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/listitem_weather_cycle_now_txt_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="38sp"
+            android:textColor="#FFFFFFFF"
+            style="@style/text_shadow" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="2dip"
+            android:paddingTop="4dip"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/listitem_weather_cycle_now_txt_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dip"
+                android:textSize="14sp"
+                android:textColor="#FFFFFFFF"
+                style="@style/text_shadow" />
+            <TextView
+                android:id="@+id/listitem_weather_cycle_now_txt_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dip"
+                android:textSize="14sp"
+                android:textColor="#FFFFFFFF"
+                style="@style/text_shadow" />
+        </LinearLayout>
+    </LinearLayout>
+
     <TextView
         android:id="@+id/listitem_weather_cycle_now_txt_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dip"
+        android:layout_marginTop="2dip"
         android:textSize="14sp"
         android:textColor="#FFFFFFFF"
-    />
+        style="@style/text_shadow" />
 </LinearLayout>

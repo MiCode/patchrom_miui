@@ -21,9 +21,23 @@
     <string name="app_about_1">v4.0.2</string>
     <string name="app_about_2">Copyright © 2012 miui.com, All Rights Reserved</string>
 
-    <string name="app_weather_friend_1">开启当前位置提醒</string>
-    <string name="app_weather_friend_2">雨,雪,降温等突发天气时通知</string>
-    <string name="app_weather_friend_title_1">转发天气给亲友</string>
+    <string name="weather_notification">天气提醒</string>
+    <string name="location_notification">位置提醒</string>
+    <string name="enable_notification">开启位置提醒</string>
+    <string name="enable_notification_summary">雨雪降温等突发天气时会发出系统通知</string>
+    <string name="enable_notification_city">已经开启%s的天气提醒，遇雨雪降温等突发天气时系统会发送通知。</string>
+
+    <string name="sms_notification">短信提醒</string>
+    <string name="send_sms_notification">短信转发天气提醒</string>
+    <string name="send_sms_notification_summary">将当天天气信息通过短信转发给亲友</string>
+
+
+    <string name="location_management">位置管理</string>
+    <string name="enable_gps">定位本地位置</string>
+    <string name="add_city">添加位置</string>
+    <string name="cancel">取消</string>
+    <string name="menu_send_sms">发送</string>
+
     <string name="app_weather_friend_title_2">将今日天气通过短信或电话转给联系人</string>
     <string name="app_weather_friend_btn">添加联系人</string>
     <string name="app_weather_friend_delete_title">删除联系人</string>
@@ -51,17 +65,20 @@
 
     <string name="act_set_city_title">编辑位置</string>
     <string name="act_set_city_find_side_on">开启定位</string>
+
     <string name="act_set_city_find_side">定位中...</string>
+    <string name="local_city">本地位置</string>
+    <string name="act_set_city_re_find_side">重新定位中...</string>
     <string name="act_set_city_find_side_error">定位失败</string>
+    <string name="act_city_find_gps_error">定位失败,请选择添加城市</string>
     <string name="act_set_city_delete_title">删除位置</string>
     <string name="act_set_city_delete_city">你确定要删除 %s 吗？</string>
-
     <string name="act_weather_main_net_error">网络错误,请重试</string>
-    <string name="act_weather_main_data_null">暂无当天详情\n点击刷新</string>
+    <string name="act_weather_main_data_null">暂无天气信息 点击刷新</string>
 
     <string name="act_weather_cycle_add_city">保存位置</string>
     <string name="act_weather_cycle_update">更新中...</string>
-    <string name="act_weather_update_time">发布时间:%s</string>
+    <string name="act_weather_update_time">%s 发布</string>
     <string name="act_weather_cycle_offreport">无</string>
 
     <string name="act_weather_range_title">周边天气</string>
@@ -77,6 +94,11 @@
     <string name="menu_sms">短信转发</string>
     <string name="menu_about">关于</string>
     <string name="menu_set">设置</string>
+
+    <string name="menu_delete">删除</string>
+    <string name="selected_format">已选择 %d 个</string>
+    <string name="alert_title_delete">删除</string>
+    <string name="alert_message_delete">确认要删除所选的 %d 个城市吗?</string>
 
     <string name="send_weather_sms_cycle">%1$s未来天气：%2$s</string>
     <string name="send_weather_sms_main">%1$s %2$s,%3$s %4$s %5$s</string>
@@ -99,6 +121,16 @@
     <string name="alert_provider_message">为了检测位置，将启用无线网络定位。允许天气开启和使用您的位置吗？</string>
     <string name="button_allow">允许</string>
     <string name="button_not_allow">不允许</string>
+    <string name="location_allow_err">开启定位失败</string>
+
+    <string name="to">转</string>
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="day">日</string>
+    <string name="format_date_wmd">M月d日 EEE</string>
+    <string name="format_date_md">M月d日 kk:mm</string>
+    <string name="temp">℃</string>
+    <string name="temp_flag">℃</string>
 
     <array name="send_item">
         <item>短信</item>
@@ -114,7 +146,6 @@
         <item>晾晒指数</item>
         <item>晨练指数</item>
         <item>旅游指数</item>
-
     </array>
 
     <array name="act_weather_main_listview_key">
@@ -126,7 +157,6 @@
         <item>晾晒指数:</item>
         <item>晨练指数:</item>
         <item>旅游指数:</item>
-
     </array>
 
     <array name="weather_image">
@@ -237,16 +267,6 @@
         <item>可以把被子拿出来晒晒，呵呵...</item>5
         <item>天气可能有些阴凉，出门多穿些。</item>6
     </array>
-
-    <string name="to">转</string>
-    <string name="year">年</string>
-    <string name="month">月</string>
-    <string name="day">日</string>
-    <string name="format_date_wmd">MM/d EEE</string>
-    <string name="format_date_md">MM/d kk:mm</string>
-    <string name="temp">℃</string>
-    <string name="temp_flag">℃</string>
-
 
     <array name="weather_info_uv">
         <item>暂缺</item>
@@ -448,7 +468,7 @@
         <item>今日天气变化不大，不会下雨，您在出门的时候无须带雨伞。</item>
     </array>
 
-        <array name="weather_info_fl">
+    <array name="weather_info_fl">
         <item></item>
         <item>今天风有点大，外出的话，请做好防护措施。</item>
         <item>微风</item>

@@ -42,6 +42,13 @@
                             android:layout_gravity="center_vertical"
                             android:orientation="vertical" >
                             <TextView
+                                android:id="@+id/cate_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:textAppearance="@style/TextAppearance.Secondary"
+                                android:visibility="gone" />
+                            <TextView
                                 android:id="@+id/name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -59,6 +66,13 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical"
                                 android:textAppearance="@style/TextAppearance.Secondary" />
+                            <TextView
+                                android:id="@+id/version_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:textAppearance="@style/TextAppearance.Secondary"
+                                android:visibility="gone" />
                         </LinearLayout>
                     </LinearLayout>
                     <com.xiaomi.market.ui.ActionDetailArea
@@ -182,6 +196,7 @@
                         android:layout_marginTop="@dimen/common_padding"
                         android:background="@drawable/divider_bg" />
                     <LinearLayout
+                        android:id="@+id/detail_view_bottom_button_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/main_padding"
@@ -220,6 +235,7 @@
 
                         <TableRow android:gravity="center" >
                             <TextView
+                                android:id="@+id/version_label"
                                 android:gravity="right|center_vertical"
                                 android:text="@string/version_label"
                                 android:textAppearance="@style/TextAppearance.Secondary" />
@@ -229,6 +245,16 @@
                                 android:textAppearance="@style/TextAppearance.Secondary" />
                         </TableRow>
                     </TableLayout>
+                    <TextView
+                        android:id="@+id/baidu_result_notice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Secondary"
+                        android:text="@string/result_notice"
+                        android:visibility="gone"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/main_padding" >
+                    </TextView>
                     <Button
                         android:id="@+id/share_button"
                         android:text="@string/share_button"
