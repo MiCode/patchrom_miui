@@ -37,6 +37,13 @@
                         android:singleLine="true"
                         style="?android:attr/textAppearanceMedium" />
                 </LinearLayout>
+
+                <ProgressBar android:id="@+id/refresh_progress"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:visibility="visible"
+                    style="?android:attr/progressBarStyleSmall"/>
+
                 <ImageView android:id="@+id/path_pane_arrow"
                     android:src="@drawable/arrow_down"
                     android:layout_width="wrap_content"
@@ -293,16 +300,6 @@
         </LinearLayout>
     </FrameLayout>
 
-    <LinearLayout android:id="@+id/moving_operation_bar"
-        android:visibility="gone"
-        style="@style/BottomButtonBar">
+    <include layout="@layout/operation_confirm_layout"/>
 
-        <Button android:id="@+id/button_moving_confirm"
-            android:text="@string/confirm"
-            style="@style/BottomButton.Left"/>
-
-        <Button android:id="@+id/button_moving_cancel"
-            android:text="@string/operation_cancel"
-            style="@style/BottomButton.Right"/>
-    </LinearLayout>
 </LinearLayout>

@@ -6,6 +6,12 @@
         <item name="android:background">@drawable/main_bg</item>
     </style>
 
+    <!-- For all browser activities -->
+    <style name="MusicTabActivityStyle">
+        <item name="android:paddingTop">@dimen/tab_action_bar_padding</item>
+        <item name="android:background">@drawable/main_bg</item>
+    </style>
+
     <!-- For primary text of vertical title -->
     <style name="TitlePrimaryText">
         <item name="android:textSize">@dimen/title_primary_text</item>
@@ -43,7 +49,11 @@
         <item name="android:layout_gravity">top|left</item>
     </style>
 
-        <!-- For all ListViews of list activity -->
+    <style name="SymPickerListView" parent="@style/PickerListView">
+        <item name="android:paddingRight">@dimen/spacing_to_border</item>
+    </style>
+
+    <!-- For all ListViews of list activity -->
     <style name="PickerGridView">
         <item name="android:divider">@drawable/picker_list_divider</item>
         <item name="android:cacheColorHint">@null</item>
@@ -68,6 +78,7 @@
     <style name="ItemSecondaryText">
         <item name="android:textSize">@dimen/item_secondary_text</item>
         <item name="android:textColor">@color/item_secondary_text</item>
+        <item name="android:singleLine">true</item>
         <item name="android:gravity">center_vertical</item>
     </style>
 
@@ -272,8 +283,15 @@
         <item name="miui:indexerTextColor">@color/white_30_transparent</item>
     </style>
 
+    <!-- Style of item group title -->
+    <style name="ItemGroupTitleStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/playlist_group_title_text</item>
+        <item name="android:background">@drawable/playlist_group_title_bg</item>
+    </style>
+
     <!-- Style of playlist group title -->
-    <style name="PlaylistGroupTitleStyle">
+    <style name="PlaylistGroupTitleStyle" parent="@style/ItemGroupTitleStyle">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/playlist_group_title_text</item>
         <item name="android:background">@drawable/playlist_group_title_bg</item>
@@ -290,4 +308,14 @@
         <item name="android:visibility">gone</item>
         <item name="android:text">@string/music_browser_label</item>
     </style>
+
+    <style name="CategoryNumStyle">
+        <item name="android:visibility">visible</item>
+    </style>
+
+    <!-- Style of load status bar -->
+    <style name="LoadStatusBarStyle">
+        <item name="android:layout_marginTop">@dimen/spacing_to_border</item>
+    </style>
+
 </resources>

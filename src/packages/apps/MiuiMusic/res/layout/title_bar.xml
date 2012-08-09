@@ -18,6 +18,40 @@
         android:layout_gravity="center_vertical"
         android:orientation="horizontal"
         >
+        <TableLayout
+            android:id="@+id/image_bar"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_toLeftOf="@+id/goto_nowplaying"
+            android:gravity="left|center_vertical"
+            android:orientation="horizontal"
+            android:shrinkColumns="0"
+            android:visibility="gone">
+
+            <TableRow>
+                <miui.widget.GradientTextView
+                    android:id="@+id/primary_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:gravity="left|center_vertical"
+                    android:singleLine="true"
+                    android:textSize="20sp"
+                    xmlns:miui="http://schemas.android.com/apk/res/miui"
+                    miui:startColor="@color/title_primary_gradual_start"
+                    miui:endColor="@color/title_primary_gradual_end"
+                />
+                <ImageView
+                   android:id="@+id/secondary_item"
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   android:layout_gravity="center_vertical"
+                   android:layout_marginLeft="@dimen/spacing_picker_item"
+                   android:scaleType="center"
+                   />
+            </TableRow>
+        </TableLayout>
+
         <LinearLayout
             android:id="@+id/horizontal_bar"
             android:layout_width="match_parent"
@@ -31,11 +65,11 @@
                 android:id="@+id/primary_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4.667dip"
+                android:layout_marginTop="@dimen/title_number_margin_top"
                 android:textStyle="bold"
-                android:gravity="left|center_vertical"
+                android:gravity="left"
                 android:singleLine="true"
-                android:textSize="30dp"
+                android:textSize="30sp"
                 xmlns:miui="http://schemas.android.com/apk/res/miui"
                 miui:startColor="@color/title_primary_gradual_start"
                 miui:endColor="@color/title_primary_gradual_end"
@@ -49,7 +83,7 @@
                 android:gravity="left|center_vertical"
                 android:singleLine="true"
                 android:layout_marginLeft="6.667dip"
-                android:layout_marginTop="2.667dip"/>
+                android:layout_marginTop="@dimen/title_text_margin_top"/>
         </LinearLayout>
 
         <LinearLayout

@@ -450,12 +450,14 @@ public class PhoneNumberUtils
      *
      * @hide
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public static boolean
     compareLoosely(String a, String b) {
         int ia, ib;
         int matched;
         int numNonDialableCharsInA = 0;
         int numNonDialableCharsInB = 0;
+        int lena, lenb;    // MIUI HOOK
 
         if (a == null || b == null) return a == b;
 
@@ -464,7 +466,9 @@ public class PhoneNumberUtils
         }
 
         ia = indexOfLastNetworkChar (a);
+        lena = ia + 1;    // MIUI HOOK
         ib = indexOfLastNetworkChar (b);
+        lenb = ib + 1;    // MIUI HOOK
         matched = 0;
 
         while (ia >= 0 && ib >=0) {
@@ -496,8 +500,8 @@ public class PhoneNumberUtils
         }
 
         if (matched < MIN_MATCH) {
-            int effectiveALen = a.length() - numNonDialableCharsInA;
-            int effectiveBLen = b.length() - numNonDialableCharsInB;
+            int effectiveALen = lena - numNonDialableCharsInA;    // MIUI HOOK
+            int effectiveBLen = lenb - numNonDialableCharsInB;    // MIUI HOOK
 
 
             // if the number of dialable chars in a and b match, but the matched chars < MIN_MATCH,
@@ -1483,12 +1487,13 @@ public class PhoneNumberUtils
      *
      * @hide
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public static String normalizeNumber(String phoneNumber) {
         StringBuilder sb = new StringBuilder();
         int len = phoneNumber.length();
         for (int i = 0; i < len; i++) {
             char c = phoneNumber.charAt(i);
-            if ((i == 0 && c == '+') || PhoneNumberUtils.isISODigit(c)) {
+            if ((i == 0 && c == '+') || PhoneNumberUtils.isNonSeparator(c)) {    // MIUI HOOK
                 sb.append(c);
             } else if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
                 return normalizeNumber(PhoneNumberUtils.convertKeypadLettersToDigits(phoneNumber));

@@ -266,15 +266,11 @@ class UiModeManagerService extends IUiModeManager.Stub {
         }
         @Override
         public void onChange(boolean selfChange) {
-            mNormalType = Settings.System.getInt(
-                    mContext.getContentResolver(),
-                    ExtraSettings.System.UI_MODE_SCALE,
-                    Configuration.UI_MODE_TYPE_NORMAL);
-
             synchronized (mLock) {
-                if (mSystemReady) {
-                    updateConfigurationLocked(true);
-                }
+                mNormalType = Settings.System.getInt(
+                        mContext.getContentResolver(),
+                        ExtraSettings.System.UI_MODE_SCALE,
+                        Configuration.UI_MODE_TYPE_NORMAL);
             }
         }
     }

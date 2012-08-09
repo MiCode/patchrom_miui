@@ -72,11 +72,23 @@
         <include layout="@layout/audio_player_common" />
     </RelativeLayout>
 
-    <TextView android:id="@+id/secondary_title"
-        style="@style/NowplayingSecondaryText"
+    <ImageView android:id="@+id/online_music_logo"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_marginTop="48dp"
         android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:gravity="top|right"
+        android:scaleType="center"/>
+
+    <TextView android:id="@+id/secondary_title"
+        style="@style/NowplayingSecondaryText"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@id/online_music_logo"
         android:gravity="top|left"/>
+
+
 </RelativeLayout>

@@ -22,58 +22,29 @@
     android:id="@+id/account_filter_header_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/contact_browser_list_header_left_margin"
+    android:layout_marginRight="@dimen/contact_browser_list_header_right_margin"
+    android:background="?android:attr/selectableItemBackground"
+    android:minHeight="?attr/list_item_header_height"
     android:orientation="vertical"
-    android:layout_marginLeft="@dimen/contact_list_margin_left"
-    android:layout_marginRight="@dimen/contact_list_margin_right"
-    android:background="@drawable/account_filter_background">
+    android:paddingTop="@dimen/contact_browser_list_top_margin"
+    android:visibility="gone" >
 
-    <com.android.contacts.list.AccountFilterView
+    <TextView
         android:id="@+id/account_filter_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/contact_filter_min_height">
+        android:ellipsize="end"
+        android:paddingLeft="@dimen/contact_browser_list_item_text_indent"
+        android:singleLine="true"
+        android:textAllCaps="true"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="?android:attr/textColorSecondary"
+        android:textStyle="bold" />
 
-        <View
-            android:id="@+id/indent"
-            android:layout_width="10dip"
-            android:layout_height="fill_parent" />
-
-        <ImageView
-            android:id="@+id/cur_account_icon"
-            android:scaleType="fitCenter"
-            android:layout_width="@dimen/contact_filter_icon_size"
-            android:layout_height="@dimen/contact_filter_icon_size"
-            android:layout_gravity="center_vertical" />
-
-        <TextView
-            android:id="@+id/cur_account_name"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginLeft="8dip"
-            android:gravity="center_vertical"
-            android:singleLine="true"
-            android:ellipsize="end"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="?android:attr/textColorSecondary" />
-
-        <TextView
-            android:id="@+id/contacts_count"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="8dip"
-            android:singleLine="true"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:gravity="center_vertical" />
-
-        <ImageView
-            android:id="@+id/arrow_mark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="11dip"
-            android:layout_marginLeft="10dip" />
-
-    </com.android.contacts.list.AccountFilterView>
+    <View
+        android:id="@+id/account_filter_header_bottom_divider"
+        style="@style/SectionDivider"
+        android:layout_height="1dip" />
 
 </LinearLayout>
