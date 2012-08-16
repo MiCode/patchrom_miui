@@ -2,28 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:clickable="false" >
-    
-    <TextView android:id="@+id/tv_tip"
+    android:clickable="false"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_tip"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" 
+        android:layout_height="wrap_content"
         android:paddingLeft="10dp"
+        android:text="@string/contact_select"
         android:textSize="@dimen/content_text_size"
-        android:text="@string/contact_select"/>
-    
-<!--     <com.xiaomi.miui.voice.view.ExpandedListView android:id="@+id/lv_contact" -->
-<!--         android:layout_width="wrap_content" -->
-<!--         android:layout_height="wrap_content" -->
-<!--         android:divider="#00000000" -->
-<!--         android:dividerHeight="0dp" -->
-<!--         android:scrollbars="none" -->
-<!-- 	    android:cacheColorHint="#00000000"  -->
-<!-- 	    android:listSelector="#00000000" /> -->
-	<com.miui.voiceassist.view.MultiContactView android:id="@+id/view_contact"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:orientation="vertical"
-	    android:background="@drawable/card_bg"/>
+        android:visibility="gone" />
+
+    <com.miui.voiceassist.view.MultiContactView
+        android:id="@+id/view_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_bg"
+        android:orientation="vertical" />
 
 </LinearLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miui="http://schemas.android.com/apk/res/com.miui.player"
+    android:title="@string/voiceassist_settings" >
+
+    <!-- <PreferenceCategory android:title="@string/quick_launch_settings" > -->
+
+
+    <!-- <CheckBoxPreference -->
+    <!-- android:defaultValue="true" -->
+    <!-- android:key="menu_long_press_launch" -->
+    <!-- android:title="@string/menu_long_press_launch" /> -->
+
+
+    <!-- <CheckBoxPreference -->
+    <!-- android:defaultValue="true" -->
+    <!-- android:key="phone_by_ear_launch" -->
+    <!-- android:title="@string/phone_by_ear_launch" /> -->
+
+
+    <!-- </PreferenceCategory> -->
+
+    <PreferenceCategory android:title="@string/voice_report" >
+        <ListPreference
+            android:defaultValue="2"
+            android:entries="@array/report_method_entries"
+            android:entryValues="@array/report_method_entry_values"
+            android:key="report_method"
+            android:title="@string/report_method" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="phone_report"
+            android:title="@string/phone_report" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="sms_report"
+            android:title="@string/sms_report" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="invert_stop_report"
+            android:title="@string/invert_stop_report" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -2,30 +2,33 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
     android:background="#00000000"
     android:gravity="bottom"
-    >
+    android:orientation="vertical" >
 
-    <LinearLayout android:id="@+id/layout_fit"
+    <LinearLayout
+        android:id="@+id/layout_fit"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_weight="1"
-        android:background="#00000000"></LinearLayout>
-    
+        android:background="#00000000" >
+    </LinearLayout>
+
     <FrameLayout
         android:id="@+id/layout_main"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="#ff000000" >
+        android:background="@drawable/main_bg" >
+
+        <include layout="@layout/phone" />
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:background="@drawable/main_bg"
+            android:background="@color/transparent"
             android:orientation="vertical" >
 
-            <ListView
+            <com.miui.voiceassist.view.VAListView
                 android:id="@+id/lv_voiceassist"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -34,15 +37,7 @@
                 android:divider="#00000000"
                 android:dividerHeight="0.0sp"
                 android:listSelector="#00000000"
-                android:scrollbars="none"
-                android:descendantFocusability="blocksDescendants" />
-
-            <Button
-                android:id="@+id/bt_voice"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="talk"
-                android:visibility="gone" />
+                android:scrollbars="none" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -51,8 +46,6 @@
                 android:longClickable="false"
                 android:src="@drawable/list_fix_transparent" />
         </LinearLayout>
-
-        <include layout="@layout/phone" />
     </FrameLayout>
 
 </LinearLayout>

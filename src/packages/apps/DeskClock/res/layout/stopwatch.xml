@@ -59,34 +59,59 @@
         android:gravity="bottom"
         android:paddingTop="@dimen/btn_layout_padding_top"
         android:paddingBottom="@dimen/btn_layout_padding_bottom">
-        <Button
-            android:id="@+id/start_btn"
-            style="@style/OperationButtonStyle"
-            android:text="@string/start"
-            android:textColor="@android:color/white"
-            android:background="@drawable/btn_bg_green"
-            android:drawableLeft="@drawable/ic_start"
-            android:layout_marginRight="@dimen/btn_margin_right" />
-        <Button
-            android:id="@+id/pause_btn"
-            style="@style/OperationButtonStyle"
-            android:text="@string/pause"
-            android:textColor="@android:color/white"
-            android:background="@drawable/btn_bg_yellow"
-            android:drawableLeft="@drawable/ic_pause"
-            android:layout_marginRight="@dimen/btn_margin_right" />
-        <Button
-            android:id="@+id/reset_btn"
-            style="@style/OperationButtonStyle"
-            android:text="@string/reset"
-            android:background="@drawable/btn_bg"
-            android:drawableLeft="@drawable/ic_reset" />
-        <Button
-            android:id="@+id/lap_btn"
-            style="@style/OperationButtonStyle"
-            android:text="@string/lap"
-            android:background="@drawable/btn_bg"
-            android:drawableLeft="@drawable/ic_lap" />
+        <LinearLayout
+                android:id="@+id/start_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bg_green"
+                android:gravity="center" >
+                <TextView
+                    style="@style/TimerButtonStyle"
+                    android:drawableLeft="@drawable/ic_start"
+                    android:text="@string/start"
+                    android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/pause_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bg_yellow"
+                android:gravity="center" >
+                <TextView
+                    style="@style/TimerButtonStyle"
+                    android:drawableLeft="@drawable/ic_pause"
+                    android:text="@string/pause"
+                    android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/reset_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bg"
+                android:gravity="center" >
+                <TextView
+                    style="@style/TimerButtonStyle"
+                    android:drawableLeft="@drawable/ic_reset"
+                    android:text="@string/reset" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/lap_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bg"
+                android:gravity="center" >
+                <TextView
+                    style="@style/TimerButtonStyle"
+                    android:drawableLeft="@drawable/ic_lap"
+                    android:text="@string/lap" />
+        </LinearLayout>
     </LinearLayout>
   </LinearLayout>
   <ListView

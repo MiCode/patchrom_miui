@@ -282,6 +282,7 @@ public class AdnRecord implements Parcelable {
     /**
      * alphaTag and number are set to null on invalid format
      */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     private void
     parseRecord(byte[] record) {
         try {
@@ -291,12 +292,6 @@ public class AdnRecord implements Parcelable {
             int footerOffset = record.length - FOOTER_SIZE_BYTES;
 
             int numberLength = 0xff & record[footerOffset];
-
-            if (numberLength > MAX_NUMBER_SIZE_BYTES) {
-                // Invalid number length
-                number = "";
-                return;
-            }
 
             // Please note 51.011 10.5.1:
             //
@@ -314,7 +309,7 @@ public class AdnRecord implements Parcelable {
             emails = null;
 
         } catch (RuntimeException ex) {
-            Log.w(LOG_TAG, "Error parsing AdnRecord", ex);
+            Log.w(LOG_TAG, "Error parsing AdnRecord - [" + number + "," + alphaTag + "," + emails + "]", ex);
             number = "";
             alphaTag = "";
             emails = null;

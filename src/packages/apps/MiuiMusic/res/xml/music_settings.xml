@@ -23,12 +23,36 @@
             android:key="other_connect_listen"
             android:summary="@string/listen_to_online_summary"
             android:title="@string/listen_to_music_online_settings" />
+    </PreferenceCategory>
+
+      <PreferenceCategory android:title="@string/player_display_settings" >
 
         <CheckBoxPreference
             android:defaultValue="true"
-            android:key="flow_save_hint"
-            android:summary="@string/flow_save_hint_summary"
-            android:title="@string/flow_save_hint" />
+            android:key="display_lyric"
+            android:summary="@string/lyric_display_summary"
+            android:title="@string/lyric_display_settings" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="display_album"
+            android:summary="@string/album_display_summary"
+            android:title="@string/album_display_settings" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="display_spectrogram"
+            android:summary="@string/spectrogram_display_summary"
+            android:title="@string/spectrogram_display_settings" />
+    </PreferenceCategory>
+
+      <PreferenceCategory android:title="@string/lyric_and_album" >
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="android_album"
+            android:summary="@string/android_album_summary"
+            android:title="@string/android_album_settings" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -72,13 +96,32 @@
             />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/other_settings" >
+     <PreferenceCategory android:title="@string/shake_and_skip" >
 
-        <CheckBoxPreference
+        <!-- minValue="5" maxValue="20" defaultValue="10" 值越大感应越迟钝 -->
+        <com.miui.player.ui.view.ComboPreference
+            android:key="shake"
+            miui:progressKey="shake_degree"
+            miui:title="@string/shake_settings"
+            miui:minValue="@integer/shake_degree_min"
+            miui:minName="@string/shake_degree_high"
+            miui:maxValue="@integer/shake_degree_max"
+            miui:maxName="@string/shake_degree_low"
+            miui:summaryOn="@string/shake_summary"
+            miui:summaryOff="@string/shake_summary"
+            miui:convertType="constant"
+            miui:currentPrefix="@string/shake_degree_desc" />
+
+          <CheckBoxPreference
+            android:dependency="shake"
             android:defaultValue="false"
-            android:key="android_album"
-            android:summary="@string/android_album_summary"
-            android:title="@string/android_album_settings" />
+            android:key="shake_while_screen_on"
+            android:title="@string/shake_while_screen_on_title"
+            android:summary="@string/shake_while_screen_on_title_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/other_settings" >
 
         <CheckBoxPreference
             android:defaultValue="false"
@@ -97,42 +140,6 @@
             android:key="keep_quit_location"
             android:summary="@string/keep_quit_position_summary"
             android:title="@string/keep_quit_position_settings" />
-
-        <!-- minValue="5" maxValue="20" defaultValue="10" 值越大感应越迟钝 -->
-        <com.miui.player.ui.view.ComboPreference
-            android:key="shake"
-            miui:progressKey="shake_degree"
-            miui:title="@string/shake_settings"
-            miui:minValue="@integer/shake_degree_min"
-            miui:minName="@string/shake_degree_high"
-            miui:maxValue="@integer/shake_degree_max"
-            miui:maxName="@string/shake_degree_low"
-            miui:summaryOn="@string/shake_summary"
-            miui:summaryOff="@string/shake_summary"
-            miui:convertType="constant"
-            miui:currentPrefix="@string/shake_degree_desc" />
-
-        <CheckBoxPreference
-            android:dependency="shake"
-            android:defaultValue="false"
-            android:key="shake_while_screen_on"
-            android:title="@string/shake_while_screen_on_title" />
-
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="display_lyric"
-            android:title="@string/lyric_display_settings" />
-
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="display_album"
-            android:title="@string/album_display_settings" />
-
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="display_spectrogram"
-            android:summary="@string/spectrogram_display_summary"
-            android:title="@string/spectrogram_display_settings" />
 
         <CheckBoxPreference
             android:defaultValue="true"

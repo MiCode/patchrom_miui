@@ -9,9 +9,11 @@
         android:id="@+id/pb_weather"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:indeterminateDrawable="@drawable/progress_medium_holo"
-        android:indeterminateDuration="4000"
+        style="@android:style/Widget.Holo.Light.ProgressBar"
         android:visibility="gone" />
+<!--         android:indeterminateDrawable="@drawable/progress_medium_holo" -->
+<!--         android:indeterminateDuration="4000" -->
+        
 
     <TextView
         android:id="@+id/tv_content"
@@ -21,7 +23,6 @@
         android:background="@drawable/dialog_bg"
         android:clickable="false"
         android:focusable="false"
-        android:text="test"
         android:textColor="@color/bright_foreground_light"
         android:textSize="@dimen/content_text_size"
         android:visibility="gone" />
@@ -29,8 +30,8 @@
     <com.miui.voiceassist.view.WeatherView
         android:id="@+id/layout_weather"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/a2_00"
+        android:layout_height="240dp"
+        android:background="@drawable/a3_00"
         android:orientation="vertical"
         android:visibility="visible" >
 
@@ -41,14 +42,13 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:orientation="vertical" >
 
             <TextView
                 android:id="@+id/tv_today_weather"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="晴转多云"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
@@ -60,7 +60,6 @@
                     android:id="@+id/tv_today_temprature"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="26"
                     android:textColor="@color/white"
                     android:textSize="32sp"
                     android:textStyle="bold" />
@@ -75,7 +74,6 @@
                         android:id="@+id/tv_today_range"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="19 ~ 28"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
 
@@ -83,7 +81,6 @@
                         android:id="@+id/tv_today_wind"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="东南风1-2级"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -92,15 +89,15 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="15dp"
-                android:src="@drawable/card_bg_dotline_repeat" />
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/weather_dotline" />
 
             <TextView
                 android:id="@+id/tv_city"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="北京"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 
@@ -108,7 +105,6 @@
                 android:id="@+id/tv_today_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="6-19 周二  壬辰年 二月廿五 惊蛰"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
         </LinearLayout>
@@ -119,7 +115,7 @@
             android:layout_alignParentBottom="true"
             android:background="@drawable/weather_next_bg"
             android:paddingBottom="20dp"
-            android:paddingTop="15dp" >
+            android:paddingTop="10dp" >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -139,7 +135,6 @@
                         android:id="@+id/tv_next1_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="周六 6月20日"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
 
@@ -147,7 +142,6 @@
                         android:id="@+id/tv_next1_weather"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="多云"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
 
@@ -155,7 +149,6 @@
                         android:id="@+id/tv_next1_temperature"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="23 - 32"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -179,7 +172,6 @@
                         android:id="@+id/tv_next2_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="周六 6月20日"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
 
@@ -187,7 +179,6 @@
                         android:id="@+id/tv_next2_weather"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="多云"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
 
@@ -195,7 +186,6 @@
                         android:id="@+id/tv_next2_temperature"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="23 - 32"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -219,7 +209,6 @@
                         android:id="@+id/tv_next3_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="周六 6月20日"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
 
@@ -227,7 +216,6 @@
                         android:id="@+id/tv_next3_weather"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="多云"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
 
@@ -235,7 +223,6 @@
                         android:id="@+id/tv_next3_temperature"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="23 - 32"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
                 </LinearLayout>

@@ -14,15 +14,28 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
-    <style name="Theme.Transparent" parent="android:Theme">
-    <item name="android:windowIsTranslucent">true</item>
-    <item name="android:windowBackground">@android:color/transparent</item>
-    <item name="android:windowContentOverlay">@null</item>
-    <item name="android:windowNoTitle">true</item>
-    <item name="android:windowIsFloating">true</item>
-    <item name="android:backgroundDimEnabled">false</item>
-  </style>
+    <!-- <style name="Theme.Transparent" parent="android:Theme"> -->
+    <!-- <item name="android:windowIsTranslucent">true</item> -->
+    <!-- <item name="android:windowBackground">@android:color/transparent</item> -->
+    <!-- <item name="android:windowContentOverlay">@null</item> -->
+    <!-- <item name="android:windowNoTitle">true</item> -->
+    <!-- <item name="android:windowIsFloating">true</item> -->
+    <!-- <item name="android:backgroundDimEnabled">false</item> -->
+    <!-- </style> -->
 
+    <style name="Holo_translucent" parent="android:style/Theme.Holo">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    </style>
+
+    <!-- <style name="SettingsActivityTheme" parent="@android:style/Theme.Holo.Light"> -->
+    <!-- <item name="android:actionOverflowButtonStyle">@style/ActionButtonOverflowStyle</item> -->
+    <!-- <item name="android:actionBarStyle">@style/SettingsActionBarStyle</item> -->
+    <!-- </style> -->
     <!-- 音乐播放的标题 -->
     <style name="MusicTitleText">
         <item name="android:textSize">@dimen/music_title_text</item>
@@ -80,12 +93,18 @@
     <!-- 音乐搜索结果的标题 -->
     <style name="MusicSearchResultText">
         <item name="android:textSize">@dimen/music_search_result_text</item>
-        <item name="android:gravity">center_vertical</item>FindMore
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center_vertical</item>
+FindMore        <item name="android:textColor">@android:color/white</item>
         <item name="android:shadowColor">@color/black_70_transparent</item>
         <item name="android:shadowDx">0</item>
         <item name="android:shadowDy">3</item>
         <item name="android:shadowRadius">5</item>
         <item name="android:singleLine">true</item>
     </style>
+
+    <style name="restaurant_text">
+        <item name="android:textColor">@color/bright_foreground_light</item>
+        <item name="android:textSize">@dimen/restaurant_text_size</item>
+    </style>
+
 </resources>

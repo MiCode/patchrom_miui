@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.xiaomi.market.ui.DownloadTaskItem xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/list_item_height"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/list_item_height"
     android:background="@drawable/common_bg"
     android:gravity="center_vertical"
     android:orientation="horizontal" >
-
     <ImageSwitcher
         android:id="@+id/icon"
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
         android:layout_marginRight="@dimen/common_padding" />
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center_vertical"
         android:orientation="vertical" >
-
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
@@ -28,7 +26,6 @@
             android:gravity="center_vertical"
             android:singleLine="true"
             android:textAppearance="@style/TextAppearance.Primary" />
-
         <TextView
             android:id="@+id/state"
             android:layout_width="wrap_content"
@@ -39,7 +36,6 @@
             android:singleLine="true"
             android:textAppearance="@style/TextAppearance.Secondary" />
     </LinearLayout>
-
     <Button
         android:id="@+id/action"
         style="@style/Button.Action"
@@ -48,5 +44,4 @@
         android:focusable="false"
         android:gravity="center"
         android:text="@string/cancel" />
-
 </com.xiaomi.market.ui.DownloadTaskItem>
