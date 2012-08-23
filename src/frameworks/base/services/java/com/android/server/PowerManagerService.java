@@ -74,6 +74,8 @@ import java.util.Observable;
 import java.util.Observer;
 import android.annotation.MiuiHook;
 import android.annotation.MiuiHook.MiuiHookType;
+import miui.content.ExtraIntent;
+import miui.provider.ExtraSettings;
 
 public class PowerManagerService extends IPowerManager.Stub
         implements LocalPowerManager, Watchdog.Monitor {
@@ -1730,9 +1732,33 @@ public class PowerManagerService extends IPowerManager.Stub
         setPowerState(state, false, WindowManagerPolicy.OFF_BECAUSE_OF_TIMEOUT);
     }
 
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private void releaseProximitySensor(int newState, int reason) {
+        /* 这里使用post runnable的方法是为了防止死锁，因为：
+        * 1.setPowerState被调时有可能已经锁了mLocks, 而直接发通知需要锁AMS(ActivityManagerServices)
+        * 2.Activity状态变化的某个阶段，ActivityStack会导致锁上AMS并等mLocks
+        * 1&2同时发生就会导致死锁
+        */
+        if ((newState & SCREEN_ON_BIT) != 0) {
+            mHandler.removeCallbacks(mReleaseProximitySensorRunnable);
+        }
+        else if (mBootCompleted && WindowManagerPolicy.OFF_BECAUSE_OF_PROX_SENSOR != reason) {
+            mHandler.post(mReleaseProximitySensorRunnable);
+        }
+    }
+
+    @MiuiHook(MiuiHookType.NEW_FIELD)
+    private Runnable mReleaseProximitySensorRunnable = new Runnable() {
+        @Override
+        public void run() {
+            mContext.sendBroadcast(new Intent(ExtraIntent.ACTION_RELEASE_PROXIMITY_SENSOR));
+        }
+    };
+
     @MiuiHook(MiuiHookType.CHANGE_CODE)
     private void setPowerState(int newState, boolean noChangeLights, int reason)
     {
+        releaseProximitySensor(newState, reason); //MiuiHook
         synchronized (mLocks) {
             int err;
 

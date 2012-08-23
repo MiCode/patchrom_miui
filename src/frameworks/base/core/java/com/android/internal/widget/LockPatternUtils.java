@@ -277,6 +277,7 @@ public class LockPatternUtils {
      * @param password The password to check.
      * @return Whether the password matches the stored one.
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public boolean checkPassword(String password) {
         try {
             // Read all the bytes from the file
@@ -288,12 +289,34 @@ public class LockPatternUtils {
                 return true;
             }
             // Compare the hash from the file with the entered password's hash
-            return Arrays.equals(stored, passwordToHash(password));
+            return Arrays.equals(stored, passwordToHash(stored, password));
         } catch (FileNotFoundException fnfe) {
             return true;
         } catch (IOException ioe) {
             return true;
         }
+    }
+
+    /**
+     * Generate a hash for the given password.If the stored gesture pattern length is 72,
+     * than use android hash value, others use 32 hex for find device service
+     * @param stored the stored gesture pattern.
+     * @param password the gesture pattern.
+     * @return the hash of the pattern in a byte array.
+     */
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private  byte[] passwordToHash(byte[] stored, String password) {
+         byte[] pwd = passwordToHash(password);
+         if (pwd == null || stored.length == 72) {
+             return pwd;
+         }
+         byte[] hashed = null;
+         try {
+             hashed = MessageDigest.getInstance("MD5").digest(pwd);
+             hashed = toHex(hashed).getBytes();
+         } catch (NoSuchAlgorithmException e) {
+         }
+         return hashed;
     }
 
     /**

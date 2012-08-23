@@ -3,29 +3,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-	<include layout="@layout/horizontal_line_stroke"
-	    android:layout_width="match_parent"
-		android:layout_height="2px"	    
-	    />
-    <LinearLayout
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        layout="@layout/horizontal_line_stroke" />
+
+    <include
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/popup_bottom_controller_first_group_margin_top"
-        android:orientation="horizontal" >
+        layout="@layout/progress_bar_group"
+        android:layout_marginTop="@dimen/popup_bottom_controller_first_group_margin_top" />
+    <!--
+		<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/popup_bottom_controller_first_group_margin_top">
 
         <TextView
             android:id="@+id/time_current"
             style="@style/popup_bottom_controller_textview_style"
             android:layout_width="@dimen/popup_bottom_controller_position_duration_textview_width"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/popup_bottom_controller_seekbar_line_margin_left"
             android:gravity="center" />
 		
         <SeekBar
             android:id="@+id/mediacontroller_progress"
-            android:layout_width="@dimen/popup_bottom_controller_seekbar_length"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/time_current"
+            android:layout_toLeftOf="@+id/time"
             android:layout_marginLeft="@dimen/popup_bottom_controller_seekbar_line_margin_left"
             android:maxHeight="@dimen/popup_bottom_seekbar_height"
             android:minHeight="@dimen/popup_bottom_seekbar_height"
@@ -40,16 +49,18 @@
             style="@style/popup_bottom_controller_textview_style"
             android:layout_width="@dimen/popup_bottom_controller_position_duration_textview_width"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
             android:layout_marginLeft="@dimen/popup_bottom_controller_seekbar_line_margin_left"
             android:gravity="center" />
-    </LinearLayout>
+    </RelativeLayout>
+    -->
 
     <RelativeLayout
         android:id="@+id/bottom_controller_buttons_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/popup_bottom_controller_two_group_vertical_space">
+        android:layout_marginTop="@dimen/popup_bottom_controller_two_group_vertical_space" >
 
         <ImageView
             android:id="@+id/control_list"
@@ -81,7 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:src="@drawable/control_next_imageview" />
+                android:src="@drawable/control_next_imageview" />
             -->
 
             <ImageView
@@ -104,7 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="25px"
+            android:layout_marginRight="@dimen/popup_bottom_controller_controllist_imageview_margin_left"
             android:layout_toRightOf="@id/bottom_controller_buttons_group"
             android:src="@drawable/control_push_imageview" />
     </RelativeLayout>

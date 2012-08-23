@@ -27,11 +27,18 @@
     </FrameLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:orientation="vertical" >
 
         <include layout="@layout/album_picker_item_text" />
     </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/batch_selection_check"
+        style="@style/BatchSelectionCheckBoxStyle"
+        android:layout_gravity="right|center_vertical"
+        android:visibility="gone" />
 </LinearLayout>
