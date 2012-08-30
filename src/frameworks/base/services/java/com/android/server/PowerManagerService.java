@@ -199,7 +199,8 @@ public class PowerManagerService extends IPowerManager.Stub
     private Intent mScreenOffIntent;
     private Intent mScreenOnIntent;
     private LightsService mLightsService;
-    private Context mContext;
+    @MiuiHook(MiuiHookType.CHANGE_ACCESS)
+    Context mContext;
     private LightsService.Light mLcdLight;
     private LightsService.Light mButtonLight;
     private LightsService.Light mKeyboardLight;
@@ -1684,6 +1685,7 @@ public class PowerManagerService extends IPowerManager.Stub
             }
         };
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private int setScreenStateLocked(boolean on) {
         if (DEBUG_SCREEN_ON) {
             RuntimeException e = new RuntimeException("here");
@@ -1704,7 +1706,7 @@ public class PowerManagerService extends IPowerManager.Stub
                             + Integer.toHexString(mPowerState)
                             + " mSkippedScreenOn=" + mSkippedScreenOn);
                 }
-                mScreenBrightness.forceValueLocked(Power.BRIGHTNESS_OFF);
+                // MiuiHook mScreenBrightness.forceValueLocked(Power.BRIGHTNESS_OFF);
             }
         }
         int err = Power.setScreenState(on);
@@ -1748,12 +1750,18 @@ public class PowerManagerService extends IPowerManager.Stub
     }
 
     @MiuiHook(MiuiHookType.NEW_FIELD)
-    private Runnable mReleaseProximitySensorRunnable = new Runnable() {
+    private Runnable mReleaseProximitySensorRunnable = new SendReleaseProximitySensorBroadCast();
+
+    @MiuiHook(MiuiHookType.NEW_CLASS)
+    private class SendReleaseProximitySensorBroadCast implements Runnable {
+        public SendReleaseProximitySensorBroadCast() {
+        }
+
         @Override
         public void run() {
             mContext.sendBroadcast(new Intent(ExtraIntent.ACTION_RELEASE_PROXIMITY_SENSOR));
         }
-    };
+    }
 
     @MiuiHook(MiuiHookType.CHANGE_CODE)
     private void setPowerState(int newState, boolean noChangeLights, int reason)
