@@ -3,20 +3,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-    <TextView
-        android:id="@+id/screen_on_proximity_sensor_summary"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|top"
-        android:layout_marginTop ="30dip"
+        android:layout_marginTop ="35dip"
         android:gravity="center"
-        android:textAppearance="?android:attr/textAppearance"
-        android:text="@string/screen_on_proximity_sensor_summary"
-        android:drawablePadding="20dip"
-        android:drawableBottom="@drawable/screen_on_proximity_sensor_hint"
-        />
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearance"
+            android:text="@string/screen_on_proximity_sensor_title"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearance"
+            android:textSize="30dip"
+            android:text="@string/screen_on_proximity_sensor_summary"
+            android:drawablePadding="10dip"
+            android:drawableBottom="@drawable/screen_on_proximity_sensor_hint"
+            />
+    </LinearLayout>
     <TextView
-        android:id="@+id/screen_on_proximity_sensor_hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
