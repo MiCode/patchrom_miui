@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/development_settings_title">
+
+    <CheckBoxPreference
+        android:key="enable_adb"
+        android:title="@string/enable_adb"
+        android:summary="@string/enable_adb_summary"/>
+
+    <Preference
+        android:key="verifier_device_identifier"
+        style="?android:attr/preferenceInformationStyle"
+        android:title="@string/verifier_device_identifier"
+        android:summary="@string/verifier_device_identifier_not_available"
+        android:persistent="false" />
+
+    <CheckBoxPreference
+        android:key="keep_screen_on"
+        android:title="@string/keep_screen_on"
+        android:summary="@string/keep_screen_on_summary"/>
+
+    <CheckBoxPreference
+        android:key="allow_mock_location"
+        android:title="@string/allow_mock_location"
+        android:summary="@string/allow_mock_location_summary"/>
+
+    <ListPreference
+        android:key="hdcp_checking"
+        android:title="@string/hdcp_checking_title"
+        android:dialogTitle="@string/hdcp_checking_dialog_title"
+        android:entries="@array/hdcp_checking_titles"
+        android:entryValues="@array/hdcp_checking_values" />
+
+    <PreferenceScreen
+            android:key="local_backup_password"
+            android:title="@string/local_backup_password_title"
+            android:summary="@string/local_backup_password_summary_none"
+            android:persistent="false" >
+        <intent
+                android:action="android.settings.privacy.SET_FULL_BACKUP_PASSWORD"
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.SetFullBackupPassword" />
+    </PreferenceScreen>
+
+    <PreferenceCategory android:key="debug_ui_category"
+            android:title="@string/debug_ui_category">
+
+        <CheckBoxPreference android:key="unlock_enter_system"
+                android:title="@string/unlock_set_enter_system"
+                android:summary="@string/unlock_set_enter_system_summary"
+                android:persistent="false"/>
+
+        <CheckBoxPreference
+            android:key="strict_mode"
+            android:title="@string/strict_mode"
+            android:summary="@string/strict_mode_summary"/>
+
+        <CheckBoxPreference
+            android:key="pointer_location"
+            android:title="@string/pointer_location"
+            android:summary="@string/pointer_location_summary"/>
+
+        <CheckBoxPreference
+            android:key="show_touches"
+            android:title="@string/show_touches"
+            android:summary="@string/show_touches_summary"/>
+
+        <CheckBoxPreference
+            android:key="show_screen_updates"
+            android:title="@string/show_screen_updates"
+            android:summary="@string/show_screen_updates_summary"/>
+
+        <CheckBoxPreference
+            android:key="show_cpu_usage"
+            android:title="@string/show_cpu_usage"
+            android:summary="@string/show_cpu_usage_summary"/>
+
+        <CheckBoxPreference
+            android:key="force_hw_ui"
+            android:title="@string/force_hw_ui"
+            android:summary="@string/force_hw_ui_summary"/>
+
+        <CheckBoxPreference
+            android:key="show_rounded_corners"
+            android:title="@string/show_rounded_corners"
+            android:summary="@string/show_rounded_corners_summary"/>
+
+        <ListPreference
+            android:key="window_animation_scale"
+            android:title="@string/window_animation_scale_title"
+            android:persistent="false"
+            android:entries="@array/window_animation_scale_entries"
+            android:entryValues="@array/window_animation_scale_values" />
+
+        <ListPreference
+            android:key="transition_animation_scale"
+            android:title="@string/transition_animation_scale_title"
+            android:persistent="false"
+            android:entries="@array/transition_animation_scale_entries"
+            android:entryValues="@array/transition_animation_scale_values" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="debug_applications_category"
+            android:title="@string/debug_applications_category">
+
+        <CheckBoxPreference
+            android:key="immediately_destroy_activities"
+            android:title="@string/immediately_destroy_activities"
+            android:summary="@string/immediately_destroy_activities_summary"/>
+
+        <ListPreference
+            android:key="app_process_limit"
+            android:title="@string/app_process_limit_title"
+            android:persistent="false"
+            android:entries="@array/app_process_limit_entries"
+            android:entryValues="@array/app_process_limit_values" />
+
+        <CheckBoxPreference
+            android:key="show_all_anrs"
+            android:title="@string/show_all_anrs"
+            android:summary="@string/show_all_anrs_summary"/>
+
+        <CheckBoxPreference
+            android:key="show_fc"
+            android:title="@string/show_fc"
+            android:summary="@string/show_fc_summary"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

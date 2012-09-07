@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/page_layout_root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:colorBackground="@null"
+    android:colorBackgroundCacheHint="@null"
+>
+    <RelativeLayout android:id="@+id/single_view_other"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+    >
+        <include android:id="@+id/single_view_bottom"
+            layout="@layout/single_view_bottom"
+        />
+        <include android:id="@+id/single_view_image_info"
+            layout="@layout/single_view_image_info"
+        />
+        <com.miui.gallery.bigscreen.DeviceBarWidget
+            android:id="@+id/device_bar_widget"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_above="@id/single_view_bottom"
+            android:visibility="gone"
+        />
+    </RelativeLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/single_view_bigscreen_slideshow"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:colorBackground="@null"
+        android:visibility="gone"
+        android:colorBackgroundCacheHint="@null">
+        <!--  background image view  -->
+         <ImageView
+             android:id="@+id/bigscreen_slide_background"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:scaleType="fitXY"
+             android:src="@drawable/black_frame"
+         />
+         <ImageView
+             android:id="@+id/bigscreen_slide_exit_id"
+             android:layout_centerInParent="true"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/bigscreen_slide_exit"
+         />
+         <TextView
+             android:id="@+id/bigscreen_slide_title"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:textSize="18sp"
+             android:gravity="center"
+             android:textColor="@android:color/white"
+             android:layout_centerHorizontal="true"
+             android:layout_below="@id/bigscreen_slide_exit_id"
+             android:layout_marginTop="13.33dip"
+             android:text="@string/bigscrren_slide_exit"
+         />
+    </RelativeLayout>
+</FrameLayout>

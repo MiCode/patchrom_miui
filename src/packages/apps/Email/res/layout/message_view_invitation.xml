@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- Non-xlarge -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/invite_section"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         >
+
+        <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:singleLine="true"
+             android:ellipsize="end"
+             android:text="@string/message_view_invite_title"
+             android:textAppearance="?android:attr/textAppearanceSmall"
+             android:drawableLeft="@drawable/ic_badge_invite_holo_light"
+             android:layout_marginLeft="12dip"
+             android:layout_alignParentLeft="true"
+             android:layout_centerVertical="true"
+             />
+
+        <Button
+             android:id="@+id/invite_link"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:singleLine="true"
+             android:ellipsize="end"
+             android:text="@string/message_view_invite_view"
+             android:textAppearance="?android:attr/textAppearanceSmall"
+             android:layout_marginRight="3dip"
+             android:layout_alignParentRight="true"
+             android:layout_centerVertical="true"
+             />
+    </RelativeLayout>
+
+    <!-- Divider -->
+    <View
+         android:layout_width="match_parent"
+         android:layout_height="1px"
+         android:background="#ff808080"
+         />
+
+    <TextView
+         android:id="@+id/invite_info"
+         android:layout_height="wrap_content"
+         android:layout_width="match_parent"
+         android:layout_marginTop="4dip"
+         android:layout_marginLeft="12dip"
+         android:layout_marginRight="6dip"
+         android:singleLine="true"
+         android:ellipsize="end"
+         android:text="@string/message_view_invite_text"
+         android:textAppearance="?android:attr/textAppearanceSmall"
+         />
+
+    <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="44dip"
+         android:orientation="horizontal"
+         android:gravity="center_vertical"
+         android:layout_marginLeft="12dip"
+         android:layout_marginRight="6dip"
+         >
+
+        <TextView
+             android:id="@+id/accept"
+             android:layout_width="0dip"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:layout_marginRight="6dip"
+             android:text="@string/message_view_invite_accept"
+             android:singleLine="true"
+             android:textAppearance="?android:attr/textAppearanceSmall"
+             android:drawableLeft="@drawable/btn_yes_off"
+             android:gravity="center_vertical"
+             android:focusable="true"
+             />
+
+        <TextView
+             android:id="@+id/maybe"
+             android:layout_width="0dip"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:layout_marginRight="6dip"
+             android:text="@string/message_view_invite_maybe"
+             android:singleLine="true"
+             android:textAppearance="?android:attr/textAppearanceSmall"
+             android:drawableLeft="@drawable/btn_maybe_off"
+             android:gravity="center_vertical"
+             android:focusable="true"
+             />
+
+        <TextView
+             android:id="@+id/decline"
+             android:layout_width="0dip"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:text="@string/message_view_invite_decline"
+             android:singleLine="true"
+             android:textAppearance="?android:attr/textAppearanceSmall"
+             android:drawableLeft="@drawable/btn_no_off"
+             android:gravity="center_vertical"
+             android:focusable="true"
+             />
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fadingEdge="none"
+    android:fadingEdgeLength="0dp"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout android:id="@+id/layout_help"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:gravity="center_vertical"
+        >
+
+        <ImageView
+            android:id="@+id/iv_mark"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="fitCenter"
+            android:layout_marginLeft="10dp"/>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="3dp"
+            android:paddingTop="10dp" android:paddingBottom="10dp"  >
+
+            <TextView
+                android:id="@+id/tv_talk"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" android:textSize="18sp" android:typeface="normal" android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tv_focus"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <ImageView android:id="@+id/iv_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:src="@miui:drawable/arrow_right" />
+    </LinearLayout>
+    
+    <LinearLayout android:id="@+id/layout_howto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_marginLeft="10dp">       
+        <TextView android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/you_can_say_so"
+            android:textSize="15sp"/>
+    </LinearLayout>
+    
+<!--     <ImageView android:layout_width="match_parent" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:scaleType="fitXY" -->
+<!--         android:src="@drawable/card_bg_solidline_repeat" /> -->
+
+</LinearLayout>

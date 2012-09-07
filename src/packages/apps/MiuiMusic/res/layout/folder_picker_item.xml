@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/PickerItemStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="0dp"
+    android:orientation="horizontal" >
+
+    <ImageView android:id="@+id/icon"
+        style="@style/ItemPrimaryIcon"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/folder_icon"
+        />
+
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginRight="@dimen/spacing_picker_item"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+        <TableLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="left|center_vertical"
+            android:orientation="horizontal"
+            android:shrinkColumns="0">
+            <TableRow>
+                <TextView
+                    android:id="@+id/title"
+                    style="@style/ItemPrimaryText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+                <TextView
+                    android:id="@+id/num"
+                    style="@style/ItemPrimaryText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/spacing_picker_item"
+                    android:singleLine="true"
+                    android:gravity="left|center_vertical"
+                    android:textColor="@color/white_70_transparent"
+                    android:textSize="14sp"
+                    />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/details"
+            style="@style/ItemSecondaryText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <CheckBox android:id="@+id/batch_selection_check"
+        style="@style/BatchSelectionCheckBoxStyle"/>
+
+</LinearLayout>

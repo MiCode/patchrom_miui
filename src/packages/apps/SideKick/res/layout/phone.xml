@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.voiceassist.view.PhoneView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/phoneview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|center_horizontal" >
+
+    <com.miui.voiceassist.view.WaveFormView
+        android:id="@+id/waveform"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom|center_horizontal"
+        android:gravity="center">
+        
+    </com.miui.voiceassist.view.WaveFormView>
+
+    <ImageView 
+        android:id="@+id/iv_mic_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/mic_bg_gray"/>
+
+    <ImageView 
+        android:id="@+id/iv_halo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/halo"
+        android:visibility="gone"/>
+    
+    <ImageView
+        android:id="@+id/iv_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:src="@drawable/mic_gray" />
+    
+
+
+    <ProgressBar
+        android:id="@+id/pb_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminateDrawable="@drawable/custom_progressbar"
+        android:indeterminateDuration="1000"
+        android:visibility="gone" />
+    
+    <ImageView android:id="@+id/iv_ring"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:src="@drawable/mic_ring"
+        android:visibility="invisible" />
+
+</com.miui.voiceassist.view.PhoneView>

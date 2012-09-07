@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Certificate Installer</string>
+
+    <!-- Title of the file picker screen -->
+    <string name="pick_file_title">Pick a certificate</string>
+
+    <!-- Title of dialog to enter password for pkcs12 -->
+    <string name="pkcs12_password_dialog_title">Extract certificate</string>
+    <!-- message in progress bar when waiting for extracting certs from a pkcs12 package -->
+    <string name="extracting_pkcs12">Extracting...</string>
+    <!-- Title of dialog to enter password for pkcs12 file -->
+    <string name="pkcs12_file_password_dialog_title">Extract from %s</string>
+    <!-- Title of dialog to name a credential -->
+    <string name="name_credential_dialog_title">Name the certificate</string>
+    <!-- Description for the credential name input box -->
+    <string name="credential_name">Certificate name:</string>
+    <!-- Title of the credential info -->
+    <!-- Description for the credential password input box -->
+    <string name="credential_password">Enter the password to extract the certificates.</string>
+    <string name="credential_info">The package contains:</string>
+    <string name="p12_description">Certificates in PKCS12 keystore.</string>
+
+    <!-- Item found in the PKCS12 keystore being investigated [CHAR LIMIT=NONE] -->
+    <string name="one_userkey">one user key</string>
+    <!-- Item found in the PKCS12 keystore being investigated [CHAR LIMIT=NONE] -->
+    <string name="one_usercrt">one user certificate</string>
+    <!-- Item found in the PKCS12 keystore being investigated [CHAR LIMIT=NONE] -->
+    <string name="one_cacrt">one CA certificate</string>
+    <!-- Item found in the PKCS12 keystore being investigated [CHAR LIMIT=NONE]-->
+    <string name="n_cacrts">%d CA certificates</string>
+
+    <string name="password_error">Please enter the correct password.</string>
+    <string name="password_empty_error">Please enter the password.</string>
+    <string name="name_empty_error">Please enter a name.</string>
+    <string name="name_char_error">Please enter a name that contains only letters and numbers.</string>
+    <string name="storage_error">Unable to save the certificate. Click OK to retry.</string>
+    <string name="unable_to_save_cert">Unable to save the certificate. The credential storage is not enabled or properly initialized.</string>
+    <string name="cert_not_saved">The certificate is not installed.</string>
+    <string name="no_cert_to_saved">No certificate to install.</string>
+    <string name="invalid_cert">The certificate is invalid.</string>
+
+    <!-- toast message -->
+    <string name="cert_is_added"><xliff:g id="credential">%s</xliff:g> is installed.</string>
+    <!-- toast message -->
+    <string name="cert_too_large_error">Installation failed. Certificate size is too large.</string>
+    <!-- toast message -->
+    <string name="cert_missing_error">Installation failed. Cannot locate the certificate file.</string>
+    <!-- toast message -->
+    <string name="cert_read_error">Installation failed. Cannot read the certificate file.</string>
+
+    <!-- Shown when the certificate file can't be found.  [CHAR LIMIT=NONE] -->
+    <string name="no_cert_file_found" product="nosdcard">No certificate file found in USB storage.</string>
+    <string name="no_cert_file_found" product="default">No certificate file found in the SD card.</string>
+    <!-- Shown when USB storage can't be found to look for a certificate.  [CHAR LIMIT=30] -->
+    <string name="sdcard_not_present" product="nosdcard">USB storage not available.</string>
+    <string name="sdcard_not_present" product="default">SD card is not present.</string>
+</resources>

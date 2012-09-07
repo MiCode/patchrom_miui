@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+<title><%@ string/new_tab %></title>
+<meta name="viewport" content="width=device-width; initial-scale=1.0; user-scalable=0" />
+
+<style type="text/css">
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    text-align: center;
+    margin: 0px auto;
+    padding: 0 8px 0 8px;
+    max-width: <%@ dimen/mv_max_width %>px;
+}
+
+h3 {
+    text-align: center;
+    margin: 5px 0 5px 0;
+}
+
+.thumbwrap li {
+    display: inline-block;
+    margin: 0 7px 12px 7px;
+    padding: 0;
+}
+
+@media all and (orientation:portrait) {
+.thumbwrap li {
+    width: <%@ dimen/mv_item_width_portrait %>px;
+}
+}
+
+@media all and (orientation:landscape) {
+.thumbwrap li {
+    width: <%@ dimen/mv_item_width %>px;
+}
+}
+
+.thumbwrap a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+}
+
+.thumbwrap img {
+    border: <%@ dimen/mv_border_width %>px solid #e0e0e0;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.thumbwrap .caption {
+    margin-top: 2px;
+    margin-left: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    font-size: .8em;
+    text-align: left;
+}
+
+</style>
+
+</head>
+<body>
+    <h3><%@ string/tab_most_visited %></h3>
+    <ul class="thumbwrap">
+        <%{ most_visited %>
+            <li>
+                <a href="<%= url %>">
+                    <img class="wrimg" src="<%= thumbnail %>" />
+                    <span class="caption"><%= title %></span>
+                </a>
+            </li>
+        <%} most_visited %>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*
+ * Copyright (C) 2006-2008 Esmertec AG.
+ * Copyright (C) 2006-2008 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+
+<com.android.mms.ui.SlideshowAttachmentView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/slideshow_attachment_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingRight="5dip"
+    android:background="@drawable/attachment_editor_bg">
+
+    <!-- This LinearLayout is used to push the send and edit button to the right of the
+         screen.
+    -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <!-- This FrameLayout makes the play_slideshow_button on the top of slideshow
+             image and text, and puts the picture_frame exactly around the slideshow
+             image.
+        -->
+        <FrameLayout
+            android:layout_width="240dip"
+            android:layout_height="180dip"
+            android:layout_gravity="center"
+            android:background="@android:drawable/picture_frame" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/slideshow_image"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/slideshow_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@drawable/text_color_black" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/play_slideshow_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/mms_play_btn" />
+
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:paddingRight="8dp"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/edit_slideshow_button"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="100dip"
+            android:layout_height="45dip"
+            android:textColor="@android:color/black"
+            android:text="@string/edit" />
+
+        <Button
+            android:id="@+id/send_slideshow_button"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="100dip"
+            android:layout_height="45dip"
+            android:textColor="@android:color/black"
+            android:text="@string/send" />
+
+        <Button
+            android:id="@+id/remove_slideshow_button"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="100dip"
+            android:layout_height="45dip"
+            android:textColor="@android:color/black"
+            android:text="@string/remove" />
+
+    </LinearLayout>
+</com.android.mms.ui.SlideshowAttachmentView>

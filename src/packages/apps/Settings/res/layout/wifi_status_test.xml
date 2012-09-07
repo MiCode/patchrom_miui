@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+
+    <LinearLayout style="@style/info_layout">
+
+        <!-- Update Button -->
+        <Button android:id="@+id/update"
+                android:textSize="14sp"
+                android:layout_marginTop="8dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wifi_update"
+                />
+
+        <!--Wifi State-->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/wifi_state_label" style="@style/info_label" />
+            <TextView android:id="@+id/wifi_state" style="@style/info_value" />
+        </LinearLayout>
+
+        <!--Network State-->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/network_state_label" style="@style/info_label" />
+            <TextView android:id="@+id/network_state" style="@style/info_value" />
+        </LinearLayout>
+
+        <!--Supplicant State-->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/supplicant_state_label" style="@style/info_label" />
+            <TextView android:id="@+id/supplicant_state" style="@style/info_value" />
+        </LinearLayout>
+
+        <!--RSSI Value-->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/rssi_label" style="@style/info_label" />
+            <TextView android:id="@+id/rssi" style="@style/info_value" />
+        </LinearLayout>
+
+        <!--BSSID Value-->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/bssid_label" style="@style/info_label" />
+            <TextView android:id="@+id/bssid" style="@style/info_value" />
+        </LinearLayout>
+
+        <!--SSID Value-->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/ssid_label" style="@style/info_label" />
+            <TextView android:id="@+id/ssid" style="@style/info_value" />
+        </LinearLayout>
+
+
+        <!--Hidden SSID Value-->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/hidden_ssid_label" style="@style/info_label" />
+            <TextView android:id="@+id/hidden_ssid" style="@style/info_value" />
+        </LinearLayout>
+
+        <!--IP address Value-->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/ipaddr_label" style="@style/info_label" />
+            <TextView android:id="@+id/ipaddr" style="@style/info_value" />
+        </LinearLayout>
+
+        <!--MAC address Value-->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/macaddr_label" style="@style/info_label" />
+            <TextView android:id="@+id/macaddr" style="@style/info_value" />
+        </LinearLayout>
+
+        <!--Network ID Value-->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/networkid_label" style="@style/info_label" />
+            <TextView android:id="@+id/networkid" style="@style/info_value" />
+        </LinearLayout>
+
+        <!--Link Speed Value-->
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/link_speed_label" style="@style/info_label" />
+            <TextView android:id="@+id/link_speed" style="@style/info_value" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/scan_list_label" style="@style/info_label" />
+            <TextView android:id="@+id/scan_list" style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Ping stats -->
+        <Button android:id="@+id/ping_test"
+                android:textSize="14sp"
+                android:layout_marginTop="8dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ping_test_label"
+                />
+
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_ping_ipaddr" style="@style/info_label" />
+            <TextView android:id="@+id/pingIpAddr" style="@style/info_value" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_ping_hostname" style="@style/info_label" />
+            <TextView android:id="@+id/pingHostname" style="@style/info_value" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/entry_layout">
+            <TextView android:text="@string/radio_info_http_client_test" style="@style/info_label" />
+            <TextView android:id="@+id/httpClientTest" style="@style/info_value" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

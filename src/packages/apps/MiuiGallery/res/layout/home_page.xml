@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/page_layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:colorBackground="@null"
+    android:colorBackgroundCacheHint="@null"
+>
+    <!-- camera view section: title + grid view -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:id="@+id/camera_view_title"
+                style="@style/HomePageLargeTitleContainer"
+                >
+            </LinearLayout>
+
+            <!-- separator -->
+            <ImageView style="@style/HomePageSeparator" />
+
+            <!-- place holder for captured photos, which are displayed in GLRootView -->
+            <LinearLayout
+                android:id="@+id/home_page_camera_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/home_page_camera_view_height"
+                android:orientation="horizontal">
+            </LinearLayout>
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/home_page_selection_mask_camera"
+            style="@style/HomePageSelectionMask"
+        />
+    </FrameLayout>
+
+    <!-- recent album view section: title + grid view -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+            android:id="@+id/recent_album_view_title"
+            style="@style/HomePageTitleContainer"
+            >
+                <miui.widget.GradientTextView
+                    android:id="@+id/title_count"
+                    style="@style/TitleGradualText"
+                    android:paddingLeft="@dimen/home_page_title_padding_left"
+                />
+                <TextView android:id="@+id/title_desc"
+                    android:text="@string/all_albums_desc"
+                    style="@style/TitleDescText"
+                />
+            </LinearLayout>
+
+            <!-- separator -->
+            <ImageView style="@style/HomePageSeparator" />
+
+            <!-- place holder for recent albums, which are displayed in GLRootView -->
+            <LinearLayout
+                android:id="@+id/home_page_recent_album_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/home_page_recent_album_view_height"
+                android:orientation="horizontal">
+            </LinearLayout>
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/home_page_selection_mask_recent_album"
+            style="@style/HomePageSelectionMask"
+        />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_panel"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="bottom">
+
+        <ImageView
+            style="@style/HomePageItemSeparator" />
+        <!-- bottom section: storage explorer -->
+        <com.miui.gallery.ui.HomePageItemView
+            android:id="@+id/home_page_item_storage_explorer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </com.miui.gallery.ui.HomePageItemView>
+        <!-- separator -->
+        <ImageView
+            android:id="@+id/home_page_separator_cloud_albums"
+            style="@style/HomePageItemSeparator" android:visibility="gone"/>
+        <!-- bottom section: cloud albums -->
+        <com.miui.gallery.ui.HomePageItemView
+            android:id="@+id/home_page_item_cloud_albums"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </com.miui.gallery.ui.HomePageItemView>
+
+    </LinearLayout>
+
+</LinearLayout>

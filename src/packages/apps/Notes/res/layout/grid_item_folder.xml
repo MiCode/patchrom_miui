@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<view
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    class="com.miui.notes.ui.GridFolderItem"
+    android:layout_width="@dimen/grid_item_width"
+    android:layout_height="@dimen/grid_item_height"
+    android:gravity="top"
+    android:orientation="vertical"
+    android:background="@drawable/grid_folder_yellow">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/grid_folder_anchor" />
+
+        <TextView
+            android:id="@+id/note_title"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/grid_folder_title_margin_top"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="@color/grid_folder_title_yellow"
+            android:textAppearance="@style/TextAppearanceGridItemTitle" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/note_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/note_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:paddingLeft="11dip"
+        android:paddingRight="10dip"
+        android:maxLines="@integer/grid_folder_text_max_lines"
+        android:lineSpacingMultiplier="1.15"
+        android:textAppearance="@style/TextAppearanceGridItemContent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="11dip"
+        android:paddingRight="14dip"
+        android:paddingBottom="14dip"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <include layout="@layout/note_item_indicators" />
+
+    </LinearLayout>
+
+</view>

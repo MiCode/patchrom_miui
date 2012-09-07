@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+    <drawable name="separator_red">#FFAE1200</drawable>
+    <drawable name="separator_green">#FF008115</drawable>
+    <drawable name="grayBg">#FF333333</drawable>
+
+    <style name="Incoming">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
+
+    <style name="IccPanel">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@drawable/grayBg</item>
+    </style>
+
+    <style name="AlertPanel">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@drawable/grayBg</item>
+    </style>
+
+    <style name="info_label">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textAppearance">@style/TextAppearance.info_label</item>
+        <item name="android:paddingRight">4dip</item>
+    </style>
+
+    <style name="info_layout">
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingLeft">10dip</item>
+        <item name="android:paddingTop">10dip</item>
+        <item name="android:paddingRight">10dip</item>
+        <item name="android:paddingBottom">10dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="entry_layout">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TextAppearance" parent="android:TextAppearance">
+    </style>
+
+    <style name="TextAppearance.info_label">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="incall_top_button" parent="android:Widget.Button">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">0sp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">0dip</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:textColor">#000</item>
+    </style>
+
+    <style name="TextAppearance.DialerLine1" parent="@android:style/TextAppearance.Widget.Button">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/dialer_button_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.DialerLine2" parent="@android:style/TextAppearance.Widget.Button">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/dialer_button_text</item>
+    </style>
+
+    <style name="TextAppearance.EmergencyDialerLine1" parent="@android:style/TextAppearance.Widget.Button">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="TextAppearance.EmergencyDialerLine2" parent="@android:style/TextAppearance.Widget.Button">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <!-- Preference Style for the phone number preferences -->
+    <style name="EditPhoneNumberPreference">
+        <item name="enableButtonText">@string/enable</item>
+        <item name="disableButtonText">@string/disable</item>
+        <item name="changeNumButtonText">@string/change_num</item>
+        <item name="confirmMode">activation</item>
+    </style>
+
+    <!-- Preference Style for the emergency callback mode -->
+    <!-- This styles is currently not used and just prepared for further usage -->
+    <style name="EmergencyCallBack">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:colorForeground">#fff</item>
+    </style>
+
+    <!-- Preference Style for the ERI text -->
+    <style name="EriWidgetBackground">
+    </style>
+
+    <style name="TextAppearance.EriWidget">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <!-- OTA Call Card styles -->
+    <style name="ccOtaButtonBar">
+        <!-- TODO: change height to 'wrap_content' when layout bug is fixed -->
+        <item name="android:layout_height">60dip</item> 
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@android:drawable/bottom_bar</item>
+    </style>
+
+    <style name="ccOtaButton">
+        <item name="android:layout_width">150dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">5dip</item>
+        <item name="android:layout_marginBottom">5dip</item>
+    </style>
+
+    <style name="ccOtaNextButton" parent="ccOtaButton">
+        <!-- <item name="android:drawableRight">@drawable/ic_btn_next</item>
+             <item name="android:drawablePadding">10dip</item>
+          -->
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_marginRight">4dip</item>
+    </style>
+
+    <style name="ccOtaSkipButton" parent="ccOtaButton">
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_marginLeft">4dip</item>
+    </style>
+
+    <style name="ccOtaDialVisible">
+        <item name="android:visibility">visible</item>
+    </style>
+
+    <style name="ccOtaWizardTitle">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/ota_title_color</item>
+    </style>
+
+    <style name="ccOtaTextPrimary">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <!-- Buttons in the main "button row" of the in-call onscreen touch UI. -->
+    <style name="InCallButton">
+        <item name="android:layout_width">@dimen/in_call_button_width</item>
+        <item name="android:layout_height">@dimen/in_call_button_height</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <!-- "Compound button" variation of InCallButton.
+         These buttons have the concept of two states: checked and unchecked.
+         (This style is just like "InCallButton" except that we also
+         clear out android:textOn and android:textOff, to avoid the default
+         text label behavior of the ToggleButton class.) -->
+    <style name="InCallCompoundButton" parent="InCallButton">
+        <item name="android:textOn">@null</item>
+        <item name="android:textOff">@null</item>
+    </style>
+
+    <!-- "End" button; similar to InCallButton. -->
+    <style name="InCallEndButton">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">@dimen/in_call_end_button_height</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <!-- Text label drawn alongside buttons in the "extra button row" of
+         the in-call onscreen touch UI. -->
+    <style name="InCallExtraRowButtonLabel">
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:textColor">@color/incall_call_banner_text_color</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">5dip</item>
+        <item name="android:layout_marginRight">5dip</item>
+    </style>
+
+    <!-- Theme for the activity com.android.phone.Settings, which is the
+         "Mobile network settings" screen (used on non-voice-capable
+         tablets as well as regular phone devices.) -->
+    <style name="Theme.Settings" parent="@android:style/Theme.Holo.DialogWhenLarge">
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
+    <!-- Theme for the InCallScreen activity.  This gives us a totally black
+         window background instead of the default dark grey.  (We don't just use
+         Theme.Black.NoTitleBar directly, since we want any popups or dialogs
+         from the InCallScreen to have the correct holo style. -->
+    <style name="Theme.InCallScreen" parent="@android:style/Theme.Holo.NoActionBar">
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+
+    <style name="DialpadButtonStyle">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:soundEffectsEnabled">false</item>
+    </style>
+
+    <style name="ContactsActionBarStyle"
+           parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/people_app_theme_color</item>
+        <item name="android:backgroundStacked">@color/people_app_theme_color</item>
+    </style>
+
+    <style name="SimImportTheme"
+           parent="@android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/ContactsActionBarStyle</item>
+    </style>
+
+    <style name="EmergencyDialerTheme" parent="@android:style/Theme.Holo">
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+
+</resources>

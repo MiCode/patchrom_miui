@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.android.browser.BrowserYesNoPreference
+            android:key="privacy_clear_cache"
+            android:title="@string/pref_privacy_clear_cache"
+            android:summary="@string/pref_privacy_clear_cache_summary"
+            android:dialogMessage="@string/pref_privacy_clear_cache_dlg"
+            android:dialogIcon="@android:drawable/ic_dialog_alert" />
+
+    <com.android.browser.BrowserYesNoPreference
+            android:key="privacy_clear_history"
+            android:title="@string/pref_privacy_clear_history"
+            android:summary="@string/pref_privacy_clear_history_summary"
+            android:dialogMessage="@string/pref_privacy_clear_history_dlg"
+            android:dialogIcon="@android:drawable/ic_dialog_alert"/>
+
+    <CheckBoxPreference
+            android:key="show_security_warnings"
+            android:defaultValue="true"
+            android:title="@string/pref_security_show_security_warning"
+            android:summary="@string/pref_security_show_security_warning_summary" />
+
+    <PreferenceCategory android:title="@string/pref_privacy_cookies_title">
+        <CheckBoxPreference
+                android:key="accept_cookies"
+                android:defaultValue="true"
+                android:title="@string/pref_security_accept_cookies"
+                android:summary="@string/pref_security_accept_cookies_summary" />
+
+        <com.android.browser.BrowserYesNoPreference
+                android:key="privacy_clear_cookies"
+                android:title="@string/pref_privacy_clear_cookies"
+                android:summary="@string/pref_privacy_clear_cookies_summary"
+                android:dialogMessage="@string/pref_privacy_clear_cookies_dlg"
+                android:dialogIcon="@android:drawable/ic_dialog_alert"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_privacy_formdata_title">
+        <CheckBoxPreference
+                android:key="save_formdata"
+                android:defaultValue="true"
+                android:title="@string/pref_security_save_form_data"
+                android:summary="@string/pref_security_save_form_data_summary" />
+
+        <com.android.browser.BrowserYesNoPreference
+                android:key="privacy_clear_form_data"
+                android:title="@string/pref_privacy_clear_form_data"
+                android:summary="@string/pref_privacy_clear_form_data_summary"
+                android:dialogMessage="@string/pref_privacy_clear_form_data_dlg"
+                android:dialogIcon="@android:drawable/ic_dialog_alert"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_privacy_location_title">
+        <CheckBoxPreference
+                android:key="enable_geolocation"
+                android:defaultValue="true"
+                android:title="@string/pref_privacy_enable_geolocation"
+                android:summary="@string/pref_privacy_enable_geolocation_summary" />
+
+        <com.android.browser.BrowserYesNoPreference
+                android:key="privacy_clear_geolocation_access"
+                android:dependency="enable_geolocation"
+                android:title="@string/pref_privacy_clear_geolocation_access"
+                android:summary="@string/pref_privacy_clear_geolocation_access_summary"
+                android:dialogMessage="@string/pref_privacy_clear_geolocation_access_dlg"
+                android:dialogIcon="@android:drawable/ic_dialog_alert"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_security_passwords_title">
+        <CheckBoxPreference
+                android:key="remember_passwords"
+                android:defaultValue="true"
+                android:title="@string/pref_security_remember_passwords"
+                android:summary="@string/pref_security_remember_passwords_summary" />
+
+        <com.android.browser.BrowserYesNoPreference
+                android:key="privacy_clear_passwords"
+                android:title="@string/pref_privacy_clear_passwords"
+                android:summary="@string/pref_privacy_clear_passwords_summary"
+                android:dialogMessage="@string/pref_privacy_clear_passwords_dlg" 
+                android:dialogIcon="@android:drawable/ic_dialog_alert"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>
