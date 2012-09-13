@@ -5,20 +5,60 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/content_layout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@drawable/list_background"
-        android:orientation="vertical">
+        android:background="@drawable/list_background">
 
-        <include layout="@layout/notes_list_title" />
+        <TextView
+            android:id="@+id/tv_title_bar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:paddingLeft="@dimen/list_padding"
+            android:paddingRight="@dimen/list_padding"
+            android:paddingTop="3dip"
+            android:drawableLeft="@drawable/ic_sub_folder"
+            android:visibility="gone"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:textColor="@color/title_text_yellow"
+            android:textSize="@dimen/text_font_size_medium" />
+
+        <FrameLayout
+            android:id="@+id/move_panel"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_gravity="top"
+            android:background="@drawable/move_bg"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/move_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:singleLine="true"
+                android:textSize="@dimen/text_font_size_medium"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:text="@string/move_to_parent" />
+
+            <TextView
+                android:id="@+id/move_cover"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@drawable/move_cover"
+                android:visibility="gone" />
+
+        </FrameLayout>
 
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="0dip"
-            android:layout_weight="1">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/trash"
@@ -37,7 +77,7 @@
 
         </FrameLayout>
 
-    </LinearLayout>
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/search_layout"
@@ -78,7 +118,7 @@
 
     <FrameLayout
         android:id="@+id/btn_new_note"
-        android:background="@drawable/ic_new_note"
+        android:background="@drawable/ic_new_note_yellow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusable="false"

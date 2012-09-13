@@ -6,6 +6,11 @@
     android:gravity="center_vertical"
     android:orientation="vertical" >
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:src="@color/line_stroke_color" />
+
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
@@ -14,37 +19,9 @@
             android:id="@+id/device_imageview_container"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
             android:gravity="center_vertical" >
-			<include 
-			    layout="@layout/airkan_device_scrollview_item"
-			    />
-            <!--
-	 <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="30dp" >
 
-                <ImageView
-                    android:id="@+id/airkan_device_phone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:src="@drawable/icon_selectscreen03" />
-
-                <TextView
-                    android:id="@+id/airkan_device_name_textview"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-					android:layout_alignBottom="@id/airkan_device_phone"
-                    android:textColor="@color/white"
-                    android:textSize="12sp" />
-            </RelativeLayout>
-            -->
-
+            <include layout="@layout/airkan_device_scrollview_item" />
         </LinearLayout>
     </HorizontalScrollView>
 

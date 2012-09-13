@@ -18,6 +18,7 @@ package com.android.internal.policy.impl;
 
 import android.annotation.MiuiHook;
 import android.annotation.MiuiHook.MiuiHookType;
+import android.app.MiuiThemeHelper;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -50,6 +51,7 @@ import android.util.Log;
 import com.android.internal.R;
 import com.google.android.collect.Lists;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -414,9 +416,11 @@ public class KeyguardUpdateMonitor {
      * @param pluggedIn state from {@link android.os.BatteryManager#EXTRA_PLUGGED}
      * @return Whether the device is considered "plugged in."
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private static boolean isPluggedIn(BatteryStatus status) {
-        return status.plugged == BatteryManager.BATTERY_PLUGGED_AC
-                || status.plugged == BatteryManager.BATTERY_PLUGGED_USB;
+        return (status.plugged == BatteryManager.BATTERY_PLUGGED_AC
+                || status.plugged == BatteryManager.BATTERY_PLUGGED_USB)
+                && !MiuiThemeHelper.isScreenshotMode();
     }
 
     private static boolean isBatteryUpdateInteresting(BatteryStatus old, BatteryStatus current) {
@@ -619,8 +623,10 @@ public class KeyguardUpdateMonitor {
         return mBatteryStatus.level;
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public boolean shouldShowBatteryInfo() {
-        return isPluggedIn(mBatteryStatus) || isBatteryLow(mBatteryStatus);
+        return (isPluggedIn(mBatteryStatus) || isBatteryLow(mBatteryStatus))
+                && !MiuiThemeHelper.isScreenshotMode();
     }
 
     public CharSequence getTelephonyPlmn() {
