@@ -19,4 +19,33 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/initial_cloud_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <ImageView android:id="@+id/initial_cloud_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:src="@drawable/initial_cloud_image"/>
+        <TextView android:id="@+id/initial_cloud_text"
+            style="@style/CloudInitialText"
+            android:text="@string/account_not_login"/>
+        <TextView android:id="@+id/initial_cloud_button"
+            android:layout_marginTop="@dimen/cloud_initial_button_margin_top"
+            android:layout_width="@dimen/cloud_initial_button_width"
+            android:layout_height="@dimen/cloud_initial_button_height"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:background="@drawable/initial_cloud_button_bg"
+            android:text="@string/open_sync"
+            android:textSize="14.67sp"
+            android:shadowColor="@color/initial_cloud_button_shadow_color"
+            android:shadowRadius="3"
+            android:shadowDx="0"
+            android:shadowDy="1"/>
+    </LinearLayout>
 </LinearLayout>

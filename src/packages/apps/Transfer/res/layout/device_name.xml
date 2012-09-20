@@ -2,60 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    android:gravity="center_vertical" >
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="48dip"
+        android:layout_height="48dip"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="@dimen/text_in_list_margin_boundary" />
 
     <TextView
-        android:id="@+id/distinguish_device_item"
-        android:layout_width="match_parent"
+        android:id="@+id/title"
+        android:layout_width="0dip"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dip"
-        android:gravity="center_vertical"
-        android:paddingLeft="@dimen/text_in_list_margin_boundary"
-        android:text="@string/title_other_devices"
-        android:textColor="@color/people_app_theme_color"
-        android:visibility="gone" />
-
-    <View
-        android:id="@+id/view_line"
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_marginTop="7dip"
-        android:background="@color/people_app_theme_color"
-        android:visibility="gone" />
-
-    <LinearLayout
-        android:id="@+id/device"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <ImageView
-            android:id="@+id/left_photo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/text_in_list_margin_boundary"
-            android:src="@drawable/ic_audio_phone" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dip"
-                android:singleLine="true"
-                android:textAppearance="@miui:style/TextAppearance.ListView.PrimaryItem" />
-
-            <TextView
-                android:id="@+id/adress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dip"
-                android:textSize="10sp" />
-        </LinearLayout>
-    </LinearLayout>
+        android:layout_weight="1"
+        android:padding="5dip"
+        android:singleLine="true"
+        android:textAppearance="@miui:style/TextAppearance.ListView.PrimaryItem" />
 
 </LinearLayout>

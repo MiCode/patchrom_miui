@@ -55,13 +55,21 @@
                         android:id="@+id/et_email"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
+                        android:minHeight="@dimen/editor_height"
                         android:hint="@string/micloud_email"
                         android:layout_marginTop="@dimen/button_top_margin"
                         android:singleLine="true"
                         android:imeOptions="actionNext"
-                        android:inputType="textEmailAddress"
+                        android:inputType="textEmailAddress|textVisiblePassword"
                         />
             </LinearLayout>
+            <TextView
+                    android:id="@+id/privacy_policy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_horizontal"
+                    />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

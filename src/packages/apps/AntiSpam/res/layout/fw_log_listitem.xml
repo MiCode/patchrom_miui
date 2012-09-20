@@ -4,6 +4,8 @@
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/list_item_padding"
+    android:paddingTop="@dimen/list_item_padding"
     >
 
     <LinearLayout
@@ -23,23 +25,22 @@
             >
             <TextView
                 android:id="@+id/head1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:textAppearance="@style/TextAppearance.Secondary"
                 android:text="@string/calllog"
                 />
 
-            <View
-                android:layout_width="0dip"
-                android:layout_weight="1"
-                android:layout_height="1dip"
-                />
             <TextView
                 android:id="@+id/head2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:paddingLeft = "10dip"
+                android:layout_gravity="right"
+                android:gravity="right"
                 android:singleLine="true"
                 android:textAppearance="@style/TextAppearance.Secondary"
                 android:text="@string/calllog"

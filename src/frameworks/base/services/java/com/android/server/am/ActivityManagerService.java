@@ -7219,6 +7219,7 @@ public final class ActivityManagerService extends ActivityManagerNative
         }
     }
 
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     private boolean handleAppCrashLocked(ProcessRecord app) {
         long now = SystemClock.uptimeMillis();
 
@@ -7259,7 +7260,7 @@ public final class ActivityManagerService extends ActivityManagerNative
             mMainStack.resumeTopActivityLocked(null);
         } else {
             ActivityRecord r = mMainStack.topRunningActivityLocked(null);
-            if (r.app == app) {
+            if (r != null && r.app == app) { // MIUI Hook
                 // If the top running activity is from this crashing
                 // process, then terminate it to avoid getting in a loop.
                 Slog.w(TAG, "  Force finishing activity "

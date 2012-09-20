@@ -11,7 +11,7 @@
         android:id="@+id/album_wrap"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/common_tabs">
+        android:layout_above="@+id/bottom_bar">
 
         <include layout="@layout/audio_player_album" />
     </FrameLayout>
@@ -28,8 +28,10 @@
     <FrameLayout android:id="@+id/controller_wrap"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/common_tabs"
+        android:layout_above="@+id/bottom_bar"
         android:gravity="top|left">
+
+
         <fragment
             class="com.miui.player.ui.fragment.TrackListFragment"
             android:id="@+id/track_list_fragment"
@@ -43,6 +45,7 @@
             android:id="@+id/lyric_wrap"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <include layout="@layout/audio_player_lyric" />
         </RelativeLayout>
     </FrameLayout>
@@ -53,7 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/common_tabs"
+        android:layout_above="@+id/bottom_bar"
         android:visibility="invisible"
         android:scaleType="center"
         miui:sliding_panel="@drawable/sliding_panel_visualization_bg"
@@ -61,16 +64,30 @@
         miui:symmetry="false"
     />
 
-    <RelativeLayout
-        android:id="@+id/common_tabs"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/play_common_height"
+    <FrameLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        >
+        android:layout_gravity="bottom">
 
-        <include layout="@layout/audio_player_common" />
-    </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/common_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/play_common_height" >
+
+            <include layout="@layout/audio_player_common" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom_commit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/play_common_height"
+            android:visibility="gone" >
+
+            <include layout="@layout/commit_bottom_2" />
+        </LinearLayout>
+    </FrameLayout>
 
     <ImageView android:id="@+id/online_music_logo"
         android:layout_height="wrap_content"
@@ -89,6 +106,16 @@
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@id/online_music_logo"
         android:gravity="top|left"/>
+
+    <TextView
+        android:id="@+id/hint_title_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="top|left"
+        android:gravity="center_horizontal|top"
+        android:paddingTop="@dimen/title_hint_padding_top"
+        android:textSize="@dimen/title_hint_text_size"
+        android:visibility="gone"/>
 
 
 </RelativeLayout>
