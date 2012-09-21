@@ -1128,10 +1128,13 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
      * Handle message sent by {@link #showLocked}.
      * @see #SHOW
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private void handleShow() {
         synchronized (KeyguardViewMediator.this) {
             if (DEBUG) Log.d(TAG, "handleShow");
             if (!mSystemReady) return;
+
+            playSounds(true);    //MiuiHook play sound before show instead of after
 
             mKeyguardViewManager.show();
             mShowing = true;
@@ -1141,9 +1144,6 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
                 ActivityManagerNative.getDefault().closeSystemDialogs("lock");
             } catch (RemoteException e) {
             }
-
-            // Do this at the end to not slow down display of the keyguard.
-            playSounds(true);
 
             mShowKeyguardWakeLock.release();
         }
