@@ -762,6 +762,7 @@ final class GsmServiceStateTracker extends ServiceStateTracker {
         }
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private void pollStateDone() {
         if (DBG) {
             log("Poll ServiceState done: " +
@@ -864,7 +865,7 @@ final class GsmServiceStateTracker extends ServiceStateTracker {
             operatorNumeric = ss.getOperatorNumeric();
             phone.setSystemProperty(TelephonyProperties.PROPERTY_OPERATOR_NUMERIC, operatorNumeric);
 
-            if (operatorNumeric == null) {
+            if (TextUtils.isEmpty(operatorNumeric)) { // MIUI hook
                 phone.setSystemProperty(TelephonyProperties.PROPERTY_OPERATOR_ISO_COUNTRY, "");
                 mGotCountryCode = false;
             } else {

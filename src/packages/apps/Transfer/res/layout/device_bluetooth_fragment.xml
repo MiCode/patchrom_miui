@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_marginLeft="@dimen/padding_left"
+        android:layout_marginRight="@dimen/padding_right"
+        android:background="?android:attr/dividerHorizontal" />
+
+    <TextView
+        android:id="@+id/device_bluetooth_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/list_item_text_margin_boundary"
+        android:layout_marginRight="@dimen/list_item_text_margin_boundary"
+        android:layout_marginTop="24dip"
+        android:gravity="left"
+        android:text="@string/device_version_header_bluetooth"
+        android:textAppearance="@miui:style/TextAppearance.ListView.SecondaryItem" />
+
+    <TextView
+        android:id="@+id/device_bluetooth_hint"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_marginLeft="@dimen/list_item_text_margin_boundary"
+        android:layout_marginRight="@dimen/list_item_text_margin_boundary"
+        android:layout_weight="1"
+        android:textAppearance="@miui:style/TextAppearance.ListView.PrimaryItem" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="?android:attr/dividerHorizontal" />
+
+    <LinearLayout
+        android:id="@+id/button_layout"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_cancel"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/previous" />
+
+        <Button
+            android:id="@+id/btn_next"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/next" />
+    </LinearLayout>
+
+</LinearLayout>

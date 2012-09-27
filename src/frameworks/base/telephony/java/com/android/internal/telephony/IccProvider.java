@@ -161,9 +161,15 @@ public class IccProvider extends ContentProvider {
         return resultUri;
     }
 
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     private String normalizeValue(String inVal) {
         int len = inVal.length();
         String retVal = inVal;
+
+        // MIUI Hook
+        if (len <= 1) {
+            return retVal;
+        }
 
         if (inVal.charAt(0) == '\'' && inVal.charAt(len-1) == '\'') {
             retVal = inVal.substring(1, len-1);

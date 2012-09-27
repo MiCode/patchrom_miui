@@ -2,12 +2,6 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/menu_preferences">
-    <CheckBoxPreference
-        android:key="pref_key_update_notification"
-        android:title="@string/pref_title_update_notification"
-        android:summary="@string/pref_summary_update_notification"
-        android:defaultValue="true">
-    </CheckBoxPreference>
     <ListPreference
         android:key="pref_key_auto_update_setting"
         android:title="@string/pref_title_auto_update_setting"
@@ -20,6 +14,14 @@
         android:title="@string/pref_title_update_onlyby_wifi"
         android:defaultValue="true">
     </CheckBoxPreference>
+    <ListPreference
+        android:key="pref_key_update_notify_mode"
+        android:title="@string/pref_title_update_notify_mode"
+        android:summary="@string/pref_summary_notification_frequency"
+        android:entries="@array/pref_entries_update_notify_mode"
+        android:entryValues="@array/pref_values_update_notify_mode"
+        android:defaultValue="0">
+    </ListPreference>
     <ListPreference
         android:key="pref_key_data_save_mode"
         android:title="@string/pref_title_data_save_mode"

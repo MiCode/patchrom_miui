@@ -63,28 +63,37 @@
          />
     </RelativeLayout>
 
-    <RelativeLayout android:id="@+id/download_big_picture"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone"
-        >
-         <ImageView
-             android:id = "@+id/download_big_button"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:src="@drawable/download_big_picture"
-             android:layout_centerHorizontal="true"
-         />
-         <TextView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:textSize="18sp"
-             android:gravity="center"
-             android:textColor="@android:color/white"
-             android:layout_centerHorizontal="true"
-             android:text="@string/loading_will_cost"
-             android:layout_below="@id/download_big_button"
-         />
-    </RelativeLayout>
+    <LinearLayout
+       android:id = "@+id/download_big_picture"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:visibility="gone"
+       android:layout_gravity="center_horizontal|bottom"
+       android:layout_marginBottom="@dimen/photo_page_downloadbutton_bottommargin"
+       android:background="@drawable/download_big_picture_bg"
+    >
+       <ImageView
+           android:id = "@+id/download_big_left_button"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:src="@drawable/download_big_picture"
+           android:layout_gravity="center_vertical"
+       />
+       <TextView
+           android:id="@+id/download_big_text"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textSize="16sp"
+           android:gravity="center"
+           android:layout_gravity="center_vertical"
+           android:textColor="@android:color/black"
+           android:layout_alignParentRight="true"
+           android:layout_marginRight="@dimen/photo_page_downloadbutton_margin"
+           android:shadowRadius="1"
+           android:shadowDx="0"
+           android:shadowDy="1"
+        />
+    </LinearLayout>
 </FrameLayout>

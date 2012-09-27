@@ -23,7 +23,8 @@
             </LinearLayout>
 
             <!-- separator -->
-            <ImageView style="@style/HomePageSeparator" />
+            <ImageView android:id="@+id/home_camera_view_separator"
+                style="@style/HomePageSeparator" />
 
             <!-- place holder for captured photos, which are displayed in GLRootView -->
             <LinearLayout
@@ -31,6 +32,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/home_page_camera_view_height"
                 android:orientation="horizontal">
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/home_page_camera_view_none"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/home_page_camera_view_none_height"
+                android:paddingTop="@dimen/home_page_camera_view_none_padding_top"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:visibility="gone">
+                <ImageView android:id="@+id/camera_view_none_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:src="@drawable/home_camera_view_none"/>
+                <TextView android:id="@+id/camera_view_none_big_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="@dimen/camera_view_none_big_text_size"
+                    android:textColor="@color/white_70_transparent"
+                    android:text="@string/click_to_enter_camera"/>
+                <TextView android:id="@+id/camera_view_none_small_text"
+                    android:layout_width="@dimen/home_page_camera_view_none_text_width"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="@dimen/camera_view_none_small_text_size"
+                    android:textColor="@color/white_50_transparent"
+                    android:text="@string/camera_view_none_message"/>
             </LinearLayout>
         </LinearLayout>
         <ImageView

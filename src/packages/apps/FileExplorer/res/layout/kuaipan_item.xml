@@ -4,11 +4,11 @@
     android:layout_height="wrap_content"
     android:background="@miui:drawable/list_medium_middle_item_background">
 
-    <View
-        android:id="@+id/gray_layer"
-        android:layout_width="match_parent"
+    <cn.kuaipan.android.widget.LayerView
+        android:id="@+id/layer"
+        android:layout_width="0px"
         android:layout_height="match_parent"
-        android:background="#0c000000"
+        android:background="@color/layer_view_color"
         android:visibility="invisible" />
 
     <LinearLayout
@@ -50,7 +50,7 @@
                 android:layout_gravity="bottom|right"
                 android:gravity="center"
                 android:scaleType="centerInside"
-                android:src="@drawable/image_task_upload"
+                android:src="@drawable/image_task_item_upload"
                 android:visibility="invisible" />
         </FrameLayout>
 
@@ -118,12 +118,5 @@
             android:clickable="false"
             android:focusable="false" />
     </LinearLayout>
-
-    <cn.kuaipan.android.widget.LayerView
-        android:id="@+id/layer"
-        android:layout_width="0px"
-        android:layout_height="match_parent"
-        android:background="#c0e1ead8"
-        android:visibility="invisible" />
 
 </FrameLayout>

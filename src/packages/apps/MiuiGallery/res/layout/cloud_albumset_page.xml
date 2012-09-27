@@ -35,17 +35,26 @@
             style="@style/CloudInitialText"
             android:text="@string/account_not_login"/>
         <TextView android:id="@+id/initial_cloud_button"
-            android:layout_marginTop="@dimen/cloud_initial_button_margin_top"
-            android:layout_width="@dimen/cloud_initial_button_width"
-            android:layout_height="@dimen/cloud_initial_button_height"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:background="@drawable/initial_cloud_button_bg"
-            android:text="@string/open_sync"
-            android:textSize="14.67sp"
-            android:shadowColor="@color/initial_cloud_button_shadow_color"
-            android:shadowRadius="3"
-            android:shadowDx="0"
-            android:shadowDy="1"/>
+            style="@style/CloudInitialButton"
+            android:text="@string/open_sync"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/cloud_none_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <TextView android:id="@+id/cloud_none_text"
+            style="@style/CloudInitialText"
+            android:layout_height="@dimen/cloud_none_text_height"
+            android:text="@string/cloud_gallery_no_pictures"/>
+        <TextView android:id="@+id/cloud_none_message_text"
+            style="@style/CloudInitialText"
+            android:textColor="@color/white_50_transparent"
+            android:text="@string/alert_message_initial_cloud"/>
+        <TextView android:id="@+id/modify_cloud_setting_button"
+            style="@style/CloudInitialButton"
+            android:visibility="gone"
+            android:text="@string/modify_cloud_settings"/>
     </LinearLayout>
 </LinearLayout>

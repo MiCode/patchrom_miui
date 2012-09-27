@@ -53,16 +53,20 @@ import android.widget.LinearLayout;
 import android.widget.Space;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
+import android.view.View.OnKeyListener;
 
 import com.android.internal.R;
 import com.android.internal.widget.PasswordEntryKeyboardHelper;
+import miui.text.ExtraInputType;
+import miui.view.inputmethod.CustomizedImeForMiui;
 
 /**
  * Displays a dialer-like interface or alphanumeric (latin-1) key entry for the user to enter
  * an unlock password
  */
+@MiuiHook(MiuiHookType.CHANGE_CODE)
 public class PasswordUnlockScreen extends LinearLayout implements KeyguardScreen,
-        OnEditorActionListener {
+        OnEditorActionListener , OnKeyListener{
 
     private static final String TAG = "PasswordUnlockScreen";
     private final KeyguardUpdateMonitor mUpdateMonitor;
@@ -118,6 +122,7 @@ public class PasswordUnlockScreen extends LinearLayout implements KeyguardScreen
         mKeyboardView = (PasswordEntryKeyboardView) findViewById(R.id.keyboard);
         mPasswordEntry = (EditText) findViewById(R.id.passwordEntry);
         mPasswordEntry.setOnEditorActionListener(this);
+        mPasswordEntry.setOnKeyListener(this);  //miui-hook
 
         mKeyboardHelper = new PasswordEntryKeyboardHelper(context, mKeyboardView, this, false);
         mKeyboardHelper.setEnableHaptics(
@@ -156,13 +161,13 @@ public class PasswordUnlockScreen extends LinearLayout implements KeyguardScreen
         if (mIsAlpha) {
             mPasswordEntry.setKeyListener(TextKeyListener.getInstance());
             mPasswordEntry.setInputType(InputType.TYPE_CLASS_TEXT
-                    | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    | InputType.TYPE_TEXT_VARIATION_PASSWORD | ExtraInputType.TYPE_TEXT_FLAG_UNLOCK_SCREEN );  //miui-hook
             //mStatusViewManager.setHelpMessage(R.string.keyguard_password_enter_password_code,
                     //KeyguardStatusViewManager.LOCK_ICON);
         } else {
             mPasswordEntry.setKeyListener(DigitsKeyListener.getInstance());
             mPasswordEntry.setInputType(InputType.TYPE_CLASS_NUMBER
-                    | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
+                    | InputType.TYPE_NUMBER_VARIATION_PASSWORD | ExtraInputType.TYPE_TEXT_FLAG_UNLOCK_SCREEN );  //miui-hook
             //mStatusViewManager.setHelpMessage(R.string.keyguard_password_enter_pin_code,
                     //KeyguardStatusViewManager.LOCK_ICON);
         }
@@ -213,6 +218,14 @@ public class PasswordUnlockScreen extends LinearLayout implements KeyguardScreen
         }
 
         initLockByFindDevice();
+        hideKeyBoardViewIfNeed();  //miui-hook
+    }
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private void hideKeyBoardViewIfNeed(){
+        if(CustomizedImeForMiui.defaultImeIsCustomizedForMiui(getContext().getContentResolver())){
+            mKeyboardView.setVisibility(View.GONE);
+        }
     }
 
     @MiuiHook(MiuiHookType.NEW_METHOD)
@@ -277,8 +290,14 @@ public class PasswordUnlockScreen extends LinearLayout implements KeyguardScreen
     }
 
     /** {@inheritDoc} */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public boolean needsInput() {
-        return mUseSystemIME && mIsAlpha;
+        return mUseSystemIME && isAlphaOrDefaultImeIsCustomizedForMiui();
+    }
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    public boolean isAlphaOrDefaultImeIsCustomizedForMiui(){
+        return mIsAlpha || CustomizedImeForMiui.defaultImeIsCustomizedForMiui(getContext().getContentResolver());
     }
 
     /** {@inheritDoc} */
@@ -407,6 +426,15 @@ public class PasswordUnlockScreen extends LinearLayout implements KeyguardScreen
         if (actionId == EditorInfo.IME_NULL || actionId == EditorInfo.IME_ACTION_DONE
                 || actionId == EditorInfo.IME_ACTION_NEXT) {
             verifyPasswordAndUnlock();
+            return true;
+        }
+        return false;
+    }
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    public boolean onKey(View v, int keyCode, KeyEvent event){
+        if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_CALL) {
+            mCallback.takeEmergencyCallAction();
             return true;
         }
         return false;

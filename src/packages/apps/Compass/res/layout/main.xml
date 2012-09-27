@@ -121,19 +121,33 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#BFFFFFFF"
+                android:textColor="#7FFFFFFF"
                 />
         </LinearLayout>
 
-    </FrameLayout>
+        <FrameLayout
+            android:id="@+id/view_guide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
 
-    <include
-        layout="@miui:layout/android_transient_notification"
-        android:id="@+id/low_accuracy_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="35dip"
-        android:visibility="gone" />
+            <ImageView
+                android:id="@+id/guide_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/guide" />
+
+            <ImageView
+                android:id="@+id/guide_animation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center_horizontal"
+                android:layout_marginTop="195dip"
+                android:src="@drawable/calibrate_animation"/>
+
+        </FrameLayout>
+
+    </FrameLayout>
 
 </FrameLayout>
