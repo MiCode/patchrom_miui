@@ -21,16 +21,20 @@
         android:layout_marginTop="24dip"
         android:gravity="left"
         android:text="@string/device_version_header_bluetooth"
-        android:textAppearance="@miui:style/TextAppearance.ListView.SecondaryItem" />
+        android:textSize="@miui:dimen/text_font_size_large" />
 
-    <TextView
-        android:id="@+id/device_bluetooth_hint"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dip"
-        android:layout_marginLeft="@dimen/list_item_text_margin_boundary"
-        android:layout_marginRight="@dimen/list_item_text_margin_boundary"
-        android:layout_weight="1"
-        android:textAppearance="@miui:style/TextAppearance.ListView.PrimaryItem" />
+        android:layout_weight="1" >
+        <TextView
+            android:id="@+id/device_bluetooth_hint"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/list_item_text_margin_boundary"
+            android:layout_marginRight="@dimen/list_item_text_margin_boundary"
+            android:textAppearance="@miui:style/TextAppearance.ListView.PrimaryItem" />
+    </ScrollView>
 
     <View
         android:id="@+id/divider"

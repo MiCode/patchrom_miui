@@ -691,16 +691,19 @@ public final class CdmaDataConnectionTracker extends DataConnectionTracker {
     @MiuiHook(MiuiHookType.NEW_METHOD)
     private void notifyFirewallDataSetupComplete() {
         DataConnectionAc current = null;
+        ApnSetting apn = mActiveApn;
         for (DataConnectionAc dcac : mDataConnectionAsyncChannels.values()) {
-            if (dcac.getApnSettingSync().equals(mActiveApn)) {
+            if (dcac.getApnSettingSync().equals(apn)) {
                 current = dcac;
                 break;
             }
         }
 
-        FirewallManager.getInstance().onDataConnected(ConnectivityManager.TYPE_MOBILE,
-                FirewallManager.encodeApnSetting(mActiveApn),
-                current.getLinkPropertiesSync().getInterfaceName());
+        if (current != null && apn != null) {
+            FirewallManager.getInstance().onDataConnected(ConnectivityManager.TYPE_MOBILE,
+                    FirewallManager.encodeApnSetting(apn),
+                    current.getLinkPropertiesSync().getInterfaceName());
+        }
     }
 
     /**

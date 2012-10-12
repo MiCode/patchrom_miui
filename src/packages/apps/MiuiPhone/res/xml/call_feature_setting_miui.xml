@@ -105,7 +105,7 @@
             android:key="button_missed_call_notify_times"
             android:title="@string/missed_call_notify_times_title_miui"
             android:summary="@string/missed_call_notify_times_summary_miui"
-            android:defaultValue="1"
+            android:defaultValue="0"
             android:entries="@array/missed_call_notify_times_entries_miui"
             android:entryValues="@array/missed_call_notify_times_entry_values_miui"
             android:dialogTitle="@string/missed_call_notify_times_title_miui" />
@@ -147,6 +147,12 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/other_settings_miui">
+        <ListPreference
+            android:key="button_t9_index_method_settings"
+            android:title="@string/t9_indexing_method_title_miui"
+            android:persistent="true"
+            android:entries="@array/t9_indexing_method_entries_miui"
+            android:entryValues="@array/t9_indexing_method_entry_values_miui"/>
         <PreferenceScreen
             android:key="button_dial_pad_touch_tone_setting"
             android:title="@string/dial_pad_touch_tone_setting_miui">
