@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        android:background="@drawable/vp_background"
+        >
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        android:background="@drawable/vp_background_grid_full"
+        >
+    </LinearLayout>
+    
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/loading_progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminate="false"
+            android:indeterminateDrawable="@drawable/vp_loading_progress"
+            android:indeterminateDuration="1800"
+            android:indeterminateBehavior="repeat"
+             />
+
+        <TextView
+            style="@style/loading_video_for_netplay_textview_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/loading_progressbar"
+            android:layout_centerHorizontal="true"
+            android:text="@string/loading_video_netplay_label" />
+    </RelativeLayout>
+    
+    <include 
+        android:id="@+id/loading_video_bottom_progressbar_group"
+        layout="@layout/vp_popup_bottom_progress_bar_only"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+         />
+
+</FrameLayout>

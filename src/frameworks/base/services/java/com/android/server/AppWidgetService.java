@@ -1299,6 +1299,7 @@ class AppWidgetService extends IAppWidgetService.Stub
         }
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     void readStateFromFileLocked(FileInputStream stream) {
         boolean success = false;
 
@@ -1365,6 +1366,9 @@ class AppWidgetService extends IAppWidgetService.Stub
                     else if ("g".equals(tag)) {
                         AppWidgetId id = new AppWidgetId();
                         id.appWidgetId = Integer.parseInt(parser.getAttributeValue(null, "id"), 16);
+                        if (isDuplicateWidgetId(id.appWidgetId)) {
+                            continue;
+                        }
                         if (id.appWidgetId >= mNextAppWidgetId) {
                             mNextAppWidgetId = id.appWidgetId + 1;
                         }
@@ -1434,6 +1438,16 @@ class AppWidgetService extends IAppWidgetService.Stub
         }
     }
 
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private boolean isDuplicateWidgetId(int appWidgetId) {
+        for (AppWidgetId widgetId : mAppWidgetIds) {
+            if (widgetId.appWidgetId == appWidgetId) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     AtomicFile savedStateFile() {
         return new AtomicFile(new File("/data/system/" + SETTINGS_FILENAME));
     }
@@ -1446,8 +1460,7 @@ class AppWidgetService extends IAppWidgetService.Stub
             if (Intent.ACTION_BOOT_COMPLETED.equals(action)) {
                 sendInitialBroadcasts();
             } else if (ExtraIntent.ACTION_RESTORE_FINISH.equals(action)) {
-                mStateLoaded = false;
-                sendInitialBroadcasts();
+                reload();
             } else if (Intent.ACTION_CONFIGURATION_CHANGED.equals(action)) {
                 Locale revised = Locale.getDefault();
                 if (revised == null || mLocale == null ||
@@ -1526,6 +1539,17 @@ class AppWidgetService extends IAppWidgetService.Stub
             }
         }
     };
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private void reload() {
+        synchronized (mAppWidgetIds) {
+            mAppWidgetIds.clear();
+            mHosts.clear();
+            mInstalledProviders.clear();
+            mStateLoaded = false;
+        }
+        sendInitialBroadcasts();
+    }
 
     void addProvidersForPackageLocked(String pkgName) {
         Intent intent = new Intent(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
