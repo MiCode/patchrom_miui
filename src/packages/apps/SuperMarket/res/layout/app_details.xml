@@ -179,14 +179,28 @@
                         android:layout_marginRight="@dimen/main_padding"
                         android:layout_marginTop="@dimen/common_padding_medium"
                         android:background="@drawable/divider_bg" />
-                    <TextView
+                    <com.xiaomi.market.ui.ExpandableTextView
                         android:id="@+id/description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/main_padding"
-                        android:layout_marginRight="@dimen/main_padding"
-                        android:layout_marginTop="@dimen/common_padding_medium"
-                        android:textAppearance="@style/TextAppearance.Content" />
+                        android:layout_marginTop="@dimen/common_padding_medium" >
+                        <TextView
+                            android:id="@+id/expandable_textview"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/main_padding"
+                            android:layout_marginRight="@dimen/main_padding"
+                            android:textAppearance="@style/TextAppearance.Content" />
+                        <TextView
+                            android:id="@+id/expand_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/main_padding"
+                            android:layout_marginRight="@dimen/main_padding"
+                            android:paddingTop="@dimen/common_padding_small"
+                            android:text="@string/expand_full_text"
+                            android:textAppearance="@style/TextAppearance.Content" />
+                    </com.xiaomi.market.ui.ExpandableTextView>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/divider"
@@ -284,9 +298,4 @@
                 android:indeterminateOnly="true" />
         </LinearLayout>
     </FrameLayout>
-    <fragment
-        android:id="@+id/search_fragment"
-        android:name="com.xiaomi.market.ui.CommonSearchFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 </LinearLayout>

@@ -36,19 +36,28 @@
     <LinearLayout
         android:id="@+id/start_stop_button"
         android:layout_height="wrap_content"
-        android:layout_width="182dip"
+        android:layout_width="wrap_content"
         android:layout_marginTop="30dip"
-        android:background="@drawable/btn_bottom"
-        android:gravity="center"
-        android:paddingTop="5dip"
-        android:paddingBottom="5dip">
-        <TextView
-            android:id="@+id/start_stop_button_text"
+        android:background="@drawable/operation_panel_background"
+        android:gravity="center">
+        <LinearLayout
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:textSize="18dip"
-            android:textColor="@color/remote_control_button_text_color"
-            android:drawablePadding="6dip"
-            android:gravity="center" />
+            android:background="@drawable/btn_bottom"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/start_stop_button_text"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="18dip"
+                android:drawablePadding="6dip"
+                android:textColor="@color/remote_control_button_text_color"
+                android:gravity="center"/>
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/ftp_setting"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:background="@drawable/ftp_setting" />
     </LinearLayout>
 </LinearLayout>

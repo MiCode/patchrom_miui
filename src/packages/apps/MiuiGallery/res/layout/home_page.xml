@@ -9,6 +9,7 @@
 >
     <!-- camera view section: title + grid view -->
     <FrameLayout
+        android:id="@+id/camera_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
@@ -70,6 +71,7 @@
 
     <!-- recent album view section: title + grid view -->
     <FrameLayout
+        android:id="@+id/recent_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
@@ -137,5 +139,28 @@
         </com.miui.gallery.ui.HomePageItemView>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/privacy_mode_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/home_page_privacy_padding_bottom"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/privacy_mode"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="@dimen/camera_view_none_big_text_size"
+            android:textColor="@android:color/white"
+            android:text="@string/none_picture"/>
+    </LinearLayout>
+
 
 </LinearLayout>

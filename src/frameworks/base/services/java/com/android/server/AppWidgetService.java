@@ -1541,7 +1541,7 @@ class AppWidgetService extends IAppWidgetService.Stub
     };
 
     @MiuiHook(MiuiHookType.NEW_METHOD)
-    private void reload() {
+    void reload() {
         synchronized (mAppWidgetIds) {
             mAppWidgetIds.clear();
             mHosts.clear();

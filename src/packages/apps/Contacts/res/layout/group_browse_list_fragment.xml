@@ -35,15 +35,27 @@
       android:divider="@null"
       android:listSelector="@android:color/transparent"/>
 
-    <TextView
+    <LinearLayout
         android:id="@+id/empty"
-        android:layout_marginTop="@dimen/empty_message_top_margin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="?android:attr/textColorSecondary"
-        android:text="@string/noGroups" />
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+        <ImageView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:src="@drawable/list_empty_image" />
+        <TextView
+            android:id="@+id/empty_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/noGroups"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="@dimen/empty_message_margin_top"
+            android:layout_marginBottom="@dimen/empty_message_margin_bottom"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
+    </LinearLayout>
 
     <LinearLayout
       android:id="@+id/add_accounts"

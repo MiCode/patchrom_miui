@@ -10,11 +10,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/TextAppearance.Primary" />
-    <RatingBar
-        android:id="@+id/ratingbar"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/RatingBar.ReadOnly" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <RatingBar
+            android:id="@+id/ratingbar"
+            style="@style/RatingBar.ReadOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/version"
+            style="@style/TextAppearance.Secondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/description"
         android:layout_width="wrap_content"

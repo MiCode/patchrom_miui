@@ -4,33 +4,38 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingRight="@dimen/main_padding"
-    android:paddingLeft="@dimen/main_padding"
     style="@style/Background">
     <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="2dip"
+        android:paddingRight="@dimen/main_padding"
+        android:paddingLeft="@dimen/main_padding"
         android:orientation="vertical" >
         <Button
             android:id="@+id/edit_button"
             android:text="@string/edit_comment"
+            android:layout_marginTop="@dimen/common_padding"
             style="@style/Button.Large" />
         <TextView
             android:id="@+id/display_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_padding"
             style="@style/TextAppearance.Primary" />
         <RatingBar
             android:id="@+id/ratingbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/common_padding"
             style="@style/RatingBar.ReadOnly" />
     </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/divider"
+        android:layout_marginLeft="@dimen/main_padding"
+        android:layout_marginRight="@dimen/main_padding"
         android:background="@drawable/divider_bg" />
     <FrameLayout
         android:layout_width="match_parent"

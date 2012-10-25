@@ -21,23 +21,27 @@
     android:layout_height="fill_parent">
 
     <com.miui.gallery.photoeditor.PhotoView
-        android:id="@+id/photo_view"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"/>
+      android:id="@+id/photo_view"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_centerInParent="true"
+      android:layout_below="@+id/action_bar"
+      android:layout_above="@+id/effects_bar" />
 
-    <com.miui.gallery.photoeditor.EffectsBar
-        android:id="@+id/effects_bar"
-        style="@style/EffectsBar">
-
-        <com.miui.gallery.photoeditor.EffectsMenu
-            android:id="@+id/effects_menu"
-            style="@style/ActionBarOuter"/>
-
-    </com.miui.gallery.photoeditor.EffectsBar>
 
     <com.miui.gallery.photoeditor.ActionBar
         android:id="@+id/action_bar"
         style="@style/ActionBarOuter"
         android:layout_alignParentTop="true"/>
+
+    <com.miui.gallery.photoeditor.EffectsBar
+        android:id="@+id/effects_bar"
+        style="@style/EffectsBar"
+        android:layout_alignParentBottom="true">
+        <com.miui.gallery.photoeditor.EffectsMenu
+            android:id="@+id/effects_menu"
+            style="@style/ActionBarOuter"/>
+
+    </com.miui.gallery.photoeditor.EffectsBar>
 
 </com.miui.gallery.photoeditor.Toolbar>

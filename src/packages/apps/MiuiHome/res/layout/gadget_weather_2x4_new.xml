@@ -31,32 +31,42 @@
             android:background="@drawable/gadget_weather_a1_mask" />
     </FrameLayout>
 
-    <ImageView
-        android:id="@+id/widget_2x4_up_1"
-        android:layout_width="300dip"
-        android:layout_height="100dip"
-        android:layout_gravity="left|top"
-        android:layout_marginTop="0dip"
-        android:layout_marginLeft="0dip" />
-    <ImageView
-        android:id="@+id/widget_2x4_up_2"
-        android:layout_width="300dip"
-        android:layout_height="100dip"
-        android:layout_gravity="left|top"
-        android:layout_marginTop="0dip"
-        android:layout_marginLeft="150dip" />
-    <ImageView
-        android:id="@+id/widget_2x4_down_1"
-        android:layout_width="300dip"
-        android:layout_height="100dip"
-        android:layout_gravity="left|top"
-        android:layout_marginTop="100dip"
-        android:layout_marginLeft="0dip" />
-    <ImageView
-        android:id="@+id/widget_2x4_down_2"
-        android:layout_width="300dip"
-        android:layout_height="100dip"
-        android:layout_gravity="left|top"
-        android:layout_marginTop="100dip"
-        android:layout_marginLeft="150dip" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="15dip">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0">
+            <ImageView
+                android:id="@+id/widget_2x4_up_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0" />
+            <ImageView
+                android:id="@+id/widget_2x4_up_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0">
+            <ImageView
+                android:id="@+id/widget_2x4_down_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"/>
+            <ImageView
+                android:id="@+id/widget_2x4_down_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0" />
+        </LinearLayout>
+    </LinearLayout>
 </FrameLayout>
