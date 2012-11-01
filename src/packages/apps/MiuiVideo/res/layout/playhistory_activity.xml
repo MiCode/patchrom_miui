@@ -21,13 +21,26 @@
 
         <include layout="@layout/title_view" />
 
-        <ListView
-            android:id="@+id/lv_playhistory"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/page_margin"
-            android:layout_marginRight="@dimen/page_margin" >
-        </ListView>
+            android:layout_height="match_parent" >
+
+            <ListView
+                android:id="@+id/lv_playhistory"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/page_margin"
+                android:layout_marginRight="@dimen/page_margin" >
+            </ListView>
+
+            <TextView
+                android:id="@+id/tv_noplayhistorytip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/no_playhistory"
+                android:textSize="@dimen/text_normal_bigger_size" />
+        </FrameLayout>
     </LinearLayout>
 
 </merge>

@@ -3,15 +3,28 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-        android:key="security_category"
-        android:title="@string/privacy_protect_title">
+        android:title="@string/privacy_mode_enable_title">
 
         <CheckBoxPreference
             android:key="privacy_mode_enable"
             android:title="@string/privacy_mode_enable_title"
+            android:summary="@string/privacy_mode_enable_sum"
             android:defaultValue="false"
             android:persistent="false"
             />
+
+        <CheckBoxPreference
+            android:key="ac_privacy_mode"
+            android:title="@string/ac_privacy_mode_title"
+            android:summary="@string/ac_privacy_mode_sum"
+            android:dependency="ac_enable"
+            android:defaultValue="false"
+            android:persistent="false"
+            />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/ac_enable_title">
 
         <CheckBoxPreference
             android:key="ac_enable"
@@ -30,14 +43,6 @@
                 android:targetPackage="com.android.settings"
                 android:targetClass="com.android.settings.AccessControlSetApp" />
         </PreferenceScreen>
-
-        <CheckBoxPreference
-            android:key="ac_privacy_mode"
-            android:title="@string/ac_privacy_mode_title"
-            android:dependency="ac_enable"
-            android:defaultValue="false"
-            android:persistent="false"
-            />
 
         <CheckBoxPreference
             android:key="ac_visiblepattern"

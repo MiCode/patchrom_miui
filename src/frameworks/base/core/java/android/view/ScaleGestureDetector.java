@@ -180,6 +180,14 @@ public class ScaleGestureDetector {
         mEdgeSlop = config.getScaledEdgeSlop();
     }
 
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private static int adjustIndex(int index0, int index1){
+        if (index0 < 0) {
+            index0 = index1 == 0 ? 1 : 0;
+        }
+        return index0;
+    }
+
     @MiuiHook(MiuiHookType.CHANGE_CODE)
     public boolean onTouchEvent(MotionEvent event) {
         if (mInputEventConsistencyVerifier != null) {
@@ -225,9 +233,7 @@ public class ScaleGestureDetector {
                 if (index0 < 0 || index0 == index1) {
                     // Probably someone sending us a broken event stream.
                     index0 = findNewActiveIndex(event, index0 == index1 ? -1 : mActiveId1, index0);
-                    if (index0 < 0) { // MIUI Hook
-                        index0 = index1 == 0 ? 1 : 0;
-                    }
+                    index0 = adjustIndex(index0, index1);  // MIUI Hook
                     mActiveId0 = event.getPointerId(index0);
                 }
                 mActive0MostRecent = false;

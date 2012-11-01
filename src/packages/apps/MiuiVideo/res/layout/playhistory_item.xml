@@ -6,36 +6,38 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/playhistory_item_height" >
-
+        android:layout_height="@dimen/playhistory_item_height"
+        android:baselineAligned="false" >
+
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical" >
-
+
             <ImageView
                 android:id="@+id/video_thumb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
                 android:src="@drawable/default_videothumb" />
-
+
             <ImageView
                 android:id="@+id/video_thumbshadow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
                 android:src="@drawable/videothumb_shadow" />
-
         </FrameLayout>
-
+
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp" 
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/playhistory_item_info_margin_left"
             android:layout_weight="1"
             android:orientation="vertical" >
-
+
             <TextView
                 android:id="@+id/video_title"
                 android:layout_width="match_parent"
@@ -47,8 +49,8 @@
                 android:paddingTop="0dp"
                 android:singleLine="true"
                 android:textColor="@color/playhistory_video_name"
-                android:textSize="@dimen/playhistory_item_videotitle_text" />
-
+                android:textSize="@dimen/text_normal_bigger_size" />
+
             <TextView
                 android:id="@+id/video_playdate"
                 android:layout_width="match_parent"
@@ -60,16 +62,14 @@
                 android:paddingTop="0dp"
                 android:singleLine="true"
                 android:textColor="@color/playhistory_play_date"
-                android:textSize="@dimen/playhistory_item_playdate_text" />
-
+                android:textSize="@dimen/text_normal_smaller_size" />
         </LinearLayout>
-
     </LinearLayout>
-    
+
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="@dimen/divider_height"
         android:background="@color/list_divider" />
-    
+
 </LinearLayout>

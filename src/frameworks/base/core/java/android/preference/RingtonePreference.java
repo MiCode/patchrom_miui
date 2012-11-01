@@ -169,7 +169,7 @@ public class RingtonePreference extends Preference implements
         ringtonePickerIntent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, mRingtoneType);
         ringtonePickerIntent.putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE, getTitle());
         ringtonePickerIntent.setClassName("com.android.thememanager",
-                "com.android.thememanager.ThemeResourceTabActivity");
+                "com.android.thememanager.activity.ThemeTabActivity");
     }
     
     /**

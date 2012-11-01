@@ -24,84 +24,120 @@
         android:textColor="@android:color/white"
         android:paddingBottom="30dip" />
 
-    <TableLayout
-        android:id="@+id/tableLayout1"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dip"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:fadingEdge="vertical"
+        android:scrollbars="vertical"
+        android:paddingLeft="5dip"
+        android:paddingRight="5dip"
+        android:paddingBottom="55dip" >
 
-        <TableRow
-            android:id="@+id/tableRow1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:text="@string/description_author"
-                style="@style/ResourceBrowser.ResourceProperty.Title" />
-            <TextView
-                android:id="@+id/resourceauthor"
-                style="@style/ResourceBrowser.ResourceProperty.Content" />
-        </TableRow>
+        <TableLayout
+            android:id="@+id/tableLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
-        <TableRow
-            android:id="@+id/tableRow2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:text="@string/description_designer"
-                style="@style/ResourceBrowser.ResourceProperty.Title" />
-            <TextView
-                android:id="@+id/resourcedesigner"
-                style="@style/ResourceBrowser.ResourceProperty.Content" />
-        </TableRow>
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
 
-        <TableRow
-            android:id="@+id/tableRow3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:text="@string/description_size"
-                style="@style/ResourceBrowser.ResourceProperty.Title" />
-            <TextView
-                android:id="@+id/resourcesize"
-                style="@style/ResourceBrowser.ResourceProperty.Content" />
-        </TableRow>
+                <TextView
+                    style="@style/ResourceBrowser.ResourceProperty.Title"
+                    android:text="@string/description_author" />
 
-        <TableRow
-            android:id="@+id/tableRow4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:text="@string/description_version"
-                style="@style/ResourceBrowser.ResourceProperty.Title" />
-            <TextView
-                android:id="@+id/resourceversion"
-                style="@style/ResourceBrowser.ResourceProperty.Content" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/resourceauthor"
+                    style="@style/ResourceBrowser.ResourceProperty.Content" />
+            </TableRow>
 
-        <TableRow
-            android:id="@+id/tableRow5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/mark"
-                android:text="@string/description_uploadtime"
-                style="@style/ResourceBrowser.ResourceProperty.Title" />
-            <TextView
-                android:id="@+id/resourcemodifiedtime"
-                style="@style/ResourceBrowser.ResourceProperty.Content" />
-        </TableRow>
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
 
-        <TableRow
-            android:id="@+id/tableRow6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:text="@string/description_download"
-                style="@style/ResourceBrowser.ResourceProperty.Title" />
-            <TextView
-                android:id="@+id/resourcedownload"
-                style="@style/ResourceBrowser.ResourceProperty.Content" />
-        </TableRow>
-    </TableLayout>
+                <TextView
+                    style="@style/ResourceBrowser.ResourceProperty.Title"
+                    android:text="@string/description_designer" />
+
+                <TextView
+                    android:id="@+id/resourcedesigner"
+                    style="@style/ResourceBrowser.ResourceProperty.Content" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    style="@style/ResourceBrowser.ResourceProperty.Title"
+                    android:text="@string/description_size" />
+
+                <TextView
+                    android:id="@+id/resourcesize"
+                    style="@style/ResourceBrowser.ResourceProperty.Content" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    style="@style/ResourceBrowser.ResourceProperty.Title"
+                    android:text="@string/description_version" />
+
+                <TextView
+                    android:id="@+id/resourceversion"
+                    style="@style/ResourceBrowser.ResourceProperty.Content" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/mark"
+                    style="@style/ResourceBrowser.ResourceProperty.Title"
+                    android:text="@string/description_uploadtime" />
+
+                <TextView
+                    android:id="@+id/resourcemodifiedtime"
+                    style="@style/ResourceBrowser.ResourceProperty.Content" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    style="@style/ResourceBrowser.ResourceProperty.Title"
+                    android:text="@string/description_download" />
+
+                <TextView
+                    android:id="@+id/resourcedownload"
+                    style="@style/ResourceBrowser.ResourceProperty.Content" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    style="@style/ResourceBrowser.ResourceProperty.Title"
+                    android:text="@string/description_summary" />
+
+                <TextView
+                    android:id="@+id/resourcesummary"
+                    style="@style/ResourceBrowser.ResourceProperty.Content"
+                    android:singleLine="false" />
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
 
 </LinearLayout>

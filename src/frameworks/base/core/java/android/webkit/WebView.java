@@ -6069,6 +6069,12 @@ public class WebView extends AbsoluteLayout
         return true;
     }
 
+    /**.
+     * @hide pending API council approval.
+     */
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    public void webSearchText() {}
+
     private float calculateDragAngle(int dx, int dy) {
         dx = Math.abs(dx);
         dy = Math.abs(dy);
