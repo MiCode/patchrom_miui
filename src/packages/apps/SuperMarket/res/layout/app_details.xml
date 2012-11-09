@@ -179,28 +179,83 @@
                         android:layout_marginRight="@dimen/main_padding"
                         android:layout_marginTop="@dimen/common_padding_medium"
                         android:background="@drawable/divider_bg" />
+                <LinearLayout
+                    android:id="@+id/update_info_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_padding"
+                    android:layout_marginLeft="@dimen/main_padding"
+                    android:layout_marginRight="@dimen/main_padding"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+                    <TextView
+                            android:id="@+id/update_info_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/update_info"
+                            android:drawableLeft="@drawable/tip_icon"
+                            android:drawablePadding="5dp"
+                            android:textAppearance="@style/TextAppearance.Subject" />
                     <com.xiaomi.market.ui.ExpandableTextView
-                        android:id="@+id/description"
+                        android:id="@+id/update_info"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/common_padding_medium" >
+                        android:layout_marginTop="1dip">
                         <TextView
                             android:id="@+id/expandable_textview"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/main_padding"
-                            android:layout_marginRight="@dimen/main_padding"
-                            android:textAppearance="@style/TextAppearance.Content" />
+                            android:textColor="@color/text_color_medium_gray"
+                            android:textSize="@dimen/text_font_size_medium"/>
                         <TextView
                             android:id="@+id/expand_button"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/main_padding"
-                            android:layout_marginRight="@dimen/main_padding"
                             android:paddingTop="@dimen/common_padding_small"
                             android:text="@string/expand_full_text"
+                            android:visibility="gone"
                             android:textAppearance="@style/TextAppearance.Content" />
                     </com.xiaomi.market.ui.ExpandableTextView>
+                      </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/common_padding"
+                        android:layout_marginLeft="@dimen/main_padding"
+                        android:layout_marginRight="@dimen/main_padding"
+                        android:orientation="vertical" >
+                        <TextView
+                            android:id="@+id/description_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/description_info"
+                            android:drawableLeft="@drawable/tip_icon"
+                            android:drawablePadding="5dp"
+                            android:visibility="gone"
+                            android:textAppearance="@style/TextAppearance.Subject" />
+                      <com.xiaomi.market.ui.ExpandableTextView
+                        android:id="@+id/description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dip">
+                        <TextView
+                            android:id="@+id/expandable_textview"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_color_medium_gray"
+                            android:textSize="@dimen/text_font_size_medium" />
+                        <TextView
+                            android:id="@+id/expand_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/common_padding_small"
+                            android:text="@string/expand_full_text"
+                            android:visibility="gone"
+                            android:textAppearance="@style/TextAppearance.Content" />
+                      </com.xiaomi.market.ui.ExpandableTextView>
+                    </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/divider"
