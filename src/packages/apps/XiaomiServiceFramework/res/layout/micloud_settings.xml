@@ -78,11 +78,32 @@
         <TextView
                 android:id="@+id/account_info"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
+                android:layout_height="@dimen/list_item_height_medium"
+                android:background="@drawable/common_rev_bg"
+                android:gravity="center_vertical"
                 style="@android:style/TextAppearance.Large"
                 />
+        <LinearLayout
+            android:id="@+id/mili_center"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_item_height_medium"
+            android:background="@drawable/common_rev_bg"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:duplicateParentState="true"
+                android:singleLine="true"
+                android:text="@string/mili_center"
+                style="@android:style/TextAppearance.Large" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dip"
+                android:background="@drawable/arrow" />
+        </LinearLayout>
+
         <com.xiaomi.xmsf.account.ui.ExpandedListView
                 android:id="@android:id/list"
                 android:layout_width="fill_parent"

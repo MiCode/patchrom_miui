@@ -69,7 +69,11 @@
                 android:negativeButtonText="@string/accessibility_script_injection_button_disallow"
                 android:persistent="false"
                 android:order="7"/>
-
     </PreferenceCategory>
-
+    <PreferenceCategory android:key="drive_mode_category"
+        android:title="@string/drive_mode" >
+            <PreferenceScreen android:key="drive_mode_title"
+                android:fragment="com.android.settings.MiuiDriveModeSettings"
+                android:title="@string/drive_mode_title" />
+    </PreferenceCategory>
 </PreferenceScreen>
