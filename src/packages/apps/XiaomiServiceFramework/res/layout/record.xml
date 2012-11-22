@@ -41,35 +41,45 @@
             android:textColor="@color/primary_color"
             android:textSize="@miui:dimen/text_font_size_small" />
     </LinearLayout>
-    <ListView
-        android:id="@+id/list"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
-        android:layout_weight="1"
-        android:cacheColorHint="@null"
-        android:divider="@null"
-        android:fadingEdge="@null"
-        android:fastScrollEnabled="true"
-        android:scrollbarStyle="outsideOverlay" />
-    <LinearLayout
-        android:id="@+id/empty"
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone" >
+        android:layout_weight="1" >
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="@null"
+            android:divider="@null"
+            android:fadingEdge="@null"
+            android:fastScrollEnabled="true"
+            android:scrollbarStyle="outsideOverlay" />
         <ProgressBar
-            android:id="@+id/progress"
+            android:id="@+id/append_progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:indeterminateOnly="true" />
-        <TextView
-            android:id="@+id/error"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/secondary_color"
-            android:textSize="@miui:dimen/text_font_size_small"
+            android:layout_gravity="bottom|center_horizontal"
+            android:indeterminateOnly="true"
             android:visibility="gone" />
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone" >
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminateOnly="true" />
+            <TextView
+                android:id="@+id/error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/secondary_color"
+                android:textSize="@miui:dimen/text_font_size_small"
+                android:visibility="gone" />
+        </LinearLayout>
+    </FrameLayout>
 </LinearLayout>
