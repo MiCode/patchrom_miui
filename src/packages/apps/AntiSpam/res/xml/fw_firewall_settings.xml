@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceScreen
+        android:key="fw_action_settings"
+        android:title="@string/fw_action_settings">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.miui.antispam"
+            android:targetClass="com.miui.antispam.firewall.ActionSettings" />
+    </PreferenceScreen>
+
+    <PreferenceScreen
+        android:key="fw_enable_time_limit"
+        android:title="@string/fw_time_settings">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.miui.antispam"
+            android:targetClass="com.miui.antispam.firewall.TimeSettings" />
+    </PreferenceScreen>
+
+    <PreferenceCategory
+        android:key="fw_advanced_settings"
+        android:title="@string/fw_advanced_settings">
+
+        <CheckBoxPreference
+            android:key="anti_stranger_call"
+            android:title="@string/anti_stranger_title"
+            android:summary="@string/anti_stranger_summary"
+            android:persistent="false"
+            />
+
+        <CheckBoxPreference
+            android:key="anti_private_call"
+            android:title="@string/anti_private_title"
+            android:summary="@string/anti_private_summary"
+            android:persistent="false"
+            />
+
+        <CheckBoxPreference
+            android:key="filter_stranger_sms"
+            android:title="@string/fw_keyword_filter"
+            android:summary="@string/fw_keyword_filter_summary"
+            android:persistent="false"
+            />
+
+        <PreferenceScreen
+            android:key="fw_set_keyword"
+            android:dependency="filter_stranger_sms"
+            android:title="@string/fw_set_keyword">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:targetPackage="com.miui.antispam"
+                android:targetClass="com.miui.antispam.firewall.KeywordListActivity" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/fw_notification_settings">
+        <CheckBoxPreference
+            android:key="fw_show_firewall_notification"
+            android:title="@string/show_firewall_notification"
+            android:defaultValue="false"
+            />
+
+        <CheckBoxPreference
+            android:key="fw_show_notification"
+            android:title="@string/show_notification"
+            android:defaultValue="true"
+            />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

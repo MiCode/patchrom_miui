@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- In-call Phone UI; see InCallScreen.java. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/incall_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <!-- inCallPanel: container for the CallCard. -->
+    <!-- TODO: This RelativeLayout is useless since it only has
+         one child.  And the only reason it's here is so we can
+         setVisibility(View.GONE) on it when we want to entirely
+         hide the CallCard.
+         So let's just get rid of it, and call setVisibility()
+         directly on the CallCard. -->
+    <!-- Note that the CallCard is technically the size of the full screen
+         (since layout_width and layout_height are both "match_parent" here) but
+         we manually adjust its bottom margin in CallCard.updateCallInfoLayout()
+         to make sure it doesn't overlap with the onscreen buttons from
+         incall_touch_ui.xml. -->
+    <RelativeLayout android:id="@+id/inCallPanel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+        <!-- The "Call Card", which displays info about the currently
+             active phone call(s) on the device.  See call_card.xml. -->
+        <com.android.phone.CallCard android:id="@+id/callCard"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    />
+    </RelativeLayout>  <!-- End of inCallPanel -->
+
+    <!-- In-call onscreen touch controls; see InCallTouchUi.java.
+         This widget contains the cluster of buttons shown at the bottom
+         of the in-call screen, and also the DTMF dialpad (which, when
+         visible, covers the upper part of the screen too.) -->
+    <com.android.phone.InCallTouchUi
+        android:id="@+id/inCallTouchUi"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <!-- ViewStub for OTASP-related UI elements (for the CDMA "activation"
+         call.)  Note that this ViewStub provides the *entire* OTASP
+         screen, including the status area at the top *and* touch controls
+         at the bottom of the screen.  The regular CallCard and the
+         InCallTouchUi widget are not used at all during an OTASP call. -->
+    <ViewStub android:id="@+id/otaCallCardStub"
+              android:layout="@layout/otacall_card"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              />
+
+    <!-- The "Manage conference" UI.  This panel is displayed (and covers up
+         the entire normal in-call UI) when the user clicks "Manage conference"
+         during a GSM conference call. -->
+    <ViewStub android:id="@+id/manageConferencePanelStub"
+              android:layout="@layout/manage_conference_panel"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              />
+
+    <!-- Overlay for the "Calling via ..." provider badge, which is
+         displayed for a few seconds at the start of any outgoing call
+         using a gateway provider (see InCallScreen.updateProviderOverlay()). -->
+    <LinearLayout android:id="@+id/inCallProviderOverlay"
+        android:background="@drawable/dialog_bg_calling_via"
+        android:layout_width="match_parent"
+        android:layout_height="88dip"
+        android:layout_marginTop="@dimen/provider_overlay_top_margin"
+        android:layout_gravity="top"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+         <ImageView android:id="@+id/callingViaIcon"
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            />
+        <TextView android:id="@+id/callingVia"
+            android:text="@string/calling_via_template"
+            android:layout_weight="1"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceSmallInverse"
+            android:gravity="center"
+            />
+        <View
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            />
+    </LinearLayout>
+
+</FrameLayout>

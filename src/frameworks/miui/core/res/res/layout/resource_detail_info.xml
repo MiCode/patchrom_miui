@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/resource_info_bg">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:src="@drawable/resource_info_title"
+        android:paddingTop="30dip" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/resource_title"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@android:color/white"
+        android:paddingBottom="30dip" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:fadingEdge="vertical"
+        android:scrollbars="vertical"
+        android:paddingLeft="5dip"
+        android:paddingRight="5dip"
+        android:paddingBottom="55dip" >
+
+        <TableLayout
+            android:id="@+id/tableLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    style="@style/ResourceBrowser.ResourceProperty.Title"
+                    android:text="@string/description_author" />
+
+                <TextView
+                    android:id="@+id/resourceauthor"
+                    style="@style/ResourceBrowser.ResourceProperty.Content" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    style="@style/ResourceBrowser.ResourceProperty.Title"
+                    android:text="@string/description_designer" />
+
+                <TextView
+                    android:id="@+id/resourcedesigner"
+                    style="@style/ResourceBrowser.ResourceProperty.Content" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    style="@style/ResourceBrowser.ResourceProperty.Title"
+                    android:text="@string/description_size" />
+
+                <TextView
+                    android:id="@+id/resourcesize"
+                    style="@style/ResourceBrowser.ResourceProperty.Content" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    style="@style/ResourceBrowser.ResourceProperty.Title"
+                    android:text="@string/description_version" />
+
+                <TextView
+                    android:id="@+id/resourceversion"
+                    style="@style/ResourceBrowser.ResourceProperty.Content" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/mark"
+                    style="@style/ResourceBrowser.ResourceProperty.Title"
+                    android:text="@string/description_uploadtime" />
+
+                <TextView
+                    android:id="@+id/resourcemodifiedtime"
+                    style="@style/ResourceBrowser.ResourceProperty.Content" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    style="@style/ResourceBrowser.ResourceProperty.Title"
+                    android:text="@string/description_download" />
+
+                <TextView
+                    android:id="@+id/resourcedownload"
+                    style="@style/ResourceBrowser.ResourceProperty.Content" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    style="@style/ResourceBrowser.ResourceProperty.Title"
+                    android:text="@string/description_summary" />
+
+                <TextView
+                    android:id="@+id/resourcesummary"
+                    style="@style/ResourceBrowser.ResourceProperty.Content"
+                    android:singleLine="false" />
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+
+</LinearLayout>

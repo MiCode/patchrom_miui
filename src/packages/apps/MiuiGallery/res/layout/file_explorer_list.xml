@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/page_layout_root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@null"
+    android:colorBackgroundCacheHint="@null"
+>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/album_page_title_height"
+        android:orientation="horizontal"
+        android:background="@drawable/main_bg">
+    </LinearLayout>
+
+    <!-- path -->
+    <LinearLayout android:id="@+id/navigation_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/file_explorer_list_margin_left"
+        android:layout_marginRight="@dimen/file_explorer_list_margin_right"
+    >
+        <ImageView android:id="@+id/path_pane_up_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6.66dp"
+            android:src="@drawable/path_up_level"
+        />
+        <LinearLayout android:id="@+id/current_path_pane"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="@dimen/file_explorer_path_height"
+            android:gravity="center_vertical"
+            android:background="@drawable/path_pane_bg"
+        >
+            <TextView style="@style/DeepStyle"
+                android:id="@+id/current_path_view"
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/file_explorer_path_text_padding"
+                android:paddingRight="@dimen/file_explorer_path_text_padding"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/title_secondary_text_size"
+                android:ellipsize="start"
+                android:singleLine="true"
+            />
+            <ImageView android:id="@+id/path_pane_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="6.66dip"
+                android:src="@drawable/path_pane_arrow_down"
+            />
+        </LinearLayout>
+    </LinearLayout>
+    <!-- end path -->
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+    >
+        <TextView android:id="@+id/empty_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableTop="@drawable/empty_icon"
+            android:drawablePadding="16dip"
+            android:text="@string/no_file"
+            android:textColor="#e2e2e2"
+            android:textSize="27px"
+            android:singleLine="true"
+            android:visibility="gone"
+        />
+        <TextView
+            android:id="@+id/sd_absence_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:drawableTop="@drawable/sd_not_available"
+            android:drawablePadding="16dip"
+            android:text="@string/sd_not_available"
+            android:textColor="#e2e2e2"
+            android:textSize="27px"
+            android:singleLine="true"
+        />
+        <EditableListView android:id="@+id/file_path_list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="@dimen/file_explorer_list_margin_left"
+            android:cacheColorHint="@android:color/transparent"
+            android:headerDividersEnabled="true"
+            android:footerDividersEnabled="true"
+            android:dividerHeight="1px"
+            android:fastScrollEnabled="true"
+            android:divider="@drawable/listview_divider"
+        />
+        <ScrollView android:id="@+id/dropdown_navigation"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/file_explorer_list_navigation_margint_left"
+            android:layout_marginRight="@dimen/file_explorer_list_margin_right"
+            android:overScrollMode="never"
+            android:background="@drawable/path_scroll_bg"
+            android:visibility="gone"
+        >
+            <LinearLayout android:id="@+id/dropdown_navigation_list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+            >
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+</LinearLayout>

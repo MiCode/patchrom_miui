@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- Use a full-screen popup window because UI has some intermediate problems
+     when its size is changed. -->
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:camera="http://schemas.android.com/apk/res/com.android.camera"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/share_popup_background">
+    <FrameLayout android:id="@+id/root"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:background="@color/share_popup_blackout">
+        <com.android.camera.ui.RotateLayout
+                android:id="@+id/thumbnail_rotate_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center">
+            <!-- The size of the thumbnail is calculated in SharePopup.java -->
+            <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                <com.android.camera.ui.StackLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    <ImageView android:id="@+id/thumbnail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitCenter"/>
+                    <View
+                            android:id="@+id/thumbnail_image_frame"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="0dp"
+                            android:background="@drawable/border_last_picture"
+                            android:clickable="true"/>
+                </com.android.camera.ui.StackLayout>
+                <ImageView android:id="@+id/play"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:scaleType="center"
+                        style="@style/ReviewPlayIcon"/>
+            </FrameLayout>
+        </com.android.camera.ui.RotateLayout>
+        <LinearLayout
+                android:layout_width="@dimen/share_item_width"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="right"
+                android:background="@color/share_icon_background">
+            <com.android.camera.ui.RotateLayout
+                    android:id="@+id/goto_gallery_button_rotate"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/share_item_width" >
+                <ImageButton
+                        android:id="@+id/goto_gallery_button"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="center"
+                        android:src="@drawable/ic_gallery" />
+            </com.android.camera.ui.RotateLayout>
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_margin="8dp"
+                    android:layout_height="1dp"
+                    android:background="#5affffff" />
+
+            <GridView android:id="@+id/share_list"
+                    style="@style/OneColumnGrid" />
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>

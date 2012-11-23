@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:id="@+id/crumb_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:paddingLeft="5dip"
+        android:paddingRight="5dip"
+        android:orientation="horizontal"
+        android:minHeight="?android:attr/listPreferredItemHeightSmall"
+        >
+        <com.android.browser.BreadCrumbView android:id="@+id/crumbs"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <View android:id="@+id/add_divider"
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="?android:attr/dividerVertical"
+            />
+        <TextView
+            android:id="@+id/add_new_folder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_add_string"
+            android:text="@string/new_folder"
+            android:visibility="gone"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:paddingRight="8dip" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/title_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="5dip"
+        android:paddingRight="5dip"
+        android:minHeight="?android:attr/listPreferredItemHeightSmall"
+        >
+        <TextView android:id="@+id/fake_title"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:drawableLeft="@drawable/ic_bookmark_on_holo_dark"
+            android:text="@string/bookmark_this_page"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        <View android:id="@+id/remove_divider"
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="?android:attr/dividerVertical"
+            android:visibility="gone"
+            />
+        <TextView android:id="@+id/remove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:text="@string/remove"
+            android:drawableLeft="@drawable/trashcan"
+            android:visibility="gone"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TableLayout android:id="@+id/default_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1"
+                android:shrinkColumns="1"
+                android:paddingTop="10dip"
+                android:paddingLeft="20dip"
+                android:paddingRight="20dip" >
+              <TableRow android:layout_marginBottom="10dip">
+                <TextView
+                    android:id="@+id/titleText"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/name"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <EditText
+                    android:id="@+id/title"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="20dip"
+                    android:inputType="textCapSentences|textNoSuggestions"
+                    android:ellipsize="end"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+              </TableRow>
+
+              <TableRow
+                  android:layout_marginBottom="10dip"
+                  android:id="@+id/row_address">
+                <TextView
+                    android:id="@+id/addressText"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/location"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <EditText
+                    android:id="@+id/address"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="20dip"
+                    android:hint="@string/http"
+                    android:inputType="textUri"
+                    android:ellipsize="end"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+              </TableRow>
+              <TableRow android:layout_marginBottom="10dip">
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/account"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <Spinner
+                    android:id="@+id/accounts"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="20dip"
+                    android:spinnerMode="dropdown"
+                    />
+              </TableRow>
+              <TableRow android:layout_marginBottom="10dip">
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/containing_folder"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <view class="com.android.browser.addbookmark.FolderSpinner"
+                    android:id="@+id/folder"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="20dip"
+                    android:spinnerMode="dropdown"
+                    />
+              </TableRow>
+            </TableLayout>
+        </ScrollView>
+
+        <LinearLayout android:id="@+id/folder_selector"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"
+            >
+
+            <view class="com.android.browser.AddBookmarkPage$CustomListView"
+                android:id="@+id/list"
+                android:layout_marginLeft="16dip"
+                android:layout_marginRight="16dip"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+            <TextView
+                android:id="@+id/empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginLeft="16dip"
+                android:layout_marginTop="16dip"
+                android:text="@string/no_subfolders"
+                android:textStyle="italic"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        style="?android:attr/buttonBarStyle">
+        <Button android:id="@+id/cancel"
+            android:text="@string/do_not_save"
+            android:layout_width="0dip"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:maxLines="2"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle" />
+        <Button android:id="@+id/OK"
+            android:text="@string/save"
+            android:layout_width="0dip"
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            android:maxLines="2"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle" />
+    </LinearLayout>
+
+</merge>

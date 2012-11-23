@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android1="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"   
+    android:orientation="vertical"
+    android1:gravity="left|center_vertical" >
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:textColor="@color/bright_foreground_light"
+        android:textSize="@dimen/content_text_size"
+        android:background="@drawable/dialog_bg"
+        android1:clickable="false" />
+
+    <LinearLayout
+        android:id="@+id/layout_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/card_bg"
+        android:visibility="gone" >
+        
+        <TextView android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:text="@string/new_alarm"
+            android:textColor="@color/black"
+            android:textSize="@dimen/content_text_size"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp" />
+        
+        <ImageView android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@color/darkgray"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:text="@string/confirm_cancel"
+            android:textColor="@color/black"
+            android:textSize="@dimen/content_text_size"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:clickable="false" />
+        
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            
+            <TextView android:id="@+id/bt_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/cancel"
+                android:textColor="@color/black"
+                android:textSize="@dimen/content_text_size"
+                android:gravity="center"
+                android:background="@drawable/card_selector_left" />
+            
+            <TextView android:id="@+id/bt_ok"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/confirm"
+                android:textColor="@color/black"
+                android:textSize="@dimen/content_text_size"
+                android:gravity="center"
+                android:background="@drawable/card_selector_right" />
+            
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

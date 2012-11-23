@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    style="@style/MusicActivityStyle">
+
+    <include layout="@layout/sd_error" />
+
+    <FrameLayout
+        android:id="@+id/main_list_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ListView
+            android:id="@android:id/list"
+            style="@style/PickerListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <miui.widget.AlphabetFastIndexer
+            android:id="@+id/fast_indexer"
+            style="@style/AlphaFastIndexerStyle" />
+    </FrameLayout>
+
+</LinearLayout>

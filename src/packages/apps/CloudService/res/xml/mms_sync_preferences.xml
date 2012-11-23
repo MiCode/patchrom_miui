@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <miui.widget.SyncStatePreference
+            android:key="pref_key_sync_sms"
+            android:title="@string/sync_item_sms_title"
+            android:summary="@string/sync_item_sms_summary"
+            />
+
+    <miui.widget.SyncStatePreference
+            android:defaultValue="true"
+            android:key="pref_key_sync_mms_under_wifi"
+            android:title="@string/sub_sync_item_sms_title_wifi_only"
+            android:summary="@string/sub_sync_item_sms_summary"
+            android:dependency="pref_key_sync_sms"
+            />
+
+</PreferenceScreen>

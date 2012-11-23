@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (C) 2009 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<com.android.videoeditor.widgets.TimelineHorizontalScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/timeline_scroller"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:fillViewport="true"
+    android:scrollbars="none">
+    <com.android.videoeditor.widgets.TimelineRelativeLayout
+        android:id="@+id/timeline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <com.android.videoeditor.widgets.MediaLinearLayout android:id="@+id/timeline_media"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/media_layout_height"
+            android:paddingTop="@dimen/media_layout_padding"
+            android:background="@drawable/timeline_background_line"/>
+        <com.android.videoeditor.widgets.OverlayLinearLayout android:id="@+id/timeline_overlays"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/overlay_layout_height"
+            android:layout_below="@id/timeline_media"
+            android:background="@drawable/timeline_background_noline"/>
+        <com.android.videoeditor.widgets.AudioTrackLinearLayout android:id="@+id/timeline_audio_tracks"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/audio_layout_height"
+            android:layout_below="@id/timeline_overlays"
+            android:background="@drawable/timeline_background_line"/>
+        <com.android.videoeditor.widgets.PlayheadView android:id="@+id/timeline_playhead"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/playhead_layout_height"
+            android:layout_below="@id/timeline_audio_tracks"
+            android:background="@drawable/timeline_background_line"/>
+    </com.android.videoeditor.widgets.TimelineRelativeLayout>
+</com.android.videoeditor.widgets.TimelineHorizontalScrollView>

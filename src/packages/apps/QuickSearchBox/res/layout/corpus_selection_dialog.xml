@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <RelativeLayout
+        android:id="@+id/corpus_selector_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/corpus_selector_arrow"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:paddingTop="22dip"
+        android:paddingBottom="26dip"
+        android:paddingLeft="4dip"
+        android:paddingRight="4dip"
+        android:background="@drawable/corpus_selector_bg"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:id="@+id/corpus_selector_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/corpus_selector_arrow"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:paddingLeft="16dip"
+                android:singleLine="true"
+                android:gravity="center_vertical|left"
+                android:textColor="@android:color/primary_text_light"
+                android:textSize="14dip"
+                android:text="@string/corpus_selection_heading"
+            />
+
+            <ImageView
+                android:id="@+id/corpus_edit_items"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingLeft="6dip"
+                android:paddingTop="6dip"
+                android:paddingBottom="6dip"
+                android:paddingRight="6dip"
+                android:gravity="center_vertical|right"
+                android:singleLine="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/corpus_edit_icon"
+                android:background="@drawable/corpus_edit_items_bg"
+            />
+        </RelativeLayout>
+
+        <GridView
+            android:id="@+id/corpus_grid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/corpus_selector_header"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="12dip"
+            android:horizontalSpacing="2dip"
+            android:verticalSpacing="4dip"
+            android:numColumns="@integer/corpus_selection_dialog_columns"
+            android:listSelector="@null"
+            />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/corpus_selector_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="44dip"
+        android:layout_marginBottom="-9dip"
+        android:layout_marginLeft="8.5dip"
+        android:src="@drawable/corpus_selector_arrow_up"
+        />
+
+</RelativeLayout>

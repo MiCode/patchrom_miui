@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitXY"
+        android:src="@drawable/top_bg" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/halo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_height"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_back" />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/search_box_height"
+                android:layout_marginTop="@dimen/search_box_margin"
+                android:layout_weight="1"
+                android:background="@drawable/search_box_bg" >
+
+                <EditText
+                    android:id="@+id/search_box"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@+id/clear_box"
+                    android:background="@drawable/transparent"
+                    android:inputType="text"
+                    android:imeOptions="actionSearch"
+                    android:imeActionLabel="@string/search"
+                    android:maxLength="20" />
+
+                <Button
+                    android:id="@id/clear_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/search_clear" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/search_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/search_button_margin_right"
+                android:layout_marginTop="@dimen/search_box_margin"
+                android:clickable="true"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/search_button" />
+        </LinearLayout>
+
+        <ViewFlipper
+            android:id="@+id/content_panel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="false"
+            android:background="@drawable/transparent"
+            android:flipInterval="500"
+            android:persistentDrawingCache="animation" >
+
+            <ListView
+                android:id="@+id/search_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:footerDividersEnabled="false"
+                android:headerDividersEnabled="false"/>
+
+            <LinearLayout
+                android:id="@+id/search_panel"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <include layout="@layout/load_view" 
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" 
+                    android:layout_gravity="center"/>
+
+                <com.duokan.tv.video.widget.PagerViewEx
+                    android:id="@+id/search_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+        </ViewFlipper>
+    </LinearLayout>
+
+</merge>

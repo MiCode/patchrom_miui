@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/page_layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:colorBackground="@null"
+    android:colorBackgroundCacheHint="@null"
+>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/albumset_page_bar_height"
+            android:background="@drawable/main_bg">
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/albumset_page_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/initial_cloud_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <ImageView android:id="@+id/initial_cloud_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:src="@drawable/initial_cloud_image"/>
+        <TextView android:id="@+id/initial_cloud_text"
+            style="@style/CloudInitialText"
+            android:text="@string/account_not_login"/>
+        <TextView android:id="@+id/initial_cloud_button"
+            style="@style/CloudInitialButton"
+            android:text="@string/open_sync"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/cloud_none_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <TextView android:id="@+id/cloud_none_text"
+            style="@style/CloudInitialText"
+            android:layout_height="@dimen/cloud_none_text_height"
+            android:text="@string/cloud_gallery_no_pictures"/>
+        <TextView android:id="@+id/cloud_none_message_text"
+            style="@style/CloudInitialText"
+            android:textColor="@color/white_50_transparent"
+            android:text="@string/alert_message_initial_cloud"/>
+        <TextView android:id="@+id/modify_cloud_setting_button"
+            style="@style/CloudInitialButton"
+            android:visibility="gone"
+            android:text="@string/modify_cloud_settings"/>
+    </LinearLayout>
+</LinearLayout>

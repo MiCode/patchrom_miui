@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <ImageView
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/top_bg"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:scaleType="fitXY"/>
+    
+        
+    <ImageView
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/halo" 
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <include layout="@layout/title_view" />
+
+        <com.duokan.tv.video.widget.ListViewEx
+            android:id="@+id/detail"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:listSelector="@drawable/transparent"
+            android:layout_weight="1"
+            android:scrollbars="none" />
+        
+        <RelativeLayout
+            android:padding="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_height"
+            android:background="@drawable/bottom_bar" >
+
+            <FrameLayout
+                android:id="@+id/play"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/clickable_item_bg"
+                android:clickable="true"
+                android:gravity="center" >
+
+                    <Button
+                        android:id="@+id/play_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/play_normal"
+                        android:clickable="false" 
+                        android:layout_gravity="center"/>
+
+                    <ProgressBar
+                        android:id="@+id/play_loading"
+                        style="?android:attr/progressBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+
+                </FrameLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/book"
+                android:layout_width="@dimen/bottom_button_width"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/clickable_item_bg"
+                android:clickable="true"
+                android:gravity="center" >
+                <Button
+                    android:clickable="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bookmark_normal" />
+            </LinearLayout>
+            
+        </RelativeLayout>
+    </LinearLayout>
+
+</merge>

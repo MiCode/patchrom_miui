@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/more"
+        android:paddingTop="@dimen/channel_item_margin"
+        android:background="@drawable/category_clickable_item_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true" >
+
+        <TextView
+            android:id="@+id/channel_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|bottom"
+            android:layout_marginBottom="@dimen/channel_item_name_margin"
+            android:layout_marginLeft="@dimen/channel_item_name_margin"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/text_normal_size" />
+
+        <ImageView
+            android:layout_marginRight="@dimen/category_more_margin_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/more" />
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/channel_item_line_height"
+        android:layout_marginBottom="@dimen/channel_item_line_margin"
+        android:background="#4cffffff" />
+
+    <include layout="@layout/row_of_posters"/>
+
+</LinearLayout>

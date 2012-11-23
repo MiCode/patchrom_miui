@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:phone="http://schemas.android.com/apk/res/com.android.phone"
+        android:title="@string/auto_ip_setting_miui">
+    <CheckBoxPreference
+        android:key="button_autoip"
+        android:title="@string/autoip_miui"
+        android:defaultValue="false"
+        android:summary="@string/autoip_sum_miui"
+        android:persistent="true"
+        android:disableDependentsState="false"/>
+    <EditTextPreference
+        android:key="button_text_ip_prefix"
+        android:title="@string/ip_prefix_miui"
+        android:summary="@string/ip_prefix_sum_miui"
+        android:inputType="phone"
+        android:persistent="true"
+        android:dependency="button_autoip" />
+    <EditTextPreference
+        android:key="button_text_current_areacode"
+        android:title="@string/current_areacode_miui"
+        android:summary="@string/current_areacode_sum_miui"
+        android:persistent="true"
+        android:inputType="phone"
+        android:dependency="button_autoip" />
+    <CheckBoxPreference
+        android:key="button_auto_ip_support_local_numbers"
+        android:title="@string/auto_ip_support_local_numbers"
+        android:persistent="true"
+        android:dependency="button_autoip" />
+    <CheckBoxPreference
+        android:key="button_add_zero_prefix"
+        android:title="@string/add_zero_prefix"
+        android:persistent="true"
+        android:dependency="button_autoip" />
+    <PreferenceScreen
+        android:key="button_autoip_exceptions"
+        android:title="@string/auto_ip_exception_miui"
+        android:dependency="button_autoip">
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.phone"
+            android:targetClass="com.android.phone.MiuiAutoIpExceptionSetting" />
+    </PreferenceScreen>
+</PreferenceScreen>

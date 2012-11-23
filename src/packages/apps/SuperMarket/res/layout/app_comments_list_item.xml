@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.xiaomi.market.ui.AppCommentsItem
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/common_bg" >
+
+    <com.xiaomi.market.ui.ExpandableTextView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/expandable_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_font_size_medium"
+            android:textColor="@color/primary_text" />
+        <TextView
+            android:id="@+id/expand_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/common_padding_small"
+            android:text="@string/expand_full_text"
+            android:textSize="@dimen/text_font_size_medium"
+            android:textColor="@color/primary_text" />
+    </com.xiaomi.market.ui.ExpandableTextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <RatingBar
+            android:id="@+id/ratingbar"
+            style="@style/RatingBar.ReadOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/version"
+            style="@style/TextAppearance.Secondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.Secondary" />
+</com.xiaomi.market.ui.AppCommentsItem>

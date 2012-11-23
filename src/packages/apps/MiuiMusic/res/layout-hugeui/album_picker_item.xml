@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/spacing_picker_item" >
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <FrameLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:paddingTop="@dimen/spacing_picker_item"
+            android:paddingBottom="@dimen/spacing_to_border"
+            android:paddingRight="@dimen/spacing_picker_item">
+            <include layout="@layout/album_picker_item_image" />
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/play_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:scaleType="center"
+            android:background="@drawable/album_playing_indicator_bg"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <include layout="@layout/album_picker_item_text" />
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/batch_selection_check"
+        style="@style/BatchSelectionCheckBoxStyle"
+        android:layout_gravity="right|center_vertical"
+        android:visibility="gone" />
+</LinearLayout>

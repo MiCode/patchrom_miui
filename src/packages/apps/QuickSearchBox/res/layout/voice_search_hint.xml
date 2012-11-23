@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical|left"
+        android:visibility="gone"
+        >
+
+<ImageView
+        android:id="@+id/voice_search_hint_close_button"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/voice_search_hint_close"
+        android:clickable="true"
+        android:focusable="true"
+        />
+
+<LinearLayout
+        android:id="@+id/voice_search_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/voice_search_hint_bg"
+        android:orientation="vertical"
+        android:gravity="center_vertical|left"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:clickable="true"
+        android:focusable="true"
+        >
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.0"
+            android:textColor="#88000000"
+            android:textSize="@dimen/voice_search_hint_text_size"
+            android:gravity="left"
+            android:singleLine="true"
+            android:paddingRight="4dip"
+            android:text="@string/voice_search_hint_title"
+            />
+
+    <TextView
+            android:id="@+id/voice_search_hint_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/voice_search_hint_text_size"
+            android:gravity="left"
+            android:singleLine="true"
+            />
+
+</LinearLayout>
+
+</LinearLayout>
