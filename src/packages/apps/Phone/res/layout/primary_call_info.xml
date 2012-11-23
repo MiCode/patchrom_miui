@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- XML resource file for primary call info, which will be used by CallCard.
+     See also call_card.xml. -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1">
+
+    <!-- Contact photo for primary call info -->
+    <ImageView android:id="@+id/photo"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentTop="true"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:gravity="top|center_horizontal"
+         android:scaleType="centerCrop"
+         android:contentDescription="@string/contactPhoto" />
+
+    <!-- Used when the phone call is on hold, dimming the primary photo
+
+         Note: Theoretically it is possible to achieve this effect using
+         Drawable#setColorFilter().
+
+         But watch out: we also use cross fade between primary and
+         secondary photo, which may interfere with the dim effect with
+         setColorFilter(). To try it out, use GSM phones and do multiple
+         calls.
+
+         Detail: during the cross-fade effect we are currently using
+         TransitionDrawable. TransitionDrawable#setColorFilter() will call
+         the equivalent method for *both* drawables which are shared by
+         the two ImageViews. If we set setColorFilter() for "on hold" effect
+         during the cross-fade, *both* primary and secondary photos become
+         dim.
+
+         Theoretically it can be avoided (by copying drawable, or carefully
+         calling setColorFilter() conditionally. But it doesn't bang for the
+         buck for now.
+
+         TODO: try that. It may be smoother with slower devices.
+      -->
+    <View android:id="@+id/dim_effect_for_primary_photo"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentTop="true"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:background="@color/on_hold_dim_effect"
+         android:visibility="gone" />
+
+    <!-- "Call Banner" for primary call, the foregound or ringing call.
+         The "call banner" is a block of info about a single call,
+         including the contact name, phone number, call time counter,
+         and other status info.  This info is shown as a "banner"
+         overlaid across the top of contact photo. -->
+    <RelativeLayout android:id="@+id/primary_call_banner"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/call_banner_height"
+        android:paddingLeft="@dimen/call_banner_side_padding"
+        android:paddingRight="@dimen/call_banner_side_padding"
+        android:paddingTop="@dimen/call_banner_top_bottom_padding"
+        android:paddingBottom="@dimen/call_banner_top_bottom_padding"
+        android:background="@color/incall_call_banner_background">
+
+        <!-- Name (or the phone number, if we don't have a name to display). -->
+        <TextView android:id="@+id/name"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="@dimen/call_banner_name_number_right_padding"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/incall_call_banner_text_color"
+            android:singleLine="true" />
+
+        <!-- Label (like "Mobile" or "Work", if present) and phone number, side by side -->
+        <LinearLayout android:id="@+id/labelAndNumber"
+            android:layout_below="@id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="@dimen/call_banner_name_number_right_padding"
+            android:orientation="horizontal">
+            <TextView android:id="@+id/phoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/incall_call_banner_text_color"
+                android:singleLine="true" />
+            <TextView android:id="@+id/label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/incall_call_banner_text_color"
+                android:textAllCaps="true"
+                android:singleLine="true"
+                android:layout_marginLeft="6dp" />
+        </LinearLayout>
+
+        <!-- Elapsed time indication for a call in progress. -->
+        <TextView android:id="@+id/elapsedTime"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/incall_call_banner_text_color"
+            android:singleLine="true"
+            android:visibility="invisible" />
+
+        <!-- Call type indication: a special label and/or branding
+             for certain kinds of calls (like "Internet call" for a SIP call.) -->
+        <TextView android:id="@+id/callTypeLabel"
+            android:layout_below="@id/labelAndNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/incall_call_banner_text_color"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+    </RelativeLayout>  <!-- End of call_banner -->
+
+    <LinearLayout android:id="@+id/secondary_info_container"
+        android:layout_below="@id/primary_call_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|right"
+        android:orientation="vertical"
+        android:background="@color/incall_secondary_info_background"
+        android:animateLayoutChanges="true">
+
+        <!-- Shown when a gateway provider is used during any outgoing call. -->
+        <LinearLayout android:id="@+id/providerInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/provider_info_top_bottom_padding"
+            android:paddingBottom="@dimen/provider_info_top_bottom_padding"
+            android:paddingLeft="@dimen/call_banner_side_padding"
+            android:paddingRight="@dimen/call_banner_side_padding"
+            android:gravity="right"
+            android:orientation="horizontal"
+            android:background="@android:color/transparent">
+            <TextView android:id="@+id/providerLabel"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textAllCaps="true"
+                android:textColor="@color/incall_call_banner_text_color"
+                android:singleLine="true"
+                android:ellipsize="marquee" />
+            <TextView android:id="@+id/providerAddress"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="right"
+                android:paddingLeft="8dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textAllCaps="true"
+                android:textColor="@color/incall_call_banner_text_color"
+                android:singleLine="true"
+                android:ellipsize="middle" />
+        </LinearLayout>
+
+        <!-- The "call state label": In some states, this shows a special
+             indication like "Dialing" or "Incoming call" or "Call ended".
+             It's unused for the normal case of an active ongoing call. -->
+        <TextView android:id="@+id/callStateLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/provider_info_top_bottom_padding"
+            android:paddingBottom="@dimen/provider_info_top_bottom_padding"
+            android:paddingLeft="@dimen/call_banner_side_padding"
+            android:paddingRight="@dimen/call_banner_side_padding"
+            android:gravity="right"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/incall_call_banner_text_color"
+            android:textAllCaps="true"
+            android:background="@android:color/transparent"
+            android:singleLine="true"
+            android:ellipsize="end" />
+    </LinearLayout>
+
+    <!-- Social status (currently unused) -->
+    <!-- <TextView android:id="@+id/socialStatus"
+              android:layout_below="@id/callTypeLabel"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textAppearance="?android:attr/textAppearanceSmall"
+              android:textColor="@color/incall_call_banner_text_color"
+              android:maxLines="2"
+              android:ellipsize="end"
+              /> -->
+</RelativeLayout>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/development_settings_title">
+    <PreferenceScreen
+            android:key="local_backup_password"
+            android:title="@string/local_backup_password_title"
+            android:summary="@string/local_backup_password_summary_none"
+            android:persistent="false" >
+        <intent
+                android:action="android.settings.privacy.SET_FULL_BACKUP_PASSWORD"
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.SetFullBackupPassword" />
+    </PreferenceScreen>
+
+    <CheckBoxPreference 
+        android:key="keep_screen_on" 
+        android:title="@string/keep_screen_on" 
+        android:summary="@string/keep_screen_on_summary"/>
+
+    <ListPreference
+        android:key="hdcp_checking"
+        android:title="@string/hdcp_checking_title"
+        android:dialogTitle="@string/hdcp_checking_dialog_title"
+        android:entries="@array/hdcp_checking_titles"
+        android:entryValues="@array/hdcp_checking_values" />
+
+    <CheckBoxPreference
+        android:key="enforce_read_external"
+        android:title="@string/enforce_read_external_title"
+        android:summary="@string/enforce_read_external_summary" />
+
+    <PreferenceCategory android:key="debug_debugging_category"
+            android:title="@string/debug_debugging_category">
+
+        <CheckBoxPreference
+            android:key="enable_adb"
+            android:title="@string/enable_adb"
+            android:summary="@string/enable_adb_summary"/>
+
+        <CheckBoxPreference
+            android:key="allow_mock_location"
+            android:title="@string/allow_mock_location"
+            android:summary="@string/allow_mock_location_summary"/>
+
+        <PreferenceScreen android:key="debug_app"
+                android:title="@string/debug_app" />
+
+        <CheckBoxPreference
+            android:key="wait_for_debugger"
+            android:title="@string/wait_for_debugger"
+            android:summary="@string/wait_for_debugger_summary"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="debug_input_category"
+            android:title="@string/debug_input_category">
+
+        <CheckBoxPreference
+            android:key="show_touches"
+            android:title="@string/show_touches"
+            android:summary="@string/show_touches_summary"/>
+
+        <CheckBoxPreference
+            android:key="pointer_location"
+            android:title="@string/pointer_location"
+            android:summary="@string/pointer_location_summary"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="debug_drawing_category"
+            android:title="@string/debug_drawing_category">
+
+        <CheckBoxPreference
+            android:key="debug_layout"
+            android:title="@string/debug_layout"
+            android:summary="@string/debug_layout_summary"/>
+
+        <CheckBoxPreference
+            android:key="show_hw_screen_udpates"
+            android:title="@string/show_hw_screen_updates"
+            android:summary="@string/show_hw_screen_updates_summary"/>
+
+        <CheckBoxPreference
+            android:key="show_screen_updates"
+            android:title="@string/show_screen_updates"
+            android:summary="@string/show_screen_updates_summary"/>
+
+        <ListPreference
+            android:key="window_animation_scale"
+            android:title="@string/window_animation_scale_title"
+            android:persistent="false"
+            android:entries="@array/window_animation_scale_entries"
+            android:entryValues="@array/window_animation_scale_values" />
+
+        <ListPreference
+            android:key="transition_animation_scale"
+            android:title="@string/transition_animation_scale_title"
+            android:persistent="false"
+            android:entries="@array/transition_animation_scale_entries"
+            android:entryValues="@array/transition_animation_scale_values" />
+
+        <ListPreference
+            android:key="animator_duration_scale"
+            android:title="@string/animator_duration_scale_title"
+            android:persistent="false"
+            android:entries="@array/animator_duration_scale_entries"
+            android:entryValues="@array/animator_duration_scale_values" />
+
+        <CheckBoxPreference
+            android:key="disable_overlays"
+            android:title="@string/disable_overlays"
+            android:summary="@string/disable_overlays_summary"/>
+
+        <CheckBoxPreference
+            android:key="force_hw_ui"
+            android:title="@string/force_hw_ui"
+            android:summary="@string/force_hw_ui_summary"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="debug_monitoring_category"
+            android:title="@string/debug_monitoring_category">
+
+        <CheckBoxPreference
+            android:key="strict_mode"
+            android:title="@string/strict_mode"
+            android:summary="@string/strict_mode_summary"/>
+
+        <CheckBoxPreference
+            android:key="show_cpu_usage"
+            android:title="@string/show_cpu_usage"
+            android:summary="@string/show_cpu_usage_summary"/>
+
+        <CheckBoxPreference
+            android:key="track_frame_time"
+            android:title="@string/track_frame_time"
+            android:summary="@string/track_frame_time_summary"/>
+
+        <MultiCheckPreference
+            android:key="enable_traces"
+            android:title="@string/enable_traces_title"
+            android:dialogTitle="@string/enable_traces_dialog_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="debug_applications_category"
+            android:title="@string/debug_applications_category">
+
+        <CheckBoxPreference
+            android:key="immediately_destroy_activities"
+            android:title="@string/immediately_destroy_activities"
+            android:summary="@string/immediately_destroy_activities_summary"/>
+
+        <ListPreference
+            android:key="app_process_limit"
+            android:title="@string/app_process_limit_title"
+            android:persistent="false"
+            android:entries="@array/app_process_limit_entries"
+            android:entryValues="@array/app_process_limit_values" />
+
+        <CheckBoxPreference
+            android:key="show_all_anrs"
+            android:title="@string/show_all_anrs"
+            android:summary="@string/show_all_anrs_summary"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

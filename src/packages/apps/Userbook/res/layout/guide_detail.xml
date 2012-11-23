@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="?android:attr/homeAsUpIndicator"
+            android:background="?android:attr/actionBarItemBackground"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/home"
+            android:layout_toLeftOf="@+id/read_status"
+            style="@android:style/TextAppearance.Holo.Widget.ActionMode.Title" />
+
+        <TextView
+            android:id="@+id/read_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/status_read"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            style="@android:style/TextAppearance.Holo.Widget.ActionMode.Title" />
+    </RelativeLayout>
+
+    <com.miui.userbook.GuideDetailScreenView
+        android:id="@+id/guide_detail_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="18dip" />
+</LinearLayout>

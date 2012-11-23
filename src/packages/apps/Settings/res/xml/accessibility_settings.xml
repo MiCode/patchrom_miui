@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+        android:title="@string/accessibility_settings_title">
+
+    <PreferenceCategory
+            android:key="services_category"
+            android:title="@string/accessibility_services_title">
+    </PreferenceCategory>
+
+    <PreferenceCategory
+            android:key="system_category"
+            android:title="@string/accessibility_system_title">
+
+        <CheckBoxPreference
+                android:key="toggle_large_text_preference"
+                android:title="@string/accessibility_toggle_large_text_title"
+                android:persistent="false"/>
+
+        <CheckBoxPreference
+                android:key="toggle_power_button_ends_call_preference"
+                android:title="@string/accessibility_power_button_ends_call_title"
+                android:persistent="false"/>
+
+        <CheckBoxPreference
+                android:key="toggle_lock_screen_rotation_preference"
+                android:title="@string/accelerometer_title"
+                android:persistent="false"/>
+
+        <CheckBoxPreference
+                android:key="toggle_speak_password_preference"
+                android:title="@string/accessibility_speak_password_title"
+                android:persistent="false"/>
+
+        <PreferenceScreen android:key="tts_settings"
+                android:fragment="com.android.settings.tts.TextToSpeechSettings"
+                android:title="@string/tts_settings_title" />
+
+        <ListPreference android:key="select_long_press_timeout_preference"
+                android:title="@string/accessibility_long_press_timeout_title"
+                android:entries="@array/long_press_timeout_selector_titles"
+                android:entryValues="@array/long_press_timeout_selector_values"
+                android:persistent="false"/>
+
+        <!-- We want a dialog with no title, so use an empty string to avoid a fall back to the preference title. -->
+        <com.android.settings.AccessibilityEnableScriptInjectionPreference
+                android:key="toggle_script_injection_preference"
+                android:title="@string/accessibility_script_injection_title"
+                android:dialogTitle=""
+                android:dialogIcon="@android:drawable/ic_dialog_alert"
+                android:dialogMessage="@string/accessibility_script_injection_security_warning_summary"
+                android:positiveButtonText="@string/accessibility_script_injection_button_allow"
+                android:negativeButtonText="@string/accessibility_script_injection_button_disallow"
+                android:persistent="false"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

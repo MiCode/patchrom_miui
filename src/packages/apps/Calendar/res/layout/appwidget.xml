@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:clickable="true">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dip"
+        android:gravity="center_vertical|left"
+        android:paddingLeft="8dip"
+        android:paddingRight="2dip"
+        android:orientation="vertical"
+        android:background="@drawable/appwidget_header_selector">
+        <TextView
+            android:id="@+id/day_of_week"
+            android:layout_marginTop="4dip"
+            android:textColor="@color/appwidget_week"
+            android:shadowColor="#0dffffff"
+            android:shadowRadius="3"
+            style="@style/WidgetDayOfWeekStyle" />
+        <TextView
+            android:id="@+id/date"
+            android:textColor="@color/appwidget_month"
+            style="@style/WidgetDateStyle" />
+    </LinearLayout>
+
+    <!-- Event list -->
+    <ListView
+        android:id="@+id/events_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:layout_marginRight="4dip"
+        android:layout_marginLeft="4dip"
+        android:divider="@null"
+        android:listSelector="@android:color/transparent"
+        android:dividerHeight="3dip"
+        android:cacheColorHint="@null"
+        android:background="@drawable/cal_widget_bg"/>
+</LinearLayout>

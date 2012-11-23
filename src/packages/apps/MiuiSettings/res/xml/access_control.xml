@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/privacy_mode_enable_title">
+
+        <CheckBoxPreference
+            android:key="privacy_mode_enable"
+            android:title="@string/privacy_mode_enable_title"
+            android:summary="@string/privacy_mode_enable_sum"
+            android:defaultValue="false"
+            android:persistent="false"
+            />
+
+        <CheckBoxPreference
+            android:key="ac_privacy_mode"
+            android:title="@string/ac_privacy_mode_title"
+            android:summary="@string/ac_privacy_mode_sum"
+            android:dependency="ac_enable"
+            android:defaultValue="false"
+            android:persistent="false"
+            />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/ac_enable_title">
+
+        <CheckBoxPreference
+            android:key="ac_enable"
+            android:title="@string/ac_enable_title"
+            android:defaultValue="false"
+            android:persistent="false"
+            />
+
+        <PreferenceScreen
+            android:key="ac_set_apps"
+            android:title="@string/ac_set_apps_title"
+            android:persistent="false"
+            android:dependency="ac_enable"
+            >
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.AccessControlSetApp" />
+        </PreferenceScreen>
+
+        <CheckBoxPreference
+            android:key="ac_visiblepattern"
+            android:title="@string/lockpattern_settings_enable_visible_pattern_title"
+            android:defaultValue="false"
+            android:dependency="ac_enable"
+            />
+
+        <CheckBoxPreference
+            android:key="ac_unlock_tactile_feedback"
+            android:title="@string/lockpattern_settings_enable_tactile_feedback_title"
+            android:defaultValue="false"
+            android:dependency="ac_enable"
+            />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

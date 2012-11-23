@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <miui.widget.SyncStatePreference
+        android:key="pref_key_sync_gallery"
+        android:title="@string/sync_album"
+    />
+    <miui.widget.SyncStatePreference
+        android:defaultValue="true"
+        android:key="sync_only_in_wifi"
+        android:title="@string/sync_only_in_wifi"
+        android:summary="@string/sync_only_in_wifi_summary"
+        android:dependency="pref_key_sync_gallery" />
+
+</PreferenceScreen>

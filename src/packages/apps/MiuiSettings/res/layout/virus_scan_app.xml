@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/virus_scan_app_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/virus_scan_app_scanning_bg">
+
+        <TextView
+            android:id="@+id/virus_scan_app_progress"
+            android:textSize="50sp"
+            android:textColor="@android:color/white"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"/>
+
+        <ImageView android:id="@+id/virus_scan_app_icon"
+            android:layout_width="@android:dimen/app_icon_size"
+            android:layout_height="@android:dimen/app_icon_size"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/virus_scan_app_status"
+            style="@android:style/TextAppearance.Medium"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dip"
+            android:singleLine="true"
+            android:text="@string/virus_scan_app_safe_scanning"/>
+
+        <TextView
+            android:id="@+id/virus_scan_app_inf"
+            android:textColor="@android:color/white"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/virus_scan_app_multi_engines"/>
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/virus_scan_app_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:divider="?android:attr/dividerHorizontal"
+        android:showDividers="beginning"
+        android:layout_alignParentBottom="true"
+        android:dividerPadding="0dip">
+        <LinearLayout
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:measureWithLargestChild="true">
+            <Button android:id="@+id/virus_scan_app_button_finish"
+                android:text="@string/virus_scan_app_finish"
+                android:layout_width="0dip"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:maxLines="2"
+                style="?android:attr/buttonBarButtonStyle"
+                android:textSize="14sp"
+                android:visibility="gone"
+                android:layout_height="match_parent" />
+            <Button android:id="@+id/virus_scan_app_button_scan"
+                android:text="@string/virus_scan_app_stop_scan"
+                android:layout_width="0dip"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:maxLines="2"
+                style="?android:attr/buttonBarButtonStyle"
+                android:textSize="14sp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+     </LinearLayout>
+
+    <ListView
+        android:id="@+id/virus_scan_app_item"
+        android:layout_below="@id/virus_scan_app_title"
+        android:paddingLeft="6dip"
+        android:paddingRight="6dip"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/virus_scan_app_buttons"
+        />
+
+</RelativeLayout>
+

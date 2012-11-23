@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <ImageView
+        android:id="@+id/album"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="center"
+        android:src="@drawable/music_default_album" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/find_more"
+        android:layout_toRightOf="@id/album"
+        android:paddingLeft="10dp" >
+
+        <TextView
+            android:id="@+id/text_time"
+            style="@style/MusicTimeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="2dp" />
+
+        <TextView
+            android:id="@+id/descript"
+            style="@style/MusicTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/text_time"
+            android:singleLine="true" />
+
+        <view
+            android:id="@+id/progress_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-10dp"
+            android:layout_marginTop="15dp"
+            class="com.miui.voiceassist.view.NinePatchSeekBar"
+            android:gravity="center_vertical"
+            android:progressDrawable="@drawable/music_progress_drawable"
+            android:thumb="@drawable/music_thumb_selector"
+            android:thumbOffset="8.67dip"
+            android:padding="0dp" />
+
+        <ImageView
+            android:id="@+id/togglepause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/progress_time"
+            android:layout_centerHorizontal="true"
+            android:scaleType="center"
+            android:src="@drawable/music_play_selector" />
+    </RelativeLayout>
+
+</RelativeLayout>

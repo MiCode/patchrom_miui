@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2006 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+    <!-- The default miui theme. This is the theme used for activities
+         that have not explicitly set their own theme.
+         Our parent theme is android Holo theme. Any changes to the Holo theme
+         will defined here.
+    -->
+    <style name="Theme" parent="android:Theme.Holo">
+    </style>
+    <style name="Theme.Light" parent="@android:Theme.Holo.Light">
+        <item name="android:homeAsUpIndicator">@drawable/ab_home_up</item>
+        <item name="android:actionBarStyle">@style/Widget.Holo.Light.ActionBar.Solid.HomeUp</item>
+        <item name="android:actionOverflowButtonStyle">@style/Widget.Holo.Light.ActionButton.Overflow</item>
+        <item name="android:actionBarTabTextStyle">@style/Widget.Holo.Light.ActionBar.TabText</item>
+        <item name="android:expandableListViewStyle">@style/Widget.Holo.Light.ExpandableListView</item>
+        <item name="android:expandableListViewWhiteStyle">@style/Widget.Holo.Light.ExpandableListView.White</item>
+        <item name="android:expandableListPreferredItemPaddingLeft">35dip</item>
+    </style>
+
+    <!-- Miro Theme -->
+    <style name="MiroTheme" parent="@android:style/Theme.Holo">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+
+        <!-- List attributes -->
+        <item name="android:listDivider">@null</item>
+
+        <item name="android:listPreferredItemHeight">65dp</item>
+        <item name="android:listPreferredItemHeightSmall">55dp</item>
+        <item name="android:listPreferredItemHeightLarge">80dp</item>
+        <item name="android:listPreferredItemPaddingLeft">6dip</item>
+        <item name="android:listPreferredItemPaddingRight">6dip</item>
+
+    </style>
+
+    <style name="MiroTheme.Light" parent="@style/MiroTheme">
+    </style>
+
+    <!-- for V5 -->
+    <style name="V5.Theme" parent="android:Theme.Holo.Light">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@miui:drawable/v5_window_bg_light</item>
+
+        <item name="v5_primary_text_color">@miui:color/v5_primary_text_light</item>
+        <item name="v5_secondary_text_color">@miui:color/v5_secondary_text_light</item>
+        <item name="v5_tertiary_text_color">@miui:color/v5_tertiary_text_light</item>
+        <item name="v5_text_color_disable">@miui:color/v5_text_color_disable_light</item>
+        <item name="v5_text_color_pressed">@miui:color/v5_text_color_pressed_light</item>
+        <item name="v5_text_color_hint">@miui:color/v5_text_color_hint_light</item>
+        <item name="v5_text_color_hilighted">@miui:color/v5_text_color_hilighted_light</item>
+
+        <item name="v5_title_text_color">@miui:color/v5_title_text_light</item>
+        <item name="v5_title_text_shadow">@miui:color/v5_title_text_shadow_light</item>
+        <item name="v5_secondary_tab_indicator_text_color">@miui:color/v5_secondary_tab_indicator_text_light</item>
+        <item name="v5_secondary_tab_indicator_text_shadow">@miui:color/v5_secondary_tab_indicator_text_shadow_light</item>
+        <item name="v5_bottom_bar_icon_text_color">@miui:color/v5_bottom_bar_icon_text_light</item>
+        <item name="v5_bottom_bar_icon_text_shadow">@miui:color/v5_bottom_bar_icon_text_shadow_light</item>
+        <item name="v5_bottom_bar_list_text_color">@miui:color/v5_bottom_bar_list_text_light</item>
+        <item name="v5_menu_preference_list_color">@miui:color/v5_menu_preference_list_text_light</item>
+        <item name="v5_button_text_color">@miui:color/v5_button_text_light</item>
+        <item name="v5_list_text_color">@miui:color/v5_list_text_light</item>
+        <item name="v5_list_secondary_text_color">@miui:color/v5_list_secondary_text_light</item>
+        <item name="v5_list_secondary_text_shadow">@miui:color/v5_list_secondary_text_shadow_light</item>
+        <item name="v5_checkable_btn_text_color">@miui:color/v5_checkable_btn_text_light</item>
+        <item name="v5_edit_mode_text_color">@miui:color/v5_edit_mode_text_color_light</item>
+        <item name="v5_edit_mode_btn_text_color">@miui:color/v5_edit_mode_btn_text_color_light</item>
+        <item name="v5_edit_mode_btn_default_text_color">@miui:color/v5_edit_mode_btn_default_text_color_light</item>
+
+        <item name="v5_bottom_bar_top_line">@miui:drawable/v5_bottom_bar_top_line_light</item>
+        <item name="v5_tab_indicator_placeholder">@miui:drawable/v5_tab_indicator_placeholder</item>
+        <item name="v5_bottom_placeholder">@miui:drawable/v5_bottom_bar_placeholder</item>
+        <item name="v5_top_placeholder_enabled">true</item>
+        <item name="v5_top_placeholder">@miui:drawable/v5_tab_indicator_placeholder</item>
+        <item name="v5_title_bar_bg">@miui:drawable/v5_title_bar_bg_light</item>
+        <item name="v5_title_bar_large_bg">@null</item>
+        <item name="v5_title_bar_medium_bg">@null</item>
+        <item name="v5_title_bar_back_button">@miui:drawable/v5_title_bar_back_button_light</item>
+        <item name="v5_title_bar_back_button_large">@miui:drawable/v5_title_bar_back_button_large_light</item>
+        <item name="v5_title_bar_back_button_medium">@miui:drawable/v5_title_bar_back_button_medium_light</item>
+        <item name="v5_tab_indicator_bg">@miui:drawable/v5_tab_indicator_bg_light</item>
+        <item name="v5_tab_indicator_bg_no_title">@miui:drawable/v5_tab_indicator_bg_no_title_light</item>
+        <item name="v5_edit_text_bg">@miui:drawable/v5_edit_text_bg_light</item>
+        <item name="v5_edit_text_search_bg">@miui:drawable/v5_edit_text_search_bg_light</item>
+        <item name="v5_edit_text_search_clear_btn">@miui:drawable/v5_edit_text_search_clear_btn_light</item>
+        <item name="v5_title_bar_back_button_search_mode">@miui:drawable/v5_title_bar_back_button_search_mode_light</item>
+        <item name="v5_title_bar_bg_search_mode">@miui:drawable/v5_title_bar_bg_search_mode_light</item>
+
+        <item name="v5_bottom_bar_bg">@miui:drawable/v5_bottom_bar_bg_light</item>
+        <item name="v5_bottom_bar_icon_bg">@miui:drawable/v5_bottom_bar_icon_bg_light</item>
+        <item name="v5_bottom_bar_more_icon">@miui:drawable/v5_bottom_bar_more_icon_light</item>
+        <item name="v5_bottom_bar_favorite_icon">@miui:drawable/v5_bottom_bar_favorite_icon_light</item>
+        <item name="v5_bottom_bar_unfavorite_icon">@miui:drawable/v5_bottom_bar_unfavorite_icon_light</item>
+        <item name="v5_bottom_bar_edit_icon">@miui:drawable/v5_bottom_bar_edit_icon_light</item>
+        <item name="v5_menu_list_view_item_bg">@miui:drawable/v5_menu_list_view_item_bg_light</item>
+        <item name="v5_menu_list_view_bg">@miui:drawable/v5_menu_list_view_bg_light</item>
+        <item name="v5_menu_primary_mask_bg">@miui:drawable/v5_menu_primary_mask_bg_light</item>
+        <item name="v5_edit_mode_top_bar_bg">@miui:drawable/v5_edit_mode_top_bar_bg_light</item>
+        <item name="v5_edit_mode_top_bar_button">@miui:drawable/v5_edit_mode_top_bar_button_light</item>
+        <item name="v5_edit_mode_top_bar_button_main">@miui:drawable/v5_edit_mode_top_bar_button_main_light</item>
+        <item name="v5_edit_mode_bottom_bar_bg">@miui:drawable/v5_edit_mode_bottom_bar_bg_light</item>
+        <item name="v5_edit_mode_bottom_bar_list_bg">@miui:drawable/v5_edit_mode_bottom_bar_list_bg_light</item>
+        <item name="v5_edit_mode_bottom_bar_list_item_bg">@miui:drawable/v5_edit_mode_bottom_bar_list_item_bg_light</item>
+        <item name="v5_edit_mode_bottom_bar_more_icon">@miui:drawable/v5_edit_mode_bottom_bar_more_icon_light</item>
+        <item name="v5_edit_mode_bottom_bar_icon_bg">@miui:drawable/v5_edit_mode_bottom_bar_icon_bg_light</item>
+        <item name="v5_list_view_item_bg">@miui:drawable/v5_list_view_item_bg_light</item>
+        <item name="v5_group_item_bg">@miui:drawable/v5_group_item_bg_light</item>
+        <item name="v5_spinner_bg">@miui:drawable/v5_spinner_bg_light</item>
+        <item name="v5_btn_bg">@miui:drawable/v5_btn_bg_light</item>
+        <item name="v5_btn_bg_negative_warn">@miui:drawable/v5_btn_bg_negative_warn_light</item>
+        <item name="v5_btn_bg_positive_warn">@miui:drawable/v5_btn_bg_positive_warn_light</item>
+
+        <item name="v5_progress_bar_bg">@miui:drawable/v5_progress_bar_bg_light</item>
+        <item name="v5_progress_bar_ani">@miui:drawable/v5_progress_bar_ani_light</item>
+        <item name="v5_progress_bar">@miui:drawable/v5_progress_bar_light</item>
+
+        <item name="v5_tab_indicator_style">@miui:style/V5.Widget.TabIndicator</item>
+        <item name="v5_tab_style">@miui:style/V5.Widget.Tab</item>
+        <item name="v5_tab_indicator_arrow_style">@miui:style/V5.Widget.TabIndicatorArrow</item>
+        <item name="v5_tab_indicator_arrow">@miui:drawable/v5_tab_indicator_arrow_light</item>
+        <item name="v5_tab_bg">@miui:drawable/v5_tab_bg_light</item>
+        <item name="v5_secondary_tab_indicator_style">@miui:style/V5.Widget.SecondaryTabIndicator</item>
+        <item name="v5_secondary_tab_indicator_bg">@miui:drawable/v5_secondary_tab_indicator_bg_light</item>
+        <item name="v5_secondary_tab_style">@miui:style/V5.Widget.SecondaryTab</item>
+        <item name="v5_secondary_tab_bg">@miui:drawable/v5_secondary_tab_bg_light</item>
+
+        <item name="android:textColorPrimary">?v5_primary_text_color</item>
+        <item name="android:textColorSecondary">?v5_secondary_text_color</item>
+        <item name="android:textColorTertiary">?v5_tertiary_text_color</item>
+        <item name="android:textColorPrimaryInverse">@miui:color/v5_primary_text_dark</item>
+        <item name="android:textColorSecondaryInverse">@miui:color/v5_secondary_text_dark</item>
+        <item name="android:textColorTertiaryInverse">@miui:color/v5_tertiary_text_dark</item>
+        <item name="android:textColorPrimaryDisableOnly">?v5_text_color_disable</item>
+        <item name="android:textColorPrimaryInverseDisableOnly">@miui:color/v5_text_color_disable_dark</item>
+        <item name="android:textColorPrimaryNoDisable">?v5_primary_text_color</item>
+        <item name="android:textColorSecondaryNoDisable">?v5_secondary_text_color</item>
+        <item name="android:textColorPrimaryInverseNoDisable">@miui:color/v5_primary_text_dark</item>
+        <item name="android:textColorSecondaryInverseNoDisable">@miui:color/v5_secondary_text_dark</item>
+        <item name="android:textColorHint">?v5_text_color_hint</item>
+        <item name="android:textColorHintInverse">@miui:color/v5_text_color_hint_dark</item>
+        <item name="android:editTextColor">@miui:color/v5_edit_text_color_light</item>
+        <item name="android:textColorAlertDialogListItem">?v5_menu_preference_list_color</item>
+
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance</item>
+        <item name="android:textAppearanceInverse">@miui:style/V5.TextAppearance.Inverse</item>
+
+        <item name="android:editTextStyle">@miui:style/V5.Widget.EditText</item>
+        <item name="android:listViewStyle">@miui:style/V5.Widget.ListView</item>
+        <item name="android:listDivider">@null</item>
+
+        <item name="android:listChoiceIndicatorMultiple">@miui:drawable/v5_btn_checkbox_light</item>
+        <item name="android:listChoiceIndicatorSingle">@miui:drawable/v5_btn_radio_light</item>
+        <item name="android:checkboxStyle">@miui:style/V5.Widget.CompoundButton.CheckBox</item>
+        <item name="android:radioButtonStyle">@miui:style/V5.Widget.CompoundButton.RadioButton</item>
+        <item name="android:spinnerStyle">@miui:style/V5.Widget.Spinner</item>
+        <item name="android:dropDownSpinnerStyle">@miui:style/V5.Widget.Spinner.DropDown</item>
+        <item name="android:buttonStyle">@miui:style/V5.Widget.Button</item>
+        <item name="android:textViewStyle">@miui:style/V5.Widget.TextView</item>
+        <item name="android:dropDownItemStyle">@miui:style/V5.Widget.DropDownItem</item>
+        <item name="android:spinnerDropDownItemStyle">@miui:style/V5.Widget.DropDownItem.Spinner</item>
+        <item name="android:spinnerItemStyle">@miui:style/V5.Widget.TextView.SpinnerItem</item>
+
+        <item name="android:alertDialogStyle">@miui:style/V5.AlertDialog</item>
+        <item name="android:dialogTheme">@miui:style/V5.Theme.Light.Dialog</item>
+        <item name="android:alertDialogTheme">@miui:style/V5.Theme.Light.Dialog.Alert</item>
+        <item name="android:alertDialogIcon">@null</item>
+        <item name="android:listDividerAlertDialog">@null</item>
+        <item name="android:buttonBarStyle">@miui:style/V5.Widget.ButtonBar</item>
+        <item name="android:buttonBarButtonStyle">@miui:style/V5.Widget.Button.Dialog</item>
+        <item name="android:popupMenuStyle">@miui:style/V5.Widget.PopupMenu</item>
+
+        <item name="android:panelFullBackground">@miui:drawable/v5_menu_full_bg_light</item>
+
+        <item name="android:progressBarStyle">@miui:style/V5.Widget.ProgressBar</item>
+        <item name="android:progressBarStyleSmall">@miui:style/V5.Widget.ProgressBar</item>
+        <item name="android:progressBarStyleSmallTitle">@miui:style/V5.Widget.ProgressBar</item>
+        <item name="android:progressBarStyleLarge">@miui:style/V5.Widget.ProgressBar</item>
+        <item name="android:progressBarStyleInverse">@miui:style/V5.Widget.ProgressBar</item>
+        <item name="android:progressBarStyleSmallInverse">@miui:style/V5.Widget.ProgressBar</item>
+        <item name="android:progressBarStyleLargeInverse">@miui:style/V5.Widget.ProgressBar</item>
+
+        <item name="v5_popup_menu_item_layout">@miui:layout/v5_popup_menu_item_layout</item>
+        <item name="v5_expanded_menu_layout">@miui:layout/v5_expanded_menu_layout</item>
+
+        <item name="slidingButtonStyleDefault">@miui:style/V5.SlidingButtonStyle</item>
+        <item name="v5_over_scroll_distance">@miui:dimen/v5_over_scroll_distance_dimen</item>
+    </style>
+
+    <style name="V5.Theme.Light" />
+
+    <style name="V5.Theme.Dark" parent="android:Theme.Holo">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@miui:drawable/v5_window_bg_light</item>
+
+        <item name="v5_primary_text_color">@miui:color/v5_primary_text_dark</item>
+        <item name="v5_secondary_text_color">@miui:color/v5_secondary_text_dark</item>
+        <item name="v5_tertiary_text_color">@miui:color/v5_tertiary_text_dark</item>
+        <item name="v5_text_color_disable">@miui:color/v5_text_color_disable_dark</item>
+        <item name="v5_text_color_pressed">@miui:color/v5_text_color_pressed_dark</item>
+        <item name="v5_text_color_hint">@miui:color/v5_text_color_hint_dark</item>
+        <item name="v5_text_color_hilighted">@miui:color/v5_text_color_hilighted_dark</item>
+
+        <item name="v5_title_text_color">@miui:color/v5_title_text_dark</item>
+        <item name="v5_title_text_shadow">@miui:color/v5_title_text_shadow_dark</item>
+        <item name="v5_secondary_tab_indicator_text_color">@miui:color/v5_secondary_tab_indicator_text_dark</item>
+        <item name="v5_secondary_tab_indicator_text_shadow">@miui:color/v5_secondary_tab_indicator_text_shadow_dark</item>
+        <item name="v5_bottom_bar_icon_text_color">@miui:color/v5_bottom_bar_icon_text_dark</item>
+        <item name="v5_bottom_bar_icon_text_shadow">@miui:color/v5_bottom_bar_icon_text_shadow_dark</item>
+        <item name="v5_bottom_bar_list_text_color">@miui:color/v5_bottom_bar_list_text_dark</item>
+        <item name="v5_menu_preference_list_color">@miui:color/v5_menu_preference_list_text_dark</item>
+        <item name="v5_menu_list_view_bg">@miui:drawable/v5_menu_list_view_bg_light</item>
+        <item name="v5_menu_primary_mask_bg">@miui:drawable/v5_menu_primary_mask_bg_light</item>
+        <item name="v5_menu_list_view_item_bg">@miui:drawable/v5_menu_list_view_item_bg_light</item>
+        <item name="v5_button_text_color">@miui:color/v5_button_text_dark</item>
+        <item name="v5_list_text_color">@miui:color/v5_list_text_dark</item>
+        <item name="v5_list_secondary_text_color">@miui:color/v5_list_secondary_text_dark</item>
+        <item name="v5_list_secondary_text_shadow">@miui:color/v5_list_secondary_text_shadow_dark</item>
+        <item name="v5_checkable_btn_text_color">@miui:color/v5_checkable_btn_text_dark</item>
+        <item name="v5_edit_mode_text_color">@miui:color/v5_edit_mode_text_color_light</item>
+        <item name="v5_edit_mode_btn_text_color">@miui:color/v5_edit_mode_btn_text_color_light</item>
+        <item name="v5_edit_mode_btn_default_text_color">@miui:color/v5_edit_mode_btn_default_text_color_light</item>
+
+        <item name="v5_bottom_bar_top_line">@miui:drawable/v5_bottom_bar_top_line_light</item>
+        <item name="v5_tab_indicator_placeholder">@miui:drawable/v5_tab_indicator_placeholder</item>
+        <item name="v5_bottom_placeholder">@miui:drawable/v5_bottom_bar_placeholder</item>
+        <item name="v5_top_placeholder_enabled">true</item>
+        <item name="v5_top_placeholder">@miui:drawable/v5_tab_indicator_placeholder</item>
+        <item name="v5_title_bar_bg">@miui:drawable/v5_title_bar_bg_light</item>
+        <item name="v5_title_bar_large_bg">@null</item>
+        <item name="v5_title_bar_medium_bg">@null</item>
+        <item name="v5_title_bar_back_button">@miui:drawable/v5_title_bar_back_button_light</item>
+        <item name="v5_title_bar_back_button_large">@miui:drawable/v5_title_bar_back_button_large_light</item>
+        <item name="v5_title_bar_back_button_medium">@miui:drawable/v5_title_bar_back_button_medium_light</item>
+        <item name="v5_tab_indicator_bg">@miui:drawable/v5_tab_indicator_bg_light</item>
+        <item name="v5_tab_indicator_bg_no_title">@miui:drawable/v5_tab_indicator_bg_no_title_light</item>
+        <item name="v5_edit_text_bg">@miui:drawable/v5_edit_text_bg_light</item>
+        <item name="v5_edit_text_search_bg">@miui:drawable/v5_edit_text_search_bg_light</item>
+        <item name="v5_edit_text_search_clear_btn">@miui:drawable/v5_edit_text_search_clear_btn_light</item>
+        <item name="v5_title_bar_back_button_search_mode">@miui:drawable/v5_title_bar_back_button_search_mode_light</item>
+        <item name="v5_title_bar_bg_search_mode">@miui:drawable/v5_title_bar_bg_search_mode_light</item>
+        <item name="v5_bottom_bar_bg">@miui:drawable/v5_bottom_bar_bg_light</item>
+        <item name="v5_bottom_bar_icon_bg">@miui:drawable/v5_bottom_bar_icon_bg_light</item>
+        <item name="v5_bottom_bar_more_icon">@miui:drawable/v5_bottom_bar_more_icon_light</item>
+        <item name="v5_bottom_bar_favorite_icon">@miui:drawable/v5_bottom_bar_favorite_icon_light</item>
+        <item name="v5_bottom_bar_unfavorite_icon">@miui:drawable/v5_bottom_bar_unfavorite_icon_light</item>
+        <item name="v5_bottom_bar_edit_icon">@miui:drawable/v5_bottom_bar_edit_icon_light</item>
+        <item name="v5_edit_mode_top_bar_bg">@miui:drawable/v5_edit_mode_top_bar_bg_light</item>
+        <item name="v5_edit_mode_top_bar_button">@miui:drawable/v5_edit_mode_top_bar_button_light</item>
+        <item name="v5_edit_mode_top_bar_button_main">@miui:drawable/v5_edit_mode_top_bar_button_main_light</item>
+        <item name="v5_edit_mode_bottom_bar_bg">@miui:drawable/v5_edit_mode_bottom_bar_bg_light</item>
+        <item name="v5_edit_mode_bottom_bar_list_bg">@miui:drawable/v5_edit_mode_bottom_bar_list_bg_light</item>
+        <item name="v5_edit_mode_bottom_bar_list_item_bg">@miui:drawable/v5_edit_mode_bottom_bar_list_item_bg_light</item>
+        <item name="v5_edit_mode_bottom_bar_more_icon">@miui:drawable/v5_edit_mode_bottom_bar_more_icon_light</item>
+        <item name="v5_edit_mode_bottom_bar_icon_bg">@miui:drawable/v5_edit_mode_bottom_bar_icon_bg_light</item>
+        <item name="v5_list_view_item_bg">@miui:drawable/v5_list_view_item_bg_light</item>
+        <item name="v5_group_item_bg">@miui:drawable/v5_group_item_bg_light</item>
+        <item name="v5_spinner_bg">@miui:drawable/v5_spinner_bg_light</item>
+        <item name="v5_btn_bg">@miui:drawable/v5_btn_bg_light</item>
+        <item name="v5_btn_bg_negative_warn">@miui:drawable/v5_btn_bg_negative_warn_light</item>
+        <item name="v5_btn_bg_positive_warn">@miui:drawable/v5_btn_bg_positive_warn_light</item>
+
+        <item name="v5_progress_bar_bg">@miui:drawable/v5_progress_bar_bg_light</item>
+        <item name="v5_progress_bar_ani">@miui:drawable/v5_progress_bar_ani_light</item>
+        <item name="v5_progress_bar">@miui:drawable/v5_progress_bar_light</item>
+
+        <item name="v5_tab_indicator_style">@miui:style/V5.Widget.TabIndicator</item>
+        <item name="v5_tab_style">@miui:style/V5.Widget.Tab</item>
+        <item name="v5_tab_indicator_arrow_style">@miui:style/V5.Widget.TabIndicatorArrow</item>
+        <item name="v5_tab_indicator_arrow">@miui:drawable/v5_tab_indicator_arrow_light</item>
+        <item name="v5_tab_bg">@miui:drawable/v5_tab_bg_light</item>
+        <item name="v5_secondary_tab_indicator_style">@miui:style/V5.Widget.SecondaryTabIndicator</item>
+        <item name="v5_secondary_tab_indicator_bg">@miui:drawable/v5_secondary_tab_indicator_bg_light</item>
+        <item name="v5_secondary_tab_style">@miui:style/V5.Widget.SecondaryTab</item>
+        <item name="v5_secondary_tab_bg">@miui:drawable/v5_secondary_tab_bg_light</item>
+
+        <item name="android:textColorPrimary">?v5_primary_text_color</item>
+        <item name="android:textColorSecondary">?v5_secondary_text_color</item>
+        <item name="android:textColorTertiary">?v5_tertiary_text_color</item>
+        <item name="android:textColorPrimaryInverse">@miui:color/v5_primary_text_light</item>
+        <item name="android:textColorSecondaryInverse">@miui:color/v5_secondary_text_light</item>
+        <item name="android:textColorTertiaryInverse">@miui:color/v5_tertiary_text_light</item>
+        <item name="android:textColorPrimaryDisableOnly">?v5_text_color_disable</item>
+        <item name="android:textColorPrimaryInverseDisableOnly">@miui:color/v5_text_color_disable_light</item>
+        <item name="android:textColorPrimaryNoDisable">?v5_primary_text_color</item>
+        <item name="android:textColorSecondaryNoDisable">?v5_secondary_text_color</item>
+        <item name="android:textColorPrimaryInverseNoDisable">@miui:color/v5_primary_text_light</item>
+        <item name="android:textColorSecondaryInverseNoDisable">@miui:color/v5_secondary_text_light</item>
+        <item name="android:textColorHint">?v5_text_color_hint</item>
+        <item name="android:textColorHintInverse">@miui:color/v5_text_color_hint_light</item>
+        <item name="android:editTextColor">@miui:color/v5_edit_text_color_dark</item>
+        <item name="android:textColorAlertDialogListItem">?v5_menu_preference_list_color</item>
+
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance</item>
+        <item name="android:textAppearanceInverse">@miui:style/V5.TextAppearance.Inverse</item>
+
+        <item name="android:editTextStyle">@miui:style/V5.Widget.EditText</item>
+        <item name="android:listViewStyle">@miui:style/V5.Widget.ListView</item>
+        <item name="android:listDivider">@null</item>
+
+        <item name="android:listChoiceIndicatorMultiple">@miui:drawable/v5_btn_checkbox_light</item>
+        <item name="android:listChoiceIndicatorSingle">@miui:drawable/v5_btn_radio_light</item>
+        <item name="android:checkboxStyle">@miui:style/V5.Widget.CompoundButton.CheckBox</item>
+        <item name="android:radioButtonStyle">@miui:style/V5.Widget.CompoundButton.RadioButton</item>
+        <item name="android:spinnerStyle">@miui:style/V5.Widget.Spinner</item>
+        <item name="android:dropDownSpinnerStyle">@miui:style/V5.Widget.Spinner.DropDown</item>
+        <item name="android:buttonStyle">@miui:style/V5.Widget.Button</item>
+        <item name="android:textViewStyle">@miui:style/V5.Widget.TextView</item>
+        <item name="android:dropDownItemStyle">@miui:style/V5.Widget.DropDownItem</item>
+        <item name="android:spinnerDropDownItemStyle">@miui:style/V5.Widget.DropDownItem.Spinner</item>
+        <item name="android:spinnerItemStyle">@miui:style/V5.Widget.TextView.SpinnerItem</item>
+
+        <item name="android:alertDialogStyle">@miui:style/V5.AlertDialog</item>
+        <item name="android:dialogTheme">@miui:style/V5.Theme.Light.Dialog</item>
+        <item name="android:alertDialogTheme">@miui:style/V5.Theme.Light.Dialog.Alert</item>
+        <item name="android:alertDialogIcon">@null</item>
+        <item name="android:listDividerAlertDialog">@null</item>
+        <item name="android:buttonBarStyle">@miui:style/V5.Widget.ButtonBar</item>
+        <item name="android:buttonBarButtonStyle">@miui:style/V5.Widget.Button.Dialog</item>
+        <item name="android:popupMenuStyle">@miui:style/V5.Widget.PopupMenu</item>
+
+        <item name="android:panelFullBackground">@miui:drawable/v5_menu_full_bg_light</item>
+
+        <item name="android:progressBarStyle">@miui:style/V5.Widget.ProgressBar</item>
+        <item name="android:progressBarStyleSmall">@miui:style/V5.Widget.ProgressBar</item>
+        <item name="android:progressBarStyleSmallTitle">@miui:style/V5.Widget.ProgressBar</item>
+        <item name="android:progressBarStyleLarge">@miui:style/V5.Widget.ProgressBar</item>
+        <item name="android:progressBarStyleInverse">@miui:style/V5.Widget.ProgressBar</item>
+        <item name="android:progressBarStyleSmallInverse">@miui:style/V5.Widget.ProgressBar</item>
+        <item name="android:progressBarStyleLargeInverse">@miui:style/V5.Widget.ProgressBar</item>
+
+        <item name="v5_popup_menu_item_layout">@miui:layout/v5_popup_menu_item_layout</item>
+        <item name="v5_expanded_menu_layout">@miui:layout/v5_expanded_menu_layout</item>
+
+        <item name="slidingButtonStyleDefault">@miui:style/V5.SlidingButtonStyle</item>
+        <item name="v5_over_scroll_distance">@miui:dimen/v5_over_scroll_distance_dimen</item>
+    </style>
+
+    <style name="V5.Theme.Light.NoTitle" parent="V5.Theme">
+        <item name="v5_top_placeholder_enabled">false</item>
+        <item name="v5_tab_indicator_style">@miui:style/V5.Widget.TabIndicator.NoTitle</item>
+    </style>
+    <style name="V5.Theme.Dark.NoTitle" parent="V5.Theme.Dark">
+        <item name="v5_top_placeholder_enabled">false</item>
+        <item name="v5_tab_indicator_style">@miui:style/V5.Widget.TabIndicator.NoTitle</item>
+    </style>
+
+    <style name="V5.Theme.Light.NoBottomBar" parent="V5.Theme">
+    </style>
+    <style name="V5.Theme.Dark.NoBottomBar" parent="V5.Theme.Dark">
+    </style>
+
+    <style name="V5.Theme.Light.MainPage" parent="V5.Theme">
+        <item name="v5_top_placeholder">@miui:drawable/v5_top_placeholder_mainpage</item>
+        <item name="v5_top_placeholder_enabled">false</item>
+    </style>
+    <style name="V5.Theme.Dark.MainPage" parent="V5.Theme.Dark">
+        <item name="v5_top_placeholder_enabled">false</item>
+    </style>
+
+    <style name="V5.Theme.Light.Settings">
+        <item name="android:windowNoTitle">false</item>
+        <item name="android:homeAsUpIndicator">@drawable/v5_title_bar_back_button_light</item>
+        <item name="android:actionBarStyle">@style/V5.Widget.ActionBar.Solid.Settings</item>
+
+        <!-- Preference styles -->
+        <item name="android:preferenceScreenStyle">@style/V5.Preference.PreferenceScreen</item>
+        <item name="android:checkBoxPreferenceStyle">@style/V5.Preference.CheckBoxPreference</item>
+        <item name="android:preferenceInformationStyle">@style/V5.Preference.Information</item>
+        <item name="android:switchPreferenceStyle">@style/V5.Preference.SwitchPreference</item>
+        <item name="android:dialogPreferenceStyle">@style/V5.Preference.DialogPreference</item>
+        <item name="android:editTextPreferenceStyle">@style/V5.Preference.DialogPreference.EditTextPreference</item>
+        <item name="android:ringtonePreferenceStyle">@style/V5.Preference.RingtonePreference</item>
+        <item name="android:yesNoPreferenceStyle">@style/V5.Preference.DialogPreference.YesNoPreference</item>
+        <item name="android:preferenceStyle">@style/V5.Preference</item>
+        <item name="android:preferenceCategoryStyle">@style/V5.Preference.Category</item>
+    </style>
+
+    <style name="V5.Theme.Light.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowTitleStyle">@miui:style/V5.Widget.DialogTitle</item>
+        <item name="android:windowBackground">@miui:drawable/v5_dialog_bg_light</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@miui:style/V5.Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+
+        <item name="android:colorBackgroundCacheHint">@null</item>
+
+        <item name="android:buttonBarStyle">@android:style/Holo.Light.ButtonBar.AlertDialog</item>
+        <item name="android:borderlessButtonStyle">@android:style/Widget.Holo.Light.Button.Borderless.Small</item>
+
+        <item name="android:listPreferredItemPaddingLeft">0dip</item>
+        <item name="android:listPreferredItemPaddingRight">0dip</item>
+        <item name="android:layoutAnimation">@miui:anim/v5_dialog_layout_anim</item>
+    </style>
+
+    <style name="V5.Theme.Light.Dialog.MinWidth">
+        <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
+        <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
+    </style>
+    <style name="V5.Theme.Light.Dialog.NoTitle">
+        <item name="v5_top_placeholder_enabled">false</item>
+        <item name="v5_tab_indicator_style">@miui:style/V5.Widget.TabIndicator.NoTitle</item>
+    </style>
+    <style name="V5.Theme.Light.Dialog.NoTitle.MinWidth">
+        <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
+        <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
+    </style>
+
+    <style name="V5.Theme.Light.Dialog.Alert">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
+        <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
+    </style>
+
+    <style name="V5.Theme.Light.Translucent">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    </style>
+    <style name="V5.Theme.Light.Translucent.NoTitle">
+        <item name="v5_top_placeholder_enabled">false</item>
+        <item name="v5_tab_indicator_style">@miui:style/V5.Widget.TabIndicator.NoTitle</item>
+    </style>
+</resources>

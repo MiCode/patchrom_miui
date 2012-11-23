@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <dimen name="btn_digit_text_size">40sp</dimen>
+    <dimen name="btn_operation_text_size">40sp</dimen>
+    <dimen name="btn_function_text_size">30sp</dimen>
+    <dimen name="btn_clear_text_size">30sp</dimen>
+    <dimen name="display_text_size">30sp</dimen>
+
+    <style name="button_style">
+       <item name="android:textSize">40dp</item>
+       <item name="android:layout_width">match_parent</item>
+       <item name="android:layout_height">match_parent</item>
+       <item name="android:layout_weight">1</item>
+       <item name="android:focusable">true</item>
+       <item name="android:background">@drawable/btn_function</item>
+       <item name="android:layout_marginLeft">1dp</item>
+    </style>
+
+    <style name="digit_button_style" parent="button_style">
+       <item name="android:background">@drawable/btn_digit</item>
+    </style>
+
+    <style name="button_small_style" parent="button_style">
+       <item name="android:textSize">30dp</item>
+    </style>
+
+    <style name="display_style">
+       <item name="android:textSize">@dimen/display_text_size</item>
+       <item name="android:inputType">text|textNoSuggestions</item>
+       <item name="android:gravity">right|center_vertical</item>
+       <item name="android:textColor">#ffffff</item>
+       <item name="android:maxLines">1</item>
+       <item name="android:scrollbars">none</item>
+       <item name="android:scrollHorizontally">true</item>
+       <item name="android:layout_width">match_parent</item>
+       <item name="android:layout_height">match_parent</item>
+       <item name="android:paddingTop">8dp</item>
+       <item name="android:paddingLeft">8dp</item>
+       <item name="android:paddingRight">8dp</item>
+       <item name="android:paddingBottom">0dp</item>
+    </style>
+
+    <style name="btn_row_style">
+       <item name="android:layout_width">match_parent</item>
+       <item name="android:layout_height">0dip</item>
+       <item name="android:layout_weight">1</item>
+       <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="btn_function_cell_style">
+       <item name="android:layout_width">0dip</item>
+       <item name="android:layout_weight">1</item>
+       <item name="android:layout_height">match_parent</item>
+       <item name="android:background">@drawable/btn_function</item>
+       <item name="android:textSize">@dimen/btn_function_text_size</item>
+    </style>
+
+    <style name="btn_operation_cell_style">
+       <item name="android:layout_width">0dip</item>
+       <item name="android:layout_weight">1</item>
+       <item name="android:layout_height">match_parent</item>
+       <item name="android:gravity">center</item>
+       <item name="android:background">@drawable/btn_function</item>
+       <item name="android:textSize">@dimen/btn_operation_text_size</item>
+    </style>
+
+    <style name="btn_digit_cell_style">
+       <item name="android:layout_width">0dip</item>
+       <item name="android:layout_weight">1</item>
+       <item name="android:layout_height">match_parent</item>
+       <item name="android:gravity">center</item>
+       <item name="android:background">@drawable/btn_digit</item>
+       <item name="android:textSize">@dimen/btn_digit_text_size</item>
+    </style>
+
+    <style name="btn_clear">
+       <item name="android:background">?android:attr/selectableItemBackground</item>
+       <item name="android:textSize">@dimen/btn_clear_text_size</item>
+    </style>
+</resources>

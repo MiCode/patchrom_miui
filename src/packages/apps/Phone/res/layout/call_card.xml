@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- XML resource file for the CallCard used in the Phone app.
+
+     Note that the CallCard is technically the size of the full screen (since
+     our parent container is full-screen, and the layout_width and layout_height
+     here are both "match_parent"), but we manually adjust its bottom margin
+     in CallCard.updateCallInfoLayout() to make sure it doesn't overlap with
+     the onscreen buttons from incall_touch_ui.xml. -->
+<com.android.phone.CallCard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/call_info_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- The main content of the CallCard is either one or two "call info"
+         blocks, depending on whether one or two lines are in use.
+
+         The call_info blocks are stacked vertically inside a CallCard (LinearLayout),
+         each with layout_weight="1".  If only one line is in use (i.e. the
+         common case) then the 2nd call info will be GONE and thus the 1st one
+         will expand to fill the full height of the CallCard.
+
+         We set a bottom margin on this element dynamically (see
+         updateCallInfoLayout()) to make sure it doesn't overlap with either
+         the bottom button cluster or the incoming-call widget. -->
+
+    <!-- Primary "Call info" block, for the foreground call. -->
+    <include android:id="@+id/primary_call_info"
+         layout="@layout/primary_call_info" />
+
+    <!-- Secondary "Call info" block , for the background ("on hold") call. -->
+    <ViewStub android:id="@+id/secondary_call_info"
+         android:layout="@layout/secondary_call_info"
+         android:layout_width="match_parent"
+         android:layout_height="0dp"
+         android:layout_weight="1" />
+
+</com.android.phone.CallCard>

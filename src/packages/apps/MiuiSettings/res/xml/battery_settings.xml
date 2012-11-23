@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/battery_settings">
+
+    <PreferenceScreen
+       android:key="power_usage"
+       android:title="@string/power_usage_history">
+       <intent android:action="android.intent.action.MAIN"
+           android:targetPackage="com.android.settings"
+           android:targetClass="com.android.settings.fuelgauge.PowerUsageSummary"
+        />
+    </PreferenceScreen>
+
+     <ListPreference
+           android:key="battery_indicator_style"
+           android:title="@string/battery_indicator_style"
+           android:persistent="false"
+           android:entries="@array/battery_indicator_style_entries"
+           android:entryValues="@array/battery_indicator_style_values" />
+     <ListPreference
+           android:key="power_mode"
+           android:title="@string/power_mode"
+           android:persistent="false"
+           android:entries="@array/power_mode_entries" />
+</PreferenceScreen>

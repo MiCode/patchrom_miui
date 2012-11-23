@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#00000000"
+    android:gravity="bottom"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/layout_fit"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="#00000000" >
+    </LinearLayout>
+
+    <com.miui.voiceassist.view.MeasuredFrameLayout
+        android:id="@+id/layout_main"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/main_bg" >
+
+        <include layout="@layout/phone" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="10dp"
+            android:background="@color/transparent"
+            android:orientation="vertical" >
+
+            <com.miui.voiceassist.view.VAListView
+                android:id="@+id/lv_voiceassist"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:cacheColorHint="#00000000"
+                android:divider="#00000000"
+                android:dividerHeight="0.0sp"
+                android:listSelector="#00000000"
+                android:scrollbars="none" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:longClickable="false"
+                android:src="@drawable/list_fix_transparent" />
+        </LinearLayout>
+    </com.miui.voiceassist.view.MeasuredFrameLayout>
+
+</LinearLayout>

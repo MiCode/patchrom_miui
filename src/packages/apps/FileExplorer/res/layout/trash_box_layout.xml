@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/space_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="13dip"
+        android:layout_marginTop="31dip"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <com.android.fileexplorer.CategoryBar
+        android:id="@+id/category_bar"
+        android:layout_width="match_parent"
+        android:layout_height="21dip"
+        android:layout_marginBottom="20dip"
+        android:layout_marginLeft="6dip"
+        android:layout_marginRight="6dip" >
+    </com.android.fileexplorer.CategoryBar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dip"
+        android:layout_marginLeft="13dip"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/trash_box_capacity" />
+
+        <TextView
+            android:id="@+id/trash_box_capacity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dip"
+            android:includeFontPadding="false"
+            android:textColor="@android:color/black"
+            android:textSize="9sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="37dip"
+            android:src="@drawable/used_data_capacity" />
+
+        <TextView
+            android:id="@+id/used_data_capacity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dip"
+            android:includeFontPadding="false"
+            android:textColor="@android:color/black"
+            android:textSize="9sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/clean_trash_box_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dip"
+        android:layout_marginLeft="13dip"
+        android:layout_marginRight="13dip"
+        android:background="@drawable/btn_bottom"
+        android:clickable="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="18dip"
+        android:paddingTop="18dip" >
+
+        <TextView
+            android:id="@+id/clean_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/clean_title"
+            android:textColor="@color/clean_title_color"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/clean_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/clean_message_color"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/trash_box_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:autoLink="web"
+        android:textColor="@color/clean_message_color"
+        android:textSize="14sp" />
+
+</LinearLayout>

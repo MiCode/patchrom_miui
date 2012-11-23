@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- In-call Phone UI; see InCallScreen.java. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- The "Call Card", which displays info about the currently
+         active phone call(s) on the device.  See call_card.xml.
+
+         Note that the CallCard is technically the size of the full screen
+         (since layout_width and layout_height are both "match_parent" here) but
+         we manually adjust its bottom margin in CallCard.updateCallInfoLayout()
+         to make sure it doesn't overlap with the onscreen buttons from
+         incall_touch_ui.xml. -->
+    <include
+        layout="@layout/call_card"
+        android:id="@+id/callCard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <!-- In-call onscreen touch controls; see InCallTouchUi.java.
+         This widget contains the cluster of buttons shown at the bottom
+         of the in-call screen, and also the DTMF dialpad (which, when
+         visible, covers the upper part of the screen too.) -->
+    <include layout="@layout/incall_touch_ui"
+        android:id="@+id/inCallTouchUi"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <!-- ViewStub for OTASP-related UI elements (for the CDMA "activation"
+         call.)  Note that this ViewStub provides the *entire* OTASP
+         screen, including the status area at the top *and* touch controls
+         at the bottom of the screen.  The regular CallCard and the
+         InCallTouchUi widget are not used at all during an OTASP call. -->
+    <ViewStub android:id="@+id/otaCallCardStub"
+              android:layout="@layout/otacall_card"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              />
+
+    <!-- The "Manage conference" UI.  This panel is displayed (and covers up
+         the entire normal in-call UI) when the user clicks "Manage conference"
+         during a GSM conference call. -->
+    <ViewStub android:id="@+id/manageConferencePanelStub"
+              android:layout="@layout/manage_conference_panel"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              />
+
+</FrameLayout>

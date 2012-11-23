@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/feedback_submit_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical" >
+
+            <TextView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_height="32dip"
+                android:background="@drawable/list_section_divider_holo_custom"
+                android:ellipsize="end"
+                android:paddingLeft="@dimen/section_separator_padding_horinzontal"
+                android:paddingRight="@dimen/section_separator_padding_horinzontal"
+                android:singleLine="true"
+                android:text="@string/section_err_type"
+                android:textAllCaps="true"
+                android:textColor="#FF7E00" />
+
+            <TextView
+                android:id="@+id/err_type_text_view"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/section_margin_bottom"
+                android:layout_marginLeft="@dimen/section_err_type_margin_horizontal"
+                android:layout_marginRight="@dimen/section_err_type_margin_horizontal"
+                android:layout_marginTop="@dimen/section_err_type_margin_top"
+                android:singleLine="true"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#90404040" />
+
+            <TextView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_height="32dip"
+                android:background="@drawable/list_section_divider_holo_custom"
+                android:ellipsize="end"
+                android:paddingLeft="@dimen/section_separator_padding_horinzontal"
+                android:paddingRight="@dimen/section_separator_padding_horinzontal"
+                android:singleLine="true"
+                android:text="@string/section_description"
+                android:textAllCaps="true"
+                android:textColor="#FF7E00" />
+
+            <EditText
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/section_margin_bottom"
+                android:layout_marginLeft="@dimen/section_description_margin_horizontal"
+                android:layout_marginRight="@dimen/section_description_margin_horizontal"
+                android:layout_marginTop="@dimen/section_description_margin_top"
+                android:gravity="left|top"
+                android:hint="@string/description"
+                android:minHeight="@dimen/section_description_min_height" />
+
+            <TextView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_height="32dip"
+                android:background="@drawable/list_section_divider_holo_custom"
+                android:ellipsize="end"
+                android:paddingLeft="@dimen/section_separator_padding_horinzontal"
+                android:paddingRight="@dimen/section_separator_padding_horinzontal"
+                android:singleLine="true"
+                android:text="@string/section_screenshot"
+                android:textAllCaps="true"
+                android:textColor="#FF7E00" />
+
+            <com.miui.bugreport.ui.ScreenshotContainerLayout
+                android:id="@+id/screenshot_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/screenshot_margin_horizontal"
+                android:layout_marginRight="@dimen/screenshot_margin_horizontal"
+                android:layout_marginTop="@dimen/screenshot_margin_top" >
+
+                <ViewStub
+                    android:id="@+id/screenshot_attachement_stub_1"
+                    android:layout_width="0dip"
+                    android:layout_height="@dimen/screenshot_height"
+                    android:layout_marginLeft="@dimen/screenshot_margin_gap"
+                    android:layout_marginRight="@dimen/screenshot_margin_gap"
+                    android:layout_weight="1"
+                    android:layout="@layout/screenshot_attach_layout" />
+
+                <ViewStub
+                    android:id="@+id/screenshot_attachement_stub_2"
+                    android:layout_width="0dip"
+                    android:layout_height="@dimen/screenshot_height"
+                    android:layout_marginLeft="@dimen/screenshot_margin_gap"
+                    android:layout_marginRight="@dimen/screenshot_margin_gap"
+                    android:layout_weight="1"
+                    android:layout="@layout/screenshot_attach_layout" />
+
+                <ViewStub
+                    android:id="@+id/screenshot_attachement_stub_3"
+                    android:layout_width="0dip"
+                    android:layout_height="@dimen/screenshot_height"
+                    android:layout_marginLeft="@dimen/screenshot_margin_gap"
+                    android:layout_marginRight="@dimen/screenshot_margin_gap"
+                    android:layout_weight="1"
+                    android:layout="@layout/screenshot_attach_layout" />
+            </com.miui.bugreport.ui.ScreenshotContainerLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/log_collection_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_bar_height"
+        android:baselineAligned="false"
+        android:gravity="center"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:layout_width="@dimen/progress_bar_size"
+            android:layout_height="@dimen/progress_bar_size"
+            android:layout_marginRight="@dimen/progress_bar_margin_right" />
+
+        <TextView
+            android:id="@+id/status_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/status_msg_collecting_log"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+    </LinearLayout>
+
+</LinearLayout>

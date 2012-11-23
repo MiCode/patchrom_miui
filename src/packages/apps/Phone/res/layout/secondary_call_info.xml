@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- XML resource file for secondary call info, which will be used by CallCard.
+     See also call_card.xml.
+
+     This should look similar to primary call info (primary_call_info.xml), but
+     to optimize the view usage, the structure is different. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Contact photo for call_info #2 -->
+    <ImageView android:id="@+id/secondaryCallPhoto"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top|center_horizontal"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/onHold" />
+
+    <!-- Overlaps secondary photo when the secondary call is in HOLD state.
+
+         TODO: We could do better. See equivalent in primary xml. -->
+    <View android:id="@+id/dim_effect_for_secondary_photo"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentTop="true"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:background="@drawable/clickable_dim_effect"
+         android:visibility="gone" />
+
+    <!-- Name (or the phone number, if we don't have a name to display). -->
+    <TextView android:id="@+id/secondaryCallName"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/call_banner_height"
+        android:gravity="top|left"
+        android:paddingLeft="@dimen/call_banner_side_padding"
+        android:paddingRight="@dimen/call_banner_side_padding"
+        android:paddingTop="@dimen/call_banner_top_bottom_padding"
+        android:paddingBottom="@dimen/call_banner_top_bottom_padding"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/incall_call_banner_text_color"
+        android:singleLine="true"
+        android:background="@color/incall_call_banner_background" />
+
+    <!-- Call status of the background call, usually the string "On hold". -->
+    <TextView android:id="@+id/secondaryCallStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/call_banner_height"
+        android:layout_gravity="top|right"
+        android:gravity="top|right"
+        android:paddingLeft="@dimen/call_banner_side_padding"
+        android:paddingRight="@dimen/call_banner_side_padding"
+        android:paddingTop="@dimen/call_banner_top_bottom_padding"
+        android:paddingBottom="@dimen/call_banner_top_bottom_padding"
+        android:text="@string/onHold"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/incall_call_banner_text_color"
+        android:textAllCaps="true"
+        android:singleLine="true" />
+</FrameLayout>
