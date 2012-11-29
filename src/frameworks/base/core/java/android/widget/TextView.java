@@ -32,6 +32,7 @@ import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.MiuiTypeface;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Rect;
@@ -1136,6 +1137,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
         mSquaredTouchSlopDistance = touchSlop * touchSlop;
     }
 
+    @MiuiHook(MiuiHook.MiuiHookType.CHANGE_CODE)
     private void setTypefaceByIndex(int typefaceIndex, int styleIndex) {
         Typeface tf = null;
         switch (typefaceIndex) {
@@ -1151,7 +1153,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
                 tf = Typeface.MONOSPACE;
                 break;
         }
-
+        tf = MiuiTypeface.getChangedTypeface(tf,typefaceIndex, styleIndex); // MiuiHook
         setTypeface(tf, styleIndex);
     }
 
@@ -1225,6 +1227,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
      * @attr ref android.R.styleable#TextView_typeface
      * @attr ref android.R.styleable#TextView_textStyle
      */
+    @MiuiHook(MiuiHook.MiuiHookType.CHANGE_CODE)
     public void setTypeface(Typeface tf, int style) {
         if (style > 0) {
             if (tf == null) {
@@ -1242,6 +1245,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
         } else {
             mTextPaint.setFakeBoldText(false);
             mTextPaint.setTextSkewX(0);
+            tf = MiuiTypeface.getDefaultTypeface(tf); //MiuiHook
             setTypeface(tf);
         }
     }
