@@ -1630,7 +1630,9 @@ public final class ActivityThread {
     @MiuiHook(MiuiHookType.NEW_METHOD)
     Resources getTopLevelResources(String packageName, String resDir, CompatibilityInfo compInfo) {
         Resources r = getTopLevelResources(resDir, compInfo);
-        ((MiuiResources)r).init(packageName);
+        if (r != null) {
+            ((MiuiResources)r).init(packageName);
+        }
         return r;
     }
 

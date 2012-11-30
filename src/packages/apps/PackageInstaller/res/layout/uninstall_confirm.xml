@@ -27,15 +27,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <include
+         layout="@layout/app_details"
+         android:id="@+id/uninstall_activity_snippet" />
+
     <LinearLayout
         android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:orientation="vertical"
-        android:paddingBottom="8dip">
+        android:layout_height="0dip"
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <!-- If an activity was specified, explains what package it's in. -->
+         <!-- If an activity was specified, explains what package it's in. -->
         <TextView
             android:id="@+id/activity_text"
             android:layout_width="wrap_content"
@@ -43,12 +47,8 @@
             android:textColor="?android:attr/textColorSecondary"
             android:textAppearance="?android:attr/textAppearanceMedium"
             style="@style/padded"
+            android:gravity="center"
             android:visibility="gone" />
-
-        <!-- The snippet (title & icon) about the application being uninstalled. -->
-        <include
-            layout="@layout/app_details"
-            android:id="@+id/uninstall_activity_snippet" />
 
         <!-- uninstall application confirmation text -->
         <TextView
@@ -57,9 +57,7 @@
             android:layout_height="wrap_content"
             android:textColor="?android:attr/textColorSecondary"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:paddingLeft="24dip"
-            android:paddingRight="24dip" />
-
+            android:gravity="center" />
     </LinearLayout>
 
     <!-- OK confirm and cancel buttons.  -->

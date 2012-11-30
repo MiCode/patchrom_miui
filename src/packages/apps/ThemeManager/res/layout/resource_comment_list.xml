@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="2dip"
+        android:paddingLeft="@dimen/resource_comment_common_padding"
+        android:paddingRight="@dimen/resource_comment_common_padding" >
+
+        <Button
+            android:id="@+id/resource_comment_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/resource_comment_common_padding"
+            android:text="@string/resource_comment_edit_comment" />
+
+        <TextView
+            android:id="@+id/resource_comment_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/resource_comment_common_padding"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <RatingBar
+            android:id="@+id/resource_comment_ratingbar"
+            style="@style/Resource.Comment.RatingBar.ReadOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/resource_comment_common_padding" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="@dimen/resource_comment_common_padding"
+        android:layout_marginRight="@dimen/resource_comment_common_padding"
+        android:background="@drawable/resource_comment_divider_bg" />
+
+    <ListView
+        android:id="@+id/resource_comment_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:cacheColorHint="@null"
+        android:divider="@null"
+        android:fadingEdge="@null"
+        android:fastScrollEnabled="true"
+        android:scrollbarStyle="outsideOverlay" />
+
+    <LinearLayout
+        android:id="@+id/resource_comment_loadingprogressbar"
+        android:layout_width="match_parent"
+        android:layout_height="30dip"
+        android:gravity="center"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@miui:string/loading" />
+    </LinearLayout>
+
+</LinearLayout>

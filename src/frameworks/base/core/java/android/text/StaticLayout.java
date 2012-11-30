@@ -40,21 +40,17 @@ import com.android.internal.util.ArrayUtils;
  * Canvas.drawText()} directly.</p>
  */
 public class StaticLayout extends Layout {
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    static boolean callIsIdeographic(char c,boolean includeNonStarters) { return isIdeographic(c, includeNonStarters); }
+
     @MiuiHook(MiuiHookType.NEW_CLASS)
     static class Injector {
-        static char CHAR_UNKNOWN = CHAR_FIRST_CJK - 1;
         static char validateCJKCharAsSpace(char c, char chs[], int j, int spanEnd, int paraStart) {
-            if ((c >= CHAR_FIRST_CJK && isIdeographic(c, true) &&
-                 j + 1 < spanEnd && (chs[j + 1 - paraStart] < CHAR_FIRST_CJK || isIdeographic(chs[j + 1 - paraStart], false))) ||
+            if ((c >= CHAR_FIRST_CJK && callIsIdeographic(c, true) &&
+                 j + 1 < spanEnd && (chs[j + 1 - paraStart] < CHAR_FIRST_CJK || callIsIdeographic(chs[j + 1 - paraStart], false))) ||
                 (c < CHAR_FIRST_CJK && j + 1 < spanEnd && chs[j + 1 - paraStart] >= CHAR_FIRST_CJK &&
-                 !isIdeographic(c, true) && isIdeographic(chs[j + 1 - paraStart], false))) {
+                 !callIsIdeographic(c, true) && callIsIdeographic(chs[j + 1 - paraStart], false))) {
                 return CHAR_SPACE;
-            }
-            // need to bypass the following condition test in generate method.
-            if ((c >= CHAR_FIRST_CJK && isIdeographic(c, true) &&
-                    j + 1 < spanEnd && isIdeographic(chs[j + 1 - paraStart], false))) {
-                // the return value should not be CHAR_SPACE, CHAR_TAB, CHAR_DOT, CHAR_COMMA, CHAR_COLON, CHAR_SEMICOLON, CHAR_SLAH, CHAR_HYPHEN
-                return CHAR_UNKNOWN;
             }
             return c;
         }
