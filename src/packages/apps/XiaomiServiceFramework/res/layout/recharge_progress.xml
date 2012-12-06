@@ -24,13 +24,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dip"
         android:singleLine="true"
+        android:textColor="@color/text_color_black"
         android:textSize="@miui:dimen/text_font_size_small" />
     <TextView
-        android:id="@+id/progress_error"
+        android:id="@+id/progress_warning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dip"
-        android:textColor="@color/text_color_red"
+        android:layout_marginTop="30dip"
+        android:textColor="@color/text_color_gray"
         android:textSize="@miui:dimen/text_font_size_small"
         android:visibility="gone" />
     <Space
@@ -38,16 +39,39 @@
         android:layout_height="0dip"
         android:layout_weight="1" />
     <TextView
+        android:id="@+id/progress_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dip"
+        android:textColor="@color/text_color_red"
+        android:textSize="@miui:dimen/text_font_size_small"
+        android:visibility="gone" />
+    <TextView
         android:id="@+id/progress_hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dip"
         android:singleLine="true"
         android:textColor="@color/text_color_gray"
-        android:textSize="@miui:dimen/text_font_size_small" />
-    <Button
-        android:id="@+id/button_progress"
+        android:textSize="@miui:dimen/text_font_size_small"
+        android:text="@string/progress_submit_hint" />
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_pay_white_bkg" />
+        android:orientation="horizontal" >
+        <Button
+            android:id="@+id/button_call"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_call"
+            android:background="@drawable/btn_pay_white_bkg"
+            android:visibility="gone" />
+        <Button
+            android:id="@+id/button_progress"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_pay_white_bkg" />
+    </LinearLayout>
 </LinearLayout>
