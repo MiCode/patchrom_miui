@@ -74,25 +74,30 @@ public class DatePicker extends FrameLayout {
     @MiuiHook(MiuiHookType.NEW_CLASS)
     class OnDateChangeListener implements OnValueChangeListener {
         public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-            updateInputState();
-            mTempDate.setTimeInMillis(mCurrentDate.getTimeInMillis());
-            // take care of wrapping of days and months to update greater fields
-            if (picker == mDaySpinner) {
-                mTempDate.add(Calendar.DAY_OF_MONTH, newVal - oldVal);
-            } else if (picker == mMonthSpinner) {
-                mTempDate.add(Calendar.MONTH, newVal - oldVal);
-            } else if (picker == mYearSpinner) {
-                mTempDate.set(Calendar.YEAR, newVal);
-            } else {
-                throw new IllegalArgumentException();
-            }
-            // now set the date to the adjusted one
-            setDate(mTempDate.get(Calendar.YEAR), mTempDate.get(Calendar.MONTH),
-                    mTempDate.get(Calendar.DAY_OF_MONTH));
-            updateSpinners();
-            updateCalendarView();
-            notifyDateChanged();
+            handleValueChange(picker, oldVal, newVal);
         }
+    }
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    void handleValueChange(NumberPicker picker, int oldVal, int newVal) {
+        updateInputState();
+        mTempDate.setTimeInMillis(mCurrentDate.getTimeInMillis());
+        // take care of wrapping of days and months to update greater fields
+        if (picker == mDaySpinner) {
+            mTempDate.add(Calendar.DAY_OF_MONTH, newVal - oldVal);
+        } else if (picker == mMonthSpinner) {
+            mTempDate.add(Calendar.MONTH, newVal - oldVal);
+        } else if (picker == mYearSpinner) {
+            mTempDate.set(Calendar.YEAR, newVal);
+        } else {
+            throw new IllegalArgumentException();
+        }
+        // now set the date to the adjusted one
+        setDate(mTempDate.get(Calendar.YEAR), mTempDate.get(Calendar.MONTH),
+                mTempDate.get(Calendar.DAY_OF_MONTH));
+        updateSpinners();
+        updateCalendarView();
+        notifyDateChanged();
     }
 
     private static final String LOG_TAG = DatePicker.class.getSimpleName();

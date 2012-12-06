@@ -228,8 +228,23 @@
         </LinearLayout>
     </LinearLayout>
 
-    <ProgressBar
+    <LinearLayout
         android:id="@+id/simple"
-        android:layout_width="32dip"
-        android:layout_height="32dip" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dip"
+        android:layout_marginTop="20dip"
+        android:gravity="center" >
+        <ProgressBar
+            android:layout_width="32dip"
+            android:layout_height="32dip"
+            android:layout_marginRight="5dip" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/progress_connecting"
+            android:textColor="@color/text_color_black"
+            android:textSize="@miui:dimen/text_font_size_large" />
+    </LinearLayout>
+
 </com.xiaomi.xmsf.payment.PaymentView>
