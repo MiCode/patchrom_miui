@@ -19,103 +19,93 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@android:color/background_dark"
-        >
+    android:orientation="vertical">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="1"
-        android:layout_above="@+id/emergencyCallButton_account">
-        <RelativeLayout
+        android:layout_weight="1">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-                >
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="-15dip">
 
             <TextView
                 android:id="@+id/topHeader_account"
                 android:layout_width="match_parent"
                 android:layout_height="64dip"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="4dip"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:gravity="center_vertical"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"
                 android:drawableLeft="@drawable/android_ic_lock_idle_lock"
-                android:drawablePadding="5dip"
-                />
+                android:drawablePadding="5dip"/>
 
-            <!-- spacer below header -->
-            <View
-                android:id="@+id/spacerTop_account"
-                android:layout_width="match_parent"
-                android:layout_height="1dip"
-                android:layout_below="@id/topHeader_account"
-                android:background="@drawable/android_divider_horizontal_dark"/>
+           <ImageView
+                android:id="@android:id/icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/find_device_warning"/>
 
             <TextView
                 android:id="@+id/instructions_account"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/spacerTop_account"
-                android:layout_marginTop="8dip"
-                android:layout_marginLeft="9dip"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="@string/android_lockscreen_glogin_instructions"
-                />
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/android_lockscreen_glogin_instructions"/>
 
             <Spinner
                 android:id="@+id/login_account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/instructions_account"
-                />
+                android:layout_margin="10dip"
+                android:layout_gravity="center"/>
 
             <EditText
                 android:id="@+id/password_account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/login_account"
-                android:layout_marginTop="15dip"
-                android:layout_marginLeft="7dip"
-                android:layout_marginRight="7dip"
                 android:inputType="textPassword"
-                android:hint="@string/android_lockscreen_glogin_password_hint"
-                android:nextFocusRight="@+id/ok"
-                android:nextFocusDown="@+id/ok"
-                />
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:hint="@string/android_lockscreen_glogin_password_hint"/>
+
+            <Button
+                android:id="@+id/airplane_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/find_device_turn_off_flight_mode"
+                android:layout_marginTop="50dip"
+                android:background="@drawable/find_device_btn"/>
 
             <!-- ok below password, aligned to right of screen -->
             <Button
                 android:id="@+id/ok_account"
-                android:layout_width="85dip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/password_account"
-                android:layout_marginTop="7dip"
-                android:layout_marginRight="7dip"
-                android:layout_alignParentRight="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dip"
                 android:text="@string/android_lockscreen_glogin_submit_button"
-                />
+                android:background="@drawable/find_device_btn"/>
 
-        </RelativeLayout>
+        </LinearLayout>
     </ScrollView>
-
-    <!-- spacer above emergency call -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_marginBottom="4dip"
-
-        android:background="@drawable/android_divider_horizontal_dark"/>
 
     <!-- emergency call button at bottom center -->
     <Button
-        android:id="@+id/emergencyCallButton_account"
+        android:id="@+id/android_emergencyCallButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:drawableLeft="@drawable/android_ic_emergency"
         android:drawablePadding="4dip"
         android:text="@string/android_lockscreen_emergency_call"
-        />
+        android:background="@drawable/find_device_btn"/>
 
 </LinearLayout>
