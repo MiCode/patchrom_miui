@@ -18,6 +18,9 @@
     android:title="@string/display_settings"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <PreferenceCategory
+        android:title="@string/screen"/>
+
     <Preference
         android:key="brightness"
         android:title="@string/brightness">
@@ -25,6 +28,19 @@
             android:targetPackage="com.android.settings"
             android:targetClass="com.android.settings.display.BrightnessActivity" />
     </Preference>
+
+    <Preference
+        android:key="screen_color"
+        android:title="@string/screen_color_temperature_adjust"
+        android:persistent="false" />
+
+    <Preference
+        android:key="screen_saturation"
+        android:title="@string/screen_saturation_adjust"
+        android:persistent="false"/>
+
+    <PreferenceCategory
+        android:title="@string/system"/>
 
     <PreferenceScreen
          android:key="wallpaper"
