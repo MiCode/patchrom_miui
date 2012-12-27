@@ -301,6 +301,13 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
     public static final int FLAG_ACCESS_CONTROL_PASSWORD = 1<<31;
 
     /**
+     * Value for {@link #flags}: Set to true if the application is not allowed to be auto-start.
+     * @hide for libra only
+     */
+    @MiuiHook(MiuiHookType.NEW_FIELD)
+    public static final int FLAG_DISABLE_AUTOSTART = 1<<30;
+
+    /**
      * Value for {@link #flags}: Set to true if the application has been
      * installed using the forward lock option.
      *

@@ -289,6 +289,15 @@ public abstract class PackageManager {
     public static final int COMPONENT_ENABLED_STATE_ACCESS_CONTROL = 1<<31;
 
     /**
+     * Value for {@link #setApplicationEnabledSetting(String, int, int}
+     * Combined with ApplicationInfo.FLAG_UNABLE_AUTOSTART to indicate
+     * this app is not allowed to be auto-start, otherwise not.
+     * @hide for libra only
+     */
+    @MiuiHook(MiuiHookType.NEW_FIELD)
+    public static final int COMPONENT_ENABLED_STATE_DISABLE_AUTOSTART = 1<<30;
+
+    /**
      * Flag parameter for {@link #installPackage(android.net.Uri, IPackageInstallObserver, int)} to
      * indicate that this package should be installed as forward locked, i.e. only the app itself
      * should have access to its code and non-resource assets.

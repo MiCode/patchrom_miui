@@ -3393,7 +3393,9 @@ public class PackageManagerService extends IPackageManager.Stub {
             }
 
             // Read saved libra extended flags
-            pkg.applicationInfo.flags |= (pkgSetting.pkgFlags & ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD);
+            pkg.applicationInfo.flags |= (pkgSetting.pkgFlags & ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD); // miui add
+            pkg.applicationInfo.flags |= (pkgSetting.pkgFlags & ApplicationInfo.FLAG_DISABLE_AUTOSTART); // miui add
+            ExtraPackageManagerServices.blockAutoStartedApp(pkg.applicationInfo, mSettings);  // miui add
 
             if (pkgSetting.origPackage != null) {
                 // If we are first transitioning from an original package,
@@ -8741,16 +8743,27 @@ public class PackageManagerService extends IPackageManager.Stub {
     @MiuiHook(MiuiHookType.NEW_METHOD)
     private boolean setAccessControl(String packageName, int newState, int flags){
         synchronized (mPackages) {
-            if (newState != PackageManager.COMPONENT_ENABLED_STATE_ACCESS_CONTROL) return false;
+            if (newState != PackageManager.COMPONENT_ENABLED_STATE_ACCESS_CONTROL
+                && newState != PackageManager.COMPONENT_ENABLED_STATE_DISABLE_AUTOSTART) return false;
             PackageParser.Package pkg = mPackages.get(packageName);
             PackageSetting pkgSetting = mSettings.mPackages.get(packageName);
             if ((pkg != null) && (pkgSetting != null)) {
-                if (flags == ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD) {
-                    pkgSetting.pkgFlags |= ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD;
-                    pkg.applicationInfo.flags |= ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD;
-                } else {
-                    pkgSetting.pkgFlags &= ~ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD;
-                    pkg.applicationInfo.flags &= ~ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD;
+                if (newState == PackageManager.COMPONENT_ENABLED_STATE_ACCESS_CONTROL) {
+                    if (flags == ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD) {
+                        pkgSetting.pkgFlags |= ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD;
+                        pkg.applicationInfo.flags |= ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD;
+                    } else {
+                        pkgSetting.pkgFlags &= ~ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD;
+                        pkg.applicationInfo.flags &= ~ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD;
+                    }
+                } else if (newState == PackageManager.COMPONENT_ENABLED_STATE_DISABLE_AUTOSTART) {
+                    if (flags == ApplicationInfo.FLAG_DISABLE_AUTOSTART) {
+                        pkgSetting.pkgFlags |= ApplicationInfo.FLAG_DISABLE_AUTOSTART;
+                        pkg.applicationInfo.flags |= ApplicationInfo.FLAG_DISABLE_AUTOSTART;
+                    } else {
+                        pkgSetting.pkgFlags &= ~ApplicationInfo.FLAG_DISABLE_AUTOSTART;
+                        pkg.applicationInfo.flags &= ~ApplicationInfo.FLAG_DISABLE_AUTOSTART;
+                    }
                 }
                 mSettings.writeLPr();
             }

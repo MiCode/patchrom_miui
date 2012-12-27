@@ -49,6 +49,7 @@ class GrantedPermissions {
                 & (ApplicationInfo.FLAG_SYSTEM
                         | ApplicationInfo.FLAG_FORWARD_LOCK
                         | ApplicationInfo.FLAG_EXTERNAL_STORAGE
-                        | ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD);
+                        | ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD   // miui modify
+                        | ApplicationInfo.FLAG_DISABLE_AUTOSTART); // miui modify
     }
 }
