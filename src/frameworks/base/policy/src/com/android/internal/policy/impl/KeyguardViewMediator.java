@@ -109,6 +109,9 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
     @MiuiHook(MiuiHookType.NEW_METHOD)
     void postAdjustStatusBarLocked() { }
 
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    void callShowLocked() { showLocked(); }
+
     private static final int KEYGUARD_DISPLAY_TIMEOUT_DELAY_DEFAULT = 30000;
     private final static boolean DEBUG = false;
     private final static boolean DBG_WAKE = false;
