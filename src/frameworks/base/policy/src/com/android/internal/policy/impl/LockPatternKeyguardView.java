@@ -532,14 +532,18 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
         maybeEnableFallback(context);
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private class AccountAnalyzer implements AccountManagerCallback<Bundle> {
         private final AccountManager mAccountManager;
-        private final Account[] mAccounts;
+        private Account[] mAccounts;
         private int mAccountIndex;
 
+        @MiuiHook(MiuiHookType.CHANGE_CODE)
         private AccountAnalyzer(AccountManager accountManager) {
             mAccountManager = accountManager;
             mAccounts = accountManager.getAccountsByType("com.google");
+            if (mAccounts == null || mAccounts.length == 0)
+                mAccounts = accountManager.getAccountsByType("com.xiaomi");
         }
 
         private void next() {

@@ -3752,7 +3752,6 @@ public class PackageManagerService extends IPackageManager.Stub {
             // Read saved libra extended flags
             pkg.applicationInfo.flags |= (pkgSetting.pkgFlags & ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD); // miui add
             pkg.applicationInfo.flags |= (pkgSetting.pkgFlags & ApplicationInfo.FLAG_DISABLE_AUTOSTART); // miui add
-            ExtraPackageManagerServices.blockAutoStartedApp(pkg.applicationInfo, mSettings);  // miui add
 
             if (pkgSetting.origPackage != null) {
                 // If we are first transitioning from an original package,
@@ -4122,6 +4121,8 @@ public class PackageManagerService extends IPackageManager.Stub {
                     pkgSetting.lastUpdateTime = scanFileTime;
                 }
             }
+
+            ExtraPackageManagerServices.blockAutoStartedApp(pkg.applicationInfo, mSettings);  // miui add
 
             int N = pkg.providers.size();
             StringBuilder r = null;
