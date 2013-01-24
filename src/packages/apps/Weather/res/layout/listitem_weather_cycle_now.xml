@@ -69,37 +69,37 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="right"
+        android:layout_gravity="right"
         android:orientation="vertical"
         android:id="@+id/weather_cycle_now_pm25_container"
         android:visibility="gone" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#FFFFFFFF"
+            style="@style/text_shadow"
+            android:text="@string/act_weather_main_aqi_title" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:orientation="horizontal" >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textColor="#FFFFFFFF"
-                style="@style/text_shadow"
-                android:text="@string/act_weather_main_aqi_title" />
             <TextView
                 android:id="@+id/weather_cycle_now_aqi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="13sp"
                 android:textColor="#FFFFFFFF"
                 style="@style/text_shadow" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="3dip"
+                android:layout_marginTop="1dip"
+                android:src="@drawable/weather_cycle_aqi_image" />
         </LinearLayout>
-        <TextView
-            android:id="@+id/weather_cycle_now_aqi_index"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:textSize="16sp"
-            android:textColor="#FFFFFFFF"
-            style="@style/text_shadow" />
     </LinearLayout>
 
 </LinearLayout>
