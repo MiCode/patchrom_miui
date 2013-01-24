@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/page_layout_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,22 +8,37 @@
     android:colorBackgroundCacheHint="@null"
 >
     <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/albumset_page_bar_height"
-            android:background="@drawable/main_bg">
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/albumset_page_bar_height"
+        android:background="@drawable/main_bg">
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/albumset_page_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_above="@+id/new_cloud_album_set_panel"
+        android:layout_below="@+id/title_bar"
+        android:orientation="vertical">
+        <!-- <view
+            class="miui.v5.widget.TabContainerLayout"
+            android:id="@+id/tab_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tab_container_fading" />
+            -->
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/initial_cloud_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/title_bar"
         android:orientation="vertical"
         android:visibility="gone">
         <ImageView android:id="@+id/initial_cloud_image"
@@ -42,6 +57,8 @@
         android:id="@+id/cloud_none_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/new_cloud_album_set_panel"
+        android:layout_below="@+id/title_bar"
         android:orientation="vertical"
         android:visibility="gone">
         <TextView android:id="@+id/cloud_none_text"
@@ -57,4 +74,21 @@
             android:visibility="gone"
             android:text="@string/modify_cloud_settings"/>
     </LinearLayout>
-</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cloud_album_set_create_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/cloud_album_set_create"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/cloud_album_set_create"
+            />
+    </LinearLayout>
+</RelativeLayout>
