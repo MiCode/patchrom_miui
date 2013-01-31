@@ -112,6 +112,9 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
     @MiuiHook(MiuiHookType.NEW_METHOD)
     void callShowLocked() { showLocked(); }
 
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    void suppressNextLockSound() { mSuppressNextLockSound = true; }
+
     private static final int KEYGUARD_DISPLAY_TIMEOUT_DELAY_DEFAULT = 30000;
     private final static boolean DEBUG = false;
     private final static boolean DBG_WAKE = false;
@@ -1124,7 +1127,8 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
         }
     }
 
-    private void playSounds(boolean locked) {
+    @MiuiHook(MiuiHookType.CHANGE_ACCESS)
+    protected void playSounds(boolean locked) {
         // User feedback for keyguard.
 
         if (mSuppressNextLockSound) {
