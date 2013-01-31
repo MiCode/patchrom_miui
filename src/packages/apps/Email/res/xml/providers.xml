@@ -393,8 +393,13 @@
 
     <!-- 新浪邮箱们 -->
     <provider id="sina_cn" label="Sina CN Mail" domain="sina.cn">
-        <incoming uri="imap://imap.sina.cn" username="$user" />
+        <incoming uri="pop3://pop.sina.cn" username="$user" />
         <outgoing uri="smtp://smtp.sina.cn:25" username="$user" />
+    </provider>
+    <!-- 新浪邮箱们 -->
+    <provider id="sina_com" label="Sina Mail" domain="sina.com">
+        <incoming uri="pop3://pop.sina.com" username="$user" />
+        <outgoing uri="smtp://smtp.sina.com:25" username="$user" />
     </provider>
 
     <!-- 电信189信箱们 -->
