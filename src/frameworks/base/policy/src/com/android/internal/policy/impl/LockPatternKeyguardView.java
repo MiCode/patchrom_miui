@@ -542,6 +542,11 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
         private AccountAnalyzer(AccountManager accountManager) {
             mAccountManager = accountManager;
             mAccounts = accountManager.getAccountsByType("com.google");
+            checkAccounts(accountManager);  //miui-add
+        }
+
+        @MiuiHook(MiuiHookType.NEW_METHOD)
+        private void checkAccounts(AccountManager accountManager){
             if (mAccounts == null || mAccounts.length == 0)
                 mAccounts = accountManager.getAccountsByType("com.xiaomi");
         }
