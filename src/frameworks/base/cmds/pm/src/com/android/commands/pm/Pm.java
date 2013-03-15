@@ -1301,8 +1301,8 @@ public final class Pm {
             ApplicationInfo ai = mPm.getApplicationInfo(pii.packageName, 0, 0);
             AssetManager am = new AssetManager();
             am.addAssetPath(ai.publicSourceDir);
-            res = android.content.res.MiuiClassFactory.newResources(am, null, null); // MIUIHOOK
-            ((MiuiResources)res).init(pii.packageName);    //MiuiHook
+            res = new MiuiResources(am, null, null); // miui modify
+            ((MiuiResources) res).init(pii.packageName); // miui add
             mResourceCache.put(pii.packageName, res);
             return res;
         } catch (RemoteException e) {

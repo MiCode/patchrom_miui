@@ -79,46 +79,39 @@
                 android:layout_gravity="bottom" />
 
             <!-- (2.1.2) tool panel shown above the main buttons. -->
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/inCallToolPanel"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:visibility="gone">
-                <TextView
-                    android:id="@+id/inCallRecordPrompt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginBottom="5dip"
-                    android:gravity="center"
-                    android:text="@string/call_recording_prompt_miui"
-                    android:background="@drawable/incall_prompt_bg_miui"
-                    style="@style/Miui.TextAppearance.InCallControlButton"
-                    android:visibility="gone" />
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:background="@drawable/incall_tool_panel_bg_miui">
-                    <LinearLayout style="@style/Miui.TableRow">
+                    <LinearLayout android:id="@+id/inCallToolsPanelTop" style="@style/Miui.TableRow">
                         <!-- Mute -->
                         <LinearLayout style="@style/Miui.TableColumn">
                             <ToggleButton
                                 android:id="@+id/muteButton"
-                                style="@style/Miui.ToolButtonStyle"
+                                style="@style/Miui.Button.Tool"
                                 android:textOn="@string/onscreen_mute_text_miui"
                                 android:textOff="@string/onscreen_mute_text_miui"
                                 android:drawableTop="@drawable/ic_in_call_touch_mute_miui" />
                         </LinearLayout>
+                        <ImageView
+                            android:layout_width="1px"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/in_call_panel_divider_miui" />
                         <!-- Hold, Swap, and CDMA Merge are never available at same time. -->
                         <LinearLayout style="@style/Miui.TableColumn">
                             <!-- Hold -->
                             <ToggleButton
                                 android:id="@+id/holdButton"
-                                style="@style/Miui.ToolButtonStyle"
+                                style="@style/Miui.Button.Tool"
                                 android:textOn="@string/onscreen_hold_text_miui"
                                 android:textOff="@string/onscreen_hold_text_miui"
                                 android:drawableTop="@drawable/ic_in_call_touch_round_hold_miui"
@@ -126,17 +119,21 @@
                             <!-- Swap -->
                             <Button
                                 android:id="@+id/swapButton"
-                                style="@style/Miui.ToolButtonStyle"
+                                style="@style/Miui.Button.Tool"
                                 android:text="@string/onscreen_swap_calls_text_miui"
                                 android:drawableTop="@drawable/ic_in_call_touch_round_swap_miui"
                                 android:visibility="gone" />
                         </LinearLayout>
+                        <ImageView
+                            android:layout_width="1px"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/in_call_panel_divider_miui" />
                         <!-- Call Record -->
                         <LinearLayout style="@style/Miui.TableColumn">
                             <!-- Start Record -->
                             <ToggleButton
                                 android:id="@+id/recordStartButton"
-                                style="@style/Miui.ToolButtonStyle"
+                                style="@style/Miui.Button.Tool"
                                 android:textOn="@string/onscreen_call_record_miui"
                                 android:textOff="@string/onscreen_call_record_miui"
                                 android:drawableTop="@drawable/ic_in_call_touch_start_record_miui"
@@ -144,61 +141,98 @@
                             <!-- Stop Record -->
                             <LinearLayout
                                 android:id="@+id/recordStopButton"
-                                style="@style/Miui.ToolButtonStyle"
+                                style="@style/Miui.Button.Tool"
                                 android:orientation="vertical"
                                 android:visibility="gone">
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:src="@drawable/ic_in_call_touch_stop_record_miui" />
-                                <Chronometer
-                                    android:id="@+id/callRecordTimer"
-                                    android:layout_width="match_parent"
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:textColor="#ff0000"
-                                    android:textSize="11sp"
-                                    android:drawableLeft="@drawable/ic_call_recording_miui" />
+                                    android:gravity="center">
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginRight="5dip"
+                                        android:src="@drawable/ic_call_recording_miui" />
+                                    <Chronometer
+                                        android:id="@+id/callRecordTimer"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:textColor="#ff0000"
+                                        android:textSize="11sp" />
+                                </LinearLayout>
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@drawable/in_call_panel_divider_miui" />
                     <LinearLayout style="@style/Miui.TableRow">
                         <!-- Contact -->
                         <LinearLayout style="@style/Miui.TableColumn">
                             <Button
                                 android:id="@+id/contactButton"
-                                style="@style/Miui.ToolButtonStyle"
+                                style="@style/Miui.Button.Tool"
                                 android:text="@string/contacts_icon_label_miui"
                                 android:drawableTop="@drawable/ic_in_call_touch_contact_miui" />
                         </LinearLayout>
+                        <ImageView
+                            android:layout_width="1px"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/in_call_panel_divider_miui" />
                         <!-- Add and Merge are never available at same time. -->
                         <LinearLayout style="@style/Miui.TableColumn">
                             <!-- Add -->
                             <Button
                                 android:id="@+id/addButton"
-                                style="@style/Miui.ToolButtonStyle"
+                                style="@style/Miui.Button.Tool"
                                 android:text="@string/onscreen_add_call_text_miui"
                                 android:drawableTop="@drawable/ic_in_call_touch_add_call_miui"
                                 android:visibility="gone" />
                             <!-- Merge -->
                             <Button
                                 android:id="@+id/mergeButton"
-                                style="@style/Miui.ToolButtonStyle"
+                                style="@style/Miui.Button.Tool"
                                 android:text="@string/onscreen_merge_calls_text_miui"
                                 android:drawableTop="@drawable/ic_in_call_touch_round_merge_call_miui"
                                 android:visibility="gone" />
                         </LinearLayout>
+                        <ImageView
+                            android:layout_width="1px"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/in_call_panel_divider_miui" />
                         <!-- Note -->
                         <LinearLayout style="@style/Miui.TableColumn">
                             <Button
                                 android:id="@+id/noteButton"
-                                style="@style/Miui.ToolButtonStyle"
+                                style="@style/Miui.Button.Tool"
                                 android:text="@string/onscreen_note_text_miui"
                                 android:drawableTop="@drawable/ic_in_call_touch_note_miui" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/inCallRecordPrompt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dip"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center"
+                    android:visibility="gone">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/call_recording_prompt_miui"
+                        android:background="@drawable/incall_prompt_bg_miui"
+                        android:textAppearance="@style/Miui.TextAppearance.Button.InCallControl" />
+                </LinearLayout>
+            </RelativeLayout>
 
             <!-- (2.1.3) voice device buttons -->
             <LinearLayout
@@ -207,57 +241,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:background="@drawable/incall_tool_panel_bg_miui"
+                android:background="@drawable/incall_audio_panel_bg_miui"
                 android:visibility="gone">
                 <LinearLayout style="@style/Miui.TableRow">
-                    <com.android.phone.TextToggleButton
+                    <ToggleButton
                         android:id="@+id/audioModeBluetoothButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:paddingLeft="10dip"
-                        android:paddingRight="10dip"
+                        style="@style/Miui.Button.Audio"
                         android:drawableStart="@drawable/ic_in_call_audio_mode_panel_bluetooth_miui"
-                        android:drawablePadding="5dip"
                         android:textOn="@string/onscreen_audio_mode_bluetooth_miui"
-                        android:textOff="@string/onscreen_audio_mode_bluetooth_miui"
-                        style="@style/Miui.TextAppearance.InCallControlButton"
-                        android:background="@null" />
+                        android:textOff="@string/onscreen_audio_mode_bluetooth_miui" />
                 </LinearLayout>
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="1px"
-                    android:background="@drawable/incall_audio_mode_panel_seperator_bg_miui" />
+                    android:background="@drawable/in_call_panel_divider_miui" />
                 <LinearLayout style="@style/Miui.TableRow">
-                    <com.android.phone.TextToggleButton
+                    <ToggleButton
                         android:id="@+id/audioModeEarpieceButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:paddingLeft="10dip"
-                        android:paddingRight="10dip"
-                        android:drawablePadding="5dip"
+                        style="@style/Miui.Button.Audio"
                         android:drawableStart="@drawable/ic_in_call_audio_mode_panel_handset_miui"
                         android:textOn="@string/onscreen_audio_mode_handset_miui"
-                        android:textOff="@string/onscreen_audio_mode_handset_miui"
-                        style="@style/Miui.TextAppearance.InCallControlButton"
-                        android:background="@null" />
+                        android:textOff="@string/onscreen_audio_mode_handset_miui" />
                 </LinearLayout>
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="1px"
-                    android:background="@drawable/incall_audio_mode_panel_seperator_bg_miui" />
+                    android:background="@drawable/in_call_panel_divider_miui" />
                 <LinearLayout style="@style/Miui.TableRow">
-                    <com.android.phone.TextToggleButton
+                    <ToggleButton
                         android:id="@+id/audioModeSpeakerButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:paddingLeft="10dip"
-                        android:paddingRight="10dip"
-                        android:drawablePadding="5dip"
+                        style="@style/Miui.Button.Audio"
                         android:drawableLeft="@drawable/ic_in_call_audio_mode_panel_speaker_miui"
                         android:textOn="@string/onscreen_audio_mode_speaker_miui"
-                        android:textOff="@string/onscreen_audio_mode_speaker_miui"
-                        style="@style/Miui.TextAppearance.InCallControlButton"
-                        android:background="@null" />
+                        android:textOff="@string/onscreen_audio_mode_speaker_miui" />
                 </LinearLayout>
             </LinearLayout>
         </FrameLayout>
@@ -267,71 +283,45 @@
             android:id="@+id/mainButtons"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:background="@drawable/incall_controls_main_buttons_bg_miui" >
+            android:layout_height="@dimen/incall_main_controls_height_miui"
+            android:background="@drawable/incall_controls_main_buttons_bg_miui"
+            android:gravity="center">
             <LinearLayout style="@style/Miui.TableRow">
                 <LinearLayout style="@style/Miui.TableColumn">
-                    <com.android.phone.TextToggleButton
+                    <ToggleButton
                         android:id="@+id/speakerButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:drawableTop="@drawable/ic_in_call_touch_speaker_miui"
-                        android:textOn="@string/onscreen_speaker_text_miui"
-                        android:textOff="@string/onscreen_speaker_text_miui"
-                        style="@style/Miui.TextAppearance.InCallControlButton"
-                        android:background="@null" />
-                    <com.android.phone.TextToggleButton
+                        style="@style/Miui.Button.InCallMain"
+                        android:background="@drawable/ic_in_call_touch_speaker_miui" />
+                    <ToggleButton
                         android:id="@+id/audioModeButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:drawableTop="@drawable/ic_in_call_touch_audio_mode_miui"
-                        android:textOn="@string/onscreen_audio_mode_miui"
-                        android:textOff="@string/onscreen_audio_mode_miui"
-                        style="@style/Miui.TextAppearance.InCallControlButton"
-                        android:background="@null"
-                        android:visibility="gone" />
+                        style="@style/Miui.Button.InCallMain"
+                        android:background="@drawable/ic_in_call_touch_audio_mode_miui" />
                 </LinearLayout>
                 <LinearLayout style="@style/Miui.TableColumn">
-                    <com.android.phone.TextToggleButton
+                    <ToggleButton
                         android:id="@+id/dialerButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:drawableTop="@drawable/ic_in_call_touch_keyboard_miui"
-                        android:textOn="@string/onscreen_dialer_miui"
-                        android:textOff="@string/onscreen_dialer_miui"
-                        style="@style/Miui.TextAppearance.InCallControlButton"
-                        android:background="@null" />
+                        style="@style/Miui.Button.InCallMain"
+                        android:background="@drawable/ic_in_call_touch_keyboard_miui" />
                 </LinearLayout>
                 <LinearLayout style="@style/Miui.TableColumn">
-                    <com.android.phone.TextToggleButton
+                    <ToggleButton
                         android:id="@+id/toolsButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:drawableTop="@drawable/ic_in_call_touch_tools_miui"
-                        android:textOn="@string/onscreen_tools_on_miui"
-                        android:textOff="@string/onscreen_tools_off_miui"
-                        style="@style/Miui.TextAppearance.InCallControlButton"
-                        android:background="@null" />
+                        style="@style/Miui.Button.InCallMain"
+                        android:background="@drawable/ic_in_call_touch_tools_miui" />
                 </LinearLayout>
             </LinearLayout>
-            <LinearLayout style="@style/Miui.TableRow">
-                <Button
-                    android:id="@+id/endButton"
-                    android:background="@drawable/incall_button_end_miui"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/Miui.TextAppearance.RedButton"
-                    android:soundEffectsEnabled="false" />
-            </LinearLayout>
+            <Button
+                android:id="@+id/endButton"
+                style="@style/Miui.Button.Hangup"
+                android:layout_marginBottom="10dip" />
         </LinearLayout>
     </LinearLayout>
     <View
         android:id="@+id/inCallControlsMask"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/incall_controls_mask_height"
+        android:layout_height="@dimen/incall_main_controls_height_miui"
         android:layout_gravity="bottom|center_horizontal"
-        android:background="#9F000000"
+        android:background="#88000000"
         android:visibility="gone">
     </View>
 </com.android.phone.MiuiInCallTouchUi>

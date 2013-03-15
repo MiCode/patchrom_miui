@@ -2,43 +2,31 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:paddingLeft="2dip"
-    android:paddingRight="2dip"
-    android:paddingBottom="4dip"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
     android:orientation="horizontal"
     android:gravity="center_vertical">
     <TextView
         android:id="@+id/attachment_gallery"
-        android:layout_width="0dip"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:paddingLeft="@dimen/action_padding_size"
-        android:paddingRight="@dimen/action_padding_size"
-        android:gravity="center"
-        android:drawableTop="@drawable/attach_picture"
-        android:background="@drawable/popup_window_item_bg"
-        android:text="@string/attachment_gallery" />
+        android:drawableLeft="@drawable/ic_attach_picture"
+        android:text="@string/attachment_gallery"
+        style="@style/Widget.AttachmentItem" />
+    <View
+        android:layout_width="1px"
+        android:layout_height="match_parent"
+        android:background="@color/attachment_line_color" />
     <TextView
         android:id="@+id/attachment_camera"
-        android:layout_width="0dip"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:paddingLeft="@dimen/action_padding_size"
-        android:paddingRight="@dimen/action_padding_size"
-        android:gravity="center"
-        android:drawableTop="@drawable/attach_photo"
-        android:background="@drawable/popup_window_item_bg"
-        android:text="@string/attachment_camera" />
+        android:drawableLeft="@drawable/ic_attach_photo"
+        android:text="@string/attachment_camera"
+        style="@style/Widget.AttachmentItem" />
+    <View
+        android:layout_width="1px"
+        android:layout_height="match_parent"
+        android:background="@color/attachment_line_color" />
     <TextView
         android:id="@+id/attachment_contact"
-        android:layout_width="0dip"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:paddingLeft="@dimen/action_padding_size"
-        android:paddingRight="@dimen/action_padding_size"
-        android:gravity="center"
-        android:drawableTop="@drawable/attach_contact"
-        android:background="@drawable/popup_window_item_bg"
-        android:text="@string/attachment_contact" />
+        android:drawableLeft="@drawable/ic_attach_contact"
+        android:text="@string/attachment_contact"
+        style="@style/Widget.AttachmentItem" />
 </LinearLayout>

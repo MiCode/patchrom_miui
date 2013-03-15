@@ -55,36 +55,37 @@
 
     <PreferenceCategory
             android:key="category_calls_and_notification"
-            android:title="@string/sound_category_call_ringtone_vibrate_title"/>
+            android:title="@string/sound_category_call_ringtone_vibrate_title">
 
-    <!-- Do not nest these, or removals in code will break -->
-    <com.android.settings.DefaultRingtonePreference
-            android:key="ringtone"
-            android:title="@string/ringtone_title"
-            android:dialogTitle="@string/ringtone_title"
-            android:persistent="false"
-            android:ringtoneType="ringtone" />
+        <!-- Do not nest these, or removals in code will break -->
+        <com.android.settings.DefaultRingtonePreference
+                android:key="ringtone"
+                android:title="@string/ringtone_title"
+                android:dialogTitle="@string/ringtone_title"
+                android:persistent="false"
+                android:ringtoneType="ringtone" />
 
-    <!-- Do not nest these, or removals in code will break -->
+        <!-- Do not nest these, or removals in code will break -->
 
-    <com.android.settings.DefaultRingtonePreference
-            android:key="notification_sound"
-            android:title="@string/notification_sound_title"
-            android:dialogTitle="@string/notification_sound_dialog_title"
-            android:persistent="false"
-            android:ringtoneType="notification" />
+        <com.android.settings.DefaultRingtonePreference
+                android:key="notification_sound"
+                android:title="@string/notification_sound_title"
+                android:dialogTitle="@string/notification_sound_dialog_title"
+                android:persistent="false"
+                android:ringtoneType="notification" />
 
-    <com.android.settings.SmsRingtonePreference
-            android:key="sms_received_sound"
-            android:title="@string/sms_received_sound_title"
-            android:dialogTitle="@string/sms_received_sound_dialog_title"
-            android:ringtoneType="notification" />
+        <com.android.settings.SmsRingtonePreference
+                android:key="sms_received_sound"
+                android:title="@string/sms_received_sound_title"
+                android:dialogTitle="@string/sms_received_sound_dialog_title"
+                android:ringtoneType="notification" />
 
-    <com.android.settings.SmsRingtonePreference
-            android:key="sms_delivered_sound"
-            android:title="@string/sms_delivered_sound_title"
-            android:dialogTitle="@string/sms_delivered_sound_dialog_title"
-            android:ringtoneType="notification" />
+        <com.android.settings.SmsRingtonePreference
+                android:key="sms_delivered_sound"
+                android:title="@string/sms_delivered_sound_title"
+                android:dialogTitle="@string/sms_delivered_sound_dialog_title"
+                android:ringtoneType="notification" />
+    </PreferenceCategory>
 
     <PreferenceCategory
             android:title="@string/sound_category_system_title"/>
@@ -123,8 +124,10 @@
             android:title="@string/emergency_tone_title"
             android:entries="@array/emergency_tone_entries"
             android:entryValues="@array/emergency_tone_values" />
+
     <Preference
             android:fragment="com.android.settings.dolby.DolbySettings"
             android:key="dolby_control"
-            android:title="@string/title_dolby_control" />
+            android:title="@string/title_dolby_control"
+            android:summary="@string/dolby_mode_off" />
 </PreferenceScreen>

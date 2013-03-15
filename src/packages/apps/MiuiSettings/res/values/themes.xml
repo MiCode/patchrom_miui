@@ -16,17 +16,16 @@
 
 <resources>
 
-    <style name="Theme.WifiDialog" parent="@miui:style/Theme.Holo.Light.Dialog.Alert">
+    <style name="Theme.WifiDialog" parent="@miui:style/V5.Theme.Light.Dialog.Alert">
         <item name="android:windowSoftInputMode">adjustResize</item>
     </style>
 
-    <style name="Theme.AccessibilityTutorialActivity" parent="@android:style/Theme.Holo.Light">
+    <style name="Theme.AccessibilityTutorialActivity" parent="@miui:style/V5.Theme.Light">
+        <item name="android:windowNoTitle">true</item>
     </style>
 
-    <style name="DolbyEqualizer" parent="@android:style/Theme.Holo">
-        <item name="android:windowActionBarOverlay">true</item>
-        <item name="android:homeAsUpIndicator">@drawable/holo_home_icon</item>
-        <item name="android:actionBarStyle">@style/DolbyEqualizerActionBar</item>
+    <style name="DolbyEqualizer" parent="@miui:style/V5.Theme.Dark">
+        <item name="android:windowNoTitle">true</item>
     </style>
 
     <style name="DolbyEqualizerActionBar" parent="@android:style/Widget.Holo.ActionBar">
@@ -34,4 +33,26 @@
         <item name="android:displayOptions">homeAsUp|useLogo|showHome|showCustom|showTitle</item>
     </style>
 
+    <style name="Theme.ListView.WithDivider" parent="@miui:style/V5.Theme.Light.Settings">
+        <item name="android:listViewStyle">@style/ListView.WithDivider</item>
+    </style>
+
+    <style name="Theme.ActionBar.Scrollable" parent="@miui:style/V5.Theme.Light.ActionBarMovable">
+        <item name="android:actionBarStyle">@style/ActionBar.Scrollable</item>
+        <item name="miui:actionBarMovableLayoutStyle">@style/ActionBar.MovableLayout</item>
+        <item name="miui:v5_action_bar_title_layout">@layout/action_bar_title_item</item>
+        <item name="miui:v5_bottom_bar_bg">@drawable/bottom_bar_bg</item>
+    </style>
+
+    <style name="Theme.MTPHelper" parent="@miui:style/V5.Theme.Light">
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <style name="ActionBar.Show.Custom" parent="@miui:V5.Widget.ActionBar">
+         <item name="android:displayOptions">showCustom</item>
+    </style>
+
+    <style name="EditorActivityTheme" parent="@miui:V5.Theme.Light">
+        <item name="android:actionBarStyle">@style/ActionBar.Show.Custom</item>
+    </style>
 </resources>

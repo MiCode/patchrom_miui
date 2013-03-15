@@ -1436,6 +1436,8 @@ public class MediaScanner
 
         if (!MediaFile.isAudioFileType(fileType) && !MediaFile.isVideoFileType(fileType) &&
             !MediaFile.isImageFileType(fileType) && !MediaFile.isPlayListFileType(fileType)) {
+/* 		Xiaomi: Omit this update could speed up the files copy, especially with numerous small files
+				this change may has a little side effect in files copy
 
             // no need to use the media scanner, but we need to update last modified and file size
             ContentValues values = new ContentValues();
@@ -1448,6 +1450,7 @@ public class MediaScanner
             } catch (RemoteException e) {
                 Log.e(TAG, "RemoteException in scanMtpFile", e);
             }
+ */
             return;
         }
 

@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<com.android.mms.ui.SizeAwareLinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <com.android.mms.ui.MultipleRecipientsConversationHeader
-        android:id="@+id/contact_panel"
+    <com.android.mms.ui.SizeAwareLinearLayout
+        android:id="@+id/msg_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
+        <include
+            layout="@layout/message_list" />
+        <include
+            layout="@layout/message_edit_bottom_panel" />
+        <include
+            layout="@layout/message_edit_attachment_panel" />
+    </com.android.mms.ui.SizeAwareLinearLayout>
     <include
-        layout="@layout/message_list" />
-    <include
-        layout="@layout/message_edit_bottom_panel" />
-    <include
-        layout="@layout/message_edit_attachment_panel" />
-</com.android.mms.ui.SizeAwareLinearLayout>
+        layout="@layout/multiple_recipients_contact_panel" />
+</FrameLayout>

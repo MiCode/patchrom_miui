@@ -1421,7 +1421,7 @@ public final class ActivityManagerService extends ActivityManagerNative
         ActivityThread at = ActivityThread.systemMain();
         mSystemThread = at;
         Context context = at.getSystemContext();
-        context.setTheme(android.R.style.Theme_Holo_Light); // miui modify
+        context.setTheme(miui.R.style.V5_Theme_Light); // miui modify
         m.mContext = context;
         m.mFactoryTest = factoryTest;
         m.mMainStack = new ActivityStack(m, context, true);
@@ -1581,7 +1581,7 @@ public final class ActivityManagerService extends ActivityManagerNative
         File systemDir = new File(dataDir, "system");
         systemDir.mkdirs();
 
-        miui.os.Environment.init(systemDir, dataDir); // miui add
+        ExtraActivityManagerService.init(); // miui add
         mBatteryStatsService = new BatteryStatsService(new File(
                 systemDir, "batterystats.bin").toString());
         mBatteryStatsService.getActiveStatistics().readLocked();
@@ -4262,6 +4262,7 @@ public final class ActivityManagerService extends ActivityManagerNative
         }
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     final void finishBooting() {
         IntentFilter pkgFilter = new IntentFilter();
         pkgFilter.addAction(Intent.ACTION_QUERY_PACKAGE_RESTART);
@@ -4319,6 +4320,7 @@ public final class ActivityManagerService extends ActivityManagerNative
                         null, null, 0, null, null,
                         android.Manifest.permission.RECEIVE_BOOT_COMPLETED,
                         false, false, MY_PID, Process.SYSTEM_UID, Binder.getOrigCallingUser());
+                ExtraActivityManagerService.finishBooting(mContext); // miui add
             }
         }
     }
@@ -13186,7 +13188,7 @@ public final class ActivityManagerService extends ActivityManagerNative
                 || resultTo != null) {
             BroadcastQueue queue = broadcastQueueForIntent(intent);
 
-            ExtraActivityManagerService.adjustMediaButtonReceivers(receivers, getRunningAppProcesses(), intent.getAction());
+            ExtraActivityManagerService.adjustMediaButtonReceivers(mContext, receivers, getRunningAppProcesses(), intent.getAction());
 
             BroadcastRecord r = new BroadcastRecord(queue, intent, callerApp,
                     callerPackage, callingPid, callingUid, requiredPermission,

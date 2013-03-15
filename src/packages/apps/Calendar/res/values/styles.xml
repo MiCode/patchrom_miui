@@ -17,13 +17,12 @@
 ** limitations under the License.
 */
 -->
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
 
 
     <style name="MinusButton">
-        <item name="android:background">?android:attr/selectableItemBackground</item>
-        <item name="android:src">@drawable/ic_menu_remove_field_holo_light</item>
+        <item name="android:background">@miui:drawable/v5_btn_inline_delete_light</item>
     </style>
 
     <style name="MonthView_DayLabel">
@@ -45,7 +44,11 @@
         <item name="android:textColor">@color/month_mini_day_number</item>
     </style>
 
-    <style name="TextAppearance" parent="android:TextAppearance">
+    <style name="TextAppearance" parent="@miui:style/V5.TextAppearance">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginRight">12dip</item>
+        <item name="android:layout_marginLeft">12dip</item>
     </style>
 
     <style name="TextAppearance.SelectCalendar_Name">
@@ -59,9 +62,11 @@
     </style>
 
     <style name="TextAppearance.MonthView_DayLabel">
+        <item name="android:paddingTop">4dip</item>
         <item name="android:textSize">@dimen/day_label_text_size</item>
         <item name="android:paddingLeft">2dip</item>
         <item name="android:textColor">@color/month_day_names_color</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="TextAppearance.AgendaView_ValueLabel">
@@ -87,26 +92,24 @@
     </style>
 
     <style name="TextAppearance.EditEvent_LabelSmall" parent="TextAppearance.EditEvent_Small">
-        <item name="android:minHeight">24dip</item>
-        <item name="android:layout_width">144dip</item>
-        <item name="android:layout_marginLeft">16dip</item>
-        <item name="android:layout_marginRight">16dip</item>
-        <item name="android:paddingLeft">8dip</item>
-        <item name="android:paddingRight">8dip</item>
-        <item name="android:layout_marginBottom">-12dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="TextAppearance.EditEvent_Small">
         <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">#FFAAAAAA</item>
         <item name="android:textAllCaps">true</item>
     </style>
 
-    <style name="TextAppearance.EditEvent">
+    <style name="TextAppearance.Container_Label">
+        <item name="android:textColor">@color/event_info_label_color</item>
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:textColor">#FF333333</item>
+        <item name="android:layout_marginLeft">13dip</item>
+        <item name="android:layout_marginBottom">5dip</item>
+    </style>
+
+    <style name="TextAppearance.EditEvent" parent="@miui:style/V5.TextAppearance.EditText">
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
     </style>
 
     <style name="TextAppearance.EditEvent_Value" parent="TextAppearance.EditEvent">
@@ -114,6 +117,12 @@
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:layout_marginRight">12dip</item>
         <item name="android:layout_marginLeft">12dip</item>
+        <item name="android:paddingLeft">5dip</item>
+        <item name="android:paddingRight">5dip</item>
+    </style>
+
+    <style name="TextAppearance.EditEvent.Grouped" parent="TextAppearance.EditEvent_Value">
+        <item name="android:background">?miui:attr/v5_group_item_bg</item>
     </style>
 
     <style name="TextAppearance.EditEventCalSpinner">
@@ -127,16 +136,20 @@
         <item name="android:paddingRight">16dip</item>
     </style>
 
-    <style name="TextAppearance.EditEvent_Spinner" parent="android:style/Widget.Holo.Light.Spinner">
+    <style name="TextAppearance.EditEvent_Spinner" parent="@miui:style/V5.Widget.Spinner">
         <item name="android:textSize">18sp</item>
-        <item name="android:textColor">#FF333333</item>
-        <item name="android:layout_marginRight">12dp</item>
-        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:layout_marginTop">1dip</item>
+        <item name="android:layout_marginBottom">1dip</item>
+        <item name="android:layout_marginLeft">3dip</item>
+        <item name="android:layout_marginRight">3dip</item>
     </style>
 
-    <style name="TextAppearance.EditEvent_SpinnerButton" parent="TextAppearance.EditEvent_Spinner">
-        <item name="android:paddingLeft">12dp</item>
-        <item name="android:paddingRight">12dp</item>
+    <style name="TextAppearance.EditEvent_SpinnerButton" parent="@miui:style/V5.Widget.Spinner">
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginBottom">1dip</item>
+        <item name="android:layout_marginLeft">3dip</item>
+        <item name="android:layout_marginRight">3dip</item>
+        <item name="android:gravity">left|center_vertical</item>
     </style>
 
     <style name="TextAppearance.EditEvent_homeTime">
@@ -153,36 +166,50 @@
         <item name="android:paddingLeft">16dip</item>
     </style>
 
-    <style name="EditEvent_Layout" parent="android:Theme.Holo.Light">
-    </style>
-
     <style name="TextAppearance.Date_Range_Title">
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/calendar_date_range_color</item>
     </style>
 
-    <style name="CalendarTheme" parent="android:Theme.Holo.Light">
-        <item name="android:windowContentOverlay">@null</item>
-    </style>
-
-    <style name="CalendarTheme.WithActionBar" parent="android:Theme.Holo.Light">
-        <item name="android:windowNoTitle">false</item>
-        <item name="android:windowActionBar">true</item>
-        <item name="android:windowBackground">@color/background_color</item>
-        <item name="android:actionBarStyle">@style/CalendarActionBarStyle</item>
+    <style name="CalendarTheme" parent="miui:V5.Theme.Light">
         <item name="android:endYear">2036</item>
         <item name="android:startYear">1970</item>
+        <item name="android:actionBarStyle">@style/ActionBarStyle</item>
     </style>
 
-    <style name="CalendarActionBarStyle" parent="android:style/Widget.Holo.Light.ActionBar.Solid">
+    <style name="CalendarTheme.Main">
+        <item name="miui:v5_bottom_bar_bg">@null</item>
+        <item name="miui:v5_bottom_bar_top_line">@null</item>
+        <item name="miui:v5_title_bar_bg_search_mode">@drawable/miui_search_bar_bg</item>
+        <item name="miui:v5_title_bar_back_button_search_mode">@miui:drawable/v5_title_bar_back_button_light</item>
+        <item name="android:actionBarStyle">@style/CustomActionBarStyle</item>
+    </style>
+
+    <style name="ActionBarStyle" parent="@miui:V5.Widget.ActionBar">
+        <item name="android:background">@drawable/miui_header_panel_bg_normal</item>
+    </style>
+
+    <style name="CustomActionBarStyle" parent="@miui:V5.Widget.ActionBar">
         <item name="android:displayOptions">showCustom</item>
     </style>
 
-    <style name="CalendarTheme.WithActionBarWallpaper" parent="CalendarTheme.WithActionBar">
+    <style name="CalendarTheme.Search">
+        <item name="android:actionBarStyle">@style/CustomActionBarStyle</item>
+        <item name="miui:v5_title_bar_bg_search_mode">@drawable/miui_search_bar_bg</item>
+        <item name="miui:v5_title_bar_back_button_search_mode">@miui:drawable/v5_title_bar_back_button_light</item>
+    </style>
+
+    <style name="CalendarTheme.Wallpaper">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowShowWallpaper">true</item>
     </style>
+
+    <style name="CalendarTheme.Event" >
+        <item name="android:actionBarStyle">@style/CustomActionBarStyle</item>
+    </style>
+
+    <style name="CalendarTheme.Settings" parent="miui:V5.Theme.Light.Settings" />
 
     <style name="MultiStateButton">
         <item name="android:focusable">true</item>
@@ -250,5 +277,29 @@
 
     <style name="NotificationSecondaryText" parent="@android:style/TextAppearance.Holo">
         <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <style name="miui_edit_event_container_style">
+        <item name="android:layout_marginLeft">9dip</item>
+        <item name="android:layout_marginRight">9dip</item>
+        <item name="android:layout_marginTop">8dip</item>
+        <item name="android:layout_marginBottom">5dip</item>
+    </style>
+
+    <style name="miui_radio_group">
+        <item name="android:minHeight">52dip</item>
+        <item name="android:layout_marginLeft">2dip</item>
+        <item name="android:layout_marginRight">2dip</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="miui_radio_button" parent="@miui:style/V5.Widget.CompoundButton.CheckBox">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:textColor">@color/event_info_body_color</item>
+        <item name="android:paddingLeft">10dip</item>
     </style>
 </resources>

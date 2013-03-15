@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+  -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/user_dict_settings_add_dialog_top"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+    <LinearLayout
+         style="@style/input_item_horizontal"
+         android:background="@miui:drawable/v5_group_first_item_bg_light"
+         android:layout_marginTop="@miui:dimen/v5_preference_screen_padding_top" >
+         <TextView style="@style/input_item_label"
+             android:background="@drawable/input_item_first"
+             android:text="@string/user_dict_settings_add_screen_title" />
+
+         <EditText style="@style/input_item_content"
+             android:id="@+id/user_dictionary_add_word_text"
+             android:singleLine="true"
+             android:maxLength="@integer/maximum_user_dictionary_word_length"
+             android:inputType="textNoSuggestions"
+             android:imeOptions="flagNoFullscreen">
+            <requestFocus />
+          </EditText>
+    </LinearLayout>
+    <LinearLayout
+         style="@style/input_item_horizontal"
+         android:background="@miui:drawable/v5_group_last_item_bg_light" >
+         <TextView style="@style/input_item_label"
+              android:background="@drawable/input_item_last"
+              android:id="@+id/user_dictionary_add_shortcut_label"
+              android:text="@string/user_dict_settings_add_shortcut_option_name" />
+        <EditText android:id="@+id/user_dictionary_add_shortcut"
+                  android:maxLength="@integer/maximum_user_dictionary_word_length"
+                  style="@style/input_item_content"
+                  android:inputType="textNoSuggestions"
+                  android:imeOptions="flagNoFullscreen" />
+    </LinearLayout>
+    <LinearLayout
+            style="@style/wifi_item" >
+        <TextView style="@style/input_category"
+                  android:id="@+id/user_dictionary_add_locale_label"
+                  android:text="@string/user_dict_settings_add_locale_option_name" />
+        <Spinner  android:id="@+id/user_dictionary_add_locale"
+                 style="@style/wifi_item_content" />
+    </LinearLayout>
+</LinearLayout>

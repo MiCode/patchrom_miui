@@ -16,8 +16,6 @@
 
 package com.android.internal.widget;
 
-import android.annotation.MiuiHook;
-import android.annotation.MiuiHook.MiuiHookType;
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -30,36 +28,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import miui.util.UiUtils;
+
 /**
  * This class acts as a container for the action bar view and action mode context views.
  * It applies special styles as needed to help handle animated transitions between them.
  * @hide
  */
 public class ActionBarContainer extends FrameLayout {
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    Drawable getActionBarBackground() { return mBackground; }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    Drawable getStackedBackground() { return mStackedBackground; }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    ActionBarView getActionBarView() { return mActionBarView; }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    void setIsStacked(boolean value) { mIsStacked = value; }
-
-    @MiuiHook(MiuiHookType.NEW_CLASS)
-    static class Injector {
-        static void setBounds(ActionBarContainer abc, int left, int top, int right, int bottom) {
-            Drawable background = abc.getActionBarBackground();
-            if (background != null && abc.getActionBarView().getHeight() == 0) {
-                background.setBounds(left, top, right, bottom);
-                abc.setIsStacked(false);
-            } else {
-                abc.getStackedBackground().setBounds(left, top, right, bottom);
-            }
-        }
-    }
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    protected ActionBarView getActionBarView() { return mActionBarView; }
 
     private boolean mIsTransitioning;
     private View mTabContainer;
@@ -227,7 +208,10 @@ public class ActionBarContainer extends FrameLayout {
             final int containerHeight = getMeasuredHeight();
             final int tabHeight = mTabContainer.getMeasuredHeight();
 
-            if ((mActionBarView.getDisplayOptions() & ActionBar.DISPLAY_SHOW_HOME) == 0) {
+            // MIUI MODIFY:
+            // do not put tabs on top of action bar view for V5
+            // if ((mActionBarView.getDisplayOptions() & ActionBar.DISPLAY_SHOW_HOME) == 0)
+            if (shouldPutTabsOnTop()) {
                 // Not showing home, put tabs on top.
                 final int count = getChildCount();
                 for (int i = 0; i < count; i++) {
@@ -258,8 +242,8 @@ public class ActionBarContainer extends FrameLayout {
                 needsInvalidate = true;
             }
             if ((mIsStacked = hasTabs && mStackedBackground != null)) {
-                Injector.setBounds(this, mTabContainer.getLeft(), mTabContainer.getTop(),
-                        mTabContainer.getRight(), mTabContainer.getBottom()); // miui modify
+                mStackedBackground.setBounds(mTabContainer.getLeft(), mTabContainer.getTop(),
+                        mTabContainer.getRight(), mTabContainer.getBottom());
                 needsInvalidate = true;
             }
         }
@@ -267,5 +251,19 @@ public class ActionBarContainer extends FrameLayout {
         if (needsInvalidate) {
             invalidate();
         }
+    }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    protected boolean isSplit() {
+        return mIsSplit;
+    }
+
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    private boolean shouldPutTabsOnTop() {
+        return UiUtils.isV5Ui(mContext) ? false
+                : (mActionBarView.getDisplayOptions() & ActionBar.DISPLAY_SHOW_HOME) == 0;
     }
 }

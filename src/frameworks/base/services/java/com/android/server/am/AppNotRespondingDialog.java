@@ -40,7 +40,10 @@ class AppNotRespondingDialog extends BaseErrorDialog {
 
     private final ActivityManagerService mService;
     private final ProcessRecord mProc;
-    
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    ProcessRecord getProc() { return mProc; }
+
     public AppNotRespondingDialog(ActivityManagerService service, Context context,
             ProcessRecord app, ActivityRecord activity) {
         super(context);
@@ -103,7 +106,7 @@ class AppNotRespondingDialog extends BaseErrorDialog {
     private final Handler mHandler = new Handler() {
         @MiuiHook(MiuiHookType.CHANGE_CODE)
         public void handleMessage(Message msg) {
-            MiuiErrorReport.sendAnrErrorReport(getContext(), mProc, false); // miui add
+            MiuiErrorReport.sendAnrErrorReport(getContext(), getProc(), false); // miui add
 
             Intent appErrorIntent = null;
             switch (msg.what) {

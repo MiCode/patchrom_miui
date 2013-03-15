@@ -41,6 +41,15 @@ public class ResolveInfo implements Parcelable {
             ComponentInfo ci = ri.activityInfo != null ? ri.activityInfo : ri.serviceInfo;
             return android.app.MiuiThemeHelper.getDrawable(pm, packageName, icon, ai, ci, android.app.MiuiThemeHelper.isCustomizedIcon(ri.filter));
         }
+
+        static int compare(Collator collator, ResolveInfo a, CharSequence sa,
+                ResolveInfo b, CharSequence sb) {
+            if (a.system == b.system) {
+                return collator.compare(sa.toString(), sb.toString());
+            }
+
+            return a.system && !b.system ? -1 : 1;
+        }
     }
 
     /**
@@ -326,13 +335,14 @@ public class ResolveInfo implements Parcelable {
             mPM = pm;
         }
 
+        @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
         public final int compare(ResolveInfo a, ResolveInfo b) {
             CharSequence  sa = a.loadLabel(mPM);
             if (sa == null) sa = a.activityInfo.name;
             CharSequence  sb = b.loadLabel(mPM);
             if (sb == null) sb = b.activityInfo.name;
-            
-            return sCollator.compare(sa.toString(), sb.toString());
+
+            return Injector.compare(sCollator, a, sa, b, sb); // Miui Hook
         }
 
         private final Collator   sCollator = Collator.getInstance();

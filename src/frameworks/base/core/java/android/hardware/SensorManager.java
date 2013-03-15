@@ -1393,4 +1393,12 @@ public abstract class SensorManager {
             }
         }
     }
+
+    /**
+     * A dummy method for compass
+     * @hide
+     */
+    public boolean calibrateSensor(Sensor sensor) {
+        return false;
+    }
 }

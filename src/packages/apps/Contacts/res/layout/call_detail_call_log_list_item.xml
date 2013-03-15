@@ -1,67 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<com.android.contacts.detail.ActionsViewContainer
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:gravity="center_vertical">
-    <ImageView
-        android:id="@+id/call_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleType="center"
-        android:gravity="center_vertical"
-        android:paddingLeft="@dimen/contact_detail_padding_left" />
-    <LinearLayout
+    android:orientation="vertical">
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="20dip"
-        android:orientation="vertical"
-        android:gravity="center_vertical">
-        <TextView
-            android:id="@+id/call_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:textAppearance="@miui:style/TextAppearance.ListView.PrimaryItem" />
-        <TextView
-            android:id="@+id/call_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:visibility="gone"
-            android:textAppearance="@miui:style/TextAppearance.ListView.PrimaryItem" />
-        <LinearLayout
+        android:layout_height="match_parent" >
+
+        <com.android.contacts.detail.ActionsViewContainer
+            android:id="@+id/actions_view_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/number"
-                android:layout_width="@dimen/contact_detail_number_width"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:singleLine="true"
-                android:textAppearance="@miui:style/TextAppearance.ListView.SecondaryItem" />
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
 
-            <TextView
-                android:id="@+id/location"
-                android:layout_width="0dip"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:layout_marginLeft="@dimen/width_marginLeft_contact_location"
-                android:layout_marginRight="@dimen/width_marginRight_contact_location"
-                android:textAppearance="@miui:style/TextAppearance.ListView.SecondaryItem" />
+            <LinearLayout
+                android:id="@+id/contact_detail_calllog_list_item"
+                android:layout_width="match_parent"
+                android:layout_height="@miui:dimen/v5_list_view_single_line_height"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
 
-            <TextView
-                android:id="@+id/duration"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:singleLine="true"
-                android:textAppearance="@miui:style/TextAppearance.ListView.SecondaryItem" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/call_date"
+                    style="@style/ContactDetailItemTextAppearancePrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TableLayout
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:shrinkColumns="0" >
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/number"
+                                style="@style/ContactDetailItemTextAppearanceSecondary"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginRight="@dimen/contact_detail_calllog_location_margin"
+                                android:ellipsize="end"
+                                android:singleLine="true" />
+
+                            <TextView
+                                android:id="@+id/location"
+                                style="@style/ContactDetailItemTextAppearanceSecondary"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginRight="@dimen/contact_detail_calllog_location_margin"
+                                android:singleLine="true" />
+
+                            <ImageView
+                                android:id="@+id/call_type"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginRight="@dimen/contact_detail_calllog_type_margin_right" />
+                        </TableRow>
+                    </TableLayout>
+
+                    <TextView
+                        android:id="@+id/duration"
+                        style="@style/ContactDetailItemTextAppearanceSecondary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:singleLine="true" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.android.contacts.detail.ActionsViewContainer>
+
+        <include
+            layout="@layout/contact_detail_list_item_type_icon"
+            android:background="@drawable/type_icon_calllog"
+            android:clickable="false"
+            android:focusable="false"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/call_note"
+        style="@style/ContactDetailCalllogSecondaryListItem" >
+        <ImageView
+            style="@style/ContactDetailCalllogSecondaryListItemIconStyle"
+            android:src="@drawable/call_note_icon_in_contact_detail_calllog_list_item" />
+        <TextView
+            android:id="@+id/call_note_title"
+            style="@style/ContactDetailCalllogSecondaryListItemTextAppearance" />
     </LinearLayout>
 
-</com.android.contacts.detail.ActionsViewContainer>
+    <LinearLayout
+        android:id="@+id/call_record"
+        style="@style/ContactDetailCalllogSecondaryListItem" >
+        <ImageView
+            style="@style/ContactDetailCalllogSecondaryListItemIconStyle"
+            android:src="@drawable/call_record_icon_in_contact_detail_calllog_list_item" />
+        <TextView
+            android:id="@+id/call_record_title"
+            style="@style/ContactDetailCalllogSecondaryListItemTextAppearance" />
+    </LinearLayout>
+</LinearLayout>

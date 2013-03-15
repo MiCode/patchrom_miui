@@ -670,8 +670,12 @@ public class PhoneNumberUtils
                     return false;
                 }
             }
+            // MIUI MODIFY
+            // Fix a typo in PhoneNumberUtils.
+            // if ((trunkPrefixIsOmittedB && forwardIndexB <= backwardIndexB) ||
+            //     !checkPrefixIsIgnorable(b, forwardIndexA, backwardIndexB)) {
             if ((trunkPrefixIsOmittedB && forwardIndexB <= backwardIndexB) ||
-                !checkPrefixIsIgnorable(b, forwardIndexA, backwardIndexB)) {
+                !checkPrefixIsIgnorable(b, forwardIndexB, backwardIndexB)) {
                 if (acceptInvalidCCCPrefix) {
                     return compare(a, b, false);
                 } else {

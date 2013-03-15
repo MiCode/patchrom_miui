@@ -69,18 +69,38 @@
                     android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/call_log_icon_margin"
                     android:textColor="?attr/call_log_primary_text_color"
                     android:textSize="18sp"
                     android:singleLine="true"
                 />
-                <TextView
-                    android:id="@+id/number"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="?attr/call_log_secondary_text_color"
-                    android:textSize="14sp"
-                    android:singleLine="true"
-                />
+                    android:orientation="horizontal"
+                >
+                    <TextView
+                        android:id="@+id/number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/call_log_icon_margin"
+                        android:textColor="?attr/call_log_secondary_text_color"
+                        android:textSize="14sp"
+                        android:singleLine="true"
+                        android:ellipsize="marquee"
+                        />
+                    <TextView
+                        android:id="@+id/label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/call_log_icon_margin"
+                        android:textColor="?attr/call_log_secondary_text_color"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:singleLine="true"
+                        android:ellipsize="marquee"
+                        />
+                    </LinearLayout>
                 <LinearLayout
                     android:id="@+id/call_type"
                     android:layout_width="wrap_content"
@@ -99,6 +119,7 @@
                         android:id="@+id/call_count_and_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/call_log_icon_margin"
                         android:layout_gravity="center_vertical"
                         android:textColor="?attr/call_log_secondary_text_color"
                         android:textSize="14sp"
@@ -129,20 +150,11 @@
 
     <TextView
         android:id="@+id/call_log_header"
-        style="?android:attr/listSeparatorTextViewStyle"
+        style="@style/ContactListSeparatorTextViewStyle"
         android:layout_marginLeft="@dimen/call_log_outer_margin"
         android:layout_marginRight="@dimen/call_log_outer_margin"
         android:paddingTop="@dimen/call_log_inner_margin"
-        android:paddingBottom="@dimen/call_log_inner_margin"
-        android:background="@drawable/list_section_divider_holo_custom"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textStyle="bold"
-        android:textColor="?attr/call_log_header_color"
-        android:textAllCaps="true"
-        android:singleLine="true"
-        android:ellipsize="end"
-        android:focusable="true"
-    />
+        android:paddingBottom="@dimen/call_log_inner_margin" />
 
     <View
         android:id="@+id/call_log_divider"

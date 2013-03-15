@@ -4,145 +4,129 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background">
-    <com.android.deskclock.WatchDial
-        android:id="@+id/watch_dial"
-        android:background="@drawable/timer_watch_dial"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    android:layout_height="match_parent">
+
     <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@drawable/timer_bg"
+        android:gravity="center"
+        android:orientation="vertical">
+        <miui.widget.ImageTextView
+            android:id="@+id/timeDisplay"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:entries="@array/duration_entries"
+            android:entryValues="@array/duration_large_entryValues"/>
+        <miui.widget.ImageTextView
+            android:id="@+id/timeDisplayWithHour"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:entries="@array/duration_entries"
+            android:entryValues="@array/duration_large_entryValues_with_hour"/>
+        <TimePicker
+            android:id="@+id/timer_picker"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:paddingLeft="@dimen/time_picker_padding"
+            android:paddingRight="@dimen/time_picker_padding"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
         android:orientation="vertical"
-        android:background="@drawable/timer_foot"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="bottom"
-        android:layout_marginBottom="@dimen/timer_foot_margin_bottom"
-        android:paddingBottom="@dimen/timer_foot_padding_bottom">
-        <LinearLayout
-            android:id="@+id/start_timer"
-            android:background="@drawable/btn_bg_green"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center">
-            <TextView
-                android:textColor="@color/white"
-                style="@style/TimerButtonStyle"
-                android:text="@string/start_up"
-                android:drawableLeft="@drawable/ic_start_up" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <LinearLayout
-                android:id="@+id/cancel_timer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/btn_bg_yellow"
-                android:gravity="center">
-                <TextView
-                    style="@style/TimerButtonStyle"
-                    android:textColor="@color/white"
-                    android:text="@string/cancel"
-                    android:drawableLeft="@drawable/ic_stop"/>
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/pause_timer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/btn_bg"
-                android:gravity="center">
-                <TextView
-                    style="@style/TimerButtonStyle"
-                    android:text="@string/pause"
-                    android:drawableLeft="@drawable/ic_timer_pause"/>
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/continue_timer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/btn_bg_green"
-                android:gravity="center">
-                <TextView
-                    style="@style/TimerButtonStyle"
-                    android:textColor="@color/white"
-                    android:text="@string/timer_continue"
-                    android:drawableLeft="@drawable/ic_continue"/>
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/timer_ringtone_button_margin_top">
+        android:background="@drawable/list_bg">
+
             <LinearLayout
                 android:id="@+id/ringtone"
-                android:gravity="center"
-                android:background="@drawable/btn_ringtone"
-                android:clickable="true"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/DeskClockListItemDoubleLineStyle"
+                android:background="@drawable/list_item_bg"
+                android:paddingLeft="@dimen/timezone_item_layout_padding_horizontal"
+                android:paddingRight="@dimen/timezone_item_layout_padding_horizontal">
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_vertical">
                     <TextView
-                        android:textColor="@color/white"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/remind_ringtone"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:layout_marginLeft="@dimen/timer_button_text_margin_left"/>
+                        style="@miui:style/V5.TextAppearance.List.Primary"
+                        android:text="@string/remind_ringtone" />
+                    <ImageView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/item_inner_divider"
+                        android:paddingLeft="@dimen/item_inner_divider_padding"
+                        android:paddingRight="@dimen/item_inner_divider_padding" />
                     <TextView
                         android:id="@+id/txt_ringtone"
-                        android:textColor="@color/grey"
-                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:singleLine="true"
-                        android:layout_marginLeft="@dimen/timer_button_text_margin_left" />
+                        android:layout_width="wrap_content"
+                        style="@miui:style/V5.TextAppearance.List.Secondary"
+                        android:singleLine="true" />
                 </LinearLayout>
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/timer_image_right_margin"
                     android:src="@drawable/ic_arrow" />
             </LinearLayout>
+
             <LinearLayout
-                android:gravity="center_vertical"
                 android:id="@+id/keep_screen"
-                android:background="@drawable/btn_keepscreen"
-                android:orientation="horizontal"
-                android:clickable="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/DeskClockListItemDoubleLineStyle"
+                android:background="@drawable/list_item_bg"
+                android:paddingLeft="@dimen/timezone_item_layout_padding_horizontal"
+                android:paddingRight="@dimen/timezone_item_layout_padding_horizontal">
                 <TextView
-                    android:textColor="@color/white"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dip"
                     android:layout_weight="1"
-                    android:text="@string/keep_screen_on"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_marginLeft="@dimen/timer_button_text_margin_left"/>
-                <CheckBox
-                    android:id="@+id/check_box"
-                    android:clickable="false"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/checkbox_background"
-                    android:button="@drawable/ic_checkbox"
-                    android:layout_marginRight="@dimen/timer_image_right_margin"/>
+                    style="@miui:style/V5.TextAppearance.List.Primary"
+                    android:text="@string/keep_screen_on"/>
+                <miui.widget.SlidingButton
+                    android:id="@+id/check_box"
+                    style="@miui:style/V5.Widget.SlidingButton"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content" />
             </LinearLayout>
-        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/v5_bottom_bar_bg_light"
+        android:gravity="center"
+        android:paddingLeft="@dimen/timer_button_padding_left"
+        android:paddingRight="@dimen/timer_button_padding_right">
+        <Button
+            android:id="@+id/start_timer"
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:text="@string/start_up"/>
+        <Button
+            android:id="@+id/cancel_timer"
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:text="@string/cancel"/>
+        <Button
+            android:id="@+id/pause_timer"
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:text="@string/pause"/>
+        <Button
+            android:id="@+id/continue_timer"
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:text="@string/timer_continue"/>
     </LinearLayout>
 </LinearLayout>

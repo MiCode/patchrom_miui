@@ -14,22 +14,17 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:layout_height="@miui:dimen/v5_list_view_single_line_height"
     android:gravity="center_vertical"
     android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
     android:paddingRight="?android:attr/scrollbarSize"
->
+    style="@miui:style/V5.Widget.ListView.Item.SingleLine">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="6dip"
-        android:layout_marginTop="6dip"
-        android:layout_marginBottom="6dip"
         android:layout_weight="1"
-        android:duplicateParentState="true"
-    >
+        android:duplicateParentState="true" >
 
         <TextView
             android:id="@android:id/text1"
@@ -37,7 +32,7 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:ellipsize="marquee"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary"
             android:duplicateParentState="true"
         />
 
@@ -48,7 +43,7 @@
             android:layout_below="@android:id/text1"
             android:layout_alignLeft="@android:id/text1"
             android:maxLines="2"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"
             android:duplicateParentState="true"
         />
 

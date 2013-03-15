@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@miui:style/V5.Widget.ListView.Item.TrebleLine"
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@miui:drawable/list_medium_middle_item_background"
-    android:paddingTop="5dip"
-    android:paddingBottom="5dip" >
+    android:paddingTop="12dip"
+    android:paddingBottom="12dip" >
     <include
         android:id="@+id/resource_comment_content"
         layout="@layout/expandable_textview" />
@@ -23,11 +21,15 @@
         <TextView
             android:id="@+id/version"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/resource_comment_list_item_signature_size"
+            android:textColor="@color/resource_comment_list_signature_color" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/resource_comment_description"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/resource_comment_list_item_signature_size"
+        android:textColor="@color/resource_comment_list_signature_color" />
 </LinearLayout>

@@ -2,11 +2,8 @@
 <resources>
     <string name="app_name">Weather</string>
 
-    <string name="app_about_1">v4.0.26</string>
-    <string name="app_about_2">Copyright © 2012 miui.com, All Rights Reserved</string>
-
     <string name="weather_notification">Weather notification</string>
-    <string name="location_notification">Location notification</string>
+    <string name="location_notification">Weather notification</string>
     <string name="enable_notification">Open location notification</string>
     <string name="enable_notification_summary">Send system notification when unexpected weather such as extreme rain, snow and temperature change happens.</string>
     <string name="enable_notification_city">Have opened %s weather notification, system notification will be sent when unexpected weather such as rain, snow and temperature change happens.</string>
@@ -42,7 +39,7 @@
     <string name="local_city">Local cities</string>
     <string name="act_set_city_re_find_side">Relocating...</string>
     <string name="act_set_city_find_side_error">Locating failed</string>
-    <string name="act_city_find_gps_error">Locating failed. Please select city manually.</string>
+    <string name="act_city_find_gps_error">Locating failed. Please select city manually in menu list.</string>
     <string name="act_weather_main_data_null">No weather data, click to refresh</string>
 
     <string name="act_weather_cycle_update">Updating...</string>
@@ -53,9 +50,14 @@
     <string name="act_weather_range_title">Surrounding weather forecast</string>
     <string name="act_weather_range_select">Please select a city</string>
 
+    <string name="menu_around">Surrounding</string>
+    <string name="menu_location">Location management</string>
+    <string name="menu_notification">Notification</string>
     <string name="menu_reload">Refresh</string>
+    <string name="menu_reloading">Updating</string>
     <string name="menu_share">Share</string>
-    <string name="menu_chart">Chart</string>
+    <string name="menu_main">Index</string>
+    <string name="menu_trend">Trend</string>
     <string name="menu_settings">Settings</string>
     <string name="menu_about">About</string>
 
@@ -66,11 +68,12 @@
     <string name="install_tencent">Click to install Tencent Weibo</string>
 
     <string name="share_content">#MIUI weather#</string>
-    <string name="share_weather_content">#MIUI weather#\nToday %1$s\'s weather is %2$s, %3$s, %4$s。%5$s published.</string>
-    <string name="share_aqi_content">#MIUI weather#\nToday %1$s\'s air quality index is %2$s, %3$s。%4$s published.</string>
+    <string name="share_weather_content">#MIUI weather#\nToday %1$s\'s weather is %2$s, %3$s, %4$s. %5$s published.</string>
+    <string name="share_aqi_content">#MIUI weather#\nToday %1$s\'s air quality index is %2$s, %3$s. %4$s %5$s published.</string>
     <string name="save_screen_shot_failed">Failed to save screenshot</string>
 
-    <string name="chart_weather_title">Weather Chart</string>
+    <string name="trend_weather_today">Today</string>
+    <string name="trend_weather_tomorrow">Tomorrow</string>
 
     <string name="settings_weather_title">Settings</string>
     <string name="settings_weather_animation">Weather animation</string>
@@ -102,20 +105,27 @@
 
     <string name="format_date_wmd">M/d EEE</string>
     <string name="format_date_md">M/d kk:mm</string>
+    <string name="format_date_week">EEE</string>
+    <string name="format_date_trend_md">M/d</string>
 
     <string name="act_weather_aqi_title">Air quality index</string>
     <string name="act_weather_main_aqi_title">Air quality</string>
+
+    <string name="act_weather_aqi_share">Share</string>
+    <string name="aqi_quality_index_pure">Pure</string>
     <string name="aqi_quality_index_good">Good</string>
+    <string name="aqi_quality_index_moderate">Moderate</string>
     <string name="aqi_quality_index_light_pollution">Light pollution</string>
     <string name="aqi_quality_index_unhealthy">Unhealthy</string>
     <string name="aqi_quality_index_dangerous">Dangerous</string>
     <string name="aqi_quality_index_hazardous">Hazardous</string>
 
-    <string name="act_aqi_value_good">100</string>
-    <string name="act_aqi_value_light_pollution">150</string>
-    <string name="act_aqi_value_unhealthy">200</string>
-    <string name="act_aqi_value_dangerous">300</string>
-    <string name="act_aqi_value_hazardous">500</string>
+    <string name="aqi_details_good">All the people may free activities in the outdoor.</string>
+    <string name="aqi_details_fine">Unusually sensitive people should consider reducing prolonged or heavy exertion.</string>
+    <string name="aqi_details_light_pollution">People with heart or lung disease, older adults, and children should reduce prolonged or heavy exertion.</string>
+    <string name="aqi_details_unhealthy">People with heart or lung disease, older adults, and children should avoid prolonged or heavy exertion; everyone else should reduce prolonged or heavy exertion.</string>
+    <string name="aqi_details_dangerous">People with heart or lung disease, older adults, and children should avoid all physical activity outdoors. Everyone else should avoid prolonged or heavy exertion.</string>
+    <string name="aqi_details_hazardous">Everyone should avoid all physical activity outdoors; people with heart or lung disease, older adults, and children should remain indoors and keep activity levels low.</string>
 
     <string name="act_aqi_pm25_title">PM2.5</string>
     <string name="act_aqi_pm10_title">PM10</string>
@@ -174,6 +184,7 @@
         <item>Sandstorm</item>1  扬沙
         <item>Hail</item>2  冰雹
         <item>Floating Dust</item>3  浮尘
+        <item>Haze</item>4  霾
     </array>
 
     <array name="weather_details_key">
@@ -267,6 +278,8 @@
         <item>There is a sandstorm, it is recommended to bring a hat and mask.</item>
         <item>There is a sandstorm, it is recommended to bring a hat and mask.</item>
         <item>It\'s not everyday you see hail, remember to walk carefully!</item>
+        <item>There is a floating dust, it is recommended to bring a hat and mask.</item>
+        <item>There is a haze, it is not recommended to stay indoors for a while.</item>
     </array>
 
     <array name="weather_sms_addons">

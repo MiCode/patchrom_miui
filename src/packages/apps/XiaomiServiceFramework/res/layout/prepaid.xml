@@ -3,24 +3,28 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/common_padding"
     android:orientation="vertical" >
     <com.xiaomi.xmsf.payment.DenominationSpinner
         android:id="@+id/denomination"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dip"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
         android:gravity="center" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dip"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
         android:gravity="center_vertical"
-        android:background="@drawable/editor_bg" >
+        style="@style/FakeEditView" >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/prepaid_number_edit_hint"
-            android:textSize="@miui:dimen/text_font_size_small"
+            android:textSize="@dimen/text_size_small"
             android:textColor="@color/text_color_black" />
         <EditText
             android:id="@+id/number_edit"
@@ -30,7 +34,7 @@
             android:ems="10"
             android:inputType="number"
             android:hint="@string/prepaid_edit_limit"
-            android:textSize="@miui:dimen/text_font_size_small"
+            android:textSize="@dimen/text_size_medium"
             android:textColor="@color/text_color_black"
             android:background="@null" />
     </LinearLayout>
@@ -38,13 +42,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dip"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
         android:gravity="center_vertical"
-        android:background="@drawable/editor_bg" >
+        style="@style/FakeEditView" >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/prepaid_password_edit_hint"
-            android:textSize="@miui:dimen/text_font_size_small"
+            android:textSize="@dimen/text_size_small"
             android:textColor="@color/text_color_black" />
         <EditText
             android:id="@+id/password_edit"
@@ -54,16 +60,16 @@
             android:ems="10"
             android:inputType="number"
             android:hint="@string/prepaid_edit_limit"
-            android:textSize="@miui:dimen/text_font_size_small"
+            android:textSize="@dimen/text_size_medium"
             android:textColor="@color/text_color_black"
             android:background="@null" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dip"
-        android:layout_marginLeft="10dip"
-        android:layout_marginRight="10dip"
+        android:layout_marginTop="25dip"
+        android:layout_marginLeft="25dip"
+        android:layout_marginRight="25dip"
         android:orientation="vertical" >
         <LinearLayout
             android:layout_width="match_parent"
@@ -72,14 +78,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="2dip"
                 android:text="@string/prepaid_picker_hint_1_1"
-                android:textSize="@miui:dimen/text_font_size_small"
+                android:textSize="@dimen/text_size_small"
                 android:textColor="@color/text_color_gray" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/prepaid_picker_hint_1_2"
-                android:textSize="@miui:dimen/text_font_size_small"
+                android:textSize="@dimen/text_size_small"
                 android:textColor="@color/text_color_gray"/>
         </LinearLayout>
         <LinearLayout
@@ -89,15 +96,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="2dip"
                 android:text="@string/prepaid_picker_hint_2_1"
-                android:textSize="@miui:dimen/text_font_size_small"
+                android:textSize="@dimen/text_size_small"
                 android:textColor="@color/text_color_gray" />
             <TextView
                 android:id="@+id/prepaid_hint"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/prepaid_picker_hint_2_2_a"
-                android:textSize="@miui:dimen/text_font_size_small"
+                android:textSize="@dimen/text_size_small"
                 android:textColor="@color/text_color_gray" />
         </LinearLayout>
     </LinearLayout>
@@ -109,17 +117,19 @@
         android:id="@+id/button_recharge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_pay_orange_bkg"
-        android:textColor="@color/text_color_white"
-        android:text="@string/btn_recharge_large" />
-    <TextView
-        android:id="@+id/recharge_other"
-        android:layout_width="wrap_content"
+        android:layout_marginTop="15dip"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:text="@string/btn_recharge_large"
+        style="@style/ButtonNotice" />
+    <Button
+        android:id="@+id/button_recharge_other"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="25dip"
-        android:layout_marginBottom="15dip"
+        android:layout_marginTop="6dip"
+        android:layout_marginBottom="13dip"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
         android:text="@string/recharge_other"
-        android:textSize="@miui:dimen/text_font_size_small"
-        android:textColor="@color/text_color_orange" />
+        style="@style/ButtonNormal" />
 </LinearLayout>

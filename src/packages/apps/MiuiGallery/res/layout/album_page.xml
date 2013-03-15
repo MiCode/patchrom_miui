@@ -7,19 +7,28 @@
     android:colorBackground="@null"
     android:colorBackgroundCacheHint="@null"
 >
-    <LinearLayout
-        android:id="@+id/album_view_title"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/album_page_title_height"
-        android:orientation="horizontal"
-        android:background="@drawable/main_bg">
-    </LinearLayout>
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/album_page_title_height"
+            >
 
-    <!-- place holder for captured photos, which are displayed in GLRootView -->
-    <LinearLayout
-        android:id="@+id/album_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-    </LinearLayout>
+            <!-- place holder for captured photos, which are displayed in GLRootView -->
+            <LinearLayout
+                android:id="@+id/album_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- mask shadow -->
+        <ImageView
+            style="@style/ListViewShadowImage"
+            android:background="@drawable/album_list_shadow"/>
+    </FrameLayout>
 </LinearLayout>

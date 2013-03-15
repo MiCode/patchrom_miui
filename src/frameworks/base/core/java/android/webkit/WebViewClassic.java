@@ -1,3 +1,4 @@
+
 /*
  * Copyright (C) 2012 The Android Open Source Project
  *
@@ -3130,7 +3131,8 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
     private Rect mGlobalVisibleRect = new Rect();
     private Point mScrollOffset = new Point();
 
-    Rect sendOurVisibleRect() {
+    @MiuiHook(MiuiHookType.CHANGE_ACCESS)
+    public Rect sendOurVisibleRect() {
         if (mZoomManager.isPreventingWebkitUpdates()) return mLastVisibleRectSent;
         calcOurContentVisibleRect(mVisibleRect);
         // Rect.equals() checks for null input.
@@ -6042,7 +6044,7 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
             }
         }
 
-        mCopyFloatPanel.showAt(mMenuLeft+globalOffset.x, mMenuTop + getTitleHeight()+globalOffset.y);
+        mCopyFloatPanel.showAt(mMenuLeft+globalOffset.x, mMenuTop + getTitleHeight()+globalOffset.y, false);
     }
 
     @Override

@@ -8,20 +8,21 @@
         android:defaultValue="true"
         android:summary="@string/call_recording_notification_summary_miui" />
     <CheckBoxPreference
-            android:key="button_auto_record_call"
-            android:title="@string/auto_record_call_title_miui"
-            android:defaultValue="false"
-            android:summary="@string/auto_record_call_summary_miui" />
+        android:key="button_auto_record_call"
+        android:title="@string/auto_record_call_title_miui"
+        android:defaultValue="false"
+        android:summary="@string/auto_record_call_summary_miui" />
     <miui.preference.RadioButtonPreferenceCategory android:title="@string/auto_record_scenario_title_miui"
         android:key="button_auto_record_scenario">
     </miui.preference.RadioButtonPreferenceCategory>
-    <PreferenceScreen
-        android:key="button_auto_record_whitelist"
-        android:title="@string/auto_record_whitelist_miui"
-        android:layout="?android:attr/preferenceLayoutChild"
-        android:dependency="button_auto_record_call">
-        <intent android:action="android.intent.action.MAIN"
-            android:targetPackage="com.android.phone"
-            android:targetClass="com.android.phone.MiuiAutoRecordWhiteListSetting" />
-    </PreferenceScreen>
+    <PreferenceCategory>
+        <PreferenceScreen
+            android:key="button_auto_record_whitelist"
+            android:title="@string/auto_record_whitelist_miui"
+            android:dependency="button_auto_record_call">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.phone"
+                android:targetClass="com.android.phone.MiuiAutoRecordWhiteListSetting" />
+        </PreferenceScreen>
+    </PreferenceCategory>
 </PreferenceScreen>

@@ -20,6 +20,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="gone"
+    android:background="@android:color/black"
 >
     <!--
       The list view is under everything.
@@ -32,7 +33,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="@android:color/black"
     />
 
     <!-- All the controls which are part of the pinned header are in this layout. -->
@@ -128,52 +128,56 @@
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/call_detail_button_spacing"
             android:layout_below="@id/blue_separator"
-            android:background="@android:color/black"
         >
             <!-- The voicemail fragment will be put here. -->
         </LinearLayout>
-        <FrameLayout android:id="@+id/call_and_sms_container"
+        <FrameLayout
+            android:id="@+id/call_and_sms"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/call_log_list_item_height"
             android:layout_marginBottom="@dimen/call_detail_button_spacing"
             android:layout_below="@id/voicemail_container"
-            android:background="@android:color/black"
+            android:gravity="center_vertical"
+            android:background="@drawable/dialpad_background"
         >
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/call_and_sms"
+            <LinearLayout
+                android:id="@+id/call_and_sms_main_action"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/call_log_list_item_height"
+                android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:background="@drawable/dialpad_background"
-            >
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground"
+                >
 
-                <LinearLayout android:id="@+id/call_and_sms_main_action"
+                <LinearLayout
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:paddingLeft="@dimen/call_log_indent_margin"
                     android:orientation="vertical"
                     android:gravity="center_vertical"
-                    android:focusable="true"
-                    android:background="?android:attr/selectableItemBackground"
                 >
 
                     <TextView android:id="@+id/call_and_sms_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingRight="@dimen/call_log_icon_margin"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textColor="?attr/call_log_primary_text_color"
+                        android:singleLine="true"
+                        android:ellipsize="end"
                     />
 
                     <TextView android:id="@+id/call_and_sms_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingRight="@dimen/call_log_icon_margin"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="?attr/call_log_primary_text_color"
                         android:textAllCaps="true"
+                        android:singleLine="true"
+                        android:ellipsize="end"
                     />
-
                 </LinearLayout>
 
                 <View android:id="@+id/call_and_sms_divider"
@@ -207,7 +211,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="#000000"
+        android:background="@android:color/black"
         android:visibility="gone"
         android:clickable="true"
     />

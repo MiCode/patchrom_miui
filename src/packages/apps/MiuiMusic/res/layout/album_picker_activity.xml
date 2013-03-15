@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/MusicActivityStyle"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_vertical">
+    android:layout_height="match_parent" >
 
     <include layout="@layout/sd_error" />
 
-    <GridView
+    <ListView
         android:id="@android:id/list"
         style="@style/PickerListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:numColumns="3"
-        android:listSelector="@android:color/transparent"
-        android:paddingLeft="@dimen/spacing_picker_item"
-        android:paddingRight="@dimen/spacing_picker_item"/> <!-- 专辑grid的播放indicator可以边界，所以这里paddingLeft是10px，而不是20px -->
+        android:layout_height="match_parent" />
 
-</LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="@drawable/list_top_shadow" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/list_bottom_shadow" />
+
+</FrameLayout>

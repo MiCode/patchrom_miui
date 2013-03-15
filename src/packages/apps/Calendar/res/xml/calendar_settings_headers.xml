@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2010 The Android Open Source Project
+<!--
+     Copyright (C) 2010 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,11 +15,22 @@
      limitations under the License.
 -->
 
-<preference-headers
-        xmlns:android="http://schemas.android.com/apk/res/android">
-    <header android:fragment="com.android.calendar.GeneralPreferences"
-            android:title="@string/menu_general_preferences" />
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <header android:fragment="com.android.calendar.AboutPreferences"
+    <PreferenceCategory
+        android:key="category_general"
+        android:title="@string/preferences_category_general_title" >
+        <Preference
+            android:fragment="com.android.calendar.GeneralPreferences"
+            android:key="key_general_preference_header"
+            android:title="@string/menu_general_preferences" />
+        <Preference
+            android:fragment="com.android.calendar.AboutPreferences"
+            android:key="key_about_preference_header"
             android:title="@string/menu_about_preferences" />
-</preference-headers>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="category_account"
+        android:title="@string/preferences_category_account_title" />
+
+</PreferenceScreen>

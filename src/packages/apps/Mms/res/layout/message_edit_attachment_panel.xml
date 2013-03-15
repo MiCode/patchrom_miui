@@ -6,20 +6,21 @@
     android:layout_height="wrap_content"
     android:measureAllChildren="false"
     android:visibility="gone" >
-    <miui.widget.ScreenView
+    <com.android.mms.ui.AttachmentScreenView
         android:id="@+id/attachment_type_screens"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <LinearLayout
+        android:layout_height="@dimen/attachment_type_screen_height"
+        android:background="@drawable/attachment_screen_bg" />
+    <FrameLayout
         android:id="@+id/smiley_panel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="@dimen/attachment_type_screen_height"
+        android:background="@drawable/attachment_screen_bg"
         android:visibility="gone">
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/smiley_panel_bg"
+            android:layout_gravity="top"
             android:id="@+id/smiley_screens">
             <miui.widget.ScreenView
                 android:id="@+id/smiley_screens_image_smiley"
@@ -50,6 +51,7 @@
             android:background="@drawable/smiley_tab_bg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:gravity="center_vertical">
             <TabWidget android:id="@+id/smiley_tab_widget"
                 android:tabStripEnabled="false"
@@ -89,5 +91,5 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/smiley_back" />
         </LinearLayout>
-    </LinearLayout>
+    </FrameLayout>
 </ViewSwitcher>

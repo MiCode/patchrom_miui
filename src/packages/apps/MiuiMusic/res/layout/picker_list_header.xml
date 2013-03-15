@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/PickerItemStyle"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal" >
-
-    <TextView
-        android:id="@+id/name"
-        style="@style/ItemPrimaryText"
-        android:layout_width="0dip"
-        android:layout_weight="1"
-        android:layout_height="match_parent" />
+    android:gravity="center_vertical" >
 
     <ImageView
         android:id="@+id/icon"
         style="@style/ItemPrimaryIcon"
-        android:layout_gravity="center_vertical"
-         />
+        android:layout_alignParentRight="true" />
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@id/icon"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/ItemPrimaryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/num"
+            style="@style/ItemSecondaryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</RelativeLayout>

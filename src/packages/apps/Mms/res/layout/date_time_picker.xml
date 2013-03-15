@@ -2,27 +2,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
     android:orientation="vertical">
     <TextView
         android:id="@+id/title"
-        android:gravity="center"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="64dip"
-        style="?android:attr/windowTitleStyle" />
+        android:gravity="center"
+        style="?android:attr/windowTitleStyle"/>
     <View
+        style="@miui:style/V5.Widget.BottomBar.TopLine"
         android:layout_width="match_parent"
-        android:layout_height="2dip"
-        android:background="@android:color/holo_orange_dark" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/date_button" />
-    <Button
+        android:layout_height="1px"/>
+    <RadioGroup
+        android:id="@+id/datetimeGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp"
-        android:id="@+id/time_button" />
+        android:layout_marginBottom="@dimen/datetime_group_margin_v"
+        android:layout_marginTop="@dimen/datetime_group_margin_v">
+        <RadioButton
+            android:id="@+id/date_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@miui:drawable/v5_preference_item_bg"
+            android:checked="true"/>
+        <RadioButton
+            android:id="@+id/time_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@miui:drawable/v5_preference_item_bg"/>
+    </RadioGroup>
     <DatePicker
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,19 +40,23 @@
         android:layout_height="wrap_content"
         android:id="@+id/time_picker"
         android:visibility="gone" />
+    <View
+        style="@miui:style/V5.Widget.BottomBar.TopLine"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
     <LinearLayout
-        android:layout_marginTop="6dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:baselineAligned="false">
-        <Button android:id="@+id/ok"
-            android:text="@string/yes"
+        <Button android:id="@+id/cancel"
+            android:text="@string/no"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             style="?android:attr/buttonBarButtonStyle" />
-        <Button android:id="@+id/cancel"
-            android:text="@string/no"
+        <Button android:id="@+id/ok"
+            android:text="@string/yes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

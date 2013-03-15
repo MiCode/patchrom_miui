@@ -18,7 +18,7 @@
 <view
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/contact_tile_frequent_phone"
-    class="com.android.contacts.list.ContactTileDarkFrequentView"
+    class="com.android.contacts.list.ContactTilePhoneFrequentView"
     android:focusable="true"
     android:background="?android:attr/selectableItemBackground"
     android:nextFocusLeft="@+id/contact_tile_quick">
@@ -27,20 +27,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <view
-            android:id="@+id/image_container"
-            class="com.android.contacts.list.ContactTileImageContainer"
+        <com.android.contacts.widget.LayoutSuppressingQuickContactBadge
+            android:id="@id/contact_tile_quick"
             android:layout_width="64dip"
             android:layout_height="64dip"
-            android:layout_alignParentLeft="true">
-            <QuickContactBadge
-                android:id="@id/contact_tile_quick"
-                android:nextFocusRight="@id/contact_tile_frequent_phone"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:focusable="true" />
-        </view>
+            android:layout_alignParentLeft="true"
+            android:nextFocusRight="@id/contact_tile_frequent_phone"
+            android:scaleType="centerCrop"
+            android:focusable="true" />
 
         <TextView
             android:id="@+id/contact_tile_name"
@@ -49,7 +43,7 @@
             android:layout_marginLeft="8dip"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_marginTop="8dip"
-            android:layout_toRightOf="@id/image_container"
+            android:layout_toRightOf="@id/contact_tile_quick"
             android:singleLine="true"
             android:fadingEdge="horizontal"
             android:fadingEdgeLength="3dip"
@@ -60,15 +54,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/contact_tile_name"
-            android:layout_toRightOf="@id/image_container"
+            android:layout_toRightOf="@id/contact_tile_quick"
             android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/contact_tile_phone_number"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
-                android:layout_weight="5"
+                android:layout_weight="?attr/list_item_data_width_weight"
                 android:textSize="14sp"
+                android:ellipsize="marquee"
                 android:textColor="@color/dialtacts_secondary_text_color"
                 android:layout_marginLeft="8dip"
                 android:singleLine="true"
@@ -78,9 +73,9 @@
                 android:id="@+id/contact_tile_phone_type"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
+                android:layout_weight="?attr/list_item_label_width_weight"
                 android:textSize="12sp"
-                android:ellipsize="end"
+                android:ellipsize="marquee"
                 android:singleLine="true"
                 android:textAllCaps="true"
                 android:textColor="@color/dialtacts_secondary_text_color"
@@ -95,7 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:background="?android:attr/listDivider"
-            android:layout_below="@id/image_container" />
+            android:layout_below="@id/contact_tile_quick" />
 
     </RelativeLayout>
 

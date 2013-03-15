@@ -17,50 +17,42 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/user_profile_header"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="?attr/list_item_header_height"
-    android:paddingTop="@dimen/contact_browser_list_top_margin"
+    android:paddingTop="@dimen/list_header_extra_top_padding"
     android:paddingLeft="?attr/list_item_padding_left"
-    android:paddingRight="?attr/list_item_padding_right" >
+    android:paddingRight="?attr/list_item_padding_right" 
+    android:background="@drawable/list_section_divider_holo_custom"
+    android:minHeight="?attr/list_item_header_height"
+    >
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/profile_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:text="@string/user_profile_contacts_list_header"
+        android:textStyle="bold"
+        android:ellipsize="end"
+        android:layout_gravity="left|bottom"
+        android:layout_marginBottom="2dip"
+        android:layout_weight="1"
+        android:textAllCaps="true"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:paddingLeft="?attr/list_item_text_indent"
+        android:textColor="@color/people_app_theme_color" />
 
-        <TextView
-            android:id="@+id/profile_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="@string/user_profile_contacts_list_header"
-            android:textStyle="bold"
-            android:ellipsize="end"
-            android:gravity="left|center_vertical"
-            android:layout_weight="1"
-            android:textAllCaps="true"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:paddingLeft="?attr/list_item_text_indent"
-            android:textColor="@color/people_app_theme_color" />
-         <TextView
-            android:id="@+id/contacts_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:ellipsize="end"
-            android:layout_gravity="right|center_vertical"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textSize="12sp"
-            android:textColor="@color/contact_count_text_color" />
-
-
-    </LinearLayout>
-
-    <View
-        android:background="@color/people_app_theme_color"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/list_item_header_underline_height" />
+    <TextView
+        android:id="@+id/contacts_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:layout_gravity="right|bottom"
+        android:layout_marginBottom="2dip"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="12sp"
+        android:textColor="@color/contact_count_text_color" />
 
 </LinearLayout>

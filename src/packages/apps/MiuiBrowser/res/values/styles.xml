@@ -18,15 +18,23 @@
  */
 -->
 <resources>
-    <style name="BrowserTheme" parent="@android:Theme.Holo.Light">
+<!--    <style name="BrowserTheme" parent="@android:Theme.Holo.Light">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionModeOverlay">true</item>
         <item name="android:actionBarStyle">@style/ActionBarStyle</item>
+    </style>-->
+    <style name="BrowserTheme" parent="@miui:style/V5.Theme.Light">
+        <item name="android:windowNoTitle">true</item>
+        <item name="miui:v5_top_placeholder_enabled">true</item>
+        <item name="miui:v5_top_placeholder">@drawable/title_bar_nav_bg</item>
+        <item name="miui:v5_tab_indicator_shadow">@null</item>
+        <item name="miui:v5_over_scroll_distance">0dip</item>
+        <item name="miui:v5_over_fling_distance">6dip</item>
     </style>
-    <style name="ActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
-        <item name="android:background">@drawable/bg_urlbar</item>
-        <item name="android:displayOptions"></item>
+    <style name="ActionBarStyle" parent="@miui:style/V5.Widget.ActionBar">
+        <item name="android:background">@miui:drawable/v5_edit_mode_top_bar_no_shadow_bg_light</item>
+        <item name="android:displayOptions">showCustom</item>
     </style>
     <style name="DialogWhenLarge" parent="@android:style/Theme.Holo.Light.DialogWhenLarge" >
         <item name="android:windowActionBar">false</item>
@@ -41,54 +49,35 @@
         <item name="android:backgroundDimEnabled">false</item>
         <item name="android:windowIsTranslucent">true</item>
     </style>
-    <style name="BookmarkManagementTheme" parent="@android:Theme.Holo.Light">
-        <item name="android:actionBarStyle">@style/BookmarkManagementActionBarStyle</item>
-    </style>
-    <style name="BookmarkManagementActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
-        <item name="android:customNavigationLayout">@layout/account_filter</item>
-    </style>
-    <style name="EditorActivityTheme" parent="@miui:style/Theme.Light">
-        <item name="android:actionBarStyle">@miui:style/EditorCustomActionBarTheme</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:textColorPrimary">@miui:color/primary_text</item>
-        <item name="android:textColorSecondary">@miui:color/secondary_text</item>
+    <style name="EditorActivityTheme" parent="@miui:style/V5.Theme.Light">
+       <item name="android:windowActionBar">true</item>
+       <item name="android:actionBarStyle">@style/ActionBarStyle</item>
     </style>
     <style name="Suggestions" parent="@android:style/Widget.Holo.Light.AutoCompleteTextView">
-        <item name="android:popupBackground">@drawable/title_bar_popup_bg</item>
         <item name="android:dropDownVerticalOffset">1px</item>
     </style>
     <style name="ShortcutTheme" parent="@android:Theme.Holo.Light.DialogWhenLarge">
-    </style>
-    <style name="PieItem">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:gravity">center</item>
-        <item name="android:scaleType">center</item>
-        <item name="android:background">@drawable/pie_item_bg</item>
     </style>
     <style name="TabBarItem">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">@miui:dimen/text_font_size_medium</item>
+        <item name="android:textSize">@dimen/text_font_size_medium</item>
         <item name="android:textColor">@color/tab_text_color</item>
     </style>
     <style name="GroupNameTextView">
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:textSize">@miui:dimen/text_font_size_medium</item>
+        <item name="android:textSize">@dimen/text_font_size_medium</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:drawablePadding">16dip</item>
-        <item name="android:paddingRight">16dip</item>
     </style>
     <style name="BookmarkLabelTextView">
         <item name="android:layout_width">@dimen/bookmark_thumbnail_width</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">@miui:dimen/text_font_size_medium</item>
+        <item name="android:textSize">@dimen/text_font_size_medium</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">marquee</item>
@@ -108,6 +97,53 @@
     <style name="ActionBarItemText" parent="@style/ActionBarItem">
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="AutofillProfileTextView">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">10dip</item>
+        <item name="android:textColor">#a3a3a3</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+    <style name="AutofillProfileSubTextView" parent="@style/AutofillProfileTextView">
+        <item name="android:textColor">#c8c8c8</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+    </style>
+    <style name="AutofillProfileEditText" parent="@style/AutofillProfileTextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:imeOptions">flagNoExtractUi|actionNext</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">#585858</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="BottomBarIconSpecial" parent="BottomBarIconNormal">
+        <item name="android:background">@drawable/v5_bottom_bar_tabs_count_bg</item>
+    </style>
+
+   <style name="GroupEditeText" parent="@miui:style/V5.Widget.EditText">
+       <item name="android:layout_height">wrap_content</item>
+       <item name="android:layout_width">match_parent</item>
+       <item name="android:background">@miui:drawable/v5_group_item_bg_light</item>
+       <item name="android:paddingLeft">10dip</item>
+       <item name="android:paddingRight">10dip</item>
+   </style>
+
+   <!--底部BottomBar与默认系统保持一致，但是不跟随系统主题变化 -->
+    <style name="BottomBarIconNormal">
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/action_tabs_normal_bg</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_memo</item>
+        <item name="android:textColor">@color/bottom_bar_icon_text_color</item>
+        <item name="android:shadowColor">@color/bottom_bar_icon_text_shadow</item>
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">1.0</item>
     </style>
 
 </resources>

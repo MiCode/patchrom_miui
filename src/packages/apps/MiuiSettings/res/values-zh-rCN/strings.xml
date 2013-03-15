@@ -9,16 +9,16 @@
     <string name="sound_settings" msgid="5534671337768745343">"声音和振动"</string>
     <string name="ringtone_title" msgid="5379026328015343686">"来电铃声"</string>
 
-    <string name="firmware_version" msgid="4801135784886859972">"Android 版本:"</string>
-    <string name="model_number" msgid="3765737700545384794">"型号:"</string>
+    <string name="firmware_version" msgid="4801135784886859972">"Android 版本"</string>
+    <string name="model_number" msgid="3765737700545384794">"型号"</string>
 
-    <string name="device_miui_version">MIUI 版本:</string>
-    <string name="device_cpu">处理器:</string>
-    <string name="device_memory">运行内存:</string>
+    <string name="device_miui_version">MIUI 版本</string>
+    <string name="device_cpu">处理器</string>
+    <string name="device_memory">运行内存</string>
     <string name="device_cpu2_info">双核</string>
     <string name="device_cpu4_info">四核</string>
-    <string name="device_internal_memory">机身存储:</string>
-    <string name="device_sd_memory">存储卡:</string>
+    <string name="device_internal_memory">机身存储</string>
+    <string name="device_sd_memory">存储卡</string>
 
     <string name="available_size"><xliff:g id="SIZE">%s</xliff:g> (可用)</string>
     <string name="total_size"><xliff:g id="SIZE">%s</xliff:g> (总共)</string>
@@ -42,6 +42,7 @@
     <string name="ac_privacy_mode_title">启用密码</string>
     <string name="ac_privacy_mode_sum">输入访问限制密码以退出访客模式</string>
     <string name="access_control_password_title">启用访问限制</string>
+    <string name="access_control_reset_by_account">登录小米帐号重置访问限制密码</string>
     <string name="access_control_need_to_unlock">请输入访问限制密码</string>
     <string name="access_control_need_password"><xliff:g id="ACCESS">%s</xliff:g>已被密码保护\r\n</string>
     <string name="access_control_no_back_footer">按[icon]键离开</string>
@@ -54,6 +55,11 @@
     <string name="screen_timeout_title">屏幕休眠</string>
     <string name="screen_on_proximity_sensor_title">防误触模式</string>
     <string name="screen_on_proximity_sensor_summary">利用距离感应器，防止手机在口袋中由于挤压或织物滑动引起的误操作。</string>
+    <string name="preferred_launcher_title">默认桌面</string>
+    <string name="preferred_launcher_warning_title">更换默认桌面</string>
+    <string name="preferred_launcher_warning_message">更换默认桌面，可能引发耗电、消耗流量、泄漏隐私等问题，建议您继续使用系统桌面。</string>
+    <string name="preferred_launcher_warning_replace">更换</string>
+    <string name="preferred_launcher_warning_use_system">使用系统桌面</string>
 
     <!-- Key Settings -->
     <string name="key_settings_title">按键</string>
@@ -123,7 +129,7 @@
     <string name="unlock_set_enter_system">直接进入系统</string>
     <string name="unlock_set_enter_system_summary">开启后不使用系统的锁屏样式，点亮屏幕直接进入系统，需要无屏幕密码</string>
     <string name="forget_wifi_message">会停止自动连接此网络，并且再次连接时可能需要重新输入密码</string>
-    <string name="wifi_menu_forget">不保存网络</string>
+    <string name="wifi_menu_forget">删除网络</string>
     <string name="no_nearby_wifi">没有检测到附近可用的Wi-Fi，可以尝试重新扫描或者手动添加网络</string>
     <string name="manually_add_network">手动添加网络</string>
     <string name="network_detail"><xliff:g id="NETWORK">%s</xliff:g> 网络详情</string>
@@ -145,9 +151,8 @@
     <string name="led_settings">LED 灯</string>
     <string name="led_colors_summary">在收到新通知时，LED指示灯的颜色</string>
     <string name="led_frequence_summary">LED灯两次闪烁的间隔时间</string>
-    <string name="led_pulse_summary">在收到新通知时，LED指示灯会不断闪动</string>
+    <string name="led_pulse_summary">在收到新通知时，LED指示灯会闪烁提示</string>
     <string name="show_rounded_corners">屏幕顶点显示为圆角</string>
-    <string name="show_rounded_corners_summary">重启系统后才起作用</string>
     <string name="pref_operational_key">操作键</string>
     <string name="pref_button_light">键盘灯</string>
     <string name="pref_button_light_summary">底部菜单键、桌面键、返回键指示灯</string>
@@ -179,17 +184,56 @@
     <string name="silent_mode_title">静音模式</string>
 
 <!-- Broadcom, WAPI -->
-    <string name="wifi_wapi_fail_to_init">打开 WAPI 证书失败，证书可能不可用</string>
-    <string name="wifi_wapi_fail_to_auth">WAPI 认证失败，请检查证书的有效性</string>
-<!-- Broadcom, WAPI -->
-<!-- Broadcom, WAPI -->
-    <string name="wifi_wapi_psk_type">密码类型</string>
-<!-- Broadcom, WAPI -->
-<!-- Broadcom, WAPI -->
-    <!-- Label for the WAPI AS certificate of the network -->
-    <string name="wifi_wapi_as_certificate">认证证书</string>
-    <string name="wifi_wapi_user_certificate">用户证书</string>
-<!-- Broadcom, WAPI -->
+    <!-- Error message Certificate doesn't exits -->
+    <string name="wifi_wapi_certification_dont_exist">您所输入的密码不正确，请重试。</string>
+    <!-- Caption for the wireless password -->
+    <string name="please_type_passphrase">无线密码</string>
+    <!-- Do not translate.  Concise terminology for wifi with WAPI PSK security -->
+    <string name="wifi_security_short_WAPI_PSK">WAPI PSK</string>
+    <!-- Do not translate.  Concise terminology for wifi with WAPI CERT security -->
+    <string name="wifi_security_short_WAPI_CERT">WAPI CERT</string>
+    <!-- Do not translate.  Concise terminology for wifi with WAPI PSK security -->
+    <string name="wifi_security_WAPI_PSK">WAPI PSK</string>
+    <!-- Do not translate.  Concise terminology for wifi with WAPI CERT security -->
+    <string name="wifi_security_WAPI_CERT">WAPI CERT</string>
+    <!-- Wi-Fi settings screen, connect to network dialog box, spinner -->
+    <string name="wifi_certificate">证书</string>
+    <!-- Title of the WAPI certificate manage -->
+    <string name="wifi_wapi_cert_mgmt_titlebar">WAPI 证书管理</string>
+    <!-- Action message of the install WAPI certificate -->
+    <string name="wifi_wapi_cert_install">安装WAPI 证书</string>
+    <!-- Button caption to install wapi certificate button -->
+    <string name="wifi_wapi_cert_install_button">安装</string>
+    <!-- Button caption to uninstall wapi certificate button -->
+    <string name="wifi_wapi_cert_uninstall_button">卸载</string>
+    <!-- Button caption to  cancel wapi certificate button -->
+    <string name="wifi_wapi_cert_cancel_button">取消</string>
+    <!-- Action message of the uninstall WAPI certificate -->
+    <string name="wifi_wapi_cert_uninstall">卸载WAPI证书</string>
+    <!-- Caption for entering the directroy of wapi certificate which you want to storage -->
+    <string name="wifi_wapi_cert_create_subdir">创建目录</string>
+    <!-- Caption for entering the directroy of wapi certificate which you want to delet -->
+    <string name="wifi_wapi_cert_delet_subdir">请选择合适的证书</string>
+    <!-- Caption for the wapi as certificate -->
+    <string name="wifi_wapi_as_cert">AS证书</string>
+    <!-- Caption for the wapi user certificate -->
+    <string name="wifi_wapi_user_cert">用户证书</string>
+    <string name="wifi_wapi_cert_mgmt_subdir_name_is_empty">请输入您想创建的目录名称！</string>
+    <string name="wifi_wapi_cert_mgmt_subdir_exist">此名称不存在，请输入其他目录名称</string>
+    <string name="wifi_wapi_cert_mgmt_subdir_create_fail">创建目录失败</string>
+    <string name="wifi_wapi_cert_mgmt_as_name_is_empty">请输入AS证书名称</string>
+    <string name="wifi_wapi_cert_mgmt_as_dont_exist">SD卡无AS证书, 请检查！</string>
+    <string name="wifi_wapi_cert_mgmt_as_format_is_wrong">AS证书名称错误，请安装正确的证书。</string>
+    <string name="wifi_wapi_cert_mgmt_user_format_is_wrong">用户证书格式错误！请安装正确的用户证书。</string>
+    <string name="wifi_wapi_cert_mgmt_user_name_is_empty">请输入用户证书名称</string>
+    <string name="wifi_wapi_cert_mgmt_user_dont_exist">请输入用户证书名称</string>
+    <!--Wi-Fi settings screen, network context menu item -->
+    <string name="wifi_context_menu_connect">连接到网络</string>
+    <!--Wi-Fi settings screen, network context menu item -->
+    <string name="wifi_context_menu_forget">不保存网络</string>
+    <!--Wi-Fi settings screen, network context menu item -->
+    <string name="wifi_context_menu_change_password">更改密码</string>
+    <string name="wifi_context_menu_change_wapi_certificate">更改WAPI 证书</string>
 <!-- Broadcom, WAPI -->
     <string name="search_label">设置</string>
     <string name="search_hint">搜索设置</string>
@@ -222,9 +266,11 @@
     <string name="master_clear_erase_application_progress">正在卸载应用</string>
     <string name="erase_internal_storage">"格式化模拟 SD 卡"</string>
     <string name="erase_internal_storage_description">"清除模拟 SD 卡中的全部数据，例如音乐或照片"</string>
+    <string name="storage_format">格式化</string>
+    <string name="internal_storage">系统存储</string>
 
     <!-- bluetooth name -->
-    <string name="bluetooth_default_name">小米手机</string>
+    <string name="device_default_name">小米手机</string>
     <string name="bluetooth_profile_name"><xliff:g id="BLUETOOTH_NAME">%1$s</xliff:g>的小米手机</string>
 
     <string name="usage_log">程序使用统计信息</string>
@@ -243,7 +289,7 @@
     <string name="volume_bluetooth_description">蓝牙音量</string>
     <string name="volume_restore">重置音量</string>
     <string name="volume_restore_alert">所有音量都会恢复到默认设置，确认是否继续？</string>
-    <string name="sound_category_call_ringtone_vibrate_title">铃声和通知</string>
+    <string name="sound_category_call_ringtone_vibrate_title">铃声</string>
 
 
     <string name="font_size_summary">调整电话、短信、联系人等应用的字体大小和布局，让阅读和操作更方便。</string>
@@ -268,17 +314,16 @@
     <string name="virus_scanner_auto_update">更新</string>
     <string name="virus_scanner_date_formater">yyyy-MM-dd</string>
     <string name="virus_scanner_manual_update">%s 更新</string>
-    <string name="virus_scanner_lib_update">病毒库升级</string>
-    <string name="virus_scanner_lib_updating">更新中...</string>
+    <string name="virus_scanner_lib_updating">正在升级病毒库...</string>
     <string name="virus_scanner_lib_already_latest">病毒库已经最新...</string>
     <string name="virus_scanner_lib_update_failed">病毒库更新失败...</string>
     <string name="virus_scan_app_safe_scanning">正在安全扫描...</string>
     <string name="virus_scan_app_multi_engines">您选择的引擎较多，扫描时间可能较长</string>
     <string name="virus_scan_app_scanning">正在扫描...</string>
-    <string name="virus_scan_app_waiting">等待</string>
+    <string name="virus_scan_app_waiting">等待中...</string>
     <string name="virus_scan_app_passed">扫描通过</string>
     <string name="virus_scan_app_risk">发现风险</string>
-    <string name="virus_scan_app_stop_scan">停止扫描</string>
+    <string name="virus_scan_app_stop_scan">停止</string>
     <string name="virus_scan_app_finish">完成</string>
     <string name="virus_scan_app_continue">继续扫描</string>
     <string name="virus_scan_app_uninstall">批量卸载(%d)</string>
@@ -290,7 +335,7 @@
 
     <string name="password_guard">密码保护</string>
     <string name="title_dolby_control">"杜比音效"</string>
-    <string name="dolby_mode_off">"不使用"</string>
+    <string name="dolby_mode_off">"无"</string>
     <string name="dolby_mode_music">"音乐模式"</string>
     <string name="dolby_mode_movie">"电影模式"</string>
     <string name="dolby_effects">"杜比效果设置"</string>
@@ -348,7 +393,7 @@
     <string name="skip_step">跳过此步骤</string>
 
     <!-- msd driver -->
-    <string name="msd_help_title">帮助</string>
+    <string name="msd_help_title">MTP 帮助</string>
     <string name="msd_help_summary">无法通过电脑正常访问手机存储设备？\n请选择当前您电脑的操作系统：</string>
     <string name="msd_install_succeed">我已成功安装此驱动程序</string>
     <string name="msd_install_next">下一步</string>
@@ -360,12 +405,28 @@
     <string name="msd_install_retry_mac">"如果您的电脑没有任何响应，\n可尝试以下方法：\n<li>在您的电脑中查找软件\nAndroid File Transfer,\n并手动打开此软件。</li>\n<li>断开手机与电脑间的USB，\n并重新连接。</li>\n<li>重新安装驱动程序。</li>"</string>
     <string name="msd_install_retry_linux">"如果您的电脑没有任何响应，\n可尝试以下方法：\n1) 安装工具sudo aptitude install mtpfs libfuse-dev libmad0-dev\n2) 创建目录mkdir /media/mtp\n3) 确认用户组权限确认当前用户在 fuse 组中\n4) 注销后重新登录\n5) 挂载设备mtpfs /media/mtp用文件管理器访问，如同本地目录一样\n6) 卸载设备fusermount -u /media/mtp\n 注：在 ubuntu 8.04 环境"</string>
 
+    <string name="msd_install_status_undo">安装驱动程序</string>
+    <string name="msd_install_status_done">我已安装驱动程序</string>
+
     <string name="vpn_settings_password">VPN 密码保护</string>
     <string name="vpn_safe">安全</string>
     <string name="vpn_configure">配置</string>
+    <string name="vpn_create">添加VPN</string>
+    <string name="vpn_ipsec_secret">预共享密钥</string>
+    <string name="vpn_dns_servers">DNS 服务器</string>
+    <string name="vpn_dns_servers_hint">例如 8.8.8.8</string>
+    <string name="vpn_routes">转发路线</string>
+    <string name="vpn_routes_hint">例如 10.0.0.0/8</string>
     <string name="sync_wifi_label">Wi-Fi设置</string>
+    <string name="wifi_enable">开启Wi-Fi</string>
+    <string name="bluetooth_enable">开启蓝牙</string>
+    <string name="sync_enable">开启同步</string>
+    <string name="accessibility_enable">开启服务</string>
+    <string name="development_enable">开启开发者选项</string>
+    <string name="device_name">手机名称</string>
 
     <string name="drive_mode">开车模式</string>
+    <string name="enable_drive_mode">开启开车模式</string>
     <string name="drive_mode_title">设置语音播报和自动回复</string>
     <string name="drive_mode_settings">开车模式设置</string>
     <string name="drive_mode_voice_report">语音播报</string>
@@ -379,9 +440,67 @@
     <string name="drive_mode_auto_sms_reply_content">抱歉，我现在正在开车，稍后联系你。</string>
     <string name="drive_mode_auto_sms_reply_content_title">短信回复内容</string>
 
+    <string name="wifi_network_prefix_length">前缀长度</string>
+    <string name="proxy_port_label" >端口</string>
+    <string name="proxy_exclusionlist_label">不使用网址</string>
+    <string name="proxy_hostname_label">主机名</string>
+
+    <string name="clear_activities_summary">默认情况下对某些操作启动此应用</string>
+    <string name="permission_detail_info">查看权限详情</string>
+    <string name="permission_detail_info_summary">"全部权限：安全%1$d，隐私%2$d，其他%3$d"</string>
+    <string name="permission_manage">权限管理</string>
+    <string name="permission_manage_summary">对自启动、隐私、安全权限管理</string>
+
+    <string name="security_relative">安全相关</string>
+    <string name="privacy_relative">隐私相关</string>
+    <string name="other_relative">其他权限</string>
+    <string name="permission_manage_title">%s权限详情</string>
+
+    <string name="filter_apps_cached">已缓存</string>
+
     <string name="screen">屏幕</string>
     <string name="system">系统</string>
     <string name="screen_color_temperature_adjust">色温调整</string>
     <string name="screen_saturation_adjust">饱和度调整</string>
 
+    <string name="finish_application">结束运行</string>
+    <string name="header_category_accounts">帐户</string>
+
+    <string name="auto_startup_application_manage">自启动管理</string>
+    <string name="auto_startup_count">允许%d个应用开机启动</string>
+    <string name="man_add_application">手动添加自启动应用</string>
+    <string name="application_item_disable">禁用</string>
+    <string name="application_item_permission">允许</string>
+    <string name="application_item_already_permission">已允许</string>
+    <string name="application_forbid_auto_startup">禁用%s自后台启动</string>
+
+    <string name="wps_category">快捷安全连接</string>
+    <string name="wps_connect_title">连接WPS</string>
+    <string name="wps_connect_summary">请确认无线路由器支持并开启WPS</string>
+    <string name="retry">重试</string>
+
+    <string name="brightness_auto_adjust_off">手动亮度下，移动滑动条调节亮度绝对值。调整后的屏幕亮度在任何环境下均保持不变。</string>
+    <string name="brightness_auto_adjust_on">自动亮度下，移动滑动条微调亮度系数。调整后的屏幕亮度仍会随周围环境的亮度变化而变化。</string>
+
+    <!-- private sms -->
+    <string name="private_sms_need_to_unlock">请输入私密短信密码</string>
+    <string name="private_sms_reset_by_account">登录小米帐号重置私密短信密码</string>
+    <string name="private_sms_recording_intro_header">绘制图案设置私密短信密码</string>
+
+    <string name="location_neighborhood_level">允许应用程序使用来自 Wi-Fi 或移动网络的数据确定您的大致位置</string>
+    <string name="location_network_based">基于网络的位置服务</string>
+
+    <!-- adnrdoid settings res -->
+    <string name="bluetooth_pbap_connection_permission_request">"Pbap 连接请求"</string>
+    <string name="bluetooth_ftp_connection_permission_request">"Ftp 连接请求"</string>
+    <string name="bluetooth_map_connection_permission_request">"Map 连接请求"</string>
+    <string name="bluetooth_sap_connection_permission_request">"Sap 连接请求"</string>
+    <string name="bluetooth_dun_connection_permission_request">"Dun 连接请求"</string>
+    <string name="pointer_location_summary">"屏幕叠加层显示当前触摸点坐标"</string>
+    <string name="debug_layout_summary">"显示剪辑边界、边距等"</string>
+    <string name="accessibility_power_button_ends_call_title">"按“电源键”结束通话"</string>
+    <string name="device_status_summary">"本机号码、信号等"</string>
+    <string name="bluetooth_is_discoverable_always">"已开启，附近所有蓝牙设备均可检测到"</string>
+    <string name="bluetooth_not_visible_to_other_devices">"已关闭，不让其他蓝牙设备检测到"</string>
+    <string name="bluetooth_only_visible_to_paired_devices">"已关闭，仅让已配对蓝牙设备检测到"</string>
 </resources>

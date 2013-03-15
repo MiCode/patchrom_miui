@@ -18,38 +18,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/base_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/background">
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <EditableListView
+        android:id="@+id/alarm_list"
         android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
-        android:background="@drawable/listview_bg">
-        <EditableListView
-            android:id="@+id/alarms_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@miui:style/Widget.ListView.NoDivider"
-            android:listSelector="@android:color/transparent" />
-        <TextView
-            android:id="@+id/empty"
-            style="@style/EmptyViewTextStyle"
-            android:drawableTop="@drawable/alarmclock_empty"
-            android:text="@string/alarmclock_empty_text" />
-    </LinearLayout>
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/empty"
+        style="@style/EmptyViewTextStyle"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:text="@string/alarmclock_empty_text" />
 
-    <LinearLayout
-        android:id="@+id/add_alarm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:background="@drawable/bottom_bar_bg">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/AddButtonTextStyle"
-            android:text="@string/add_alarm" />
-    </LinearLayout>
 </LinearLayout>

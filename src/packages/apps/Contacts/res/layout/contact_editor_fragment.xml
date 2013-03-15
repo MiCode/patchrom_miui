@@ -14,22 +14,18 @@
      limitations under the License.
 -->
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:fadingEdge="none"
+    android:background="@color/background_primary"
+>
 
-    <ScrollView
+    <LinearLayout android:id="@+id/editors"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:fadingEdge="none"
-    >
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+    />
 
-        <LinearLayout android:id="@+id/editors"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-        />
-
-    </ScrollView>
-</FrameLayout>
+</ScrollView>

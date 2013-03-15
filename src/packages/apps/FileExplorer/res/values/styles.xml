@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<resources>
     <style name="Dialog_Fullscreen">
         <item name="android:windowNoTitle">true</item>
     </style>
@@ -32,42 +32,38 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_marginBottom">2dip</item>
     </style>
-    <style name="CategoryButtonTextStyle" parent="@android:style/TextAppearance.Medium">
+    <style name="CategoryButtonTextStyle" parent="@miui:style/V5.TextAppearance.List.Primary">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:textSize">12dip</item>
     </style>
-    <style name="CategoryButtonCountTextStyle" parent="@android:style/TextAppearance.Small">
+    <style name="CategoryButtonCountTextStyle" parent="@miui:style/V5.TextAppearance.List.Secondary">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:textSize">10dip</item>
         <item name="android:text">@string/category_default_number_text</item>
     </style>
 
-    <style name="InformationTextStyle" parent="@android:style/TextAppearance.Medium">
+    <style name="InformationTextStyle" parent="@miui:style/V5.TextAppearance.List.Secondary">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:drawablePadding">5dip</item>
         <item name="android:textSize">14sp</item>
     </style>
-    <style name="CategoryLegendStyle" parent="@android:style/TextAppearance.Medium">
+    <style name="CategoryLegendStyle" parent="@miui:style/V5.TextAppearance.List.Secondary">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">0dip</item>
         <item name="android:layout_weight">1</item>
         <item name="android:gravity">left</item>
+        <item name="android:textSize">10sp</item>
         <item name="android:drawablePadding">3dip</item>
-        <item name="android:textSize">10dip</item>
-        <item name="android:layout_marginLeft">2dip</item>
     </style>
-    <style name="CategoryLegendStyleLand" parent="@android:style/TextAppearance.Medium">
-        <item name="android:layout_height">0dip</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:gravity">left</item>
-        <item name="android:drawablePadding">3dip</item>
-        <item name="android:textSize">10dip</item>
-        <item name="android:layout_marginLeft">2dip</item>
+
+    <style name="CategoryLegendGroupStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingBottom">4dip</item>
     </style>
+
     <style name="InformationDialog" parent="android:style/Theme.Dialog">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@drawable/popup_bg</item>
@@ -89,20 +85,24 @@
         <item name="android:background">@drawable/bottom_bar_bg_p</item>
     </style>
 
-    <style name="FileExplorerActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
-        <item name="android:displayOptions"></item>
+    <style name="FileExplorerTheme" parent="@miui:style/V5.Theme.Light.ActionBar.NoTitle">
+        <item name="miui:v5_action_bar_tab">true</item>
     </style>
 
-    <style name="FileExplorerTheme" parent="@style/Theme.Light">
-        <item name="android:actionBarStyle">@style/FileExplorerActionBarStyle</item>
+    <style name="ActionBarStyle.ActionBarTitle" parent="@miui:V5.Widget.ActionBar">
+        <item name="android:displayOptions">showHome|homeAsUp|showTitle</item>
     </style>
 
-    <style name="Widget.Holo.Light.ActionBar.Solid.HomeUp" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
-        <item name="android:displayOptions">homeAsUp|useLogo|showHome|showTitle</item>
+    <style name="SearchActionBarStyle" parent="@miui:V5.Widget.ActionBar">
+        <item name="android:displayOptions">showCustom</item>
     </style>
 
-    <style name="Theme.Light" parent="@miui:Theme.Light">
-        <item name="android:actionBarStyle">@style/Widget.Holo.Light.ActionBar.Solid.HomeUp</item>
+    <style name="FileExplorerSearchTheme" parent="@miui:style/V5.Theme.Light">
+        <item name="android:actionBarStyle">@style/SearchActionBarStyle</item>
+    </style>
+
+    <style name="FileExplorerThemeWithTitle" parent="@miui:style/V5.Theme.Light">
+        <item name="android:actionBarStyle">@style/ActionBarStyle.ActionBarTitle</item>
     </style>
 
     <style name="FtpMessageStyle">
@@ -111,15 +111,6 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
         <item name="android:lineSpacingExtra">6dip</item>
-    </style>
-
-    <style name="LogInPageButtonStyle" parend="@android:style/Widget.Button">
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textColor">@miui:color/button_text</item>
     </style>
 
     <style name="SupplyMessageStyle">
@@ -134,40 +125,31 @@
         <item name="android:drawablePadding">5dip</item>
     </style>
 
-    <style name="KuaipanIntroduceMessageStyle">
+    <style name="KuaipanIntroduceMessageStyle" parent="@miui:style/V5.TextAppearance.List.Primary">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@android:color/black</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:drawablePadding">24dip</item>
-        <item name="android:paddingLeft">40dip</item>
-        <item name="android:paddingRight">40dip</item>
     </style>
 
-    <style name="KuaipanIntroduceMessageSecondaryStyle">
+    <style name="KuaipanIntroduceMessageSecondaryStyle" parent="@miui:style/V5.TextAppearance.List.Secondary">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/kuaipan_introduce_message_text_color</item>
-        <item name="android:textSize">12sp</item>
-        <item name="android:paddingLeft">16dip</item>
-        <item name="android:paddingRight">16dip</item>
     </style>
 
-     <style name="SearchThemeStyle" parent="@style/Theme.Light">
-        <item name="android:buttonStyle">@style/Widget.Holo.Light.Button</item>
-        <item name="android:actionBarStyle">@style/SearchActionBarStyle</item>
+    <style name="ListItemStyle" parent="@miui:style/V5.Widget.ListView.Item.DoubleLine">
+        <item name="android:paddingLeft">@dimen/list_item_padding_left</item>
+        <item name="android:paddingRight">@dimen/list_item_padding_right</item>
+        <item name="android:gravity">center_vertical</item>
     </style>
 
-    <style name="SearchActionBarStyle" parent="@style/Widget.Holo.Light.ActionBar.Solid.HomeUp">
-        <item name="android:displayOptions">homeAsUp|showCustom|showHome</item>
-    </style>
-
-    <style name="Widget.Holo.Light.Button" parent="@android:style/Widget.Holo.Light.Button">
-        <item name="android:minHeight">0dip</item>
-        <item name="android:minWidth">0dip</item>
+    <style name="PathRefreshProgressBar" parent="@miui:style/V5.Widget.ProgressBar">
+        <item name="android:background">@drawable/v5_progress_bar_bg</item>
+        <item name="android:indeterminateDrawable">@drawable/v5_progress_bar_ani</item>
+        <item name="android:minWidth">27dip</item>
+        <item name="android:maxWidth">27dip</item>
+        <item name="android:minHeight">27dip</item>
+        <item name="android:maxHeight">27dip</item>
     </style>
 
     <style name="NavigationBarStyle">
@@ -175,11 +157,28 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:background">@drawable/path_gallery_bg</item>
-        <item name="android:paddingRight">@dimen/navigationbar_paddingright</item>
-        <item name="android:paddingLeft">@dimen/navigationbar_paddingleft</item>
+        <item name="android:paddingRight">@dimen/progress_paddingright</item>
     </style>
 
-    <style name="PathItemTextStyle" parent="@android:style/TextAppearance.Medium">
+    <style name="V5TextAppearanceYellow" parent="@miui:style/V5.TextAppearance.Button">
+        <item name="android:textColor">@color/text_color_yellow</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="V5PathItemTextStyle" parent="@miui:style/V5.TextAppearance.List.Secondary">
         <item name="android:textColor">@color/path_item_text_color</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="FileIconStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:layout_margin">@dimen/file_icon_padding</item>
+        <item name="android:maxHeight">@dimen/file_icon_height</item>
+        <item name="android:maxWidth">@dimen/file_icon_width</item>
+        <item name="android:adjustViewBounds">true</item>
     </style>
 </resources>

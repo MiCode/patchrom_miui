@@ -1545,11 +1545,13 @@ public class Editor {
         }
     }
 
+    @MiuiHook(MiuiHook.MiuiHookType.CHANGE_CODE)
     protected void stopSelectionActionMode() {
         if (mSelectionActionMode != null) {
             // This will hide the mSelectionModifierCursorController
             mSelectionActionMode.finish();
         }
+        stopTextSelectionMode();
     }
 
     /**

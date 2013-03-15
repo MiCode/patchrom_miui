@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2011 The Android Open Source Project
+<!--
+     Copyright (C) 2011 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,45 +14,40 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<view
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ex="http://schemas.android.com/apk/res/com.android.contacts"
-    class="com.android.contacts.quickcontact.FloatingChildLayout"
+<view xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/floating_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    class="com.android.contacts.quickcontact.FloatingChildLayout"
+    android:descendantFocusability="afterDescendants"
     android:focusable="true"
-    android:focusableInTouchMode="true"
-    android:descendantFocusability="afterDescendants">
+    android:focusableInTouchMode="true" >
+
     <LinearLayout
         android:id="@android:id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/quickcontact_window_bg">
-        <include
-            layout="@layout/quickcontact_photo_container" />
-        <include
-            layout="@layout/quickcontact_track" />
-        <include
-            android:id="@+id/list_separator"
-            layout="@layout/list_separator" />
+        android:background="@drawable/quickcontact_window_bg"
+        android:orientation="vertical" >
 
-        <RelativeLayout
+        <include layout="@layout/quickcontact_photo_container" />
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/quickcontact_window_list_height">
+            android:layout_height="wrap_content" >
 
-            <android.support.v4.view.ViewPager
-                android:id="@+id/item_list_pager"
-                android:layout_marginBottom="10dip"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <ImageView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentBottom="true"
-                android:src="@drawable/quickcontact_window_footer" />
-        </RelativeLayout>
+                android:orientation="vertical" >
+
+                <include layout="@layout/quickcontact_tab_placeholder" />
+
+                <include layout="@layout/quickcontact_view_pager" />
+            </LinearLayout>
+
+            <include layout="@layout/quickcontact_track" />
+        </FrameLayout>
     </LinearLayout>
+
 </view>

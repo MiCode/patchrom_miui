@@ -36,12 +36,14 @@ import java.util.List;
  *
  * {@hide}
  */
+@MiuiHook(MiuiHookType.CHANGE_CODE)
 public class MediaFile {
     @MiuiHook(MiuiHookType.NEW_CLASS)
     static class Injector {
         static boolean isWMAEnabled() { return true; }
         static void addAPE() { addFileType("APE", FILE_TYPE_APE, "audio/x-monkeys-audio"); }
-        static boolean isFFMpegAudoFileType(int fileType) { 
+        static void addFLV() { addFileType("FLV", FILE_TYPE_FLV, "video/x-flv"); }
+        static boolean isFFMpegAudoFileType(int fileType) {
             return (fileType >= FIRST_FFMPEG_AUDIO_FILE_TYPE && fileType <= LAST_FFMPEG_AUDIO_FILE_TYPE);
         }
     }
@@ -88,8 +90,11 @@ public class MediaFile {
     
     // More video file types
     public static final int FILE_TYPE_MP2PS   = 200;
+    @MiuiHook(MiuiHookType.NEW_FIELD)
+    public static final int FILE_TYPE_FLV = 201;
     private static final int FIRST_VIDEO_FILE_TYPE2 = FILE_TYPE_MP2PS;
-    private static final int LAST_VIDEO_FILE_TYPE2 = FILE_TYPE_MP2PS;
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
+    private static final int LAST_VIDEO_FILE_TYPE2 = FILE_TYPE_FLV;
 
     // Image file types
     public static final int FILE_TYPE_JPEG    = 31;
@@ -259,6 +264,7 @@ public class MediaFile {
         addFileType("ZIP", FILE_TYPE_ZIP, "application/zip");
         addFileType("MPG", FILE_TYPE_MP2PS, "video/mp2p");
         addFileType("MPEG", FILE_TYPE_MP2PS, "video/mp2p");
+        Injector.addFLV(); // miui add
     }
 
     public static boolean isAudioFileType(int fileType) {

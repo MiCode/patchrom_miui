@@ -3,6 +3,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:paddingLeft="@dimen/content_horizontal_margin"
+                android:paddingRight="@dimen/content_horizontal_margin"
+                android:paddingTop="@dimen/content_horizontal_margin"
+                android:paddingBottom="@dimen/content_bottom_margin"
         >
     <include
             android:id="@+id/bottom_panel"
@@ -10,66 +14,42 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="@dimen/notice_text_padding_h"
-            android:layout_marginRight="@dimen/notice_text_padding_h"
-            android:layout_marginTop="@dimen/button_top_margin"
-            android:layout_marginBottom="@dimen/button_top_margin"
             />
-    <ScrollView
+    <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_above="@id/bottom_panel"
-            android:paddingLeft="@dimen/notice_text_padding_h"
-            android:paddingRight="@dimen/notice_text_padding_h"
-            android:paddingTop="@dimen/content_top_margin"
-            android:scrollbarStyle="outsideInset"
+            android:orientation="vertical"
             >
-        <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:orientation="vertical"
+        <RadioGroup
+                android:id="@+id/account_types"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/content_horizontal_margin_neg"
+                android:layout_marginRight="@dimen/content_horizontal_margin_neg"
                 >
-            <RadioGroup
-                    android:id="@+id/account_types"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:divider="?android:listDivider"
-                    />
-            <LinearLayout
-                    android:id="@+id/email_input_panel"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_above="@id/bottom_panel"
-                    android:orientation="vertical"
-                    android:visibility="gone"
-                    >
-                <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/text_adjust_margin_h"
-                        android:text="@string/micloud_input_email_prompt"
-                        style="?android:attr/listSeparatorTextViewStyle"
-                        />
-                <EditText
-                        android:id="@+id/et_email"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:minHeight="@dimen/editor_height"
-                        android:hint="@string/micloud_email"
-                        android:layout_marginTop="@dimen/button_top_margin"
-                        android:singleLine="true"
-                        android:imeOptions="actionNext"
-                        android:inputType="textEmailAddress|textVisiblePassword"
-                        />
-            </LinearLayout>
-            <TextView
-                    android:id="@+id/privacy_policy"
+            <RadioButton
+                    android:id="@+id/reg_type_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_horizontal"
+                    android:text="@string/reg_type_phone"
+                    style="@style/RadioButton"
                     />
-        </LinearLayout>
-    </ScrollView>
+            <RadioButton
+                    android:id="@+id/reg_type_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reg_type_email"
+                    style="@style/RadioButton"
+                    />
+        </RadioGroup>
+        <TextView
+                android:id="@+id/privacy_policy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                style="@style/PrivacyPolicy"
+                />
+    </LinearLayout>
 </RelativeLayout>

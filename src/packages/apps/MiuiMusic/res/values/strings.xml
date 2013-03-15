@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="complete">Complete</string>
     <string name="confirm">Confirm</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
@@ -8,8 +10,19 @@
     <string name="deselect_all">Reject all</string>
 
     <string name="network_error">No network connection. Please check your network settings.</string>
-    <string name="server_failed">Connection to server failed. Please try again later.</string>
 
+    <plurals name="Ntracks_search_result_format">
+        <item quantity="one"><xliff:g id="count">%d</xliff:g> 首相关歌曲</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> 首相关歌曲</item>
+    </plurals>
+    <plurals name="Ntracks_total">
+        <item quantity="one"><xliff:g id="count">%d</xliff:g> song</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> songs</item>
+    </plurals>
+    <plurals name="Ntracks_string">
+        <item quantity="one"><xliff:g id="count">%d</xliff:g> song</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> songs</item>
+    </plurals>
     <!-- used in various places to indicate there is some number other than one songs for a given artist or album. -->
     <plurals name="Ntracks_format">
         <item quantity="one"><xliff:g id="count">%d</xliff:g> song</item>
@@ -43,27 +56,10 @@
         <item quantity="one">" folder"</item>
         <item quantity="other">" folders"</item>
     </plurals>
-    <plurals name="Ntracks_batch_selection">
-        <item quantity="one">"%d song is selected"</item>
-        <item quantity="other">"%d songs are selected"</item>
+    <plurals name="Nitems_batch_selection">
+        <item quantity="one">"Selected %d item"</item>
+        <item quantity="other">"Selected %d items"</item>
     </plurals>
-    <plurals name="Nalbums_batch_selection">
-        <item quantity="one">"%d album is selected"</item>
-        <item quantity="other">"%d albums are selected"</item>
-    </plurals>
-    <plurals name="Nartists_batch_selection">
-        <item quantity="one">"%d artist is selected"</item>
-        <item quantity="other">"%d artists are selected"</item>
-    </plurals>
-    <plurals name="Nfolders_batch_selection">
-        <item quantity="one">"%d folder is selected"</item>
-        <item quantity="other">"%d folders are selected"</item>
-    </plurals>
-    <plurals name="Nplaylists_batch_selection">
-        <item quantity="one">"%d playlist is selected"</item>
-        <item quantity="other">"%d playlists are selected"</item>
-    </plurals>
-
     <plurals name="Ntrack_in_sdcard_format">
         <item quantity="one">"There is %d song in SD card"</item>
         <item quantity="other">"There are %d songs in SD card"</item>
@@ -107,11 +103,17 @@
         <item quantity="other"><xliff:g id="songs_to_delete">%d</xliff:g> songs were deleted.</item>
     </plurals>
 
+    <plurals name="NTrackstoDownload">
+        <item quantity="one">"1 song will be downloaded."</item>
+        <item quantity="other">"<xliff:g id="SONGS_TO_DOWNLOAD">%d</xliff:g> songs will be downloaded."</item>
+    </plurals>
+
     <!-- sleep mode -->
-    <string name="sleep_mode">Sleep Timer</string>
-    <string name="cancel_sleep_mode">Cancel Sleep Timer</string>
+    <string name="enter_sleep_mode">Enter Sleep Mode</string>
+    <string name="cancel_sleep_mode">Exit Sleep Mode</string>
     <string name="select_quit_time">Set timer to stop the player (in mins)</string>
     <string name="quit_warining">Player will stop playing after %d minute(s)</string>
+    <string name="cancle_warining">Has Canceled Sleep Mode</string>
 
     <!-- refresh media db -->
     <string name="refresh_media_db">Refresh</string>
@@ -143,8 +145,6 @@
     <string name="lyric_display_summary">Display lyrics in the player interface. Recommend to turn it on. </string>
     <string name="album_display_settings">Display Album Art</string>
     <string name="album_display_summary">Display album cover in the player interface. Recommended turn it on.</string>
-    <string name="spectrogram_display_settings">Display Spectrogram</string>
-    <string name="spectrogram_display_summary">Hiding it can improve performance. Recommend to turn it off for low configuration devices.</string>
 
     <string name="lyric_and_album">LYRICS AND ALBUM</string>
     <string name="android_album_settings">Use Embedded Album Art</string>
@@ -202,7 +202,6 @@
     <!-- shown in dialog while the media scanner is starting up -->
     <string name="scanning_nosdcard">Scanning USB storage\u2026</string>
 
-    <string name="online_indicator">-online</string>
     <!-- Library screen, menu item -->
     <string name="search_title">Search</string>
     <!-- Title of screen when there are no songs, or if the SD card is busy -->
@@ -211,8 +210,8 @@
     <!-- Playlist context menu item to edit the selected playlist -->
     <string name="edit_playlist_menu">Edit</string>
     <string name="rename_playlist_menu">Rename</string>
-    <string name="rename_album_menu">Rename Album</string>
-    <string name="rename_artist_menu">Rename Artist</string>
+    <string name="rename_album_menu">Rename Album Batch</string>
+    <string name="rename_artist_menu">Rename Artist Batch</string>
 
     <!-- Transient popup message shown after deleting a playlist -->
     <string name="playlist_deleted_message">Playlist deleted.</string>
@@ -244,13 +243,12 @@
     <string name="unknown_album_name">Unknown Album</string>
     <!-- Individual song context menu item -->
     <string name="ringtone_menu">Use as Phone Ringtone</string>
-    <!-- Menu item -->
-    <string name="ringtone_menu_short">Use as Ringtone</string>
     <!-- Toast after setting a song as phone ringtone -->
     <string name="ringtone_set">\"<xliff:g id="name" example="Alarm Bell">%s</xliff:g>\" set as phone ringtone.</string>
     <!-- Context menu item -->
     <string name="play_selection">Play</string>
     <!-- Context menu item -->
+    <string name="add_to">Add to</string>
     <string name="add_to_playlist">Add to Playlist</string>
     <string name="add_to_favorite">Add to Favorites</string>
     <string name="remove_from_favorite">Remove from Favorites</string>
@@ -286,11 +284,9 @@
     <string name="all_tracks">All Songs</string>
 
     <!-- Context menu title -->
-    <string name="menu_batch_selection">Edit Mode</string>
     <string name="send_to">Send To</string>
-    <string name="edit_id3">Edit ID3</string>
+    <string name="send_to_application">Send to other application</string>
     <string name="download">Download</string>
-    <string name="download_finished">Downloaded</string>
     <string name="download_processing">Downloading</string>
     <string name="download_batch_start">Start downloading all</string>
     <string name="delete_file_from_sdcard">Also delete file from SD card</string>
@@ -304,41 +300,49 @@
     <string name="search_suggestion">Search Suggestions:</string>
 
     <string name="online_search_hint">Search for online music</string>
-    <string name="load_channel_in_process">Load channel list</string>
+    <string name="load_channel_in_process">Load channel list...</string>
     <string name="load_channel_failed">Failed to load Channel List. Please try again.</string>
-    <string name="load_bill_in_process">Load billboard list</string>
+    <string name="load_bill_in_process">Load billboard list...</string>
     <string name="load_bill_failed">Failed to load Billboard List. Please try again.</string>
-    <string name="load_artist_in_process">Load Artist List</string>
+    <string name="load_artist_in_process">Load Artist List...</string>
     <string name="load_artist_failed">Failed to load Artist List. Please try again.</string>
-    <string name="load_album_in_process">Load album list</string>
+    <string name="load_album_in_process">Load album list...</string>
     <string name="load_album_failed">Failed to load Album List. Please try again.</string>
-    <string name="load_audio_in_process">Load Audio List</string>
-    <string name="load_audio_failed">Failed to load Audio List. Please try again</string>
+    <string name="load_audio_in_process">Load Audio List...</string>
+    <string name="load_audio_failed">Failed to load Audio List. Please try again.</string>
+    <string name="load_album_artist_in_process">Loading album and artist list...</string>
+    <string name="load_album_artist_failed">Failed to load album and artist List. Please try again.</string>
+
     <string name="lrc_search_failed">Lyrics not found!</string>
     <string name="lrc_searching">Searching for lyrics...</string>
     <string name="lyric_open_other_connect">Download lyrics using mobile internet connection</string>
+    <string name="music_open_other_connect">Download music using mobile internet connection</string>
 
     <!-- 在线歌曲免责声明 -->
     <string name="impunity_declaration_title">Declaration</string>
-    <string name="impunity_declaration">The online music you are about to use is from Baidu Online Music Service. Click \"Confirm\" to accept. Click \"Cancel\" to exit.</string>
+    <string name="impunity_declaration">The online music you are about to use is from Baidu Online Music Service. Click \"Confirm\" to accept the <a href="http://music.baidu.com/doc/agreement">terms of use</a> and continue.</string>
 
     <!-- 文件过滤 -->
-    <string name="music_filter_helper">In order to hide files which are not music, a size filter of 800K has been applied to hide these files from being displayed. The threshold can be adjusted in Settings / File filter.</string>
+    <string name="music_filter_helper">A size filter of 800K has been applied to hide these files from being displayed. The threshold can be adjusted in Settings / File filter.</string>
 
     <!-- 修改歌曲信息 -->
     <string name="modify_meta">Edit Song Information</string>
-    <string name="id3_edit">Edit ID3 information</string>
-    <string name="lyric_download">Download Lyrics</string>
-    <string name="use_local_lyric">Use saved Lyrics</string>
-    <string name="album_download">Download Album Art</string>
-    <string name="use_local_album">Use saved Album Art</string>
+    <string name="id3_edit">Manually edit Song Information(ID3)</string>
+    <string name="lyric_download">Download Lyrics by Internet</string>
+    <string name="use_local_lyric">Select local lyrics</string>
+    <string name="album_download">Download Album Art by Internet</string>
+    <string name="use_local_album">Select local picture as Album Art</string>
     <string name="lyric_picker_not_found">File Manager not found on the device</string>
     <string name="lrc_select">Select Lyrics</string>
     <string name="album_picker_not_found">Gallery not found on the device</string>
     <string name="id3_edit_failed">Failed to edit ID3 information</string>
     <string name="album_search_failed">Album Art not found!</string>
     <string name="start_to_download_album">Downloading album art for your song(s) library</string>
+    <string name="start_to_download_avatar">Downloading artist avatar for your song(s) library</string>
     <string name="download_all_album">Download Album Art(s)</string>
+    <string name="download_all_avatar">Download Atist Avatar(s)</string>
+    <string name="download_all_track">Download All Tracks</string>
+
     <string name="lrc_progress_modify">Adjust lyrics progress</string>
     <string name="lrc_progress_modify_helper">Adjust the lyrics progress by drag up and down</string>
 
@@ -347,7 +351,6 @@
     <string name="no_effect">No Effect</string>
     <string name="equalizer_delete">Delete</string>
     <string name="equalizer_delete_success">Equalizer profile removed</string>
-    <string name="equalizer_enable">Equalizer Settings</string>
     <string name="equalizer_save_success">Equalizer profile saved</string>
     <string name="create_equalzier_create_text_prompt">Equalizer effect name</string>
     <string name="new_equalizer_name_template">"New EQ profile <xliff:g id="NUMBER">%d</xliff:g>"</string>
@@ -364,7 +367,6 @@
         <item>Pop</item>
         <item>Rock</item>
     </string-array>
-    <string name="lpa_off_hint">You need to close low-power audio play to enable equalizer. Please set in Settings-> System -> Battery Settings. Your battery consumption will increase.</string>
 
     <!-- Edit media file id3 -->
     <string name="id3_modify_confirm_text">Save</string>
@@ -379,10 +381,8 @@
 
     <!-- Play state and controller -->
     <string name="shuffle_all">Shuffle All</string>
+        <string name="play_all">Play All</string>
     <string name="click_to_shuffle">Click to shuffle all</string>
-    <string name="service_start_error_title">Playback Problem</string>
-    <string name="service_start_error_msg">Sorry, the song could not be played.</string>
-    <string name="service_start_error_button">OK</string>
     <string name="streamloadingtext">Connecting to <xliff:g id="host">%s</xliff:g></string>
     <string name="playback_failed">Sorry, the player does not support this type of audio file.</string>
     <string name="playback_failed_by_bad_file">%s cannot be played. Format is not supported or file does not exist.</string>
@@ -412,7 +412,6 @@
     </string-array>
 
     <!-- Main browser item names -->
-    <string name="discovery_music">Discovery Music</string>
     <string name="online_music">Online Music</string>
     <string name="artists_title">Artists</string>
     <string name="albums_title">Albums</string>
@@ -421,8 +420,6 @@
     <string name="playlists_title">Playlists</string>
 
     <!-- Playlist browser -->
-    <string name="playlist_system">System Playlist</string>
-    <string name="playlist_custom">My Playlist</string>
     <string name="playlist_new">Create New Playlist</string>
     <string name="playlist_recently_added">Recently Added</string>
     <string name="playlist_recently_played">Recently Played</string>
@@ -433,15 +430,9 @@
     <string name="create_playlist_create_text_prompt">Playlist Name</string>
     <string name="create_confirm">Confirm</string>
     <string name="overwrite_confirm">Overwrite</string>
-    <string name="picker_song_add">Add (%d)</string>
     <string name="add_tracks">Add Songs</string>
 
     <!-- Track Detail Name -->
-    <string name="detail_artist">"Artist: " </string>
-    <string name="detail_album">"Album: "</string>
-    <string name="detail_genre">"Genre: "</string>
-    <string name="detail_size">"Size: "</string>
-    <string name="detail_format">"Format: "</string>
 
     <!-- AudioFP -->
     <string name="correct_id3_by_internet">Auto connect to correct song tags(ID3)</string>
@@ -450,5 +441,18 @@
     <string name="correct_id3_failed">Correct song tags(ID3) failed.</string>
     <string name="correct_id3_open_other_connect">Please enable carrier data network to correct song tags(ID3).</string>
     <string name="correct_id3_not_support">Do not suppoet to correct ID3 in this file type.</string>
-     <string name="batch_correct_id3_completed">Correct a batch of ID3 completed.</string>
+    <string name="batch_correct_id3_completed">Correct a batch of ID3 completed.</string>
+
+    <string name="add">Add</string>
+
+    <!-- Online Artist -->
+    <string name="artist_albums">All Albums</string>
+    <string name="artist_hot_audios">Hot Audios</string>
+
+    <string name="more">More</string>
+    <string name="album_search_local_descript">"Local | %1$d x %2$d"</string>
+    <string name="album_search_online_descript">"Online | %1$d x %2$d"</string>
+    <string name="album_select">Please select a album art</string>
+
+    <string name="no_song_downloaded">No song can be downloaded.</string>
 </resources>

@@ -2,26 +2,21 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:key="pref_root"
-    android:paddingLeft="14dip"
-    android:paddingRight="14dip"
     android:title="@string/fw_action_settings">
 
-    <Preference
-        android:icon="@miui:drawable/list_item_check_indicator"
+    <miui.preference.RadioButtonPreference
         android:key="rule_action_disable"
         android:title="@string/close_rule"
         android:persistent="false"
         />
 
     <com.miui.antispam.firewall.ShowModifyPreference
-        android:icon="@miui:drawable/list_item_check_indicator"
         android:key="rule_action_reject_blacklist"
         android:title="@string/opt_reject_blacklist"
         android:persistent="false"
         />
 
     <com.miui.antispam.firewall.ShowModifyPreference
-        android:icon="@miui:drawable/list_item_uncheck_indicator"
         android:key="rule_action_reject_stranger"
         android:title="@string/opt_reject_blacklist_stranger"
         android:summary="@string/opt_reject_blacklist_stranger_summary"
@@ -29,14 +24,12 @@
         />
 
     <com.miui.antispam.firewall.ShowModifyPreference
-        android:icon="@miui:drawable/list_item_uncheck_indicator"
         android:key="rule_action_accept_whitelist"
         android:title="@string/opt_accept_whitelist"
         android:persistent="false"
         />
 
     <com.miui.antispam.firewall.ShowModifyPreference
-        android:icon="@miui:drawable/list_item_uncheck_indicator"
         android:key="rule_action_reject_all"
         android:title="@string/opt_reject_all"
         android:persistent="false"

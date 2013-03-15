@@ -2,132 +2,38 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent"
+            android:paddingLeft="@dimen/content_horizontal_margin"
+            android:paddingRight="@dimen/content_horizontal_margin"
+            android:scrollbarStyle="outsideOverlay"
+        >
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/content_top_margin"
-            android:paddingBottom="@dimen/content_top_margin"
-            android:paddingLeft="@dimen/notice_text_padding_h"
-            android:paddingRight="@dimen/notice_text_padding_h"
+            android:paddingBottom="@dimen/content_horizontal_margin"
             >
-        <LinearLayout
-                android:id="@+id/active_sms_panel"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/content_top_margin"
-                android:orientation="vertical"
-                android:visibility="gone"
-                >
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/micloud_activing_account"
-                    android:layout_gravity="center_horizontal"
-                    style="@style/ActiveTextStyle"
-                    />
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:text="@string/micloud_waiting"
-                    android:layout_gravity="center_horizontal"
-                    style="@style/ActiveSubTextStyle"
-                    />
-        </LinearLayout>
-        <LinearLayout
-                android:id="@+id/active_email_panel"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/content_top_margin"
-                android:orientation="vertical"
-                android:visibility="gone"
-                >
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/micloud_account_not_actived"
-                    android:layout_gravity="center_horizontal"
-                    style="@style/ActiveTextStyle"
-                    />
-            <TextView
-                    android:id="@+id/tv_email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_gravity="center_horizontal"
-                    style="@style/ActiveSubTextStyle"
-                    />
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/lines_margin_v"
-                    android:text="@string/micloud_click_email_to_valid"
-                    android:layout_gravity="center_horizontal"
-                    style="@style/ActiveSubTextStyle"
-                    />
-            <Button
-                    android:id="@+id/btn_resend_email"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/button_top_margin"
-                    android:text="@string/micloud_resend_active_email"
-                    />
-        </LinearLayout>
-        <TextView
-                android:id="@+id/account_info"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/list_item_height_medium"
-                android:background="@drawable/common_rev_bg"
-                android:gravity="center_vertical"
-                style="@android:style/TextAppearance.Large"
-                />
-        <LinearLayout
-            android:id="@+id/mili_center"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/list_item_height_medium"
-            android:background="@drawable/common_rev_bg"
-            android:gravity="center_vertical">
-            <TextView
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:duplicateParentState="true"
-                android:singleLine="true"
-                android:text="@string/mili_center"
-                style="@android:style/TextAppearance.Large" />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="5dip"
-                android:background="@drawable/arrow" />
-        </LinearLayout>
-
         <com.xiaomi.xmsf.account.ui.ExpandedListView
                 android:id="@android:id/list"
                 android:layout_width="fill_parent"
                 android:layout_height="0dip"
                 android:layout_weight="1"
-                android:layout_marginTop="@dimen/title_content_margin_v"
+                android:layout_marginLeft="@dimen/content_horizontal_margin_neg"
+                android:layout_marginRight="@dimen/content_horizontal_margin_neg"
                 />
         <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:gravity="center_horizontal"
-                android:text="@string/micloud_on_pc_notice"
-                android:textAppearance="?android:textAppearanceSmall"
-                android:textColor="?android:attr/textColorSecondary"
+                style="@style/SyncStatus"
                 />
         <Button
                 android:id="@+id/btn_delete_account"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="13dp"
                 android:text="@string/micloud_delete_account"
-                android:background="@drawable/btn_red_bkg"
-                android:textColor="#ffffff"
+                style="@style/ButtonRemove"
                 />
     </LinearLayout>
 </ScrollView>

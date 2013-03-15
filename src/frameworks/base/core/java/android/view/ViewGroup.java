@@ -30,6 +30,7 @@ import android.graphics.PointF;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Region;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Parcelable;
 import android.os.SystemClock;
@@ -45,6 +46,8 @@ import android.view.animation.Transformation;
 
 import com.android.internal.R;
 import com.android.internal.util.Predicate;
+
+import miui.util.UiUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -80,6 +83,98 @@ import java.util.HashSet;
  * @attr ref android.R.styleable#ViewGroup_animateLayoutChanges
  */
 public abstract class ViewGroup extends View implements ViewParent, ViewManager {
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_CLASS)
+    public interface ChildSequenceStateTaggingListener {
+        /**
+         * @param child
+         * @return true indicates the child is first
+         */
+        boolean onTaggingFirstChildSequenceState(ViewGroup parent, View child);
+        /**
+        * @param child
+        * @return true indicates the child is last
+        */
+        boolean onTaggingLastChildSequenceState(ViewGroup parent, View child);
+    }
+
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_CLASS)
+    static class Injector {
+        static int[] CHILD_SEQUENCE_STATE = new int[] { miui.R.attr.children_sequence_state };
+
+        static boolean initTagChildSequenceState(Context context, AttributeSet attrs) {
+            TypedArray a = context.obtainStyledAttributes(attrs, CHILD_SEQUENCE_STATE);
+            boolean value = a.getBoolean(0, UiUtils.isV5Ui(context) ? true : false);
+            a.recycle();
+            return value;
+        }
+
+        static void tagChildSequenceState(ViewGroup v) {
+            if (!v.mTagChildrenSequenceState) {
+                return;
+            }
+
+            boolean isFirst = true;
+            View taggingChild = null;
+            boolean prevDiff = true;
+            int taggingChildDrawableId = -1;
+            final int childrenCount = v.getChildCount();
+            for (int i = 0; i < childrenCount; ++i) {
+                View child = v.getChildAt(i);
+                Drawable d = child.getBackground();
+                int drawableId = (d != null) ? d.getId() : -1;
+                int visibility = child.getVisibility();
+                if (drawableId == -1 && visibility == VISIBLE) {
+                    visibility = INVISIBLE;
+                }
+                switch (visibility) {
+                    case VISIBLE:
+                        if (isFirst) {
+                            isFirst = false;
+                            prevDiff = v.mChildSequenceStateTaggingListener == null ? true :
+                                v.mChildSequenceStateTaggingListener.onTaggingFirstChildSequenceState(v, child);
+                        } else {
+                            if (taggingChild == null) {
+                                prevDiff = true;
+                            } else {
+                                boolean diff = drawableId != taggingChildDrawableId;
+                                if (prevDiff) {
+                                    taggingChild.setAdditionalState(diff ? miui.R.attr.state_single : miui.R.attr.state_first);
+                                } else {
+                                    taggingChild.setAdditionalState(diff ? miui.R.attr.state_last : miui.R.attr.state_middle);
+                                }
+                                prevDiff = diff;
+                            }
+                        }
+                        taggingChildDrawableId = drawableId;
+                        taggingChild = child;
+                        break;
+                    case INVISIBLE:
+                        isFirst = false;
+                        if (taggingChild != null) {
+                            taggingChild.setAdditionalState(prevDiff ? miui.R.attr.state_single : miui.R.attr.state_last);
+                        }
+                        prevDiff = true;
+                        taggingChildDrawableId = -1;
+                        taggingChild = null;
+                        break;
+                }
+            }
+
+            if (taggingChild != null) {
+                boolean diff = v.mChildSequenceStateTaggingListener == null ? true :
+                    v.mChildSequenceStateTaggingListener.onTaggingLastChildSequenceState(v, taggingChild);
+                if (prevDiff) {
+                    taggingChild.setAdditionalState(diff ? miui.R.attr.state_single : miui.R.attr.state_first);
+                } else {
+                    taggingChild.setAdditionalState(diff ? miui.R.attr.state_last : miui.R.attr.state_middle);
+                }
+            }
+        }
+    }
+
     private static final String TAG = "ViewGroup";
 
     private static final boolean DBG = false;
@@ -412,6 +507,12 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     @ViewDebug.ExportedProperty(category = "layout")
     private int mChildCountWithTransientState = 0;
 
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_FIELD)
+    ChildSequenceStateTaggingListener mChildSequenceStateTaggingListener;
+
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_FIELD)
+    boolean mTagChildrenSequenceState;
+
     public ViewGroup(Context context) {
         super(context);
         initViewGroup();
@@ -456,6 +557,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
         mPersistentDrawingCache = PERSISTENT_SCROLLING_CACHE;
     }
 
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     private void initFromAttributes(Context context, AttributeSet attrs) {
         TypedArray a = context.obtainStyledAttributes(attrs,
                 R.styleable.ViewGroup);
@@ -502,6 +604,8 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
                     break;
             }
         }
+
+        mTagChildrenSequenceState = Injector.initTagChildSequenceState(context, attrs); // Miui Hook
 
         a.recycle();
     }
@@ -991,6 +1095,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
      * @param newVisibility The new visibility value (GONE, INVISIBLE, or VISIBLE).
      * @hide
      */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     protected void onChildVisibilityChanged(View child, int oldVisibility, int newVisibility) {
         if (mTransition != null) {
             if (newVisibility == VISIBLE) {
@@ -1015,6 +1120,8 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
                 notifyChildOfDrag(child);
             }
         }
+
+        Injector.tagChildSequenceState(this); // Miui Hook
     }
 
     /**
@@ -3432,6 +3539,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
         }
     }
 
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     private void addInArray(View child, int index) {
         View[] children = mChildren;
         final int count = mChildrenCount;
@@ -3460,9 +3568,12 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
         } else {
             throw new IndexOutOfBoundsException("index=" + index + " count=" + count);
         }
+
+        Injector.tagChildSequenceState(this); // Miui Hook
     }
 
     // This method also sets the child's mParent to null
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     private void removeFromArray(int index) {
         final View[] children = mChildren;
         if (!(mTransitioningViews != null && mTransitioningViews.contains(children[index]))) {
@@ -3483,9 +3594,12 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
         } else if (mLastTouchDownIndex > index) {
             mLastTouchDownIndex--;
         }
+
+        Injector.tagChildSequenceState(this); // Miui Hook
     }
 
     // This method also sets the children's mParent to null
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     private void removeFromArray(int start, int count) {
         final View[] children = mChildren;
         final int childrenCount = mChildrenCount;
@@ -3517,6 +3631,8 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
         }
 
         mChildrenCount -= (end - start);
+
+        Injector.tagChildSequenceState(this); // Miui Hook
     }
 
     private void bindLayoutAnimation(View child) {
@@ -3780,6 +3896,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
      * {@link #draw(android.graphics.Canvas)}, {@link #onDraw(android.graphics.Canvas)},
      * {@link #dispatchDraw(android.graphics.Canvas)} or any related method.</p>
      */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     public void removeAllViewsInLayout() {
         final int count = mChildrenCount;
         if (count <= 0) {
@@ -3978,6 +4095,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
      * @see #attachViewToParent(View, int, android.view.ViewGroup.LayoutParams)
      * @see #removeDetachedView(View, boolean)
      */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     protected void detachAllViewsFromParent() {
         final int count = mChildrenCount;
         if (count <= 0) {
@@ -5305,6 +5423,15 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
 
     /** @hide */
     protected void onSetLayoutParams(View child, LayoutParams layoutParams) {
+    }
+
+    /**
+     * @hide
+     * @param listener
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    public void setChildSequenceStateTaggingListener(ChildSequenceStateTaggingListener listener) {
+        mChildSequenceStateTaggingListener = listener;
     }
 
     /**

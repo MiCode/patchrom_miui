@@ -1,28 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="60dp">
+    <FrameLayout
+        style="@miui:style/V5.Widget.ListView.Item.SingleLine"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="bottom"
-        >
-        <RelativeLayout
-            android:id="@+id/clickable_region"
-            style="@style/HomePageTitleContainer"
-            android:background="@drawable/title_large_selector"
-            android:layout_height="@dimen/home_page_title_height"
-            android:clickable="true"
-            >
-            <TextView
-                android:id="@+id/item_text"
-                style="@style/HomePageTitleText"
-                android:layout_alignParentLeft="true"
-                />
-            <ImageView style="@style/HomePageTitleNavigatorIcon" />
-        </RelativeLayout>
-    </LinearLayout>
+        android:layout_height="match_parent"
+        android:background="@null">
+        <TextView
+            android:id="@+id/item_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:gravity="left|center_vertical"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary"
+            />
+        <ImageView style="@style/HomePageTitleNavigatorIcon"
+            android:layout_centerVertical="true"
+            android:layout_gravity="right|center_vertical"/>
+    </FrameLayout>
     <ImageView
         android:id="@+id/home_page_selection_mask_bottom"
         style="@style/HomePageSelectionMask"

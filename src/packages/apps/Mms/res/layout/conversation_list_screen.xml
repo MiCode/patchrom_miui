@@ -19,11 +19,12 @@
 -->
 
 <RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mms="http://schemas.android.com/apk/res/com.android.mms"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <com.android.mms.util.EditableListView
-        android:id="@+id/list"
+        android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:drawSelectorOnTop="false"
@@ -31,12 +32,6 @@
         android:scrollbarStyle="insideOverlay"
         android:cacheColorHint="@null"
         android:divider="@null"
-        android:background="@drawable/conversation_list_bg"
+        mms:headerHidden="true"
         android:fadingEdgeLength="16dip" />
-
-    <TextView android:id="@+id/empty"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/no_conversations" />
 </RelativeLayout>

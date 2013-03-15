@@ -21,6 +21,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import android.annotation.MiuiHook;
+import android.annotation.MiuiHook.MiuiHookType;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -129,6 +131,7 @@ public abstract class PreferenceGroup extends Preference implements GenericInfla
      * @param preference The preference to add.
      * @return Whether the preference is now in this group.
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public boolean addPreference(Preference preference) {
         if (mPreferenceList.contains(preference)) {
             // Exists
@@ -168,6 +171,7 @@ public abstract class PreferenceGroup extends Preference implements GenericInfla
         
         notifyHierarchyChanged();
 
+        preference.setParent(this);
         return true;
     }
 

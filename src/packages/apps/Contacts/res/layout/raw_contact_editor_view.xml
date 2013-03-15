@@ -18,53 +18,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingTop="@dimen/editor_padding_top">
-
-    <include
-        layout="@layout/editor_account_header_with_dropdown" />
+    android:orientation="vertical" >
 
     <LinearLayout
         android:id="@+id/body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="@dimen/editor_section_padding"
+        android:paddingLeft="@dimen/editor_padding"
+        android:paddingRight="@dimen/editor_padding"
         android:orientation="vertical">
-
-    <LinearLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:paddingTop="8dip">
-
-        <include
-            android:id="@+id/summary_title_layout"
-            layout="@layout/edit_kind_title" />
 
         <LinearLayout
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginLeft="@dimen/detail_and_edit_section_margin_left"
-            android:layout_marginTop="@dimen/detail_and_edit_section_margin_top" >
+            android:orientation="horizontal" >
 
-            <LinearLayout
-                android:id="@+id/stub_photo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="2dip"
-                android:orientation="horizontal">
-
-                <include
-                    android:id="@+id/edit_photo"
-                    layout="@layout/item_photo_editor" />
-            </LinearLayout>
+            <include
+                android:id="@+id/edit_photo"
+                layout="@layout/item_photo_editor" />
 
             <LinearLayout
                 android:id="@+id/name_container"
                 android:layout_height="wrap_content"
                 android:layout_width="0dip"
                 android:layout_weight="1"
-                android:layout_marginRight="@dimen/detail_and_edit_section_margin_right"
+                android:paddingLeft="@dimen/editor_section_padding"
                 android:orientation="vertical">
 
                 <include
@@ -74,10 +53,10 @@
                 <include
                     android:id="@+id/edit_phonetic_name"
                     layout="@layout/phonetic_name_editor_view" />
+
             </LinearLayout>
 
         </LinearLayout>
-    </LinearLayout>
 
         <LinearLayout
             android:id="@+id/sect_fields"
@@ -85,19 +64,41 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"/>
 
-        <miui.widget.ImageTextButton
+        <Button
+            style="@miui:style/V5.Widget.Button"
             android:id="@+id/button_add_field"
             android:text="@string/add_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="@dimen/editor_min_line_item_height"
-            android:gravity="center"
-            android:layout_marginTop="16dip"
-            android:layout_marginBottom="32dip"
-            android:drawableLeft="@drawable/add_more"
-            android:textColor="@miui:color/primary_text"
-            android:textSize="@miui:dimen/text_font_size_huge"
-            android:background="@drawable/btn_add_more"/>
+            android:layout_gravity="center"/>
 
     </LinearLayout>
+
+    <include
+        layout="@layout/editor_account_container" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/editor_padding"
+        android:paddingRight="@dimen/editor_padding"
+        android:paddingTop="@dimen/editor_section_padding" >
+
+        <Button
+            android:id="@+id/button_split"
+            style="@miui:style/V5.Widget.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/btn_split_contact" />
+
+        <Button
+            android:id="@+id/button_delete"
+            style="@miui:style/V5.Widget.Button.NegativeWarn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
 </com.android.contacts.editor.RawContactEditorView>

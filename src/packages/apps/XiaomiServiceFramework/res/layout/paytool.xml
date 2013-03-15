@@ -2,7 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/common_padding"
+    android:layout_marginTop="15dip"
+    android:layout_marginLeft="15dip"
+    android:layout_marginRight="15dip"
+    android:layout_marginBottom="13dip"
     android:orientation="vertical" >
     <TextView
         android:layout_width="match_parent"
@@ -11,24 +14,25 @@
         android:singleLine="true"
         android:text="@string/paytool_picker_hint"
         android:textColor="@color/text_color_gray"
-        android:textSize="@miui:dimen/text_font_size_small" />
+        android:textSize="@dimen/text_size_small"
+        android:textStyle="bold" />
     <com.xiaomi.xmsf.payment.DenominationGrid
         android:id="@+id/denomination"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dip"
+        android:layout_marginTop="10dip"
         android:gravity="center" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dip"
         android:gravity="center_vertical"
-        android:background="@drawable/editor_bg" >
+        style="@style/FakeEditView">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/paytool_edit_hint"
-            android:textSize="@miui:dimen/text_font_size_small"
+            android:textSize="@dimen/text_size_small"
             android:textColor="@color/text_color_black" />
         <EditText
             android:id="@+id/denomination_edit"
@@ -37,7 +41,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="number"
-            android:textSize="@miui:dimen/text_font_size_small"
+            android:textSize="@dimen/text_size_medium"
             android:textColor="@color/text_color_orange"
             android:background="@null" />
     </LinearLayout>
@@ -49,17 +53,14 @@
         android:id="@+id/button_recharge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_pay_orange_bkg"
-        android:textColor="@color/text_color_white"
-        android:text="@string/btn_recharge_large" />
-    <TextView
-        android:id="@+id/recharge_other"
-        android:layout_width="wrap_content"
+        android:layout_marginTop="15dip"
+        android:text="@string/btn_recharge_large"
+        style="@style/ButtonNotice" />
+    <Button
+        android:id="@+id/button_recharge_other"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="25dip"
-        android:layout_marginBottom="15dip"
+        android:layout_marginTop="6dip"
         android:text="@string/recharge_other"
-        android:textSize="@miui:dimen/text_font_size_small"
-        android:textColor="@color/text_color_orange" />
+        style="@style/ButtonNormal" />
 </LinearLayout>

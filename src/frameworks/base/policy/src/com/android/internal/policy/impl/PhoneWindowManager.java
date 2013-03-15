@@ -47,6 +47,7 @@ import android.os.BatteryManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.IPowerManager;
 import android.os.IRemoteCallback;
 import android.os.LocalPowerManager;
 import android.os.Looper;
@@ -159,6 +160,17 @@ import miui.content.ExtraIntent;
  * of both of those when held.
  */
 public class PhoneWindowManager implements WindowManagerPolicy {
+    /**
+     * MIUI ADD:
+     */
+    void setMaxBacklightBrightness() {
+        IPowerManager power = IPowerManager.Stub.asInterface(ServiceManager.getService(Context.POWER_SERVICE));
+        try {
+            power.setBacklightBrightness(PowerManager.BRIGHTNESS_ON);
+        } catch (RemoteException e) {
+        }
+    }
+
     @MiuiHook(MiuiHookType.NEW_METHOD)
     Runnable getScreenshotChordLongPress() { return mScreenshotChordLongPress; }
 

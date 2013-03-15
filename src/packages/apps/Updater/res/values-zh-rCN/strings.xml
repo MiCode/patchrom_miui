@@ -3,15 +3,12 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">系统更新</string>
   <string name="apply_now_button_text">立即更新</string>
-  <string name="view_details">查看详情</string>
   <string name="download_whole_rom">下载完整包<xliff:g id="SIZE">(%s)</xliff:g></string>
   <string name="download_ota_rom">下载更新包<xliff:g id="SIZE">(%s)</xliff:g></string>
   <string name="apply_later_button_text">稍后更新</string>
   <string name="start_update">开始升级</string>
   <string name="applying_update">正在升级...<xliff:g id="PROGRESS">%s</xliff:g></string>
-  <string name="apply_update_guide">升级过程可在后台进行，不影响正常使用</string>
   <string name="apply_update_fail">系统升级失败</string>
-  <string name="apply_update_refuse">系统升级正在进行中，请稍后重新选择安装</string>
   <string name="view_install_log">错误日志</string>
   <string name="send_install_log">发送错误日志</string>
   <string name="install_email">请安装邮件软件</string>
@@ -23,7 +20,7 @@
   <string name="mione_update_fail_title">系统升级失败</string>
   <string name="mione_update_fail_description">请重新升级</string>
   <string name="apply_unable_to_reboot_toast">无法重启进入recovery模式</string>
-  <string name="checking_for_updates">正在检查更新</string>
+  <string name="checking_for_updates">正在检查更新...</string>
   <string name="downloading_description">正在下载...</string>
   <string name="sdcard_is_not_present_dialog_body">你需要一张可写入的SD卡来下载此更新</string>
   <string name="sdcard_is_not_present_dialog_title">未找到SD卡</string>
@@ -44,7 +41,7 @@
   <string name="file_not_found_error_message">文件不存在或无权访问, 请重新下载</string>
   <string name="apply_upload_info_message_manually">请在关机后，手动启动Recovery来应用SD卡下的<xliff:g id="FILE">%s</xliff:g>。如果您想进行备份工作，请先备份然后再回到系统更新。</string>
   <string name="apply_upload_info_message">点击“立即更新”后，手机会自动重启来应用更新</string>
-  <string name="apply_buddy_update_info_message">点击”立即更新“后，手机会将更新应用到备用系统</string>
+  <string name="apply_buddy_update_info_message">点击“立即更新”后，手机会将更新应用到备用系统</string>
   <string name="system_backup_button_text">建议升级前备份系统</string>
   <string name="system_backup_cancel_text">重启升级</string>
   <string name="system_backup_ok_text">进入备份</string>
@@ -66,7 +63,10 @@
   <string name="network_error">无法连接，可能为网络问题或服务器繁忙</string>
   <string name="monthly_build">推荐版</string>
   <string name="weekly_build">开发版</string>
-  <string name="daily_build">荣誉开发组版</string>
+  <string name="daily_build">内测版</string>
+  <string name="experimental_build">体验版</string>
+  <string name="internal_build">内部版</string>
+  <string name="top_secret_build">绝密版</string>
   <string name="stable_build">稳定版</string>
   <string name="about_device">查看系统信息</string>
 
@@ -77,17 +77,18 @@
   <string name="paused_queued_for_wifi">等待Wi-Fi连接</string>
   <string name="boot_recovery">重启到Recovery</string>
   <string name="applying_rom_message">正在应用更新</string>
-  <string name="loading">正在请求</string>
+  <string name="loading">正在请求...</string>
   <string name="install_rom_from_sd">选择安装包</string>
   <string name="download_current_rom">下载最新完整包</string>
   <string name="no_proper_updates">没有找到适用于您当前版本的更新</string>
-  <string name="emegency_update_helper">系统补丁安装后可能需要重启您的手机</string>
-  <string name="emegency_update_size">大小:<xliff:g id="SIZE">%s</xliff:g></string>
   <string name="sign_in_info">本次更新您的升级签到排名是<xliff:g id="RANK">%1$s</xliff:g>\n已经有<xliff:g id="TOTAL">%2$s</xliff:g>人签到<xliff:g id="VERSION">%3$s</xliff:g>版</string>
   <string name="sign_in_info_total_more">本次更新您的升级签到排名是<xliff:g id="RANK">%1$s</xliff:g>\n已经有超过<xliff:g id="TOTAL">%2$s</xliff:g>人签到<xliff:g id="VERSION">%3$s</xliff:g>版</string>
   <string name="sign_in_info_rank_more">本次更新您的升级签到排名是<xliff:g id="RANK">%1$s</xliff:g>以后\n已经有超过<xliff:g id="TOTAL">%2$s</xliff:g>人签到<xliff:g id="VERSION">%3$s</xliff:g>版</string>
-  <string name="sign_in_add_account_helper">您的手机还未添加MIUI账户,添加后可签到获取积分</string>
+  <string name="sign_in_add_account">请登录小米帐号</string>
+  <string name="sign_in_add_account_helper">登录帐号后可签到获取积分</string>
   <string name="my_rank">签到排名:</string>
+
+  <string name="check_update">检查更新</string>
 
   <string name="move_data_to_sdcard_title">数据迁移到SD卡</string>
   <string name="move_data_to_sdcard_not_enough_space_message">需要迁移的数据量大约为<xliff:g id="SIZE">%d</xliff:g>M，但目前SD卡的可用空间不足。</string>
@@ -131,10 +132,10 @@
   <string name="update_happy">开心</string>
   <string name="update_general">一般</string>
   <string name="update_sad">痛苦</string>
-  <string name="update_feel">1.刷机心情</string>
-  <string name="best_update">2.最有爱更新</string>
-  <string name="worst_update">3.最不给力更新</string>
-  <string name="expect">4.更多期待</string>
+  <string name="update_feel">我的刷机心情</string>
+  <string name="best_update">最有爱更新</string>
+  <string name="worst_update">最不给力更新</string>
+  <string name="expect">更多期待</string>
   <string name="my_update_feel">我的刷机心情</string>
   <string name="my_best_update">我选择的最有爱更新</string>
   <string name="my_worst_update">我选择的最不给力更新</string>
@@ -148,4 +149,5 @@
   <string name="next">下一步</string>
   <string name="previous">上一步</string>
   <string name="finish">完成</string>
+
 </resources>

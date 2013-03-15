@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@miui:drawable/list_medium_middle_item_background">
+    style="@style/ListItemStyle">
 
     <cn.kuaipan.android.widget.LayerView
         android:id="@+id/layer"
@@ -13,33 +11,23 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingBottom="5dip"
-        android:paddingTop="5dip" >
+        android:orientation="horizontal" >
 
         <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" >
+            android:layout_height="wrap_content" >
 
             <ImageView
                 android:id="@+id/file_image"
-                android:layout_width="39dip"
-                android:layout_height="39dip"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:paddingRight="2dip"
-                android:scaleType="centerInside" />
+                style="@style/FileIconStyle" />
 
             <ImageView
                 android:id="@+id/file_tasktype_icon"
-                android:layout_width="10dip"
-                android:layout_height="10dip"
-                android:layout_gravity="bottom|right"
-                android:gravity="center"
-                android:scaleType="centerInside"
-                android:src="@drawable/image_task_item_download" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|right" />
 
         </FrameLayout>
 
@@ -62,7 +50,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    style="@miui:style/V5.TextAppearance.List.Primary" />
 
             </LinearLayout>
 
@@ -78,7 +66,7 @@
                     android:layout_gravity="left"
                     android:gravity="left"
                     android:layout_marginRight="9dip"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    style="@miui:style/V5.TextAppearance.List.Secondary" />
 
                 <TextView
                     android:id="@+id/file_size"
@@ -87,16 +75,15 @@
                     android:layout_gravity="left"
                     android:gravity="left"
                     android:layout_marginRight="9dip"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    style="@miui:style/V5.TextAppearance.List.Secondary" />
 
                 <TextView
                     android:id="@+id/trans_status"
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:gravity="right"
-                    android:layout_marginRight="9dip"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    style="@miui:style/V5.TextAppearance.List.Secondary" />
             </LinearLayout>
         </LinearLayout>
 
@@ -104,9 +91,9 @@
             android:id="@+id/operate_btn"
             android:layout_width="37dip"
             android:layout_height="37dip"
-            android:layout_marginRight="10dip"
             android:clickable="true"
-            android:background="@null" />
+            android:scaleType="centerInside"
+            android:layout_marginLeft="9dip" />
 
         <CheckBox
             android:id="@android:id/checkbox"

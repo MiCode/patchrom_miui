@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="application_name" msgid="8424725141379931883">"MIUI啟動器"</string>
+    <string name="application_name" msgid="8424725141379931883">"系統桌面"</string>
     <string name="folder_name" msgid="4588446541914685904">"資料夾"</string>
     <string name="chooser_wallpaper" msgid="5988031014201479733">"選擇桌布來源"</string>
     <string name="activity_not_found" msgid="3571057450431950427">"您的手機上未安裝應用程式。"</string>
@@ -33,7 +33,7 @@
     <string name="title_select_live_folder" msgid="3753447798805166749">"選擇資料夾"</string>
     <string name="menu_add" msgid="3065046628354640854">"新增"</string>
     <string name="menu_wallpaper" msgid="5837429080911269832">"修改桌布"</string>
-    <string name="menu_search" msgid="4826514464423239041">"全局搜尋"</string>
+    <string name="menu_search" msgid="4826514464423239041">"全域搜尋"</string>
     <string name="menu_workspace_preview">"桌面縮圖"</string>
     <string name="menu_back_desktop">返回桌面</string>
     <string name="menu_settings" msgid="6233960148378443661">"系統設定"</string>
@@ -53,14 +53,16 @@
     <string name="gadget_error_text" msgid="8359351016167075858">"載入窗口小工具時出現問題"</string>
 
     <!-- ADD BY LIBRA -->
+    <string name="loading_desktop">正在載入桌面...</string>
     <string name="start_activity_failed">啟動失敗，請重試</string>
     <string name="menu_edit">編輯模式</string>
     <string name="menu_sort">桌面整理</string>
-    <string name="menu_launcher_setting">桌面效果</string>
+    <string name="menu_launcher_setting">桌面設定</string>
     <string name="editing_tips">編輯或新增小工具</string>
-    <string name="cant_remove_system_app">系統自帶的應用程式無法解除安裝</string>
+    <string name="cant_remove_system_app">系統內建的應用程式無法解除安裝</string>
     <string name="cant_remove_retained_app">無法解除安裝電信商客製化的應用程式</string>
-    <string name="uninstall_body_format">是否解除安裝應用程式\"%s\"?</string>
+    <string name="uninstall_dialog_title_format">解除安裝“%s”</string>
+    <string name="uninstall_dialog_message">解除安裝後，其所有資料也將被刪除</string>
     <string name="uninstall">解除安裝</string>
     <string name="starting_preset_app">正在啟動</string>
     <string name="install">安裝</string>
@@ -77,26 +79,26 @@
     <string name="cancel_btn_label">"取消"</string>
     <string name="sort_by_not_defined">按預設順序排序</string>
     <string name="sort_by_frequency">按使用頻率排序</string>
-    <string name="sort_by_abc">按程序名稱排序</string>
+    <string name="sort_by_abc">按程式名稱排序</string>
     <string name="encryption">加密</string>
-    <string name="default_folder_title_tools">系統工具</string>
+    <string name="default_folder_title_tools">小工具</string>
     <string name="default_folder_title_recommend">推薦</string>
     <string name="default_folder_title_game">遊戲</string>
-    <string name="default_folder_title_security">安全中心</string>
+    <string name="default_folder_title_security">系統與安全</string>
 
     <string name="reset_scene_prompt">主題將恢復預設佈局和樣式</string>
 
-    <string name="preferences_title">桌面效果設定</string>
+    <string name="preferences_title">桌面設定</string>
     <string name="preferences_general_title">一般設定</string>
     <string name="pref_keep_in_memory_title">常駐記憶體</string>
-    <string name="pref_keep_in_memory_summary">保證啟動器在記憶體低時也不會退出</string>
+    <string name="pref_keep_in_memory_summary">保證桌面在記憶體低時也不會退出</string>
     <string name="pref_render_in_truecolor_title">高品質繪圖</string>
     <string name="pref_render_in_truecolor_summary">關閉此選項會在一定程度上提升繪圖速度</string>
-    <string name="pref_enable_drawing_cache_title">繪圖緩存</string>
+    <string name="pref_enable_drawing_cache_title">繪圖暫存</string>
     <string name="pref_enable_drawing_cache_summary">關閉此選項會釋放更多內存 但是會降低流暢性</string>
     <string name="pref_icon_shadow_title">圖標陰影</string>
-    <string name="pref_icon_shadow_summary">開啟和關閉桌面圖標陰影效果</string>
-    <string name="pref_screen_transformation_type_title">選擇螢幕切換效果</string>
+    <string name="pref_icon_shadow_summary">控制圖標陰影及底部dock倒影效果</string>
+    <string name="pref_screen_transformation_type_title">螢幕切換效果</string>
     <string name="transformation_type_classic">經典</string>
     <string name="transformation_type_classic_no_overshoot">經典(無回彈)</string>
     <string name="transformation_type_crossfade">淡入淡出</string>
@@ -105,17 +107,18 @@
     <string name="transformation_type_leftpage">翻頁</string>
     <string name="transformation_type_stack">層疊</string>
     <string name="transformation_type_rotate">旋轉</string>
-    <string name="pref_wallpaper_scroll_type_title">選擇桌布滾動類型</string>
-    <string name="pref_cell_layout_size">選擇桌面佈局</string>
-    <string name="prompt_transition_icon_layout">是否將之前的圖標位置應用到新佈局上？</string>
+    <string name="pref_wallpaper_scroll_type_title">桌布滾動類型</string>
+    <string name="pref_cell_layout_size">佈局</string>
+    <string name="pref_keep_layout_title">維持目前圖標位置</string>
+    <string name="pref_keep_layout_summary">關閉此選項, 則切換後的圖標位置可能會被打亂</string>
 
     <string name="widget_gadget_player">音樂</string>
-    <string name="buffering">緩衝…</string>
+    <string name="buffering">緩衝...</string>
     <string name="emptyplaylist">您選的播放清單是空的</string>
     <string name="unknown_artist_name">未知藝術家</string>
 
-    <string name="global_search_hint">點擊搜索</string>
-    <string name="widget_global_search">全局搜索</string>
+    <string name="global_search_hint">點擊搜尋</string>
+    <string name="widget_global_search">全域搜尋</string>
 
     <string name="gadget_clear_button_label">一鍵清理</string>
 
@@ -138,28 +141,34 @@
     <string name="select_frame">選相框</string>
     <string name="photo_confirm">完成</string>
     <string name="photo_load_failed">圖片載入失敗！</string>
-    <string name="frame_load_failed">相框格式錯誤，加載失敗。</string>
+    <string name="frame_load_failed">相框格式錯誤，載入失敗。</string>
 
     <string name="gadget_weather_loading">暫無天氣訊息</string>
     <string name="gadget_weather_title_24">天氣4X2</string>
     <string name="gadget_weather_title_14">天氣4X1</string>
     <string name="gadget_weather_app_not_installed">點擊安裝MIUI天氣</string>
     <string name="gadget_weather_time_format">M月d日 EEE</string>
-    <string name="gadget_weather_time_spliter">:</string>
     <string name="gadget_weather_theme_type">部件樣式</string>
     <string name="gadget_weather_download_title">下載</string>
     <string name="gadget_weather_download_message">需要下載小部件皮膚包: %1$s. 大小: %2$s。請下載完成後重新選擇。</string>
     <string name="gadget_weather_download_start">開始下載</string>
     <string name="gadget_weather_downloading">皮膚包正在下載中。請下載完成後重新選擇。</string>
     <string name="gadget_weather_low_temp">低溫</string>
+    <string name="gadget_weather_aqi_title">空氣質量</string>
+    <string name="aqi_quality_index_good">優</string>
+    <string name="aqi_quality_index_moderate">良</string>
+    <string name="aqi_quality_index_light_pollution">輕微汙染</string>
+    <string name="aqi_quality_index_unhealthy">輕度汙染</string>
+    <string name="aqi_quality_index_dangerous">中度汙染</string>
+    <string name="aqi_quality_index_hazardous">重汙染</string>
 
-    <string name="upside_apps_title">選擇應用程式</string>
-    <string name="upside_edit_bottom_empty_tip">單擊可編輯區域進行編輯</string>
-    <string name="upside_edit_bar_empty">空</string>
-    <string name="upside_edit_bar_select_app">選擇應用程式</string>
-    <string name="upside_enter_tip">雙指下劃切換至自由桌面</string>
-    <string name="upside_exit_tip">雙指上劃退出自由桌面</string>
-    <string name="upside_londing_text">向自由想像致敬</string>
+    <string name="free_style_apps_title">選擇應用程式</string>
+    <string name="free_style_edit_bottom_empty_tip">單擊可編輯區域進行編輯</string>
+    <string name="free_style_edit_bar_empty">空</string>
+    <string name="free_style_edit_bar_select_app">選擇應用程式</string>
+    <string name="free_style_enter_tip">雙指下劃切換至自由桌面</string>
+    <string name="free_style_exit_tip">雙指上劃退出自由桌面</string>
+    <string name="free_style_londing_text">向自由想像致敬</string>
 
     <string name="toggle_select_title">選擇開關</string>
     <string name="toggle_title">開關</string>

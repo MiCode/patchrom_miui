@@ -19,41 +19,33 @@ Defines the layout of the application snippet that appears on top of the
 installation screens
 -->
 <!-- The snippet about the application - title, icon, description.  -->
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/app_snippet"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="7dip"
-    android:paddingBottom="7dip"
-    >
-    <ImageView android:id="@+id/app_icon"
-        android:layout_width="46dip"
-        android:layout_height="46dip"
-        android:background="@color/transparent"
-        android:layout_alignParentLeft="true"
-        android:gravity="left"
-        android:scaleType="centerCrop"
-        android:padding="7dip"/>
-    <TextView android:id="@+id/app_name"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@drawable/app_details_bg">
+
+    <ImageView
+        android:id="@+id/app_icon"
+        android:layout_width="60dip"
+        android:layout_height="60dip"
+        android:layout_marginBottom="25dip"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/app_name"
         android:layout_width="wrap_content"
-        android:layout_height="46dip"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="?android:attr/textColorPrimary"
-        android:shadowColor="@color/shadow"
-        android:shadowRadius="2"
-        android:layout_toRightOf="@id/app_icon"
-        android:singleLine="true"
-        android:paddingRight="32dip"
-        android:ellipsize="end"/>
-    <View android:id="@+id/titleDivider"
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_marginTop="7dip"
-        android:layout_marginBottom="7dip"
-        android:layout_below="@+id/app_icon"
-        android:background="@android:color/holo_orange_light"/>
+        android:layout_height="wrap_content"
+        style="@style/Shadow.TextAppearence.Medium"/>
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/install_confirm_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/install_confirm_question"
+        style="@style/Shadow.TextAppearence.Secondary"/>
 
+</LinearLayout>

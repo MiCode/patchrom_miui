@@ -18,17 +18,16 @@
             android:src="@drawable/result_succeed"
             android:gravity="center"
             android:visibility="gone"/>
-        <TextView
+
+        <miui.v5.widget.NumberProgressView
             android:id="@+id/progress_info"
-            android:textSize="50sp"
-            android:textColor="@android:color/white"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:singleLine="true"/>
-        <TextView style="@android:style/TextAppearance.Medium"
-            android:textColor="@android:color/white"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
             android:id="@+id/progress_title"
+            style="@style/TextAppearance.Title.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -36,12 +35,12 @@
             android:singleLine="true"/>
         <TextView
             android:id="@+id/progress_summary"
-            android:textColor="@color/half_transparent_white"
+            style="@miui:style/V5.TextAppearance.Title.Medium.Secondary"
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            android:text="@string/backup_hint" />
+            android:text="@string/backup_hint"/>
     </LinearLayout>
     <ListView
         android:id="@+id/progress_list"
@@ -51,13 +50,13 @@
         android:divider="@null"
         android:cacheColorHint="@null"/>
 
-   <Button
-       style="?android:attr/buttonBarButtonStyle"
+    <Button
        android:id="@+id/button_cancel"
        android:text="@string/button_cancel"
+       android:textAppearance="@miui:style/V5.TextAppearance.Button"
        android:layout_height="wrap_content"
        android:layout_width="match_parent"
        android:gravity="center"
-       android:layout_gravity="center_vertical"
-       android:background="@drawable/bottom_button_bg"/>
+       android:layout_margin="15dip"
+       android:layout_gravity="center_vertical"/>
 </LinearLayout>

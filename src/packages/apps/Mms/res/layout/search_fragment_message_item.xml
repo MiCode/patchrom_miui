@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+    <TextView
+        android:id="@+id/name"
+        android:textAppearance="@style/TextAppearance.List.Primary"
+        android:textColor="@miui:color/v5_primary_text_color_light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/list_item_padding_outer"
+        android:paddingRight="@dimen/list_item_padding_outer"
+        android:paddingTop="10dp"
+        android:paddingBottom="@dimen/list_item_padding_inner"
+        android:singleLine="true" />
+    <LinearLayout
+        android:id="@+id/message_wrapper"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <view
+            class="com.android.mms.ui.SearchFragment$TextViewSnippet"
+            android:id="@+id/message"
+            android:textAppearance="@style/TextAppearance.List.Secondary"
+            android:layout_marginLeft="10dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:singleLine="true" />
+        <TextView
+            android:id="@+id/date"
+            android:textAppearance="@style/TextAppearance.List.Secondary"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/expander"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/list_item_padding_outer"
+        android:layout_marginRight="@dimen/list_item_padding_outer"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="-10dp"
+        android:focusable="false"
+        android:text="@string/search_show_more_results" />
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="@dimen/list_item_padding_outer_v"
+        android:background="@drawable/conversation_message_divider"/>
+</LinearLayout>

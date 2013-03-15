@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2008 The Android Open Source Project
+<!--
+     Copyright (C) 2008 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,25 +14,16 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/list_item_header_height"
-    android:focusable="false">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list_separator"
+    android:orientation="vertical"
+    style="@style/ListSeparator" >
 
     <TextView
         android:id="@+id/title"
-        style="?android:attr/listSeparatorTextViewStyle"
-        android:paddingLeft="@dimen/contact_detail_padding_left"
-        android:paddingRight="@dimen/contact_detail_padding_left"
-        android:layout_marginLeft="13dip"
-        android:layout_marginRight="13dip"
-        android:background="@miui:drawable/android_list_section_divider_holo_light"
-        android:textColor="@color/people_app_theme_color"
-        android:textSize="@miui:dimen/text_font_size_small"
-        android:layout_gravity="bottom"
-        android:textAllCaps="true"
-        android:singleLine="true"
-        android:ellipsize="end" />
-</FrameLayout>
+        style="@style/ListSeparatorText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true" />
+
+</RelativeLayout>

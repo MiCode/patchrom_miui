@@ -7,12 +7,34 @@
         android:id="@+id/balance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:singleLine="true"
-        android:textColor="@color/primary_color"
-        android:textSize="@miui:dimen/text_font_size_large"
-        android:layout_margin="@dimen/common_padding" />
+        android:textSize="@dimen/text_size_super_huge"
+        android:layout_marginTop="30dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip" />
+    <TextView
+        android:id="@+id/frozen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="@color/text_color_gray"
+        android:textSize="@dimen/text_size_super_huge"
+        android:text="@string/frozen"
+        android:layout_marginTop="5dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip" />
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider"
+        android:layout_marginTop="30dip"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:background="@drawable/divider_bg" />
     <ListView
-        android:id="@+id/list"
+        android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="1"
@@ -20,7 +42,7 @@
         android:scrollbarStyle="outsideOverlay"
         android:fastScrollEnabled="true"
         android:divider="@null"
-        android:fadingEdge="@null"/>
+        android:clipToPadding="false"/>
     <LinearLayout
         android:id="@+id/empty"
         android:layout_width="match_parent"
@@ -35,19 +57,38 @@
             android:layout_height="wrap_content"
             android:indeterminateOnly="true" />
         <TextView
+            android:id="@+id/progress_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/progress_downloading" />
+        <TextView
             android:id="@+id/error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/secondary_color"
-            android:textSize="@miui:dimen/text_font_size_small"
+            android:textColor="@color/text_color_gray"
+            android:textSize="@dimen/text_size_small"
             android:visibility="gone" />
     </LinearLayout>
-    <Button
-        android:id="@+id/button_recharge"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_pay_orange_bkg"
-        android:textColor="@color/text_color_white"
-        android:text="@string/btn_mili_center_recharge"
-        android:layout_margin="@dimen/common_padding" />
+        android:layout_marginTop="15dip"
+        android:layout_marginBottom="13dip"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:orientation="vertical"
+        android:gravity="center" >
+        <Button
+            android:id="@+id/button_recharge"
+            style="@style/ButtonNotice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_mili_center_recharge" />
+        <Button
+            android:id="@+id/button_voucher"
+            style="@style/ButtonNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dip" />
+    </LinearLayout>
 </LinearLayout>

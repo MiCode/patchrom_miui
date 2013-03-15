@@ -21,41 +21,38 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     internal:layout_maxHeight="unbounded"
-    internal:layout_minHeight="64dp"
+    internal:layout_minHeight="@dimen/notification_height"
     android:background="@android:drawable/notification_bg" >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/notification_large_icon_height"
         android:orientation="vertical" >
         <LinearLayout
             android:id="@+id/big_base_content"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_height="@dimen/notification_height"
+            android:paddingLeft="@dimen/notification_padding_left"
+            android:paddingRight="@dimen/notification_padding_right"
             android:gravity="center_vertical"
-            android:minHeight="@dimen/notification_large_icon_height"
-            android:orientation="horizontal"
-            android:paddingBottom="1dp" >
+            android:orientation="horizontal">
             <ImageView
                 android:id="@+id/icon"
                 android:layout_width="@dimen/notification_large_icon_width"
                 android:layout_height="@dimen/notification_large_icon_height"
                 android:layout_gravity="center_vertical"
-                android:background="@android:drawable/notification_template_icon_bg"
                 android:scaleType="centerInside" />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:orientation="vertical"
+                android:layout_marginLeft="@dimen/notification_content_margin_left_to_icon"
                 android:paddingBottom="2dp"
                 android:paddingTop="2dp" >
                 <LinearLayout
                     android:id="@+id/line1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
                     android:orientation="horizontal" >
                     <TextView
                         android:id="@+id/title"
@@ -88,8 +85,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="-2dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
                     android:layout_marginTop="-2dp"
                     android:ellipsize="marquee"
                     android:fadingEdge="horizontal"
@@ -100,8 +95,6 @@
                     android:id="@+id/big_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
                     android:singleLine="false"
                     android:textAppearance="@style/TextAppearance.StatusBar.EventContent"
                     android:visibility="gone" />
@@ -109,8 +102,6 @@
                     android:id="@+id/line3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
                     android:layout_marginTop="-2dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal" >
@@ -150,29 +141,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="12dp"
                     android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
                     android:visibility="gone" />
             </LinearLayout>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/notification_large_icon_width"
-            android:orientation="vertical" >
-            <ImageView
+        <ImageView
                 android:id="@+id/action_divider"
                 android:layout_width="match_parent"
                 android:layout_height="1px"
                 android:layout_marginTop="1dp"
-                android:layout_marginLeft="8dp"
-                android:background="?android:attr/dividerHorizontal"
+                android:background="@drawable/list_dashed_divider"
                 android:visibility="gone" />
-            <include
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                layout="@layout/notification_action_list" />
-        </LinearLayout>
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/notification_content_margin_left"
+            layout="@layout/notification_action_list" />
     </LinearLayout>
 </FrameLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.android.internal.policy.impl.MiuiNumericKeyguardOverlay
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#bf000000"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:id="@+id/miui_soft_keyboard_overlay_id"
+        android:layout_weight="1"
+        android:visibility="invisible"/>
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff000000"
+        android:paddingBottom="10dp">
+        <Button android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            style="@style/V5.Widget.Button"
+            android:id="@+id/miui_soft_keyboard_overlay_emergence_call"
+            android:text="@string/emergency_call_string"/>
+        <Button android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:layout_gravity="right"
+            style="@style/V5.Widget.Button"
+            android:id="@+id/miui_soft_keyboard_overlay_forgot_passcode"
+            android:text="@string/forget_password_string"/>
+    </LinearLayout>
+</com.android.internal.policy.impl.MiuiNumericKeyguardOverlay>

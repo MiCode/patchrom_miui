@@ -22,11 +22,9 @@
     android:background="@drawable/incall_manage_conference_list_item_bg_miui">
 
     <!-- "End" button for this caller -->
-    <ImageButton
+    <Button
         android:id="@+id/conferenceCallerDisconnect"
-        android:layout_width="40dip"
-        android:layout_height="40dip"
-        android:background="@drawable/incall_button_conference_end_miui"
+        style="@style/Miui.Button.HangupInConference"
         android:contentDescription="@string/onscreen_end_call_text_miui" />
 
     <!-- Caller information -->
@@ -45,15 +43,14 @@
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            style="@style/Miui.TextAppearance.Primary"
-            android:textColor="@color/call_card_name_miui" />
+            android:textAppearance="@style/Miui.TextAppearance.Primary"
+            android:textColor="@color/call_card_name_text_color_miui" />
 
         <!-- Telocation and phone number, side by side -->
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-
             <TextView
                 android:id="@+id/conferenceCallerNumber"
                 android:singleLine="true"
@@ -61,8 +58,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ellipsize="end"
-                style="@style/Miui.TextAppearance.Secondary"
-                android:textColor="@color/call_card_info_miui" />
+                android:textAppearance="@style/Miui.TextAppearance.Secondary"
+                android:textColor="@color/call_card_info_text_color_miui" />
             <!-- Tel location -->
             <TextView
                 android:id="@+id/conferenceCallerNumberTelocation"
@@ -73,20 +70,15 @@
                 android:layout_marginLeft="5dip"
                 android:maxWidth="180dip"
                 android:ellipsize="end"
-                style="@style/Miui.TextAppearance.Secondary"
-                android:textColor="@color/call_card_info_miui" />
+                android:textAppearance="@style/Miui.TextAppearance.Secondary"
+                android:textColor="@color/call_card_info_text_color_miui" />
             </LinearLayout>
-
     </LinearLayout>  <!-- End of caller information -->
 
     <!-- "Separate" (i.e. "go private") button for this caller -->
     <Button
         android:id="@+id/conferenceCallerSeparate"
-        android:layout_width="85dip"
-        android:layout_height="wrap_content"
-        android:background="@drawable/incall_button_conference_separate_miui"
+        style="@style/Miui.Button.SeparateFromConference"
         android:text="@string/separate_from_conference_miui"
-        style="@style/Miui.TextAppearance.RedButton.Separate"
         android:contentDescription="@string/go_private_miui"/>
-
 </LinearLayout>

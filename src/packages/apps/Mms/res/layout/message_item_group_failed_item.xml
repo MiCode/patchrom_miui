@@ -5,25 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:background="@drawable/group_failed_item_bg" >
+    android:background="@drawable/group_item_bg" >
     <LinearLayout
-        android:layout_width="0dip"
-        android:layout_weight="1"
+        android:layout_width="200dip"
         android:layout_height="wrap_content" >
         <TextView
             android:id="@+id/contact_info_name"
-            android:layout_width="0dip"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            android:textAppearance="@style/TextAppearance.MessageBody.Bubble"
+            android:textAppearance="@style/TextAppearance.MessageBody"
             android:ellipsize="end" />
         <TextView
             android:id="@+id/contact_info_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="12dip"
             android:singleLine="true"
-            android:textAppearance="@style/TextAppearance.MessageBody.Bubble" />
+            android:textAppearance="@style/TextAppearance.MessageBody.Secondary" />
     </LinearLayout>
 
     <CheckBox
@@ -31,5 +30,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dip"
+        android:button="@drawable/group_item_resend"
         android:checked="true" />
 </LinearLayout>

@@ -8,13 +8,11 @@
     android:layout_height="match_parent"
     android:background="?attr/contact_browser_background" >
 
-    <view
-        class="android.widget.SearchView"
+    <include
         android:id="@+id/search_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="0dip"
-        android:iconifiedByDefault="false" />
+        layout="@layout/search_view"/>
+
+    <include layout="@layout/list_empty_view" />
 
     <FrameLayout
         android:layout_width="match_parent"

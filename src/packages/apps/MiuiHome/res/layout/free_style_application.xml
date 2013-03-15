@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.home.launcher.upsidescene.SpriteShortcutIcon xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:clickable="true"
+    android:animationCache="false" >
+    <FrameLayout
+        android:id="@+id/icon_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:clipChildren="false"
+        android:clipToPadding="false" >
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingTop="@dimen/icon_padding_top"
+            android:paddingLeft="@dimen/icon_padding_side"
+            android:paddingRight="@dimen/icon_padding_side" >
+            <ImageView
+                android:id="@+id/icon_folder_creation_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center_horizontal"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_folder"
+                android:visibility="invisible" />
+            <ImageView
+                android:id="@+id/icon_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="center" />
+            <ImageView
+                android:id="@+id/icon_tile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:scaleType="center" />
+        </FrameLayout>
+        <include layout="@layout/icon_message" />
+    </FrameLayout>
+    <include layout="@layout/folder_icon_title" />
+</com.miui.home.launcher.upsidescene.SpriteShortcutIcon>

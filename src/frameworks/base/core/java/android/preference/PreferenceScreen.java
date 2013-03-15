@@ -29,6 +29,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AbsListView;
 import android.widget.Adapter;
@@ -143,10 +144,12 @@ public final class PreferenceScreen extends PreferenceGroup implements AdapterVi
      * 
      * @param listView The list view to attach to.
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public void bind(ListView listView) {
         listView.setOnItemClickListener(this);
+        Injector.addHeaderView(listView, getRootAdapter());
         listView.setAdapter(getRootAdapter());
-        
+        Injector.bind(listView);
         onAttachedToActivity();
     }
     
@@ -285,5 +288,69 @@ public final class PreferenceScreen extends PreferenceGroup implements AdapterVi
             }
         };
     }
-    
+
+    @MiuiHook(MiuiHookType.NEW_CLASS)
+    static class Injector {
+        static class PreferenceChildSequenceStateTaggingListener implements ViewGroup.ChildSequenceStateTaggingListener {
+            @Override
+            public boolean onTaggingFirstChildSequenceState(ViewGroup parent, View child) {
+                ListView list = (ListView) parent;
+                int headerCount = list.getHeaderViewsCount();
+                int pos = list.getFirstVisiblePosition();
+                if (pos <= headerCount) {
+                    return true;
+                }
+                ListAdapter adapter = list.getAdapter();
+                Preference current = (Preference)adapter.getItem(pos);
+                Preference prev = (Preference)adapter.getItem(pos - 1);
+                return current.mPreferenceParent != prev.mPreferenceParent;
+            }
+
+            @Override
+            public boolean onTaggingLastChildSequenceState(ViewGroup parent, View child) {
+                ListView list = (ListView) parent;
+                int pos = list.getLastVisiblePosition();
+                ListAdapter adapter = list.getAdapter();
+
+                int count = adapter.getCount();
+                int headerCount = list.getHeaderViewsCount();
+                if (pos >= count - 1 || pos <= headerCount) {
+                    return true;
+                }
+                Preference current = (Preference)adapter.getItem(pos);
+                Preference next = (Preference)adapter.getItem(pos + 1);
+                return current.mPreferenceParent != next.mPreferenceParent;
+            }
+        }
+
+        static ViewGroup.ChildSequenceStateTaggingListener sChildSequenceStateTaggingListener =
+            new PreferenceChildSequenceStateTaggingListener();
+
+        static void addHeaderView(ListView listView, ListAdapter listAdapter) {
+            if (!miui.util.UiUtils.isV5Ui(listView.getContext()) || listAdapter.getCount() == 0) {
+                return;
+            }
+
+            Preference preference = (Preference)listAdapter.getItem(0);
+            if (preference instanceof PreferenceCategory) {
+                return;
+            }
+            View headView = new View(listView.getContext());
+            int height = listView.getContext().getResources()
+            .getDimensionPixelSize(miui.R.dimen.v5_preference_screen_padding_top);
+            AbsListView.LayoutParams params = new AbsListView.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, height);
+            headView.setLayoutParams(params);
+            listView.addHeaderView(headView);
+        }
+
+        static void bind(ListView listView) {
+            if (!miui.util.UiUtils.isV5Ui(listView.getContext())) {
+                return;
+            }
+            int paddingBottom = listView.getContext().getResources()
+                .getDimensionPixelSize(miui.R.dimen.v5_preference_screen_padding_bottom);
+            listView.setPadding(0, 0, 0, paddingBottom);
+            listView.setChildSequenceStateTaggingListener(sChildSequenceStateTaggingListener);
+        }
+    }
 }

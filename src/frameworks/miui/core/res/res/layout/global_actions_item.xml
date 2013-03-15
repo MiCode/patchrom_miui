@@ -16,44 +16,42 @@
 
 <!-- RelativeLayouts have an issue enforcing minimum heights, so just
      work around this for now with LinearLayouts. -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="?android:attr/listPreferredItemHeight"
-    android:orientation="horizontal"
-
-    android:paddingLeft="16dip"
-    android:paddingTop="6dip"
-    android:paddingBottom="6dip"
-    >
-    <ImageView android:id="@+id/icon"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:layout_marginRight="16dip"
-        />
-
+    android:layout_gravity="center"
+    android:gravity="center_vertical">
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        >
-        <TextView android:id="@+id/message"
-            android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:duplicateParentState="true"
+        android:background="@drawable/v5_ic_lock_item_bg">
+        <ImageView android:id="@android:id/icon"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="top"
-
             android:gravity="center_vertical"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            />
-        <TextView android:id="@+id/status"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:minHeight="26dp"
+            android:layout_gravity="center_vertical"/>
 
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical">
+            <TextView android:id="@android:id/message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+            <TextView android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:visibility="gone"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</FrameLayout>

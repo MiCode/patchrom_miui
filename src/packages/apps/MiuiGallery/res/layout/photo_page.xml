@@ -11,19 +11,8 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
     >
-        <include android:id="@+id/single_view_bottom"
-            layout="@layout/single_view_bottom"
-        />
         <include android:id="@+id/single_view_image_info"
             layout="@layout/single_view_image_info"
-        />
-        <com.miui.gallery.bigscreen.DeviceBarWidget
-            android:id="@+id/device_bar_widget"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_above="@id/single_view_bottom"
-            android:visibility="gone"
         />
     </RelativeLayout>
 
@@ -64,36 +53,32 @@
     </RelativeLayout>
 
     <LinearLayout
-       android:id = "@+id/download_big_picture"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:orientation="horizontal"
-       android:visibility="gone"
-       android:layout_gravity="center_horizontal|bottom"
-       android:layout_marginBottom="@dimen/photo_page_downloadbutton_bottommargin"
-       android:background="@drawable/download_big_picture_bg"
-    >
-       <ImageView
-           android:id = "@+id/download_big_left_button"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_alignParentLeft="true"
-           android:src="@drawable/download_big_picture"
-           android:layout_gravity="center_vertical"
-       />
-       <TextView
-           android:id="@+id/download_big_text"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:textSize="16sp"
-           android:gravity="center"
-           android:layout_gravity="center_vertical"
-           android:textColor="@android:color/black"
-           android:layout_alignParentRight="true"
-           android:layout_marginRight="@dimen/photo_page_downloadbutton_margin"
-           android:shadowRadius="1"
-           android:shadowDx="0"
-           android:shadowDy="1"
-        />
-    </LinearLayout>
+        android:id="@+id/download_big_picture_with_progress_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="@dimen/download_progress_bar_margin_bottom"
+        android:orientation="vertical"
+        android:visibility="gone"
+     >
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center_horizontal"
+             android:layout_marginBottom="20dip"
+             android:shadowColor="@android:color/black"
+             android:shadowDx="0"
+             android:shadowDy="3"
+             android:shadowRadius="7"
+             android:text="@string/loading_thumbnail"
+             android:textColor="@android:color/white"
+             android:textSize="13sp" />
+
+        <ProgressBar
+             android:id="@+id/download_progress"
+             style="?android:attr/progressBarStyleHorizontal"
+             android:layout_width="@dimen/download_progress_bar_length"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center_horizontal" />
+     </LinearLayout>
 </FrameLayout>

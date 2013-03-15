@@ -12,21 +12,15 @@
             android:id="@android:id/list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingLeft="@dimen/group_list_padding_left"
-            android:paddingRight="@dimen/group_list_padding_right"
-            android:divider="@null"
-            android:fadingEdge="none"
             android:scrollbarStyle="outsideOverlay" />
 
-        <!--
-          Shadow overlay over the list of group members (since we have a fake stacked
-          action bar)
-        -->
+        <view
+            android:id="@+id/fast_indexer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            class="miui.widget.AlphabetFastIndexer" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/group_detail_shadow_overlay_height"
-            android:background="?android:attr/windowContentOverlay" />
+        <include layout="@layout/list_empty_view"/>
     </FrameLayout>
 
 </LinearLayout>

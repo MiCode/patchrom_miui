@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingRight="@dimen/main_padding"
-    android:paddingLeft="@dimen/main_padding"
-    style="@style/Background">
+    android:paddingLeft="@dimen/main_padding" >
     <RatingBar
         android:id="@+id/ratingbar"
         android:layout_width="wrap_content"
@@ -22,11 +21,15 @@
         android:layout_weight="1"
         android:maxLength="300"
         android:gravity="left"
+        android:singleLine="false"
         android:hint="@string/edit_text_default" />
-    <Button
-        android:id="@+id/publish_button"
-        android:text="@string/comment_publish"
-        android:layout_marginTop="@dimen/common_padding"
-        android:layout_marginBottom="@dimen/common_padding"
-        style="@style/Button.Large" />
+    <TextView
+        android:id="@+id/comment_upload_hint"
+        android:text="@string/comment_upload_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/common_padding_medium"
+        android:layout_marginBottom="@dimen/main_padding">
+    </TextView>
 </LinearLayout>

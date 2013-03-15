@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/online_song_item_preview"
-    android:layout_height="32dp"
+    android:layout_height="30dp"
     android:layout_width="fill_parent"
-    android:gravity="center_vertical"
     >
 
-    <TextView android:id="@+id/track_number"
+    <ImageView android:id="@+id/track_number"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textStyle="bold"
-        android:textSize="@dimen/preview_item_num_text"
-        android:textColor="@color/preview_item_number_text"
-        android:includeFontPadding="false"
+        android:layout_centerVertical="true"
         android:gravity="center"
-        android:background="@drawable/category_num_bg"
-        android:layout_marginRight="@dimen/spacing_picker_item"
+        android:scaleType="center"
     />
-
     <TextView
-        android:id="@+id/track_name"
-        android:layout_height="wrap_content"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:textSize="@dimen/preview_item_title_text"
-        android:textColor="@color/preview_item_title_text"
-        android:maxWidth="200dip"
-        android:singleLine="true"
-    />
-
-    <TextView
+        style="@miui:style/V5.TextAppearance.List.Secondary"
         android:id="@+id/artist_name"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
         android:gravity="center_vertical"
-        android:textSize="@dimen/preview_item_descript_text"
-        android:textColor="@color/preview_item_descript_text"
         android:maxWidth="150dip"
         android:singleLine="true"
+        android:textSize="15sp"
          />
+    <TextView
+        style="@miui:style/V5.TextAppearance.List.Secondary"
+        android:id="@+id/track_name"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/track_number"
+        android:layout_toLeftOf="@id/artist_name"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="13dp"
+        android:gravity="center_vertical"
+        android:maxWidth="200dip"
+        android:singleLine="true"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+    />
 
-</LinearLayout>
+</RelativeLayout>

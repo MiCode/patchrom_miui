@@ -2,19 +2,28 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:gravity="center_vertical"
-    android:background="?android:attr/selectableItemBackground"
     android:paddingLeft="@dimen/detail_and_edit_section_margin_left"
-    android:minHeight="@dimen/detail_min_line_item_height">
+    android:paddingRight="@dimen/detail_and_edit_section_margin_right"
+    style="@miui:style/V5.Widget.DropDownItem">
+
+    <CheckBox
+        android:id="@+id/check_box"
+        android:focusable="false"
+        android:clickable="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/contact_card_checkbox_padding_right"
+        android:visibility="gone" />
 
     <LinearLayout
         android:id="@+id/primary_action_view"
         android:layout_width="0dip"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:paddingTop="@dimen/list_item_padding_vertical"
+        android:paddingBottom="@dimen/list_item_padding_vertical"
         android:orientation="vertical"
         android:gravity="center_vertical">
 
@@ -23,46 +32,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:textAppearance="@miui:style/TextAppearance.ListView.PrimaryItem" />
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary" />
 
         <TextView
             android:id="@+id/type"
-            style="@style/ContactDetailItemType"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
     </LinearLayout>
-
-    <CheckBox
-        android:id="@+id/check_box"
-        android:focusable="false"
-        android:clickable="false"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="10dip"
-        android:paddingRight="10dip"
-        android:visibility="gone" />
-
-    <View
-        android:id="@+id/vertical_divider"
-        android:layout_width="1dip"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/detail_vertical_divider_vertical_margin"
-        android:layout_marginBottom="@dimen/detail_vertical_divider_vertical_margin"
-        android:background="?android:attr/dividerVertical" />
 
     <FrameLayout
         android:id="@+id/secondary_action_view_container"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:paddingLeft="@dimen/detail_item_icon_margin"
-        android:paddingRight="@dimen/detail_item_icon_margin"
-        android:background="?android:attr/selectableItemBackground">
+        android:layout_gravity="right" >
+
         <ImageView
             android:id="@+id/secondary_action_button"
-            android:layout_width="32dip"
-            android:layout_height="32dip"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_text_holo_light"
-            android:duplicateParentState="false" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:duplicateParentState="false"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_send_sms" />
     </FrameLayout>
 </LinearLayout>

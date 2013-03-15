@@ -26,11 +26,19 @@
 
     <!-- NOTE: This must be a fullscreen theme, or else the fullscreen alarm will
          be unable to turn the screen on. -->
-    <style name="AlarmAlertFullScreenTheme" parent="android:Theme.Holo.Light">
+    <style name="AlarmAlertFullScreenTheme" parent="miui:style/V5.Theme.Light.NoTitle">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowShowWallpaper">true</item>
         <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="SearchActionBarStyle" parent="@miui:V5.Widget.ActionBar">
+        <item name="android:displayOptions">showCustom</item>
+    </style>
+
+    <style name="TimezoneSearchTheme" parent="@miui:style/V5.Theme.Light">
+        <item name="android:actionBarStyle">@style/SearchActionBarStyle</item>
     </style>
 
     <style name="RoundTouchButton">
@@ -64,55 +72,16 @@
         <item name="android:layout_height">@dimen/alarm_list_left_column_height</item>
     </style>
 
-    <style name="AlarmItemTimezoneStyle" parent="@miui:style/TextAppearance.ListView.PrimaryItem">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:textSize">@dimen/alarm_item_time_zone_text_size</item>
-        <item name="android:drawablePadding">@dimen/alarm_item_time_zone_drawable_padding</item>
+    <style name="DeskClockTheme" parent="@miui:style/V5.Theme.Light.ActionBar.NoTitle">
+        <item name="miui:v5_bottom_bar_bg">@drawable/v5_bottom_bar_bg_light</item>
+        <item name="miui:v5_action_bar_tab">true</item>
     </style>
 
-    <style name="TimeDigitsStyle" parent="@miui:style/TextAppearance.ListView.PrimaryItem">
-        <item name="android:textSize">30sp</item>
-        <item name="android:includeFontPadding">false</item>
-    </style>
-
-    <style name="AlarmCheckBoxStyle" parent="@android:style/Widget.CompoundButton.CheckBox">
-        <item name="android:background">@drawable/btn_check_label_background</item>
-        <item name="android:button">@drawable/alarm_checkbox</item>
-    </style>
-
-    <style name="DeskClockTabText" parent="@miui:style/Widget.Holo.Light.ActionBar.TabText">
-        <item name="android:textColor">@color/primary_tab_text</item>
-    </style>
-
-    <style name="DeskClockDarkActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
-        <item name="android:background">@drawable/ab_solid_light_holo</item>
-        <item name="android:backgroundStacked">@drawable/ab_solid_light_holo</item>
-        <item name="android:height">@dimen/desk_clock_dark_action_bar_height</item>
-        <item name="android:displayOptions"></item>
-    </style>
-
-    <style name="DeskClockTheme" parent="@miui:style/Theme.Light">
-        <item name="android:homeAsUpIndicator">@miui:drawable/ab_home_up</item>
-        <item name="android:actionBarStyle">@style/DeskClockDarkActionBar</item>
-        <item name="android:actionOverflowButtonStyle">@miui:style/Widget.Holo.Light.ActionButton.Overflow</item>
-        <item name="android:actionBarTabTextStyle">@style/DeskClockTabText</item>
-    </style>
-
-    <style name="EmptyViewTextStyle">
+    <style name="EmptyViewTextStyle" parent="@miui:style/V5.TextAppearance.List.Primary">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
-        <item name="android:paddingTop">@dimen/empty_view_text_padding_top</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
-        <item name="android:drawablePadding">@dimen/empty_view_text_drawable_padding</item>
-        <item name="android:textColor">@color/grey</item>
-    </style>
-
-    <style name="AddAlarmTheme" parent="@miui:style/Theme.Light">
-        <item name="android:actionBarStyle">@miui:style/EditorCustomActionBarTheme</item>
-        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:textColor">@color/empty_text_color</item>
     </style>
 
     <style name="TimerButtonStyle">
@@ -149,10 +118,14 @@
         <item name="android:gravity">center</item>
     </style>
 
-    <style name="SnoozeConfirmActivityTheme" parent="@miui:style/Theme.Light">
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    <style name="TimeUnitTextStyle" parent="@miui:style/V5.TextAppearance.List.Secondary">
+        <item name="android:paddingLeft">@dimen/timer_hour_unit_paddingleft</item>
+        <item name="android:textColor">@color/timer_hour_unit</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="DeskClockListItemDoubleLineStyle" parent="@miui:style/V5.Widget.ListView.Item.DoubleLine">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">0dip</item>
+    </style>
 </resources>

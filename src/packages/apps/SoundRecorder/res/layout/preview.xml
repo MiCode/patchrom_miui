@@ -1,32 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <ListView
-        android:id="@android:id/list"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miui="http://schemas.android.com/apk/res/miui"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" >
 
-    <LinearLayout
-        android:id="@+id/empty_view"
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:gravity="center"
-        android:visibility="gone">
+        <EditableListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/preview_list_bg" />
+
+        <LinearLayout
+            android:id="@+id/empty_view"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:visibility="gone"
+            android:background="@drawable/preview_list_bg">
+            <ImageView
+                android:src="@drawable/empty_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/no_file"
+                android:layout_height="wrap_content"
+                android:textColor="#ff5d5d62"
+                android:textSize="@miui:dimen/v5_text_font_size_medium"
+                android:shadowColor="#e5000000"
+                android:singleLine="true"
+                style="@miui:style/V5.TextAppearance.Title" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/preview_fg" />
+    </FrameLayout>
+    <FrameLayout
+        android:layout_weight="0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/preview_bottom">
         <ImageView
-            android:src="@drawable/empty_icon"
+            android:id="@+id/bottom_point"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:text="@string/no_file"
             android:layout_height="wrap_content"
-            android:textColor="#e2e2e2"
-            android:textSize="@dimen/empty_text_size"
-            android:singleLine="true" />
-    </LinearLayout>
+            android:background="@drawable/preview_bottom_point" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/time_padding_horizontal"
+            android:layout_marginRight="@dimen/time_padding_horizontal"
+            android:gravity="center" >
 
-</FrameLayout>
+            <TextView
+                android:id="@+id/starttime"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#B2FFFFFF" />
+
+            <SeekBar
+                android:id="@+id/play_seek_bar"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="6"
+                android:maxHeight="@dimen/seek_bar_height"
+                android:minHeight="@dimen/seek_bar_height"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/play_seek_bar_padding_horizontal"
+                android:paddingRight="@dimen/play_seek_bar_padding_horizontal"
+                android:paddingTop="@dimen/seek_bar_padding_top_preview"
+                android:progressDrawable="@drawable/play_seek_bar_drawable"
+                android:thumb="@drawable/play_seek_bar_thumb"
+                miui:progressBar="@null"
+                miui:progressBarMask="@null" />
+
+            <TextView
+                android:id="@+id/totaltime"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#B2FFFFFF" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+</LinearLayout>

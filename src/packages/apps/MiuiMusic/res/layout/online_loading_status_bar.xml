@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
 
-<merge xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:id="@+id/online_status_text"
-        android:layout_height="wrap_content"
+    <ProgressBar
+        android:id="@+id/online_status_progressbar"
+        style="@miui:style/V5.Widget.ProgressBar"
         android:layout_width="wrap_content"
-        android:layout_centerInParent="true"
-        android:gravity="center" />
-    <ProgressBar android:id="@+id/online_status_progressbar"
-        android:layout_width="30dip"
-        android:layout_height="30dip"
-        style="?android:attr/progressBarStyle"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@id/online_status_text"
-        android:layout_marginRight="10dip"
-    />
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/online_status_text"
+        style="@miui:style/V5.TextAppearance.ProgressDialogMessage"
+        android:textColor="@color/black_50_transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/online_status_progressbar"
+        android:layout_centerHorizontal="true" />
+
 </merge>

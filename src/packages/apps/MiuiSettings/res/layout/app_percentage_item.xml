@@ -18,10 +18,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="?android:attr/listPreferredItemHeight"
-    android:paddingLeft="@miui:dimen/android_preference_item_padding_side"
-    android:paddingRight="@miui:dimen/android_preference_item_padding_side"
-    android:paddingTop="8dip"
-    android:paddingBottom="8dip"
+    android:layout_gravity = "center"
+    android:gravity="center"
     android:columnCount="3">
 
     <ImageView
@@ -29,8 +27,10 @@
         android:layout_width="48dip"
         android:layout_height="48dip"
         android:layout_rowSpan="3"
+        android:layout_gravity="center_vertical"
         android:layout_marginRight="8dip"
-        android:scaleType="centerInside" />
+        android:scaleType="centerInside"
+        android:visibility="gone" />
 
     <TextView
         android:id="@android:id/title"
@@ -38,21 +38,22 @@
         android:layout_gravity="fill_horizontal"
         android:singleLine="true"
         android:ellipsize="marquee"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_marginTop="12dip"
+        style="@miui:style/V5.TextAppearance.PreferenceList" />
 
     <TextView
         android:id="@android:id/text1"
         android:layout_marginLeft="8dip"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:layout_marginTop="8dip"
+        style="@miui:style/V5.TextAppearance.List.Secondary" />
 
     <ProgressBar
         android:id="@android:id/progress"
-        android:layout_height="12dip"
+        android:layout_height="wrap_content"
         android:layout_columnSpan="2"
         android:layout_gravity="fill_horizontal"
         android:layout_marginTop="4dip"
         android:max="100"
-        android:progressDrawable="@drawable/data_usage_bar"
         style="?android:attr/progressBarStyleHorizontal" />
 
     <TextView
@@ -60,9 +61,9 @@
         android:layout_width="0dip"
         android:layout_gravity="fill_horizontal"
         android:layout_columnSpan="2"
-        android:layout_marginTop="4dip"
+        android:layout_marginTop="12dip"
         android:visibility="gone"
         android:maxLines="2"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        style="@miui:style/V5.TextAppearance.List.Secondary" />
 
 </GridLayout>

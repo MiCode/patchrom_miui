@@ -558,6 +558,14 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
             mVariablePadding = variable;
         }
 
+        /**
+         * @hide
+         */
+        @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+        public final boolean getVariablePadding() {
+            return mVariablePadding;
+        }
+
         public final Rect getConstantPadding() {
             if (mVariablePadding) {
                 return null;

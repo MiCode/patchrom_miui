@@ -1,32 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/MusicActivityStyle"
-    android:layout_height="match_parent"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_frame"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:paddingTop="0dp">
+    android:layout_height="match_parent" >
+
+    <!-- java中根据默认封面动态计算高度 -->
+
+    <include layout="@layout/album_background" />
 
     <include layout="@layout/sd_error" />
 
-    <!-- java中根据默认封面动态计算高度 -->
-    <include layout="@layout/main_playback_browser"/>
-
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
-        android:gravity="top|left">
-        <!-- java中动态添加grid子项 -->
-        <LinearLayout android:id="@+id/grid_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="@drawable/grid_bg">
-        </LinearLayout>
-        <View
-           android:layout_height="match_parent"
-           android:layout_width="match_parent"
-           android:background="@drawable/grid_mask"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
-    </FrameLayout>
-</LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/main_top_shadow" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/main_mid_shadow" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
+
+            <!-- java中动态添加grid子项 -->
+
+            <LinearLayout
+                android:id="@+id/grid_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/grid_bg"
+                android:orientation="vertical" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/grid_mask" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <include layout="@layout/main_playback_browser" />
+
+</FrameLayout>

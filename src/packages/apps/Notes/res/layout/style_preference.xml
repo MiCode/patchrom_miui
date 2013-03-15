@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:baselineAligned="false"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:paddingLeft="@miui:dimen/android_preference_item_padding_side"
+    android:paddingRight="?android:attr/scrollbarSize">
+    <LinearLayout
+        android:id="@+id/settings_toggle_layout_style_compact"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_weight="1"
+        android:background="@drawable/status_bar_toggle_style_bg">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/status_bar_toggle_style_compact" />
+        <TextView
+            android:id="@+id/settings_toggle_layout_style_compact_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@miui:style/V5.TextAppearance.TabIndicator"
+            android:textColor="@color/toggle_style_text"
+            android:textSize="@miui:dimen/v5_text_font_size_primary"
+            android:text="@string/pref_desc_mode_list"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:singleLine="true"
+            android:background="@drawable/status_bar_toggle_style_text_bg" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/settings_toggle_layout_style_single_page"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_weight="1"
+        android:background="@drawable/status_bar_toggle_style_bg">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/status_bar_toggle_style_single_page" />
+        <TextView
+            android:id="@+id/settings_toggle_layout_style_single_page_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@miui:style/V5.TextAppearance.TabIndicator"
+            android:textColor="@color/toggle_style_text"
+            android:textSize="@miui:dimen/v5_text_font_size_primary"
+            android:text="@string/pref_desc_mode_grid"
+            android:layout_gravity="center_horizontal"
+            android:singleLine="true"
+            android:gravity="center"
+            android:background="@drawable/status_bar_toggle_style_text_bg" />
+    </LinearLayout>
+</LinearLayout>

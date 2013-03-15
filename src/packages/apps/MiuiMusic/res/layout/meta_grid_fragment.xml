@@ -7,23 +7,22 @@
     >
 
     <RelativeLayout
-        style="@style/LoadStatusBarStyle"
         android:id="@+id/online_loading_status_bar"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical" >
+
         <include layout="@layout/online_loading_status_bar"/>
     </RelativeLayout>
 
     <view
         class="com.miui.player.ui.view.FixedGridView"
         android:id="@android:id/list"
-        style="@style/PickerListView"
+        style="@miui:style/V5.Widget.ListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/spacing_to_border"
-        android:numColumns="3"
-        android:listSelector="@android:color/transparent"
         android:paddingLeft="@dimen/spacing_picker_item"
-        android:paddingRight="@dimen/spacing_picker_item"/> <!-- 专辑grid的播放indicator可以边界，所以这里paddingLeft是10px，而不是20px -->
+        android:layout_marginBottom="@dimen/spacing_to_border"
+        android:numColumns="3" />
 
 </LinearLayout>

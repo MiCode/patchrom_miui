@@ -18,11 +18,15 @@ package android.preference;
 
 import com.android.internal.util.CharSequences;
 
+import android.annotation.MiuiHook;
+import android.annotation.MiuiHook.MiuiHookType;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -40,6 +44,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+
+import miui.util.UiUtils;
 
 /**
  * Represents the basic Preference UI building
@@ -85,13 +91,15 @@ public class Preference implements Comparable<Preference>, OnDependencyChangeLis
 
     private Context mContext;
     private PreferenceManager mPreferenceManager;
-    
+    @MiuiHook(MiuiHookType.NEW_FIELD)
+    PreferenceGroup mPreferenceParent;
+
     /**
      * Set when added to hierarchy since we need a unique ID within that
      * hierarchy.
      */
     private long mId;
-    
+
     private OnPreferenceChangeListener mOnChangeListener;
     private OnPreferenceClickListener mOnClickListener;
 
@@ -115,7 +123,7 @@ public class Preference implements Comparable<Preference>, OnDependencyChangeLis
     private String mDependencyKey;
     private Object mDefaultValue;
     private boolean mDependencyMet = true;
-    
+
     /**
      * @see #setShouldDisableView(boolean)
      */
@@ -460,7 +468,7 @@ public class Preference implements Comparable<Preference>, OnDependencyChangeLis
         onBindView(convertView);
         return convertView;
     }
-    
+
     /**
      * Creates the View to be shown for this Preference in the
      * {@link PreferenceActivity}. The default behavior is to inflate the main
@@ -503,7 +511,9 @@ public class Preference implements Comparable<Preference>, OnDependencyChangeLis
      * @param view The View that shows this Preference.
      * @see #onCreateView(ViewGroup)
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     protected void onBindView(View view) {
+        Injector.onBindView(this, view);
         final TextView titleView = (TextView) view.findViewById(
                 com.android.internal.R.id.title);
         if (titleView != null) {
@@ -544,6 +554,54 @@ public class Preference implements Comparable<Preference>, OnDependencyChangeLis
         if (mShouldDisableView) {
             setEnabledStateOnViews(view, isEnabled());
         }
+    }
+
+    @MiuiHook(MiuiHookType.NEW_CLASS)
+    static class Injector {
+        static void onBindView(Preference preference, View view) {
+            PreferenceGroup parent = preference.mPreferenceParent;
+            Context context = preference.getContext();
+            int size = parent.getPreferenceCount();
+            if (size == 0 || !UiUtils.isV5Ui(context)) {
+                return;
+            }
+
+            if (preference instanceof PreferenceCategory) {
+                view.setBackgroundResource(TextUtils.isEmpty(preference.getTitle()) ?
+                    miui.R.drawable.v5_preference_category_background_no_title :
+                    miui.R.drawable.v5_preference_category_background);
+                return;
+            }
+
+            view.setBackgroundResource(miui.R.drawable.v5_preference_item_bg);
+
+            int paddingRight = context.getResources()
+                .getDimensionPixelSize(miui.R.dimen.v5_preference_item_padding_side);
+            int paddingLeft = paddingRight;
+            if (preference.getIcon() != null) {
+                paddingLeft = context.getResources()
+                .getDimensionPixelSize(miui.R.dimen.v5_preference_icon_padding_side);
+            }
+            StateListDrawable bgDrawable = (StateListDrawable)view.getBackground();
+            if (bgDrawable != null) {
+                Rect padding = new Rect();
+                bgDrawable.getPadding(padding);
+                view.setPadding(paddingLeft + padding.left, padding.top,
+                        paddingRight + padding.right, padding.bottom);
+            }
+            View rightArrow = view.findViewById(miui.R.id.right_arrow);
+            if (rightArrow != null) {
+                rightArrow.setVisibility(preference.getWidgetLayoutResource() == 0 ? View.VISIBLE : View.GONE);
+            }
+        }
+    }
+
+    /**
+     * @hide
+     */
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    public void setParent(PreferenceGroup parent) {
+        mPreferenceParent = parent;
     }
 
     /**

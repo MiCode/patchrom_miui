@@ -20,14 +20,17 @@
     android:id="@+id/status_bar_latest_event_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="@dimen/notification_padding_left"
+    android:paddingRight="@dimen/notification_padding_right"
     internal:layout_minHeight="65dp"
     internal:layout_maxHeight="unbounded"
     >
     <ImageView
         android:id="@+id/big_picture"
         android:layout_width="match_parent"
-        android:layout_height="192dp"
-        android:layout_marginTop="64dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="@dimen/notification_height"
+        android:layout_marginBottom="7.5dp"
         android:layout_gravity="bottom"
         android:scaleType="centerCrop"
         />
@@ -35,36 +38,34 @@
         android:id="@+id/big_picture_shadow"
         android:layout_width="match_parent"
         android:layout_height="6dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="@dimen/notification_height"
         android:scaleType="fitXY"
         android:src="@drawable/title_bar_shadow"
         />
     <FrameLayout android:background="@android:drawable/notification_bg"
         android:id="@+id/big_picture_content"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="@dimen/notification_height"
         >
         <ImageView android:id="@+id/icon"
             android:layout_width="@dimen/notification_large_icon_width"
             android:layout_height="@dimen/notification_large_icon_height"
             android:layout_gravity="center_vertical"
-            android:background="@android:drawable/notification_template_icon_bg"
             android:scaleType="centerInside"
             />
         <LinearLayout
             android:gravity="center_vertical"
             android:orientation="vertical"
+            android:layout_marginLeft="@dimen/notification_large_icon_width"
+            android:paddingLeft="@dimen/notification_content_margin_left_to_icon"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
-                android:layout_marginLeft="@dimen/notification_large_icon_width"
                 android:minHeight="@dimen/notification_large_icon_height"
                 android:orientation="horizontal"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
                 android:id="@+id/line1"
@@ -99,7 +100,6 @@
                   android:textAppearance="@style/TextAppearance.StatusBar.EventContent"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  android:layout_marginRight="8dp"
                   android:layout_marginTop="-2dp"
                   android:visibility="invisible"
                   android:singleLine="true"
@@ -111,16 +111,25 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="208dp"
         android:layout_gravity="bottom"
-        android:background="#ccdddddd"
+        android:layout_marginBottom="7.5dp"
+        android:background="@drawable/big_picture_action_bg"
         >
         <include
             layout="@layout/notification_action_list"
             android:id="@+id/actions"
             android:layout_gravity="bottom"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
     </FrameLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:layout_marginTop="@dimen/notification_height"
+        android:layout_marginBottom="7.5dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/big_picture_fg"
+        />
 </FrameLayout>

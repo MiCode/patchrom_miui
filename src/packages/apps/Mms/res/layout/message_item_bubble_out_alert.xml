@@ -15,14 +15,35 @@
             android:layout_height="wrap_content"
             android:background="@drawable/message_bubble_out_alert_bg"
             android:orientation="vertical">
-            <TextView
-                android:id="@+id/group_send_to"
+            <LinearLayout
+                android:id="@+id/group_send_to_panel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/TextAppearance.MessageBody.Secondary"
-                android:visibility="gone" />
+                android:layout_margin="@dimen/bubble_text_extra_padding"
+                android:visibility="gone"
+                android:background="@drawable/group_item_bg" >
+                <TextView
+                    android:id="@+id/group_send_to_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextAppearance.MessageDesc"
+                    android:text="@string/send_to"/>
+                <TextView
+                    android:id="@+id/group_send_to"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    style="@style/TextAppearance.MessageDesc" />
+                <TextView
+                    android:id="@+id/group_send_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    style="@style/TextAppearance.MessageDesc.Black"
+                    android:visibility="gone" />
+            </LinearLayout>
             <include
-                layout="@layout/message_item_bubble_out_alert_body" />
+                layout="@layout/message_item_bubble_out_body" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">

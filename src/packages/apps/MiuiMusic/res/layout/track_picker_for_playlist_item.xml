@@ -1,40 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/music_pick_item"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/item_bg_selector"
-    >
+    style="@style/PickerItemStyle" >
+
     <CheckBox
-        style="@style/BatchSelectionCheckBoxStyle"
         android:id="@+id/track_check_box"
-        android:checked="false"
+        style="@style/BatchSelectionCheckBoxStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
+        android:checked="false"
         android:focusable="false"
-        android:layout_marginRight="-8dp"/>
-    <TextView style="@style/ItemPrimaryText"
-        android:id="@+id/track_name"
+        android:gravity="center_vertical" />
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dip"
-        android:gravity="left"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:textSize="16sp"
-        android:maxWidth="250dip"
-    />
-    <TextView style="@style/ItemSecondaryText"
-        android:id="@+id/artist_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="left"
-        android:layout_below="@+id/track_name"
-        android:layout_alignLeft="@+id/track_name"
-        android:maxWidth="250dip"
-        android:ellipsize="end"
-    />
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@id/track_check_box"
+        android:gravity="center_vertical|left"
+        android:orientation="vertical" >
+
+        <include layout="@layout/list_item_double_line_with_separator" />
+    </LinearLayout>
+
 </RelativeLayout>

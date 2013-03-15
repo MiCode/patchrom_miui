@@ -14,14 +14,26 @@
      limitations under the License.
 -->
 
-<TextView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="10dip"
-    android:gravity="center_vertical"
-    android:textColor="?android:attr/textColorSecondary"
-    android:minHeight="?android:attr/listPreferredItemHeight"
-    android:paddingLeft="10dip"
-    android:paddingRight="10dip"
-    style="?android:attr/textAppearanceMediumInverse" />
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/header_footer_text"
+        android:layout_width="match_parent"
+        android:layout_height="@miui:dimen/v5_list_view_single_line_height"
+        android:gravity="center"
+        android:textColor="@color/miui_secondary_text_color_dark"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:background="@drawable/miui_header_footer_bg"
+        style="@miui:style/V5.TextAppearance.List.Primary" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/agenda_list_separator_color" />
+
+</LinearLayout>

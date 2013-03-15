@@ -81,6 +81,11 @@ public class KeyguardUpdateMonitor {
         }
     }
 
+
+    // set this flag to true to skip the next sim card state change broadcast.
+    @MiuiHook(MiuiHookType.NEW_FIELD)
+    private boolean mSkipSimStateChange = false;
+
     static private final String TAG = "KeyguardUpdateMonitor";
     static private final boolean DEBUG = false;
 
@@ -132,8 +137,8 @@ public class KeyguardUpdateMonitor {
      * we need a single object to pass to the handler.  This class helps decode
      * the intent and provide a {@link SimCard.State} result.
      */
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
-    private static class SimArgs {
+    @MiuiHook(MiuiHookType.CHANGE_CODE_AND_ACCESS)
+    protected static class SimArgs {
         public final IccCard.State simState;
 
         SimArgs(IccCard.State state) {
@@ -195,6 +200,7 @@ public class KeyguardUpdateMonitor {
 
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public KeyguardUpdateMonitor(Context context) {
         mContext = context;
 
@@ -359,6 +365,11 @@ public class KeyguardUpdateMonitor {
         }
     }
 
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    public void setSkipSimStateChange(boolean skip) {
+        mSkipSimStateChange = skip;
+    }
+
     protected void handlePhoneStateChanged(String newState) {
         if (DEBUG) Log.d(TAG, "handlePhoneStateChanged(" + newState + ")");
         if (TelephonyManager.EXTRA_STATE_IDLE.equals(newState)) {
@@ -423,7 +434,12 @@ public class KeyguardUpdateMonitor {
     /**
      * Handle {@link #MSG_SIM_STATE_CHANGE}
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private void handleSimStateChange(SimArgs simArgs) {
+        if (mSkipSimStateChange) {
+            return;
+        }
+
         final IccCard.State state = simArgs.simState;
 
         if (DEBUG) {
@@ -751,5 +767,12 @@ public class KeyguardUpdateMonitor {
         return mSimState == IccCard.State.PIN_REQUIRED
             || mSimState == IccCard.State.PUK_REQUIRED
             || mSimState == IccCard.State.PERM_DISABLED;
+    }
+
+    /**
+     * MIUI ADD:
+     */
+    boolean isSimPinSecure() {
+        return isSimLocked();
     }
 }

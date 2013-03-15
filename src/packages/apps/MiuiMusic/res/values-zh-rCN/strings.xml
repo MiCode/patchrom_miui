@@ -2,6 +2,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <string name="complete">完成</string>
     <string name="confirm">确定</string>
     <string name="cancel">"取消"</string>
     <string name="save">保存</string>
@@ -9,13 +10,18 @@
     <string name="deselect_all">全不选</string>
 
     <string name="network_error">无网络连接，请检查您的网络设置</string>
-    <string name="server_failed">服务器连接失败，请稍后重试</string>
 
-    <plurals name="Ntracks_format">
+    <plurals name="Ntracks_total">
+        <item quantity="other">"共有<xliff:g id="COUNT">%d</xliff:g>首歌曲"</item>
+    </plurals>
+    <plurals name="Ntracks_string">
         <item quantity="other">"<xliff:g id="COUNT">%d</xliff:g> 首歌曲"</item>
     </plurals>
+    <plurals name="Ntracks_format">
+        <item quantity="other">"<xliff:g id="COUNT">%d</xliff:g> 歌曲"</item>
+    </plurals>
     <plurals name="Nalbums_format">
-        <item quantity="other">"<xliff:g id="COUNT">%d</xliff:g> 张专辑"</item>
+        <item quantity="other">"<xliff:g id="COUNT">%d</xliff:g> 专辑"</item>
     </plurals>
     <plurals name="Ntracks">
         <item quantity="other">" 首歌曲"</item>
@@ -32,20 +38,8 @@
     <plurals name="Nfolders">
         <item quantity="other">" 个文件夹"</item>
     </plurals>
-    <plurals name="Ntracks_batch_selection">
-        <item quantity="other">"已选择%d首歌曲"</item>
-    </plurals>
-    <plurals name="Nalbums_batch_selection">
-        <item quantity="other">"已选择%d张专辑"</item>
-    </plurals>
-    <plurals name="Nartists_batch_selection">
-        <item quantity="other">"已选择%d位歌手"</item>
-    </plurals>
-    <plurals name="Nfolders_batch_selection">
-        <item quantity="other">"已选择%d个文件夹"</item>
-    </plurals>
-    <plurals name="Nplaylists_batch_selection">
-        <item quantity="other">"已选择%d个播放列表"</item>
+    <plurals name="Nitems_batch_selection">
+        <item quantity="other">"已选择%d项"</item>
     </plurals>
     <plurals name="Ntrack_in_sdcard_format">
         <item quantity="other">"SD卡上有%d首歌曲"</item>
@@ -75,11 +69,16 @@
         <item quantity="other">" 个榜单"</item>
     </plurals>
 
+    <plurals name="NTrackstoDownload">
+        <item quantity="other">"将要下载 <xliff:g id="SONGS_TO_DOWNLOAD">%d</xliff:g> 首歌曲。"</item>
+    </plurals>
+
     <!-- sleep mode -->
-    <string name="sleep_mode">睡眠模式</string>
-    <string name="cancel_sleep_mode">关闭睡眠模式</string>
+    <string name="enter_sleep_mode">进入睡眠模式</string>
+    <string name="cancel_sleep_mode">退出睡眠模式</string>
     <string name="select_quit_time">请设置自动关闭的时间（分）</string>
     <string name="quit_warining">播放器将在%d分钟后停止播放</string>
+    <string name="cancle_warining">已关闭睡眠模式</string>
 
     <!-- refresh media db -->
     <string name="refresh_media_db">刷新</string>
@@ -111,8 +110,6 @@
     <string name="lyric_display_summary">在播放界面显示歌词，建议开启</string>
     <string name="album_display_settings">显示专辑</string>
     <string name="album_display_summary">在播放界面显示专辑封面，建议开启</string>
-    <string name="spectrogram_display_settings">显示频谱图</string>
-    <string name="spectrogram_display_summary">隐藏可提高性能，配置低设备建议关闭</string>
 
     <string name="lyric_and_album">词图相关</string>
     <string name="android_album_settings">使用内嵌专辑封面</string>
@@ -163,12 +160,11 @@
     <string name="scanning">"正在扫描 SD 卡..."</string>
     <string name="scanning_nosdcard">"正在扫描 USB 存储设备..."</string>
 
-    <string name="online_indicator">"-在线"</string>
     <string name="delete_playlist_menu">"删除"</string>
     <string name="edit_playlist_menu">"编辑"</string>
     <string name="rename_playlist_menu">"重命名"</string>
-    <string name="rename_artist_menu">"修改歌手名"</string>
-    <string name="rename_album_menu">"修改专辑名"</string>
+    <string name="rename_artist_menu">"批量修改歌手信息"</string>
+    <string name="rename_album_menu">"批量修改专辑信息"</string>
     <string name="playlist_deleted_message">"播放列表已删除。"</string>
     <string name="playlist_renamed_message">"播放列表已重命名。"</string>
     <string name="recentlyadded_title">"最近添加"</string>
@@ -183,10 +179,10 @@
     <string name="unknown_artist_name">"未知歌手"</string>
     <string name="unknown_album_name">"未知专辑"</string>
     <string name="ringtone_menu">"用作手机铃声"</string>
-    <string name="ringtone_menu_short">"用作铃声"</string>
     <string name="ringtone_set">"已将“<xliff:g id="NAME">%s</xliff:g>”设为手机铃声。"</string>
     <string name="play_selection">"播放"</string>
-    <string name="add_to_playlist">"添加到"</string>
+    <string name="add_to">"添加到"</string>
+    <string name="add_to_playlist">"添加到播放列表"</string>
     <string name="add_to_favorite">"喜欢"</string>
     <string name="remove_from_favorite">"取消喜欢"</string>
     <string name="queue">"当前的播放列表"</string>
@@ -203,48 +199,52 @@
     <string name="all_tracks">全部歌曲</string>
 
     <!-- Context menu title -->
-    <string name="menu_batch_selection">编辑模式</string>
-    <string name="send_to">发送到</string>
-    <string name="edit_id3">修改ID3信息</string>
+    <string name="send_to">发送</string>
+    <string name="send_to_application">发送到其它应用</string>
     <string name="download">下载</string>
-    <string name="download_finished">已下载</string>
     <string name="download_processing">下载中</string>
     <string name="download_batch_start">开始批量下载</string>
     <string name="delete_file_from_sdcard">同时将文件从SD卡删除</string>
 
     <!--在线搜索  -->
     <string name="online_search_hint">搜索在线歌曲</string>
-    <string name="load_channel_in_process">获取频道列表中</string>
-    <string name="load_channel_failed">获取频道列表失败，点击重试</string>
-    <string name="load_bill_in_process">获取榜单列表中</string>
-    <string name="load_bill_failed">获取榜单列表失败，点击重试</string>
-    <string name="load_artist_in_process">获取歌手列表中</string>
-    <string name="load_artist_failed">获取歌手列表失败，点击重试</string>
-    <string name="load_album_in_process">获取专辑列表中</string>
-    <string name="load_album_failed">获取专辑列表失败，点击重试</string>
-    <string name="load_audio_in_process">获取歌曲列表中</string>
-    <string name="load_audio_failed">获取歌曲列表失败，点击重试</string>
+    <string name="load_channel_in_process">正在加载频道列表...</string>
+    <string name="load_channel_failed">加载频道列表失败，点击重试</string>
+    <string name="load_bill_in_process">正在加载榜单列表...</string>
+    <string name="load_bill_failed">加载榜单列表失败，点击重试</string>
+    <string name="load_artist_in_process">正在加载歌手列表...</string>
+    <string name="load_artist_failed">加载歌手列表失败，点击重试</string>
+    <string name="load_album_in_process">正在加载专辑列表...</string>
+    <string name="load_album_failed">加载专辑列表失败，点击重试</string>
+    <string name="load_audio_in_process">正在加载歌曲列表...</string>
+    <string name="load_audio_failed">加载歌曲列表失败，点击重试</string>
+    <string name="load_album_artist_in_process">正在加载专辑与歌手列表...</string>
+    <string name="load_album_artist_failed">加载专辑与歌手列表失败，点击重试</string>
 
     <string name="lrc_searching">歌词搜索中…</string>
     <string name="lrc_search_failed">未找到歌词</string>
     <string name="lyric_open_other_connect">请打开运营商网络下载歌词设置</string>
+    <string name="music_open_other_connect">请打开运营商网络在线听音乐设置</string>
     <string name="start_to_download_album">正在为您下载所有专辑封面</string>
+    <string name="start_to_download_avatar">正在为您下载所有歌手头像</string>
     <string name="download_all_album">下载所有专辑封面</string>
+    <string name="download_all_avatar">下载所有歌手头像</string>
+    <string name="download_all_track">下载所有歌曲</string>
 
     <!-- 在线歌曲免责声明 -->
     <string name="impunity_declaration_title">声明</string>
-    <string name="impunity_declaration">您将使用的在线音乐来自百度在线音乐服务。点击\"确定\"表示您认可并愿意使用，点击\"取消\"退出。</string>
+    <string name="impunity_declaration">您将使用百度音乐提供的在线音乐服务，点击 \"确定\"接受<a href="http://music.baidu.com/doc/agreement">使用条款</a>并继续。</string>
 
     <!-- 文件过滤 -->
-    <string name="music_filter_helper">为了改善音乐体验，已经自动为您屏蔽小于800K的音频文件，因为他们一般不是歌曲。您可以通过\"菜单->设置\"来调整过滤的阈值或者禁用功能</string>
+    <string name="music_filter_helper">已自动过滤小于800K的音频文件，您可以在\"设置->文件过滤\"中修改过滤标准。</string>
 
     <!-- 修改歌曲信息 -->
     <string name="modify_meta">修改歌曲信息</string>
-    <string name="id3_edit">修改ID3信息</string>
-    <string name="lyric_download">下载歌词</string>
-    <string name="use_local_lyric">使用本地歌词</string>
-    <string name="album_download">下载封面</string>
-    <string name="use_local_album">使用本地图片做专辑封面</string>
+    <string name="id3_edit">手动修改歌曲信息(ID3)</string>
+    <string name="lyric_download">联网下载歌词</string>
+    <string name="use_local_lyric">选择本地歌词</string>
+    <string name="album_download">联网下载封面</string>
+    <string name="use_local_album">选择本地图片作为专辑封面</string>
     <string name="lyric_picker_not_found">没有在手机上安装文件管理器</string>
     <string name="lrc_select">请选择歌词</string>
     <string name="album_picker_not_found">没有在手机上安装图库</string>
@@ -257,7 +257,6 @@
     <string name="equalizer">均衡器</string>
     <string name="no_effect">无效果</string>
     <string name="custom">手动</string>
-    <string name="equalizer_enable">设置均衡器</string>
     <string name="equalizer_delete">删除当前效果</string>
     <string name="equalizer_delete_success">删除当前效果成功，已恢复到“无效果”</string>
     <string name="equalizer_save_success">均衡器效果保存成功</string>
@@ -276,8 +275,6 @@
         <item>摇滚</item>
     </string-array>
 
-    <string name="lpa_off_hint">启用均衡器需要关闭低功耗音频播放，请在系统设置->系统->电量中设置，关闭后您的电量消耗将会增加。</string>
-
     <!-- Edit media file id3 -->
     <string name="id3_modify_confirm_text">保存</string>
     <string name="modify_id3_for_list">将修改列表中所有歌曲的ID3信息</string>
@@ -291,11 +288,9 @@
 
     <!-- 播放状态和控制 -->
     <string name="shuffle_all">"全部随机播放"</string>
+    <string name="play_all">"播放全部歌曲"</string>
     <string name="click_to_shuffle">点击随机播放歌曲</string>
     <string name="emptyplaylist">"您选的播放列表是空的。"</string>
-    <string name="service_start_error_title">"播放问题"</string>
-    <string name="service_start_error_msg">"抱歉，无法播放此歌曲。"</string>
-    <string name="service_start_error_button">"确定"</string>
     <string name="playback_failed">"抱歉，播放器不支持此类型的音频文件。"</string>
     <string name="streamloadingtext">"正在连接 <xliff:g id="HOST">%s</xliff:g>"</string>
     <string name="playback_failed_by_bad_file">\'%s\'歌曲无法播放，格式不支持或者文件不存在</string>
@@ -333,7 +328,6 @@
     <string name="hot_artists">热门歌手</string>
     <string name="search_suggestion">搜索推荐:</string>
 
-    <string name="discovery_music">发现音乐</string>
     <string name="online_music">在线音乐</string>
     <string name="artists_title">"歌手"</string>
     <string name="albums_title">"专辑"</string>
@@ -343,34 +337,40 @@
     <string name="search_title">"搜索"</string>
 
     <!-- Playlist browser -->
-    <string name="playlist_system">系统列表</string>
-    <string name="playlist_custom">我的列表</string>
     <string name="playlist_new">新建列表</string>
     <string name="playlist_recently_added">最近添加</string>
     <string name="playlist_recently_played">最近播放</string>
     <string name="playlist_frequently_played">播放最多</string>
-    <string name="playlist_favorite">我喜欢</string>
+    <string name="playlist_favorite">我喜欢的歌</string>
 
     <!-- Playlist creator -->
     <string name="create_playlist_create_text_prompt">播放列表名称</string>
     <string name="create_confirm">"确定"</string>
     <string name="overwrite_confirm">"覆盖"</string>
-    <string name="picker_song_add">添加(%d)</string>
     <string name="add_tracks">添加歌曲</string>
 
     <!-- Track Detail Name -->
-    <string name="detail_artist">"艺术家："</string>
-    <string name="detail_album">"专辑："</string>
-    <string name="detail_genre">"流派："</string>
-    <string name="detail_size">"文件大小："</string>
-    <string name="detail_format">"格式："</string>
 
     <!-- AudioFP -->
-    <string name="correct_id3_by_internet">自动联网校准歌曲信息(ID3)</string>
+    <string name="correct_id3_by_internet">联网自动校准歌曲信息(ID3)</string>
     <string name="correct_id3_start">开始联网校准歌曲信息(ID3)。</string>
     <string name="correct_id3_success">歌曲信息(ID3)已自动校准。</string>
     <string name="correct_id3_failed">歌曲信息(ID3)校准失败。</string>
     <string name="correct_id3_open_other_connect">请打开运营商网络校准歌曲信息(ID3)设置。</string>
     <string name="correct_id3_not_support">不支持该文件类型的歌曲信息(ID3)修改。</string>
     <string name="batch_correct_id3_completed">批量校准歌曲信息(ID3)完成。</string>
+
+    <string name="add">添加</string>
+
+    <!-- Online Artist -->
+    <string name="artist_albums">所有专辑</string>
+    <string name="artist_hot_audios">热门歌曲</string>
+
+    <string name="more">更多</string>
+
+    <string name="album_search_local_descript">"本地 | %1$d x %2$d"</string>
+    <string name="album_search_online_descript">"在线 | %1$d x %2$d"</string>
+    <string name="album_select">请选择专辑封面</string>
+
+    <string name="no_song_downloaded">无可下载歌曲。</string>
 </resources>

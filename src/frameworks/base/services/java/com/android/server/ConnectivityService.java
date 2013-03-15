@@ -54,6 +54,7 @@ import android.net.NetworkUtils;
 import android.net.Proxy;
 import android.net.ProxyProperties;
 import android.net.RouteInfo;
+import android.net.UsbShareNetStateTracker;
 import android.net.wifi.WifiStateTracker;
 import android.net.wimax.WimaxManagerConstants;
 import android.os.Binder;
@@ -527,6 +528,11 @@ public class ConnectivityService extends IConnectivityManager.Stub {
                 break;
             case ConnectivityManager.TYPE_ETHERNET:
                 mNetTrackers[netType] = EthernetDataTracker.getInstance();
+                mNetTrackers[netType].startMonitoring(context, mHandler);
+                break;
+            case ConnectivityManager.TYPE_USB_SHARE_NET:
+                mNetTrackers[netType] = new UsbShareNetStateTracker(netType,
+                        mNetConfigs[netType].name);
                 mNetTrackers[netType].startMonitoring(context, mHandler);
                 break;
             default:

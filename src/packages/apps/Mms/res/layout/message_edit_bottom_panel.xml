@@ -19,7 +19,9 @@
         android:addStatesFromChildren="true"
         android:layout_weight="1"
         android:layout_width="0dip"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/compose_msg_editor_bg"
+        >
         <ScrollView
             android:id="@+id/editor_scroller"
             android:addStatesFromChildren="true"
@@ -56,7 +58,7 @@
                         android:hint="@string/subject_hint"
                         android:background="@null"
                         android:visibility="gone"
-                        android:textAppearance="@style/TextAppearance.MmsEditor" />
+                        style="@style/TextAppearance.EditText" />
                     <View
                         android:id="@+id/subject_divider"
                         android:layout_width="match_parent"
@@ -104,7 +106,8 @@
                         android:nextFocusRight="@+id/send_button"
                         android:imeOptions="actionSend|flagNoEnterAction"
                         android:maxLength="2000"
-                        android:textAppearance="@style/TextAppearance.MmsEditor"
+                        style="@style/TextAppearance.EditText"
+                        android:singleLine="false"
                         android:background="@null" />
                 </LinearLayout>
             </LinearLayout>
@@ -119,8 +122,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textColor="@color/counter_text_color"
-            android:textSize="@dimen/counter_font_size"
+            android:textAppearance="@style/TextAppearance.MessageCounter"
             android:visibility="gone"/>
         <Button
             android:id="@+id/send_button"

@@ -16,6 +16,12 @@
 
 package android.preference;
 
+import miui.util.UiUtils;
+
+import com.android.internal.R;
+
+import android.annotation.MiuiHook;
+import android.annotation.MiuiHook.MiuiHookType;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;

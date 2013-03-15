@@ -18,6 +18,8 @@
     xmlns:internal="http://schemas.android.com/apk/prv/res/android"
     android:background="@android:drawable/notification_bg"
     android:id="@+id/status_bar_latest_event_content"
+    android:paddingLeft="@dimen/notification_padding_left"
+    android:paddingRight="@dimen/notification_padding_right"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
@@ -26,7 +28,6 @@
         android:layout_width="@dimen/notification_large_icon_width"
         android:layout_height="@dimen/notification_large_icon_height"
         android:layout_gravity="center_vertical"
-        android:background="@android:drawable/notification_template_icon_bg"
         android:scaleType="centerInside"
         />
     <LinearLayout
@@ -34,9 +35,9 @@
         android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:layout_marginLeft="@dimen/notification_large_icon_width"
+        android:paddingLeft="@dimen/notification_content_margin_left_to_icon"
         android:minHeight="@dimen/notification_large_icon_height"
         android:orientation="vertical"
-        android:paddingRight="8dp"
         android:paddingTop="2dp"
         android:paddingBottom="2dp"
         >
@@ -44,7 +45,6 @@
             android:id="@+id/line1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
             android:orientation="horizontal"
             >
             <TextView android:id="@+id/title"
@@ -79,7 +79,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="-2dp"
             android:layout_marginBottom="-2dp"
-            android:layout_marginLeft="8dp"
             android:singleLine="true"
             android:fadingEdge="horizontal"
             android:ellipsize="marquee"
@@ -89,7 +88,6 @@
             android:id="@android:id/progress"
             android:layout_width="match_parent"
             android:layout_height="12dp"
-            android:layout_marginLeft="8dp"
             android:visibility="gone"
             style="?android:attr/progressBarStyleHorizontal"
             />
@@ -99,7 +97,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:layout_marginLeft="8dp"
             android:layout_marginTop="-2dp"
             >
             <TextView android:id="@+id/text"

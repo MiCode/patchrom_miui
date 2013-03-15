@@ -7,43 +7,29 @@
     <com.android.phone.MiuiInCallAnswerWidget
         android:id="@+id/inCallAnswerWidgetVertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/incall_answer_widget_vertical_sliding_panel_height_miui"
+        android:layout_marginBottom="@dimen/incall_answer_widget_vertical_sliding_panel_bottom_margin_miui"
         android:layout_alignParentBottom="true"
         android:background="@drawable/incall_sliding_panel_bg_miui"
         android:visibility="gone">
-        <FrameLayout
+        <LinearLayout
             android:id="@+id/incomingCallWidgetInCall"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal|top"
             android:visibility="gone">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="90dip"
-                android:orientation="horizontal"
-                android:gravity="center">
-                    <Button
-                        android:id="@+id/answerButton"
-                        android:background="@drawable/incall_button_green_miui"
-                        android:layout_width="150dip"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/answer_miui"
-                        style="@style/Miui.TextAppearance.RedButton"
-                        android:textSize="18sp"
-                        android:focusable="false" />
-                    <Button
-                        android:id="@+id/ignoreButton"
-                        android:background="@drawable/incall_button_white_miui"
-                        android:layout_width="150dip"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dip"
-                        android:gravity="center"
-                        android:text="@string/ignore_miui"
-                        style="@style/Miui.TextAppearance.Button"
-                        android:textSize="18sp"
-                        android:focusable="false" />
-            </LinearLayout>
-        </FrameLayout>
+                <Button
+                    android:id="@+id/answerButton"
+                    style="@style/Miui.Button.Answer"
+                    android:layout_marginTop="20dip"
+                    android:text="@string/answer_miui" />
+                <Button
+                    android:id="@+id/ignoreButton"
+                    style="@style/Miui.Button.Ignore"
+                    android:layout_marginTop="15dip"
+                    android:text="@string/ignore_miui" />
+        </LinearLayout>
         <FrameLayout
             android:id="@+id/incomingCallWidgetMain"
             android:layout_width="match_parent"
@@ -65,60 +51,52 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top|center_horizontal"
-                android:layout_marginTop="@dimen/incall_vertical_sliding_hint_anim_margin_top"
+                android:layout_marginTop="@dimen/incall_answer_widget_vertical_sliding_hint_anim_margin_top_miui"
                 android:src="@drawable/incall_sliding_panel_hint_anim_miui" />
-            <LinearLayout
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="@dimen/incall_answer_widget_vertical_sliding_bar_height_miui"
+                android:background="@drawable/incall_sliding_bar_separator" />
+            <LinearLayout
+                android:id="@+id/inCallSlidingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/incall_answer_widget_vertical_sliding_bar_height_miui"
+                android:layout_gravity="center_horizontal|top"
+                android:paddingLeft="10dip"
+                android:paddingRight="10dip"
                 android:orientation="vertical"
-                android:gravity="top|center_horizontal">
-                <LinearLayout
-                    android:id="@+id/inCallSlidingBar"
+                android:gravity="center">
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/incall_vertical_sliding_bar_height"
-                    android:layout_marginBottom="@dimen/incall_vertical_sliding_bar_margin_bottom"
-                    android:orientation="vertical"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/sliding_down_hint_miui"
-                        android:paddingLeft="10dip"
-                        android:paddingRight="10dip"
-                        style="@style/Miui.TextAppearance.SlidingBar" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dip"
-                        android:text="@string/sliding_up_hint_miui"
-                        android:alpha="0.5"
-                        style="@style/Miui.TextAppearance.SlidingBar.Small" />
-                </LinearLayout>
-                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:text="@string/sliding_down_hint_miui"
+                    style="@style/Miui.TextAppearance.SlidingBar" />
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="0dip"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
-                    <Button
-                        android:id="@+id/rejectButton"
-                        android:background="@drawable/incall_button_end_miui"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        style="@style/Miui.TextAppearance.RedButton"
-                        android:focusable="false" />
-                    <Button
-                        android:id="@+id/rejectWithSmsButton"
-                        android:background="@drawable/incall_button_white_miui"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:layout_marginTop="25dip"
-                        android:text="@string/hangup_sms_miui"
-                        style="@style/Miui.TextAppearance.Button"
-                        android:focusable="false" />
-                </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dip"
+                    android:text="@string/sliding_up_hint_miui"
+                    android:alpha="0.5"
+                    style="@style/Miui.TextAppearance.SlidingBar.Small" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/rejectButtonsMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/incall_answer_widget_vertical_sliding_bar_height_miui"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:visibility="gone">
+                <Button
+                    android:id="@+id/rejectWithSmsButton"
+                    style="@style/Miui.Button.RejectViaSms"
+                    android:layout_marginTop="20dip"
+                    android:text="@string/hangup_sms_miui" />
+                <Button
+                    android:id="@+id/rejectButton"
+                    style="@style/Miui.Button.Reject"
+                    android:layout_marginTop="15dip" />
             </LinearLayout>
         </FrameLayout>
     </com.android.phone.MiuiInCallAnswerWidget>
@@ -129,10 +107,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="bottom|center_horizontal"
-        android:paddingBottom="7dip"
+        android:paddingBottom="5dip"
         android:layout_alignParentBottom="true"
         android:text="@string/sliding_target_hint_miui"
         android:background="@drawable/incall_sliding_down_target_bg_miui"
-        android:visibility="invisible"
-    />
+        android:visibility="invisible" />
 </RelativeLayout>

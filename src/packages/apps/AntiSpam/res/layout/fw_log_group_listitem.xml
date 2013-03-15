@@ -1,80 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root"
+    style="@miui:style/V5.Widget.ListView.Item.DoubleLine"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="@dimen/list_item_padding"
-    android:paddingTop="@dimen/list_item_padding"
-    >
+    android:gravity="center_vertical" >
 
-    <LinearLayout
-        android:layout_marginLeft="10dip"
-        android:layout_marginRight="10dip"
-        android:layout_width="0dip"
-        android:layout_weight="1"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <TextView
+        android:id="@+id/title"
+        style="@miui:style/V5.TextAppearance.List.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="@dimen/list_item_maxwidth"
+        android:ellipsize="end"
+        android:singleLine="true" />
 
-        <LinearLayout
-            android:layout_marginTop="2dip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:textAppearance="@style/TextAppearance.Primary"
-                />
+    <TextView
+        android:id="@+id/count"
+        style="@miui:style/V5.TextAppearance.List.Secondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/title"
+        android:layout_alignBottom="@id/title"
+        android:paddingLeft="5dip"
+        android:singleLine="true" />
 
-            <TextView
-                android:id="@+id/count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dip"
-                android:paddingRight="5dip"
-                android:singleLine="true"
-                android:textAppearance="@style/TextAppearance.Secondary"
-                android:text="@string/calllog"
-                />
+    <TextView
+        android:id="@+id/subtitle"
+        style="@miui:style/V5.TextAppearance.List.Secondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/title"
+        android:singleLine="true"
+        android:layout_alignParentRight="true" />
 
-            <TextView
-                android:id="@+id/subtitle"
-                android:layout_width="0dip"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:singleLine="true"
-                android:textAppearance="@style/TextAppearance.Secondary"
-                android:text="@string/calllog"
-                />
-        </LinearLayout>
+    <TextView
+        android:id="@+id/data1"
+        style="@miui:style/V5.TextAppearance.List.Secondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:singleLine="true" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <TextView
-                android:id="@+id/data1"
-                android:layout_width="0dip"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:textAppearance="@style/TextAppearance.Secondary"
-                android:text="@string/calllog"
-                />
-
-            <TextView
-                android:id="@+id/data2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:textAppearance="@style/TextAppearance.Secondary"
-                android:text="@string/calllog"
-                />
-
-        </LinearLayout>
-    </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

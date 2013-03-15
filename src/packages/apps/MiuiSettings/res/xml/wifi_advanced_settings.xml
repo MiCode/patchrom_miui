@@ -18,6 +18,7 @@
         android:title="@string/wifi_advanced_titlebar">
 
 
+   <PreferenceCategory android:title = "@string/wifi_settings_category" />
     <ListPreference
             android:key="sleep_policy"
             android:title="@string/wifi_setting_sleep_policy_title"
@@ -50,7 +51,7 @@
     <Preference android:key="current_ip_address"
         style="?android:attr/preferenceInformationStyle"
         android:title="@string/wifi_advanced_ip_address_title"
-        />
+    />
 
     <PreferenceCategory
             android:key="wapi_cert_category"
@@ -62,6 +63,21 @@
         <Preference
                 android:key="wapi_cert_uninstall"
                 android:title="@string/wifi_wapi_cert_uninstall"
+                android:persistent="false" />
+    </PreferenceCategory>
+
+     <PreferenceCategory
+            android:title="@string/wps_category">
+        <Preference
+                android:key="wps_connect"
+                android:title="@string/wps_connect_title"
+                android:summary="@string/wps_connect_summary"
+                android:persistent="false">
+        </Preference>
+        <Preference
+                android:key="wps_pin"
+                android:title="@string/wifi_menu_wps_pin"
+                android:summary="@string/wps_connect_summary"
                 android:persistent="false" />
     </PreferenceCategory>
 

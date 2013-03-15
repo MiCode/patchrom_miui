@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:minHeight="@dimen/cloud_folder_item_min_height"
+    style="@miui:style/V5.Widget.ListView.Item.DoubleLine"
+    android:background = "@miui:drawable/v5_dialog_list_item_bg_light"
+    android:layout_width="match_parent"
     android:paddingLeft="@dimen/cloud_folder_list_left_padding"
     android:gravity="center_vertical|left"
     android:orientation="horizontal">
@@ -24,20 +24,20 @@
         android:layout_marginLeft = "@dimen/cloud_folder_list_text_leftmargin"
         android:layout_height="wrap_content" >
         <TextView android:id="@+id/folder_name"
-            style="@style/ItemPrimaryText"
             android:layout_gravity="center_vertical|left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary"
             android:textStyle="bold"
             android:singleLine="true"
             android:ellipsize="marquee"
             android:layout_marginBottom="2dip" />
         <TextView android:id="@+id/folder_count"
-            style="@style/ItemSecondaryText"
             android:layout_gravity="center_vertical|left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"/>
+            android:layout_weight="0"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"/>
     </LinearLayout>
 </LinearLayout>
 

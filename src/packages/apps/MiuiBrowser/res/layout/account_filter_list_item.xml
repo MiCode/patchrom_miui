@@ -13,43 +13,55 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="@dimen/popup_filter_item_min_height"
-    android:orientation="horizontal">
-
-    <View
-        android:id="@+id/indent"
-        android:layout_width="10dip"
-        android:layout_height="fill_parent" />
-
-    <ImageView
-        android:id="@+id/icon"
-        android:scaleType="fitCenter"
-        android:layout_width="@dimen/popup_filter_icon_size"
-        android:layout_height="@dimen/popup_filter_icon_size"
-        android:layout_gravity="center_vertical"
-        android:visibility="gone"/>
-
-    <TextView
-        android:id="@+id/label"
-        android:layout_width="0dip"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:layout_marginLeft="8dip"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:gravity="center_vertical"
-        android:ellipsize="end" />
+    android:orientation="horizontal"
+    style="?android:attr/dropDownItemStyle"
+    android:paddingLeft="0dip">
 
     <RadioButton
         android:id="@+id/mark"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
+        android:layout_height="match_parent"
         android:focusable="false"
-        android:clickable="false" />
+        android:clickable="false"
+        android:button="@miui:drawable/v5_dialog_btn_radio_light"
+        android:gravity="center_vertical" />
 
+    <LinearLayout
+        android:id="@+id/label_wrapper"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical"
+        android:duplicateParentState="true">
+        <CheckedTextView
+            android:id="@+id/label"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:textAppearance="@miui:style/V5.TextAppearance.MenuList"
+            android:textColor="@miui:color/v5_checkable_list_item_text_color_light"
+            android:maxLines="1"
+            android:ellipsize="marquee"
+            android:duplicateParentState="true" />
+
+        <CheckedTextView
+            android:id="@+id/sub_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"
+            android:textColor="@miui:color/v5_checkable_list_item_text_color_light"
+            android:maxLines="1"
+            android:scrollHorizontally="true"
+            android:ellipsize="marquee"
+            android:visibility="gone"
+            android:duplicateParentState="true" />
+
+    </LinearLayout>
 </LinearLayout>

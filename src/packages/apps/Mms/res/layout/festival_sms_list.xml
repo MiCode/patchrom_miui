@@ -9,15 +9,23 @@
         android:layout_width="match_parent"
         android:layout_height="0.66dip"
         android:background="@drawable/message_list_top_splitter" />
-    <ListView
-        android:id="@android:id/list"
-        android:background="@drawable/conversation_list_bg"
+    <FrameLayout
+        xmlns:miui="http://schemas.android.com/apk/res/miui"
         android:layout_width="match_parent"
         android:layout_height="0dip"
-        android:layout_weight="1"
-        android:cacheColorHint="@null"
-        android:divider="@null"
-        android:fastScrollEnabled="true"/>
-    <include
-        layout="@layout/festival_sms_downloading_view" />
+        android:layout_weight="1">
+        <ListView
+            android:id="@+id/festival_sms_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cacheColorHint="@null"
+            android:divider="@null"
+            android:fastScrollEnabled="true"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?miui:attr/v5_tab_indicator_shadow"/>
+        <include
+            layout="@layout/festival_sms_downloading_view" />
+    </FrameLayout>
 </LinearLayout>

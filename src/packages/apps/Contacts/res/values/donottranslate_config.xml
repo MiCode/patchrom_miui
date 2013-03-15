@@ -44,6 +44,9 @@
          resource. -->
     <bool name="config_enable_dialer_key_vibration">true</bool>
 
+    <!-- Flag indicating whether to show images in browse list -->
+    <bool name="config_browse_list_show_images">true</bool>
+
     <!-- The type of vcard for improt. If the vcard importer cannot guess the exact type
     of a vCard type, the improter uses this type. -->
     <string name="config_import_vcard_type" translatable="false">default</string>
@@ -104,6 +107,12 @@
          shown in their own screens. This flag must be in sync with the layout definitions. -->
     <bool name="config_use_two_panes">false</bool>
 
+    <!--  If true, Contacts uses two panes in the favorites view, one for starred and one for
+          frequently contacted.  If false, only one list is shown with starred on top and frequently
+          contacted listed below. Note: This should not be true if config_use_two_panes is
+          false. -->
+    <bool name="config_use_two_panes_in_favorites">false</bool>
+
     <!-- If true, the "home" icon on the action bar will be shown. -->
     <bool name="show_home_icon">false</bool>
 
@@ -119,11 +128,28 @@
 
     <!-- Height of the tab carousel as a percentage of the current screen width on the
          contact detail page -->
-    <item name="tab_height_screen_width_percentage" type="fraction">72%</item>
+    <item name="tab_height_screen_width_percentage" type="fraction">50%</item>
 
     <!-- Regular expression for prohibiting certain phone numbers in dialpad.
          Ignored if empty. -->
     <string name="config_prohibited_phone_number_regexp"></string>
 
-     <bool name="config_allow_import_from_micloud_contacts">true</bool>
+    <!-- If true, enable the "import contacts from SIM" feature if the device
+         has an appropriate SIM or ICC card.
+         Setting this flag to false in a resource overlay allows you to
+         entirely disable SIM import on a per-product basis. -->
+    <bool name="config_allow_sim_import">true</bool>
+
+
+    <!-- Help URL pointing to main TOC for People. This is intentionally empty because
+         the overlay will fill this in during build time. -->
+    <string name="help_url_people_main"></string>
+
+    <!-- Help URL pointing to adding contacts in People. This is intentionally empty because
+         the overlay will fill this in during build time. -->
+    <string name="help_url_people_add"></string>
+
+    <!-- Help URL pointing to editing contacts in People. This is intentionally empty because
+         the overlay will fill this in during build time. -->
+    <string name="help_url_people_edit"></string>
 </resources>

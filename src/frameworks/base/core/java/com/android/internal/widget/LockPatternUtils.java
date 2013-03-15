@@ -222,6 +222,7 @@ public class LockPatternUtils {
     }
 
     public void reportSuccessfulPasswordAttempt() {
+        setLong(LOCKOUT_ATTEMPT_DEADLINE, 0L);
         getDevicePolicyManager().reportSuccessfulPasswordAttempt();
     }
 
@@ -1020,7 +1021,8 @@ public class LockPatternUtils {
         }
     }
 
-    private void setLong(String secureSettingKey, long value) {
+    @MiuiHook(MiuiHookType.CHANGE_ACCESS)
+    protected void setLong(String secureSettingKey, long value) {
         try {
             getLockSettings().setLong(secureSettingKey, value, getCurrentOrCallingUserId());
         } catch (RemoteException re) {

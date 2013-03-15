@@ -146,7 +146,7 @@ import libcore.io.ErrnoException;
 import libcore.io.IoUtils;
 import libcore.io.Libcore;
 import miui.provider.ExtraGuard;
-
+import com.miui.server.MiuiShellService;
 /**
  * Keep track of all those .apks everywhere.
  * 
@@ -220,7 +220,7 @@ public class PackageManagerService extends IPackageManager.Stub {
                             pkg.applicationInfo.flags &= ~ApplicationInfo.FLAG_DISABLE_AUTOSTART;
                         }
                     }
-                    settings.writeLPr();
+                    service.scheduleWriteSettingsLocked();
                 }
                 return true;
             }
@@ -254,6 +254,36 @@ public class PackageManagerService extends IPackageManager.Stub {
             }
 
             return pi != null ? list.append(pi) : false;
+        }
+
+        static void startMiuiShellService(Context context, Installer installer) {
+            MiuiShellService.setupService(context, installer);
+        }
+
+        static ResolveInfo checkMiuiHomeIntent(PackageManagerService pms, Intent intent, String resolvedType,
+                int flags, int userId, ResolveInfo defaultResolveInfo) {
+            if (intent != null && intent.getCategories() != null
+                    && intent.getCategories().contains(Intent.CATEGORY_HOME)) {
+                intent.setClassName("com.miui.home", "com.miui.home.launcher.Launcher");
+                return pms.resolveIntent(intent, resolvedType, flags, userId);
+            }
+            return defaultResolveInfo;
+        }
+
+        static void addAvailableFeatures(final HashMap<String, FeatureInfo> features) {
+            final String HARDWARE_TELEPHONY = "android.hardware.telephony";
+            final String HARDWARE_TELEPHONY_CDMA = "android.hardware.telephony.cdma";
+            if (miui.os.Build.IS_XIAOMI_CDMA) {
+                if (!features.containsKey(HARDWARE_TELEPHONY)) {
+                    FeatureInfo fi = new FeatureInfo();
+                    fi.name = HARDWARE_TELEPHONY;
+                    features.put(HARDWARE_TELEPHONY_CDMA, fi);
+                }
+
+                FeatureInfo fi = new FeatureInfo();
+                fi.name = HARDWARE_TELEPHONY_CDMA;
+                features.put(HARDWARE_TELEPHONY_CDMA, fi);
+            }
         }
     }
 
@@ -1002,7 +1032,8 @@ public class PackageManagerService extends IPackageManager.Stub {
             mSeparateProcesses = null;
         }
 
-        mInstaller = new Installer();
+        mInstaller = new MiuiInstaller();
+        Injector.startMiuiShellService(mContext, mInstaller);
 
         WindowManager wm = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
         Display d = wm.getDefaultDisplay();
@@ -1344,6 +1375,7 @@ public class PackageManagerService extends IPackageManager.Stub {
             Runtime.getRuntime().gc();
 
             mRequiredVerifierPackage = getRequiredVerifierLPr();
+            ExtraPackageManagerServices.postScanPackages(); // miui add
         } // synchronized (mPackages)
         } // synchronized (mInstallLock)
     }
@@ -1424,6 +1456,7 @@ public class PackageManagerService extends IPackageManager.Stub {
         mSettings.removePackageLPw(ps.name);
     }
 
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     void readPermissions() {
         // Read permissions from .../etc/permission directory.
         File libraryDir = new File(Environment.getRootDirectory(), "etc/permissions");
@@ -1459,6 +1492,8 @@ public class PackageManagerService extends IPackageManager.Stub {
         final File permFile = new File(Environment.getRootDirectory(),
                 "etc/permissions/platform.xml");
         readPermissionsFromXml(permFile);
+
+        Injector.addAvailableFeatures(mAvailableFeatures); // Miui Hook
     }
 
     private void readPermissionsFromXml(File permFile) {
@@ -2424,6 +2459,7 @@ public class PackageManagerService extends IPackageManager.Stub {
         return chooseBestActivity(intent, resolvedType, flags, query, userId);
     }
 
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     private ResolveInfo chooseBestActivity(Intent intent, String resolvedType,
             int flags, List<ResolveInfo> query, int userId) {
         if (query != null) {
@@ -2453,7 +2489,13 @@ public class PackageManagerService extends IPackageManager.Stub {
                 if (ri != null) {
                     return ri;
                 }
-                return mResolveInfo;
+
+                // MIUI MODIFY:
+                // If the intent calling HOME, using com.miui.HOME by default.
+                /** Original
+                 * return mResolveInfo;
+                 */
+                return Injector.checkMiuiHomeIntent(this, intent, resolvedType, flags, userId, mResolveInfo); // Miui Hook
             }
         }
         return null;
@@ -3587,7 +3629,7 @@ public class PackageManagerService extends IPackageManager.Stub {
                 mResolveActivity.processName = mAndroidApplication.processName;
                 mResolveActivity.launchMode = ActivityInfo.LAUNCH_MULTIPLE;
                 mResolveActivity.flags = ActivityInfo.FLAG_EXCLUDE_FROM_RECENTS;
-                mResolveActivity.theme = com.miui.internal.R.style.Theme_Holo_Light_Dialog_Alert; // miui modify
+                mResolveActivity.theme = miui.R.style.V5_Theme_Light_Dialog_Alert; // miui modify
                 mResolveActivity.exported = true;
                 mResolveActivity.enabled = true;
                 mResolveInfo.activityInfo = mResolveActivity;
@@ -3750,8 +3792,7 @@ public class PackageManagerService extends IPackageManager.Stub {
             }
 
             // Read saved libra extended flags
-            pkg.applicationInfo.flags |= (pkgSetting.pkgFlags & ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD); // miui add
-            pkg.applicationInfo.flags |= (pkgSetting.pkgFlags & ApplicationInfo.FLAG_DISABLE_AUTOSTART); // miui add
+            appendExtendedFlags(pkg, pkgSetting);  //miui-add
 
             if (pkgSetting.origPackage != null) {
                 // If we are first transitioning from an original package,
@@ -4378,6 +4419,12 @@ public class PackageManagerService extends IPackageManager.Stub {
         }
 
         return pkg;
+    }
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private void appendExtendedFlags(PackageParser.Package pkg, PackageSetting pkgSetting) {
+        pkg.applicationInfo.flags |= (pkgSetting.pkgFlags & ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD); // miui add
+        pkg.applicationInfo.flags |= (pkgSetting.pkgFlags & ApplicationInfo.FLAG_DISABLE_AUTOSTART); // miui add
     }
 
     private void killApplication(String pkgName, int uid) {
@@ -7066,6 +7113,7 @@ public class PackageManagerService extends IPackageManager.Stub {
                 res.returnCode = PackageManager.INSTALL_FAILED_INVALID_APK;
             }
         } else {
+            ExtraPackageManagerServices.postProcessNewInstall(pkg.applicationInfo, mSettings); // miui add
             updateSettingsLI(newPackage,
                     installerPackageName,
                     res);
@@ -7332,6 +7380,7 @@ public class PackageManagerService extends IPackageManager.Stub {
         }
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private void installPackageLI(InstallArgs args,
             boolean newInstall, PackageInstalledInfo res) {
         int pFlags = args.flags;

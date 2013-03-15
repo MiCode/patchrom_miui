@@ -3,22 +3,25 @@
     <!-- For all browser activities -->
     <style name="MusicActivityStyle">
         <item name="android:paddingTop">@dimen/action_bar_height</item>
-        <item name="android:background">@drawable/main_bg</item>
     </style>
 
     <!-- For all browser activities -->
     <style name="MusicTabActivityStyle">
         <item name="android:paddingTop">@dimen/tab_action_bar_padding</item>
-        <item name="android:background">@drawable/main_bg</item>
     </style>
 
     <!-- For primary text of vertical title -->
     <style name="TitlePrimaryText">
         <item name="android:textSize">@dimen/title_primary_text</item>
         <item name="android:textColor">@color/title_primary_text</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">4</item>
+        <item name="android:shadowColor">@color/black_37_transparent</item>
+        <item name="android:shadowRadius">9</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">marquee</item>
         <item name="android:gravity">center_vertical</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <!-- For secondary text of both horizontal and vertical title -->
@@ -40,12 +43,7 @@
     </style>
 
     <!-- For all ListViews of list activity -->
-    <style name="PickerListView">
-        <item name="android:divider">@drawable/picker_list_divider</item>
-        <item name="android:cacheColorHint">@null</item>
-        <item name="android:listSelector">@drawable/item_bg_selector</item>
-        <item name="android:scrollbars">none</item>
-        <item name="android:paddingLeft">@dimen/spacing_to_border</item>
+    <style name="PickerListView" parent="@miui:style/V5.Widget.ListView">
         <item name="android:layout_gravity">top|left</item>
     </style>
 
@@ -53,47 +51,20 @@
         <item name="android:paddingRight">@dimen/spacing_to_border</item>
     </style>
 
-    <!-- For all ListViews of list activity -->
-    <style name="PickerGridView">
-        <item name="android:divider">@drawable/picker_list_divider</item>
-        <item name="android:cacheColorHint">@null</item>
-        <item name="android:listSelector">@drawable/item_bg_selector</item>
-        <item name="android:scrollbars">none</item>
-        <item name="android:paddingLeft">@dimen/spacing_to_border</item>
-        <item name="android:paddingRight">@dimen/spacing_to_border</item>
-        <item name="android:layout_gravity">top|left</item>
-        <item name="android:horizontalSpacing">2.67dp</item>
-        <item name="android:verticalSpacing">2.67dp</item>
-    </style>
-
     <!-- For primary text of list item -->
-    <style name="ItemPrimaryText">
-        <item name="android:textSize">@dimen/item_primary_text</item>
-        <item name="android:textColor">@color/item_primary_text</item>
+    <style name="ItemPrimaryText" parent="@miui:style/V5.TextAppearance.List.Primary">
         <item name="android:singleLine">true</item>
-        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <!-- For secondary text of list item -->
-    <style name="ItemSecondaryText">
-        <item name="android:textSize">@dimen/item_secondary_text</item>
-        <item name="android:textColor">@color/item_secondary_text</item>
+    <style name="ItemSecondaryText" parent="@miui:style/V5.TextAppearance.List.Secondary">
         <item name="android:singleLine">true</item>
-        <item name="android:gravity">center_vertical</item>
-    </style>
-
-    <!-- For item of start activity -->
-    <style name="MainItemStyle">
-        <item name="android:background">@drawable/item_bg_selector</item>
-        <item name="android:paddingLeft">@dimen/spacing_picker_item</item>
-        <item name="android:paddingRight">@dimen/spacing_picker_item</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <!-- For item of all pickers -->
-    <style name="PickerItemStyle">
-        <item name="android:background">@drawable/item_bg_selector</item>
-        <item name="android:paddingLeft">@dimen/spacing_picker_item</item>
-        <item name="android:paddingRight">0dp</item>
+    <style name="PickerItemStyle" parent="@miui:style/V5.Widget.ListView.Item.DoubleLine">
     </style>
 
     <style name="BottomBarText">
@@ -123,27 +94,23 @@
     <!-- For the text of time indicator -->
     <style name="IndicatorTextStyle">
         <item name="android:textColor">@color/white_30_transparent</item>
-        <item name="android:textSize">10sp</item>
+        <item name="android:textSize">11sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_marginTop">-3dip</item>
     </style>
 
     <!-- For current line of lyric -->
-    <style name="LyricHighLightStyle">
-        <item name="android:shadowDx">0</item>
-        <item name="android:shadowDy">0</item>
-        <item name="android:shadowColor">#ffffae00</item>
-        <item name="android:shadowRadius">10</item>
+    <style name="LyricHighLightStyle" parent="@miui:style/V5.TextAppearance.Title">
         <item name="android:layout_marginTop">@dimen/lyric_current_margin_top</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">14sp</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
 
     <!-- For non-current line of lyric -->
-    <style name="LyricNormalStyle">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">#4cffffff</item>
+    <style name="LyricNormalStyle" parent="@miui:style/V5.TextAppearance.Title">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/white_40_transparent</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:includeFontPadding">false</item>
     </style>
 
@@ -164,36 +131,23 @@
     </style>
 
     <!-- For CheckBox while batch selecting -->
-    <style name="BatchSelectionCheckBoxStyle">
-        <item name="android:button">@drawable/btn_check</item>
-        <item name="android:layout_gravity">center_vertical</item>
-        <item name="android:layout_height">32dip</item>
-        <item name="android:layout_width">32dip</item>
-    </style>
-
-    <!-- For now playing item in MediaPlaybackActivity -->
-    <style name="NowplayingItemStyle">
-        <item name="android:background">@drawable/item_bg_selector</item>
-        <item name="android:paddingLeft">@dimen/nowplaying_item_padding</item>
-        <item name="android:paddingRight">@dimen/nowplaying_item_padding</item>
+    <style name="BatchSelectionCheckBoxStyle" parent="@miui:style/V5.Widget.CompoundButton.CheckBox">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
     <!-- 首页播放信息中的 primary text -->
-    <style name="MainPrimaryText">
-        <item name="android:textSize">@dimen/main_primary_text</item>
+    <style name="MainPrimaryText" parent="@miui:style/V5.TextAppearance.Title">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_main_page_title</item>
         <item name="android:singleLine">true</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:textColor">@android:color/white</item>
         <item name="android:shadowColor">@color/black_70_transparent</item>
         <item name="android:shadowDx">0</item>
         <item name="android:shadowDy">3</item>
         <item name="android:shadowRadius">5</item>
         <item name="android:ellipsize">marquee</item>
         <item name="android:marqueeRepeatLimit">marquee_forever</item>
-        <item name="android:focusable">true</item>
-        <item name="android:focusableInTouchMode">true</item>
         <item name="android:scrollHorizontally">true</item>
-        <item name="android:maxWidth">@dimen/item_text_width</item>
     </style>
 
     <!-- 首页播放信息中的 secondary text -->
@@ -207,19 +161,12 @@
         <item name="android:shadowRadius">5</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>
-        <item name="android:maxWidth">@dimen/item_text_width</item>
     </style>
 
-    <!-- 首页播放信息中的 primary text -->
-    <style name="NowplayingPrimaryText">
-        <item name="android:textSize">@dimen/nowplaying_primary_text</item>
+    <!-- 正在播放页中的 primary text -->
+     <style name="NowplayingPrimaryText" parent="@miui:style/V5.TextAppearance.Title.Large">
         <item name="android:singleLine">true</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:shadowColor">@color/black_70_transparent</item>
-        <item name="android:shadowDx">0</item>
-        <item name="android:shadowDy">3</item>
-        <item name="android:shadowRadius">5</item>
         <item name="android:ellipsize">marquee</item>
         <item name="android:marqueeRepeatLimit">marquee_forever</item>
         <item name="android:focusable">true</item>
@@ -228,15 +175,10 @@
         <item name="android:maxWidth">@dimen/item_text_width</item>
     </style>
 
-    <!-- 首页播放信息中的 secondary text -->
-    <style name="NowplayingSecondaryText">
+    <!-- 正在播放页中的 secondary text -->
+    <style name="NowplayingSecondaryText" parent="@miui:style/V5.TextAppearance.Title.Large.Secondary">
         <item name="android:textSize">@dimen/nowplaying_secondary_text</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:shadowColor">@color/black_70_transparent</item>
-        <item name="android:shadowDx">0</item>
-        <item name="android:shadowDy">3</item>
-        <item name="android:shadowRadius">5</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>
         <item name="android:maxWidth">@dimen/item_text_width</item>
@@ -283,22 +225,6 @@
         <item name="miui:indexerTextColor">@color/white_30_transparent</item>
     </style>
 
-    <!-- Style of item group title -->
-    <style name="ItemGroupTitleStyle">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/playlist_group_title_text</item>
-        <item name="android:background">@drawable/playlist_group_title_bg</item>
-    </style>
-
-    <!-- Style of playlist group title -->
-    <style name="PlaylistGroupTitleStyle" parent="@style/ItemGroupTitleStyle">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/playlist_group_title_text</item>
-        <item name="android:background">@drawable/playlist_group_title_bg</item>
-        <item name="android:layout_marginTop">8dp</item>
-        <item name="android:layout_marginBottom">14dp</item>
-    </style>
-
     <style name="ErrorMsgTitle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -309,15 +235,14 @@
         <item name="android:text">@string/music_browser_label</item>
     </style>
 
+    <style name="CategorySeparatorStyle">
+        <item name="android:visibility">visible</item>
+    </style>
+
     <style name="CategoryNumStyle">
         <item name="android:visibility">visible</item>
         <item name="android:textSize">@dimen/category_num_size</item>
-        <item name="android:textColor">@color/white_50_transparent</item>
-    </style>
-
-    <!-- Style of load status bar -->
-    <style name="LoadStatusBarStyle">
-        <item name="android:layout_marginTop">@dimen/spacing_to_border</item>
+        <item name="android:textColor">@color/white_30_transparent</item>
     </style>
 
     <!-- Style of playlist grid item -->
@@ -334,7 +259,45 @@
 
     <!-- Style of default EditText -->
     <style name="EditTextStyle">
-        <item name="android:background">@drawable/editor_default_bg</item>
         <item name="android:padding">6dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <!-- Style of default EditLable -->
+    <style name="EditLableStyle">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <!-- Style of ComboPreference Text -->
+    <style name="ComboPreferenceTitleStyle" parent="@miui:style/V5.TextAppearance.PreferenceList">
+    </style>
+
+    <style name="ComboPreferenceSummaryStyle" parent="@miui:style/V5.TextAppearance.List.Secondary">
+    </style>
+
+    <!-- Style of online more button -->
+    <style name="OnlineMoreButtonStyle">
+        <item name="android:layout_marginRight">12.5dp</item>
+        <item name="android:layout_gravity">right|bottom</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_list_secondary</item>
+        <item name="android:textColor">@color/online_more_text</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/online_more</item>
+    </style>
+
+    <!-- Style of online fragment title -->
+    <style name="OnlineFragmentTitleStyle" parent="@miui:style/V5.TextAppearance.List.Primary">
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_gravity">left</item>
+        <item name="android:paddingLeft">12.5dp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="DropDownItemStyle" parent="@miui:style/V5.Widget.DropDownItem">
+        <item name="android:textColor">@android:color/black</item>
     </style>
 </resources>

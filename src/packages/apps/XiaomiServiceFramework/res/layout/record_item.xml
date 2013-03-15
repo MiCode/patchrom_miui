@@ -2,15 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/list_item_height_large"
-    android:background="@drawable/common_bg" >
+    android:paddingLeft="15dip"
+    android:paddingRight="15dip"
+    style="@style/RecordItem">
     <TextView
         android:id="@+id/secondary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:textColor="@color/primary_color"
-        android:textSize="@miui:dimen/text_font_size_small" />
+        style="@style/ListItemSecondary"
+        android:textColor="@color/primary_color" />
     <TextView
         android:id="@+id/primary"
         android:layout_width="wrap_content"
@@ -18,22 +20,19 @@
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/secondary"
-        android:textColor="@color/primary_color"
-        android:textSize="@miui:dimen/text_font_size_large" />
+        style="@style/ListItemPrimary" />
     <TextView
         android:id="@+id/record_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_above="@id/primary"
-        android:textColor="@color/secondary_color"
-        android:textSize="@miui:dimen/text_font_size_small" />
+        style="@style/ListItemSecondary" />
     <TextView
         android:id="@+id/record_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/primary"
-        android:textColor="@color/secondary_color"
-        android:textSize="@miui:dimen/text_font_size_small" />
+        style="@style/ListItemSecondary" />
 </RelativeLayout>

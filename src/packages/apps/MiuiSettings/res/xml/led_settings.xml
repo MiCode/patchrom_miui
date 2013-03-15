@@ -23,74 +23,57 @@
         android:title="@string/notification_pulse_title"
         android:summary="@string/led_pulse_summary"
         android:persistent="false" />
+    <ListPreference
+        android:key="breathing_light_color"
+        android:title="@string/breathing_light_color_title"
+        android:entries="@array/led_color_entries"
+        android:entryValues="@array/led_color_values"
+        android:dependency="notification_pulse"
+        android:persistent="false"
+        android:dialogTitle="@string/breathing_light_color_title" />
 
-    <PreferenceCategory
-        android:key="breathing_light_category"
-        android:title="@string/notification_vibrate_abbreviation"
-        >
-        <ListPreference
-            android:key="breathing_light_color"
-            android:title="@string/breathing_light_color_title"
-            android:entries="@array/led_color_entries"
-            android:entryValues="@array/led_color_values"
-            android:dependency="notification_pulse"
-            android:persistent="false"
-            android:dialogTitle="@string/breathing_light_color_title" />
+    <ListPreference
+        android:key="breathing_light_freq"
+        android:title="@string/breathing_light_freq_title"
+        android:entries="@array/led_freq_entries"
+        android:entryValues="@array/led_freq_values"
+        android:dependency="notification_pulse"
+        android:persistent="false"
+        android:dialogTitle="@string/breathing_light_freq_title" />
+    <ListPreference
+        android:key="call_breathing_light_color"
+        android:title="@string/breathing_light_color_title"
+        android:entries="@array/led_color_entries"
+        android:entryValues="@array/led_color_values"
+        android:dependency="notification_pulse"
+        android:persistent="false"
+        android:dialogTitle="@string/breathing_light_color_title" />
 
-        <ListPreference
-            android:key="breathing_light_freq"
-            android:title="@string/breathing_light_freq_title"
-            android:entries="@array/led_freq_entries"
-            android:entryValues="@array/led_freq_values"
-            android:dependency="notification_pulse"
-            android:persistent="false"
-            android:dialogTitle="@string/breathing_light_freq_title" />
-    </PreferenceCategory>
+    <ListPreference
+        android:key="call_breathing_light_freq"
+        android:title="@string/breathing_light_freq_title"
+        android:entries="@array/led_freq_entries"
+        android:entryValues="@array/led_freq_values"
+        android:dependency="notification_pulse"
+        android:persistent="false"
+        android:dialogTitle="@string/breathing_light_freq_title" />
 
-    <PreferenceCategory
-        android:key="call_breathing_light_category"
-        android:title="@string/incoming_call_vibrate_abbreviation"
-        >
-        <ListPreference
-            android:key="call_breathing_light_color"
-            android:title="@string/breathing_light_color_title"
-            android:entries="@array/led_color_entries"
-            android:entryValues="@array/led_color_values"
-            android:dependency="notification_pulse"
-            android:persistent="false"
-            android:dialogTitle="@string/breathing_light_color_title" />
+    <ListPreference
+        android:key="mms_breathing_light_color"
+        android:title="@string/breathing_light_color_title"
+        android:entries="@array/led_color_entries"
+        android:entryValues="@array/led_color_values"
+        android:dependency="notification_pulse"
+        android:persistent="false"
+        android:dialogTitle="@string/breathing_light_color_title" />
 
-        <ListPreference
-            android:key="call_breathing_light_freq"
-            android:title="@string/breathing_light_freq_title"
-            android:entries="@array/led_freq_entries"
-            android:entryValues="@array/led_freq_values"
-            android:dependency="notification_pulse"
-            android:persistent="false"
-            android:dialogTitle="@string/breathing_light_freq_title" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="mms_breathing_light_category"
-        android:title="@string/mms_vibrate_abbreviation"
-        >
-        <ListPreference
-            android:key="mms_breathing_light_color"
-            android:title="@string/breathing_light_color_title"
-            android:entries="@array/led_color_entries"
-            android:entryValues="@array/led_color_values"
-            android:dependency="notification_pulse"
-            android:persistent="false"
-            android:dialogTitle="@string/breathing_light_color_title" />
-
-        <ListPreference
-            android:key="mms_breathing_light_freq"
-            android:title="@string/breathing_light_freq_title"
-            android:entries="@array/led_freq_entries"
-            android:entryValues="@array/led_freq_values"
-            android:dependency="notification_pulse"
-            android:persistent="false"
-            android:dialogTitle="@string/breathing_light_freq_title" />
-    </PreferenceCategory>
+    <ListPreference
+        android:key="mms_breathing_light_freq"
+        android:title="@string/breathing_light_freq_title"
+        android:entries="@array/led_freq_entries"
+        android:entryValues="@array/led_freq_values"
+        android:dependency="notification_pulse"
+        android:persistent="false"
+        android:dialogTitle="@string/breathing_light_freq_title" />
 
 </PreferenceScreen>

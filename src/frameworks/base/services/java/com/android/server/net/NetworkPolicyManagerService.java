@@ -185,11 +185,18 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                 if (adjustingTime >= start && adjustingTime <= end) {
                     long adjustment = Settings.Secure.getLong(context.getContentResolver(),
                             ExtraSettings.Secure.DATA_USAGE_ADJUSTMENT, 0);
-                    return Math.max(0, adjustment);
+                    return adjustment;
                 }
             }
 
             return 0;
+        }
+
+        static long getNetworkTotalBytes(NetworkPolicyManagerService networkPolicyManagerService, INetworkStatsService networkStatsService,
+                    NetworkTemplate template, long start, long end) throws RemoteException {
+            long totalBytes = networkStatsService.getNetworkTotalBytes(template, start, end) +
+                    adjustMobileDataUsage(networkPolicyManagerService, template, start, end);
+            return Math.max(0, totalBytes);
         }
 
         static boolean isIntervalValid(int type) {
@@ -743,6 +750,9 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         if (Injector.isIntervalValid(type)) {
             Injector.setInterval(type);
             enqueueNotification(policy, type, totalBytes);
+        } else {
+            final String tag = buildNotificationTag(policy, type);
+            mActiveNotifs.add(tag);
         }
     }
 
@@ -799,7 +809,6 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                         break;
                 }
 
-                builder.setOngoing(true);
                 builder.setSmallIcon(R.drawable.stat_notify_disabled);
                 builder.setTicker(title);
                 builder.setContentTitle(title);
@@ -834,7 +843,6 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                         break;
                 }
 
-                builder.setOngoing(true);
                 builder.setSmallIcon(R.drawable.stat_notify_error);
                 builder.setTicker(title);
                 builder.setContentTitle(title);
@@ -1997,7 +2005,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     @MiuiHook(MiuiHookType.CHANGE_CODE)
     private long getTotalBytes(NetworkTemplate template, long start, long end) {
         try {
-            return mNetworkStats.getNetworkTotalBytes(template, start, end) + Injector.adjustMobileDataUsage(this, template, start, end); // miui modify
+            return Injector.getNetworkTotalBytes(this, mNetworkStats, template, start, end); // miui modify
         } catch (RuntimeException e) {
             Slog.w(TAG, "problem reading network stats: " + e);
             return 0;

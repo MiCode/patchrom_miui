@@ -60,9 +60,12 @@ import com.android.server.pm.PackageManagerService;
 import com.android.server.pm.ShutdownThread;
 import com.android.server.usb.UsbService;
 import com.android.server.wm.WindowManagerService;
+import com.miui.server.ClipServiceExtra;
+import com.miui.server.MiuiUsbService;
 
 import dalvik.system.VMRuntime;
 import dalvik.system.Zygote;
+import miui.content.ClipServiceManagerExtra;
 
 import java.io.File;
 import java.util.Timer;
@@ -368,6 +371,8 @@ class ServerThread extends Thread {
                 Slog.i(TAG, "Clipboard Service");
                 ServiceManager.addService(Context.CLIPBOARD_SERVICE,
                         new ClipboardService(context));
+                ServiceManager.addService(ClipServiceManagerExtra.SERVICE_NAME,
+                        new ClipServiceExtra());
             } catch (Throwable e) {
                 reportWtf("starting Clipboard Service", e);
             }
@@ -576,6 +581,7 @@ class ServerThread extends Thread {
                 // Manage USB host and device support
                 usb = new UsbService(context);
                 ServiceManager.addService(Context.USB_SERVICE, usb);
+                ServiceManager.addService(MiuiUsbService.SERVICE_NAME, new MiuiUsbService(context));  // miui-add
             } catch (Throwable e) {
                 reportWtf("starting UsbService", e);
             }

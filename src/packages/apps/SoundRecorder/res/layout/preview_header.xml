@@ -1,39 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:background="@miui:drawable/list_medium_middle_item_background" >
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ListItemStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/folder_name"
+        style="@miui:style/V5.TextAppearance.List.Primary"
         android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:layout_gravity="center_vertical"
-        android:orientation="horizontal" >
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/folder_margin_right"
-            android:paddingLeft="@dimen/folder_padding_left"
-            android:paddingRight="@dimen/folder_padding_right"
-            android:paddingBottom="@dimen/folder_padding_bottom"
-            android:src="@drawable/folder" />
-
-        <TextView
-            android:id="@+id/folder_name"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:gravity="center"
-            style="?android:attr/textAppearanceMedium" />
-
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@android:color/white" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right|center_vertical"
-        android:src="@miui:drawable/android_expander_ic_minimized"
-        android:visibility="gone" />
+        android:src="@drawable/list_header_arrow"
+        android:layout_gravity="right" />
 
 </FrameLayout>

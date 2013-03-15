@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
-    <com.android.settings.IndicatorPreference
-        android:key="mode_off"
-        android:title="@string/dolby_mode_off"
-        android:persistent="false"
-    />
-    <com.android.settings.IndicatorPreference
-        android:key="mode_music"
-        android:title="@string/dolby_mode_music"
-        android:persistent="false"
-    />
-    <com.android.settings.IndicatorPreference
-        android:key="mode_movie"
-        android:title="@string/dolby_mode_movie"
-        android:persistent="false"
-    />
 
-    <Preference
-        android:fragment="com.android.settings.dolby.DolbyAdvanceSettings"
-        android:key="dolby_advance"
-        android:title="@string/dolby_effects" />
+    <PreferenceCategory>
+        <miui.preference.RadioButtonPreference
+            android:key="mode_off"
+            android:persistent="false"
+            android:title="@string/dolby_mode_off" />
+        <miui.preference.RadioButtonPreference
+            android:key="mode_music"
+            android:persistent="false"
+            android:title="@string/dolby_mode_music" />
+        <miui.preference.RadioButtonPreference
+            android:key="mode_movie"
+            android:persistent="false"
+            android:title="@string/dolby_mode_movie" />
+    </PreferenceCategory>
+    <PreferenceCategory>
+        <Preference
+            android:fragment="com.android.settings.dolby.DolbyAdvanceSettings"
+            android:key="dolby_advance"
+            android:title="@string/dolby_effects" />
+    </PreferenceCategory>
+
 </PreferenceScreen>

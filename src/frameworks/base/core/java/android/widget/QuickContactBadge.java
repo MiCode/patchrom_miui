@@ -136,7 +136,8 @@ public class QuickContactBadge extends ImageView implements OnClickListener {
             return;
         }
 
-        mOverlay.setBounds(0, 0, getWidth() - mPaddingRight, getHeight() - mPaddingBottom); // miui modify
+        mOverlay.setBounds(0, 0, getWidth() - mPaddingLeft - mPaddingRight, getHeight()
+                - mPaddingTop - mPaddingBottom); // miui modify
 
         if (mPaddingTop == 0 && mPaddingLeft == 0) {
             mOverlay.draw(canvas);

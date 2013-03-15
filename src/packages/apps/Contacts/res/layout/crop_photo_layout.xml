@@ -14,84 +14,57 @@
         miui:boundType="inside"
         miui:insideTop="@dimen/crop_photo_inside_top" />
 
-    <FrameLayout
-        android:id="@+id/mask"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <View
+        <LinearLayout
+            android:id="@+id/top"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/mask" />
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dip"
+            android:paddingRight="8dip"
+            style="@miui:style/V5.Widget.EditMode.TopBar"
+            android:background="@drawable/topbar_bg" >
 
-        <RelativeLayout
+            <Button
+                android:id="@+id/cancel"
+                style="@miui:style/V5.Widget.EditMode.TopBar.Button"
+                android:background="@drawable/topbar_button"
+                android:text="@android:string/cancel" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                style="@miui:style/V5.TextAppearance.EditMode"
+                android:text="@string/move_and_resize"/>
+
+            <Button
+                android:id="@+id/turn_btn"
+                style="@miui:style/V5.Widget.EditMode.TopBar.Button"
+                android:background="@drawable/topbar_button"
+                android:text="@string/btn_rotation" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/toolbar_bg"
+            android:gravity="center_vertical|center" >
 
-            <RelativeLayout
-                android:id="@+id/top"
+            <Button
+                android:id="@+id/ok"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dip" >
-
-                <ImageView
-                    android:id="@+id/turn_left"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="30dip"
-                    android:background="@drawable/turn_left"
-                    android:gravity="center_vertical|center" />
-
-                <TextView
-                    android:id="@+id/title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@+id/turn_right"
-                    android:layout_toRightOf="@+id/turn_left"
-                    android:gravity="center_vertical|center"
-                    android:text="@string/move_and_resize"
-                    android:textColor="@miui:color/primary_text_color_inverse"
-                    android:textSize="24sp" />
-
-                <ImageView
-                    android:id="@+id/turn_right"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="30dip"
-                    android:background="@drawable/turn_right" />
-            </RelativeLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:orientation="vertical"
-                android:padding="13dip" >
-
-                <Button
-                    android:id="@+id/ok"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bottom_btn"
-                    android:text="@android:string/ok"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@miui:color/primary_text_color_inverse" />
-
-                <Button
-                    android:id="@+id/cancel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dip"
-                    android:background="@drawable/bottom_btn"
-                    android:text="@android:string/cancel"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@miui:color/primary_text_color_inverse" />
-            </LinearLayout>
-        </RelativeLayout>
-    </FrameLayout>
+                android:background="@drawable/toolbar_button"
+                android:text="@android:string/ok"
+                style="@miui:style/V5.Widget.EditMode.TopBar.Button" />
+        </LinearLayout>
+    </RelativeLayout>
 
     <com.android.contacts.widget.ContactPhotoThumbnailView
         android:id="@+id/animate_view"

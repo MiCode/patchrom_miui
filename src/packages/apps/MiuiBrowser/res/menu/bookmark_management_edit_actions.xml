@@ -13,71 +13,70 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- 文件夹 -->
-    <group android:id="@+id/select_single_folder" android:visible="false">
-        <item
-            android:id="@+id/menu_open_all_bookmarks"
-            android:icon="@drawable/ic_menu_open_all_bookmarks"
-            android:title="@string/open_all_bookmarks"
-            android:showAsAction="ifRoom" />
-    </group>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 文件夹<group=select_single_folder> -->
+    <item
+        android:id="@+id/menu_open_all_bookmarks"
+        android:icon="@drawable/ic_menu_open_all_bookmarks"
+        android:title="@string/open_all_bookmarks"
+        android:showAsAction="ifRoom|withText"
+        android:visible="false" />
 
-    <!-- 书签 or 文件夹 -->
-    <group android:id="@+id/select_single" android:visible="false">
-        <item
-            android:id="@+id/menu_edit"
-            android:icon="@drawable/ic_menu_edit_bookmark"
-            android:title="@string/edit"
-            android:showAsAction="ifRoom" />
-    </group>
+    <!-- 书签 or 文件夹<group=select_single> -->
+    <item
+        android:id="@+id/menu_edit"
+        android:icon="@drawable/ic_menu_edit_bookmark"
+        android:title="@string/edit"
+        android:showAsAction="ifRoom|withText"
+        android:visible="false" />
 
-    <!-- 书签 -->
-    <group android:id="@+id/select_single_bookmark" android:visible="false">
-        <item
-            android:id="@+id/menu_share_link"
-            android:icon="@drawable/ic_menu_share_link"
-            android:title="@string/share_link"
-            android:showAsAction="ifRoom" />
-    </group>
+    <!-- 书签<group=select_single_bookmark> -->
+    <item
+        android:id="@+id/menu_share_link"
+        android:icon="@drawable/ic_menu_share_link"
+        android:title="@string/share_link"
+        android:showAsAction="ifRoom|withText"
+        android:visible="false" />
 
     <!-- 所有 -->
     <item
         android:id="@+id/menu_delete"
         android:icon="@drawable/ic_menu_delete"
         android:title="@string/delete"
-        android:showAsAction="ifRoom" />
+        android:showAsAction="ifRoom|withText" />
 
-    <!-- 书签 -->
-    <group android:id="@+id/select_single_bookmark2" android:visible="false">
-        <item
-            android:id="@+id/new_window_context_menu_id"
-            android:title="@string/contextmenu_openlink_newwindow"/>
+    <!-- 书签<group=select_single_bookmark2> -->
+    <item
+        android:id="@+id/new_window_context_menu_id"
+        android:title="@string/contextmenu_openlink_newwindow"
+        android:visible="false" />
 
-        <item
-            android:id="@+id/new_window_background_context_menu_id"
-            android:title="@string/contextmenu_openlink_newwindow_background"/>
+    <item
+        android:id="@+id/new_window_background_context_menu_id"
+        android:title="@string/contextmenu_openlink_newwindow_background"
+        android:visible="false" />
 
-        <item
-            android:id="@+id/shortcut_context_menu_id"
-            android:title="@string/create_shortcut_bookmark"/>
+    <item
+        android:id="@+id/shortcut_context_menu_id"
+        android:title="@string/create_shortcut_bookmark"
+        android:visible="false" />
 
-        <item
-            android:id="@+id/copy_url_context_menu_id"
-            android:title="@string/contextmenu_copylink"/>
+    <item
+        android:id="@+id/copy_url_context_menu_id"
+        android:title="@string/contextmenu_copylink"
+        android:visible="false" />
 
-        <item
-            android:id="@+id/homepage_context_menu_id"
-            android:title="@string/set_as_homepage"/>
-    </group>
+    <item
+        android:id="@+id/homepage_context_menu_id"
+        android:title="@string/set_as_homepage"
+        android:visible="false" />
 
-    <!-- 书签 or 文件夹 -->
-    <group android:id="@+id/select_single2" android:visible="false">
-        <item
-            android:id="@+id/menu_move_up"
-            android:icon="@drawable/ic_menu_move_up"
-            android:title="@string/move_to_up_folder"/>
-    </group>
+    <!-- 书签 or 文件夹<group=select_single2> -->
+    <item
+        android:id="@+id/menu_move_up"
+        android:title="@string/move_to_up_folder"
+        android:visible="false" />
 
 </menu>

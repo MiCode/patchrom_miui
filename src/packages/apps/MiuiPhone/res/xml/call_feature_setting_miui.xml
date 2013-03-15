@@ -17,59 +17,37 @@
     xmlns:phone="http://schemas.android.com/apk/res/com.android.phone"
         android:title="@string/call_settings_miui">
 
-    <PreferenceCategory android:title="@string/carrier_related_setting_catory_miui">
-        <PreferenceScreen android:key="button_call_forwarding"
+    <PreferenceCategory android:title="@string/dial_related_setting_catory_miui">
+        <ListPreference
+            android:key="button_t9_index_method_settings"
+            android:title="@string/t9_indexing_method_title_miui"
+            android:persistent="true"
+            android:entries="@array/t9_indexing_method_entries_miui"
+            android:entryValues="@array/t9_indexing_method_entry_values_miui"/>
+        <CheckBoxPreference
+            android:key="button_auto_redial"
+            android:title="@string/auto_redial_pref_title_miui"
+            android:defaultValue="false"
+            android:summary="@string/auto_redial_pref_summary_miui" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/answer_features_setting_category_miui">
+        <PreferenceScreen
+             android:key="button_call_forwarding"
              android:title="@string/call_forwarding_settings_miui"
              android:persistent="false">
             <intent android:action="android.intent.action.MAIN"
                 android:targetPackage="com.android.phone"
                 android:targetClass="com.android.phone.MiuiGsmUmtsCallForwardOptions"/>
         </PreferenceScreen>
-        <PreferenceScreen android:key="button_call_waiting"
-            android:title="@string/cw_title_miui"
-            android:persistent="false"
-            android:summary="@string/call_waiting_sum_miui">
-            <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.phone"
-                android:targetClass="com.android.phone.MiuiGsmUmtsCallWaitingSetting"/>
-        </PreferenceScreen>
-        <PreferenceScreen android:key="button_caller_id"
-            android:title="@string/caller_id_title_miui"
-            android:persistent="false"
-            android:summary="@string/caller_id_sum_miui">
-            <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.phone"
-                android:targetClass="com.android.phone.MiuiGsmUmtsCallerIdSetting"/>
-        </PreferenceScreen>
-        <PreferenceScreen android:key="button_cdma_call_forwarding"
+        <PreferenceScreen
+             android:key="button_cdma_call_forwarding"
              android:title="@string/call_forwarding_settings_miui"
              android:persistent="false">
             <intent android:action="android.intent.action.MAIN"
                 android:targetPackage="com.android.phone"
                 android:targetClass="com.android.phone.MiuiCdmaCallForwardOptions"/>
         </PreferenceScreen>
-        <com.android.phone.MiuiCdmaCallWaitingPreference
-            android:key="button_cdma_cw"
-            android:title="@string/cw_title_miui"
-            android:dialogTitle="@string/cw_title_miui"
-            android:persistent="false"
-            android:summary="@string/call_waiting_sum_miui"/>
-        <PreferenceScreen android:key="button_fdn"
-            android:title="@string/fdn_miui"
-            android:summary="@string/fdn_summary_miui"
-            android:persistent="false">
-            <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.phone"
-                android:targetClass="com.android.phone.MiuiFdnSetting" />
-        </PreferenceScreen>
-        <com.android.phone.CdmaVoicePrivacyCheckBoxPreference
-            android:key="button_voice_privacy"
-            android:title="@string/voice_privacy_miui"
-            android:persistent="false"
-            android:summary="@string/voice_privacy_summary_miui"/>
-    </PreferenceCategory>
-
-    <PreferenceCategory android:title="@string/answer_features_setting_category_miui">
         <ListPreference
             android:key="button_answer_widget"
             android:title="@string/answer_widget_title_miui"
@@ -117,11 +95,6 @@
             android:title="@string/cdma_display_precise_call_state_title_miui"
             android:summary="@string/cdma_display_precise_call_state_summary_miui"
             android:defaultValue="false" />
-        <CheckBoxPreference
-            android:key="button_auto_redial"
-            android:title="@string/auto_redial_pref_title_miui"
-            android:defaultValue="false"
-            android:summary="@string/auto_redial_pref_summary_miui" />
         <PreferenceScreen
             android:key="button_call_record_setting"
             android:title="@string/call_record_setting_miui">
@@ -137,6 +110,25 @@
             android:entries="@array/connect_disconnect_vibrate_entries_miui"
             android:entryValues="@array/connect_disconnect_vibrate_entry_values_miui"
             android:dialogTitle="@string/connect_disconnect_vibrate_title_miui" />
+        <PreferenceScreen android:key="button_call_waiting"
+            android:title="@string/cw_title_miui"
+            android:persistent="false"
+            android:summary="@string/call_waiting_sum_miui">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.phone"
+                android:targetClass="com.android.phone.MiuiGsmUmtsCallWaitingSetting"/>
+        </PreferenceScreen>
+        <com.android.phone.MiuiCdmaCallWaitingPreference
+            android:key="button_cdma_cw"
+            android:title="@string/cw_title_miui"
+            android:dialogTitle="@string/cw_title_miui"
+            android:persistent="false"
+            android:summary="@string/call_waiting_sum_miui"/>
+        <com.android.phone.CdmaVoicePrivacyCheckBoxPreference
+            android:key="button_voice_privacy"
+            android:title="@string/voice_privacy_miui"
+            android:persistent="false"
+            android:summary="@string/voice_privacy_summary_miui"/>
         <ListPreference
             android:key="button_call_waiting_tone"
             android:title="@string/call_waiting_tone_title_miui"
@@ -144,39 +136,14 @@
             android:entries="@array/call_waiting_tone_entries_miui"
             android:entryValues="@array/call_waiting_tone_entry_values_miui"
             android:dialogTitle="@string/call_waiting_tone_title_miui" />
+        <CheckBoxPreference
+            android:key="button_incall_screen_background"
+            android:title="@string/incall_screen_background_title_miui"
+            android:defaultValue="true"
+            android:summary="@string/incall_screen_background_summary_miui" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/other_settings_miui">
-        <ListPreference
-            android:key="button_t9_index_method_settings"
-            android:title="@string/t9_indexing_method_title_miui"
-            android:persistent="true"
-            android:entries="@array/t9_indexing_method_entries_miui"
-            android:entryValues="@array/t9_indexing_method_entry_values_miui"/>
-        <PreferenceScreen
-            android:key="button_dial_pad_touch_tone_setting"
-            android:title="@string/dial_pad_touch_tone_setting_miui">
-            <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.phone"
-                android:targetClass="com.android.phone.MiuiDialpadTouchToneSetting" />
-        </PreferenceScreen>
-        <PreferenceScreen
-            android:key="button_telocation_setting"
-            android:title="@string/telocation_setting_miui">
-            <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.phone"
-                android:targetClass="com.android.phone.MiuiTelocationSetting" />
-        </PreferenceScreen>
-        <PreferenceScreen
-            android:key="button_auto_ip_setting"
-            android:title="@string/auto_ip_setting_miui"
-            android:summary="@string/ip_prefix_sum_miui">
-            <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.phone"
-                android:targetClass="com.android.phone.MiuiAutoIpSetting" />
-        </PreferenceScreen>
         <PreferenceScreen
                 android:title="@string/sip_settings_miui"
                 android:persistent="false">
@@ -184,25 +151,28 @@
                     android:targetPackage="com.android.phone"
                     android:targetClass="com.android.phone.sip.MiuiSipSettings" />
         </PreferenceScreen>
+        <PreferenceScreen android:key="button_caller_id"
+            android:title="@string/caller_id_title_miui"
+            android:persistent="false"
+            android:summary="@string/caller_id_sum_miui">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.phone"
+                android:targetClass="com.android.phone.MiuiGsmUmtsCallerIdSetting"/>
+        </PreferenceScreen>
+        <PreferenceScreen android:key="button_fdn"
+            android:title="@string/fdn_miui"
+            android:summary="@string/fdn_summary_miui"
+            android:persistent="false">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.phone"
+                android:targetClass="com.android.phone.MiuiFdnSetting" />
+        </PreferenceScreen>
         <PreferenceScreen
             android:title="@string/voicemail_settings_miui">
             <intent
                 android:action="android.intent.action.MAIN"
                 android:targetPackage="com.android.phone"
                 android:targetClass="com.android.phone.MiuiVoicemailSetting" />
-        </PreferenceScreen>
-        <CheckBoxPreference
-            android:key="button_incall_screen_background"
-            android:title="@string/incall_screen_background_title_miui"
-            android:defaultValue="true"
-            android:summary="@string/incall_screen_background_summary_miui" />
-        <PreferenceScreen
-            android:title="@string/call_log_number_limit_miui"
-            android:summary="@string/call_log_number_limit_summary_miui">
-            <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.phone"
-                android:targetClass="com.android.phone.MiuiCalllogNumberLimitSetting" />
         </PreferenceScreen>
 
         <ListPreference

@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="DarkMainPageTheme.NoTitle" parent="@miui:style/V5.Theme.Dark.MainPage">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <!-- 正在播放页 Theme -->
+    <style name="NowplayingPageTheme" parent="DarkMainPageTheme.NoTitle">
+        <item name="android:windowFullscreen">true</item>
+    </style>
 
     <!-- 音乐首页 Theme -->
-    <style name="MainBrowserTheme" parent="@android:style/Theme.Holo">
-        <item name="android:actionOverflowButtonStyle">@style/ActionButtonOverflowStyle</item>
-        <item name="android:windowActionBar">false</item>
-        <item name="android:windowNoTitle">true</item>
+    <style name="MainBrowserTheme" parent="DarkMainPageTheme.NoTitle">
+        <item name="android:windowBackground">@android:color/black</item>
     </style>
 
     <!-- 音乐首页 ActionBar Style -->
@@ -14,36 +20,32 @@
     </style>
 
     <!-- 列表选择页 Theme -->
-    <style name="PickerActivityTheme" parent="@android:style/Theme.Holo">
-        <item name="android:homeAsUpIndicator">@drawable/title_navigator_selector</item>
-        <item name="android:actionBarStyle">@style/PickerActivityActionBarStyle</item>
-        <item name="android:actionOverflowButtonStyle">@style/ActionButtonOverflowStyle</item>
-        <item name="android:actionModeCloseDrawable">@drawable/ic_cab_done</item>
-        <item name="android:actionModeCloseButtonStyle">@style/PickerActivityCloseModeStyle</item>
-        <item name="android:windowActionBarOverlay">true</item>
+    <style name="PickerActivityTheme" parent="@miui:style/V5.Theme.Dark">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <!-- 在线列表选择页 Theme -->
+    <style name="OnlineListTheme" parent="@miui:style/V5.Theme">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="OnlineTabTheme" parent="@miui:style/V5.Theme.Light.MainPage">
+         <item name="android:windowNoTitle">true</item>
+         <item name="miui:v5_tab_indicator_bg">@drawable/online_tab_container_bg</item>
     </style>
 
     <!-- 列表选择页 ActionBar Style -->
     <style name="PickerActivityActionBarStyle" parent="@android:style/Widget.Holo.ActionBar.Solid">
         <item name="android:height">@dimen/action_bar_height</item>
-        <item name="android:logo">@drawable/ab_home_up_divider</item>
         <item name="android:displayOptions">homeAsUp|useLogo|showHome|showCustom</item>
     </style>
 
-    <!-- 列表选择页 ActionBar Style -->
-    <style name="PickerActivityCloseModeStyle">
-        <item name="android:background">@drawable/btn_cab_done_selector</item>
-    </style>
-
     <!-- 设置页 Theme -->
-    <style name="SettingsActivityTheme" parent="@android:style/Theme.Holo.Light">
-        <item name="android:actionOverflowButtonStyle">@style/ActionButtonOverflowStyle</item>
-        <item name="android:actionBarStyle">@style/SettingsActionBarStyle</item>
+    <style name="SettingsActivityTheme" parent="@miui:style/V5.Theme.Light.Settings">
     </style>
 
     <!-- 设置页 ActionBar Style -->
     <style name="SettingsActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
-        <item name="android:logo">@drawable/ab_home_up_divider</item>
         <item name="android:displayOptions">homeAsUp|useLogo|showTitle|showHome|showCustom</item>
     </style>
 
@@ -53,33 +55,13 @@
     </style>
 
     <!-- 音乐Picker for playlist 的 Theme -->
-    <style name="MusicPickerForPlaylistTheme" parent="@android:style/Theme.Holo">
-        <item name="android:actionBarStyle">@style/CommitActionBarStyle</item>
-        <item name="android:actionOverflowButtonStyle">@style/ActionButtonOverflowStyle</item>
-        <item name="android:windowActionBarOverlay">true</item>
-    </style>
-
-    <!-- 音乐Picker Theme -->
-    <style name="MusicPickerTheme" parent="@android:style/Theme.Holo">
-        <item name="android:actionBarStyle">@style/CommitActionBarStyle</item>
-        <item name="android:actionOverflowButtonStyle">@style/ActionButtonOverflowStyle</item>
-    </style>
-
-    <!-- 音乐Picker ActionBar Style -->
-    <style name="CommitActionBarStyle" parent="@miui:style/EditorCustomActionBarTheme">
-        <item name="android:height">@dimen/action_bar_height</item>
-        <item name="android:displayOptions">showCustom</item>
+    <style name="MusicPickerForPlaylistTheme" parent="@miui:style/V5.Theme.Dark">
+        <item name="android:windowNoTitle">true</item>
     </style>
 
     <!-- 在线音乐首页Theme -->
-    <style name="OnlineBrowserTheme" parent="@android:style/Theme.Holo">
-        <item name="android:actionBarStyle">@style/TabActionBarStyle</item>
-        <item name="android:actionBarTabTextStyle">@style/OnlineBrowserActionBarTabText</item>
-        <item name="android:homeAsUpIndicator">@drawable/title_navigator_selector</item>
-        <item name="android:actionOverflowButtonStyle">@style/ActionButtonOverflowStyle</item>
-        <item name="android:actionModeCloseDrawable">@drawable/ic_cab_done</item>
-        <item name="android:actionModeCloseButtonStyle">@style/PickerActivityCloseModeStyle</item>
-        <item name="android:windowActionBarOverlay">true</item>
+    <style name="OnlineBrowserTheme" parent="@miui:style/V5.Theme.Light">
+        <item name="android:windowNoTitle">true</item>
     </style>
 
     <!-- 在线音乐Tab字体 -->
@@ -90,7 +72,11 @@
     <!-- 列表选择页 ActionBar Style -->
     <style name="TabActionBarStyle" parent="@android:style/Widget.Holo.ActionBar">
         <item name="android:height">@dimen/tab_action_bar_height</item>
-        <item name="android:logo">@drawable/ab_home_up_divider</item>
         <item name="android:displayOptions">homeAsUp|useLogo|showHome|showCustom</item>
+    </style>
+
+    <!-- 均衡器Theme -->
+    <style name="EqualizerActivityTheme" parent="@miui:style/V5.Theme.Dark.NoTitle">
+        <item name="android:dropDownItemStyle">@style/DropDownItemStyle</item>
     </style>
 </resources>

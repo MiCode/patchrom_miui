@@ -1,44 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    style="@style/DeskClockListItemDoubleLineStyle"
     android:background="@drawable/list_item_bg"
-    android:gravity="center_vertical"
     android:paddingLeft="@dimen/timezone_item_layout_padding_horizontal"
     android:paddingRight="@dimen/timezone_item_layout_padding_horizontal">
     <LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="0dip"
         android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/timezone_name"
-            style="@style/AlarmItemTimezoneStyle" />
+        android:gravity="center_vertical">
         <com.android.deskclock.DigitalClock
             android:id="@+id/timezone_time"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1">
-            <TextView
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+            <miui.widget.ImageTextView
                 android:id="@+id/timeDisplay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="@dimen/time_zone_display_padding_right"
-                useClockTypeface="false"
-                style="@style/TimeDigitsStyle" />
+                android:layout_gravity="left"
+                android:entries="@array/duration_entries"
+                android:entryValues="@array/duration_entryValues"
+                android:paddingRight="@dimen/timezone_item_timedisplay_paddingright"/>
+            <TextView android:id="@+id/am_pm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                style="@miui:style/V5.TextAppearance.List.Secondary"
+                android:paddingRight="@dimen/timezone_item_timedisplay_paddingright"/>
             <TextView
                 android:id="@+id/timezone_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@miui:style/TextAppearance.ListView.SecondaryItem"/>
-            <TextView android:id="@+id/am_pm"
-                android:layout_width="wrap_content"
+                style="@miui:style/V5.TextAppearance.List.Secondary" />
+            <ImageView
                 android:layout_height="wrap_content"
-                android:paddingLeft="6dip"
-                android:singleLine="true"
-                style="@miui:style/TextAppearance.ListView.SecondaryItem" />
+                android:layout_width="wrap_content"
+                android:src="@drawable/item_inner_divider"
+                android:paddingLeft="@dimen/item_inner_divider_padding"
+                android:paddingRight="@dimen/item_inner_divider_padding" />
+            <TextView
+                android:id="@+id/timezone_name"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@miui:style/V5.TextAppearance.List.Secondary" />
         </com.android.deskclock.DigitalClock>
     </LinearLayout>
     <com.android.deskclock.TimezoneAnalogClock
@@ -46,12 +53,4 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
     </com.android.deskclock.TimezoneAnalogClock>
-    <CheckBox
-        android:id="@android:id/checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:focusable="false"
-        android:clickable="false"
-        android:layout_gravity="center"
-        android:visibility="gone"/>
 </LinearLayout>

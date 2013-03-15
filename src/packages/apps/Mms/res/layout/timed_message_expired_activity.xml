@@ -4,41 +4,50 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
     <TextView
-        android:layout_marginLeft="8dip"
-        android:layout_marginRight="8dip"
-        android:layout_marginTop="8dip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/timed_message_expired_title"
-        android:textSize="@dimen/text_font_size_large"
-        style="?android:attr/windowTitleStyle" />
-    <TextView
-        android:layout_marginLeft="8dip"
-        android:layout_marginRight="8dip"
-        android:layout_marginBottom="8dip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/timed_message_expired_title_2"
-        android:textSize="@dimen/text_font_size_large"
-        style="?android:attr/windowTitleStyle" />
-    <View
         android:layout_width="match_parent"
-        android:layout_height="2dip"
-        android:background="@android:color/holo_orange_dark" />
+        android:layout_height="32dip"
+        android:gravity="center|bottom"
+        android:textAppearance="@style/TextAppearance.DialogTitle"/>
+    <TextView
+        android:id="@+id/timed_message_expired_title_2"
+        android:text="@string/timed_message_expired_title_2"
+        android:layout_width="match_parent"
+        android:layout_height="32dip"
+        android:gravity="center|top"
+        android:textAppearance="@style/TextAppearance.DialogTitle"/>
+    <View
+        style="@miui:style/V5.Widget.BottomBar.TopLine"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
     <com.android.mms.ui.MessageListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="0dip"
         android:fastScrollEnabled="true"
         android:scrollbarAlwaysDrawVerticalTrack="true"
         android:scrollbarStyle="insideOverlay"
         android:visibility="visible"
+        android:layout_weight="1"
         android:fadingEdge="none"
         android:divider="@null"
         android:cacheColorHint="@null" />
-    <Button android:id="@+id/close"
-        android:text="@string/close"
+    <LinearLayout
+        android:layout_marginTop="6dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="?android:attr/buttonBarButtonStyle" />
+        android:baselineAligned="false">
+        <Button android:id="@+id/resend"
+            android:text="@string/resent_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="?android:attr/buttonBarButtonStyle" />
+        <Button android:id="@+id/close"
+            android:text="@string/nosend_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="?android:attr/buttonBarButtonStyle" />
+    </LinearLayout>
 </LinearLayout>

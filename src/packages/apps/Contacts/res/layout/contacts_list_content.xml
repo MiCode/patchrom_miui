@@ -27,14 +27,10 @@
     android:layout_height="match_parent"
     android:background="?attr/contact_browser_background" >
 
-    <view
-        class="android.widget.SearchView"
+    <include
         android:id="@+id/search_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="0dip"
-        android:iconifiedByDefault="false"
-        android:visibility="gone" />
+        layout="@layout/search_view"
+        android:visibility="gone"/>
 
     <!-- Shown only when an Account filter is set.
          - paddingTop should be here to show "shade" effect correctly. -->

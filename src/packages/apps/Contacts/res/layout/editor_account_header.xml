@@ -20,18 +20,44 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:minHeight="48dip"
+    android:background="#EEEEEE"
     android:orientation="horizontal"
+    android:paddingTop="8dip"
+    android:paddingBottom="8dip"
     android:gravity="center_vertical"
-    android:background="@drawable/editor_account_header_bg"
-    android:paddingTop="@dimen/account_container_padding"
-    android:paddingBottom="@dimen/account_container_padding"
-    android:paddingRight="@dimen/account_container_padding"
-    android:paddingLeft="@dimen/account_container_left_padding">
+    android:paddingLeft="@dimen/account_container_left_padding"
+    android:paddingRight="28dip">
+
+    <LinearLayout
+        android:id="@+id/account"
+        android:layout_height="wrap_content"
+        android:layout_width="0dip"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="?android:attr/selectableItemBackground">
+
+        <TextView
+            android:id="@+id/account_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:singleLine="true"
+            android:ellipsize="end" />
+
+        <TextView
+             android:id="@+id/account_name"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:textAppearance="?android:attr/textAppearanceSmall"
+             android:textColor="?android:attr/textColorTertiary"
+             android:singleLine="true"
+             android:ellipsize="end" />
+
+    </LinearLayout>
 
     <FrameLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginRight="10dip">
+        android:layout_height="match_parent">
 
         <ImageView
              android:id="@+id/account_icon"
@@ -41,28 +67,4 @@
 
     </FrameLayout>
 
-    <LinearLayout
-        android:id="@+id/account"
-        android:layout_height="wrap_content"
-        android:layout_width="0dip"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/account_type"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="@miui:style/TextAppearance.ListView.PrimaryItem"
-            android:singleLine="true"
-            android:ellipsize="end" />
-
-        <TextView
-             android:id="@+id/account_name"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:textAppearance="@miui:style/TextAppearance.ListView.SecondaryItem"
-             android:singleLine="true"
-             android:ellipsize="end" />
-
-    </LinearLayout>
 </LinearLayout>

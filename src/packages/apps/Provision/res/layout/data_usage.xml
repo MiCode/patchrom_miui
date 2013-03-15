@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/info"
+        style="@style/TextView.Info.Provision"
+        android:text="@string/data_usage_summary" />
+
+    <ImageView android:id="@+id/seperator"
+        style="@style/Widget.Seperator" />
+
+    <Button
+        android:id="@+id/next"
+        style="@style/Button.Provision"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:text="@string/next" />
+
+    <ListView android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/next" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@android:id/list"
+        android:layout_below="@id/seperator"
+        android:scaleType="center"
+        android:src="@drawable/traffic_protection_warning" />
+
+</RelativeLayout>

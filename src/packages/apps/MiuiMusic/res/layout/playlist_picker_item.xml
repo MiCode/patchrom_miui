@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/PlaylistItemStyle"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/playlist_grid_item_bg"
-    android:padding="@dimen/spacing_picker_item" >
+    style="@style/PickerItemStyle" >
 
-    <include layout="@layout/playlist_picker_item_text" />
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:scaleType="center" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical|left"
+        android:orientation="vertical" >
+
+        <include layout="@layout/list_item_double_line_with_separator" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/enter_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center_vertical"
+        android:scaleType="center"
+        android:src="@drawable/enter_indicator" />
 
 </LinearLayout>

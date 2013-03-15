@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/common_padding"
+    android:layout_margin="15dip"
     android:orientation="vertical"
     android:gravity="center_horizontal" >
     <ImageView
         android:id="@+id/progress_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dip" />
+        android:layout_marginTop="120dip" />
     <TextView
         android:id="@+id/progress_title"
         android:layout_width="wrap_content"
@@ -17,22 +17,23 @@
         android:layout_marginTop="13dip"
         android:singleLine="true"
         android:textColor="@color/text_color_black"
-        android:textSize="@miui:dimen/text_font_size_huge" />
+        android:textSize="@dimen/text_size_large"
+        android:textStyle="bold" />
     <TextView
         android:id="@+id/progress_summary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dip"
         android:singleLine="true"
-        android:textColor="@color/text_color_black"
-        android:textSize="@miui:dimen/text_font_size_small" />
+        android:textColor="@color/text_color_gray"
+        android:textSize="@dimen/text_size_small" />
     <TextView
         android:id="@+id/progress_warning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dip"
         android:textColor="@color/text_color_gray"
-        android:textSize="@miui:dimen/text_font_size_small"
+        android:textSize="@dimen/text_size_small"
         android:visibility="gone" />
     <Space
         android:layout_width="match_parent"
@@ -44,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dip"
         android:textColor="@color/text_color_red"
-        android:textSize="@miui:dimen/text_font_size_small"
+        android:textSize="@dimen/text_size_small"
         android:visibility="gone" />
     <TextView
         android:id="@+id/progress_hint"
@@ -53,7 +54,7 @@
         android:layout_marginBottom="5dip"
         android:singleLine="true"
         android:textColor="@color/text_color_gray"
-        android:textSize="@miui:dimen/text_font_size_small"
+        android:textSize="@dimen/text_size_small"
         android:text="@string/progress_submit_hint" />
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,13 +66,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/btn_call"
-            android:background="@drawable/btn_pay_white_bkg"
-            android:visibility="gone" />
+            android:visibility="gone"
+            style="@style/ButtonNormal" />
         <Button
             android:id="@+id/button_progress"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/btn_pay_white_bkg" />
+            style="@style/ButtonNormal" />
     </LinearLayout>
 </LinearLayout>

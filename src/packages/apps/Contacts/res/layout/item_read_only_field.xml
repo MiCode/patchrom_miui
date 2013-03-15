@@ -24,40 +24,34 @@
         android:id="@+id/kind_title_layout"
         layout="@layout/edit_kind_title" />
 
-    <!-- Shown only when id/kind_title_layout is hidden, dividing a previous item and this item. -->
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginLeft="8dip"
-        android:layout_marginRight="8dip"
-        android:background="?android:attr/listDivider" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/editor_min_line_item_height"
-        android:layout_marginLeft="16dip"
-        android:layout_marginRight="16dip"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="@dimen/spinner_width"
+            android:layout_height="@dimen/spinner_height"
+            android:gravity="center"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"
+            android:textAllCaps="true"
+            android:singleLine="true"/>
         <TextView
             android:id="@+id/data"
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:paddingLeft="@dimen/editor_padding"
             android:layout_gravity="center_vertical"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="?android:attr/textColorSecondary"
+            android:textAppearance="@style/EditText"
             android:singleLine="true"/>
-        <TextView
-            android:id="@+id/type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="?android:attr/textColorSecondary"
-            android:textAllCaps="true"
-            android:singleLine="true"/>
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_marginLeft="@dimen/editor_item_icon_margin"
+            android:layout_marginRight="@dimen/editor_item_icon_margin"
+            android:layout_width="@dimen/editor_item_icon_size"
+            android:layout_height="@dimen/editor_item_icon_size" />
     </LinearLayout>
 
 </LinearLayout>

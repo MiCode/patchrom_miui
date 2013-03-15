@@ -65,8 +65,9 @@ public class Policy implements IPolicy {
         return new PhoneWindow(context);
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public LayoutInflater makeNewLayoutInflater(Context context) {
-        return new PhoneLayoutInflater(context);
+        return new MiuiPhoneLayoutInflater(context);
     }
 
     @MiuiHook(MiuiHookType.CHANGE_CODE)

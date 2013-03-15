@@ -17,7 +17,6 @@
     <ListPreference
         android:key="pref_key_update_notify_mode"
         android:title="@string/pref_title_update_notify_mode"
-        android:summary="@string/pref_summary_notification_frequency"
         android:entries="@array/pref_entries_update_notify_mode"
         android:entryValues="@array/pref_values_update_notify_mode"
         android:defaultValue="1">
@@ -25,22 +24,26 @@
     <ListPreference
         android:key="pref_key_data_save_mode"
         android:title="@string/pref_title_data_save_mode"
-        android:summary="@string/pref_summary_data_save_mode"
         android:entries="@array/pref_entries_data_save_mode"
         android:entryValues="@array/pref_values_data_save_mode"
         android:defaultValue="2">
     </ListPreference>
     <Preference
         android:key="pref_key_clear_search_record"
-        android:title="@string/pref_title_clear_search_record"
-        android:summary="@string/pref_summary_clear_search_record">
+        android:title="@string/pref_title_clear_search_record">
     </Preference>
     <CheckBoxPreference
         android:key="pref_key_use_staging"
         android:title="@string/pref_title_use_staging"
         android:defaultValue="false">
     </CheckBoxPreference>
+    <CheckBoxPreference
+        android:key="pref_key_silent_install"
+        android:title="@string/pref_title_silent_install"
+        android:defaultValue="true">
+    </CheckBoxPreference>
     <Preference
+        style="?android:attr/preferenceInformationStyle"
         android:key="pref_key_about"
         android:title="@string/app_name" >
     </Preference>

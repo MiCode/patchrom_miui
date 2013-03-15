@@ -1,28 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2010 The Android Open Source Project
 
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-
-          http://www.apache.org/licenses/LICENSE-2.0
-
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/list_item_height"
-    android:orientation="horizontal">
-    <ImageView android:id="@android:id/icon"
-        android:layout_width="@dimen/detail_network_icon_size"
-        android:layout_height="@dimen/detail_network_icon_size"
-        android:layout_margin="8dip"
-        android:layout_gravity="center_vertical" />
+    android:layout_height="@miui:dimen/v5_list_view_double_line_height"
+    android:paddingLeft="@dimen/account_selector_list_item_padding"
+    android:paddingRight="@dimen/account_selector_list_item_padding"
+    style="@miui:style/V5.Widget.DropDownItem">
 
     <LinearLayout
         android:layout_width="0dip"
@@ -31,29 +15,26 @@
         android:orientation="vertical"
         android:layout_gravity="center_vertical">
 
-        <TextView android:id="@android:id/text1"
+        <TextView
+            android:id="@android:id/text1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="8dip"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:singleLine="true"
-            android:ellipsize="end"/>
+            android:ellipsize="end"
+            style="@miui:style/V5.TextAppearance.List.Primary" />
 
-        <TextView android:id="@android:id/text2"
+        <TextView
+            android:id="@android:id/text2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="8dip"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="?android:attr/textColorSecondary"
             android:singleLine="true"
-            android:ellipsize="end"/>
+            android:ellipsize="end"
+            style="@miui:style/V5.TextAppearance.List.Secondary" />
     </LinearLayout>
 
-    <RadioButton
-        android:id="@+id/mark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:focusable="false"
-        android:clickable="false" />
+    <ImageView
+        android:id="@android:id/icon"
+        android:layout_width="@dimen/detail_network_icon_size"
+        android:layout_height="@dimen/detail_network_icon_size"
+        android:layout_gravity="center_vertical" />
 </LinearLayout>

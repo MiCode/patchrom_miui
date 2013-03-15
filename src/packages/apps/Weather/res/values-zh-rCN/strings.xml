@@ -3,9 +3,9 @@
     <string name="app_name">天气</string>
 
     <string name="weather_notification">天气提醒</string>
-    <string name="location_notification">位置提醒</string>
+    <string name="location_notification">天气提醒</string>
     <string name="enable_notification">开启位置提醒</string>
-    <string name="enable_notification_summary">雨雪降温等突发天气时会发出系统通知</string>
+    <string name="enable_notification_summary">选择城市，当雨雪降温等突发天气时会发出系统通知</string>
     <string name="enable_notification_city">已经开启%s的天气提醒，遇雨雪降温等突发天气时系统会发送通知。</string>
 
     <string name="sms_notification">短信提醒</string>
@@ -37,7 +37,7 @@
     <string name="local_city">本地位置</string>
     <string name="act_set_city_re_find_side">重新定位中...</string>
     <string name="act_set_city_find_side_error">定位失败</string>
-    <string name="act_city_find_gps_error">定位失败,请选择添加城市</string>
+    <string name="act_city_find_gps_error">定位失败,请在菜单中选择添加城市</string>
     <string name="act_weather_main_data_null">暂无天气信息 点击刷新</string>
 
     <string name="act_weather_cycle_update">更新中...</string>
@@ -48,9 +48,14 @@
     <string name="act_weather_range_title">周边天气</string>
     <string name="act_weather_range_select">请选择位置</string>
 
+    <string name="menu_around">周边</string>
+    <string name="menu_location">位置管理</string>
+    <string name="menu_notification">提醒</string>
     <string name="menu_reload">刷新</string>
+    <string name="menu_reloading">更新中</string>
     <string name="menu_share">分享</string>
-    <string name="menu_chart">趋势</string>
+    <string name="menu_trend">趋势</string>
+    <string name="menu_main">指数</string>
     <string name="menu_about">关于</string>
     <string name="menu_settings">设置</string>
 
@@ -62,10 +67,11 @@
 
     <string name="share_content">#MIUI 天气#</string>
     <string name="share_weather_content">#MIUI天气#\n今天%1$s天气%2$s, %3$s, %4$s。%5$s发布。</string>
-    <string name="share_aqi_content">#MIUI天气#\n今天%1$s空气质量指数为%2$s, %3$s。%4$s发布。</string>
+    <string name="share_aqi_content">#MIUI天气#\n今天%1$s空气质量指数为%2$s, %3$s。%4$s %5$s发布。</string>
     <string name="save_screen_shot_failed">保存截图失败</string>
 
-    <string name="chart_weather_title">天气趋势图</string>
+    <string name="trend_weather_today">今天</string>
+    <string name="trend_weather_tomorrow">明天</string>
 
     <string name="settings_weather_title">设置</string>
     <string name="settings_weather_animation">天气动画</string>
@@ -98,20 +104,27 @@
 
     <string name="format_date_wmd">M月d日 EEE</string>
     <string name="format_date_md">M月d日 kk:mm</string>
+    <string name="format_date_week">EEE</string>
+    <string name="format_date_trend_md">M/d</string>
 
     <string name="act_weather_aqi_title">空气质量指数</string>
     <string name="act_weather_main_aqi_title">空气质量</string>
-    <string name="aqi_quality_index_good">良</string>
+
+    <string name="act_weather_aqi_share">分享</string>
+    <string name="aqi_quality_index_pure">无污染</string>
+    <string name="aqi_quality_index_good">优</string>
+    <string name="aqi_quality_index_moderate">良</string>
     <string name="aqi_quality_index_light_pollution">轻微污染</string>
     <string name="aqi_quality_index_unhealthy">轻度污染</string>
     <string name="aqi_quality_index_dangerous">中度污染</string>
     <string name="aqi_quality_index_hazardous">重污染</string>
 
-    <string name="act_aqi_value_good">100</string>
-    <string name="act_aqi_value_light_pollution">150</string>
-    <string name="act_aqi_value_unhealthy">200</string>
-    <string name="act_aqi_value_dangerous">300</string>
-    <string name="act_aqi_value_hazardous">500</string>
+    <string name="aqi_details_good">所有人群可在户外正常自由活动。</string>
+    <string name="aqi_details_fine">对空气质量特别敏感的人群应该减少户外活动。</string>
+    <string name="aqi_details_light_pollution">儿童、老人及心脏、呼吸系统疾病患者人群应该减少长时间、高强度的户外锻炼。</string>
+    <string name="aqi_details_unhealthy">儿童、老人及心脏、呼吸系统疾病患者人群应该减少长时间、高强度的户外锻炼，一般人群适量减少户外运动。</string>
+    <string name="aqi_details_dangerous">儿童、老人及心脏、呼吸系统疾病患者人群应停留在室内，停止户外运动，一般人群减少户外运动。</string>
+    <string name="aqi_details_hazardous">儿童、老人及心脏、呼吸系统疾病患者人群应停留在室内，并减少体力活动，一般人群应该避免户外活动并注意防护。</string>
 
     <string name="act_aqi_pm25_title">PM2.5[入肺颗粒物]</string>
     <string name="act_aqi_pm10_title">PM10[可吸入颗粒物]</string>
@@ -170,6 +183,7 @@
         <item>扬沙</item>1
         <item>冰雹</item>2
         <item>浮尘</item>3
+        <item>霾</item>4
     </array>
 
     <array name="weather_details_key">
@@ -263,6 +277,8 @@
         <item>有风沙，如果出门建议戴好帽子和口罩。</item>
         <item>有风沙，如果出门建议戴好帽子和口罩。</item>
         <item>难得一见的冰雹天气，外出走路要小心！</item>
+        <item>有浮尘，如果出门建议戴好帽子和口罩。</item>
+        <item>雾霾天气，不太建议长时间外出噢！</item>
     </array>
 
     <array name="weather_sms_addons">

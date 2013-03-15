@@ -320,6 +320,7 @@ public class KeyguardViewManager implements KeyguardWindowController {
     /**
      * Hides the keyguard view
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public synchronized void hide() {
         if (DEBUG) Log.d(TAG, "hide()");
 
@@ -337,7 +338,7 @@ public class KeyguardViewManager implements KeyguardWindowController {
                             mKeyguardHost.removeView(lastView);
                         }
                     }
-                }, 500);
+                }, 0);  //miui-hook change delay time to zero instead of 500, avoid re-entry issue
             }
         }
     }

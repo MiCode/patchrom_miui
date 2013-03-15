@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/screen_margin_horizontal"
-    android:paddingRight="@dimen/screen_margin_horizontal"
-    android:paddingBottom="@dimen/screen_margin_bottom" >
+    android:layout_height="match_parent" >
 
     <RelativeLayout
         android:id="@+id/simAbsentPanel"
@@ -17,51 +14,46 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:text="@string/sim_card_detection_status_absent"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="?android:attr/textColorSecondary" />
-
-        <Button
-            android:id="@+id/continues"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="12dip"
-            android:text="@string/continues"
-            android:textColor="@android:color/holo_orange_dark"
-            android:background="@drawable/transparent_bg" />
-
-        <Button
-            android:id="@+id/shutdown"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/continues"
-            android:layout_marginBottom="24dip"
-            android:textColor="@android:color/white"
-            android:background="@drawable/btn_red_bg"
-            android:text="@string/shutdown" />
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="40dip"
+            android:layout_marginTop="20dip"
+            android:textAppearance="@style/TextAppearance.Provision.NoSIM"
+            android:text="@string/sim_card_detection_status_absent" />
 
         <TextView
             android:id="@+id/info"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
             android:layout_centerHorizontal="true"
-            android:layout_above="@id/shutdown"
-            android:layout_marginBottom="30dip"
-            android:gravity="center"
-            android:text="@string/sim_card_detection_info"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="?android:attr/textColorSecondary" />
+            android:layout_below="@id/status"
+            android:layout_marginLeft="40dip"
+            android:layout_marginRight="40dip"
+            android:textAppearance="@style/TextAppearance.Provision"
+            android:text="@string/sim_card_detection_info" />
+
+        <ImageView android:id="@+id/seperator"
+            style="@style/Widget.Seperator" />
+
+        <Button
+            android:id="@+id/continues"
+            style="@style/Button.Provision"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/continues" />
+
+        <Button
+            android:id="@+id/shutdown"
+            style="@style/Button.NegativeWarn.Provision"
+            android:layout_above="@id/continues"
+            android:text="@string/shutdown" />
 
         <ImageView
             android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/status"
-            android:layout_above="@id/info"
+            android:layout_below="@id/seperator"
+            android:layout_above="@id/shutdown"
             android:scaleType="center"
             android:src="@drawable/sim_absent"/>
 

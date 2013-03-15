@@ -22,9 +22,10 @@
 <!-- Warning: everything within the parent is removed and re-ordered depending
      on the date format selected by the user. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miui="http://schemas.android.com/apk/res/miui"
     android:orientation="vertical"
     android:layout_gravity="center_horizontal"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
@@ -32,73 +33,81 @@
         android:text="@string/date_picker_label"
         android:paddingTop="5dip"
         android:paddingBottom="5dip"
-        android:textColor="?android:attr/textColorSecondary"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:visibility="gone" />
 
     <LinearLayout
         android:id="@+id/parent"
         android:orientation="horizontal"
         android:layout_gravity="center_horizontal"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="1">
 
         <!-- Type -->
-        <NumberPicker
+        <miui.widget.NumberPicker
             android:id="@+id/type"
-            android:layout_width="60dip"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="1dip"
-            android:layout_marginRight="1dip"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:visibility="gone"
-            />
+            android:visibility="gone" />
 
         <!-- Month -->
-        <NumberPicker
+        <miui.widget.NumberPicker
             android:id="@+id/month"
-            android:layout_width="@dimen/date_picker_month_width_wide"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="1dip"
-            android:layout_marginRight="1dip"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            />
+            android:text="@miui:string/v5_date_picker_label_month"/>
 
         <!-- Day -->
-        <NumberPicker
+        <miui.widget.NumberPicker
             android:id="@+id/day"
-            android:layout_width="@dimen/date_picker_day_width_wide"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="1dip"
-            android:layout_marginRight="1dip"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            />
+            android:text="@miui:string/v5_date_picker_label_day" />
 
         <!-- Year -->
-        <NumberPicker
+        <miui.widget.NumberPicker
             android:id="@+id/year"
-            android:layout_width="@dimen/date_picker_year_width_wide"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="1dip"
-            android:layout_marginRight="1dip"
             android:focusable="true"
             android:focusableInTouchMode="true"
+            android:text="@miui:string/v5_date_picker_label_year"
             />
     </LinearLayout>
 
-    <CheckBox
-        android:id="@+id/yearToggle"
-        android:text="@string/date_year_toggle"
-        android:paddingTop="5dip"
-        android:paddingBottom="5dip"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingLeft="30dip"
+        android:paddingRight="30dip"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txt_year_toggle"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList"
+            android:text="@string/date_year_toggle" />
+
+            <miui.widget.SlidingButton
+                android:id="@+id/yearToggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+    </LinearLayout>
 
 </LinearLayout>

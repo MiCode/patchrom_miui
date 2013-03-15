@@ -2,14 +2,17 @@
     android:id="@+id/folder_header"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_vertical"
-    android:background="@drawable/folder_title_background" >
+    android:paddingLeft="@dimen/folder_header_padding_left"
+    android:paddingRight="@dimen/folder_header_padding_right"
+    android:paddingBottom="@dimen/folder_header_padding_bottom"
+    android:gravity="center_vertical" >
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_gravity="center"
+        android:minWidth="50dip"
         android:textSize="21sp"
         android:textColor="@color/folder_title_text"
         android:singleLine="true"
@@ -28,7 +31,7 @@
             android:layout_weight="1"
             android:scrollHorizontally="true"
             android:autoText="false"
-            android:textSize="21sp"
+            android:textSize="19sp"
             android:textColor="@color/folder_setting_remane_text"
             android:singleLine="true"
             android:capitalize="none"
@@ -41,6 +44,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="right|center_vertical"
             android:text="@string/confirm_btn_label"
+            android:textColor="@color/folder_title_text"
             android:background="@drawable/folder_setting_confirm_btn"
             android:visibility="invisible" />
     </LinearLayout>

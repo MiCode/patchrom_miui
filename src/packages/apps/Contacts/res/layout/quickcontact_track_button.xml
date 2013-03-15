@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2009 The Android Open Source Project
+<!--
+     Copyright (C) 2009 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,30 +15,30 @@
      limitations under the License.
 -->
 
-<com.android.contacts.quickcontact.CheckableImageView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.android.contacts.quickcontact.CheckableImageView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="0dip"
-    android:layout_weight="1"
     android:layout_height="wrap_content"
-    android:background="?android:attr/selectableItemBackground">
+    android:layout_weight="1"
+    android:background="@drawable/qcb_selected_tab_bg" >
 
     <TextView
         android:id="@+id/label"
-        android:layout_width="@dimen/quickcontact_track_button_width"
-        android:layout_height="55dip"
+        style="@style/QcbTabText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:gravity="center"
         android:clickable="false"
-        android:focusable="false"
-        android:singleLine="true"
         android:ellipsize="end"
-        android:textSize="@miui:dimen/text_font_size_medium"
-        android:textColor="@color/tab2_text_color" />
+        android:focusable="false"
+        android:singleLine="true" />
 
     <View
         android:layout_width="1px"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
-        android:layout_marginTop="@dimen/detail_vertical_divider_vertical_margin"
         android:layout_marginBottom="@dimen/detail_vertical_divider_vertical_margin"
+        android:layout_marginTop="@dimen/detail_vertical_divider_vertical_margin"
         android:background="?android:attr/dividerVertical" />
+
 </com.android.contacts.quickcontact.CheckableImageView>

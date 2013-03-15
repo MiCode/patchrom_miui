@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    style="@style/ListItem.Narrow">
+    style="@style/ListItem" >
     <LinearLayout
         android:layout_width="0dip"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:gravity="center_vertical"
-        style="@style/ListItemContent">
+        android:gravity="center_vertical">
         <ViewStub
             android:id="@+id/message_body_list_stub"
             android:layout="@layout/message_item_list_body"
@@ -26,15 +25,24 @@
                 android:id="@+id/message_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/TextAppearance.MessageTitle.List" />
+                style="@style/TextAppearance.MessageDesc" />
             <TextView
                 android:id="@+id/message_sender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dip"
-                style="@style/TextAppearance.MessageTitle.List" />
+                style="@style/TextAppearance.MessageDesc.BookmarkDate" />
         </LinearLayout>
     </LinearLayout>
-    <include layout="@layout/message_item_attachment" />
+    <View
+        android:id="@+id/attachment_padding"
+        android:layout_width="10dip"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+    <ImageView
+        android:id="@+id/attachment_preview"
+        android:layout_width="@dimen/mms_attachment_pic_width"
+        android:layout_height="@dimen/mms_attachment_pic_height"
+        android:layout_gravity="top"
+        android:visibility="gone" />
 </com.android.mms.ui.MessageListItem>
-

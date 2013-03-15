@@ -1,27 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/album_grid"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-
-    <TextView style="@style/TitlePrimaryText"
-        android:id="@+id/album_search_result"
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:gravity="center_vertical"
-        android:paddingLeft="10dip"
-        />
-
-    <GridView
-        android:id="@+id/album_grid"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:textSize="18sp"
-        android:cacheColorHint="@android:color/transparent"
-        android:alwaysDrawnWithCache="true"
-        android:numColumns="3"
-        android:layout_below="@id/album_search_result"/>
-
-</RelativeLayout>
-
+    android:layout_height="fill_parent"
+    android:alwaysDrawnWithCache="true"
+    android:cacheColorHint="@android:color/transparent"
+    android:numColumns="2"
+    android:textSize="18sp" />

@@ -71,6 +71,9 @@ import android.view.KeyEvent;
 
 import com.android.internal.telephony.ITelephony;
 
+import miui.util.ActivityManagerHelper;
+import miui.util.ActivityManagerHelper.PackageNameList;
+import miui.util.ActivityManagerHelper.PriorityComponent;
 import miui.view.VolumePanel;
 
 import java.io.FileDescriptor;
@@ -109,6 +112,106 @@ public class AudioService extends IAudioService.Stub implements OnFinished {
                 }
             }
             return direction;
+        }
+
+        static class ResolveInfo {
+            public final ComponentName mComponent;
+            public final PendingIntent mPendingIntent;
+
+            public ResolveInfo(ComponentName component, PendingIntent pi) {
+                mComponent = component;
+                mPendingIntent = pi;
+            }
+        }
+
+        /**
+         * 获得处理{@link Intent#ACTION_MEDIA_BUTTON}的ResolveInfo
+         * 处理{@link Intent#ACTION_MEDIA_BUTTON}的receivers有三种方法注册：
+         * A 通过AudioManager动态注册
+         * B 通过AndroidManifest静态注册
+         * C 通过Context动态注册
+         * 选择的原则：
+         * 1 如果方法A和方法B中优先级最高的receiver属于当前播放的package，则直接发送给它
+         * 2 如果方法A中receiver的最高优先级高于方法B中的receiver，则直接发送给A中优先级最高的receiver
+         * 3 如果方法A中receiver的最高优先级低于方法B中的receiver，则不指定，由ActivityManager派发
+         * 实现步骤：
+         * 1 获得package处理{@link Intent#ACTION_MEDIA_BUTTON}的优先级列表
+         * 2 遍历RemoteControlStack，按优先级列表计算处理intent的PendingIntent及其priority
+         * 3 通过ActivityManager在系统范围内查找，是否存在优先级更高的接收者，
+         *     如果存在，
+         *         如果其priority是当前正在播放的package,将receiver对应的Component返回，然后会将intent交给ActivityManager派发;
+         *         否则, 将intent交给ActivityManager派发
+         *     否则，交给第2步选择的PendingIntent处理
+         * @NOTE
+         * 因为第3步的查找无法包含通过ActivityManager动态注册的receiver，所以会存在选择的receiver的优先级并不是全局最高，而是a+b的局部最高
+         * @param context
+         * @param rcs
+         * @return
+         */
+        static ResolveInfo resolveReceiver(Context context, Stack<RemoteControlStackEntry> rcs, Intent keyIntent) {
+            if (rcs.isEmpty()) {
+                return null;
+            }
+
+            final PackageNameList packageNames =
+                ActivityManagerHelper.getPackageNameListOrderByReceivePriority(context);
+            if (packageNames == null || packageNames.mOrderList.isEmpty()) {
+                return new ResolveInfo(null, rcs.peek().mMediaIntent);
+            }
+
+            PendingIntent pi = null;
+            ComponentName component = null;
+
+            int priority = Integer.MAX_VALUE;
+            int i = 0;
+            for (String name : packageNames.mOrderList) {
+                final Iterator<RemoteControlStackEntry> it = rcs.iterator();
+                while (it.hasNext()) {
+                    final RemoteControlStackEntry entry = it.next();
+                    final PendingIntent intent = entry.mMediaIntent;
+                    if (name.equals(intent.getTargetPackage())) {
+                        pi = intent;
+                        priority = i;
+                        break;
+                    }
+                }
+
+                if (pi != null) {
+                    break;
+                }
+
+                ++i;
+            }
+
+            final PriorityComponent pc = ActivityManagerHelper.getMediaButtonReceiver(
+                    context, packageNames.mOrderList, priority);
+            if (pc != null) {
+                // 如果方法B中存在优先级更高的receiver，则不会发送给方法A的receiver
+                pi = null;
+                // 如果方法B中优先级最高的receiver的是正在播放的package，则直接发送之
+                component = (pc.mPriority < packageNames.mPlayingCount) ? pc.mComponent : null;
+            } else if (pi == null) {
+                pi = rcs.peek().mMediaIntent;
+            }
+
+            Log.d(TAG, "PendingIntent " + (pi != null ? pi.getTargetPackage() : " null, ") +
+                    " ComponentName " + (component != null ? component : " null"));
+
+            return new ResolveInfo(component, pi);
+        }
+
+        static void setComponentName(Intent keyIntent, ResolveInfo info) {
+            if (info != null && info.mComponent != null) {
+                keyIntent.setComponent(info.mComponent);
+            }
+        }
+
+        static PendingIntent getPendingIntent(ResolveInfo info) {
+            if (info != null && info.mComponent == null) {
+                return info.mPendingIntent;
+            }
+
+            return null;
         }
     }
 
@@ -3944,6 +4047,7 @@ public class AudioService extends IAudioService.Stub implements OnFinished {
      * @param needWakeLock true if a PARTIAL_WAKE_LOCK needs to be held while this key event
      *     is dispatched.
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private void dispatchMediaKeyEvent(KeyEvent keyEvent, boolean needWakeLock) {
         if (needWakeLock) {
             mMediaEventWakeLock.acquire();
@@ -3951,10 +4055,12 @@ public class AudioService extends IAudioService.Stub implements OnFinished {
         Intent keyIntent = new Intent(Intent.ACTION_MEDIA_BUTTON, null);
         keyIntent.putExtra(Intent.EXTRA_KEY_EVENT, keyEvent);
         synchronized(mRCStack) {
-            if (!mRCStack.empty()) {
+            final Injector.ResolveInfo resolveInfo = Injector.resolveReceiver(mContext, mRCStack, keyIntent);
+            final PendingIntent pi = Injector.getPendingIntent(resolveInfo);
+            if (pi != null) {
                 // send the intent that was registered by the client
                 try {
-                    mRCStack.peek().mMediaIntent.send(mContext,
+                    pi.send(mContext,
                             needWakeLock ? WAKELOCK_RELEASE_ON_FINISHED : 0 /*code*/,
                             keyIntent, AudioService.this, mAudioHandler);
                 } catch (CanceledException e) {
@@ -3967,6 +4073,8 @@ public class AudioService extends IAudioService.Stub implements OnFinished {
                 if (needWakeLock) {
                     keyIntent.putExtra(EXTRA_WAKELOCK_ACQUIRED, WAKELOCK_RELEASE_ON_FINISHED);
                 }
+
+                Injector.setComponentName(keyIntent, resolveInfo);
                 mContext.sendOrderedBroadcast(keyIntent, null, mKeyEventDone,
                         mAudioHandler, Activity.RESULT_OK, null, null);
             }
@@ -4368,7 +4476,7 @@ public class AudioService extends IAudioService.Stub implements OnFinished {
                         "  -- vol: " + rcse.mPlaybackVolume +
                         "  -- volMax: " + rcse.mPlaybackVolumeMax +
                         "  -- volObs: " + rcse.mRemoteVolumeObs);
-                
+
             }
         }
         synchronized (mMainRemote) {

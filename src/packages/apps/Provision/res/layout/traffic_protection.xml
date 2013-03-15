@@ -1,30 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/screen_margin_horizontal"
-    android:paddingRight="@dimen/screen_margin_horizontal"
-    android:paddingBottom="@dimen/screen_margin_bottom" >
+    android:layout_height="match_parent" >
 
     <TextView
         android:id="@+id/info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:gravity="center"
-        android:text="@string/traffic_protection_summary"
-        android:textColor="?android:attr/textColorSecondary"
-        android:textAppearance="?android:attr/textAppearanceMedium"/>
+        style="@style/TextView.Info.Provision"
+        android:text="@string/traffic_protection_summary" />
+
+    <ImageView android:id="@+id/seperator"
+        style="@style/Widget.Seperator"/>
 
     <Button
         android:id="@+id/next"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/Button.Provision"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:enabled="false"
-        android:text="@string/next"
-        android:textAppearance="?android:attr/textAppearance" />
+        android:text="@string/next" />
 
     <Button
         android:id="@+id/unknown"
@@ -32,9 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/next"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dip"
         android:text="@string/traffic_protection_unknown"
-        android:textColor="@android:color/holo_orange_dark"
+        android:textColor="#333333"
         android:background="@drawable/transparent_bg" />
 
     <EditText
@@ -42,7 +34,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/unknown"
-        android:layout_marginBottom="24dip"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
         android:inputType="number"
         android:hint="@string/traffic_protection_text_hint"
         android:drawableRight="@drawable/mega"/>
@@ -52,7 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/traffic"
-        android:layout_below="@id/info"
+        android:layout_below="@id/seperator"
         android:scaleType="center"
         android:src="@drawable/traffic_protection"/>
 

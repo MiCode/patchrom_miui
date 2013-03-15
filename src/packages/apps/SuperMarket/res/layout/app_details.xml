@@ -1,268 +1,200 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/Background"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    <FrameLayout
+
+    <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1" >
+        android:layout_height="match_parent" >
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fadingEdge="none"
             android:fillViewport="true" >
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical" >
+
                 <LinearLayout
                     android:id="@+id/base_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical" >
+                    android:layout_marginLeft="@dimen/main_padding"
+                    android:layout_marginRight="@dimen/main_padding"
+                    android:layout_marginTop="@dimen/common_padding"
+                    android:orientation="horizontal" >
+
+                    <ImageSwitcher
+                        android:id="@+id/icon"
+                        android:layout_width="@dimen/detail_icon_size"
+                        android:layout_height="@dimen/detail_icon_size"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/common_padding" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/main_padding"
-                        android:layout_marginRight="@dimen/main_padding"
-                        android:layout_marginTop="@dimen/common_padding"
-                        android:orientation="horizontal" >
-                        <ImageSwitcher
-                            android:id="@+id/icon"
-                            android:layout_width="@dimen/icon_size"
-                            android:layout_height="@dimen/icon_size"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginRight="@dimen/common_padding" />
-                        <LinearLayout
-                            android:layout_width="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/cate_name"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:orientation="vertical" >
+                            android:layout_marginBottom="@dimen/common_padding_trivial"
+                            android:gravity="center_vertical"
+                            android:textAppearance="@style/TextAppearance.Secondary"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/common_padding_trivial"
+                            android:gravity="center_vertical"
+                            android:textAppearance="@style/TextAppearance.Primary" />
+
+                        <RatingBar
+                            android:id="@+id/ratingbar"
+                            style="@style/RatingBar.ReadOnly"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/common_padding_small"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/common_padding_trivial"
+                            android:gravity="center_vertical" >
+
                             <TextView
-                                android:id="@+id/cate_name"
+                                android:id="@+id/size"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical"
-                                android:textAppearance="@style/TextAppearance.Secondary"
-                                android:visibility="gone" />
-                            <TextView
-                                android:id="@+id/name"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center_vertical"
-                                android:textAppearance="@style/TextAppearance.Primary" />
-                            <RatingBar
-                                android:id="@+id/ratingbar"
-                                style="@style/RatingBar.ReadOnly"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center_vertical" />
+                                android:textAppearance="@style/TextAppearance.Secondary" />
+
+                            <View
+                                android:layout_width="1dip"
+                                android:layout_height="10dip"
+                                android:layout_marginLeft="@dimen/common_padding_small"
+                                android:layout_marginRight="@dimen/common_padding_small"
+                                android:layout_marginTop="1dip"
+                                android:background="@drawable/detail_text_split" >
+                            </View>
+
                             <TextView
                                 android:id="@+id/developer"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical"
+                                android:singleLine="true"
                                 android:textAppearance="@style/TextAppearance.Secondary" />
-                            <TextView
-                                android:id="@+id/version_name"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center_vertical"
-                                android:textAppearance="@style/TextAppearance.Secondary"
-                                android:visibility="gone" />
                         </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/version_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:textAppearance="@style/TextAppearance.Secondary"
+                            android:visibility="gone" />
                     </LinearLayout>
-                    <com.xiaomi.market.ui.ActionDetailArea
-                        android:id="@+id/action_area"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/large_button_height"
-                        android:layout_marginLeft="@dimen/main_padding"
-                        android:layout_marginRight="@dimen/main_padding"
-                        android:layout_marginTop="@dimen/common_padding"
-                        android:gravity="center" >
-                        <LinearLayout
-                            android:id="@+id/install_button"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/common_btn"
-                            android:gravity="center" >
-                            <ImageView
-                                android:id="@+id/image"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="2dip"
-                                android:contentDescription="@string/install"
-                                android:duplicateParentState="true" />
-                            <TextView
-                                android:id="@+id/install"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="2dip"
-                                android:duplicateParentState="true"
-                                android:text="@string/install"
-                                android:textAppearance="@style/TextAppearance.Button.Large.Primary" />
-                            <TextView
-                                android:id="@+id/size"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:duplicateParentState="true"
-                                android:textAppearance="@style/TextAppearance.Button.Large.Secondary" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/progress_area"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center" >
-                            <LinearLayout
-                                android:layout_width="0dip"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical" >
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content" >
-                                    <TextView
-                                        android:id="@+id/bytes"
-                                        android:layout_width="0dip"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:singleLine="true"
-                                        android:textAppearance="@style/TextAppearance.Secondary" />
-                                    <TextView
-                                        android:id="@+id/precentage"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:singleLine="true"
-                                        android:textAppearance="@style/TextAppearance.Secondary" />
-                                </LinearLayout>
-
-                                <ProgressBar
-                                    android:id="@+id/progress"
-                                    style="?android:attr/progressBarStyleHorizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="10dip"
-                                    android:layout_gravity="center"
-                                    android:max="100" />
-                            </LinearLayout>
-
-                            <ImageView
-                                android:id="@+id/stop"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_marginLeft="5dip"
-                                android:gravity="center"
-                                android:src="@drawable/ic_cancel" />
-                        </LinearLayout>
-                    </com.xiaomi.market.ui.ActionDetailArea>
                 </LinearLayout>
 
                 <com.xiaomi.market.ui.AppDetailView
                     android:id="@+id/extra_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/common_padding"
+                    android:layout_marginTop="@dimen/common_padding_large"
                     android:orientation="vertical" >
-                    <com.xiaomi.market.widget.ScrollableScreenView
+
+                    <com.xiaomi.market.widget.ScreenView
                         android:id="@+id/screen_shots"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
-                    <View
-                        android:id="@+id/screenshot_divider"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/divider"
-                        android:layout_marginLeft="@dimen/main_padding"
-                        android:layout_marginRight="@dimen/main_padding"
-                        android:layout_marginTop="@dimen/common_padding_medium"
-                        android:background="@drawable/divider_bg" />
-                <LinearLayout
-                    android:id="@+id/update_info_area"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/common_padding"
-                    android:layout_marginLeft="@dimen/main_padding"
-                    android:layout_marginRight="@dimen/main_padding"
-                    android:orientation="vertical"
-                    android:visibility="gone">
-                    <TextView
-                            android:id="@+id/update_info_title"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:text="@string/update_info"
-                            android:drawableLeft="@drawable/tip_icon"
-                            android:drawablePadding="5dp"
-                            android:textAppearance="@style/TextAppearance.Subject" />
-                    <com.xiaomi.market.ui.ExpandableTextView
-                        android:id="@+id/update_info"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="1dip">
-                        <TextView
-                            android:id="@+id/expandable_textview"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/text_color_medium_gray"
-                            android:textSize="@dimen/text_font_size_medium"/>
-                        <TextView
-                            android:id="@+id/expand_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="@dimen/common_padding_small"
-                            android:text="@string/expand_full_text"
-                            android:visibility="gone"
-                            android:textAppearance="@style/TextAppearance.Content" />
-                    </com.xiaomi.market.ui.ExpandableTextView>
-                      </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/common_padding"
                         android:layout_marginLeft="@dimen/main_padding"
                         android:layout_marginRight="@dimen/main_padding"
+                        android:layout_marginTop="@dimen/common_padding"
                         android:orientation="vertical" >
+
                         <TextView
-                            android:id="@+id/description_title"
+                            android:id="@+id/top_info_title"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:text="@string/description_info"
                             android:drawableLeft="@drawable/tip_icon"
                             android:drawablePadding="5dp"
-                            android:visibility="gone"
                             android:textAppearance="@style/TextAppearance.Subject" />
-                      <com.xiaomi.market.ui.ExpandableTextView
-                        android:id="@+id/description"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="1dip">
-                        <TextView
-                            android:id="@+id/expandable_textview"
+
+                        <com.xiaomi.market.ui.ExpandableTextView
+                            android:id="@+id/top_info"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/text_color_medium_gray"
-                            android:textSize="@dimen/text_font_size_medium" />
-                        <TextView
-                            android:id="@+id/expand_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="@dimen/common_padding_small"
-                            android:text="@string/expand_full_text"
-                            android:visibility="gone"
-                            android:textAppearance="@style/TextAppearance.Content" />
-                      </com.xiaomi.market.ui.ExpandableTextView>
+                            android:layout_marginTop="1dip" >
+
+                            <TextView
+                                android:id="@+id/expandable_textview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/text_color_medium_gray"
+                                android:textSize="@dimen/text_font_size_medium" />
+
+                            <TextView
+                                android:id="@+id/expand_button"
+                                style="@style/Button.ExpandAll"
+                                android:visibility="gone" />
+                        </com.xiaomi.market.ui.ExpandableTextView>
                     </LinearLayout>
-                    <View
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/divider"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/main_padding"
                         android:layout_marginRight="@dimen/main_padding"
                         android:layout_marginTop="@dimen/common_padding"
-                        android:background="@drawable/divider_bg" />
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/bottom_info_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:drawableLeft="@drawable/tip_icon"
+                            android:drawablePadding="5dp"
+                            android:text="@string/description_info"
+                            android:textAppearance="@style/TextAppearance.Subject" />
+
+                        <com.xiaomi.market.ui.ExpandableTextView
+                            android:id="@+id/bottom_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dip" >
+
+                            <TextView
+                                android:id="@+id/expandable_textview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/text_color_medium_gray"
+                                android:textSize="@dimen/text_font_size_medium" />
+
+                            <TextView
+                                android:id="@+id/expand_button"
+                                style="@style/Button.ExpandAll"
+                                android:visibility="gone" />
+                        </com.xiaomi.market.ui.ExpandableTextView>
+                    </LinearLayout>
+
                     <LinearLayout
                         android:id="@+id/detail_view_bottom_button_layout"
                         android:layout_width="match_parent"
@@ -271,29 +203,36 @@
                         android:layout_marginRight="@dimen/main_padding"
                         android:layout_marginTop="@dimen/common_padding"
                         android:gravity="center" >
+
                         <Button
                             android:id="@+id/rating_button"
-                            style="@style/Button.Large"
+                            style="@miui:style/V5.Widget.Button"
                             android:layout_width="0dip"
-                            android:layout_marginRight="@dimen/common_padding"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1" />
+
                         <Button
                             android:id="@+id/permission_button"
                             style="@style/Button.Large"
                             android:layout_width="0dip"
                             android:layout_weight="1" />
                     </LinearLayout>
+
                     <TableLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/common_padding"
                         android:layout_marginLeft="@dimen/main_padding"
                         android:layout_marginRight="@dimen/main_padding"
-                        android:layout_marginTop="@dimen/common_padding" >
+                        android:layout_marginTop="@dimen/common_padding_medium" >
+
                         <TableRow android:gravity="center" >
+
                             <TextView
                                 android:gravity="right|center_vertical"
                                 android:text="@string/update_date_label"
                                 android:textAppearance="@style/TextAppearance.Secondary" />
+
                             <TextView
                                 android:id="@+id/update_date"
                                 android:gravity="left|center_vertical"
@@ -301,36 +240,41 @@
                         </TableRow>
 
                         <TableRow android:gravity="center" >
+
                             <TextView
                                 android:id="@+id/version_label"
                                 android:gravity="right|center_vertical"
                                 android:text="@string/version_label"
                                 android:textAppearance="@style/TextAppearance.Secondary" />
+
                             <TextView
                                 android:id="@+id/version"
                                 android:gravity="left|center_vertical"
                                 android:textAppearance="@style/TextAppearance.Secondary" />
                         </TableRow>
                     </TableLayout>
+
                     <TextView
                         android:id="@+id/baidu_result_notice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.Secondary"
-                        android:text="@string/result_notice"
-                        android:visibility="gone"
                         android:layout_gravity="center"
-                        android:layout_marginBottom="@dimen/main_padding" >
+                        android:layout_marginBottom="@dimen/main_padding"
+                        android:text="@string/result_notice"
+                        android:textAppearance="@style/TextAppearance.Secondary"
+                        android:visibility="gone" >
                     </TextView>
+
                     <Button
                         android:id="@+id/share_button"
-                        android:text="@string/share_button"
+                        style="@style/Button.Large"
+                        android:layout_marginBottom="@dimen/main_padding"
                         android:layout_marginLeft="@dimen/main_padding"
                         android:layout_marginRight="@dimen/main_padding"
                         android:layout_marginTop="@dimen/common_padding"
-                        android:layout_marginBottom="@dimen/main_padding"
-                        style="@style/Button.Large" />
+                        android:text="@string/share_button" />
                 </com.xiaomi.market.ui.AppDetailView>
+
                 <com.xiaomi.market.ui.EmptyLoadingView
                     android:id="@+id/loading"
                     android:layout_width="match_parent"
@@ -339,18 +283,29 @@
                     android:gravity="center" />
             </LinearLayout>
         </ScrollView>
+
         <LinearLayout
             android:id="@+id/data_progress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:gravity="center"
             android:background="@drawable/loading_view_bg"
+            android:gravity="center"
             android:visibility="gone" >
+
             <ProgressBar
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:indeterminateOnly="true" />
         </LinearLayout>
-    </FrameLayout>
-</LinearLayout>
+    </LinearLayout>
+
+    <com.xiaomi.market.ui.AppDetailBottomBar
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center_horizontal|bottom" >
+    </com.xiaomi.market.ui.AppDetailBottomBar>
+
+</FrameLayout>

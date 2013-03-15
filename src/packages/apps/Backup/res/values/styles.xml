@@ -15,10 +15,24 @@
         <item name="android:gravity">center_vertical</item>
     </style>
 
-    <style name="Theme.Light.NoTitle" parent="@android:style/Theme.Holo.Light">
-        <item name="android:actionBarStyle">@style/ActionBar.NoTitle</item>
+    <style name="TextAppearance.Title.Big" parent="@miui:style/V5.TextAppearance.Title">
+        <item name="android:textSize">35sp</item>
+        <item name="android:textStyle">normal</item>
     </style>
-    <style name="ActionBar.NoTitle" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
-        <item name="android:displayOptions"></item>
+
+    <style name="TextAppearance.Title.Medium" parent="@miui:style/V5.TextAppearance.Title">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="ActionBar.Show.Custom" parent="@miui:V5.Widget.ActionBar">
+         <item name="android:displayOptions">showCustom</item>
+    </style>
+
+    <style name="EditorActivityTheme" parent="@miui:V5.Theme.Light">
+        <item name="android:actionBarStyle">@style/ActionBar.Show.Custom</item>
+    </style>
+
+    <style name="BackupActivityTheme" parent="@miui:style/V5.Theme.Light.ActionBar.NoTitle">
+        <item name="android:windowActionBarOverlay">true</item>
     </style>
 </resources>

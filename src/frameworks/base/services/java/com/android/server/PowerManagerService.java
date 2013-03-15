@@ -3240,8 +3240,14 @@ public class PowerManagerService extends IPowerManager.Stub
             } finally {
                 Binder.restoreCallingIdentity(identity);
             }
-        } else {
-            proximityChangedLocked(mProximitySensorActive); // miui add
+        }
+        checkProximityChangedLocked();  // miui-add
+    }
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private void checkProximityChangedLocked() {
+        if(mProximitySensorEnabled) {
+            proximityChangedLocked(mProximitySensorActive);
         }
     }
 

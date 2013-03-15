@@ -17,33 +17,30 @@
 <view
     class="com.android.contacts.editor.PhotoEditorView"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/editor_type_label_width"
-    android:layout_height="@dimen/editor_type_label_width"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
     >
-    <ImageView
-        android:id="@+id/photo"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@miui:drawable/ic_contact_list_picture"
-        android:cropToPadding="true"
-        android:scaleType="centerCrop"
-        android:gravity="left"
-    />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:gravity="center"
-        android:text="@string/edit_hint"
-        android:textColor="@miui:color/primary_text_color_inverse"
-        android:background="@drawable/photo_edit_bg" />
-    <View
-        android:id="@+id/frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clickable="true"
-        android:focusable="true"
-        android:contentDescription="@string/description_contact_photo"
-        android:background="?android:attr/selectableItemBackground"
-    />
+    <FrameLayout
+        android:layout_width="@dimen/item_photo_editor_size"
+        android:layout_height="@dimen/item_photo_editor_size" >
+        <ImageView
+            android:id="@+id/photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@miui:drawable/ic_contact_picture"
+            android:cropToPadding="true"
+            android:scaleType="centerCrop"
+            android:gravity="left"
+        />
+        <View
+            android:id="@+id/frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="@string/description_contact_photo"
+            android:background="?android:attr/selectableItemBackground"
+        />
+    </FrameLayout>
 </view>

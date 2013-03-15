@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center_horizontal">
@@ -34,30 +34,37 @@
         android:textColor="@color/ip_address_text_color" />
 
     <LinearLayout
-        android:id="@+id/start_stop_button"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_marginTop="30dip"
-        android:background="@drawable/operation_panel_background"
         android:gravity="center">
         <LinearLayout
+            android:id="@+id/start_stop_button"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:background="@drawable/btn_bottom"
+            android:layout_width="@dimen/ftp_start_btn_width"
+            android:background="@miui:drawable/v5_btn_bg_light"
             android:gravity="center">
             <TextView
                 android:id="@+id/start_stop_button_text"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:textSize="18dip"
-                android:drawablePadding="6dip"
-                android:textColor="@color/remote_control_button_text_color"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:drawablePadding="@dimen/ftp_start_btn_drawable_padding"
+                android:textAppearance="@style/V5TextAppearanceYellow"/>
         </LinearLayout>
-        <ImageView
+        <LinearLayout
             android:id="@+id/ftp_setting"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:background="@drawable/ftp_setting" />
+            android:layout_width="@dimen/ftp_setting_btn_width"
+            android:background="@miui:drawable/v5_btn_bg_light"
+            android:gravity="center">
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:drawablePadding="@dimen/ftp_setting_btn_drawable_padding"
+                android:textAppearance="@miui:style/V5.TextAppearance.Button"
+                android:text="@string/server_control_settings" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

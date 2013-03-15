@@ -19,95 +19,68 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <FrameLayout
-        android:id="@+id/screen"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
-        <com.miui.home.launcher.Background
+    <com.miui.home.launcher.Background
             android:id="@+id/drag_layer_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-
-        <!-- The workspace contains 3 screens of cells -->
-        <com.miui.home.launcher.Workspace
-            android:id="@+id/workspace"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="@dimen/status_bar_height"
-            android:layout_marginBottom="@dimen/workspace_margin_bottom">
-        </com.miui.home.launcher.Workspace>
-
-        <com.miui.home.launcher.WorkspaceThumbnailView
-            android:id="@+id/workspace_preview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="@dimen/status_bar_height"
-            android:visibility="invisible" />
-
-        <com.miui.home.launcher.WidgetThumbnailView
-            android:id="@+id/widget_thumbnail_view"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/widget_box_height"
-            android:layout_gravity="bottom"
-            android:paddingLeft="10dip"
-            android:paddingRight="10dip"
-            android:visibility="invisible" />
-
-        <com.miui.home.launcher.HotSeats
-            android:id="@+id/hot_seats"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="@drawable/hotseat_background"
-            android:gravity="center"
-            android:paddingTop="@dimen/hotseats_padding_top"
-            android:paddingBottom="@dimen/hotseats_padding_bottom"
-            android:paddingLeft="@dimen/hotseats_padding_side"
-            android:paddingRight="@dimen/hotseats_padding_side"
-            android:animationCache="false" >
-        </com.miui.home.launcher.HotSeats>
-
-        <com.miui.home.launcher.DeleteZone
-            android:id="@+id/delete_zone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:background="@null"
-            android:orientation="horizontal"
-            android:visibility="invisible" >
-
-           <ImageView
-                android:id="@+id/trash"
+    <FrameLayout
+        android:id="@+id/screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foregroundGravity="top|fill_horizontal" >
+            <FrameLayout
+                android:id="@+id/screen_content"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="center"
-                android:visibility="invisible"
-                android:background="@drawable/delete_zone_selector"
-                android:src="@drawable/delete_zone_01" />
-           <TextView
-                android:id="@+id/editing_tips"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|center_horizontal"
-                android:paddingTop="13dip"
-                style="@style/WorkspaceIconTitle.notification"
-                android:text="@string/editing_tips" />
-        </com.miui.home.launcher.DeleteZone>
+                android:layout_height="match_parent"
+                android:foregroundGravity="top|fill_horizontal" >
+                <com.miui.home.launcher.Workspace
+                    android:id="@+id/workspace"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/status_bar_height"
+                    android:layout_marginBottom="@dimen/workspace_margin_bottom">
+                </com.miui.home.launcher.Workspace>
 
-        <com.miui.home.launcher.ErrorBar
-            android:id="@+id/error"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/error_background"
-            android:paddingTop="13dip"
-            android:singleLine="true"
-            android:visibility="invisible"
-            android:gravity="top|center_horizontal"
-            android:layout_gravity="top"
-            style="@style/WorkspaceIconTitle.notification" />
+                <com.miui.home.launcher.WorkspaceThumbnailView
+                    android:id="@+id/workspace_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/status_bar_height"
+                    android:visibility="invisible" />
+
+                <com.miui.home.launcher.WidgetThumbnailView
+                    android:id="@+id/widget_thumbnail_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/widget_box_height"
+                    android:layout_gravity="bottom"
+                    android:paddingLeft="10dip"
+                    android:paddingRight="10dip"
+                    android:visibility="invisible" />
+
+                <com.miui.home.launcher.HotSeats
+                    android:id="@+id/hot_seats"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hotseats_height"
+                    android:layout_gravity="bottom"
+                    android:gravity="center"
+                    android:animationCache="false" >
+                </com.miui.home.launcher.HotSeats>
+            </FrameLayout>
+        <include layout="@layout/folder_cling" />
     </FrameLayout>
-    <include layout="@layout/folder_cling" />
+    <include layout="@layout/delete_zone" />
+
+    <com.miui.home.launcher.ErrorBar
+        android:id="@+id/error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/error_background"
+        android:paddingTop="13dip"
+        android:singleLine="true"
+        android:visibility="invisible"
+        android:gravity="top|center_horizontal"
+        style="@style/WorkspaceIconTitle.notification" />
+
     <FrameLayout
         android:layout_width="1px"
         android:layout_height="match_parent"

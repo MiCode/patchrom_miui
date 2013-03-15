@@ -1,197 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:id="@+id/sv_note_edit"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="7dip">
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical">
+    <view
+        class="com.miui.notes.editor.RichEditor"
+        android:id="@+id/rich_editor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="7dip"
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        android:fadingEdgeLength="0dip">
+    </view>
 
-        <include layout="@layout/note_edit_header" />
-
-        <FrameLayout
-            android:id="@+id/sv_note_edit"
-            android:layout_width="fill_parent"
-            android:layout_height="0dip"
-            android:layout_weight="1"
-            android:paddingTop="7dip"
-            android:paddingBottom="7dip">
-
-            <view
-                class="com.miui.notes.editor.RichEditor"
-                android:id="@+id/rich_editor"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:scrollbars="none"
-                android:overScrollMode="never"
-                android:fadingEdgeLength="0dip">
-            </view>
-
-        </FrameLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/font_size_selector"
-        android:layout_width="fill_parent"
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:baselineAligned="false"
-        android:background="@drawable/font_size_selector_bg"
         android:layout_gravity="bottom"
-        android:visibility="gone">
+        android:background="@drawable/edit_bottom_cover" />
 
-        <FrameLayout
-            android:id="@+id/ll_font_small"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/font_small"
-                    android:layout_marginBottom="5dip" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/menu_font_small"
-                    android:textAppearance="@style/TextAppearanceUnderMenuIcon" />
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/iv_small_select"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
-                android:layout_marginRight="6dip"
-                android:layout_marginBottom="-7dip"
-                android:focusable="false"
-                android:visibility="gone"
-                android:src="@drawable/selected" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/ll_font_normal"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/font_normal"
-                    android:layout_marginBottom="5dip" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/menu_font_normal"
-                    android:textAppearance="@style/TextAppearanceUnderMenuIcon" />
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/iv_medium_select"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
-                android:focusable="false"
-                android:visibility="gone"
-                android:layout_marginRight="6dip"
-                android:layout_marginBottom="-7dip"
-                android:src="@drawable/selected" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/ll_font_large"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/font_large"
-                    android:layout_marginBottom="5dip" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/menu_font_large"
-                    android:textAppearance="@style/TextAppearanceUnderMenuIcon" />
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/iv_large_select"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
-                android:focusable="false"
-                android:visibility="gone"
-                android:layout_marginRight="6dip"
-                android:layout_marginBottom="-7dip"
-                android:src="@drawable/selected" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/ll_font_super"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/font_super"
-                    android:layout_marginBottom="5dip" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/menu_font_super"
-                    android:textAppearance="@style/TextAppearanceUnderMenuIcon" />
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/iv_super_select"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
-                android:focusable="false"
-                android:visibility="gone"
-                android:layout_marginRight="6dip"
-                android:layout_marginBottom="-7dip"
-                android:src="@drawable/selected" />
-        </FrameLayout>
-    </LinearLayout>
 </FrameLayout>

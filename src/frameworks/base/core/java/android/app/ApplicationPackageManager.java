@@ -56,6 +56,8 @@ import android.os.RemoteException;
 import android.os.UserId;
 import android.util.Log;
 
+import miui.content.res.IconCustomizer;
+
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -656,9 +658,9 @@ final class ApplicationPackageManager extends PackageManager {
         throw new NameNotFoundException(intent.toUri(0));
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     @Override public Drawable getDefaultActivityIcon() {
-        return Resources.getSystem().getDrawable(
-            com.android.internal.R.drawable.sym_def_app_icon);
+        return IconCustomizer.getCustomizedIcon(mContext, "sym_def_app_icon.png"); //miui hook
     }
 
     @Override public Drawable getApplicationIcon(ApplicationInfo info) {
@@ -755,8 +757,7 @@ final class ApplicationPackageManager extends PackageManager {
         mPM = pm;
     }
 
-    @MiuiHook(MiuiHookType.CHANGE_ACCESS)
-    static Drawable getCachedIcon(ResourceName name) {
+    private Drawable getCachedIcon(ResourceName name) {
         synchronized (sSync) {
             WeakReference<Drawable.ConstantState> wr = sIconCache.get(name);
             if (DEBUG_ICONS) Log.v(TAG, "Get cached weak drawable ref for "
@@ -782,8 +783,7 @@ final class ApplicationPackageManager extends PackageManager {
         return null;
     }
 
-    @MiuiHook(MiuiHookType.CHANGE_ACCESS)
-    static void putCachedIcon(ResourceName name, Drawable dr) {
+    private void putCachedIcon(ResourceName name, Drawable dr) {
         synchronized (sSync) {
             sIconCache.put(name, new WeakReference<Drawable.ConstantState>(dr.getConstantState()));
             if (DEBUG_ICONS) Log.v(TAG, "Added cached drawable state for " + name + ": " + dr);
@@ -1283,4 +1283,9 @@ final class ApplicationPackageManager extends PackageManager {
             = new HashMap<ResourceName, WeakReference<Drawable.ConstantState>>();
     private static HashMap<ResourceName, WeakReference<CharSequence>> sStringCache
             = new HashMap<ResourceName, WeakReference<CharSequence>>();
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    ContextImpl getContext() {
+        return mContext;
+    }
 }

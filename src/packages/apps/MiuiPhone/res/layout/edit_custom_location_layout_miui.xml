@@ -13,33 +13,41 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dip"
-                android:gravity="center_vertical"
-                android:text="@string/edit_custom_location_title_miui" />
-            <EditText
-                android:id="@+id/custom_number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:phoneNumber="true"
-                android:hint="@string/custom_location_number_hint_miui"
-                style="@style/Miui.TextAppearance.Primary" />
-            <EditText
-                android:id="@+id/custom_location"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:hint="@string/custom_location_location_hint_miui"
-                style="@style/Miui.TextAppearance.Primary" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dip"
-                android:gravity="center_vertical"
-                android:text="@string/number_type_miui" />
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dip"
+            android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/edit_custom_location_title_miui" />
+                <EditText
+                    android:id="@+id/custom_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dip"
+                    android:padding="10dip"
+                    android:singleLine="true"
+                    android:phoneNumber="true"
+                    android:background="?miui:attr/v5_group_item_bg"
+                    android:hint="@string/custom_location_number_hint_miui" />
+                <EditText
+                    android:id="@+id/custom_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dip"
+                    android:singleLine="true"
+                    android:background="?miui:attr/v5_group_item_bg"
+                    android:hint="@string/custom_location_location_hint_miui" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dip"
+                    android:gravity="center_vertical"
+                    android:text="@string/number_type_miui" />
+            </LinearLayout>
             <RadioGroup
                 android:id="@+id/type_group"
                 android:layout_width="match_parent"
@@ -50,22 +58,22 @@
                     android:id="@+id/type_tel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/number_type_tel_miui"
-                    style="@style/Miui.TextAppearance.RightRadioButton" />
+                    android:background="@miui:drawable/v5_preference_item_bg"
+                    android:text="@string/number_type_tel_miui" />
 
                 <RadioButton
                     android:id="@+id/type_mob"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/number_type_mob_miui"
-                    style="@style/Miui.TextAppearance.RightRadioButton" />
+                    android:background="@miui:drawable/v5_preference_item_bg"
+                    android:text="@string/number_type_mob_miui" />
 
                 <RadioButton
                     android:id="@+id/type_jituan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/number_type_jituan_miui"
-                    style="@style/Miui.TextAppearance.RightRadioButton" />
+                    android:background="@miui:drawable/v5_preference_item_bg"
+                    android:text="@string/number_type_jituan_miui" />
             </RadioGroup>
 
             <Button
@@ -73,30 +81,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dip"
-                android:background="@drawable/incall_button_red_miui"
+                style="@miui:style/V5.Widget.Button.NegativeWarn"
                 android:text="@string/remove_miui"
-                android:textColor="@android:color/white"
                 android:visibility="gone" />
         </LinearLayout>
     </ScrollView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="15dip"
         android:layout_marginTop="5dip"
         android:layout_marginBottom="5dip"
         android:orientation="horizontal">
-        <Button
-            android:id="@+id/btn_done"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@android:string/ok"
-            android:layout_marginRight="5dip" />
         <Button
             android:id="@+id/btn_discard"
             android:layout_width="0dip"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="@android:string/cancel" />
+        <Button
+            android:id="@+id/btn_done"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@android:string/ok" />
     </LinearLayout>
 </LinearLayout>

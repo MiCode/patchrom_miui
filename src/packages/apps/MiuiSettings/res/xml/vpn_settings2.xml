@@ -17,21 +17,13 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/vpn_title">
 
-    <PreferenceCategory
-            android:title="@string/vpn_safe"
-            android:persistent="false">
-        <CheckBoxPreference
-            android:key="vpn_password_enable"
-            android:title="@string/vpn_settings_password"
-            android:persistent="false" />
-    </PreferenceCategory>
+    <CheckBoxPreference
+        android:key="vpn_password_enable"
+        android:title="@string/vpn_settings_password"
+        android:persistent="false" />
 
     <PreferenceCategory android:key="vpn_configure_category"
             android:title="@string/vpn_configure"
             android:persistent="false">
-        <Preference android:key="add_network"
-                android:title="@string/vpn_create"
-                android:order="1"
-                android:persistent="false"/>
     </PreferenceCategory>
 </PreferenceScreen>

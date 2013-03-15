@@ -15,7 +15,6 @@
 -->
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#fafafa"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/event_info_padding">
@@ -124,7 +123,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="-3dip"
                     android:textSize="14sp"
-                    android:textColor="@color/event_info_headline_transparent_color"
+                    android:textColor="@color/event_info_headline_color"
                     style="?android:attr/textAppearanceLarge" />
 
                 <!-- WHERE -->
@@ -156,15 +155,11 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <TextView
+                    <ImageView
                         android:id="@+id/organizer_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:singleLine="true"
-                        android:text="@string/event_info_organizer"
-                        android:textColor="@color/event_info_organizer_color"
-                        style="?android:attr/textAppearanceSmall"
-                        android:textSize="14sp"/>
+                        android:background="@drawable/miui_ic_organizer" />
                     <TextView
                         android:id="@+id/organizer"
                         android:layout_width="0px"
@@ -172,7 +167,7 @@
                         android:ellipsize="end"
                         android:layout_weight="1"
                         android:singleLine="true"
-                        android:layout_marginLeft="2dip"
+                        android:layout_marginLeft="5dip"
                         android:textColor="@color/event_info_organizer_color"
                         style="?android:attr/textAppearanceSmall"
                         android:textSize="14sp"/>
@@ -184,6 +179,11 @@
                     layout="@layout/expandable_textview" />
 
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginBottom="5dip"
+                android:background="@color/miui_separator_color" />
 
             <!-- RESPONSE -->
             <LinearLayout
@@ -191,97 +191,48 @@
                 android:visibility="gone"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                style="@style/miui_edit_event_container_style" >
                 <TextView
                     android:id="@+id/response_label"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:paddingLeft="8dip"
-                    android:paddingRight="8dip"
-                    android:layout_marginLeft="8dip"
-                    android:layout_marginRight="8dip"
-                    android:textColor="@color/event_info_label_color"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    style="?android:attr/listSeparatorTextViewStyle"
+                    style="@style/TextAppearance.Container_Label"
                     android:text="@string/view_event_response_label" />
                 <RadioGroup
                     android:id="@+id/response_value"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="52dip"
-                    android:layout_gravity="center_vertical"
-                    android:paddingLeft="8dip"
-                    android:paddingRight="8dip"
-                    android:orientation="horizontal">
+                    style="@style/miui_radio_group">
                     <RadioButton
                         android:id="@+id/response_yes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingLeft="29dip"
-                        android:gravity="center_vertical"
-                        style="?android:attr/textAppearanceMedium"
-                        android:textColor="@color/event_info_body_color"
+                        style="@style/miui_radio_button"
+                        android:background="@drawable/miui_radio_bg_l"
                         android:text="@string/response_yes" />
                     <RadioButton
                         android:id="@+id/response_maybe"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingLeft="29dip"
-                        android:gravity="center_vertical"
-                        style="?android:attr/textAppearanceMedium"
-                        android:textColor="@color/event_info_body_color"
+                        style="@style/miui_radio_button"
+                        android:background="@drawable/miui_radio_bg_m"
                         android:text="@string/response_maybe" />
                     <RadioButton
                         android:id="@+id/response_no"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingLeft="29dip"
-                        android:gravity="center_vertical"
-                        style="?android:attr/textAppearanceMedium"
-                        android:textColor="@color/event_info_body_color"
+                        style="@style/miui_radio_button"
+                        android:background="@drawable/miui_radio_bg_r"
                         android:text="@string/response_no" />
                 </RadioGroup>
             </LinearLayout>
 
             <!-- EMAIL GUESTS -->
-            <LinearLayout
-                android:id="@+id/email_attendees_container"
-                android:visibility="gone"
-                android:orientation="vertical"
+            <Button
+                android:id="@+id/email_attendees_button"
+                android:text="@string/email_guests_label"
+                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <View
-                    android:background="?android:attr/listDivider"
-                    android:layout_height="1px"
-                    android:layout_width="match_parent"
-                    android:layout_marginLeft="8dip"
-                    android:layout_marginRight="8dip" />
-                <Button
-                    android:id="@+id/email_attendees_button"
-                    android:text="@string/email_guests_label"
-                    android:layout_height="50dp"
-                    android:layout_width="match_parent"
-                    android:layout_marginLeft="6dp"
-                    android:layout_marginRight="8dp"
-                    android:gravity="center_vertical"
-                    android:paddingBottom="0dp"
-                    android:layout_marginTop="0dip"
-                    android:layout_marginBottom="0dip"
-                    android:textAllCaps="false"
-                    android:textSize="16sp"
-                    android:textColor="#777777"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:drawableLeft="@drawable/event_info_mail_button"
-                    android:drawablePadding="8dp"
-                    style="@style/TextAppearance.EditEvent_LabelSmall" />
-            </LinearLayout>
+                android:visibility="gone"
+                android:textAllCaps="false"
+                style="@style/miui_edit_event_container_style" />
 
             <!-- LAUNCH CUSTOM APP -->
             <LinearLayout
@@ -321,52 +272,44 @@
                 android:orientation="vertical"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
+                android:paddingLeft="3dip"
+                android:paddingRight="3dip"
+                style="@style/miui_edit_event_container_style"
                 android:visibility="gone" />
 
             <!-- REMINDERS -->
-            <TextView
-                android:id="@+id/reminder_items_container_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:gravity="center_vertical"
-                android:paddingLeft="8dip"
-                android:paddingRight="8dip"
-                android:layout_marginLeft="8dip"
-                android:layout_marginRight="8dip"
-                android:layout_marginTop="4dip"
-                android:layout_marginBottom="0dip"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                style="?android:attr/listSeparatorTextViewStyle"
-                android:textColor="@color/event_info_label_color"
-                android:text="@string/event_info_reminders_label" />
             <LinearLayout
                 android:id="@+id/reminder_items_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dip"
-                android:layout_marginLeft="-8dip"
-                android:layout_marginRight="8dip"
-                android:orientation="vertical" />
-            <Button
-                android:id="@+id/reminder_add"
-                android:text="@string/reminders_label"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_gravity="center_vertical"
-                android:gravity="top"
-                android:paddingBottom="12dp"
-                android:layout_marginTop="0dip"
-                android:layout_marginBottom="0dip"
-                android:textAllCaps="false"
-                android:textSize="18sp"
-                android:textColor="#FF777777"
-                android:minHeight="20dip"
-                android:background="?android:attr/selectableItemBackground"
-                android:contentDescription="@string/accessibility_add_reminder"
-                style="@style/TextAppearance.EditEvent_LabelSmall" />
+                android:orientation="vertical"
+                style="@style/miui_edit_event_container_style">
+                <TextView
+                    android:id="@+id/reminder_items_container_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:text="@string/event_info_reminders_label"
+                    style="@style/TextAppearance.Container_Label" />
+                <LinearLayout
+                    android:id="@+id/reminder_items_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+                <Button
+                    android:id="@+id/reminder_add"
+                    android:text="@string/reminders_label"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="5dip"
+                    android:layout_marginLeft="0dip"
+                    android:layout_marginRight="0dip"
+                    android:textAllCaps="false"
+                    android:contentDescription="@string/accessibility_add_reminder"
+                    style="@style/TextAppearance.EditEvent_LabelSmall" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </FrameLayout>

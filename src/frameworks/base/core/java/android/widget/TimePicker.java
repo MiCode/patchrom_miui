@@ -36,6 +36,8 @@ import android.widget.NumberPicker.OnValueChangeListener;
 
 import com.android.internal.R;
 
+import miui.util.UiUtils;
+
 import java.text.DateFormatSymbols;
 import java.util.Calendar;
 import java.util.Locale;
@@ -56,6 +58,7 @@ import java.util.Locale;
  */
 @Widget
 public class TimePicker extends FrameLayout {
+
     @MiuiHook(MiuiHookType.NEW_METHOD)
     void callUpdateInputState() { updateInputState(); }
 
@@ -436,17 +439,28 @@ public class TimePicker extends FrameLayout {
      *
      * @param is24HourView True = 24 hour mode. False = AM/PM.
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public void setIs24HourView(Boolean is24HourView) {
         if (mIs24HourView == is24HourView) {
             return;
         }
         mIs24HourView = is24HourView;
+        changePositionState(is24HourView); // Miui hook
         // cache the current hour since spinner range changes
         int currentHour = getCurrentHour();
         updateHourControl();
         // set value after spinner range is updated
         setCurrentHour(currentHour);
         updateAmPmControl();
+    }
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private void changePositionState(boolean is24HourView) {
+        if (mMinuteSpinner instanceof miui.widget.NumberPicker) {
+            ((miui.widget.NumberPicker) mMinuteSpinner).setPositionState(
+                    is24HourView ? miui.widget.NumberPicker.STATE_LAST
+                            : miui.widget.NumberPicker.STATE_MIDDLE);
+        }
     }
 
     /**

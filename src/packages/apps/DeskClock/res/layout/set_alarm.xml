@@ -21,14 +21,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TimePicker android:id="@+id/timePicker"
+    <include layout="@layout/set_alarm_title"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"/>
+        android:layout_width="match_parent" />
 
     <ListView android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/set_alarm_list_margin_horizontal"
-        android:layout_marginRight="@dimen/set_alarm_list_margin_horizontal"
         android:layout_weight="1"/>
+
+    <TimePicker android:id="@+id/timePicker"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
 </LinearLayout>

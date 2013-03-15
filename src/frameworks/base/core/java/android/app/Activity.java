@@ -17,6 +17,8 @@
 package android.app;
 
 import miui.net.FirewallManager;
+import miui.util.UiUtils;
+
 import com.android.internal.app.ActionBarImpl;
 import com.android.internal.policy.PolicyManager;
 
@@ -64,6 +66,7 @@ import android.view.ActionMode;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.ContextThemeWrapper;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -654,6 +657,39 @@ public class Activity extends ContextThemeWrapper
             FirewallManager.checkAccessControl(activity.mParent, activity.getContentResolver(), activity.getPackageName(), activity.getPackageManager(),
                     activity.mMainThread.getApplicationThread(), activity.getToken(), activity.mEmbeddedID);
         }
+
+        static void setActivityGravity(Activity activity) {
+            if (UiUtils.isV5Ui(activity) &&
+                    UiUtils.resolveAttribute(activity, android.R.attr.windowAnimationStyle) == miui.R.style.V5_Animation_Dialog) {
+                activity.getWindow().setGravity(Gravity.BOTTOM);
+            }
+        }
+
+        static boolean onOptionsItemSelected(Activity activity, MenuItem item) {
+            if (UiUtils.isV5Ui(activity) && item.getItemId() == android.R.id.home) {
+                activity.finish();
+                return true;
+            }
+            return false;
+        }
+
+        static ActionBarImpl generateActionBar(Activity activity) {
+            return UiUtils.isV5Ui(activity) ? new com.miui.internal.v5.app.ActionBarImpl(activity) : new ActionBarImpl(activity);
+        }
+
+        static void onWindowShow(Activity activity) {
+            ActionBar actionBar = activity.getActionBar();
+            if (actionBar instanceof com.miui.internal.v5.app.ActionBarImpl) {
+                ((com.miui.internal.v5.app.ActionBarImpl) actionBar).onWindowShow();
+            }
+        }
+
+        static void onWindowHide(Activity activity) {
+            ActionBar actionBar = activity.getActionBar();
+            if (actionBar instanceof com.miui.internal.v5.app.ActionBarImpl) {
+                ((com.miui.internal.v5.app.ActionBarImpl) actionBar).onWindowHide();
+            }
+        }
     }
 
     private static final String TAG = "Activity";
@@ -880,6 +916,7 @@ public class Activity extends ContextThemeWrapper
      * @see #onRestoreInstanceState
      * @see #onPostCreate
      */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     protected void onCreate(Bundle savedInstanceState) {
         if (DEBUG_LIFECYCLE) Slog.v(TAG, "onCreate " + this + ": " + savedInstanceState);
         if (mLastNonConfigurationInstances != null) {
@@ -900,6 +937,8 @@ public class Activity extends ContextThemeWrapper
         mFragments.dispatchCreate();
         getApplication().dispatchActivityCreated(this, savedInstanceState);
         mCalled = true;
+
+        Injector.setActivityGravity(this); // Miui Hook
     }
 
     /**
@@ -1855,6 +1894,7 @@ public class Activity extends ContextThemeWrapper
      * Creates a new ActionBar, locates the inflated ActionBarView,
      * initializes the ActionBar with the view, and sets mActionBar.
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private void initActionBar() {
         Window window = getWindow();
 
@@ -1866,7 +1906,7 @@ public class Activity extends ContextThemeWrapper
             return;
         }
         
-        mActionBar = new ActionBarImpl(this);
+        mActionBar = Injector.generateActionBar(this); // Miui Hook
         mActionBar.setDefaultDisplayHomeAsUpEnabled(mEnableDefaultActionBarUp);
     }
     
@@ -2689,11 +2729,12 @@ public class Activity extends ContextThemeWrapper
      * 
      * @see #onCreateOptionsMenu
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public boolean onOptionsItemSelected(MenuItem item) {
         if (mParent != null) {
             return mParent.onOptionsItemSelected(item);
         }
-        return false;
+        return Injector.onOptionsItemSelected(this, item);
     }
 
     /**
@@ -5086,6 +5127,7 @@ public class Activity extends ContextThemeWrapper
         }
     }
     
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     final void performResume() {
         performRestart();
         
@@ -5114,9 +5156,14 @@ public class Activity extends ContextThemeWrapper
                 "Activity " + mComponent.toShortString() +
                 " did not call through to super.onPostResume()");
         }
+
+        Injector.onWindowShow(this); // Miui Hook
     }
 
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     final void performPause() {
+        Injector.onWindowHide(this); // Miui Hook
+
         mFragments.dispatchPause();
         mCalled = false;
         onPause();
@@ -5212,5 +5259,14 @@ public class Activity extends ContextThemeWrapper
                 frag.onActivityResult(requestCode, resultCode, data);
             }
         }
+    }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    public miui.v5.app.MiuiActionBar getMiuiActionBar() {
+        ActionBar bar = getActionBar();
+        return bar instanceof miui.v5.app.MiuiActionBar ? (miui.v5.app.MiuiActionBar) bar : null;
     }
 }

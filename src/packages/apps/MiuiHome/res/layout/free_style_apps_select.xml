@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="40dp"
+    android:paddingBottom="40dp"
+    android:gravity="center"
+    android:clickable="true"
+    android:background="#60000000"
+    android:orientation="vertical" >
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:clickable="true"
+        android:textSize="20sp"
+        android:textColor="#ffffffff"
+        android:shadowColor="#cd000000"
+        android:shadowDx="0"
+        android:shadowDy="3"
+        android:shadowRadius="7"
+        android:background="@drawable/free_style_apps_title_bg"
+        android:text="@string/free_style_apps_title" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:orientation="vertical" >
+        <GridView
+            android:id="@+id/folder_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:cacheColorHint="#00000000"
+            android:scrollbars="vertical"
+            android:scrollbarStyle="insideOverlay"
+            android:scrollbarThumbVertical="@drawable/folder_scrollbar_v"
+            android:verticalSpacing="2dp"
+            android:horizontalSpacing="2dp"
+            android:numColumns="@integer/config_cell_count_x"
+            android:animationCache="false"
+            android:choiceMode="multipleChoice"
+            android:listSelector="@android:color/transparent"
+            android:background="@drawable/free_style_apps_content_bg" />
+        <LinearLayout
+            android:id="@+id/buttons_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@drawable/free_style_apps_button_bg">
+            <TextView
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/free_style_apps_cancel_btn"
+                android:text="@string/cancel_btn_label"
+                style="@style/free_style_apps_btn" />
+            <TextView
+                android:id="@+id/btnOk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/free_style_apps_ok_btn"
+                android:text="@string/confirm_btn_label"
+                style="@style/free_style_apps_btn" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

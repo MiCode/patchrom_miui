@@ -25,16 +25,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="48dip"
+    android:background="@drawable/gray_action_bar_background"
     android:paddingLeft="16dip"
-    android:paddingRight="16dip"
-    android:background="?android:attr/selectableItemBackground" >
-
-    <ImageView
-        android:id="@android:id/icon"
-        android:layout_width="32dip"
-        android:layout_height="32dip"
-        android:duplicateParentState="true"
-        android:layout_gravity="center_vertical" />
+    android:paddingRight="16dip" >
 
     <TextView
         android:id="@android:id/title"
@@ -45,13 +38,19 @@
         android:duplicateParentState="true"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/action_bar_button_text_color"
-        style="@android:style/Widget.Holo.ActionBar.TabText" />
+        style="@android:style/Widget.Holo.ActionBar.TabText"/>
 
-    <ImageView
+    <FrameLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:duplicateParentState="true"
-        android:layout_gravity="center_vertical"
-        android:src="@*miui:drawable/arrow_right" />
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@android:id/icon"
+            android:layout_width="32dip"
+            android:layout_height="32dip"
+            android:duplicateParentState="true"
+            android:layout_gravity="center_vertical"/>
+
+    </FrameLayout>
 
 </LinearLayout>

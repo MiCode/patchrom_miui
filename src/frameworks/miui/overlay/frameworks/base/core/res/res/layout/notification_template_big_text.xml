@@ -30,16 +30,15 @@
         <LinearLayout
             android:id="@+id/big_text_content"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_height="@dimen/notification_height"
+            android:paddingLeft="@dimen/notification_padding_left"
+            android:paddingRight="@dimen/notification_padding_right"
             android:orientation="horizontal"
-            android:layout_marginRight="8dp"
             android:gravity="center_vertical"
-            android:paddingBottom="1dp"
             >
             <ImageView android:id="@+id/icon"
                 android:layout_width="@dimen/notification_large_icon_width"
                 android:layout_height="@dimen/notification_large_icon_height"
-                android:background="@android:drawable/notification_template_icon_bg"
                 android:scaleType="centerInside"
                 android:layout_gravity="center_vertical"
                 />
@@ -48,6 +47,7 @@
               android:layout_height="match_parent"
               android:gravity="center_vertical"
               android:orientation="vertical"
+              android:layout_marginLeft="@dimen/notification_content_margin_left_to_icon"
               android:paddingTop="2dp"
               android:paddingBottom="2dp"
               >
@@ -55,8 +55,6 @@
                   android:id="@+id/line1"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  android:layout_marginLeft="8dp"
-                  android:layout_marginRight="8dp"
                   android:orientation="horizontal"
                   >
                   <TextView android:id="@+id/title"
@@ -91,7 +89,6 @@
                   android:layout_height="wrap_content"
                   android:layout_marginTop="-2dp"
                   android:layout_marginBottom="-2dp"
-                  android:layout_marginRight="8dp"
                   android:singleLine="true"
                   android:fadingEdge="horizontal"
                   android:ellipsize="marquee"
@@ -102,7 +99,6 @@
                   android:layout_width="match_parent"
                   android:layout_height="12dp"
                   android:layout_marginBottom="8dp"
-                  android:layout_marginRight="8dp"
                   android:visibility="gone"
                   style="?android:attr/progressBarStyleHorizontal"
                   />
@@ -110,8 +106,6 @@
                   android:textAppearance="@style/TextAppearance.StatusBar.EventContent"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  android:layout_marginRight="8dp"
-                  android:layout_marginLeft="8dp"
                   android:layout_marginTop="-2dp"
                   android:singleLine="true"
                   android:visibility="gone"
@@ -119,75 +113,69 @@
                   />
               </LinearLayout>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/notification_large_icon_width"
-            android:orientation="vertical" >
-            <ImageView
+        <ImageView
                 android:layout_width="match_parent"
-                android:background="?android:attr/dividerHorizontal"
-                android:layout_height="1dip"
+                android:background="@drawable/list_dashed_divider"
+                android:layout_height="1px"
                 android:layout_marginTop="-1px"
-                android:layout_marginLeft="8dp"
                 android:id="@+id/action_divider"
                 android:visibility="gone"/>
-            <include
+         <include
                 layout="@layout/notification_action_list"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginLeft="8dp"
+                android:layout_marginLeft="@dimen/notification_content_margin_left"
                 android:visibility="gone"
                 android:layout_weight="1"
                 />
-            <ImageView
+         <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="1px"
                 android:id="@+id/overflow_divider"
                 android:layout_marginBottom="8dp"
                 android:visibility="visible"
-                android:background="?android:attr/dividerHorizontal" />
-            <LinearLayout
-                android:id="@+id/line3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginRight="8dp"
-                android:orientation="horizontal"
-                android:layout_weight="0"
-                android:gravity="center_vertical"
-                >
-                <TextView android:id="@+id/text"
-                    android:textAppearance="@style/TextAppearance.StatusBar.EventContent"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:singleLine="true"
-                    android:ellipsize="marquee"
-                    android:fadingEdge="horizontal"
-                    />
-                <TextView android:id="@+id/info"
-                    android:textAppearance="@style/TextAppearance.StatusBar.EventContent.Info"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0"
-                    android:singleLine="true"
-                    android:gravity="center"
-                    android:paddingLeft="8dp"
-                    />
-                <ImageView android:id="@+id/right_icon"
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="0"
-                    android:layout_marginLeft="8dp"
-                    android:scaleType="centerInside"
-                    android:visibility="gone"
-                    android:drawableAlpha="153"
-                    />
-            </LinearLayout>
-         </LinearLayout>
+                android:background="@drawable/list_dashed_divider" />
+          <LinearLayout
+              android:id="@+id/line3"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="8dp"
+              android:layout_marginLeft="@dimen/notification_content_margin_left"
+              android:paddingRight="@dimen/notification_padding_right"
+              android:orientation="horizontal"
+              android:gravity="center_vertical"
+              android:layout_weight="0"
+              >
+              <TextView android:id="@+id/text"
+                  android:textAppearance="@style/TextAppearance.StatusBar.EventContent"
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:layout_gravity="center"
+                  android:singleLine="true"
+                  android:ellipsize="marquee"
+                  android:fadingEdge="horizontal"
+                  />
+              <TextView android:id="@+id/info"
+                  android:textAppearance="@style/TextAppearance.StatusBar.EventContent.Info"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:layout_weight="0"
+                  android:singleLine="true"
+                  android:gravity="center"
+                  android:paddingLeft="8dp"
+                  />
+              <ImageView android:id="@+id/right_icon"
+                  android:layout_width="16dp"
+                  android:layout_height="16dp"
+                  android:layout_gravity="center"
+                  android:layout_weight="0"
+                  android:layout_marginLeft="8dp"
+                  android:scaleType="centerInside"
+                  android:visibility="gone"
+                  android:drawableAlpha="153"
+                  />
+          </LinearLayout>
     </LinearLayout>
 </FrameLayout>

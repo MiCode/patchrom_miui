@@ -21,15 +21,18 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
+    android:background="@drawable/dialpad_additional_bg_miui"
     android:orientation="horizontal">
 
     <!-- return to lock screen -->
     <Button android:id="@+id/backButton"
         android:layout_width="0px"
         android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:background="@drawable/ecc_dial_button_bg_miui"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:background="@drawable/emergency_call_button_bg_miui"
         android:text="@string/back_miui"/>
 
     <!-- Onscreen "Dial" button, used on all platforms by
@@ -38,22 +41,22 @@
     <ImageButton android:id="@+id/dialButton"
         android:layout_width="0px"
         android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
+        android:layout_height="match_parent"
+        android:gravity="center"
         android:state_enabled="false"
         android:contentDescription="@string/description_dial_button"
         android:background="@null"
-        android:src="@drawable/ic_dial_action_call_miui" />
+        android:src="@drawable/emergency_dial_action_miui" />
 
     <!-- Onscreen "Backspace/Delete" button -->
     <ImageButton android:id="@+id/deleteButton"
         android:layout_width="0px"
         android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
+        android:layout_height="match_parent"
+        android:gravity="center"
         android:state_enabled="false"
-        android:background="@drawable/ecc_dial_button_bg_miui"
+        android:background="@drawable/emergency_call_button_bg_miui"
         android:contentDescription="@string/description_delete_button"
-        android:src="@drawable/ic_dial_action_delete_miui" />
+        android:src="@drawable/emergency_dialpad_delete_btn_miui" />
 </LinearLayout>
 

@@ -17,41 +17,11 @@
         android:visibility="invisible" />
 
     <LinearLayout
-        android:id="@+id/titleArea"
+        android:id="@+id/operatorAreaShade"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:gravity="center"
-        android:paddingRight="10dip"
-        android:background="@drawable/wallpaper_detail_title_area_bg" >
-
-        <Button
-            android:id="@+id/homeAsUp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/wallpaper_detail_navigator" />
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:singleLine="true"
-            android:ellipsize="end"
-            android:textAppearance="@android:style/TextAppearance.Holo.Widget.ActionBar.Title" />
-
-        <ImageView
-            android:id="@+id/navPrevious"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/wallpaper_nav_previous" />
-
-        <ImageView
-            android:id="@+id/navNext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/wallpaper_nav_next" />
-    </LinearLayout>
+        android:layout_gravity="bottom"
+        android:background="@drawable/wallpaper_bottom_shade" />
 
     <LinearLayout
         android:id="@+id/operatorArea"
@@ -73,11 +43,14 @@
             android:id="@+id/operationBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dip"
             android:background="@drawable/wallpaper_detial_bottombar" >
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:paddingLeft="20dip"
+                android:paddingRight="20dip" >
 
                 <ImageView
                     android:id="@+id/infoButton"
@@ -99,7 +72,7 @@
                         android:layout_width="0dip"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/wallpaper_detail_op_btn"
+                        android:background="@drawable/wallpaper_op_btn_bg"
                         android:gravity="center"
                         android:text="@string/resource_preview" />
 
@@ -108,7 +81,7 @@
                         android:layout_width="0dip"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/wallpaper_detail_op_btn"
+                        android:background="@drawable/wallpaper_op_btn_bg"
                         android:gravity="center" />
                 </LinearLayout>
 

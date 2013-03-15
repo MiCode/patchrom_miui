@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_gravity="left|center_vertical"
+            android:imeOptions="actionSearch"
             />
     </FrameLayout>
 
@@ -41,5 +42,14 @@
         android:background="@drawable/v5_search_mode_mask_bg"
         android:layout_below="@id/search_wrapper"
         android:layout_alignParentLeft="true"
+        />
+
+    <FrameLayout
+        android:id="@miui:id/v5_search_result_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/search_wrapper"
+        android:layout_alignParentLeft="true"
+        android:visibility="gone"
         />
 </RelativeLayout>

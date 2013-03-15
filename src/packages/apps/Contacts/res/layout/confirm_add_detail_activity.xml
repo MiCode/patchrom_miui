@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- Layout for confirming the addition of a piece of information to an existing contact. -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:orientation="vertical"
+    android:visibility="invisible"
+    style="@style/ConfirmAddDetailViewStyle">
+
+    <!--
+      The header contains the contact photo, name, a link to the contact card, and
+      possibly an extra data field to disambiguate contacts with the same name.
+    -->
+    <RelativeLayout
+        style="@style/ConfirmAddDetailHeaderViewStyle">
+
+        <ImageView
+            android:id="@+id/photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_contact_picture_180_holo_light" />
+
+        <View
+            android:id="@+id/photo_text_bar"
+            android:layout_width="0dip"
+            android:layout_height="42dip"
+            android:layout_alignBottom="@id/photo"
+            android:layout_alignLeft="@id/photo"
+            android:layout_alignRight="@id/photo"
+            android:background="#7F000000" />
+
+        <ImageButton
+            android:id="@+id/open_details_button"
+            android:src="@drawable/ic_contacts_holo_dark"
+            android:background="?android:attr/selectableItemBackground"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="16dip"
+            android:layout_marginBottom="5dip"
+            android:layout_alignBottom="@id/photo_text_bar"
+            android:layout_alignRight="@id/photo_text_bar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dip"
+            android:orientation="vertical"
+            android:layout_alignBottom="@id/photo"
+            android:layout_alignLeft="@id/photo"
+            android:layout_toLeftOf="@id/open_details_button"
+            android:paddingRight="8dip"
+            android:paddingLeft="8dip">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:paddingLeft="8dip"
+                android:gravity="center_vertical"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/extra_info"
+                android:layout_width="wrap_content"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:paddingLeft="8dip"
+                android:gravity="center_vertical"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@android:color/white"
+                android:singleLine="true"
+                android:paddingBottom="4dip"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/open_details_push_layer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground" />
+
+    </RelativeLayout>
+
+    <!-- Message that gets displayed if the contact is read-only (instead of showing the editor) -->
+    <TextView android:id="@+id/read_only_warning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="60dip"
+        android:visibility="gone"
+        android:padding="15dip"
+        android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+    <!-- Container for a single detail field editor when the contact is not read-only -->
+    <FrameLayout
+        android:id="@+id/editor_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="60dip"
+        android:layout_marginTop="4dip"
+        android:layout_marginRight="15dip"/>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="?android:attr/listDivider"/>
+
+    <!-- Action buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        style="?android:attr/buttonBarStyle">
+
+        <Button
+            android:id="@+id/btn_cancel"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@android:string/cancel" />
+
+        <Button
+            android:id="@+id/btn_done"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@android:string/ok" />
+
+    </LinearLayout>
+
+</LinearLayout>

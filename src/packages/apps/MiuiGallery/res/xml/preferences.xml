@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
+    <PreferenceCategory android:title="@string/browse_category" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="show_hidden_album"
+            android:title="@string/show_hidden_album" />
+        <!--  only remove preference entry now, keep other related code for potential restore
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="auto_create_recent_album"
+            android:title="@string/auto_create_recent_album"
+            android:summary="@string/auto_create_recent_album_over_ten_times" />
+            -->
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/slideshow_category" >
         <EditTextPreference
             android:defaultValue="2"
@@ -16,19 +30,11 @@
     <PreferenceCategory
         android:title="@string/other_category"
         android:key="other_settings" >
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="show_hidden_album"
-            android:title="@string/show_hidden_album" />
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="auto_create_recent_album"
-            android:title="@string/auto_create_recent_album"
-            android:summary="@string/auto_create_recent_album_over_ten_times" />
-<!--        <CheckBoxPreference-->
-<!--            android:defaultValue="true"-->
-<!--            android:key="expand_album_in_home_page"-->
-<!--            android:title="@string/expand_album_in_home_page" />-->
+        <Preference
+            android:key="cloud_album_more_settings"
+            android:persistent="false"
+            android:title="@string/cloud_album_more_settings"
+            />
         <Preference
             android:key="clear_thumbnail_cache"
             android:persistent="false"

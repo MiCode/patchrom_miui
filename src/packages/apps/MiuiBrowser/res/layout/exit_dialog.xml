@@ -17,83 +17,94 @@
 <!-- 竖屏时可能需要滑动 -->
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/common_content_padding">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <!-- 消息 -->
-        <TextView
-            android:layout_width="wrap_content"
+        <ImageView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/exit_browser_warning"
-            android:paddingLeft="@dimen/common_content_padding"
-            android:minHeight="@dimen/popup_filter_icon_size"/>
-
+            android:background="@drawable/first_list_item_top_line" />
         <!-- 清除缓存 -->
-        <LinearLayout android:id="@+id/clear_cache"
+        <LinearLayout
+            android:id="@+id/clear_cache"
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageView
+            android:minHeight="@dimen/widgetItemMinHeight"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@miui:style/V5.Widget.ListView.Item">
+            <CheckBox
                 android:id="@+id/checkbox"
+                android:focusable="false"
+                android:clickable="false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scaleType="fitCenter"
-                android:src="@miui:drawable/android_btn_check_off_holo_light"/>
+                android:gravity="left"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip" />
             <TextView
                 android:id="@+id/label"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/pref_privacy_clear_cache"/>
+                android:text="@string/pref_privacy_clear_cache" />
         </LinearLayout>
 
         <!-- 清除历史记录 -->
-        <LinearLayout android:id="@+id/clear_history"
+        <LinearLayout
+            android:id="@+id/clear_history"
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageView
+            android:minHeight="@dimen/widgetItemMinHeight"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@miui:style/V5.Widget.ListView.Item">
+            <CheckBox
                 android:id="@+id/checkbox"
+                android:focusable="false"
+                android:clickable="false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scaleType="fitCenter"
-                android:src="@miui:drawable/android_btn_check_off_holo_light"/>
+                android:gravity="left"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip" />
             <TextView
                 android:id="@+id/label"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/clear_history"/>
+                android:text="@string/clear_history" />
         </LinearLayout>
 
         <!-- 不再提醒 -->
-        <LinearLayout android:id="@+id/not_remind_again"
+        <LinearLayout
+            android:id="@+id/not_remind_again"
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageView
+            android:minHeight="@dimen/widgetItemMinHeight"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@miui:style/V5.Widget.ListView.Item">
+            <CheckBox
                 android:id="@+id/checkbox"
+                android:focusable="false"
+                android:clickable="false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scaleType="fitCenter"
-                android:src="@miui:drawable/android_btn_check_off_holo_light"/>
+                android:gravity="left"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip" />
             <TextView
                 android:id="@+id/label"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/not_remind_again"/>
+                android:text="@string/not_remind_again" />
         </LinearLayout>
 
     </LinearLayout>

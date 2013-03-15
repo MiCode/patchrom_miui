@@ -16,26 +16,24 @@
 
 <com.android.contacts.editor.GroupMembershipView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/group_membership_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginBottom="8dip">
 
     <include
         layout="@layout/edit_kind_title" />
 
     <Button
-        style="?android:attr/spinnerStyle"
+        style="@miui:style/V5.Widget.Spinner"
         android:id="@+id/group_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="@dimen/editor_min_line_item_height"
-        android:layout_marginLeft="@dimen/detail_and_edit_section_margin_left"
-        android:layout_marginRight="@dimen/detail_and_edit_section_margin_left"
-        android:layout_marginTop="@dimen/detail_and_edit_section_margin_top"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"
         android:gravity="left|center_vertical"
         android:focusable="true"
-        android:paddingLeft="12dip"
-        android:background="@drawable/spinner_bg"/>
+        android:paddingLeft="10dip" />
 
 </com.android.contacts.editor.GroupMembershipView>

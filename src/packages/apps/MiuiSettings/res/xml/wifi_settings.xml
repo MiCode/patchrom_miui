@@ -16,11 +16,13 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/wifi_settings_category">
-    <PreferenceCategory
-         android:key="nearby_wifi"
-         android:title="@string/nearby_wifi"/>
+    <CheckBoxPreference
+            android:key="wifi_enable"
+            android:order ="1"
+            android:title="@string/wifi_enable"/>
     <PreferenceCategory
          android:key="wifi_settings"
+         android:order="3"
          android:title="@string/wifi_settings_category">
          <CheckBoxPreference
             android:key="notify_open_networks"
@@ -38,6 +40,7 @@
 
     <PreferenceCategory
          android:key="wifi_add_network"
+         android:order="4"
          android:title="@string/wifi_add_network">
          <Preference
             android:key="manually_add_network"

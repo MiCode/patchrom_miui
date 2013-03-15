@@ -57,6 +57,7 @@ import android.os.PowerManager;
 import android.os.Process;
 import android.os.RemoteException;
 import android.os.SystemClock;
+import android.os.SystemProperties;
 import android.os.UserId;
 import android.util.EventLog;
 import android.util.Log;
@@ -408,6 +409,7 @@ final class ActivityStack {
         }
     };
     
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     ActivityStack(ActivityManagerService service, Context context, boolean mainStack) {
         mService = service;
         mContext = context;
@@ -417,6 +419,7 @@ final class ActivityStack {
         mGoingToSleep = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "ActivityManager-Sleep");
         mLaunchingActivity = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "ActivityManager-Launch");
         mLaunchingActivity.setReferenceCounted(false);
+        mCpuBooster = new CpuBooster(mService, mHandler);
     }
     
     final ActivityRecord topRunningActivityLocked(ActivityRecord notTop) {
@@ -1379,8 +1382,18 @@ final class ActivityStack {
      * @return Returns true if something is being resumed, or false if
      * nothing happened.
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     final boolean resumeTopActivityLocked(ActivityRecord prev) {
-        return resumeTopActivityLocked(prev, null);
+        return setForegroundProcess(resumeTopActivityLocked(prev, null)); // miui modify
+    }
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    boolean setForegroundProcess(boolean resumed) {
+        ActivityRecord next = topRunningActivityLocked(null);
+        if (next != null && resumed) {
+            SystemProperties.set("sys.foreground_process", next.processName);
+        }
+        return resumed;
     }
 
     final boolean resumeTopActivityLocked(ActivityRecord prev, Bundle options) {
@@ -2383,12 +2396,71 @@ final class ActivityStack {
         return newTop;
     }
 
+    @MiuiHook(MiuiHookType.NEW_FIELD)
+    private CpuBooster mCpuBooster = null;
+    @MiuiHook(MiuiHookType.NEW_CLASS)
+    private static final class CpuBooster {
+        // How long we wait until we timeout on cpu-boost for launching app
+        private static final int BOOST_CPU_TIMEOUT = 1000;
+        // Cpu scaling sample interval
+        private static final int CPU_SCALING_SAMPLE_INTERVAL = 40;
+
+        CpuBooster(ActivityManagerService service, Handler hdl) {
+            mService = service;
+            mHandler = hdl;
+        }
+
+        public void start() {
+            reset();
+            next();
+        }
+
+        public void reset() {
+            mStartTime = currTime();
+        }
+
+        // boost cpu, and then post message to launch another boost recursively
+        private void next() {
+            if (boostable() && !timeout()) {
+                miui.os.Shell.boostCpuPulse();
+                mHandler.postAtTime(new Runnable() {
+                    @Override
+                    public void run() {
+                        next();
+                    }
+                }, nextTime());
+            }
+        }
+
+        private long currTime() {
+            return SystemClock.uptimeMillis();
+        }
+
+        // next boost time
+        private long nextTime() {
+            return currTime() + CPU_SCALING_SAMPLE_INTERVAL;
+        }
+
+        private boolean boostable() {
+            return  mService.mSystemReady && !mService.isSleeping();
+        }
+
+        // is boost time out
+        private boolean timeout() {
+            return currTime() >= mStartTime+BOOST_CPU_TIMEOUT;
+        }
+
+        ActivityManagerService mService = null;
+        Handler mHandler = null;
+        private long mStartTime = 0;
+    }
+
     final int startActivityLocked(IApplicationThread caller,
             Intent intent, String resolvedType, ActivityInfo aInfo, IBinder resultTo,
             String resultWho, int requestCode,
             int callingPid, int callingUid, int startFlags, Bundle options,
             boolean componentSpecified, ActivityRecord[] outActivity) {
-
+        mCpuBooster.start();
         int err = ActivityManager.START_SUCCESS;
 
         ProcessRecord callerApp = null;

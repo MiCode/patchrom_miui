@@ -22,12 +22,10 @@
 
     <!-- See group_browse_list_item.xml for the reason for the transparent android:listSelector -->
     <view
-      android:id="@+id/list"
+      android:id="@android:id/list"
       class="com.android.contacts.widget.AutoScrollListView"
       android:layout_width="match_parent"
       android:layout_height="0dip"
-      android:paddingLeft="16dip"
-      android:paddingRight="16dip"
       android:scrollbarStyle="outsideOverlay"
       android:layout_weight="1"
       android:fadingEdge="none"
@@ -35,27 +33,7 @@
       android:divider="@null"
       android:listSelector="@android:color/transparent"/>
 
-    <LinearLayout
-        android:id="@+id/empty"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical"
-        android:orientation="vertical" >
-        <ImageView
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:src="@drawable/list_empty_image" />
-        <TextView
-            android:id="@+id/empty_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/noGroups"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="@dimen/empty_message_margin_top"
-            android:layout_marginBottom="@dimen/empty_message_margin_bottom"
-            android:textColor="?android:attr/textColorSecondary"
-            android:textAppearance="?android:attr/textAppearanceSmall"/>
-    </LinearLayout>
+    <include layout="@layout/list_empty_view"/>
 
     <LinearLayout
       android:id="@+id/add_accounts"

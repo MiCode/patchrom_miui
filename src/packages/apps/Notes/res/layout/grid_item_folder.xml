@@ -5,65 +5,39 @@
     class="com.miui.notes.ui.GridFolderItem"
     android:layout_width="@dimen/grid_item_width"
     android:layout_height="@dimen/grid_item_height"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginBottom="5dip"
     android:background="@drawable/grid_folder_yellow">
 
-    <TextView
-        android:id="@+id/note_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/grid_folder_title_margin_top"
-        android:layout_marginLeft="25dip"
-        android:layout_alignParentTop="true"
-        android:singleLine="true"
-        android:ellipsize="end"
-        android:textColor="@color/grid_folder_title_yellow"
-        android:textAppearance="@style/TextAppearanceGridItemTitle" />
-
     <FrameLayout
-        android:id="@+id/note_image_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/note_title"
-        android:layout_marginTop="@dimen/grid_folder_image_layout_margin_top">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/note_image"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/note_title"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/grid_folder_image_margin_left" />
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:drawableTop="@drawable/ic_grid_folder"
+            android:textAppearance="@style/TextAppearance.Grid" />
 
     </FrameLayout>
 
     <LinearLayout
         android:id="@+id/note_indicators"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/grid_indicator_layout_height"
         android:layout_alignParentBottom="true"
-        android:paddingRight="12dip"
+        android:paddingRight="@dimen/grid_indicator_padding_right"
         android:paddingBottom="@dimen/grid_indicator_padding_bottom"
-        android:gravity="right"
+        android:gravity="right|center_vertical"
         android:orientation="horizontal">
 
         <include layout="@layout/note_item_indicators" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/note_content"
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_below="@id/note_image_layout"
-        android:layout_above="@id/note_indicators"
-        android:maxLines="@integer/grid_folder_text_max_lines"
-        android:textAppearance="@style/TextAppearanceGridItemContent"
-        style="@style/GridTextStyle" />
-
-    <ImageView
-        android:id="@+id/note_title_anchor"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/grid_folder_anchor" />
 
 </view>

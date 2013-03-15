@@ -3,53 +3,166 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    style="@style/Background">
+    android:layout_height="match_parent" >
+
     <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="2dip"
-        android:paddingRight="@dimen/main_padding"
-        android:paddingLeft="@dimen/main_padding"
+        android:layout_marginTop="@dimen/main_padding"
         android:orientation="vertical" >
-        <Button
-            android:id="@+id/edit_button"
-            android:text="@string/edit_comment"
-            android:layout_marginTop="@dimen/common_padding"
-            style="@style/Button.Large" />
+
         <TextView
             android:id="@+id/display_text"
+            style="@style/TextAppearance.Primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/common_padding"
-            style="@style/TextAppearance.Primary" />
+            android:paddingLeft="@dimen/common_padding" />
+
         <RatingBar
             android:id="@+id/ratingbar"
+            style="@style/RatingBar.ReadOnly.Large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/common_padding"
-            style="@style/RatingBar.ReadOnly" />
+            android:layout_marginLeft="10dip" />
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_padding"
+        android:paddingLeft="@dimen/common_padding"
+        android:paddingRight="@dimen/common_padding" >
+
+        <RatingBar
+            style="@style/RatingBar.ReadOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rating="5" />
+
+        <ProgressBar
+            android:id="@+id/five_star_progress"
+            style="@style/ProgressBar.ReadOnly"
+            android:layout_marginLeft="@dimen/common_padding"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/common_padding"
+        android:paddingRight="@dimen/common_padding" >
+
+        <RatingBar
+            style="@style/RatingBar.ReadOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rating="4" />
+
+        <ProgressBar
+            android:id="@+id/four_star_progress"
+            style="@style/ProgressBar.ReadOnly"
+            android:layout_marginLeft="@dimen/common_padding"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/common_padding"
+        android:paddingRight="@dimen/common_padding" >
+
+        <RatingBar
+            style="@style/RatingBar.ReadOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rating="3" />
+
+        <ProgressBar
+            android:id="@+id/three_star_progress"
+            style="@style/ProgressBar.ReadOnly"
+            android:layout_marginLeft="@dimen/common_padding"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/common_padding"
+        android:paddingRight="@dimen/common_padding" >
+
+        <RatingBar
+            style="@style/RatingBar.ReadOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rating="2" />
+
+        <ProgressBar
+            android:id="@+id/two_star_progress"
+            style="@style/ProgressBar.ReadOnly"
+            android:layout_marginLeft="@dimen/common_padding"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/common_padding"
+        android:paddingRight="@dimen/common_padding" >
+
+        <RatingBar
+            style="@style/RatingBar.ReadOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rating="1" />
+
+        <ProgressBar
+            android:id="@+id/one_star_progress"
+            style="@style/ProgressBar.ReadOnly"
+            android:layout_marginLeft="@dimen/common_padding" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/common_padding"
+        android:paddingRight="@dimen/common_padding"
+        android:layout_marginTop="@dimen/common_padding">
+
+            <Button
+                android:id="@+id/all_comments"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/all_comment_btn"
+                android:enabled="false"
+                android:textColor="@color/text_color_primary"
+                android:text="@string/all_comments" />
+
+            <Button
+                android:id="@+id/good_comments"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/good_comment_btn"
+                android:textColor="@color/text_color_primary"
+                android:text="@string/good_comments" />
+
+            <Button
+                android:id="@+id/bad_comments"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bad_comment_btn"
+                android:textColor="@color/text_color_primary"
+                android:text="@string/bad_comments" />
+
+    </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/divider"
-        android:layout_marginLeft="@dimen/main_padding"
-        android:layout_marginRight="@dimen/main_padding"
+        android:layout_marginTop="@dimen/common_padding"
         android:background="@drawable/divider_bg" />
+
     <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <com.xiaomi.market.widget.PaddingListView
-            android:id="@+id/app_comments_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            style="@style/ListView" />
-        <com.xiaomi.market.ui.EmptyLoadingView
-            android:id="@+id/loading"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom"
-            android:gravity="center"/>
-    </FrameLayout>
+        android:layout_height="match_parent" />
+
 </LinearLayout>

@@ -1,68 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Activity 主题 -->
-    <style name="Theme.Holo.Light" parent="@style/Theme.Sherlock.Light" />
 
-    <style name="Theme.Holo.Light.Dialog" parent="Theme.Holo.Light" >
-        <item name="windowAnimationStyle">@android:style/Animation.Translucent</item>
-        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowIsTranslucent">true</item>
+    <!-- Activity Style -->
+    <style name="Theme.Light" parent="@miui:style/V5.Theme.Light">
+        <item name="miui:v5_action_bar_tab">true</item>
     </style>
 
-    <style name="Theme.Holo.Light.Overlay" parent="Theme.Holo.Light" >
-        <item name="windowActionBarOverlay">true</item>
-        <item name="android:windowActionBarOverlay">true</item>
+    <style name="Theme.Light.MarketTab">
+        <item name="android:homeAsUpIndicator">@null</item>
+        <item name="android:actionBarStyle">@style/ActionBar.MarketTab</item>
     </style>
 
-    <style name="Theme.Holo.Light.Normal" parent="Theme.Holo.Light.Overlay" >
-        <item name="actionBarStyle">@style/Theme.Holo.Light.ActionBar</item>
-        <item name="android:actionBarStyle">@style/Theme.Holo.Light.ActionBar</item>
+    <style name="Theme.Light.NoTitle" parent="@miui:style/V5.Theme.Light.NoTitle" />
+
+    <style name="Theme.Light.Settings" parent="@miui:style/V5.Theme.Light.Settings" />
+
+    <style name="Theme.Light.Settings.NoTitle" parent="@miui:style/V5.Theme.Light.Settings.NoTitle" />
+
+    <style name="Theme.Light.TopTransparent" parent="@miui:style/V5.Theme.Light">
+        <item name="android:windowBackground">@drawable/window_bg_transparent_top</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
     </style>
 
-    <style name="Theme.Holo.Light.TitleLine" parent="Theme.Holo.Light.Overlay">
-        <item name="actionBarStyle">@style/Theme.Holo.Light.ActionBar.TitleLine</item>
-        <item name="android:actionBarStyle">@style/Theme.Holo.Light.ActionBar.TitleLine</item>
-    </style>
+    <style name="Theme.Light.Dialog" parent="@miui:style/V5.Theme.Light.Dialog" />
 
-    <style name="Theme.Holo.Light.NoOverlay" parent="Theme.Holo.Light" >
-        <item name="actionBarStyle">@style/Theme.Holo.Light.ActionBar</item>
-        <item name="android:actionBarStyle">@style/Theme.Holo.Light.ActionBar</item>
-    </style>
+    <!-- Widget Style -->
+    <style name="ActionBar" parent="@miui:style/V5.Widget.ActionBar" />
 
-    <style name="Theme.Holo.Light.NoOverlay.TitleLine" parent="Theme.Holo.Light">
-        <item name="actionBarStyle">@style/Theme.Holo.Light.ActionBar.TitleLine</item>
-        <item name="android:actionBarStyle">@style/Theme.Holo.Light.ActionBar.TitleLine</item>
-    </style>
-
-    <style name="Theme.Holo.Light.ActionBar" parent="Widget.Sherlock.Light.ActionBar.Solid">
-        <item name="background">@null</item>
-        <item name="android:background">@null</item>
-        <item name="icon">@drawable/logo</item>
-        <item name="android:icon">@drawable/logo</item>
-        <item name="logo">@drawable/logo</item>
+    <style name="ActionBar.MarketTab">
+        <item name="android:displayOptions">useLogo|showHome|showTitle</item>
         <item name="android:logo">@drawable/logo</item>
     </style>
 
-    <style name="Theme.Holo.Light.ActionBar.TitleLine">
-        <item name="background">@drawable/title_line_bg</item>
-        <item name="android:background">@drawable/title_line_bg</item>
-    </style>
-
-    <style name="Background">
-        <item name="android:paddingTop">@dimen/main_padding_top</item>
-        <item name="android:background">@drawable/main_bg</item>
-    </style>
-
-    <style name="Background.LargeTitle">
-        <item name="android:paddingTop">@dimen/main_padding_top_large</item>
-    </style>
-
-    <style name="Background.Split">
-        <item name="android:paddingBottom">@dimen/main_padding_bottom</item>
-    </style>
-
-    <!-- 样式 -->
     <style name="Button">
         <item name="android:background">@drawable/common_btn</item>
         <item name="android:textAppearance">@style/TextAppearance.Button</item>
@@ -81,9 +50,8 @@
         <item name="android:background">@drawable/action_btn</item>
         <item name="android:textAppearance">@style/TextAppearance.Button.Action</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:minWidth">@dimen/action_button_width</item>
-        <item name="android:minHeight">@dimen/action_button_height</item>
         <item name="android:gravity">center</item>
     </style>
 
@@ -96,12 +64,45 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="Button.ExpandAll">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">@drawable/expand_all_bg</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:text">@string/expand_full_text</item>
+        <item name="android:textSize">@dimen/text_font_size_small</item>
+        <item name="android:textColor">@color/text_color_secondary</item>
+        <item name="android:layout_marginTop">@dimen/common_padding</item>
+    </style>
+
+    <style name="GridView">
+        <item name="android:paddingTop">5dip</item>
+        <item name="android:paddingBottom">5dip</item>
+        <item name="android:paddingLeft">3dip</item>
+        <item name="android:paddingRight">3dip</item>
+        <item name="android:numColumns">2</item>
+        <item name="android:verticalSpacing">3dip</item>
+        <item name="android:stretchMode">columnWidth</item>
+        <item name="android:gravity">center</item>
+    </style>
+
     <style name="ListView">
         <item name="android:cacheColorHint">@null</item>
         <item name="android:scrollbarStyle">outsideOverlay</item>
         <item name="android:fastScrollEnabled">true</item>
         <item name="android:divider">@null</item>
         <item name="android:fadingEdge">@null</item>
+    </style>
+
+    <style name="ListViewItem">
+        <item name="android:background">@miui:drawable/v5_list_view_item_bg_light</item>
+        <item name="android:paddingLeft">@dimen/main_padding</item>
+        <item name="android:paddingRight">@dimen/main_padding</item>
+    </style>
+
+    <style name="ListViewGroupSplitter" parent="@miui:style/V5.TextAppearance.Label">
+        <item name="android:background">@drawable/list_splitter</item>
     </style>
 
     <!-- ratingBar style -->
@@ -115,14 +116,34 @@
     </style>
 
     <style name="RatingBar.ReadOnly" parent="@android:style/Widget.RatingBar">
+        <item name="android:gravity">center_vertical</item>
         <item name="android:progressDrawable">@drawable/ratingbar_readonly</item>
-        <item name="android:isIndicator">true</item>"
+        <item name="android:isIndicator">true</item>
         <item name="android:stepSize">0.5</item>
         <item name="android:maxHeight">@dimen/ratingbar_readonly_size</item>
         <item name="android:minHeight">@dimen/ratingbar_readonly_size</item>
     </style>
 
-    <!-- 字体 -->
+    <style name="RatingBar.ReadOnly.Large">
+        <item name="android:maxHeight">@dimen/ratingbar_size</item>
+        <item name="android:minHeight">@dimen/ratingbar_size</item>
+        <item name="android:progressDrawable">@drawable/ratingbar</item>
+    </style>
+
+    <!-- progressBar style -->
+    <style name="ProgressBar" />
+
+    <style name="ProgressBar.ReadOnly" parent="@android:Widget.ProgressBar.Horizontal">
+        <item name="android:background">@null</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:max">100</item>
+        <item name="android:progressDrawable">@drawable/progressbar_readonly</item>
+        <item name="android:minHeight">@dimen/comment_progressbar_height</item>
+        <item name="android:maxHeight">@dimen/comment_progressbar_height</item>
+    </style>
+
+    <!-- Text Appearance -->
     <style name="TextAppearance">
         <item name="android:textColorHighlight">@color/text_color_highlight</item>
         <item name="android:textColorLink">@color/text_color_link</item>
@@ -132,57 +153,63 @@
         <item name="android:shadowRadius">1.0</item>
     </style>
 
-    <style name="TextAppearance.Primary"><!-- 需要反色 -->
+    <style name="TextAppearance.Primary"> <!-- 需要反色 -->
         <item name="android:textColor">@color/primary_text</item>
         <item name="android:textSize">@dimen/text_font_size_huge</item>
     </style>
 
-    <style name="TextAppearance.Secondary"><!-- 需要反色 -->
+    <style name="TextAppearance.Secondary"> <!-- 需要反色 -->
         <item name="android:textColor">@color/secondary_text</item>
         <item name="android:textSize">@dimen/text_font_size_small</item>
     </style>
 
-    <style name="TextAppearance.Content"><!-- 不需要反色 -->
+    <style name="TextAppearance.Content"> <!-- 不需要反色 -->
         <item name="android:textColor">@color/text_color_primary</item>
         <item name="android:textSize">@dimen/text_font_size_medium</item>
     </style>
 
-    <style name="TextAppearance.Subject"><!-- 不需要反色 -->
+    <style name="TextAppearance.Subject"> <!-- 不需要反色 -->
         <item name="android:textColor">@color/text_color_secondary</item>
         <item name="android:textSize">@dimen/text_font_size_medium</item>
     </style>
 
-    <style name="TextAppearance.Editor" parent="android:style/TextAppearance.Widget.EditText"><!-- 不需要反色 -->
+    <style name="TextAppearance.Editor" parent="android:style/TextAppearance.Widget.EditText"> <!-- 不需要反色 -->
         <item name="android:textColor">@color/text_color_primary</item>
         <item name="android:textSize">@dimen/text_font_size_large</item>
     </style>
 
-    <style name="TextAppearance.Button" parent="TextAppearance.Primary"/><!-- 需要反色 -->
+    <style name="TextAppearance.Button" parent="TextAppearance.Primary" /> <!-- 需要反色 -->
 
-    <style name="TextAppearance.Button.Action"><!-- 需要反色 -->
+    <style name="TextAppearance.Button.Action"> <!-- 需要反色 -->
         <item name="android:textSize">@dimen/text_font_size_small</item>
     </style>
 
-    <style name="TextAppearance.Button.Action.Price"><!-- 需要反色 -->
+    <style name="TextAppearance.Button.Action.Price"> <!-- 需要反色 -->
         <item name="android:textColor">@color/highlight_text</item>
     </style>
 
-    <style name="TextAppearance.Button.Large" /><!-- 需要反色 -->
+    <style name="TextAppearance.Button.Large" /> <!-- 需要反色 -->
 
-    <style name="TextAppearance.Button.Large.Primary"><!-- 需要反色 -->
+    <style name="TextAppearance.Button.Large.Primary"> <!-- 需要反色 -->
         <item name="android:textSize">@dimen/text_font_size_large</item>
     </style>
 
-    <style name="TextAppearance.Button.Large.Primary.Price"><!-- 需要反色 -->
+    <style name="TextAppearance.Button.Large.Primary.Price"> <!-- 需要反色 -->
         <item name="android:textColor">@color/highlight_text</item>
     </style>
 
-    <style name="TextAppearance.Button.Large.Secondary"><!-- 需要反色 -->
+    <style name="TextAppearance.Button.Large.Secondary"> <!-- 需要反色 -->
         <item name="android:textSize">@dimen/text_font_size_small</item>
     </style>
 
-    <style name="TextAppearance.Button.Tab" ><!-- 需要反色和选中状态 -->
+    <style name="TextAppearance.Button.Tab"> <!-- 需要反色和选中状态 -->
         <item name="android:textColor">@color/tab_text</item>
         <item name="android:textSize">@dimen/text_font_size_medium</item>
     </style>
+
+    <style name="TextAppearance.Button.BottomAction"> <!-- 需要反色 -->
+        <item name="android:textColor">@color/bottom_bar_text</item>
+        <item name="android:textSize">@dimen/text_font_size_huge</item>
+    </style>
+
 </resources>

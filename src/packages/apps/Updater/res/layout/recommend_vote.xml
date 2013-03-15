@@ -1,50 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:paddingTop="20dip"
+    android:paddingRight="20dip"
+    android:paddingLeft="20dip">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-        <View
-            android:id="@+id/titleDividerTop"
-            android:layout_width="match_parent"
-            android:layout_height="2dip"
-            android:background="@android:color/holo_orange_light" />
-        <RadioButton
-            android:id="@+id/recommend"
-            android:text="@string/recommend"
-            android:layout_marginRight="10dip"
-            android:layout_marginLeft="10dip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <RadioButton android:id="@+id/not_recommend"
-            android:layout_marginRight="10dip"
-            android:layout_marginLeft="10dip"
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/is_recommend"
             android:layout_height="wrap_content"
-            android:text="@string/not_recommend"/>
+            android:layout_width="match_parent">
+            <RadioButton
+                android:id="@+id/recommend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dip"
+                android:text="@string/recommend"
+                android:background="@miui:drawable/v5_group_item_bg_light"
+                android:checked="true"/>
+            <RadioButton
+                android:id="@+id/not_recommend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dip"
+                android:text="@string/not_recommend"
+                android:background="@miui:drawable/v5_group_item_bg_light"/>
+        </RadioGroup>
         <EditText
             android:id="@+id/comment"
             style="@style/TextAppearance.Medium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="200dip"
-            android:layout_margin="10dip"
+            android:layout_marginTop="20dip"
+            android:minHeight="105dip"
             android:maxLength="200"
             android:hint="@string/recommend_comment_hint"
+            android:inputType="textMultiLine"
             android:gravity="top|left"/>
-        <Button
-            android:id="@+id/submit"
-            style="@style/TextAppearance.Medium"
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"/>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/submit"
-            android:layout_marginBottom="10dip"
-            android:paddingTop="5dip"
-            android:paddingBottom="5dip"
-            android:layout_marginRight="10dip"
-            android:layout_marginLeft="10dip"/>
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="10dip">
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/apply_update_dialog_cancel_button"/>
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/submit"/>
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

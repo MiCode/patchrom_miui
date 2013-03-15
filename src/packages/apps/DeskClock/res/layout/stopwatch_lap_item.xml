@@ -1,29 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/stopwatch_list_item_bg"
-    android:gravity="center_vertical"
-    android:paddingLeft="@dimen/stopwatch_lap_item_padding_horizontal"
-    android:paddingRight="@dimen/stopwatch_lap_item_padding_horizontal">
-    <TextView android:id="@+id/indexTime"
-        android:textAppearance="?android:attr/textAppearanceLargeInverse"
+    style="@style/DeskClockListItemDoubleLineStyle"
+    android:background="@drawable/list_item_bg"
+    android:paddingLeft="@dimen/stopwatch_lap_item_padding_left"
+    android:paddingRight="@dimen/stopwatch_lap_item_padding_right">
+    <miui.widget.ImageTextView
+        android:id="@+id/indexTime"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textColor="@android:color/white" />
-    <View android:layout_height="wrap_content"
+        android:entries="@array/duration_entries"
+        android:entryValues="@array/duration_entryValues" />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="@string/lap_num"
+        android:paddingLeft="@dimen/timer_lap_num_paddingleft"
+        style="@miui:style/V5.TextAppearance.List.Secondary" />
+    <LinearLayout
         android:layout_width="0dip"
-        android:layout_weight="1" />
-    <TextView android:id="@+id/elapsedTime"
-        android:textAppearance="?android:attr/textAppearanceLargeInverse"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <miui.widget.ImageTextView
+            android:id="@+id/elapsedTime"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:entries="@array/duration_entries"
+            android:entryValues="@array/duration_entryValues"/>
+    </LinearLayout>
+    <LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textColor="@android:color/white"
-        android:paddingRight="@dimen/elapsed_time_padding_right"/>
-     <TextView android:id="@+id/lapElapsedTime"
-        android:textAppearance="?android:attr/textAppearanceSmallInverse"
-        android:textColor="@color/grey"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content" />
+        android:background="@drawable/lap_bg"
+        android:gravity="center">
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/plus_small" />
+        <miui.widget.ImageTextView
+            android:id="@+id/lapElapsedTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/duration_entries"
+            android:entryValues="@array/duration_small_entryValues" />
+    </LinearLayout>
 </LinearLayout>

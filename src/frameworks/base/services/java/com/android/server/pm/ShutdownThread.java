@@ -74,25 +74,25 @@ public final class ShutdownThread extends Thread {
     @MiuiHook(MiuiHookType.NEW_CLASS)
     static class Injector {
         static int getResourceId(int id){
-            return getReboot() ? com.miui.internal.R.string.reboot_confirm : id;
+            return getReboot() ? miui.R.string.reboot_confirm : id;
         }
 
         static void setDialogTitle(Dialog dialog){
-            int id = getReboot() ? com.miui.internal.R.string.android_factorytest_reboot : com.miui.internal.R.string.android_power_off;
+            int id = getReboot() ? miui.R.string.android_factorytest_reboot : miui.R.string.android_power_off;
             dialog.setTitle(id);
         }
 
         static void createShutDownDialog(Context context){
             Dialog bootMsgDialog = new Dialog(context, android.R.style.Theme_Holo_Light_NoActionBar_Fullscreen);
             LayoutInflater layoutInflater = LayoutInflater.from(bootMsgDialog.getContext());
-            View view = layoutInflater.inflate(com.miui.internal.R.layout.boot_msg, null);
-            TextView msgText = (TextView)view.findViewById(com.miui.internal.R.id.boot_msg_title);
-            ImageView animationView = (ImageView)view.findViewById(com.miui.internal.R.id.boot_msg_animation);
+            View view = layoutInflater.inflate(miui.R.layout.boot_msg, null);
+            TextView msgText = (TextView)view.findViewById(miui.R.id.boot_msg_title);
+            ImageView animationView = (ImageView)view.findViewById(miui.R.id.boot_msg_animation);
             if (getReboot()) {
-                msgText.setText(com.miui.internal.R.string.reboot_progress);
+                msgText.setText(miui.R.string.reboot_progress);
             }
             else {
-                msgText.setText(com.miui.internal.R.string.android_shutdown_progress);
+                msgText.setText(miui.R.string.android_shutdown_progress);
             }
 
             bootMsgDialog.setContentView(view);
@@ -280,8 +280,8 @@ public final class ShutdownThread extends Thread {
         // throw up an indeterminate system dialog to indicate radio is
         // shutting down.
         ProgressDialog pd = new ProgressDialog(context);
-        pd.setTitle(context.getText(com.miui.internal.R.string.android_power_off)); // miui modify
-        pd.setMessage(context.getText(com.miui.internal.R.string.android_shutdown_progress)); // miui modify
+        pd.setTitle(context.getText(miui.R.string.android_power_off)); // miui modify
+        pd.setMessage(context.getText(miui.R.string.android_shutdown_progress)); // miui modify
         pd.setIndeterminate(true);
         pd.setCancelable(false);
         pd.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD_DIALOG);

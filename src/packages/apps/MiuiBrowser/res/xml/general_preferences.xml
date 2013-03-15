@@ -16,23 +16,19 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <com.android.browser.preferences.NonformattingListPreference
-        android:key="homepage_picker"
-        android:entries="@array/pref_homepage_choices"
-        android:entryValues="@array/pref_homepage_values"
-        android:title="@string/pref_content_homepage" />
+    <!-- 退出设置 -->
+    <PreferenceCategory android:title="@string/pref_general_setting_title">
+        <com.android.browser.preferences.NonformattingListPreference
+            android:key="homepage_picker"
+            android:entries="@array/pref_homepage_choices"
+            android:entryValues="@array/pref_homepage_values"
+            android:title="@string/pref_content_homepage" />
 
-    <CheckBoxPreference android:key="exit_on_closing_last_tab_enabled"
+        <CheckBoxPreference android:key="exit_on_closing_last_tab_enabled"
             android:title="@string/pref_exit_on_closing_last_tab_enabled_title"
             android:summary="@string/pref_exit_on_closing_last_tab_enabled_summary"
-            android:defaultValue="false"
-        />
-
-    <CheckBoxPreference android:key="reading_mode_enabled"
-            android:title="@string/pref_reading_mode_enabled_title"
-            android:summary="@string/pref_reading_mode_enabled_title_summary"
-            android:defaultValue="true"
-        />
+            android:defaultValue="false" />
+    </PreferenceCategory>
 
     <!-- 退出设置 -->
     <PreferenceCategory android:title="@string/pref_general_exit_setting_title">
@@ -51,8 +47,7 @@
         <CheckBoxPreference android:key="autofill_enabled"
             android:title="@string/pref_autofill_enabled"
             android:summary="@string/pref_autofill_enabled_summary"
-            android:defaultValue="true"
-        />
+            android:defaultValue="true" />
 
         <PreferenceScreen
             android:fragment="com.android.browser.AutoFillSettingsFragment"

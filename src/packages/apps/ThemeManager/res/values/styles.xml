@@ -1,40 +1,49 @@
 <resources>
 
-    <style
-        name="Miui.Theme.Holo.Light.NoActionBar"
-        parent="@miui:style/Theme.Light">
+    <style name="Theme.Resource.Theme" parent="@miui:style/V5.Theme.Light" >
+        <item name="miui:v5_title_bar_bg_search_mode">@drawable/search_bar_bg</item>
+        <item name="miui:v5_title_bar_back_button_search_mode">@miui:drawable/v5_title_bar_back_button_light</item>
+    </style>
+
+    <style name="Theme.Resource.Theme.NoWindowTitle">
         <item name="android:windowNoTitle">true</item>
     </style>
 
-    <style
-        name="Theme.Resource.Theme.List"
-        parent="@miui:style/Theme.Light">
-        <item name="android:actionBarStyle">@style/Theme.Resource.ActionBar.Style.List</item>
-        <item name="android:actionBarSize">@miui:dimen/two_floors_action_bar_height</item>
+    <style name="Theme.Resource.Theme.NoWindowTitle.OverFlow">
+        <item name="miui:v5_top_placeholder">@null</item>
     </style>
 
-    <style
-        name="Theme.Resource.ActionBar.Style.List"
-        parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
+    <style name="Theme.Resource.Theme.EditComment">
+        <item name="miui:v5_action_bar_tab">true</item>
+        <item name="android:homeAsUpIndicator">@null</item>
+    </style>
+
+    <style name="Theme.Resource.Theme.List" >
+        <item name="miui:v5_action_bar_tab">true</item>
+        <item name="android:homeAsUpIndicator">@null</item>
+        <item name="android:actionBarStyle">@style/Theme.Resource.ActionBar.Style.List</item>
+    </style>
+
+    <style name="Theme.Resource.ActionBar.Style.List" parent="@miui:style/V5.Widget.ActionBar">
+        <item name="android:displayOptions">useLogo|showHome|showTitle</item>
         <item name="android:logo">@drawable/action_bar_logo</item>
         <item name="android:title">@string/theme_component_title_all</item>
     </style>
 
-    <style
-        name="Theme.Resource.Theme.Wallpaper"
-        parent="@miui:style/Theme">
+    <style name="Theme.Resource.Theme.Wallpaper" parent="@miui:style/V5.Theme.Dark">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
+        <item name="miui:v5_top_placeholder">@null</item>
     </style>
 
-    <style name="WallpaperMenuPopupAnimation" parent="android:Animation" mce_bogus="1">
-         <item name="android:windowEnterAnimation">@anim/wallpaper_menu_popup_fade_in</item>
-         <item name="android:windowExitAnimation">@anim/wallpaper_menu_popup_fade_out</item>
+    <style name="WallpaperMenuPopupAnimation" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/wallpaper_menu_popup_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/wallpaper_menu_popup_fade_out</item>
     </style>
 
-    <style name="WallpaperInfoPopupAnimation" parent="android:Animation" mce_bogus="1">
-         <item name="android:windowEnterAnimation">@anim/wallpaper_info_popup_fade_in</item>
-         <item name="android:windowExitAnimation">@anim/wallpaper_info_popup_fade_out</item>
+    <style name="WallpaperInfoPopupAnimation" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/wallpaper_info_popup_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/wallpaper_info_popup_fade_out</item>
     </style>
 
     <style name="WallpaperDetailInfoTitle">
@@ -68,11 +77,18 @@
 
     <style name="Resource.Comment.RatingBar.ReadOnly" parent="@android:style/Widget.RatingBar">
         <item name="android:progressDrawable">@drawable/resource_comment_ratingbar_readonly</item>
-        <item name="android:isIndicator">true</item>"
-        <item name="android:stepSize">0.5</item>
+        <item name="android:isIndicator">true</item>
+"                <item name="android:stepSize">0.5</item>
         <item name="android:numStars">5</item>
         <item name="android:maxHeight">12dip</item>
         <item name="android:minHeight">12dip</item>
     </style>
-</resources>
 
+    <!-- Mi-Wallpaper -->
+    <style name="mi_wallpaper_preview" parent="android:Theme.Holo">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Activity</item>
+    </style>
+</resources>

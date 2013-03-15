@@ -1,81 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
     <ScrollView
+        android:id="@+id/scroll_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical" >
 
-            <RelativeLayout
-                android:id="@+id/search_bar_id"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/spacing_picker_item"
-                android:layout_marginBottom="@dimen/spacing_picker_item"
-                android:layout_marginLeft="@dimen/spacing_to_border"
-                android:layout_marginRight="@dimen/spacing_to_border"
-                android:background="@drawable/search_input_bg">
-                <include layout="@layout/online_search_bar" />
-            </RelativeLayout>
+            <include
+                android:id="@+id/search_stub"
+                layout="@miui:layout/v5_search_stub" />
 
             <LinearLayout
                 android:id="@+id/content_wrap"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                >
+                android:paddingTop="@dimen/spacing_to_border" >
 
-                <TextView
-                    android:layout_height="wrap_content"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:text="@string/new_albums"
-                    style="@style/ItemGroupTitleStyle"
-                    android:layout_marginBottom="0dp" />
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
 
-                <fragment
-                    class="com.miui.player.ui.fragment.MetaGridFragment$AlbumGridFragment"
+                    <TextView
+                        style="@style/OnlineFragmentTitleStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/new_albums" />
+
+                    <TextView
+                        android:id="@+id/more_albums"
+                        style="@style/OnlineMoreButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/more" />
+                </LinearLayout>
+
+                <FrameLayout
                     android:id="@+id/new_albums"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="top|left"
-                    android:layout_marginBottom="@dimen/spacing_to_border"
-                    />
+                    android:gravity="top|left" />
 
-                <TextView
-                    android:layout_height="wrap_content"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:text="@string/hot_artists"
-                    style="@style/ItemGroupTitleStyle"
-                    android:layout_marginBottom="0dp" />
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
 
-                <fragment
-                    class="com.miui.player.ui.fragment.MetaGridFragment$ArtistGridFragment"
+                    <TextView
+                        style="@style/OnlineFragmentTitleStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/hot_artists" />
+
+                    <TextView
+                        android:id="@+id/more_artists"
+                        style="@style/OnlineMoreButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/more" />
+                </LinearLayout>
+
+                <FrameLayout
                     android:id="@+id/hot_artists"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="top|left"
-                    android:layout_marginBottom="@dimen/spacing_to_border"
-                    />
+                    android:gravity="top|left" />
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 
-    <fragment
-        class="com.miui.player.ui.fragment.SuggestionSearchFragment"
-        android:id="@+id/suggestion_search"
+    <RelativeLayout
+        android:id="@+id/online_loading_status_bar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="top|left"
-        />
+        android:gravity="center_vertical" >
+
+        <include layout="@layout/online_loading_status_bar" />
+    </RelativeLayout>
+
 </LinearLayout>

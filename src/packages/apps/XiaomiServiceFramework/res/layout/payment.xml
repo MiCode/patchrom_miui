@@ -5,248 +5,226 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:padding="15dip" >
+    android:orientation="vertical" >
     <LinearLayout
-        android:id="@+id/detail"
+        android:id="@+id/order_info"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="vertical" >
         <LinearLayout
-            android:id="@+id/order_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dip"
-            android:gravity="center"
-            android:orientation="vertical" >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal" >
-                <ImageView
-                    android:id="@+id/icon"
-                    android:layout_width="45dip"
-                    android:layout_height="45dip"
-                    android:layout_marginRight="5dip" />
-                <TableLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-                    <TableRow
-                        android:gravity="center_vertical">
-                        <TextView
-                            android:id="@+id/label_order_name"
-                            android:gravity="right|center_vertical"
-                            android:text="@string/label_order_name"
-                            android:textColor="@color/text_color_gray"
-                            android:textSize="@miui:dimen/text_font_size_small" />
-                        <TextView
-                            android:id="@+id/text_order_name"
-                            android:gravity="left|center_vertical"
-                            android:textColor="@color/text_color_dark_gray"
-                            android:textSize="@miui:dimen/text_font_size_medium" />
-                    </TableRow>
-                    <TableRow
-                        android:gravity="center_vertical">
-                        <TextView
-                            android:id="@+id/label_order_price"
-                            android:gravity="right|center_vertical"
-                            android:text="@string/label_order_price"
-                            android:textColor="@color/text_color_gray"
-                            android:textSize="@miui:dimen/text_font_size_small" />
-                        <TextView
-                            android:id="@+id/text_order_price"
-                            android:gravity="left|center_vertical"
-                            android:textColor="@color/text_color_orange"
-                            android:textSize="@miui:dimen/text_font_size_medium" />
-                    </TableRow>
-                </TableLayout>
-            </LinearLayout>
-
-            <View
-                android:id="@+id/divider"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/divider"
-                android:layout_marginBottom="5dip"
-                android:layout_marginTop="15dip"
-                android:background="@drawable/divider_bg" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/info_area"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:minHeight="35dip"
-            android:orientation="vertical" >
-            <LinearLayout
-                android:id="@+id/error_info"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:layout_marginTop="15dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="45dip"
+                android:layout_height="45dip"
+                android:layout_marginRight="5dip" />
+            <TableLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dip"
-                android:layout_marginTop="20dip"
-                android:gravity="center" >
-                <ImageView
-                    android:id="@+id/error_icon"
-                    android:layout_width="50dip"
-                    android:layout_height="50dip"
-                    android:src="@drawable/ic_error" />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="5dip"
-                    android:orientation="vertical" >
+                android:layout_height="wrap_content" >
+                <TableRow android:gravity="center_vertical" >
                     <TextView
-                        android:id="@+id/error_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/text_color_black"
-                        android:textSize="@miui:dimen/text_font_size_large" />
-                    <TextView
-                        android:id="@+id/error_summary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/label_order_name"
+                        android:gravity="right|center_vertical"
+                        android:text="@string/label_order_name"
                         android:textColor="@color/text_color_gray"
-                        android:textSize="@miui:dimen/text_font_size_small" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/progress_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dip"
-                android:layout_marginTop="20dip"
-                android:gravity="center" >
-                <ProgressBar
-                    android:id="@+id/progress"
-                    android:layout_width="32dip"
-                    android:layout_height="32dip"
-                    android:layout_marginRight="5dip" />
-                <TextView
-                    android:id="@+id/progress_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/progress_loading"
-                    android:textColor="@color/text_color_black"
-                    android:textSize="@miui:dimen/text_font_size_large" />
-            </LinearLayout>
+                        android:textSize="@dimen/text_size_small"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/text_order_name"
+                        android:gravity="left|center_vertical"
+                        android:textColor="@color/text_color_dark_gray"
+                        android:textSize="@dimen/text_size_large"
+                        android:textStyle="bold" />
+                </TableRow>
+                <TableRow android:gravity="center_vertical" >
+                    <TextView
+                        android:id="@+id/label_order_price"
+                        android:gravity="right|center_vertical"
+                        android:text="@string/label_order_price"
+                        android:textColor="@color/text_color_gray"
+                        android:textSize="@dimen/text_size_small"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/text_order_price"
+                        android:gravity="left|center_vertical"
+                        android:textColor="@color/text_color_orange"
+                        android:textSize="@dimen/text_size_large"
+                        android:textStyle="bold" />
+                </TableRow>
+            </TableLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/password_area"
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dip"
-            android:layout_marginTop="5dip"
-            android:orientation="vertical" >
-            <TextView
-                android:id="@+id/password_hint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dip"
-                android:text="@string/password_hint"
-                android:textColor="@color/text_color_gray"
-                android:textSize="@miui:dimen/text_font_size_small" />
-            <EditText
-                android:id="@+id/password_edit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPassword" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/button_area"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dip"
-            android:layout_marginTop="5dip" >
-            <Button
-                android:id="@+id/button_cancel"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/btn_pay_white_bkg"
-                android:text="@string/button_cancel" />
-            <Button
-                android:id="@+id/button_retry"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dip"
-                android:layout_weight="1"
-                android:background="@drawable/btn_pay_white_bkg"
-                android:text="@string/button_retry" />
-            <Button
-                android:id="@+id/button_pay"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dip"
-                android:layout_weight="1"
-                android:background="@drawable/btn_pay_green_bkg"
-                android:text="@string/button_pay"
-                android:textColor="@color/text_color_white" />
-            <Button
-                android:id="@+id/button_recharge"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dip"
-                android:layout_weight="1"
-                android:background="@drawable/btn_pay_orange_bkg"
-                android:text="@string/button_recharge"
-                android:textColor="@color/text_color_white"
-                android:visibility="gone" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/bottom_area"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dip"
-            android:layout_marginTop="10dip" >
-            <TextView
-                android:id="@+id/text_balance"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/balance"
-                android:textColor="@color/text_color_black"
-                android:textSize="@miui:dimen/text_font_size_small" />
-            <Space
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-            <TextView
-                android:id="@+id/text_mili_center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:focusable="true"
-                android:gravity="right"
-                android:text="@string/mili_center"
-                android:textColor="@color/text_color_orange"
-                android:textSize="@miui:dimen/text_font_size_small" />
-        </LinearLayout>
+            android:layout_height="@dimen/divider"
+            android:layout_marginBottom="15dip"
+            android:layout_marginTop="15dip"
+            android:background="@drawable/divider_bg" />
     </LinearLayout>
-
     <LinearLayout
-        android:id="@+id/simple"
-        android:layout_width="wrap_content"
+        android:id="@+id/info_area"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dip"
-        android:layout_marginTop="20dip"
-        android:gravity="center" >
-        <ProgressBar
-            android:layout_width="32dip"
-            android:layout_height="32dip"
-            android:layout_marginRight="5dip" />
-        <TextView
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:layout_marginTop="5dip"
+        android:gravity="center"
+        android:minHeight="45dip"
+        android:orientation="vertical" >
+        <LinearLayout
+            android:id="@+id/error_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/progress_connecting"
-            android:textColor="@color/text_color_black"
-            android:textSize="@miui:dimen/text_font_size_large" />
+            android:layout_marginBottom="20dip"
+            android:layout_marginTop="20dip"
+            android:gravity="center" >
+            <ImageView
+                android:id="@+id/error_icon"
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:src="@drawable/ic_error" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dip"
+                android:orientation="vertical" >
+                <TextView
+                    android:id="@+id/error_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/text_size_large" />
+                <TextView
+                    android:id="@+id/error_summary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/text_size_small" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/progress_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dip"
+            android:layout_marginTop="20dip"
+            android:gravity="center" >
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="32dip"
+                android:layout_height="32dip"
+                android:layout_marginRight="5dip" />
+            <TextView
+                android:id="@+id/progress_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/progress_loading"
+                android:textColor="@color/text_color_black"
+                android:textSize="@dimen/text_size_large" />
+        </LinearLayout>
     </LinearLayout>
-
+    <LinearLayout
+        android:id="@+id/password_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:layout_marginTop="5dip"
+        android:orientation="vertical" >
+        <EditText
+            android:id="@+id/password_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/password_hint"
+            android:inputType="textPassword"
+            android:textSize="@dimen/text_size_small" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/bottom_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:layout_marginTop="10dip" >
+        <TextView
+            android:id="@+id/text_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/balance"
+            android:textColor="@color/text_color_black"
+            android:textSize="@dimen/text_size_small" />
+        <Space
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+        <TextView
+            android:id="@+id/text_mili_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:focusable="true"
+            android:gravity="right"
+            android:text="@string/mili_center"
+            android:textColor="@color/hyperlink_text_color"
+            android:textSize="@dimen/text_size_small" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/button_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="13dip"
+        android:layout_marginTop="10dip"
+        android:orientation="vertical" >
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider"
+            android:layout_marginBottom="18dip"
+            android:background="@drawable/divider_bg" />
+        <Button
+            android:id="@+id/button_retry"
+            style="@style/ButtonNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:text="@string/button_retry" />
+        <Button
+            android:id="@+id/button_pay"
+            style="@style/ButtonNotice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:text="@string/button_pay" />
+        <Button
+            android:id="@+id/button_recharge"
+            style="@style/ButtonNotice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:text="@string/button_recharge" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dip" />
+        <Button
+            android:id="@+id/button_cancel"
+            style="@style/ButtonNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:layout_marginTop="6dip"
+            android:text="@string/button_cancel" />
+    </LinearLayout>
 </com.xiaomi.xmsf.payment.PaymentView>

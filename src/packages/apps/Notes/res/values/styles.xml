@@ -1,101 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <style name="TextAppearanceSuper">
+    <style name="TextAppearance" parent="@miui:style/V5.TextAppearance" />
+
+    <!-- text appearence for note editor -->
+
+    <style name="TextAppearance.Editor">
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textColorLink">#0000ff</item>
+    </style>
+
+    <style name="TextAppearance.Editor.Super">
         <item name="android:textSize">@dimen/text_font_size_super</item>
-        <item name="android:textColor">@color/primary_text</item>
-        <item name="android:textColorLink">#0000ff</item>
     </style>
-    <style name="TextAppearanceLarge">
+
+    <style name="TextAppearance.Editor.Large">
         <item name="android:textSize">@dimen/text_font_size_large</item>
-        <item name="android:textColor">@color/primary_text</item>
-        <item name="android:textColorLink">#0000ff</item>
     </style>
-    <style name="TextAppearanceMedium">
+
+    <style name="TextAppearance.Editor.Medium">
         <item name="android:textSize">@dimen/text_font_size_medium</item>
-        <item name="android:textColor">@color/primary_text</item>
-        <item name="android:textColorLink">#0000ff</item>
     </style>
-    <style name="TextAppearanceNormal">
+
+    <style name="TextAppearance.Editor.Normal">
         <item name="android:textSize">@dimen/text_font_size_normal</item>
-        <item name="android:textColor">@color/primary_text</item>
-        <item name="android:textColorLink">#0000ff</item>
     </style>
 
-    <style name="TextAppearancePrimaryItem">
-        <item name="android:textSize">@dimen/text_font_size_normal</item>
-        <item name="android:textColor">@color/primary_text_dark</item>
+    <!-- text appearence for title -->
+
+    <style name="TextAppearance.Title" parent="@miui:style/V5.TextAppearance.Title">
+        <item name="android:textColor">@android:color/black</item>
     </style>
 
-    <style name="TextAppearanceSecondaryItem">
-        <item name="android:textSize">@dimen/text_font_size_small</item>
-        <item name="android:textColor">@color/secondary_text_dark</item>
+    <style name="TextAppearance.Title.Large">
+        <item name="android:textSize">@dimen/text_title_size_large</item>
     </style>
 
-    <style name="TextAppearanceHeaderText">
-        <item name="android:textSize">@dimen/text_font_size_small</item>
+    <style name="TextAppearance.Title.Medium" />
+
+    <style name="TextAppearance.Title.Small">
+        <item name="android:textSize">@dimen/text_title_size_small</item>
+    </style>
+
+    <!-- text appearence for list item -->
+
+    <style name="TextAppearance.List.Primary" parent="@miui:style/V5.TextAppearance.List.Primary">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@miui:color/v5_list_text_color_light</item>
+    </style>
+
+    <style name="TextAppearance.List.Secondary" parent="@miui:style/V5.TextAppearance.List.Secondary">
+        <item name="android:textSize">@dimen/text_default_size</item>
+        <item name="android:textColor">@miui:color/v5_list_secondary_text_color_light</item>
+    </style>
+
+    <!-- text appearence for header -->
+
+    <style name="TextAppearance.Header">
+        <item name="android:textSize">@dimen/text_default_size</item>
         <item name="android:textColor">@color/header_text_dark</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="TextAppearanceUnderMenuIcon">
-        <item name="android:textSize">@dimen/text_font_size_normal</item>
+    <!-- text appearence for grid item -->
+
+    <style name="TextAppearance.Grid">
+        <item name="android:textSize">@dimen/text_default_size</item>
         <item name="android:textColor">@android:color/black</item>
     </style>
 
-    <style name="HighlightTextAppearancePrimary">
-    <item name="android:textSize">@dimen/text_font_size_normal</item>
-        <item name="android:textColor">@color/primary_text_dark</item>
+    <!-- text appearence for highlight -->
+
+    <style name="TextAppearance.HighLight" parent="@miui:style/V5">
+        <item name="android:textColor">@color/user_query_highlight</item>
     </style>
 
-    <style name="HighlightTextAppearanceSecondary">
-        <item name="android:textSize">@dimen/text_font_size_small</item>
-        <item name="android:textColor">@color/secondary_text_dark</item>
-    </style>
+    <!-- widget style -->
 
-    <style name="TextAppearanceGridItemTitle">
-        <item name="android:textSize">@dimen/text_font_size_small</item>
-        <item name="android:textColor">@android:color/black</item>
-    </style>
+    <style name="Widget" />
 
-    <style name="TextAppearanceGridItemContent">
-        <item name="android:textSize">@dimen/text_font_size_small</item>
-        <item name="android:textColor">@android:color/black</item>
-    </style>
-
-    <style name="NoteTheme" parent="@miui:style/Theme.Light">
-        <item name="android:actionBarStyle">@style/NoteActionBarStyle</item>
-        <item name="android:windowBackground">@android:color/black</item>
-    </style>
-
-    <style name="NoteActionBarStyle" parent="@miui:style/Widget.Holo.Light.ActionBar.Solid.HomeUp">
-        <item name="android:displayOptions" />
-    </style>
-
-    <style name="NoActionBarTheme" parent="@miui:style/Theme.Light">
-        <item name="android:actionBarStyle">@style/NoActionBarStyle</item>
-        <item name="android:windowBackground">@android:color/black</item>
-    </style>
-
-     <style name="NoActionBarStyle" parent="@miui:style/Widget.Holo.Light.ActionBar.Solid.HomeUp">
-        <item name="android:visibility">gone</item>
-    </style>
-
-    <style name="NoteAlarmTheme" parent="@style/NoteTheme">
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
-    </style>
-
-    <style name="NoteTipTheme" parent="@style/NoteAlarmTheme">
-        <item name="android:windowBackground">@color/note_tip_bgcolor</item>
-    </style>
-
-    <style name="GridStyle">
-        <item name="android:paddingLeft">7dip</item>
-        <item name="android:paddingRight">4.66dip</item>
-    </style>
-
-    <style name="GridTextStyle">
+    <style name="Widget.GridText">
         <item name="android:lineSpacingMultiplier">1.15</item>
         <item name="android:paddingLeft">10dip</item>
         <item name="android:paddingRight">12dip</item>
+    </style>
+
+    <style name="Widget.ColorSelector">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">bottom|right</item>
+        <item name="android:layout_marginRight">4dip</item>
+        <item name="android:layout_marginBottom">5dip</item>
+        <item name="android:focusable">false</item>
+        <item name="android:visibility">invisible</item>
+        <item name="android:src">@drawable/ic_color_picker_checkbox</item>
+    </style>
+
+    <style name="Widget.AttachmentItem">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingLeft">@dimen/action_padding_size</item>
+        <item name="android:paddingRight">@dimen/action_padding_size</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/popup_item_text_color</item>
+    </style>
+
+    <!-- actionbar style -->
+
+    <style name="ActionBar.Custom" parent="@miui:V5.Widget.ActionBar">
+        <item name="android:displayOptions">showCustom</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="ActionBar.Custom.Editor">
+        <item name="android:height">@dimen/notes_edit_header_height</item>
     </style>
 </resources>

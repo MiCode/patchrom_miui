@@ -1,82 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:paddingLeft="20dip"
-    >
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp" >
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginTop="@dimen/spacing_to_border"
-        >
-        <TextView android:id="@+id/track"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/track"
+            style="@style/EditLableStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dip"
-            android:textSize="16dip"
+            android:gravity="center_vertical|right"
             android:text="@string/track_edit"
-            android:gravity="center_vertical|right"
-            />
+            android:textSize="16dip" />
 
-        <EditText android:id="@+id/track_edit"
-            style="@style/EditTextStyle"
-            android:layout_width="200dip"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            />
-
+        <EditText
+            android:id="@+id/track_edit"
+            style="@style/EditTextStyle" />
     </LinearLayout>
+
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginTop="@dimen/spacing_to_border"
-        >
-        <TextView android:id="@+id/artist"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/artist"
+            style="@style/EditLableStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dip"
-            android:textSize="16dip"
+            android:gravity="center_vertical|right"
             android:text="@string/artist_edit"
-            android:gravity="center_vertical|right"
-            />
-        <EditText android:id="@+id/artist_edit"
-            style="@style/EditTextStyle"
-            android:layout_width="200dip"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            />
+            android:textSize="16dip" />
+
+        <EditText
+            android:id="@+id/artist_edit"
+            style="@style/EditTextStyle" />
     </LinearLayout>
+
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/spacing_to_border"
         android:layout_marginBottom="@dimen/spacing_to_border"
-        >
-        <TextView android:id="@+id/album"
+        android:layout_marginTop="@dimen/spacing_to_border"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/album"
+            style="@style/EditLableStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dip"
-            android:textSize="16dip"
-            android:text="@string/album_edit"
             android:gravity="center_vertical|right"
-            />
-        <EditText android:id="@+id/album_edit"
-            style="@style/EditTextStyle"
-            android:layout_width="200dip"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            />
+            android:text="@string/album_edit"
+            android:textSize="16dip" />
+
+        <EditText
+            android:id="@+id/album_edit"
+            style="@style/EditTextStyle" />
     </LinearLayout>
 
-    <CheckBox android:id="@+id/id3_edit_check_box"
-         android:layout_marginTop="10dip"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="@string/id3_modify_confirm_check"
-    />
+    <CheckBox
+        android:id="@+id/id3_edit_check_box"
+        style="@style/EditLableStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:text="@string/id3_modify_confirm_check" />
+
 </LinearLayout>

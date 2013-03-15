@@ -4,28 +4,26 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="bottom">
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@drawable/language_settings_map"/>
 
+    <ListView android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"/>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="1"/>
 
-    <ListView android:id="@android:id/list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dip" />
-
     <Button android:id="@+id/next"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_marginLeft="@dimen/screen_margin_horizontal"
-           android:layout_marginRight="@dimen/screen_margin_horizontal"
-           android:layout_marginBottom="@dimen/screen_margin_bottom"
+           style="@style/Button.Provision"
            android:text="@string/next"
            android:layout_gravity="bottom"/>
+
 </LinearLayout>

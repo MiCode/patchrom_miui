@@ -5,6 +5,8 @@
     class="com.miui.notes.ui.GridNoteItem"
     android:layout_width="@dimen/grid_item_width"
     android:layout_height="@dimen/grid_item_height"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginBottom="5dip"
     android:background="@drawable/grid_yellow">
 
     <FrameLayout
@@ -26,24 +28,16 @@
             android:layout_marginLeft="@dimen/grid_note_image_margin_left"
             android:layout_marginTop="@dimen/grid_note_image_margin_top" />
 
-        <ImageView
-            android:id="@+id/note_image_clip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="0.66dip"
-            android:layout_gravity="top|left"
-            android:src="@drawable/grid_image_cover_clip" />
-
     </FrameLayout>
 
     <LinearLayout
         android:id="@+id/note_indicators"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/grid_indicator_layout_height"
         android:layout_alignParentBottom="true"
-        android:paddingRight="12dip"
+        android:paddingRight="@dimen/grid_indicator_padding_right"
         android:paddingBottom="@dimen/grid_indicator_padding_bottom"
-        android:gravity="right"
+        android:gravity="right|center_vertical"
         android:orientation="horizontal">
 
         <include layout="@layout/note_item_indicators" />
@@ -57,8 +51,9 @@
         android:layout_below="@id/note_image_layout"
         android:layout_above="@id/note_indicators"
         android:layout_marginTop="@dimen/grid_note_content_margin_top"
+        android:layout_marginBottom="-8dip"
         android:maxLines="@integer/grid_note_text_max_lines"
-        android:textAppearance="@style/TextAppearanceGridItemContent"
-        style="@style/GridTextStyle" />
+        android:textAppearance="@style/TextAppearance.Grid"
+        style="@style/Widget.GridText" />
 
 </view>

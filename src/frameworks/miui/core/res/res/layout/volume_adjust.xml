@@ -15,46 +15,52 @@
 -->
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
     <LinearLayout
-        android:id="@+id/visible_panel"
-        android:layout_width="match_parent"
+        android:id="@+id/v5_volume_panel"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/android_dialog_full_holo_light"
-        android:orientation="horizontal"
-        >
+        android:background="@drawable/v5_ic_audio_bg"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/v5_volume_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"/>
 
         <LinearLayout
-            android:id="@+id/slider_group"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            >
-            <!-- Sliders go here -->
+            android:layout_gravity="center_horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/v5_volume_type"
+                android:textColor="@android:color/white"
+                android:textSize="9sp"/>
+           <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/v5_volume_divider"
+                android:src="@drawable/v5_ic_audio_divider"
+                android:layout_gravity="center_vertical"
+                android:visibility="gone"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/v5_volume_headset"
+                android:layout_gravity="center_vertical"
+                android:visibility="gone"/>
         </LinearLayout>
-
-        <ImageView
-            android:id="@+id/expand_button_divider"
-            android:src="?android:attr/dividerVertical"
-            android:layout_width="wrap_content"
-            android:layout_height="32dip"
-            android:scaleType="fitXY"
-            android:layout_gravity="top"
-            android:layout_marginTop="16dip"
-            android:layout_marginBottom="16dip"
-            />
-
-        <ImageView
-            android:id="@+id/expand_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:padding="16dip"
-            android:background="?android:attr/selectableItemBackground"
-            android:src="@drawable/android_ic_sysbar_quicksettings"
-            />
-
     </LinearLayout>
+    <miui.v5.widget.CircleProgressView
+        xmlns:miui="http://schemas.android.com/apk/res/miui"
+        android:id="@+id/v5_volume_progress"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        miui:v5_foreground="@drawable/v5_ic_audio_progress"
+    />
 </FrameLayout>

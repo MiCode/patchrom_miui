@@ -18,7 +18,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingTop="@miui:dimen/v5_preference_item_padding_side" >
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"
@@ -29,10 +30,10 @@
         android:cacheColorHint="#00000000" />
     <Button
         android:id="@+id/manage_sync_set"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginLeft="@miui:dimen/v5_list_view_padding_horizontal"
+        android:layout_marginRight="@miui:dimen/v5_list_view_padding_horizontal"
         android:layout_gravity="center_horizontal"
         android:onClick="handleSelectSyncedCalendarsClicked"
         android:text="@string/select_synced_calendars_button" />

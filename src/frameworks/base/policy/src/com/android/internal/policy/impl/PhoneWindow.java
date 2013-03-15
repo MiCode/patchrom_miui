@@ -26,6 +26,7 @@ import static android.view.WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
 import static android.view.WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER;
 import static android.view.WindowManager.LayoutParams.FLAG_SPLIT_TOUCH;
 
+import com.android.internal.view.ActionBarPolicy;
 import com.android.internal.view.RootViewSurfaceTaker;
 import com.android.internal.view.StandaloneActionMode;
 import com.android.internal.view.menu.ContextMenuBuilder;
@@ -39,8 +40,11 @@ import com.android.internal.widget.ActionBarContainer;
 import com.android.internal.widget.ActionBarContextView;
 import com.android.internal.widget.ActionBarView;
 
+import miui.util.UiUtils;
+
 import android.annotation.MiuiHook;
 import android.annotation.MiuiHook.MiuiHookType;
+import android.app.ActionBar;
 import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
@@ -107,23 +111,23 @@ import java.util.ArrayList;
 public class PhoneWindow extends Window implements MenuBuilder.Callback {
     @MiuiHook(MiuiHookType.NEW_CLASS)
     static class Injector {
-        static void handleIcsAppLayoutParams(PhoneWindow wnd, WindowManager wm, WindowManager.LayoutParams lp) {
-            int height = WRAP_CONTENT;
-            boolean isIcsApp = wnd.getContext().getApplicationInfo().targetSdkVersion >= android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH;
-            if (isIcsApp) {
+        static void handleAppLayoutParams(PhoneWindow wnd, WindowManager wm, WindowManager.LayoutParams lp) {
+            if (UiUtils.isV5Ui(wnd.getContext())) {
                 int rotation = wm.getDefaultDisplay().getRotation();
                 if (rotation != android.view.Surface.ROTATION_0
                         && rotation != android.view.Surface.ROTATION_180) {
-                    height = MATCH_PARENT;
+                    lp.height = MATCH_PARENT;
+                    lp.width = UiUtils.getDrawable(wnd.getContext(), android.R.attr.panelFullBackground).getIntrinsicWidth();
+                    lp.gravity = Gravity.RIGHT;
                 }
-                lp.height = height;
                 lp.flags |= WindowManager.LayoutParams.FLAG_DIM_BEHIND;
                 lp.dimAmount = 0.7f;
             }
         }
 
         static void drawRoundedCorners(PhoneWindow wnd, DecorView decor, Canvas c, Rect frameOffsets, Rect drawingBounds) {
-            if ((wnd.getAttributes().type > WindowManager.LayoutParams.LAST_APPLICATION_WINDOW)
+            if (!UiUtils.enableRoundedCorners(wnd.getContext())
+                    || (wnd.getAttributes().type > WindowManager.LayoutParams.LAST_APPLICATION_WINDOW)
                     || frameOffsets.left != 0 || frameOffsets.right != 0
                     || frameOffsets.bottom != 0) {
                 return;
@@ -136,7 +140,54 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
             decor.mRoundedCorners.draw(c, drawingBounds.left, drawingBounds.top + frameOffsets.top,
                     drawingBounds.right, drawingBounds.bottom);
         }
+
+        static int getFloatingWindowWidth(Context context) {
+            return (UiUtils.isV5Ui(context)) ? MATCH_PARENT : WRAP_CONTENT;
+        }
+
+        static int getActionBarResourceId(Context context) {
+            int retval = -1;
+            if (UiUtils.isV5Ui(context)) {
+                if (UiUtils.getBoolean(context, miui.R.attr.v5_action_bar_movable, false)) {
+                    retval = miui.R.layout.v5_screen_movable_action_bar;
+                } else {
+                    retval = miui.R.layout.v5_screen_action_bar;
+                }
+            } else {
+                retval = miui.util.ResourceMapper.resolveReference(context, miui.R.layout.android_screen_action_bar);
+            }
+
+            return retval;
+        }
+
+        static int getActionBarOverlayResourceId(Context context) {
+            return UiUtils.isV5Ui(context) ? miui.R.layout.v5_screen_action_bar_overlay :
+                miui.util.ResourceMapper.resolveReference(context, miui.R.layout.android_screen_action_bar_overlay);
+        }
+
+        static void handleStartingWindow(PhoneWindow win, ActionBarView abView) {
+            Context context = win.getContext();
+            if (UiUtils.isV5Ui(context) && win.getAttributes().type == WindowManager.LayoutParams.TYPE_APPLICATION_STARTING) {
+                if (!((com.miui.internal.v5.widget.ActionBarView) abView).hasTitle()) {
+                    abView.setVisibility(View.GONE);
+                }
+                if (UiUtils.getBoolean(context, miui.R.attr.v5_action_bar_tab, false)) {
+                    abView.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+                    com.miui.internal.v5.widget.ScrollingTabContainerView v = new com.miui.internal.v5.widget.ScrollingTabContainerView(context);
+                    ActionBarPolicy abp = ActionBarPolicy.get(context);
+                    if (abp.hasEmbeddedTabs()) {
+                        abView.setEmbeddedTabView(v);
+                    } else {
+                        ActionBarContainer abc = (ActionBarContainer) win.findViewById(miui.R.id.android_action_bar_container);
+                        abc.setTabContainer(v);
+                    }
+                }
+            }
+        }
     }
+
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    ActionBarView getActionBarView() { return mActionBar; }
 
     private final static String TAG = "PhoneWindow";
 
@@ -640,6 +691,15 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
             if (lp != null && lp.width == ViewGroup.LayoutParams.MATCH_PARENT) {
                 width = MATCH_PARENT;
             }
+        } else {
+            // Uses the old width but not default value WRAP_CONTENT.
+            ViewGroup.LayoutParams lp = st.decorView.getLayoutParams();
+            if (lp != null) {
+                width = lp.width;
+            }
+            if (st.decorView.getChildCount() == 0) {
+                return;
+            }
         }
 
         st.isOpen = true;
@@ -661,7 +721,7 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
         }
 
         lp.windowAnimations = st.windowAnimations;
-        Injector.handleIcsAppLayoutParams(this, wm, lp); // miui add
+        Injector.handleAppLayoutParams(this, wm, lp); // miui add
 
         wm.addView(st.decorView, lp);
         // Log.v(TAG, "Adding main menu to window manager.");
@@ -1796,7 +1856,8 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
     }
 
     @MiuiHook(MiuiHookType.CHANGE_CODE)
-    final class DecorView extends FrameLayout implements RootViewSurfaceTaker {
+    final class DecorView extends FrameLayout implements RootViewSurfaceTaker,
+            com.miui.internal.v5.widget.ActionBarView.ActionBarViewHolder {
         @MiuiHook(MiuiHookType.NEW_FIELD)
         RoundedCorners mRoundedCorners;
 
@@ -2262,13 +2323,14 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
             return startActionMode(callback);
         }
 
+        @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
         @Override
         public ActionMode startActionMode(ActionMode.Callback callback) {
             if (mActionMode != null) {
                 mActionMode.finish();
             }
 
-            final ActionMode.Callback wrappedCallback = new ActionModeCallbackWrapper(callback);
+            final ActionMode.Callback wrappedCallback = miuiCreateActionModeCallbackWrapper(callback); // Miui Hook
             ActionMode mode = null;
             if (getCallback() != null && !isDestroyed()) {
                 try {
@@ -2598,6 +2660,38 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
                 mActionMode = null;
             }
         }
+
+        @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_CLASS)
+        class SearchActionModeCallbackWrapper extends ActionModeCallbackWrapper implements
+                miui.v5.view.SearchActionMode.Callback {
+            public SearchActionModeCallbackWrapper(android.view.ActionMode.Callback wrapped) {
+                super(wrapped);
+            }
+        }
+
+        @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+        ActionModeCallbackWrapper miuiCreateActionModeCallbackWrapper(ActionMode.Callback callback) {
+            if (UiUtils.isV5Ui(mContext)) {
+                if (callback instanceof miui.v5.view.SearchActionMode.Callback) {
+                    return new SearchActionModeCallbackWrapper(callback);
+                } else {
+                    return new ActionModeCallbackWrapper(callback);
+                }
+            } else {
+                return new ActionModeCallbackWrapper(callback);
+            }
+        }
+
+        /**
+         * @hide
+         */
+        @Override
+        @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+        public com.miui.internal.v5.widget.ActionBarView getActionBarView() {
+            ActionBarView abv = PhoneWindow.this.getActionBarView();
+            return abv instanceof com.miui.internal.v5.widget.ActionBarView ?
+                    (com.miui.internal.v5.widget.ActionBarView) abv : null;
+        }
     }
 
     protected DecorView generateDecor() {
@@ -2639,7 +2733,7 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
         int flagsToUpdate = (FLAG_LAYOUT_IN_SCREEN|FLAG_LAYOUT_INSET_DECOR)
                 & (~getForcedWindowFlags());
         if (mIsFloating) {
-            setLayout(WRAP_CONTENT, WRAP_CONTENT);
+            setLayout(Injector.getFloatingWindowWidth(getContext()), WRAP_CONTENT); // Miui Hook
             setFlags(0, flagsToUpdate);
         } else {
             setFlags(FLAG_LAYOUT_IN_SCREEN|FLAG_LAYOUT_INSET_DECOR, flagsToUpdate);
@@ -2811,9 +2905,9 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
                 layoutResource = res.resourceId;
             } else if ((features & (1 << FEATURE_ACTION_BAR)) != 0) {
                 if ((features & (1 << FEATURE_ACTION_BAR_OVERLAY)) != 0) {
-                    layoutResource = com.android.internal.R.layout.screen_action_bar_overlay;
+                    layoutResource = Injector.getActionBarOverlayResourceId(getContext()); // Miui Hook
                 } else {
-                    layoutResource = com.android.internal.R.layout.screen_action_bar;
+                    layoutResource = Injector.getActionBarResourceId(getContext()); // Miui Hook
                 }
             } else {
                 layoutResource = com.android.internal.R.layout.screen_title;
@@ -2882,6 +2976,7 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
         mAlwaysReadCloseOnTouchAttr = true;
     }
 
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     private void installDecor() {
         if (mDecor == null) {
             mDecor = generateDecor();
@@ -2923,6 +3018,8 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
                     if ((localFeatures & (1 << FEATURE_INDETERMINATE_PROGRESS)) != 0) {
                         mActionBar.initIndeterminateProgress();
                     }
+
+                    Injector.handleStartingWindow(this, mActionBar); // Miui Hook
 
                     boolean splitActionBar = false;
                     final boolean splitWhenNarrow =

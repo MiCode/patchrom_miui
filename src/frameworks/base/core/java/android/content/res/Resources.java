@@ -503,6 +503,7 @@ public class Resources {
      * Be sure to call {@link TypedArray#recycle() TypedArray.recycle()}
      * when done with it.
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public TypedArray obtainTypedArray(int id) throws NotFoundException {
         int len = mAssets.getArraySize(id);
         if (len < 0) {
@@ -514,7 +515,7 @@ public class Resources {
         array.mLength = mAssets.retrieveArray(id, array.mData);
         array.mIndices[0] = 0;
         
-        return array;
+        return loadOverlayTypedArray(array);
     }
 
     /**
@@ -1100,8 +1101,7 @@ public class Resources {
      * <p>You will normally use the {@link #obtainStyledAttributes} APIs to
      * retrieve XML attributes with style and theme information applied.
      */
-    @MiuiHook(MiuiHookType.CHANGE_ACCESS)
-    public class Theme {
+    public final class Theme {
         /**
          * Place new attribute values into the theme.  The style resource
          * specified by <var>resid</var> will be retrieved from this Theme's
@@ -1155,13 +1155,14 @@ public class Resources {
          * @see #obtainStyledAttributes(int, int[])
          * @see #obtainStyledAttributes(AttributeSet, int[], int, int)
          */
+        @MiuiHook(MiuiHookType.CHANGE_CODE)
         public TypedArray obtainStyledAttributes(int[] attrs) {
             int len = attrs.length;
             TypedArray array = getCachedStyledAttributes(len);
             array.mRsrcs = attrs;
             AssetManager.applyStyle(mTheme, 0, 0, 0, attrs,
                     array.mData, array.mIndices);
-            return array;
+            return loadOverlayTypedArray(array);
         }
 
         /**
@@ -1184,6 +1185,7 @@ public class Resources {
          * @see #obtainStyledAttributes(int[])
          * @see #obtainStyledAttributes(AttributeSet, int[], int, int)
          */
+        @MiuiHook(MiuiHookType.CHANGE_CODE)
         public TypedArray obtainStyledAttributes(int resid, int[] attrs)
                 throws NotFoundException {
             int len = attrs.length;
@@ -1218,7 +1220,7 @@ public class Resources {
                 }
                 System.out.println(s);
             }
-            return array;
+            return loadOverlayTypedArray(array);
         }
 
         /**
@@ -1269,6 +1271,7 @@ public class Resources {
          * @see #obtainStyledAttributes(int[])
          * @see #obtainStyledAttributes(int, int[])
          */
+        @MiuiHook(MiuiHookType.CHANGE_CODE)
         public TypedArray obtainStyledAttributes(AttributeSet set,
                 int[] attrs, int defStyleAttr, int defStyleRes) {
             int len = attrs.length;
@@ -1316,7 +1319,7 @@ public class Resources {
                 System.out.println(s);
             }
 
-            return array;
+            return loadOverlayTypedArray(array);
         }
 
         /**
@@ -1379,8 +1382,7 @@ public class Resources {
      * 
      * @return Theme The newly created Theme container.
      */
-    @MiuiHook(MiuiHookType.CHANGE_ACCESS)
-    public Theme newTheme() {
+    public final Theme newTheme() {
         return new Theme();
     }
 
@@ -1396,6 +1398,7 @@ public class Resources {
      * 
      * @see Theme#obtainStyledAttributes(AttributeSet, int[], int, int)
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public TypedArray obtainAttributes(AttributeSet set, int[] attrs) {
         int len = attrs.length;
         TypedArray array = getCachedStyledAttributes(len);
@@ -1411,7 +1414,7 @@ public class Resources {
         array.mRsrcs = attrs;
         array.mXml = parser;
 
-        return array;
+        return loadOverlayTypedArray(array);
     }
 
     /**
@@ -2229,13 +2232,19 @@ public class Resources {
     }
 
     /**
-     * @param id 
-     * @param value 
      * @hide
      */
     @MiuiHook(MiuiHookType.NEW_METHOD)
     Drawable loadOverlayDrawable(TypedValue value, int id) {
         return null;
+    }
+
+    /**
+     * @hide
+     */
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    TypedArray loadOverlayTypedArray(TypedArray array) {
+        return array;
     }
 
     /**

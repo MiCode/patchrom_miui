@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.xiaomi.xmsf.payment.VoucherListItem
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="80dip"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingTop="15dip"
+    android:paddingBottom="15dip"
+    android:paddingLeft="15dip"
+    android:paddingRight="10dip"
+    style="@style/RecordItem">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dip"
+        android:orientation="horizontal"
+        android:gravity="top" >
+        <TextView
+            android:id="@+id/denomination"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/highlight_color"
+            android:textSize="@dimen/text_size_ultra_huge" />
+        <TextView
+            android:id="@+id/unit"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dip"
+            android:layout_marginLeft="2dip"
+            android:text="@string/voucher_denom"
+            android:textColor="@color/highlight_color"
+            android:textSize="@dimen/text_size_small" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="right">
+        <TextView
+            android:id="@+id/acitivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_small"
+            android:singleLine="true"
+            style="@style/ListItemPrimary" />
+        <TextView
+            android:id="@+id/expired_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_small"
+            android:singleLine="true"
+            style="@style/ListItemSecondary" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/recharge_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:minWidth="65dip"
+        android:background="@drawable/action_btn"
+        android:clickable="false"
+        android:focusable="false"
+        android:textColor="@color/primary_color"
+        android:textSize="@dimen/text_size_small" />
+</com.xiaomi.xmsf.payment.VoucherListItem>

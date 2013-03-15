@@ -31,11 +31,22 @@
             android:layout_height="wrap_content"
             android:indeterminateOnly="true" />
         <TextView
+            android:id="@+id/progress_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/progress_downloading" />
+        <ImageView
+            android:id="@+id/error_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:src="@drawable/error_icon"/>
+        <TextView
             android:id="@+id/error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/secondary_color"
-            android:textSize="@miui:dimen/text_font_size_small"
+            android:textColor="@color/text_color_gray"
+            android:textSize="@dimen/text_size_small"
             android:visibility="gone" />
     </LinearLayout>
 </FrameLayout>

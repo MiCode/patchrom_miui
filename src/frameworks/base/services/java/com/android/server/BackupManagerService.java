@@ -139,6 +139,7 @@ class BackupManagerService extends IBackupManager.Stub {
 
     @MiuiHook(MiuiHookType.NEW_CLASS)
     static class Injector {
+        static boolean FALSE = false;
         static boolean startConfirmationUi(BackupManagerService service, int token, String action) {
             FullParams params;
             synchronized (service.mFullConfirmations) {
@@ -2481,8 +2482,7 @@ class BackupManagerService extends IBackupManager.Stub {
             // handle that one at the end).
             for (int i = 0; i < packagesToBackup.size(); ) {
                 PackageInfo pkg = packagesToBackup.get(i);
-                if ((pkg.applicationInfo.flags & ApplicationInfo.FLAG_ALLOW_BACKUP) == 0
-                        || pkg.packageName.equals(SHARED_BACKUP_AGENT_PACKAGE)) {
+                if (Injector.FALSE || pkg.packageName.equals(SHARED_BACKUP_AGENT_PACKAGE)) { //miui modify
                     packagesToBackup.remove(i);
                 } else {
                     i++;

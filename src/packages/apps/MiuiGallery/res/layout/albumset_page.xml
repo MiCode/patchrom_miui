@@ -7,80 +7,32 @@
     android:colorBackground="@null"
     android:colorBackgroundCacheHint="@null"
 >
-    <LinearLayout
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/albumset_page_title_height"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/main_bg">
-        <LinearLayout
-            android:id="@+id/albumset_view_bar"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/albumset_page_bar_height">
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/albumset_view_drag"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <LinearLayout android:id="@+id/drag_recent"
-                style="@style/AlbumSetPageDragLinearLayout">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-                    <ImageView android:id="@+id/drag_recent_star"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingRight="5px"
-                        android:src="@drawable/albumset_drag_recent_star_holo_light"/>
-                    <TextView android:id="@+id/drag_recent_text"
-                        style="@style/AlbumSetPageDragText"
-                        android:text="@string/all_recent"
-                    />
-                </LinearLayout>
-                <ImageView android:id="@+id/drag_recent_bottom_line"
-                    style="@style/AlbumSetPageDragBottomLine"/>
-            </LinearLayout>
-            <ImageView android:id="@+id/drag_seprator"
-                style="@style/AlbumSetPageDragSeprator"/>
-            <LinearLayout android:id="@+id/drag_all"
-                style="@style/AlbumSetPageDragLinearLayout">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-                    <TextView android:id="@+id/drag_all_text"
-                        style="@style/AlbumSetPageDragText"
-                        android:text="@string/all_album"
-                    />
-                </LinearLayout>
-                <ImageView android:id="@+id/drag_all_bottom_line"
-                    style="@style/AlbumSetPageDragBottomLine"/>
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
+            android:paddingTop="@dimen/albumset_title_view_height"
+            >
+            <!-- mask shadow -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/v5_albumset_shadow_top"/>
 
-    <LinearLayout
-        android:id="@+id/albumset_page_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/no_recent_album"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingLeft="@dimen/albumset_page_drag_padding_left"
-        android:visibility="gone">
-        <TextView style="@style/AlbumSetPageNoRecentText"
-            android:text="@string/no_recent_album"/>
-        <ImageView android:id="@+id/no_recent_album_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:src="@drawable/no_recent_album"/>
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/albumset_page_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- mask shadow -->
+        <ImageView
+            style="@style/ListViewShadowImage"
+            android:background="@drawable/albumset_list_shadow"/>
+    </FrameLayout>
 </LinearLayout>

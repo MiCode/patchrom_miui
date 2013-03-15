@@ -28,8 +28,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dip"
-            android:layout_marginRight="5dip"
+            android:layout_marginLeft="@miui:dimen/v5_list_view_padding_horizontal"
+            android:layout_marginRight="@miui:dimen/v5_list_view_padding_horizontal"
             android:orientation="vertical"
             android:layout_gravity="top|center_horizontal">
 
@@ -38,6 +38,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dip"
+                android:padding="10dip"
+                android:background="?miui:attr/v5_group_item_bg"
                 android:hint="@string/sim_contact_name_miui"
                 android:inputType="textPersonName"
                 android:singleLine="true"
@@ -49,7 +51,8 @@
                 android:id="@+id/fdn_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dip"
+                android:padding="10dip"
+                android:background="?miui:attr/v5_group_item_bg"
                 android:hint="@string/sim_contact_number_miui"
                 android:inputType="phone"
                 android:singleLine="true"
@@ -61,7 +64,8 @@
                 android:id="@+id/fdn_pin2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dip"
+                android:padding="10dip"
+                android:background="?miui:attr/v5_group_item_bg"
                 android:hint="@string/enter_pin2_text_miui"
                 android:inputType="textPassword"
                 android:layout_marginBottom="5dip"
@@ -73,9 +77,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dip"
-                android:background="@drawable/incall_button_red_miui"
                 android:text="@string/delete_sim_contact_confirm_title_miui"
-                android:textColor="@android:color/white"
+                style="@miui:style/V5.Widget.Button.NegativeWarn"
                 android:visibility="gone" />
         </LinearLayout>
     </ScrollView>
@@ -83,16 +86,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dip"
-        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="@miui:dimen/v5_list_view_padding_horizontal"
+        android:layout_marginRight="@miui:dimen/v5_list_view_padding_horizontal"
         android:orientation="horizontal">
         <Button
             android:id="@+id/fdn_ok"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@android:string/ok"
-            android:layout_marginRight="5dip" />
+            android:text="@android:string/ok" />
         <Button
             android:id="@+id/fdn_cancel"
             android:layout_width="0dip"

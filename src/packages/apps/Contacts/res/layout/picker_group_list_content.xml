@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/pinned_header_list_layout"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/contact_browser_background">
+    android:background="?attr/contact_browser_background"
+    android:orientation="vertical" >
 
     <ExpandableListView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="?attr/contact_browser_list_padding_left"
-        android:layout_marginRight="?attr/contact_browser_list_padding_left"
-        android:fastScrollEnabled="false"
-        android:scrollbars="vertical"
+        android:layout_height="0dip"
+        android:layout_weight="1"
         android:cacheColorHint="@null"
         android:divider="@null"
-        android:fadingEdge="none" />
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:groupIndicator="@null"
+        android:scrollbars="vertical" />
 
-    <include
-        layout="@layout/picker_list_empty" />
+    <include layout="@layout/android_list_empty" />
+
 </LinearLayout>

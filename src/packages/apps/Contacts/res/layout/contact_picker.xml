@@ -20,12 +20,11 @@
     style="@style/ContactPickerLayout"
     android:orientation="vertical"
     android:layout_height="match_parent">
-    <view
-        class="android.widget.SearchView"
+
+    <include
         android:id="@+id/search_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:iconifiedByDefault="false" />
+        layout="@layout/search_view" />
+
     <!-- will contain an appropriate contacts list -->
     <FrameLayout
         android:id="@+id/list_container"

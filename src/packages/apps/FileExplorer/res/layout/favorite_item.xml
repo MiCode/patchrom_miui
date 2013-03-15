@@ -1,27 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:paddingTop="5dip"
-    android:paddingBottom="5dip"
-    android:gravity="center_vertical"
-    android:background="@miui:drawable/list_medium_middle_item_background">
+    style="@style/ListItemStyle">
 
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center">
-        <ImageView
-            android:id="@+id/file_image"
-            android:layout_width="39dip"
-            android:layout_height="39dip"
-            android:scaleType="centerInside"
-            android:gravity="center"
-            android:layout_gravity="center" />
-    </FrameLayout>
+    <ImageView
+        android:id="@+id/file_image"
+        style="@style/FileIconStyle" />
     <LinearLayout
         android:id="@+id/file_info_layout"
         android:layout_width="0dip"
@@ -36,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            style="@miui:style/V5.TextAppearance.List.Primary" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:gravity="left"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                style="@miui:style/V5.TextAppearance.List.Secondary" />
             <TextView
                 android:id="@+id/file_size"
                 android:layout_width="wrap_content"
@@ -56,7 +40,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="9dip"
                 android:gravity="left"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                style="@miui:style/V5.TextAppearance.List.Secondary" />
 
         </LinearLayout>
     </LinearLayout>

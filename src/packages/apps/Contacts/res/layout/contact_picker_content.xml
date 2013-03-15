@@ -21,20 +21,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <view
-        class="android.widget.SearchView"
+    <include
         android:id="@+id/search_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="0dip"
-        android:iconifiedByDefault="false"
-        android:visibility="gone" />
+        layout="@layout/search_view"
+        android:visibility="gone"/>
+
+    <include layout="@layout/list_empty_view" />
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="1">
-
         <view
             class="com.android.contacts.widget.PinnedHeaderListView"
             android:id="@android:id/list"
@@ -42,15 +39,13 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="?attr/contact_browser_list_padding_left"
             android:layout_marginRight="?attr/contact_browser_list_padding_right"
-            android:fastScrollEnabled="true"
-            android:fadingEdge="none" />
+            android:fastScrollEnabled="true" />
 
         <view
             class="miui.widget.AlphabetFastIndexer"
             android:id="@+id/fast_indexer"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
-
     </FrameLayout>
 
     <ViewStub

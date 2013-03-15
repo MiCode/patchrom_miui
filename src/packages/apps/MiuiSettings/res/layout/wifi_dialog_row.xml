@@ -17,34 +17,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="?android:attr/listPreferredItemHeight"
-    android:gravity="center_vertical"
-    android:enabled="false"
-    android:background="?android:attr/selectableItemBackground" >
+    android:background="@miui:drawable/v5_preference_item_bg" >
+    <TextView android:id="@+android:id/title"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:singleLine="true"
+        android:layout_gravity="center_vertical"
+        android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList"
+        android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side" />
 
-    <RelativeLayout
+    <TextView android:id="@+android:id/summary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="6dip">
-
-        <TextView android:id="@+android:id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:ellipsize="marquee"
-            android:enabled="false"
-            android:fadingEdge="horizontal" />
-
-        <TextView android:id="@+android:id/summary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@android:id/title"
-            android:layout_alignLeft="@android:id/title"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:enabled="false"
-            android:singleLine="true" />
-
-    </RelativeLayout>
+        android:singleLine="true"
+        android:layout_gravity="center_vertical"
+        android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"
+        android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side" />
 </LinearLayout>
 

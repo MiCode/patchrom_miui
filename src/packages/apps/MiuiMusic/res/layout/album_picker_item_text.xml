@@ -1,26 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:gravity="center_vertical|left"
+    android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/primary_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/spacing_picker_item"
-        android:gravity="center_vertical|left"
-        android:paddingLeft="@dimen/spacing_picker_item"
-        android:singleLine="true"
-        android:textColor="@color/item_primary_text"
-        android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/secondary_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/spacing_picker_item"
-        android:gravity="center_vertical|left"
-        android:paddingLeft="@dimen/spacing_picker_item"
-        android:singleLine="true"
-        android:textColor="@color/item_secondary_text"
-        android:textSize="12sp" />
-
-</merge>
+    <include layout="@layout/list_item_double_line_with_separator" />
+</LinearLayout>

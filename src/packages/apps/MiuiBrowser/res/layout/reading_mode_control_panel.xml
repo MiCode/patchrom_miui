@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 阅读模式控制面板，FrameLayout -->
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 上部阴影 -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="@drawable/reading_mode_top_shadow" />
+
+    <!-- 底部：阴影+控制面板 -->
+    <LinearLayout
+        android:id="@+id/bottom_bar_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+
+        <!-- 阴影 -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/reading_mode_bottom_shadow" />
+
+        <!-- 控制面板 -->
+        <LinearLayout
+            android:id="@+id/bottom_bar_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/bottom_bar_bg">
+
+            <!-- 字体变大 -->
+            <Button style="@miui:style/V5.Widget.BottomBarIcon"
+                android:id="@+id/action_textsize_bigger"
+                android:drawableTop="@drawable/action_textsize_bigger"
+                android:text="@string/accessibility_button_larger"
+                android:textColor="@miui:color/v5_bottom_bar_icon_text_color_light"/>
+
+            <!-- 字体变小 -->
+            <Button style="@miui:style/V5.Widget.BottomBarIcon"
+                android:id="@+id/action_textsize_smaller"
+                android:drawableTop="@drawable/action_textsize_smaller"
+                android:text="@string/accessibility_button_smaller"
+                android:textColor="@miui:color/v5_bottom_bar_icon_text_color_light"/>
+
+            <!-- 加入阅读书签 -->
+            <Button style="@miui:style/V5.Widget.BottomBarIcon"
+                android:id="@+id/action_readmode_bookmark"
+                android:drawableTop="@drawable/action_readmode_bookmark"
+                android:text="@string/accessibility_button_bookmark"
+                android:textColor="@miui:color/v5_bottom_bar_icon_text_color_light"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</merge>

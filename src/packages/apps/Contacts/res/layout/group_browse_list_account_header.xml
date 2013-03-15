@@ -20,50 +20,6 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <!-- Only visible when it is the first element in the list. -->
-    <View
-        android:id="@+id/header_extra_top_padding"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/contact_browser_list_top_margin" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="?attr/list_item_header_height"
-        android:paddingLeft="?attr/list_item_padding_left"
-        android:paddingRight="?attr/list_item_padding_right"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/account_type"
-            android:layout_width="0px"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="?attr/list_item_header_text_indent"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/people_app_theme_color"
-            android:textStyle="bold"
-            android:textAllCaps="true"
-            android:singleLine="true"/>
-
-        <!-- TODO: Shold use correct color with a correct name (content should be same).
-             can use "?android:attr/textColorTertiary" -->
-        <TextView
-            android:id="@+id/account_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/contact_count_text_color"
-            android:textSize="12sp"
-            android:singleLine="true"
-            android:ellipsize="middle" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:background="@color/people_app_theme_color" />
+    <include layout="@layout/group_account_header_horizontal" />
 
 </LinearLayout>

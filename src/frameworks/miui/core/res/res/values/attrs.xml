@@ -123,6 +123,8 @@
 
     <!-- for V5 -->
     <declare-styleable name="V5.Theme">
+        <attr name="miui_ui_version" format="integer" />
+
         <attr name="v5_primary_text_color" format="reference|color" />
         <attr name="v5_secondary_text_color" format="reference|color" />
         <attr name="v5_tertiary_text_color" format="reference|color" />
@@ -132,6 +134,7 @@
         <attr name="v5_text_color_hilighted" format="reference|color" />
 
         <attr name="v5_title_text_color" format="reference|color" />
+        <attr name="v5_tab_text_color" format="reference|color" />
         <attr name="v5_title_text_color_no_activated" format="reference|color" />
         <attr name="v5_title_text_shadow" format="reference|color" />
         <attr name="v5_secondary_tab_indicator_text_color" format="reference|color" />
@@ -145,6 +148,8 @@
         <attr name="v5_list_secondary_text_color" format="reference|color" />
         <attr name="v5_list_secondary_text_shadow" format="reference|color" />
         <attr name="v5_checkable_btn_text_color" format="reference|color" />
+        <attr name="v5_checkable_btn_text_color_stable" format="reference|color" />
+        <attr name="v5_checkable_list_item_text_color" format="reference|color" />
         <attr name="v5_edit_mode_text_color" format="reference|color" />
         <attr name="v5_edit_mode_btn_text_color" format="reference|color" />
         <attr name="v5_edit_mode_btn_default_text_color" format="reference|color" />
@@ -159,6 +164,7 @@
         <attr name="v5_title_bar_bg_search_mode" format="reference" />
         <attr name="v5_tab_indicator_bg" format="reference" />
         <attr name="v5_tab_indicator_bg_no_title" format="reference" />
+        <attr name="v5_tab_indicator_shadow" format="reference" />
         <attr name="v5_edit_text_bg" format="reference" />
         <attr name="v5_edit_text_search_bg" format="reference" />
         <attr name="v5_edit_text_search_clear_btn" format="reference" />
@@ -169,24 +175,38 @@
         <attr name="v5_bottom_bar_favorite_icon" format="reference" />
         <attr name="v5_bottom_bar_unfavorite_icon" format="reference" />
         <attr name="v5_bottom_bar_edit_icon" format="reference" />
+        <attr name="v5_bottom_bar_delete_icon" format="reference" />
+        <attr name="v5_bottom_bar_new_icon" format="reference" />
+        <attr name="v5_bottom_bar_save_icon" format="reference" />
+        <attr name="v5_bottom_bar_discard_icon" format="reference" />
         <attr name="v5_menu_list_view_bg" format="reference" />
         <attr name="v5_menu_list_view_item_bg" format="reference" />
         <attr name="v5_menu_primary_mask_bg" format="reference" />
         <attr name="v5_edit_mode_top_bar_bg" format="reference" />
+        <attr name="v5_edit_mode_top_bar_no_shadow_bg" format="reference" />
         <attr name="v5_edit_mode_top_bar_button" format="reference" />
         <attr name="v5_edit_mode_top_bar_button_main" format="reference" />
         <attr name="v5_edit_mode_bottom_bar_bg" format="reference" />
+        <attr name="v5_edit_mode_bottom_bar_favorite_icon" format="reference" />
+        <attr name="v5_edit_mode_bottom_bar_delete_icon" format="reference" />
         <attr name="v5_edit_mode_bottom_bar_more_icon" format="reference" />
+        <attr name="v5_edit_mode_bottom_bar_more_icon_bg" format="reference" />
         <attr name="v5_edit_mode_bottom_bar_list_bg" format="reference" />
         <attr name="v5_edit_mode_bottom_bar_list_item_bg" format="reference" />
         <attr name="v5_edit_mode_bottom_bar_icon_bg" format="reference" />
+        <attr name="v5_edit_mode_bottom_bar_icon_text_color" format="reference" />
         <attr name="v5_list_view_item_bg" format="reference" />
+        <attr name="v5_list_view_section_item_bg" format="reference" />
         <attr name="v5_btn_bg" format="reference" />
         <attr name="v5_btn_bg_negative_warn" format="reference" />
         <attr name="v5_btn_bg_positive_warn" format="reference" />
 
+        <attr name="v5_progress_bar_bg_small" format="reference" />
+        <attr name="v5_progress_bar_ani_small" format="reference" />
         <attr name="v5_progress_bar_bg" format="reference" />
         <attr name="v5_progress_bar_ani" format="reference" />
+        <attr name="v5_progress_bar_bg_large" format="reference" />
+        <attr name="v5_progress_bar_ani_large" format="reference" />
         <attr name="v5_progress_bar" format="reference" />
 
         <attr name="v5_tab_indicator_style" format="reference" />
@@ -201,6 +221,7 @@
 
         <attr name="v5_group_item_bg" format="reference" />
         <attr name="v5_spinner_bg" format="reference" />
+        <attr name="v5_list_popup_window_bg" format="reference" />
 
         <!-- MiuiActivity中miui_content的bottom placeholder -->
         <attr name="v5_bottom_placeholder" format="reference" />
@@ -216,17 +237,95 @@
 
         <!-- Sliding button default style -->
         <attr name="slidingButtonStyleDefault" format="reference" />
+        <!-- Style of SeekBar in MultipositionBar -->
+        <attr name="seekBarForMultipositionBarStyle" format="reference" />
 
         <attr name="v5_over_scroll_distance" format="reference|dimension" />
+        <attr name="v5_over_fling_distance" format="reference|dimension" />
+        <attr name="v5_over_scroll_edge" format="reference" />
+        <attr name="v5_over_scroll_glow" format="reference" />
+        <attr name="v5_btn_bg_rect" format="reference" />
+
+        <attr name="v5_reloading_bar_bg" format="reference" />
+        <attr name="v5_reloading_bar_text_color" format="reference|color" />
+
+        <attr name="v5_expander_group_bg" format="reference" />
+        <attr name="v5_expander_group_indicator" format="reference" />
+
+        <attr name="v5_action_bar_title_layout" format="reference" />
+        <attr name="v5_action_mode_title_layout" format="reference" />
+        <attr name="v5_action_bar_tab" format="boolean" />
+        <attr name="v5_action_bar_movable" format="boolean" />
+        <attr name="frameDuration" format="integer" />
+        <attr name="framesCount" format="integer" />
+
+        <attr name="v5_no_rounded_corners" format="boolean" />
+        <attr name="actionBarMovableLayoutStyle" format="reference" />
+
+        <!-- V5 Search view -->
+        <attr name="searchViewTextField" format="reference" />
+        <attr name="searchViewTextFieldRight" format="reference" />
+        <attr name="searchViewCloseIcon" format="reference" />
+        <attr name="searchViewSearchIcon" format="reference" />
+        <attr name="searchViewGoIcon" format="reference" />
+        <attr name="searchViewVoiceIcon" format="reference" />
+
+        <attr name="v5_content_empty_icon" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ActionMenuView">
+        <attr name="v5_action_menu_view_more_icon" format="reference" />
+        <attr name="v5_action_menu_view_secondary_container_layout" format="reference" />
+        <attr name="v5_action_menu_view_expaned_background" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ActionBarMovableLayout">
+        <attr name="v5_over_scroll_range" format="dimension" />
+        <attr name="v5_scroll_range" format="dimension" />
+        <attr name="v5_initial_motion" format="dimension" />
     </declare-styleable>
 
     <!-- =============================== -->
     <!-- NumberProgressView attributes -->
     <!-- =============================== -->
     <declare-styleable name="NumberProgressView">
-        <attr name="numbers" format="reference"/>
-        <attr name="numberPercent" format="reference"/>
+        <attr name="v5_numbers" format="reference"/>
+        <attr name="v5_numberPercent" format="reference"/>
     </declare-styleable>
 
+    <declare-styleable name="DrawableStates">
+        <attr name="state_single" format="boolean" />
+        <attr name="state_first" format="boolean" />
+        <attr name="state_middle" format="boolean" />
+        <attr name="state_last" format="boolean" />
+        <attr name="children_sequence_state" format="boolean" />
+    </declare-styleable>
+
+    <!-- =============================== -->
+    <!-- CircleProgressView attributes -->
+    <!-- =============================== -->
+    <declare-styleable name="CircleProgressView">
+        <attr name="v5_foreground" format="reference"/>
+        <attr name="v5_circle_color" format="color"/>
+        <attr name="v5_circle_margin" format="dimension"/>
+        <attr name="v5_circle_width" format="dimension"/>
+    </declare-styleable>
+
+    <!-- =============================== -->
+    <!--   MiuiProgressBar attributes    -->
+    <!-- =============================== -->
+    <declare-styleable name="MiuiProgressBar">
+        <attr name="progressBar" format="reference"/>
+        <attr name="progressBarMask" format="reference"/>
+    </declare-styleable>
+
+    <!-- =============================== -->
+    <!--   MultiPositionBar attributes    -->
+    <!-- =============================== -->
+    <declare-styleable name="MultiPositionBar">
+        <attr name="entries" format="reference"/>
+        <attr name="entryValues" format="reference"/>
+        <attr name="positionImage" format="reference"/>
+    </declare-styleable>
 </resources>
 

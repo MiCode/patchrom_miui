@@ -16,6 +16,8 @@
 
 package android.preference;
 
+import android.annotation.MiuiHook;
+import android.annotation.MiuiHook.MiuiHookType;
 import android.app.Fragment;
 import android.app.FragmentBreadCrumbs;
 import android.app.FragmentManager;
@@ -26,6 +28,8 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
+import android.graphics.Rect;
+import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -265,8 +269,7 @@ public abstract class PreferenceActivity extends ListActivity implements
             View view;
 
             if (convertView == null) {
-                view = mInflater.inflate(com.android.internal.R.layout.preference_header_item,
-                        parent, false);
+                view = Injector.getItemView(getContext(), parent, mInflater);
                 holder = new HeaderViewHolder();
                 holder.icon = (ImageView) view.findViewById(com.android.internal.R.id.icon);
                 holder.title = (TextView) view.findViewById(com.android.internal.R.id.title);
@@ -280,6 +283,7 @@ public abstract class PreferenceActivity extends ListActivity implements
             // All view fields must be updated every time, because the view may be recycled 
             Header header = getItem(position);
             holder.icon.setImageResource(header.iconRes);
+            Injector.setIconVisible(holder.icon, header.iconRes);
             holder.title.setText(header.getTitle(getContext().getResources()));
             CharSequence summary = header.getSummary(getContext().getResources());
             if (!TextUtils.isEmpty(summary)) {
@@ -291,6 +295,50 @@ public abstract class PreferenceActivity extends ListActivity implements
 
             return view;
         }
+    }
+
+    @MiuiHook(MiuiHookType.NEW_CLASS)
+    static class Injector {
+        static View getItemView(Context context, ViewGroup parent, LayoutInflater inflater) {
+            if (!miui.util.UiUtils.isV5Ui(context)) {
+                int layout = miui.util.ResourceMapper.resolveReference(context, miui.R.layout.android_preference_header_item);
+                return inflater.inflate(layout, parent, false);
+            }
+            View view = inflater.inflate(miui.R.layout.v5_preference, parent, false);
+            view.setBackgroundResource(miui.R.drawable.v5_preference_item_bg);
+
+            int paddingSide = context.getResources()
+                .getDimensionPixelSize(miui.R.dimen.v5_preference_item_padding_side);
+
+            StateListDrawable bgDrawable = (StateListDrawable)view.getBackground();
+            if (bgDrawable != null) {
+                Rect padding = new Rect();
+                bgDrawable.getPadding(padding);
+                view.setPadding(paddingSide + padding.left, padding.top,
+                        paddingSide + padding.right, padding.bottom);
+            }
+            return view;
+        }
+
+        static void setListViewPadding(PreferenceActivity preferenceActivity) {
+            if (!miui.util.UiUtils.isV5Ui(preferenceActivity)) {
+                return;
+            }
+
+            int paddingTop = preferenceActivity.getResources()
+            .getDimensionPixelSize(miui.R.dimen.v5_preference_screen_padding_top);
+            int paddingBottom = preferenceActivity.getResources()
+            .getDimensionPixelSize(miui.R.dimen.v5_preference_screen_padding_bottom);
+            preferenceActivity.getListView().setPadding(0, paddingTop, 0, paddingBottom);
+        }
+
+        static void setIconVisible(ImageView iconView, int iconRes) {
+            if (!miui.util.UiUtils.isV5Ui(iconView.getContext())) {
+                return;
+            }
+            iconView.setVisibility(iconRes != 0 ? View.VISIBLE : View.GONE);
+        }
+
     }
 
     /**
@@ -577,6 +625,7 @@ public abstract class PreferenceActivity extends ListActivity implements
                 showBreadCrumbs(initialTitleStr, initialShortTitleStr);
             }
         } else if (mHeaders.size() > 0) {
+            Injector.setListViewPadding(this);
             setListAdapter(new HeaderAdapter(this, mHeaders));
             if (!mSinglePane) {
                 // Multi-pane.

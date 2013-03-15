@@ -2,41 +2,63 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingLeft="10dip"
-    android:paddingRight="10dip"
+    android:layout_height="match_parent"
+    android:paddingLeft="15dip"
+    android:paddingRight="15dip"
     android:orientation="vertical">
+
     <EditText
         android:id="@+id/share_content"
         style="@style/TextAppearance.Medium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dip"
-        android:layout_marginBottom="10dip"
-        android:gravity="center_vertical|left"/>
-    <Button
-        android:id="@+id/share_sina"
-        style="@style/TextAppearance.Medium"
+        android:layout_marginTop="20dip"
+        android:layout_marginBottom="20dip"
+        android:gravity="center_vertical|left"
+        android:inputType="textMultiLine"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginBottom="10dip"
-        android:paddingTop="5dip"
-        android:paddingBottom="5dip"
-        android:paddingRight="50dip"
-        android:paddingLeft="50dip"
-        android:drawableLeft="@drawable/sina"
-        android:text="@string/share_sina"/>
-    <Button
-        android:id="@+id/share_qq"
-        style="@style/TextAppearance.Medium"
-        android:gravity="center"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/share_sina"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@miui:style/V5.Widget.Button">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dip"
+                android:background="@drawable/sina" />
+            <TextView
+                android:id="@+id/share_sina_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/share_sina"
+                style="@miui:style/V5.TextAppearance.Button" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingRight="50dip"
-        android:paddingTop="5dip"
-        android:paddingBottom="5dip"
-        android:paddingLeft="50dip"
-        android:drawableLeft="@drawable/tencent"
-        android:text="@string/share_qq"/>
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/share_qq"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@miui:style/V5.Widget.Button">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dip"
+                android:background="@drawable/tencent"/>
+            <TextView
+                android:id="@+id/share_qq_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/share_qq"
+                style="@miui:style/V5.TextAppearance.Button" />
+        </LinearLayout>
+    </LinearLayout>
+
 </LinearLayout>

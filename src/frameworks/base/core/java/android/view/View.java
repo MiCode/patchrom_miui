@@ -85,6 +85,8 @@ import com.android.internal.R;
 import com.android.internal.util.Predicate;
 import com.android.internal.view.menu.MenuBuilder;
 
+import miui.util.UiUtils;
+
 import java.lang.ref.WeakReference;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -681,6 +683,60 @@ public class View implements Drawable.Callback, Drawable.Callback2, KeyEvent.Cal
                 return false;
             }
             return true;
+        }
+
+        static void initializeChildrenSequenceStates(View view, AttributeSet attrs, int defStyle) {
+            TypedArray a = view.getContext().obtainStyledAttributes(attrs, miui.R.styleable.DrawableStates,
+                    defStyle, 0);
+
+            int count = a.getIndexCount();
+            for (int i = 0; i < count; ++i) {
+                switch (i) {
+                    case miui.R.styleable.DrawableStates_state_first:
+                        if (a.getBoolean(i, false)) {
+                            view.setAdditionalState(miui.R.attr.state_first);
+                        }
+                        break;
+                    case miui.R.styleable.DrawableStates_state_middle:
+                        if (a.getBoolean(i, false)) {
+                            view.setAdditionalState(miui.R.attr.state_middle);
+                        }
+                        break;
+                    case miui.R.styleable.DrawableStates_state_last:
+                        if (a.getBoolean(i, false)) {
+                            view.setAdditionalState(miui.R.attr.state_last);
+                        }
+                        break;
+                    case miui.R.styleable.DrawableStates_state_single:
+                        if (a.getBoolean(i, false)) {
+                            view.setAdditionalState(miui.R.attr.state_single);
+                        }
+                        break;
+                }
+            }
+
+            a.recycle();
+        }
+
+        static void onDrawableStateChanged(View view, Drawable d) {
+            android.graphics.drawable.Drawable.ConstantState constantState = d.getConstantState();
+            if (constantState instanceof android.graphics.drawable.DrawableContainer.DrawableContainerState) {
+                android.graphics.drawable.DrawableContainer.DrawableContainerState drawableContainerState =
+                        (android.graphics.drawable.DrawableContainer.DrawableContainerState) constantState;
+                if (drawableContainerState.getVariablePadding()) {
+                    Rect padding = sThreadLocal.get();
+                    if (d.getPadding(padding)) {
+                        switch (d.getResolvedLayoutDirectionSelf()) {
+                            case LAYOUT_DIRECTION_RTL:
+                                view.setPadding(padding.right, padding.top, padding.left, padding.bottom);
+                                break;
+                            case LAYOUT_DIRECTION_LTR:
+                            default:
+                                view.setPadding(padding.left, padding.top, padding.right, padding.bottom);
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -3715,6 +3771,8 @@ public class View implements Drawable.Callback, Drawable.Callback2, KeyEvent.Cal
         }
 
         computeOpaqueFlags();
+
+        Injector.initializeChildrenSequenceStates(this, attrs, defStyle); // Miui Hook
     }
 
     private void updateUserPaddingRelative() {
@@ -14026,10 +14084,13 @@ public class View implements Drawable.Callback, Drawable.Callback2, KeyEvent.Cal
      *
      * @see Drawable#setState(int[])
      */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     protected void drawableStateChanged() {
         Drawable d = mBackground;
         if (d != null && d.isStateful()) {
             d.setState(getDrawableState());
+
+            Injector.onDrawableStateChanged(this, d); // Miui Hook
         }
     }
 
@@ -14086,6 +14147,7 @@ public class View implements Drawable.Callback, Drawable.Callback2, KeyEvent.Cal
      *
      * @see #mergeDrawableStates(int[], int[])
      */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     protected int[] onCreateDrawableState(int extraSpace) {
         if ((mViewFlags & DUPLICATE_PARENT_STATE) == DUPLICATE_PARENT_STATE &&
                 mParent instanceof View) {
@@ -14129,6 +14191,8 @@ public class View implements Drawable.Callback, Drawable.Callback2, KeyEvent.Cal
                     + " wf=" + hasWindowFocus()
                     + ": " + Arrays.toString(drawableState));
         }
+
+        drawableState = fillAdditionalState(drawableState); // Miui Hook
 
         if (extraSpace == 0) {
             return drawableState;
@@ -17987,5 +18051,29 @@ public class View implements Drawable.Callback, Drawable.Callback2, KeyEvent.Cal
         public AccessibilityNodeProvider getAccessibilityNodeProvider(View host) {
             return null;
         }
+    }
+
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_FIELD)
+    int mAdditionalState = 0;
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    public void setAdditionalState(int state) {
+        if (state != mAdditionalState) {
+            mAdditionalState = state;
+            invalidate(true);
+            refreshDrawableState();
+        }
+    }
+
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    int[] fillAdditionalState(int[] states) {
+        int[] newStates = states;
+        if (mAdditionalState != 0) {
+            newStates = UiUtils.getViewStates(newStates, mAdditionalState);
+        }
+        return newStates;
     }
 }

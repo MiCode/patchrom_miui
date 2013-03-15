@@ -1,226 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.Translucent.NoTitleBar.Dark"
-           parent="@android:style/Theme.Translucent.NoTitleBar">
-        <item name="android:windowBackground">@color/background</item>
+    <style name="Theme.Light"
+           parent="@miui:style/V5.Theme.Light">
+        <item name="android:windowNoTitle">true</item>
     </style>
 
-    <!-- Activity 主题 -->
-    <style name="Theme.Holo.Light"
-           parent="@miui:style/Theme.Light">
-        <item name="android:buttonStyle">@style/Widget.Holo.Light.Button</item>
-        <item name="android:actionOverflowButtonStyle">@miui:style/Widget.Holo.Light.ActionButton.Overflow</item>
+    <style name="Theme.Light.Title"
+           parent="@miui:style/V5.Theme.Light">
     </style>
 
-    <style name="Theme.Holo.Light.Main"
-           parent="@style/Theme.Holo.Light">
-        <item name="android:actionBarStyle">@style/ActionBarStyle</item>
-        <item name="android:windowAnimationStyle">@style/MiuiPhoneAnimations</item>
+    <style name="Theme.Light.ActionBar.NoTitle"
+           parent="@miui:style/V5.Theme.Light.ActionBar.NoTitle">
     </style>
 
-    <style name="Theme.Holo.Light.NoActionBar"
-           parent="@style/Theme.Holo.Light">
-        <item name="android:actionBarStyle">@style/ActionBarStyle.NoActionBar</item>
+    <style name="Theme.Light.NoTitle"
+           parent="@miui:style/V5.Theme.Light.NoTitle" />
+
+    <style name="Theme.Light.Conversation" parent="@style/Theme.Light.ActionBar.NoTitle">
         <item name="android:windowActionBarOverlay">true</item>
-        <item name="android:windowAnimationStyle">@style/MiuiPhoneAnimations</item>
+        <item name="android:windowBackground">@drawable/conversation_bg</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
     </style>
 
-    <style name="MiuiPhoneAnimations" parent="@android:style/Animation.Activity">
-         <item name="android:taskToBackEnterAnimation">@miui:anim/miui_phone_close_enter</item>
-         <item name="android:taskToBackExitAnimation">@miui:anim/miui_phone_close_exit</item>
-    </style>
+    <style name="Theme.Light.Dialog"
+           parent="@miui:style/V5.Theme.Light.Dialog" />
 
-    <style name="Theme.Holo.Light.Dialog"
-           parent="@android:style/Theme.Holo.Light.Dialog">
-        <item name="android:buttonStyle">@style/Widget.Holo.Light.Button</item>
-    </style>
+    <style name="Theme.Light.Dialog.NoTitle"
+           parent="@miui:style/V5.Theme.Light.Dialog.NoTitle" />
 
-    <style name="Theme.Holo.Light.Dialog.NoActionBar"
-           parent="@android:style/Theme.Holo.Light.Dialog.NoActionBar">
-        <item name="android:buttonStyle">@style/Widget.Holo.Light.Button</item>
-    </style>
+    <style name="Theme.Light.Translucent"
+           parent="@miui:style/V5.Theme.Light.Translucent" />
 
-    <style name="ActionBarStyle" parent="@miui:style/Widget.Holo.Light.ActionBar.Solid.HomeUp">
-        <item name="android:displayOptions">homeAsUp|useLogo</item>
-    </style>
-
-    <style name="ActionBarStyle.NoActionBar">
-        <item name="android:displayOptions" />
-    </style>
+    <style name="Theme.Light.Translucent.NoTitle"
+           parent="@miui:style/V5.Theme.Light.Translucent.NoTitle" />
 
     <style name="ListItem">
-        <item name="android:paddingTop">@dimen/list_item_padding_outer</item>
-        <item name="android:paddingBottom">@dimen/list_item_padding_outer</item>
+        <item name="android:paddingTop">@dimen/list_item_padding_outer_v</item>
+        <item name="android:paddingBottom">@dimen/list_item_padding_outer_v</item>
         <item name="android:paddingLeft">@dimen/list_item_padding_outer</item>
         <item name="android:paddingRight">@dimen/list_item_padding_outer</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:background">@drawable/normal_list_item_bg</item>
+        <item name="android:background">@miui:drawable/v5_list_view_item_bg_light</item>
     </style>
 
-    <style name="ListItem.Narrow">
-        <item name="android:paddingTop">@dimen/list_item_padding_outer</item>
-        <item name="android:paddingBottom">@dimen/list_item_padding_outer</item>
-        <item name="android:paddingLeft">@null</item>
-        <item name="android:paddingRight">@null</item>
-        <item name="android:background">@miui:drawable/list_medium_middle_item_background</item>
-    </style>
-
-    <style name="ListItemContent">
-        <item name="android:paddingLeft">@dimen/list_item_padding_inner</item>
-        <item name="android:paddingRight">@dimen/list_item_padding_inner</item>
-    </style>
-
-    <style name="Widget.Holo.Light.Button"
-           parent="@android:style/Widget.Holo.Light.Button">
-        <item name="android:minHeight">0dip</item>
-        <item name="android:minWidth">0dip</item>
-    </style>
-
-    <style name="TextAppearance">
-        <item name="android:textColorHighlight">@color/text_color_highlight</item>
-        <item name="android:textColorLink">@color/text_color_link</item>
-        <item name="android:shadowColor">@color/text_color_primary_shadow</item>
-        <item name="android:shadowDx">0.0</item>
-        <item name="android:shadowDy">1.0</item>
-        <item name="android:shadowRadius">1.0</item>
-    </style>
-
-    <style name="TextAppearance.Primary"><!-- 需要反色 -->
-        <item name="android:textColor">@color/primary_text</item>
-        <item name="android:textSize">@dimen/text_font_size_huge</item>
-    </style>
-
-    <style name="TextAppearance.Secondary"><!-- 需要反色 -->
-        <item name="android:textColor">@color/secondary_text</item>
-        <item name="android:textSize">@dimen/text_font_size_small</item>
-    </style>
+    <style name="TextAppearance" parent="miui:style/V5.TextAppearance"/>
 
     <!-- 会话列表list item样式 -->
-    <style name="TextAppearance.ConversationListItem">
-        <item name="android:shadowColor">@color/conversation_list_item_text_shadow_color</item>
-        <item name="android:shadowDx">0.0</item>
-        <item name="android:shadowDy">1.0</item>
-        <item name="android:shadowRadius">1.0</item>
+    <style name="TextAppearance.List.Primary" parent="miui:style/V5.TextAppearance.List.Primary" />
+    <style name="TextAppearance.List.Primary.Highlight">
+        <item name="android:textColor">@color/highlight_text</item>
+        <item name="android:textColorLink">@color/highlight_text</item>
+    </style>
+    <style name="TextAppearance.List.Primary.Normal">
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="TextAppearance.List.Primary.Normal.Grey">
+        <item name="android:textColor">@miui:color/v5_secondary_text_light</item>
     </style>
 
-    <style name="TextAppearance.ConversationListItem.Primary"><!-- 需要反色 -->
-        <item name="android:textColor">@color/conversation_primary_text</item>
-        <item name="android:textSize">@dimen/conversation_list_item_primary_font_size</item>
+    <style name="TextAppearance.List.Secondary" parent="miui:style/V5.TextAppearance.List.Secondary" />
+    <style name="TextAppearance.List.Secondary.Highlight">
+        <item name="android:textColor">@color/highlight_text</item>
+        <item name="android:textColorLink">@color/highlight_text</item>
+    </style>
+    <style name="TextAppearance.List.Secondary.Black">
+        <item name="android:textColor">@miui:color/v5_primary_text_light</item>
+    </style>
+    <style name="TextAppearance.List.Secondary.White">
+        <item name="android:textColor">@miui:color/v5_primary_text_dark</item>
+    </style>
+    <style name="TextAppearance.List.Secondary.Grey">
+        <item name="android:textColor">@miui:color/v5_secondary_text_light</item>
     </style>
 
-    <style name="TextAppearance.ConversationListItem.Primary.Unread"><!-- 需要反色 -->
-        <item name="android:textColor">@color/conversation_unread_text</item>
-        <item name="android:textSize">@dimen/conversation_list_item_primary_font_size</item>
+    <style name="TextAppearance.Card.Primary" parent="style/TextAppearance.List.Primary" >
+        <item name="android:textColor">@miui:color/v5_primary_text_color_light</item>
     </style>
 
-    <style name="TextAppearance.ConversationListItem.Secondary"><!-- 需要反色 -->
-        <item name="android:textColor">@color/conversation_secondary_text</item>
-        <item name="android:textSize">@dimen/conversation_list_item_secondary_font_size</item>
+    <style name="TextAppearance.Card.Secondary" parent="style/TextAppearance.List.Secondary" >
+        <item name="android:textColor">@miui:color/v5_secondary_text_color_light</item>
     </style>
 
     <!-- 单发会话页头 -->
-    <style name="TextAppearance.ConversationTitle">
-        <item name="android:shadowColor">@color/conversation_title_text_shadow_color</item>
-        <item name="android:shadowDx">0.0</item>
-        <item name="android:shadowDy">1.0</item>
-        <item name="android:shadowRadius">1.0</item>
-    </style>
+    <style name="TextAppearance.Title" parent="miui:style/V5.TextAppearance.Title.Medium"/>
+    <style name="TextAppearance.Title.Secondary" parent="miui:style/V5.TextAppearance.Title.Medium.Secondary"/>
 
-    <style name="TextAppearance.ConversationTitle.Primary"><!-- 不需要反色 -->
-        <item name="android:textColor">@color/conversation_title_primary_text_color</item>
-        <item name="android:textSize">@dimen/conversation_title_primary_font_size</item>
-    </style>
+    <style name="TextAppearance.DialogTitle" parent="miui:style/V5.TextAppearance.DialogTitle"/>
 
-    <style name="TextAppearance.ConversationTitle.Secondary"><!-- 不需要反色 -->
-        <item name="android:textColor">@color/conversation_title_secondary_text_color</item>
-        <item name="android:textSize">@dimen/conversation_title_secondary_font_size</item>
+    <style name="TextAppearance.DialogTitle.Secondary">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_list_secondary</item>
+        <item name="android:textStyle">normal</item>
     </style>
 
     <!-- 会话item -->
-    <style name="TextAppearance.MessageTitle">
-        <item name="android:shadowDx">0.0</item>
-        <item name="android:shadowDy">1.0</item>
-        <item name="android:shadowRadius">1.0</item>
+    <style name="TextAppearance.MessageBody">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_textedit</item>
+        <item name="android:textColorLink">@color/link_text_color</item>
     </style>
-
-    <style name="TextAppearance.MessageTitle.List"><!-- 需要反色 -->
-        <item name="android:textColor">@color/message_list_title_text</item>
-        <item name="android:textSize">@dimen/message_list_title_font_size</item>
-        <item name="android:shadowColor">@color/message_list_title_text_shadow_color</item>
+    <style name="TextAppearance.MessageBody.In">
+        <item name="android:textColor">@color/message_text_in_color</item>
     </style>
-
-    <style name="TextAppearance.MessageTitle.Bubble"><!-- 不需要反色 -->
-        <item name="android:textColor">@color/message_bubble_title_text_color</item>
-        <item name="android:textSize">@dimen/message_bubble_title_font_size</item>
-        <item name="android:shadowColor">@color/message_bubble_title_text_shadow_color</item>
+    <style name="TextAppearance.MessageBody.Out">
+        <item name="android:textColor">@color/message_text_out_color</item>
+    </style>
+    <style name="TextAppearance.MessageBody.Highlight">
+        <item name="android:textColor">@color/highlight_text</item>
+        <item name="android:textColorLink">@color/highlight_text</item>
+    </style>
+    <style name="TextAppearance.MessageSubject" parent="miui:style/V5.TextAppearance.List.Primary">
+        <item name="android:textColorLink">@color/link_text_color</item>
+    </style>
+    <style name="TextAppearance.MessageSubject.In">
+        <item name="android:textColor">@color/message_text_in_color</item>
+    </style>
+    <style name="TextAppearance.MessageSubject.Out">
+        <item name="android:textColor">@color/message_text_out_color</item>
+    </style>
+    <style name="TextAppearance.MessageSubject.Highlight">
+        <item name="android:textColor">@color/highlight_text</item>
+        <item name="android:textColorLink">@color/highlight_text</item>
+    </style>
+    <style name="TextAppearance.MessageBody.Secondary">
+        <item name="android:textColor">@miui:color/v5_secondary_text_light</item>
+        <item name="android:textSize">@dimen/text_font_size_small</item>
+    </style>
+    <style name="TextAppearance.MessageDesc" parent="miui:style/V5.TextAppearance.Small">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_memo</item>
+    </style>
+    <style name="TextAppearance.MessageDesc.Date">
+        <item name="android:textSize">@dimen/text_font_size_tiny</item>
+        <item name="android:textColor">@miui:color/v5_primary_text_dark</item>
         <item name="android:textStyle">bold</item>
     </style>
-
-    <style name="TextAppearance.MessageDeliver">
-        <item name="android:textSize">@dimen/message_deliver_font_size</item>
-        <item name="android:shadowColor">@color/message_deliver_text_shadow_color</item>
-        <item name="android:shadowDx">0.0</item>
-        <item name="android:shadowDy">1.0</item>
-        <item name="android:shadowRadius">1.0</item>
+    <style name="TextAppearance.MessageDesc.Black">
+        <item name="android:textColor">@miui:color/v5_primary_text_light</item>
+    </style>
+    <style name="TextAppearance.MessageDesc.Solid">
+        <item name="android:textColor">@color/text_color_secondary</item>
+    </style>
+    <style name="TextAppearance.MessageDesc.BookmarkDate">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_list_secondary</item>
+    </style>
+    <style name="TextAppearance.MessageCounter">
+        <item name="android:textSize">@dimen/text_font_size_small</item>
+        <item name="android:textColor">@miui:color/v5_secondary_text_light</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TextAppearance.MessageCounter.White">
+        <item name="android:textColor">@miui:color/v5_primary_text_dark</item>
+    </style>
+    <style name="TextAppearance.FlatshowTitle">
+        <item name="android:textSize">@dimen/flatshow_title_font_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TextAppearance.FlatshowTitle.Highlight">
+        <item name="android:textColor">@color/highlight_text</item>
+        <item name="android:textColorLink">@color/highlight_text</item>
+    </style>
+    <style name="TextAppearance.FlatshowSubTitle">
+        <item name="android:textSize">@dimen/text_font_size_small</item>
     </style>
 
-    <style name="TextAppearance.MessageDeliver.List"><!-- 需要反色 -->
-        <item name="android:textColor">@color/message_deliver_text</item>
-    </style>
-
-    <style name="TextAppearance.MessageDeliver.Bubble"><!-- 不需要反色 -->
-        <item name="android:textColor">@color/message_deliver_text_color</item>
-    </style>
-
-    <style name="TextAppearance.MessageBody">
-        <item name="android:textSize">@dimen/message_body_font_size</item>
-        <item name="android:textColorLink">@color/message_body_link_text</item>
-        <item name="android:shadowDx">0.0</item>
-        <item name="android:shadowDy">1.0</item>
-        <item name="android:shadowRadius">1.0</item>
-    </style>
-
-    <style name="TextAppearance.MessageBody.Bubble"><!-- 需要反色 -->
-        <item name="android:textColor">@color/message_bubble_body_text</item>
-        <item name="android:shadowColor">@color/message_bubble_body_text_shadow_color</item>
-    </style>
-
-    <style name="TextAppearance.MessageBody.List"><!-- 需要反色 -->
-        <item name="android:textColor">@color/message_list_body_text</item>
-        <item name="android:shadowColor">@color/message_list_body_text_shadow_color</item>
-    </style>
-
-    <style name="TextAppearance.MessageBody.Mms"><!-- 不需要反色 -->
-        <item name="android:textColor">@color/message_body_mms_text_color</item>
-        <item name="android:shadowColor">@color/message_body_mms_text_shadow_color</item>
-    </style>
-
-    <style name="TextAppearance.MessageBody.Secondary"><!-- 需要反色 -->
-        <item name="android:textColor">@color/message_body_secondary_text</item>
-        <item name="android:textSize">@dimen/message_body_secondary_font_size</item>
-        <item name="android:shadowColor">@color/message_body_secondary_text_shadow_color</item>
-    </style>
-
-    <style name="TextAppearance.RecipientEditor" parent="android:style/TextAppearance.Widget.EditText">
-        <item name="android:textSize">@dimen/message_body_font_size</item>
-    </style>
-
-    <style name="TextAppearance.RecipientEditor.Primary" >
-        <item name="android:textColor">@color/recipient_edit_primary_text_color</item>
-    </style>
-
-    <style name="TextAppearance.RecipientEditor.Secondary">
-        <item name="android:textColor">@color/recipient_edit_secondary_text_color</item>
-    </style>
-
-    <style name="TextAppearance.MmsEditor" parent="android:style/TextAppearance.Widget.EditText">
-        <item name="android:textSize">@dimen/text_font_size_large</item>
-        <item name="android:textColor">@color/text_color_primary</item>
-    </style>
-
-    <style name="TextAppearance.MmsEditor.NicknameSpan">
+    <style name="TextAppearance.EditText" parent="miui:style/V5.TextAppearance.EditText"/>
+    <style name="TextAppearance.EditText.Mms"/>
+    <style name="TextAppearance.EditText.Mms.NicknameSpan">
         <item name="android:textColor">@color/nickname_placeholder_fg</item>
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_small</item>
     </style>
+    <style name="TextAppearance.EditText.Recipient">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_small</item>
+    </style>
+    <style name="TextAppearance.EditText.Recipient.Secondary">
+        <item name="android:textColor">@miui:color/v5_secondary_text_light</item>
+    </style>
+
 
     <style name="TextAppearance.FlatshowPageNo">
         <item name="android:shadowDx">0.0</item>
@@ -235,15 +188,7 @@
     <style name="MessageButton">
         <item name="android:layout_gravity">center</item>
         <item name="android:singleLine">true</item>
-        <item name="android:visibility">gone</item>
-        <item name="android:textSize">@dimen/text_font_size_medium</item>
-    </style>
-
-    <style name="MessageButton.Download">
-        <item name="android:paddingLeft">15dip</item>
-        <item name="android:paddingTop">3dip</item>
-        <item name="android:paddingRight">17dip</item>
-        <item name="android:paddingBottom">7dip</item>
+        <item name="android:textSize">@dimen/text_font_size_small</item>
     </style>
 
     <style name="MessageButton.Alert">
@@ -253,5 +198,12 @@
 
     <style name="MessageButton.Common">
         <item name="android:background">@drawable/common_btn</item>
+    </style>
+
+    <!-- unread message count style -->
+    <style name="UnreadMessageCount">
+        <item name="android:textColor">@miui:color/v5_primary_text_dark</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>

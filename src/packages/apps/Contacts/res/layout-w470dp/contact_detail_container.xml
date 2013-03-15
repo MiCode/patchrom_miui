@@ -14,43 +14,13 @@
      limitations under the License.
 -->
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:layout_height="match_parent">
 
-    <FrameLayout
-        android:layout_marginLeft="27dip"
-        android:layout_marginTop="45dip"
-        android:layout_marginRight="27dip"
-        android:layout_width="@dimen/small_photo_size"
-        android:layout_height="@dimen/small_photo_size">
-        <ImageView
-            android:id="@+id/photo"
-            android:scaleType="centerCrop"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-        <View
-            android:id="@+id/photo_clickable"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="?android:attr/selectableItemBackground" />
-    </FrameLayout>
-
-    <LinearLayout
+    <com.android.contacts.detail.ContactDetailFragmentCarousel
+        android:id="@+id/fragment_carousel"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <include
-            android:id="@+id/tabs"
-            layout="@layout/contact_detail_tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        android:layout_height="match_parent"/>
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
-</LinearLayout>
+</FrameLayout>

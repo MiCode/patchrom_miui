@@ -4,102 +4,143 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="top|center_vertical"
-    android:paddingLeft="16dip"
+    android:paddingLeft="30dip"
     android:paddingRight="16dip"
-    android:orientation="horizontal">
+    android:orientation="vertical" >
 
     <LinearLayout
+        android:id="@+id/weather_cycle_temperature"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="top|center_vertical"
-        android:layout_weight="1"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/listitem_weather_cycle_now_txt_1"
+        android:orientation="horizontal" >
+        <LinearLayout
+            android:id="@+id/weather_cycle_sk_temperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="22sp"
-            android:text="@string/alert_provider_title"
-            android:textColor="#FFFFFFFF"
-            android:singleLine="true"
-            style="@style/text_shadow" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/listitem_weather_cycle_now_txt_2"
+            android:orientation="horizontal"
+            android:layout_marginLeft="-5dip"
+            android:visibility="gone" >
+            <ImageView
+                android:id="@+id/weather_cycle_negative"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/weather_cycle_negative"
+                android:gravity="center_horizontal"
+                android:visibility="gone" />
+            <ImageView
+                android:id="@+id/weather_cycle_sk_temperature_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="8dip"
-                android:textSize="38sp"
-                android:textColor="#FFFFFFFF"
-                style="@style/text_shadow" />
-            <LinearLayout
-                android:layout_width="match_parent"
+                android:visibility="gone" />
+            <ImageView
+                android:id="@+id/weather_cycle_sk_temperature_2"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="7dip"
-                android:orientation="vertical">
-                <TextView
-                    android:id="@+id/listitem_weather_cycle_now_txt_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:textColor="#FFFFFFFF"
-                    style="@style/text_shadow" />
-                <TextView
-                    android:id="@+id/listitem_weather_cycle_now_txt_4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="-2dip"
-                    android:textSize="14sp"
-                    android:textColor="#FFFFFFFF"
-                    style="@style/text_shadow" />
-            </LinearLayout>
+                android:visibility="gone" />
         </LinearLayout>
-        <TextView
-            android:id="@+id/listitem_weather_cycle_now_txt_5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dip"
-            android:textSize="14sp"
-            android:textColor="#FFFFFFFF"
-            style="@style/text_shadow" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:orientation="vertical"
-        android:id="@+id/weather_cycle_now_pm25_container"
-        android:visibility="gone" >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="#FFFFFFFF"
-            style="@style/text_shadow"
-            android:text="@string/act_weather_main_aqi_title" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <ImageView
+                android:id="@+id/weather_cycle_temperature_degree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:src="@drawable/weather_cycle_temperature_degree"
+                android:visibility="gone" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="right"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/weather_cycle_temperature_high"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="#FFFFFFFF"
+                    style="@style/text_shadow" />
+                <TextView
+                    android:id="@+id/weather_cycle_temperature_low"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|right"
+                    android:textSize="14sp"
+                    android:textColor="#FFFFFFFF"
+                    style="@style/text_shadow" />
+           </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/weather_cycle_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="#FFFFFFFF"
+        android:textStyle="bold"
+        style="@style/text_shadow" />
+    <TextView
+        android:id="@+id/weather_cycle_wind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:textSize="14sp"
+        android:textColor="#FFFFFFFF"
+        style="@style/text_shadow" />
+    <ImageView
+        android:id="@+id/weather_cycle_split_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_marginBottom="10dip"
+        android:src="@drawable/weather_cycle_split_line" />
+    <LinearLayout
+        android:id="@+id/weather_cycle_aqi_click_place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+        <LinearLayout
+            android:id="@+id/weather_cycle_aqi_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:orientation="horizontal" >
+            android:visibility="gone" >
             <TextView
-                android:id="@+id/weather_cycle_now_aqi"
+                android:id="@+id/weather_cycle_aqi_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/act_weather_main_aqi_title"
+                android:textSize="16sp"
+                android:textColor="#FFFFFFFF"
+                style="@style/text_shadow" />
+            <TextView
+                android:id="@+id/weather_cycle_aqi_index"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#FFFFFFFF"
+                style="@style/text_shadow" />
+            <ImageView
+                android:id="@+id/weather_cycle_aqi_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/weather_cycle_aqi_detail_icon" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical" >
+            <TextView
+                android:id="@+id/weather_cycle_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
                 android:textColor="#FFFFFFFF"
                 style="@style/text_shadow" />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="3dip"
-                android:layout_marginTop="1dip"
-                android:src="@drawable/weather_cycle_aqi_image" />
         </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>

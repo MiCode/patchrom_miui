@@ -16,43 +16,53 @@
     </style>
     -->
 
-    <style name="Miui.Theme.Settings.Alternative" parent="@android:style/Theme.NoDisplay">
+    <style name="Miui.Theme.Settings.Alternative" parent="@miui:style/V5.Theme.NoDisplay">
     </style>
 
-    <style name="Miui.Theme.InCallScreen.Alternative" parent="@android:style/Theme.NoDisplay">
+    <style name="Miui.Theme.InCallScreen.Alternative" parent="@miui:style/V5.Theme.NoDisplay">
     </style>
 
-    <style name="Miui.Theme.SimContacts.Alternative" parent="@android:style/Theme.NoDisplay">
+    <style name="Miui.Theme.SimContacts.Alternative" parent="@miui:style/V5.Theme.NoDisplay">
     </style>
 
-    <style name="Miui.Theme.EmergencyDialer.Alternative" parent="@android:style/Theme.NoDisplay">
+    <style name="Miui.Theme.EmergencyDialer.Alternative" parent="@miui:style/V5.Theme.NoDisplay">
     </style>
 
     <!-- Styles for theme -->
-    <style name="Miui.Theme.InCallScreen" parent="@android:style/Theme.Holo.Light.NoActionBar">
+    <style name="Miui.Theme.InCallScreen" parent="@miui:style/V5.Theme.Light.NoTitle">
         <item name="android:windowAnimationStyle">@style/MiuiInCallScreenAnimations</item>
-        <item name="android:windowBackground">@drawable/incall_main_background_miui</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
     <style name="MiuiInCallScreenAnimations" parent="@android:style/Animation.Activity">
-         <item name="android:activityOpenEnterAnimation">@miui:anim/miui_phone_open_enter</item>
-         <item name="android:activityOpenExitAnimation">@miui:anim/miui_phone_open_exit</item>
-         <item name="android:taskToFrontEnterAnimation">@miui:anim/miui_phone_open_enter</item>
-         <item name="android:taskToFrontExitAnimation">@miui:anim/miui_phone_open_exit</item>
-         <item name="android:taskOpenEnterAnimation">@miui:anim/miui_phone_open_enter</item>
-         <item name="android:taskOpenExitAnimation">@miui:anim/miui_phone_open_exit</item>
+        <item name="android:activityOpenEnterAnimation">@miui:anim/miui_phone_open_enter</item>
+        <item name="android:activityOpenExitAnimation">@miui:anim/miui_phone_open_exit</item>
+        <item name="android:taskToFrontEnterAnimation">@miui:anim/miui_phone_open_enter</item>
+        <item name="android:taskToFrontExitAnimation">@miui:anim/miui_phone_open_exit</item>
+        <item name="android:taskOpenEnterAnimation">@miui:anim/miui_phone_open_enter</item>
+        <item name="android:taskOpenExitAnimation">@miui:anim/miui_phone_open_exit</item>
     </style>
 
-    <style name="Miui.Theme.Settings" parent="@miui:style/Theme.Light">
+    <style name="Miui.Theme.Settings" parent="@miui:style/V5.Theme.Light.Settings">
         <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
-    <style name="Miui.Theme.Settings.Dialog" parent="@android:style/Theme.Holo.Light.Dialog">
+
+    <style name="Miui.Theme.Settings.Activity" parent="@miui:style/V5.Theme.Light">
+    </style>
+
+    <style name="Miui.Theme.Settings.Dialog" parent="@miui:style/V5.Theme.Light.Dialog">
         <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
-    <style name="Miui.Theme.Settings.NoActionBar" parent="@android:style/Theme.Holo.Light.NoActionBar">
+
+    <style name="Miui.Theme.Settings.NoActionBar" parent="@miui:style/V5.Theme.Light.NoTitle">
         <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
-    <style name="Miui.Theme.AlertActivity" parent="@miui:style/Theme.Light">
+
+    <style name="Miui.Theme.AlertActivity" parent="@miui:style/V5.Theme.Light">
         <item name="android:windowBackground">@null</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowAnimationStyle">@null</item>
@@ -61,20 +71,12 @@
         <item name="android:windowIsFloating">true</item>
     </style>
 
-    <style name="Miui.Theme.EmergencyDialer" parent="@miui:style/Theme.Light">
+    <style name="Miui.Theme.EmergencyDialer" parent="@miui:style/V5.Theme.Light">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
     </style>
 
-    <style name="Miui.DialpadButtonStyle">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center</item>
-        <item name="android:background">@drawable/incall_dialpad_panel_button_bg_miui</item>
-        <item name="android:soundEffectsEnabled">false</item>
-    </style>
-
-    <style name="Miui.TextAppearance" parent="@android:style/TextAppearance"/>
+    <style name="Miui.TextAppearance" parent="@miui:style/V5.TextAppearance" />
 
     <style name="Miui.TextAppearance.DialogTitle">
         <item name="android:maxLines">1</item>
@@ -94,12 +96,12 @@
     </style>
 
     <style name="Miui.TextAppearance.Name">
-        <item name="android:textSize">@dimen/miui_text_appearance_name_text_size</item>
-        <item name="android:textColor">@color/call_card_name_miui</item>
-        <item name="android:shadowColor">@color/call_card_name_shadow_miui</item>
+        <item name="android:textSize">@dimen/call_card_name_max_text_size_miui</item>
+        <item name="android:textColor">@color/call_card_name_text_color_miui</item>
+        <item name="android:shadowColor">@color/call_card_name_text_shadow_miui</item>
         <item name="android:shadowDx">0.0</item>
-        <item name="android:shadowDy">-2.0</item>
-        <item name="android:shadowRadius">2.0</item>
+        <item name="android:shadowDy">9.0</item>
+        <item name="android:shadowRadius">9.0</item>
     </style>
 
     <style name="Miui.TextAppearance.Name.Secondary" parent="Miui.TextAppearance.Name">
@@ -107,38 +109,34 @@
     </style>
 
     <style name="Miui.TextAppearance.Info">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/call_card_info_miui</item>
-        <item name="android:shadowColor">@color/call_card_info_shadow_miui</item>
+        <item name="android:textSize">@dimen/call_card_info_text_size_miui</item>
+        <item name="android:textColor">@color/call_card_info_text_color_miui</item>
+        <item name="android:shadowColor">@color/call_card_info_text_shadow_miui</item>
         <item name="android:shadowDx">0.0</item>
-        <item name="android:shadowDy">-1.0</item>
-        <item name="android:shadowRadius">1.0</item>
+        <item name="android:shadowDy">6.0</item>
+        <item name="android:shadowRadius">9.0</item>
     </style>
 
-    <style name="Miui.TextAppearance.PhoneNumber" parent="Miui.TextAppearance.Info">
-    </style>
+    <style name="Miui.TextAppearance.PhoneNumber" parent="Miui.TextAppearance.Info"></style>
 
-    <style name="Miui.TextAppearance.Telocation" parent="Miui.TextAppearance.Info">
-    </style>
+    <style name="Miui.TextAppearance.Telocation" parent="Miui.TextAppearance.Info"></style>
 
-    <style name="Miui.TextAppearance.ExtraInfo" parent="Miui.TextAppearance.Info">
-    </style>
+    <style name="Miui.TextAppearance.ExtraInfo" parent="Miui.TextAppearance.Info"></style>
 
-    <style name="Miui.TextAppearance.ElapsedTime" parent="Miui.TextAppearance.Info">
-    </style>
+    <style name="Miui.TextAppearance.ElapsedTime" parent="Miui.TextAppearance.Info"></style>
 
     <style name="Miui.TextAppearance.SlidingTarget">
         <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/sliding_target_miui</item>
+        <item name="android:textColor">@color/sliding_target_text_color_miui</item>
     </style>
 
     <style name="Miui.TextAppearance.SlidingBar">
-        <item name="android:textSize">24sp</item>
-        <item name="android:textColor">@color/sliding_bar_miui</item>
-        <item name="android:shadowColor">@color/sliding_bar_shadow_miui</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/sliding_bar_text_color_miui</item>
+        <item name="android:shadowColor">@color/sliding_bar_text_shadow_miui</item>
         <item name="android:shadowDx">0.0</item>
-        <item name="android:shadowDy">-1.0</item>
-        <item name="android:shadowRadius">1.0</item>
+        <item name="android:shadowDy">3.0</item>
+        <item name="android:shadowRadius">5.0</item>
     </style>
 
     <style name="Miui.TextAppearance.SlidingBar.Small">
@@ -154,34 +152,22 @@
         <item name="android:shadowRadius">1.0</item>
     </style>
 
-    <style name="Miui.TextAppearance.RedButton" parent="Miui.TextAppearance.Button">
+    <style name="Miui.TextAppearance.Button.Warn">
         <item name="android:textColor">@color/red_button_miui</item>
         <item name="android:shadowColor">@color/red_button_shadow_miui</item>
-        <item name="android:shadowDy">-1.0</item>
+        <item name="android:shadowDy">1.0</item>
     </style>
 
-    <style name="Miui.TextAppearance.RedButton.Separate" parent="Miui.TextAppearance.RedButton">
-        <item name="android:textSize">16sp</item>
-    </style>
-
-    <style name="Miui.TextAppearance.InCallControlButton">
+    <style name="Miui.TextAppearance.Button.InCallControl">
         <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/incall_control_button_miui</item>
-        <item name="android:shadowColor">@color/incall_control_button_shadow_miui</item>
+        <item name="android:textColor">@color/incall_control_btn_text_color_miui</item>
+        <item name="android:shadowColor">@color/incall_control_btn_text_shadow_miui</item>
         <item name="android:shadowDx">0.0</item>
-        <item name="android:shadowDy">-1.0</item>
+        <item name="android:shadowDy">1.0</item>
         <item name="android:shadowRadius">1.0</item>
     </style>
 
-    <style name="Miui.TextAppearance.InCallControlButton.Disabled" parent="Miui.TextAppearance.InCallControlButton">
-        <item name="android:textColor">@color/incall_control_button_disable_miui</item>
-    </style>
-
-    <style name="Miui.TextAppearance.InCallControlButton.Checked" parent="Miui.TextAppearance.InCallControlButton">
-        <item name="android:textColor">@color/incall_control_button_checked_miui</item>
-    </style>
-
-    <style name="Miui.TextAppearance.RightRadioButton">
+    <style name="Miui.TextAppearance.Button.RightRadio">
         <item name="android:gravity">left|center_vertical</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -198,11 +184,81 @@
         <item name="android:fadingEdge">none</item>
     </style>
 
-    <style name="Miui.ToolButtonStyle" parent="Miui.TextAppearance.InCallControlButton">
+    <style name="Miui.Button">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
+        <item name="android:soundEffectsEnabled">false</item>
+    </style>
+
+    <style name="Miui.Button.HangupInConference">
+        <item name="android:background">@drawable/incall_button_conference_end_miui</item>
+    </style>
+
+    <style name="Miui.Button.SeparateFromConference">
+        <item name="android:textAppearance">@style/Miui.TextAppearance.Primary</item>
+        <item name="android:textColor">@color/call_card_name_text_color_miui</item>
+        <item name="android:background">@drawable/incall_button_conference_separate_miui</item>
+    </style>
+
+    <style name="Miui.Button.Reject">
+        <item name="android:focusable">false</item>
+        <item name="android:background">@drawable/incall_button_end_miui</item>
+    </style>
+
+    <style name="Miui.Button.RejectViaSms">
+        <item name="android:focusable">false</item>
+        <item name="android:textAppearance">@style/Miui.TextAppearance.Button</item>
+        <item name="android:textColor">@color/normal_button_miui</item>
+        <item name="android:background">@drawable/incall_button_white_miui</item>
+    </style>
+
+    <style name="Miui.Button.Answer">
+        <item name="android:focusable">false</item>
+        <item name="android:background">@drawable/incall_button_green_miui</item>
+        <item name="android:textAppearance">@style/Miui.TextAppearance.Button.Warn</item>
+        <item name="android:textColor">@color/red_button_miui</item>
+    </style>
+
+    <style name="Miui.Button.Ignore">
+        <item name="android:focusable">false</item>
+        <item name="android:background">@drawable/incall_button_white_miui</item>
+        <item name="android:textAppearance">@style/Miui.TextAppearance.Button</item>
+        <item name="android:textColor">@color/normal_button_miui</item>
+    </style>
+
+    <style name="Miui.Button.Dialpad">
+        <item name="android:background">@drawable/incall_dialpad_panel_button_bg_miui</item>
+    </style>
+
+    <style name="Miui.Button.Tool">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">@style/Miui.TextAppearance.Button.InCallControl</item>
+        <item name="android:textColor">@color/incall_control_tool_btn_text_color_miui</item>
         <item name="android:background">@drawable/incall_tool_panel_button_bg_miui</item>
+    </style>
+
+    <style name="Miui.Button.Audio">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingLeft">10dip</item>
+        <item name="android:paddingRight">10dip</item>
+        <item name="android:drawablePadding">0dip</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">@style/Miui.TextAppearance.Button.InCallControl</item>
+        <item name="android:textColor">@color/incall_control_btn_text_color_miui</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="Miui.Button.InCallMain">
+        <item name="android:textOn">@null</item>
+        <item name="android:textOff">@null</item>
+    </style>
+
+    <style name="Miui.Button.Hangup">
+        <item name="android:textAppearance">@style/Miui.TextAppearance.Button.Warn</item>
+        <item name="android:background">@drawable/incall_button_end_miui</item>
     </style>
 
     <style name="Miui.TableRow">
@@ -211,10 +267,14 @@
         <item name="android:layout_weight">1</item>
         <item name="android:gravity">center</item>
     </style>
+
     <style name="Miui.TableColumn">
         <item name="android:layout_width">0dip</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
         <item name="android:gravity">center</item>
+    </style>
+
+    <style name="MiuiSimContacts" parent="@miui:style/V5.Theme.Light">
     </style>
 </resources>

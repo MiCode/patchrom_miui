@@ -26,8 +26,8 @@ import com.android.internal.view.menu.MenuPresenter;
 import com.android.internal.view.menu.MenuView;
 import com.android.internal.view.menu.SubMenuBuilder;
 
-import android.annotation.MiuiHook;
-import android.annotation.MiuiHook.MiuiHookType;
+import miui.util.UiUtils;
+
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
@@ -70,7 +70,7 @@ import android.widget.TextView;
  * @hide
  */
 public class ActionBarView extends AbsActionBarView {
-    @MiuiHook(MiuiHookType.NEW_CLASS)
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_CLASS)
     static class Injector {
         static void setIcon(HomeView homeView) {
             ImageView iconView = homeView.getIconView();
@@ -94,8 +94,12 @@ public class ActionBarView extends AbsActionBarView {
             View upView = homeView.getUpView();
             if (upView instanceof ImageView) {
                 Drawable d = ((ImageView) upView).getDrawable();
-                homeView.mCompactMode = d.getMinimumWidth() > TypedValue.applyDimension(
-                        TypedValue.COMPLEX_UNIT_DIP, 20, homeView.getResources().getDisplayMetrics());
+                if (d != null) {
+                    homeView.mCompactMode = d.getMinimumWidth() > TypedValue.applyDimension(
+                            TypedValue.COMPLEX_UNIT_DIP, 20, homeView.getResources().getDisplayMetrics());
+                } else {
+                    homeView.mCompactMode = false;
+                }
             }
         }
 
@@ -105,7 +109,21 @@ public class ActionBarView extends AbsActionBarView {
             }
             return VISIBLE;
         }
+
+        static ActionMenuPresenter createActionMenuPresenter(Context context) {
+            if (UiUtils.isV5Ui(context)) {
+                return new com.miui.internal.v5.view.menu.ActionMenuPresenter(context,
+                        miui.R.layout.v5_action_menu_view,
+                        miui.R.layout.v5_action_menu_primary_item,
+                        miui.R.layout.v5_action_menu_secondary_item);
+            } else {
+                return new ActionMenuPresenter(context);
+            }
+        }
     }
+
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    protected void setCollapsed(boolean collapsed) { mIsCollapsed = collapsed; }
 
     private static final String TAG = "ActionBarView";
 
@@ -135,7 +153,8 @@ public class ActionBarView extends AbsActionBarView {
 
     private HomeView mHomeLayout;
     private HomeView mExpandedHomeLayout;
-    private LinearLayout mTitleLayout;
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
+    private ViewGroup mTitleLayout;
     private TextView mTitleView;
     private TextView mSubtitleView;
     private View mTitleUpView;
@@ -162,6 +181,9 @@ public class ActionBarView extends AbsActionBarView {
 
     private MenuBuilder mOptionsMenu;
     
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_FIELD)
+    MenuPresenter.Callback mMenuPresenterCallback;
+
     private ActionBarContextView mContextView;
 
     private ActionMenuItem mLogoNavItem;
@@ -433,6 +455,7 @@ public class ActionBarView extends AbsActionBarView {
         mCallback = callback;
     }
 
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     public void setMenu(Menu menu, MenuPresenter.Callback cb) {
         if (menu == mOptionsMenu) return;
 
@@ -450,7 +473,7 @@ public class ActionBarView extends AbsActionBarView {
             }
         }
         if (mActionMenuPresenter == null) {
-            mActionMenuPresenter = new ActionMenuPresenter(mContext);
+            mActionMenuPresenter = Injector.createActionMenuPresenter(mContext); // Miui Hook
             mActionMenuPresenter.setCallback(cb);
             mActionMenuPresenter.setId(com.android.internal.R.id.action_menu_presenter);
             mExpandedMenuPresenter = new ExpandedActionViewMenuPresenter();
@@ -604,6 +627,7 @@ public class ActionBarView extends AbsActionBarView {
         }
     }
 
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     public void setDisplayOptions(int options) {
         final int flagsChanged = mDisplayOptions == -1 ? -1 : options ^ mDisplayOptions;
         mDisplayOptions = options;
@@ -642,7 +666,9 @@ public class ActionBarView extends AbsActionBarView {
             if (mTitleLayout != null && (flagsChanged &
                     (ActionBar.DISPLAY_HOME_AS_UP | ActionBar.DISPLAY_SHOW_HOME)) != 0) {
                 final boolean homeAsUp = (mDisplayOptions & ActionBar.DISPLAY_HOME_AS_UP) != 0;
-                mTitleUpView.setVisibility(!showHome ? (homeAsUp ? VISIBLE : INVISIBLE) : GONE);
+                if (mTitleUpView != null) {
+                    mTitleUpView.setVisibility(!showHome ? (homeAsUp ? VISIBLE : INVISIBLE) : GONE);
+                } // Miui Hook
                 mTitleLayout.setEnabled(!showHome && homeAsUp);
                 mTitleLayout.setClickable(!showHome && homeAsUp);
             }
@@ -685,14 +711,6 @@ public class ActionBarView extends AbsActionBarView {
 
     public void setIcon(int resId) {
         setIcon(mContext.getResources().getDrawable(resId));
-    }
-
-    /**
-     * @hide
-     */
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    public void setHomeViewBackground(int resId) {
-        mHomeLayout.setBackgroundResource(resId);
     }
 
     public void setLogo(Drawable logo) {
@@ -805,7 +823,12 @@ public class ActionBarView extends AbsActionBarView {
         }
     }
 
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     private void initTitle() {
+        if (miuiInitTitle()) {
+            return;
+        }
+
         if (mTitleLayout == null) {
             LayoutInflater inflater = LayoutInflater.from(getContext());
             mTitleLayout = (LinearLayout) inflater.inflate(R.layout.action_bar_title_item,
@@ -1291,18 +1314,18 @@ public class ActionBarView extends AbsActionBarView {
     }
 
     private static class HomeView extends FrameLayout {
-        @MiuiHook(MiuiHookType.NEW_FIELD)
+        @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_FIELD)
         Drawable mIconDrawable;
 
-        @MiuiHook(MiuiHookType.NEW_FIELD)
+        @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_FIELD)
         boolean mCompactMode;
 
-        @MiuiHook(MiuiHookType.NEW_METHOD)
+        @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
         View getUpView() {
             return mUpView;
         }
 
-        @MiuiHook(MiuiHookType.NEW_METHOD)
+        @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
         ImageView getIconView() {
             return mIconView;
         }
@@ -1319,7 +1342,7 @@ public class ActionBarView extends AbsActionBarView {
             super(context, attrs);
         }
 
-        @MiuiHook(MiuiHookType.CHANGE_CODE)
+        @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
         public void setUp(boolean isUp) {
             mUpView.setVisibility(isUp ? VISIBLE : GONE);
             Injector.setIcon(this); // miui add
@@ -1352,14 +1375,14 @@ public class ActionBarView extends AbsActionBarView {
         }
 
         @Override
-        @MiuiHook(MiuiHookType.CHANGE_CODE)
+        @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
         protected void onFinishInflate() {
             mUpView = findViewById(com.android.internal.R.id.up);
             mIconView = (ImageView) findViewById(com.android.internal.R.id.home);
             Injector.switchToCompactMode(this); // miui add
         }
 
-        @MiuiHook(MiuiHookType.CHANGE_CODE)
+        @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
         public int getLeftOffset() {
             return Injector.getUpViewVisibility(this, mUpView) == GONE ? mUpWidth : 0; // miui modify
         }
@@ -1569,5 +1592,121 @@ public class ActionBarView extends AbsActionBarView {
         @Override
         public void onRestoreInstanceState(Parcelable state) {
         }
+    }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    public void onWindowShow() {
+        if (mSplitView instanceof com.miui.internal.v5.widget.ActionBarContainer) {
+            ((com.miui.internal.v5.widget.ActionBarContainer) mSplitView).onWindowShow();
+        }
+    }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    public void onWindowHide() {
+        if (mSplitView instanceof com.miui.internal.v5.widget.ActionBarContainer) {
+            ((com.miui.internal.v5.widget.ActionBarContainer) mSplitView).onWindowHide();
+        }
+    }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    public ScrollingTabContainerView getTabScrollView() {
+        return mTabScrollView;
+    }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    public ViewGroup getTitleLayout() {
+        return mTitleLayout;
+    }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    public void setTitleLayout(ViewGroup titleLayout) {
+        mTitleLayout = titleLayout;
+    }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    public View getExpandedActionView() {
+        return mExpandedActionView;
+    }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    public int getSubtitleStyleRes() {
+        return mSubtitleStyleRes;
+    }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    public TextView getTitleView() {
+        return mTitleView;
+    }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    public void setTitleView(TextView titleView) {
+        mTitleView = titleView;
+    }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    public int getTitleStyleRes() {
+        return mTitleStyleRes;
+    }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    public TextView getSubtitleView() {
+        return mSubtitleView;
+    }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    public void setSubtitleView(TextView subTitleView) {
+        mSubtitleView = subTitleView;
+    }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    public OnClickListener getUpClickListener() {
+        return mUpClickListener;
+    }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    protected boolean miuiInitTitle() {
+        return UiUtils.isV5Ui(mContext);
     }
 }

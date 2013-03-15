@@ -4,7 +4,8 @@
     android:id="@miui:id/android_parentPanel"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layoutAnimation="@miui:anim/v5_dialog_layout_anim">
 
     <LinearLayout android:id="@miui:id/android_topPanel"
         android:layout_width="match_parent"
@@ -22,7 +23,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingRight="8dip"
-                android:src="@null" />
+                android:src="@null"
+                android:visibility="gone" />
             <com.android.internal.widget.DialogTitle android:id="@miui:id/android_alertTitle"
                 style="?android:attr/windowTitleStyle"
                 android:singleLine="true"
@@ -78,7 +80,7 @@
             android:minHeight="@dimen/v5_alert_dialog_button_bar_height"
             android:measureWithLargestChild="true">
             <Button android:id="@android:id/button2"
-                android:layout_width="wrap_content"
+                android:layout_width="0dip"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:maxLines="2"
@@ -86,7 +88,7 @@
                 android:textSize="14sp"
                 android:layout_height="wrap_content" />
             <Button android:id="@android:id/button3"
-                android:layout_width="wrap_content"
+                android:layout_width="0dip"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:maxLines="2"
@@ -94,7 +96,7 @@
                 android:textSize="14sp"
                 android:layout_height="wrap_content" />
             <Button android:id="@android:id/button1"
-                android:layout_width="wrap_content"
+                android:layout_width="0dip"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:maxLines="2"

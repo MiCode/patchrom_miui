@@ -3,28 +3,15 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/editor_min_line_item_height"
-    android:gravity="center"
-    android:paddingLeft="13dip"
-    android:paddingRight="13dip"
-    android:orientation="horizontal" >
+    android:layout_height="@dimen/nickname_editor_item_height"
+    android:longClickable="true"
+    android:gravity="center" >
 
     <TextView
         android:id="@+id/name"
-        android:layout_width="0dip"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textSize="17sp"
-        android:textColor="@android:color/black"
-        android:focusable="false"
-        android:singleLine="true" />
+        style="@style/NicknameEditorTextView" />
 
     <EditText
         android:id="@+id/nick_name"
-        android:layout_width="0dip"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textSize="16sp"
-        android:textColor="@color/nickname_editor_color"
-        android:singleLine="true" />
+        style="@style/NicknameEditorEditText" />
 </LinearLayout>

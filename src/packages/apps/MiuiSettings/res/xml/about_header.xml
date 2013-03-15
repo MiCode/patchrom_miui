@@ -5,7 +5,9 @@
     <!-- About Device -->
     <header
         android:id="@+id/about_settings"
-        android:fragment="com.android.settings.MiuiDeviceInfoSettings"
-        android:icon="@drawable/ic_settings_about"
-        android:title="@string/about_settings" />
+        android:title="@string/about_settings">
+        <intent
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.Settings$DeviceInfoSettingsActivity" />
+    </header>
 </preference-headers>

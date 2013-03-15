@@ -18,7 +18,7 @@
 -->
 
 <resources>
-    <style name="Theme" parent="@android:style/Theme.Holo.Light">
+    <style name="Theme" parent="@miui:style/V5.Theme.Light">
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowShowWallpaper">true</item>
         <item name="android:windowNoTitle">true</item>
@@ -40,13 +40,15 @@
         <item name="android:layout_weight">1</item>
     </style>
 
-    <style name="RightRadioButton">
-        <item name="android:textSize">17sp</item>
-        <item name="android:textColor">@color/list_item_primary</item>
-        <item name="android:gravity">left|center_vertical</item>
+    <style name="FolderIconItem">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingRight">60dip</item>
+        <item name="android:paddingLeft">1dp</item>
+        <item name="android:paddingTop">1dp</item>
+        <item name="android:paddingRight">1dp</item>
+        <item name="android:paddingBottom">1dp</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:layout_weight">1</item>
     </style>
 
     <style name="WorkspaceIconTitle">
@@ -88,14 +90,42 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">0</item>
     </style>
-   <style name="MarqueeTextView">
-           <item name="android:singleLine">true</item>
-           <item name="android:focusable">true</item>
-           <item name="android:focusableInTouchMode">true</item>
-           <item name="android:scrollHorizontally">true</item>
-           <item name="android:ellipsize">marquee</item>
-           <item name="android:marqueeRepeatLimit">marquee_forever</item>
-   </style>
+
+    <style name="UninstallDialog">
+        <item name="android:shadowRadius">2</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="UninstallDialog.Title">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/uninstall_dialog_title_text</item>
+        <item name="android:shadowColor">@color/uninstall_dialog_title_text_shadow</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="UninstallDialog.Message">
+        <item name="android:textColor">@color/uninstall_dialog_message_text</item>
+        <item name="android:shadowColor">@color/uninstall_dialog_message_text_shadow</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="UninstallDialog.Button">
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/uninstall_dialog_button_text</item>
+        <item name="android:shadowColor">@color/uninstall_dialog_button_text_shadow</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="MarqueeTextView">
+        <item name="android:singleLine">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+    </style>
 
     <style name="GadgetPlayerLyricCurrentLineShadowStyle">
         <item name="android:shadowDx">0</item>
@@ -113,33 +143,23 @@
     </style>
 
     <style name="gadget_weather_text_shadow">
-        <item name="android:layerType">software</item>
         <item name="android:shadowColor">#50000000</item>
         <item name="android:shadowDx">0</item>
         <item name="android:shadowDy">4</item>
         <item name="android:shadowRadius">8</item>
     </style>
     <style name="gadget_weather_text_shadow_1">
-        <item name="android:layerType">software</item>
         <item name="android:shadowColor">#5E000000</item>
         <item name="android:shadowDx">0</item>
         <item name="android:shadowDy">3</item>
         <item name="android:shadowRadius">5</item>
     </style>
 
-    <style name="upside_edit_bar_item_label" parent="@android:style/TextAppearance.DeviceDefault.Medium.Inverse">
-        <item name="android:layerType">software</item>
-        <item name="android:shadowColor">#5E000000</item>
-        <item name="android:shadowDx">0</item>
-        <item name="android:shadowDy">3</item>
-        <item name="android:shadowRadius">5</item>
-    </style>
-
-    <style name="upside_apps_btn" parent="@android:style/TextAppearance.DeviceDefault.Medium">
+    <style name="free_style_apps_btn" parent="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:gravity">bottom|center_horizontal</item>
         <item name="android:clickable">true</item>
         <item name="android:textColor">#ff3c3c3c</item>
-        <item name="android:textSize">@dimen/upside_apps_btn_text_size</item>
+        <item name="android:textSize">@dimen/free_style_apps_btn_text_size</item>
         <item name="android:layerType">software</item>
         <item name="android:shadowColor">#cdffffff</item>
         <item name="android:shadowDx">0</item>

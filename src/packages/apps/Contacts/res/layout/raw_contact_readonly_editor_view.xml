@@ -18,55 +18,69 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingBottom="32dip">
-
-    <include
-        layout="@layout/editor_account_header" />
+    android:orientation="vertical">
 
     <LinearLayout
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="13dip"
-        android:layout_marginLeft="@dimen/detail_and_edit_section_margin_left"
-        android:layout_marginTop="@dimen/detail_and_edit_section_margin_top">
-        <LinearLayout
-            android:id="@+id/stub_photo"
-            android:layout_width="wrap_content"
+        android:paddingTop="@dimen/editor_section_padding"
+        android:paddingLeft="@dimen/editor_padding"
+        android:paddingRight="@dimen/editor_padding" >
+
+        <include
+            android:id="@+id/edit_photo"
+            layout="@layout/item_photo_editor" />
+
+        <TextView
+            android:id="@+id/read_only_name"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <include
-                android:id="@+id/edit_photo"
-                layout="@layout/item_photo_editor" />
-        </LinearLayout>
-
-        <TextView android:id="@+id/read_only_name"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:singleLine="true"
             android:ellipsize="end"
-            android:layout_marginRight="13dip"
-            android:layout_marginLeft="8dip"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="?android:attr/textColorSecondary" />
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:singleLine="true"
+            android:layout_marginLeft="@dimen/editor_section_padding"
+            android:paddingLeft="@dimen/editor_section_padding"
+            android:paddingRight="@dimen/editor_section_padding"
+            android:textAppearance="@style/EditText"
+            android:background="@miui:drawable/v5_group_single_item_bg_light" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button_edit_externally"
-        android:text="@string/edit_contact"
+    <LinearLayout
+        android:id="@+id/sect_general"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dip"
-        android:layout_marginBottom="13dip"
-        android:layout_marginLeft="13dip"/>
+        android:paddingTop="@dimen/editor_section_padding"
+        android:paddingLeft="@dimen/editor_padding"
+        android:paddingRight="@dimen/editor_padding"
+        android:orientation="vertical" />
 
-    <LinearLayout android:id="@+id/sect_general"
+    <include
+        layout="@layout/editor_account_container" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"/>
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/editor_padding"
+        android:paddingRight="@dimen/editor_padding"
+        android:paddingTop="@dimen/editor_section_padding" >
+
+        <Button
+            android:id="@+id/button_split"
+            style="@miui:style/V5.Widget.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/btn_split_contact" />
+
+        <Button
+            android:id="@+id/button_delete"
+            style="@miui:style/V5.Widget.Button.NegativeWarn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+    </LinearLayout>
 
 </com.android.contacts.editor.RawContactReadOnlyEditorView>

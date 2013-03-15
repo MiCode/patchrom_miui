@@ -1,26 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
-    android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:gravity="center_vertical"
-    android:minHeight="?android:attr/listPreferredItemHeight"
-    android:paddingLeft="16dp"
-    android:paddingTop="8dp"
-    android:paddingBottom="8dp"
-    android:paddingRight="16dp">
+    android:layout_height="wrap_content"
+    android:background="@miui:drawable/v5_preference_item_bg" >
 
-    <TextView android:id="@+id/locale"
-        android:layout_width="0dip"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-    <RadioButton android:id="@+id/radio_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right|center_vertical"
-        android:focusable="false"
+    <RadioButton
+        android:id="@+id/locale"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:duplicateParentState="true"
         android:clickable="false"
-        android:textAppearance="?android:attr/textAppearanceMedium"/>
-</LinearLayout >
+        android:focusable="false" />
+
+</LinearLayout>

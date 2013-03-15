@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="app_name">File Explorer</string>
-    <string name="confirm">OK</string>
+    <string name="confirm">Confirm</string>
     <string name="menu_item_ftp">FTP</string>
     <string name="menu_item_search">Search</string>
     <string name="operation_create_folder">New folder</string>
@@ -22,8 +22,6 @@
     <string name="operation_info">Details</string>
     <string name="operation_cancel">Cancel</string>
     <string name="operation_refresh">Refresh</string>
-    <string name="operation_selectall">Select all</string>
-    <string name="operation_cancel_selectall">Clear selection</string>
     <string name="operation_show_sys">Show hidden</string>
     <string name="operation_hide_sys">Don\'t show hidden</string>
     <string name="cancel">Cancel</string>
@@ -31,7 +29,6 @@
     <string name="no_file">No files</string>
     <string name="tab_category">Category</string>
     <string name="tab_phone">Phone</string>
-    <string name="sd_folder">SD card</string>
     <string name="category_all">All</string>
     <string name="category_music">Music</string>
     <string name="category_video">Videos</string>
@@ -112,8 +109,7 @@
     <string name="ui_bar_txt_upload_progress">%1$d file(s) left to upload</string>
     <string name="ui_main_menu_option_task_manage">Transfer management</string>
     <string name="login_reg_content0">KuaiPan is your Net Disk</string>
-    <string name="login_reg_content">KuaiPan helps you store files and sync as well as read them with multiple devices.</string>
-    <string name="login_reg_login_xiaomi">Login to Xiaomi account</string>
+    <string name="login_reg_content">KuaiPan helps you store files and sync as well as read them with multiple devices\nsuch as computers, handsets and so on.</string>
     <string name="start_use_xiaomi_account">Start to use</string>
     <string name="pan_settting">KuaiPan settings</string>
     <string name="xiaomi_account">Xiaomi account</string>
@@ -130,30 +126,11 @@
     <string name="kuaipan_tech_support">Login to kuaipan.cn to download PC, Mac version</string>
     <string name="no_tasks">No tasks</string>
 
-    <string-array name="task_status">
-        <item>Processing</item>
-        <item>Waiting</item>
-        <item>Cancelled</item>
-        <item>Failed</item>
-        <item>Completed</item>
-        <item>Paused</item>
-    </string-array>
-
     <string name="create_new_folder_failed">Failed to create folder %1$s</string>
-
-    <string name="slide_left_text">Slide to the left</string>
-    <string name="guide_copy_to_sdcard">Copy file(s) from SD card to KuaiPan</string>
-    <string name="guide_access_files_through_web">Your file can be viewed \n on any computer connected to Internet</string>
-    <string name="guide_access_files_through_phone">You can also upload files via webpages, \n and they will be displayed in the phone\'s KuaiPan</string>
-    <string name="guide_advance_tech">Advanced techniques</string>
-    <string name="guide_manage_files_through_computer">You can easily manage files \n in KuaiPan on your computer</string>
-    <string name="guide_senior_tech">Senior Techniques</string>
-    <string name="guide_install_app_on_several_computers">Install the KuaiPan client on multiple computers</string>
-    <string name="guide_changes_sync">Sync changes over all your devices \n It\'s so easy!</string>
-    <string name="guide_congratulation_know_all">Congratulations! You have learned all the techniques!\n Start using KuaiPan right now!</string>
-    <string name="guide_login_url">Please visit \nwww.kuaipan.cn on your computer</string>
-    <string name="guide_download_install_apk">Download and install the KuaiPan client</string>
-    <string name="guide_begin_to_use">Start using KuaiPan</string>
+    <string name="user_guide_kuaipan_copy">Access your files in multiple devices\nby placing it in Kuaipan</string>
+    <string name="user_guide_upload_to_kuaipan">From your phone,\nsimply copy and paste into Kuaipan</string>
+    <string name="user_guide_download_other_version">You can even download Kuaipan\nto your PC and Mac</string>
+    <string name="user_guide_other_version">Download various versions of Kuaipan</string>
     <string name="upload_file_toolarge_message">%1$d files larger than 300M can\'t be uploaded. Please check "transfer management" for details.</string>
     <string name="cution">Tips</string>
 
@@ -169,7 +146,7 @@
     <string name="trash_box_capacity">Recycle bin %1$s</string>
     <string name="data_capacity">Data %1$s</string>
 
-    <string name="send_to_midrive">Send to KuaiPan</string>
+    <string name="send_to_midrive">KuaiPan</string>
     <string name="choose_upload_location">Choose upload location</string>
     <string name="send_to_midrive_failed_message">KuaiPan was not supported to receive content</string>
     <string name="operation_compress">Compress</string>
@@ -220,7 +197,6 @@
     <string name="adding_upload_tasks">Adding upload tasks.</string>
     <string name="create_new_folder_desctiption">Creating new folder&#8230;</string>
     <string name="create_share_link_description">Creating share link···</string>
-    <string name="rename">Rename</string>
     <string name="rename_description">Renaming···</string>
     <string name="share_link_failed">Generating folder external link failed</string>
     <string name="choose_send_type">Select send method</string>
@@ -234,6 +210,8 @@
     <string name="paused">Paused</string>
     <string name="upload_failed">Upload failed</string>
     <string name="download_failed">Download failed</string>
+    <string name="upload_successful">Upload successful</string>
+    <string name="download_successful">Download successful</string>
     <string name="operation_pause">Pause</string>
     <string name="operation_resume">Start</string>
     <string name="operation_pause_all">Pause all</string>
@@ -242,12 +220,13 @@
 
     <string name="trans_task">Network transfer</string>
     <string name="des_running_trans">There are %1$d files that still needs to be transferred</string>
+    <string name="trans_task_delete_confirm_message">Are you sure you want to delete the selected %1$d tasks?</string>
     <string name="forward_to_web_recycle_prompt">&lt;a href=\"%1$s\">Click here&lt;/a>to go to Recycle bin to clean up</string>
 
     <string name="storage_internal">Internal storage</string>
     <string name="storage_sd_card">SD card</string>
     <string name="storage_usb">USB storage</string>
-    <string name="bind_account">bind to kuaipan account</string>
+    <string name="bind_account">Bind to kuaipan account</string>
     <string name="bind_account_summary">If you have already got a kuaipan account，then you can bind to this account to read its data</string>
     <string name="binded_accout_title">You currently have already binded to a kuaipan account</string>
     <string name="binded_accout_description">The two account have been merged,then using either xiaomi account or kuaipan account to login, both can read all your data</string>

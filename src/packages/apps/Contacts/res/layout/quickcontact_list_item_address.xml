@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2011 The Android Open Source Project
+<!--
+     Copyright (C) 2011 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,26 +14,35 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
-<com.android.contacts.detail.ActionsViewContainer
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.android.contacts.detail.ActionsViewContainer xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/actions_view_container"
+    style="@miui:style/V5.Widget.ListView.Item.DoubleLine"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
     android:nextFocusRight="@+id/secondary_action_button"
-    style="@style/QuickContactListItemStyle">
-    <LinearLayout style="@style/QuickContactListItemTextWrapperStyle"
-        android:layout_marginTop="12dip"
-        android:layout_marginBottom="12dip">
+    android:paddingBottom="@dimen/list_item_padding_vertical"
+    android:paddingLeft="@dimen/qcb_list_item_padding_left"
+    android:paddingRight="@dimen/qcb_list_item_padding_right"
+    android:paddingTop="@dimen/list_item_padding_vertical" >
+
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
         <TextView
             android:id="@android:id/text1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@miui:style/TextAppearance.ListView.PrimaryItem" />
+            style="@style/QcbListItemText1" />
+
         <TextView
             android:id="@android:id/text2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAllCaps="true"
-            android:textAppearance="@miui:style/TextAppearance.ListView.SecondaryItem" />
+            style="@style/QcbListItemText2"
+            android:textAllCaps="true" />
     </LinearLayout>
-    <include layout="@layout/quickcontact_list_item_base"/>
+
+    <include layout="@layout/quickcontact_list_item_base" />
+
 </com.android.contacts.detail.ActionsViewContainer>

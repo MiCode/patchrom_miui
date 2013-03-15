@@ -4,12 +4,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp"
+        android:padding="10dp"
         android:gravity="center_vertical">
         <ImageView
             android:id="@+id/button_delete"
@@ -31,7 +30,7 @@
                 android:singleLine="true"
                 android:ellipsize="end"
                 android:duplicateParentState="true"
-                android:textAppearance="@style/TextAppearance.ConversationTitle.Primary"/>
+                android:textAppearance="@style/TextAppearance.DialogTitle"/>
             <TextView
                 android:id="@+id/msg_sender_details"
                 android:layout_width="wrap_content"
@@ -40,7 +39,7 @@
                 android:singleLine="true"
                 android:ellipsize="end"
                 android:duplicateParentState="true"
-                android:textAppearance="@style/TextAppearance.ConversationTitle.Secondary"/>
+                android:textAppearance="@style/TextAppearance.DialogTitle.Secondary"/>
         </LinearLayout>
 
         <ImageView
@@ -51,24 +50,29 @@
     </LinearLayout>
 
     <View
+        style="@miui:style/V5.Widget.BottomBar.TopLine"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:drawable/divider_horizontal_bright"/>
+        android:layout_height="1px"/>
 
     <ListView
         android:id="@android:id/list"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:transcriptMode="alwaysScroll"
         android:cacheColorHint="@null"
         android:divider="@null"/>
 
+    <View
+        style="@miui:style/V5.Widget.BottomBar.TopLine"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
+
     <LinearLayout
         android:id="@+id/bottom_panel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dip"
-        android:gravity="center_vertical">
+        android:layout_marginLeft ="15dip"
+        android:gravity="bottom">
         <EditText
             android:id="@+id/embedded_text_editor"
             android:layout_width="0dip"
@@ -82,11 +86,11 @@
             android:maxLines="4"
             android:inputType="textAutoCorrect|textCapSentences|textMultiLine"
             android:imeOptions="actionSend|flagNoEnterAction"
+            android:background="@drawable/compose_msg_editor_bg"
             android:maxLength="500" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="4dip"
             android:orientation="vertical"
             android:gravity="center_vertical">
             <TextView
@@ -95,9 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="3dip"
                 android:layout_gravity="center"
-                android:textColor="@color/counter_text_color"
-                android:textSize="@dimen/counter_font_size"
-                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.MessageCounter"
                 android:visibility="gone"/>
             <Button
                 android:id="@+id/send_button"

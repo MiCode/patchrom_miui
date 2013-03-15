@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2009 The Android Open Source Project
+<!--
+     Copyright (C) 2009 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -16,45 +17,41 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/contact_detail_about_fragment"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
-    <ListView android:id="@android:id/list"
+    <include layout="@layout/contact_detail_fragment_list" />
+
+    <ScrollView
+        android:id="@android:id/empty"
         android:layout_width="match_parent"
         android:layout_height="0px"
         android:layout_weight="1"
         android:fadingEdge="none"
-        android:divider="@null"/>
+        android:visibility="gone" >
 
-    <ScrollView android:id="@android:id/empty"
-        android:layout_width="match_parent"
-        android:layout_height="0px"
-        android:layout_weight="1"
-        android:fadingEdge="none"
-        android:visibility="gone">
-
-        <TextView android:id="@+id/emptyText"
+        <TextView
+            android:id="@+id/emptyText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/no_contact_details"
-            android:textSize="20sp"
-            android:textColor="?android:attr/textColorSecondary"
+            android:lineSpacingMultiplier="0.92"
             android:paddingLeft="10dip"
             android:paddingRight="10dip"
             android:paddingTop="10dip"
-            android:lineSpacingMultiplier="0.92"/>
-
+            android:text="@string/no_contact_details"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="20sp" />
     </ScrollView>
 
     <!-- "QuickFix"- button (Copy to local contact, add to group) -->
     <Button
         android:id="@+id/contact_quick_fix"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
         android:layout_gravity="center"
-        android:layout_marginTop="20dip"
-        android:layout_marginBottom="20dip" />
-</LinearLayout>
+        android:visibility="gone" />
 
+</LinearLayout>

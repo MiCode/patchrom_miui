@@ -26,13 +26,13 @@ import com.android.internal.widget.ActionBarOverlayLayout;
 import com.android.internal.widget.ActionBarView;
 import com.android.internal.widget.ScrollingTabContainerView;
 
+import miui.util.UiUtils;
+
 import android.animation.Animator;
 import android.animation.Animator.AnimatorListener;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.annotation.MiuiHook;
-import android.annotation.MiuiHook.MiuiHookType;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
@@ -68,6 +68,101 @@ import java.util.ArrayList;
  * which is normally hidden.
  */
 public class ActionBarImpl extends ActionBar {
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_CLASS)
+    static class Injector {
+        static ScrollingTabContainerView getScrollingTabContainerView(Context context) {
+            ScrollingTabContainerView tabContainerView = null;
+            if (UiUtils.isV5Ui(context)) {
+                tabContainerView = new com.miui.internal.v5.widget.ScrollingTabContainerView(context);
+            } else {
+                tabContainerView = new ScrollingTabContainerView(context);
+            }
+
+            return tabContainerView;
+        }
+    }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    protected ActionBarView getActionView() { return mActionView; }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    protected ActionBarContainer getContainerView() { return mContainerView; }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    protected ActionBarContainer getSplitView() { return mSplitView; }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    protected ActionBarContextView getContextView() { return mContextView; }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    protected ScrollingTabContainerView getTabScrollView() { return mTabScrollView; }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    protected int getContextDisplayMode() { return mContextDisplayMode; }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    protected ActionBarOverlayLayout getActionBarOverlayLayout() { return mOverlayLayout; }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    protected boolean miuiSetHasEmbeddedTabs(boolean hasEmbeddedTabs) {
+        if (!UiUtils.isV5Ui(mContext)) {
+            return false;
+        }
+
+        // always put tab container in the ActionBarContainer when show title or home
+        final boolean showTitleOrHome = (getDisplayOptions() & (ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_HOME)) != 0;
+        hasEmbeddedTabs = hasEmbeddedTabs && !showTitleOrHome;
+
+        if (mHasEmbeddedTabs != hasEmbeddedTabs) {
+            mHasEmbeddedTabs = hasEmbeddedTabs;
+            // Switch tab layout configuration if needed
+            if (!mHasEmbeddedTabs) {
+                mActionView.setEmbeddedTabView(null);
+                mContainerView.setTabContainer(mTabScrollView);
+            } else {
+                mContainerView.setTabContainer(null);
+                mActionView.setEmbeddedTabView(mTabScrollView);
+            }
+            final boolean isInTabMode = getNavigationMode() == NAVIGATION_MODE_TABS;
+            if (mTabScrollView != null) {
+                if (isInTabMode) {
+                    mTabScrollView.setVisibility(View.VISIBLE);
+                    if (mOverlayLayout != null) {
+                        mOverlayLayout.requestFitSystemWindows();
+                    }
+                } else {
+                    mTabScrollView.setVisibility(View.GONE);
+                }
+            }
+            mActionView.setCollapsable(!mHasEmbeddedTabs && isInTabMode);
+        }
+        return true;
+    }
+
     private static final String TAG = "ActionBarImpl";
 
     private Context mContext;
@@ -209,7 +304,12 @@ public class ActionBarImpl extends ActionBar {
         setHasEmbeddedTabs(ActionBarPolicy.get(mContext).hasEmbeddedTabs());
     }
 
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     private void setHasEmbeddedTabs(boolean hasEmbeddedTabs) {
+        if (miuiSetHasEmbeddedTabs(hasEmbeddedTabs)) {
+            return;
+        }
+
         mHasEmbeddedTabs = hasEmbeddedTabs;
         // Switch tab layout configuration if needed
         if (!mHasEmbeddedTabs) {
@@ -237,12 +337,13 @@ public class ActionBarImpl extends ActionBar {
         return !mHasEmbeddedTabs && getNavigationMode() == NAVIGATION_MODE_TABS;
     }
 
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     private void ensureTabsExist() {
         if (mTabScrollView != null) {
             return;
         }
 
-        ScrollingTabContainerView tabScroller = new ScrollingTabContainerView(mContext);
+        ScrollingTabContainerView tabScroller = Injector.getScrollingTabContainerView(mContext); // Miui Hook
 
         if (mHasEmbeddedTabs) {
             tabScroller.setVisibility(View.VISIBLE);
@@ -340,15 +441,6 @@ public class ActionBarImpl extends ActionBar {
     @Override
     public void setHomeButtonEnabled(boolean enable) {
         mActionView.setHomeButtonEnabled(enable);
-    }
-
-    /**
-     * @hide
-     */
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    @Override
-    public void setHomeViewBackground(int resId) {
-        mActionView.setHomeViewBackground(resId);
     }
 
     @Override

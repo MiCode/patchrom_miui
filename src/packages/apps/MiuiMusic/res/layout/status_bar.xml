@@ -3,14 +3,13 @@
     android:layout_height="match_parent"
     >
 
-    <ImageView android:id="@+id/icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView android:id="@android:id/icon"
+        android:layout_width="@android:dimen/notification_large_icon_width"
+        android:layout_height="@android:dimen/notification_large_icon_height"
+        android:layout_marginLeft="@miui:dimen/android_notification_padding_left"
         android:layout_gravity="center_vertical"
-        android:src="@drawable/stat_notify_musicplayer"
-        android:scaleType="center"
+        android:scaleType="fitCenter"
         xmlns:miui="http://schemas.android.com/apk/res/miui"
-        android:background="@miui:drawable/android_notify_panel_notification_icon_bg_tile"
         />
     <LinearLayout
         android:layout_width="0dp"
@@ -18,7 +17,7 @@
         android:layout_weight="1"
         android:layout_gravity="center"
         android:orientation="vertical"
-        android:paddingLeft="10dp"
+        android:paddingLeft="@miui:dimen/android_notification_content_to_icon_length"
         android:paddingRight="0dp"
         android:paddingTop="2dp"
         android:paddingBottom="2dp"
@@ -44,6 +43,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_marginLeft="@miui:dimen/android_notification_padding_right"
     >
         <ImageView
             android:id="@+id/st_pause"

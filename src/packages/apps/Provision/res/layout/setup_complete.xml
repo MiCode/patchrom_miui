@@ -1,62 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/screen_margin_horizontal"
-    android:paddingRight="@dimen/screen_margin_horizontal"
-    android:paddingBottom="@dimen/screen_margin_bottom" >
+    android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/congratulations"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_alignParentTop="true"
-        android:gravity="center"
-        android:text="@string/setup_complete_label"
-        android:textSize="@dimen/congratulation_text_size"
-        android:textColor="@android:color/holo_orange_dark"/>
-
-    <TextView
-        android:id="@+id/info"
+    <ImageView
+        android:id="@+id/image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/congratulations"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:text="@string/setup_complete_summary"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="?android:attr/textColorSecondary" />
+        android:layout_alignParentTop="true"
+        android:scaleType="center"
+        android:src="@drawable/setup_complete" />
 
     <TextView
         android:id="@+id/note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="60dip"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="35dip"
         android:gravity="center"
-        android:text="@string/setup_complete_info"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textSize="13sp"
+        android:text="@string/setup_complete_info" />
 
     <Button
         android:id="@+id/start"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/Button.Provision"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dip"
+        android:layout_marginBottom="8dip"
         android:layout_above="@id/note"
-        android:text="@string/setup_complete_start"
-        android:textColor="@android:color/white"
-        android:background="@drawable/btn_orange_bg"/>
-
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/info"
-        android:layout_above="@id/start"
-        android:scaleType="center"
-        android:src="@drawable/setup_complete" />
+        android:text="@string/setup_complete_start" />
 
 </RelativeLayout>

@@ -7,93 +7,65 @@
     OR CONDITIONS OF ANY KIND, either express or implied. See the License for
     the specific language governing permissions and limitations under the License. -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <TextView android:id="@+id/add_or_edit_bookmark_title"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:gravity="center_vertical"
-        android:drawableLeft="@drawable/ic_star"
-        android:text="@string/bookmark_this_page"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:background="@miui:drawable/list_fold_background" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/default_view"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:layout_marginBottom="13dip">
 
-        <TableLayout android:id="@+id/default_view"
+            <EditText
+                android:id="@+id/bookmark_title"
+                android:hint="@string/bookmark_title"
+                android:inputType="textCapSentences|textNoSuggestions"
+                android:ellipsize="end"
+                style="@style/GroupEditeText" />
+
+            <EditText
+                android:id="@+id/bookmark_url"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:hint="@string/bookmark_url"
+                android:inputType="textUri"
+                android:ellipsize="end"
+                style="@style/GroupEditeText" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dip"
-            android:layout_marginTop="10dip"
             android:layout_marginRight="20dip"
-            android:stretchColumns="1"
-            android:shrinkColumns="1">
+            android:orientation="vertical">
 
-            <!-- 标签 -->
-            <TableRow
-                android:layout_marginBottom="10dip">
-                <TextView android:id="@+id/bookmark_title_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="@string/bookmark_title"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dip"
+                android:paddingLeft="10dip"
+                android:text="@string/bookmark_add_to"
+                android:textColor="@color/label_font_color"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <EditText android:id="@+id/bookmark_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dip"
-                    android:inputType="textCapSentences|textNoSuggestions"
-                    android:ellipsize="end"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-            </TableRow>
-
-            <!-- 网址 -->
-            <TableRow android:id="@+id/row_url"
-                android:layout_marginBottom="10dip">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="@string/bookmark_url"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                <EditText android:id="@+id/bookmark_url"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_marginLeft="20dip"
-                    android:hint="@string/http"
-                    android:inputType="textUri"
-                    android:ellipsize="end"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-            </TableRow>
-
-            <!-- 账户 -->
-            <TableRow android:id="@+id/account_table_row"
-                android:layout_marginBottom="10dip"
-                android:visibility="visible">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="@string/bookmark_add_to"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                <Spinner android:id="@+id/accounts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dip"
-                    android:spinnerMode="dropdown" />
-            </TableRow>
-
-        </TableLayout>
-
-    </ScrollView>
-
-</LinearLayout>
+            <Spinner
+                android:id="@+id/accounts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:prompt="@string/bookmark_add_to" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

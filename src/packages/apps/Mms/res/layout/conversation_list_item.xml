@@ -21,9 +21,9 @@
 <com.android.mms.ui.ConversationListItem
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/conversation_list_item_height"
-    android:background="@drawable/conversation_list_item_bg"
+    android:layout_height="wrap_content"
     android:orientation="horizontal"
+    android:background="@miui:drawable/v5_list_view_item_bg_light"
     android:gravity="center_vertical">
 
     <android.widget.QuickContactBadge
@@ -36,24 +36,24 @@
         android:id="@+id/fetion_prefix"
         android:visibility="gone"
         android:text="@string/fetion_prefix"
-        android:textAppearance="@style/TextAppearance.ConversationListItem.Primary"
+        android:textAppearance="@style/TextAppearance.List.Primary"
         android:textColor="@color/fetion_prefix_text_color"
+        android:paddingRight="4dip"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content" />
 
     <TextView
         android:id="@+id/from"
-        android:textAppearance="@style/TextAppearance.ConversationListItem.Primary"
+        android:textAppearance="@style/TextAppearance.List.Primary"
         android:singleLine="true"
         android:ellipsize="end"
+        android:paddingRight="7dp"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content" />
 
     <TextView
         android:id="@+id/msg_count"
-        android:textAppearance="@style/TextAppearance.ConversationListItem.Primary"
-        android:textSize="@dimen/text_font_size_large"
-        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.List.Secondary"
         android:singleLine="true"
         android:visibility="gone"
         android:layout_height="wrap_content"
@@ -61,25 +61,17 @@
 
     <TextView
         android:id="@+id/unread_msg_count"
-        android:textColor="@color/conversation_unread_text_color"
-        android:textSize="@dimen/conversation_unread_text_font_size"
-        android:background="@drawable/sms_unread_count_bg"
+        android:textAppearance="@style/UnreadMessageCount"
         android:gravity="center"
         android:singleLine="true"
         android:visibility="gone"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content" />
-    <TextView
-        android:id="@+id/subject"
-        android:textAppearance="@style/TextAppearance.ConversationListItem.Secondary"
-        android:singleLine="true"
-        android:ellipsize="end"
+        android:background="@drawable/sms_unread_count_bg"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content" />
 
     <TextView
         android:id="@+id/date"
-        android:textAppearance="@style/TextAppearance.ConversationListItem.Secondary"
+        android:textAppearance="@style/TextAppearance.List.Secondary"
         android:singleLine="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content" />
@@ -109,6 +101,21 @@
         android:id="@+id/error_indicator"
         android:src="@drawable/conversation_error_indicator"
         android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" />
+
+    <ImageView
+        android:id="@+id/stick_indicator"
+        android:src="@drawable/conversation_stuck_indicator"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" />
+
+    <TextView
+        android:id="@+id/subject"
+        android:textAppearance="@style/TextAppearance.List.Secondary"
+        android:singleLine="true"
+        android:ellipsize="end"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content" />
 

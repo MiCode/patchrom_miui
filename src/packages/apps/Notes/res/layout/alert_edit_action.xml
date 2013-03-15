@@ -2,32 +2,22 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:paddingLeft="2dip"
-    android:paddingRight="2dip"
-    android:paddingBottom="4dip"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
     android:orientation="horizontal"
     android:gravity="center_vertical">
     <TextView
         android:id="@+id/update_alert"
-        android:layout_width="0dip"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:paddingLeft="@dimen/action_padding_size"
-        android:paddingRight="@dimen/action_padding_size"
-        android:gravity="center"
-        android:drawableTop="@drawable/ic_modify_alert"
-        android:background="@drawable/popup_window_item_bg"
-        android:text="@string/alert_edit_action_update" />
+        android:drawableLeft="@drawable/ic_alarm_edit"
+        android:text="@string/alert_edit_action_update"
+        style="@style/Widget.AttachmentItem" />
+    <View
+        android:layout_width="1px"
+        android:layout_height="match_parent"
+        android:background="@color/attachment_line_color" />
     <TextView
         android:id="@+id/delete_alert"
-        android:layout_width="0dip"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:paddingLeft="@dimen/action_padding_size"
-        android:paddingRight="@dimen/action_padding_size"
-        android:gravity="center"
-        android:drawableTop="@drawable/ic_delete_alert"
-        android:background="@drawable/popup_window_item_bg"
-        android:text="@string/alert_edit_action_delete" />
+        android:drawableLeft="@drawable/ic_alarm_remove"
+        android:text="@string/alert_edit_action_delete"
+        style="@style/Widget.AttachmentItem" />
 </LinearLayout>

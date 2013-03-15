@@ -25,14 +25,12 @@
     <header
         android:id="@+id/airplane_mode_settings"
         android:title="@string/airplane_mode"
-        android:icon="@drawable/airplane_mode"
         android:fragment="com.android.settings.WirelessSettings" />
 
     <!-- mobile network settings -->
     <header
         android:id="@+id/mobile_network_settings"
-        android:title="@string/network_settings_title"
-        android:icon="@drawable/mobile_network_settings">
+        android:title="@string/network_settings_title">
         <intent
             android:action="android.intent.action.MAIN"
             android:targetPackage="com.android.phone"
@@ -42,16 +40,17 @@
     <!-- Wifi -->
     <header
         android:id="@+id/wifi_settings"
-        android:fragment="com.android.settings.wifi.MiuiWifiSettings"
-        android:title="@string/wifi_settings_title"
-        android:icon="@drawable/ic_settings_wireless" />
-
+        android:title="@string/wifi_settings_title">
+        <intent
+                android:action="android.settings.WIFI_SETTINGS" />
+    </header>
     <!-- Bluetooth -->
     <header
         android:id="@+id/bluetooth_settings"
-        android:fragment="com.android.settings.bluetooth.BluetoothSettings"
-        android:title="@string/bluetooth_settings_title"
-        android:icon="@drawable/ic_settings_bluetooth2" />
+        android:title="@string/bluetooth_settings_title" >
+        <intent
+            android:action="android.settings.BLUETOOTH_SETTINGS" />
+    </header>
 
     <!-- Operator hook -->
     <header
@@ -64,7 +63,6 @@
     <header
         android:id="@+id/wireless_settings"
         android:title="@string/radio_controls_title"
-        android:icon="@drawable/wireless_more"
         android:breadCrumbTitle="@string/radio_controls_title"
         android:fragment="com.android.settings.WirelessSettings" />
 
@@ -74,28 +72,28 @@
     <!-- Manage users -->
     <header
         android:fragment="com.android.settings.users.UserSettings"
-        android:icon="@drawable/ic_settings_sync"
         android:title="@string/user_settings_title"
         android:id="@+id/user_settings" />
 
     <!-- Display -->
     <header
         android:id="@+id/display_settings"
-        android:icon="@drawable/ic_settings_display"
-        android:fragment="com.android.settings.MiuiDisplaySettings"
-        android:title="@string/display_settings" />
+        android:title="@string/display_settings">
+        <intent
+            android:action="android.settings.DISPLAY_SETTINGS" />
+    </header>
 
     <!-- Sound -->
     <header
         android:id="@+id/sound_settings"
-        android:icon="@drawable/ic_settings_sound"
-        android:fragment="com.android.settings.MiuiSoundSettings"
-        android:title="@string/sound_settings" />
+        android:title="@string/sound_settings" >
+        <intent
+            android:action="android.settings.SOUND_SETTINGS" />
+    </header>
 
     <!-- Status bar settings -->
     <header
         android:id="@+id/status_bar_settings"
-        android:icon="@drawable/ic_status_bar_settings"
         android:title="@string/status_bar_settings">
         <intent
             android:targetPackage="com.android.systemui"
@@ -105,28 +103,27 @@
     <!-- Security -->
     <header
         android:fragment="com.android.settings.SecuritySettings"
-        android:icon="@drawable/ic_settings_security"
         android:title="@string/security_privacy_settings_title"
         android:id="@+id/security_settings" />
 
     <!-- Location -->
     <header
-        android:fragment="com.android.settings.LocationSettings"
-        android:icon="@drawable/ic_settings_location"
         android:title="@string/location_settings_title"
-        android:id="@+id/location_settings" />
+        android:id="@+id/location_settings" >
+        <intent
+            android:action="android.settings.LOCATION_SOURCE_SETTINGS" />
+    </header>
 
     <!--  ACCOUNTS section -->
     <header
             android:id="@+id/account_settings"
-            android:title="@string/account_settings" />
+            android:title="@string/header_category_accounts" />
 
     <header
             android:id="@+id/account_add"
-            android:title="@string/add_account_label"
-            android:icon="@drawable/ic_menu_add">
-        <intent
-            android:action="android.settings.ADD_ACCOUNT_SETTINGS"/>
+            android:title="@string/add_account_label">
+            <intent
+                android:action="android.settings.ADD_ACCOUNT_SETTINGS"/>
     </header>
 
     <!-- DEVICE -->
@@ -136,33 +133,28 @@
     <header
         android:id="@+id/battery_settings"
         android:fragment="com.android.settings.fuelgauge.BatterySettings"
-        android:icon="@drawable/ic_settings_battery"
         android:title="@string/power_usage_summary_title" />
 
     <!-- Storage -->
     <header
         android:id="@+id/storage_settings"
         android:fragment="com.android.settings.deviceinfo.MiuiMemory"
-        android:icon="@drawable/ic_settings_storage"
         android:title="@string/storage_settings" />
 
     <!-- Key Settings -->
     <header
         android:id="@+id/key_settings"
         android:fragment="com.android.settings.KeySettings"
-        android:icon="@drawable/ic_settings_key"
         android:title="@string/key_settings_title"/>
 
     <!-- Led Settings -->
     <header
         android:id="@+id/led_settings"
         android:fragment="com.android.settings.LedSettings"
-        android:icon="@drawable/led_settings"
         android:title="@string/led_settings"/>
 
     <!-- Manufacturer hook -->
     <header
-        android:icon="@drawable/factory_settings"
         android:id="@+id/manufacturer_settings">
         <intent android:action="com.android.settings.MANUFACTURER_APPLICATION_SETTING" />
     </header>
@@ -174,34 +166,32 @@
     <header
         android:id="@+id/dock_settings"
         android:fragment="com.android.settings.DockSettings"
-        android:icon="@drawable/ic_settings_dock"
         android:title="@string/dock_settings" />
 
     <!-- Date & Time -->
     <header
         android:id="@+id/date_time_settings"
         android:fragment="com.android.settings.DateTimeSettings"
-        android:icon="@drawable/ic_settings_date_time"
         android:title="@string/date_and_time_settings_title" />
 
     <!-- Language -->
     <header
         android:id="@+id/language_settings"
         android:fragment="com.android.settings.inputmethod.InputMethodAndLanguageSettings"
-        android:icon="@drawable/ic_settings_language"
         android:title="@string/language_settings" />
 
     <!-- Application Settings -->
     <header
-        android:fragment="com.android.settings.applications.ManageApplications"
-        android:icon="@drawable/ic_settings_applications"
         android:title="@string/applications_settings"
-        android:id="@+id/application_settings" />
+        android:id="@+id/application_settings">
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.applications.ManageApplicationsActivity" />
+    </header>
 
     <!-- Backup and reset -->
     <header
         android:fragment="com.android.settings.PrivacySettings"
-        android:icon="@drawable/ic_settings_backup"
         android:title="@string/privacy_settings"
         android:id="@+id/privacy_settings" />
 
@@ -209,20 +199,20 @@
     <header
         android:id="@+id/accessibility_settings"
         android:fragment="com.android.settings.AccessibilitySettings"
-        android:icon="@drawable/ic_settings_accessibility"
         android:title="@string/accessibility_settings" />
 
     <!-- Development -->
     <header
         android:id="@+id/development_settings"
         android:fragment="com.android.settings.DevelopmentSettings"
-        android:icon="@drawable/ic_settings_development"
         android:title="@string/development_settings_title" />
 
     <!-- About Device -->
     <header
         android:id="@+id/about_settings"
-        android:fragment="com.android.settings.MiuiDeviceInfoSettings"
-        android:icon="@drawable/ic_settings_about"
-        android:title="@string/about_settings" />
+        android:title="@string/about_settings">
+        <intent
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.Settings$DeviceInfoSettingsActivity" />
+    </header>
 </preference-headers>

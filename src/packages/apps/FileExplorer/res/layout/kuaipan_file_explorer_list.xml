@@ -22,45 +22,37 @@
             android:orientation="vertical">
             <TextView
                 android:drawableTop="@drawable/icon_logo"
+                android:drawablePadding="@dimen/kuaipan_introduce_drawable_padding"
                 android:text="@string/login_reg_content0"
                 style="@style/KuaipanIntroduceMessageStyle" />
             <TextView
                 android:text="@string/login_reg_content"
+                android:padding="@dimen/kuaipan_introduce_second_message_padding"
                 style="@style/KuaipanIntroduceMessageSecondaryStyle" />
         </LinearLayout>
 
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/forward_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingLeft="14dip"
-            android:paddingRight="14dip">
+            android:background="@miui:drawable/v5_btn_bg_positive_warn_light"
+            android:layout_marginBottom="@dimen/kuaipan_login_button_marginBottom"
+            android:layout_marginLeft="@dimen/kuaipan_login_button_marginLeft"
+            android:layout_marginRight="@dimen/kuaipan_login_button_marginRight">
+            <ProgressBar android:id="@+id/login_progress"
+                 style="@style/PathRefreshProgressBar"
+                 android:layout_gravity="center_vertical"
+                 android:layout_height="wrap_content"
+                 android:layout_width="wrap_content"
+                 android:visibility="gone"
+                 android:layout_marginLeft="@dimen/kuaipan_login_button_progressbar_marginLeft" />
             <TextView
-                android:text="@string/login_reg_login_xiaomi"
-                style="?android:attr/listSeparatorTextViewStyle"/>
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/btn_bottom"
-                android:layout_marginTop="16dip">
-                <ProgressBar android:id="@+id/login_progress"
-                     style="?android:attr/progressBarStyleSmall"
-                     android:layout_gravity="center_vertical"
-                     android:layout_height="wrap_content"
-                     android:layout_width="wrap_content"
-                     android:visibility="gone"
-                     android:layout_marginLeft="30dip" />
-                <TextView
-                    android:id="@+id/forward_login"
-                    android:text="@string/start_use_xiaomi_account"
-                    style="@style/LogInPageButtonStyle" />
-            </FrameLayout>
-            <TextView
-                style="@style/SupplyMessageStyle"
-                android:drawableLeft="@drawable/kuaipan_logo"
-                android:text="@string/kuaipan_tech_support" />
-        </LinearLayout>
+                android:text="@string/start_use_xiaomi_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@miui:style/V5.TextAppearance.Button.Warn"
+                android:layout_gravity="center" />
+        </FrameLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -72,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:visibility="gone"
-                style="?android:attr/progressBarStyleSmall"/>
+                style="@style/PathRefreshProgressBar"/>
     </LinearLayout>
 
     <TextView
@@ -89,7 +81,7 @@
         android:gravity="center"
         android:background="@drawable/secondary_title_background"
         android:text="@string/ui_bar_txt_upload_progress"
-        style="?android:attr/textAppearanceSmall"
+        style="@miui:style/V5.TextAppearance.List.Secondary"
         android:visibility="gone" />
 
     <FrameLayout
@@ -102,8 +94,7 @@
         <com.android.fileexplorer.view.EditableListView
             android:id="@android:id/list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@miui:style/Widget.ListView.NoDivider">
+            android:layout_height="wrap_content">
         </com.android.fileexplorer.view.EditableListView>
 
         <LinearLayout
@@ -150,7 +141,4 @@
                 android:textSize="14dip" />
         </LinearLayout>
     </FrameLayout>
-
-    <include layout="@layout/operation_confirm_layout"/>
-
 </LinearLayout>

@@ -5,34 +5,18 @@
     android:layout_height="wrap_content" >
 
     <ImageView
-        android:id="@+id/border_left"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="left"
-        android:background="@drawable/bookmark_border"
-        android:visibility="gone" />
-
-    <ImageView
-        android:id="@+id/border_top"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:background="@drawable/bookmark_border"
-        android:visibility="gone" />
-
-    <ImageView
-        android:id="@+id/border_right"
+        android:id="@+id/divider_right"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="right"
-        android:background="@drawable/bookmark_border" />
+        android:background="@drawable/bookmark_divider" />
 
     <ImageView
-        android:id="@+id/border_bottom"
+        android:id="@+id/divider_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@drawable/bookmark_border" />
+        android:background="@drawable/bookmark_divider" />
 
     <FrameLayout
         android:id="@+id/wrapper"
@@ -44,8 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/browser_thumbnail"
-            android:scaleType="center"
-            android:background="@drawable/bookmark_bg_white" />
+            android:scaleType="center"/>
 
         <TextView
             android:id="@+id/label"
@@ -61,6 +44,14 @@
             android:background="@drawable/bookmark_label_bg"/>
 
     </FrameLayout>
+
+    <ImageView
+        android:id="@+id/shadow_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="@drawable/bookmark_shadow_top"
+        android:visibility="gone" />
 
 </FrameLayout>
 

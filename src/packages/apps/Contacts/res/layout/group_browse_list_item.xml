@@ -24,123 +24,105 @@
     paddingRight, as the body part should touch the right edge.  Instead we make each child have
     either marginRight or paddingRight.
 -->
-
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingLeft="?attr/list_item_padding_left"
-    android:paddingTop="?attr/list_item_padding_top"
-    android:paddingBottom="?attr/list_item_padding_bottom" >
+    android:orientation="vertical"
+    android:padding="0dip" >
 
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:layout_marginRight="?attr/list_item_padding_right"
-        android:background="?android:attr/listDivider" />
+        android:background="@miui:drawable/android_list_divider_holo_light" />
 
     <include
         android:id="@+id/group_list_header"
         layout="@layout/group_browse_list_account_header"
         android:visibility="gone" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/list_item_height"
-        android:paddingTop="8dip"
-        android:paddingBottom="8dip"
-        android:duplicateParentState="true"
-        android:background="?android:attr/listChoiceBackgroundIndicator" >
+    <LinearLayout
+        style="@miui:style/V5.Widget.ListView.Item.DoubleLine"
+        android:padding="0dip"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:layout_toLeftOf="@+id/icons"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true">
+            android:id="@+id/group_photos_container"
+            android:layout_width="@dimen/group_list_photo_size"
+            android:layout_height="@dimen/group_list_photo_size"
+            android:layout_marginLeft="?attr/list_item_photo_left_margin"
+            android:background="@drawable/group_photos_container_bg" >
 
             <LinearLayout
-                android:id="@+id/group_photos_container"
-                android:layout_width="@dimen/group_list_photo_size"
-                android:layout_height="@dimen/group_list_photo_size"
-                android:background="@drawable/group_photos_container_bg" >
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginRight="1px"
+                android:layout_weight="1"
+                android:orientation="vertical" >
 
-                <LinearLayout
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="1px"
-                    android:layout_weight="1"
-                    android:orientation="vertical" >
+                <ImageView
+                    android:id="@+id/photo0"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_marginBottom="1px"
+                    android:layout_weight="1" />
 
-                    <ImageView
-                        android:id="@+id/photo0"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dip"
-                        android:layout_marginBottom="1px"
-                        android:layout_weight="1" />
-
-                    <ImageView
-                        android:id="@+id/photo2"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dip"
-                        android:layout_marginTop="1px"
-                        android:layout_weight="1" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="1px"
-                    android:layout_weight="1"
-                    android:orientation="vertical" >
-
-                    <ImageView
-                        android:id="@+id/photo1"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dip"
-                        android:layout_marginBottom="1px"
-                        android:layout_weight="1" />
-
-                    <ImageView
-                        android:id="@+id/photo3"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dip"
-                        android:layout_marginTop="1px"
-                        android:layout_weight="1" />
-                </LinearLayout>
-
+                <ImageView
+                    android:id="@+id/photo2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_marginTop="1px"
+                    android:layout_weight="1" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/label"
-                android:layout_height="wrap_content"
+            <LinearLayout
                 android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="1px"
                 android:layout_weight="1"
-                android:layout_marginLeft="15dip"
-                android:layout_marginRight="5dip"
-                android:textAppearance="@miui:style/TextAppearance.ListView.PrimaryItem"
-                android:ellipsize="end"
-                android:singleLine="true" />
+                android:orientation="vertical" >
 
-            <TextView
-                android:id="@+id/count"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:textAppearance="@miui:style/TextAppearance.ListView.SecondaryItem"
-                android:ellipsize="end"
-                android:singleLine="true" />
+                <ImageView
+                    android:id="@+id/photo1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_marginBottom="1px"
+                    android:layout_weight="1" />
 
-            <ImageView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_marginLeft="5dip"
-                android:layout_marginRight="5dip"
-                android:src="@*miui:drawable/arrow_right" />
+                <ImageView
+                    android:id="@+id/photo3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_marginTop="1px"
+                    android:layout_weight="1" />
+            </LinearLayout>
         </LinearLayout>
-    </RelativeLayout>
-</LinearLayout>
 
+        <TextView
+            android:id="@+id/label"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="?attr/list_item_gap_between_image_and_text"
+            android:layout_marginRight="15dip"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary" />
+
+        <TextView
+            android:id="@+id/count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dip"
+            android:src="@*miui:drawable/v5_arrow_right" />
+    </LinearLayout>
+
+</LinearLayout>

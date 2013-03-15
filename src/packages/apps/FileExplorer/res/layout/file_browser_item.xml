@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@miui:drawable/list_medium_middle_item_background" >
+    style="@style/ListItemStyle">
 
     <cn.kuaipan.android.widget.LayerView
         android:id="@+id/layer"
@@ -13,43 +11,30 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingBottom="5dip"
-        android:paddingTop="5dip" >
+        android:layout_height="match_parent"
+        android:gravity="center_vertical" >
 
         <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" >
+            android:layout_width="@dimen/file_icon_width"
+            android:layout_height="wrap_content" >
 
             <ImageView
                 android:id="@+id/file_image"
-                android:layout_width="39dip"
-                android:layout_height="39dip"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:paddingRight="2dip"
-                android:scaleType="centerInside" />
+                style="@style/FileIconStyle" />
 
             <ImageView
                 android:id="@+id/favorite_tag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right|top"
-                android:background="@null"
-                android:paddingTop="2dip"
                 android:src="@drawable/favorite_tag"
                 android:visibility="gone" />
 
             <ImageView
                 android:id="@+id/file_state_icon"
-                android:layout_width="10dip"
-                android:layout_height="10dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="bottom|right"
-                android:gravity="center"
-                android:scaleType="centerInside"
-                android:src="@drawable/image_task_item_download"
                 android:visibility="invisible" />
         </FrameLayout>
 
@@ -57,7 +42,6 @@
             android:id="@+id/file_info_layout"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:orientation="vertical"
             android:paddingLeft="5dip" >
@@ -72,7 +56,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    style="@miui:style/V5.TextAppearance.List.Primary" />
 
                 <TextView
                     android:id="@+id/file_count"
@@ -80,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dip"
                     android:singleLine="true"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    style="@miui:style/V5.TextAppearance.List.Secondary" />
             </LinearLayout>
 
             <LinearLayout
@@ -94,7 +78,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:gravity="left"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    style="@miui:style/V5.TextAppearance.List.Secondary" />
 
                 <TextView
                     android:id="@+id/file_size"
@@ -103,7 +87,7 @@
                     android:layout_gravity="left"
                     android:layout_marginLeft="9dip"
                     android:gravity="left"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    style="@miui:style/V5.TextAppearance.List.Secondary" />
             </LinearLayout>
         </LinearLayout>
 
@@ -111,7 +95,6 @@
             android:id="@android:id/checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:clickable="false"
             android:focusable="false"
             android:gravity="center"

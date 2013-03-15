@@ -17,16 +17,16 @@
      March 23, 2009 - Motorola - Allow automatic brightness changes.
 -->
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@miui:dimen/v5_preference_screen_padding_top">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:paddingLeft="20dip"
-            android:paddingRight="20dip">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
         <ImageView android:id="@android:id/icon"
                 android:layout_width="wrap_content"
@@ -34,17 +34,52 @@
                 android:paddingTop="20dip"
                 android:visibility="gone" />
 
-        <CheckBox android:id="@+id/automatic_mode"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:background="@miui:drawable/v5_preference_item_bg">
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+                android:text="@string/automatic_brightness"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <miui.widget.SlidingButton
+                android:id="@+id/automatic_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:background="@miui:drawable/v5_preference_item_bg">
+            <SeekBar
+                android:id="@+id/seekbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/automatic_brightness"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:paddingTop="10dip"
-                android:paddingBottom="13dip" />
+                android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_inner"
+                android:layout_marginRight="@miui:dimen/v5_preference_item_padding_inner" />
+        </LinearLayout>
 
-        <SeekBar android:id="@+id/seekbar"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:background="@miui:drawable/v5_preference_item_bg">
+            <TextView
+                android:id="@+id/adjust_summary"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+                android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
+                android:text="@string/brightness_auto_adjust_off"
+                style="@miui:style/V5.TextAppearance.PreferenceCategory" />
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

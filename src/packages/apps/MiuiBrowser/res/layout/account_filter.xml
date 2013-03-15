@@ -17,28 +17,30 @@
 <!-- Layout showing the type of account filter
      (e.g. All contacts filter, custom filter, etc.),
      which is the header of all contact lists. -->
-<FrameLayout
+<com.android.browser.view.AccountFilterView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/account_filter_container"
+    android:id="@+id/account_filter"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginRight="10dip">
+    android:orientation="horizontal"
+    android:background="@drawable/account_filter_list_group_bg">
 
-    <TextView
-        android:id="@+id/activity_label"
+    <ImageView
+        android:id="@+id/icon_mark"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="@string/bookmarks_management"
-        android:singleLine="true"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:gravity="center_vertical"
-        android:layout_gravity="left"/>
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dip"
+        android:layout_gravity="center_vertical"
+        android:visibility="gone" />
 
-    <com.android.browser.view.AccountFilterView
-        android:id="@+id/account_filter"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/label_wrapper"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="right">
+        android:layout_marginLeft="15dip"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical">
 
         <TextView
             android:id="@+id/account_name"
@@ -46,17 +48,28 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="4dip"
             android:singleLine="true"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:gravity="center_vertical"/>
+            android:gravity="center_vertical"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:scrollHorizontally="true"
+            android:ellipsize="marquee" />
 
-        <ImageView
-            android:id="@+id/arrow_mark"
+        <TextView
+            android:id="@+id/sub_account_name"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dip"
-            android:layout_gravity="center_vertical"
-            android:visibility="gone"/>
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:paddingLeft="0dip"
+            android:singleLine="true"
+            android:scrollHorizontally="true"
+            android:ellipsize="marquee"
+            android:visibility="gone" />
 
-    </com.android.browser.view.AccountFilterView>
-
-</FrameLayout>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/arrow_mark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:visibility="gone" />
+</com.android.browser.view.AccountFilterView>

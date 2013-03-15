@@ -20,14 +20,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/account_filter" />
+
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="10dip"
-        android:layout_marginRight="10dip"
         android:orientation="horizontal"
+        android:background="@drawable/list_group_bg"
         android:visibility="gone">
 
         <ImageView
@@ -35,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/up_level"/>
+            android:src="@drawable/up_level" />
 
         <LinearLayout
             android:id="@+id/folder_wrapper"
@@ -43,37 +47,38 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical">
 
-            <TextView style="@style/GroupNameTextView"
+            <TextView
+                style="@style/GroupNameTextView"
                 android:id="@+id/folder_name"
-                android:paddingLeft="10dip"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
             <ImageView
                 android:id="@+id/arrow_mark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dip"
+                android:layout_marginRight="16dip"
                 android:layout_gravity="center_vertical"
-                android:src="@miui:drawable/arrow_down"
-                android:visibility="visible"/>
+                android:src="@drawable/arrow_down"
+                android:visibility="visible" />
 
         </LinearLayout>
-
     </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <SortableListView
             android:id="@+id/bookmark_list_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
+
         <ProgressBar
             android:id="@+id/progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:visibility="gone"/>
-    </FrameLayout>
+            android:visibility="gone" />
 
+    </FrameLayout>
 </LinearLayout>

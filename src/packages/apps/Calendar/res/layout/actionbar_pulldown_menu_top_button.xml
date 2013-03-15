@@ -15,29 +15,26 @@
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="wrap_content"
-    android:layout_height="48dip"
-    android:gravity="center_vertical"
-    android:paddingRight="8dip"
-    android:paddingLeft="12dip">
+    android:layout_height="match_parent"
+    android:gravity="center_vertical">
+
+    <TextView android:id="@+id/top_button_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        style="@miui:style/V5.TextAppearance.Title" />
 
     <TextView android:id="@+id/top_button_weekday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:singleLine="true"
         android:textSize="12sp"
-        android:layout_marginTop="-2dip"
-        android:layout_marginBottom="-6dip"
-        android:textColor="@color/calendar_view_switch_menu_text_color"
-        android:gravity="left" />
+        android:textColor="@color/miui_title_secondary_text_color"
+        android:layout_marginLeft="8dip"
+        android:layout_marginTop="3dip"
+        style="@miui:style/V5.TextAppearance.Title.Large.Secondary" />
 
-    <TextView android:id="@+id/top_button_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:textSize="@dimen/action_bar_date_text_size"
-        android:textColor="@color/calendar_view_switch_menu_text_color"
-        android:gravity="left" />
 </LinearLayout>
 

@@ -31,7 +31,7 @@ import android.widget.Button;
 class BaseErrorDialog extends AlertDialog {
     @MiuiHook(MiuiHookType.CHANGE_CODE)
     public BaseErrorDialog(Context context) {
-        super(context, com.miui.internal.R.style.Theme_Holo_Light_Dialog_Alert); // miui modify
+        super(context, miui.R.style.V5_Theme_Light_Dialog_Alert); // miui modify
 
         getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM,

@@ -21,6 +21,7 @@
         <item name="android:actionBarStyle">@style/DialtactsActionBarStyle</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowBackground">@drawable/background_dial_holo_dark</item>
+        <item name="android:listViewStyle">@style/ListViewStyle</item>
         <item name="activated_background">@drawable/list_item_activated_background</item>
         <item name="section_header_background">@drawable/list_title_holo</item>
         <item name="list_section_header_height">32dip</item>
@@ -31,7 +32,6 @@
         <item name="list_item_padding_left">0dip</item>
         <item name="list_item_gap_between_image_and_text">8dip</item>
         <item name="list_item_gap_between_label_and_data">5dip</item>
-        <item name="list_item_call_button_padding">14dip</item>
         <item name="list_item_vertical_divider_margin">5dip</item>
         <item name="list_item_presence_icon_margin">4dip</item>
         <item name="list_item_presence_icon_size">16dip</item>
@@ -44,7 +44,9 @@
         <item name="list_item_header_height">24dip</item>
         <item name="list_item_header_underline_height">1dip</item>
         <item name="list_item_header_underline_color">@color/people_app_theme_color</item>
-        <item name="contact_browser_list_padding_left">16dip</item>
+        <item name="list_item_data_width_weight">5</item>
+        <item name="list_item_label_width_weight">3</item>
+        <item name="contact_browser_list_padding_left">0dip</item>
         <item name="contact_browser_list_padding_right">0dip</item>
         <item name="contact_browser_background">@android:color/transparent</item>
         <item name="list_item_text_indent">@dimen/contact_browser_list_item_text_indent</item>
@@ -63,9 +65,10 @@
         <item name="favorites_padding_bottom">?android:attr/actionBarSize</item>
     </style>
 
-    <style name="CallDetailActivityTheme" parent="android:Theme.Holo">
+    <style name="CallDetailActivityTheme" parent="@miui:style/V5.Theme.Light">
         <item name="android:windowBackground">@android:color/black</item>
         <item name="android:gravity">top</item>
+        <item name="android:listViewStyle">@style/ListViewStyle</item>
         <!-- CallLog -->
         <item name="call_log_primary_text_color">#FFFFFF</item>
         <item name="call_log_primary_background_color">#000000</item>
@@ -79,44 +82,30 @@
         <item name="call_log_voicemail_status_action_text_color">#33b5e5</item>
     </style>
 
-    <style name="DetailActivityTheme" parent="@miui:style/Theme.Light">
-        <item name="android:actionBarStyle">@style/DetailActivityActionBarStyle</item>
-        <item name="android:actionOverflowButtonStyle">@style/ActionButton.Overflow</item>
-        <item name="android:windowActionBar">true</item>
-        <item name="android:windowActionBarOverlay">true</item>
+    <style name="DetailActivityTheme" parent="@miui:style/V5.Theme.Light.MainPage">
+         <item name="android:windowNoTitle">true</item>
+         <item name="android:windowActionBar">false</item>
+         <item name="miui:v5_tab_indicator_bg">@drawable/contact_detail_tab_container_bg</item>
+         <item name="miui:v5_tab_indicator_arrow">@drawable/contact_detail_tab_indicator</item>
+         <item name="miui:v5_tab_bg">@drawable/contact_detail_tab_bg</item>
+         <item name="miui:v5_title_text_color">@color/contact_detail_title_text_color</item>
     </style>
 
-    <style name="DetailActivityActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
-        <item name="android:height">@dimen/contact_detail_action_bar_height</item>
+    <style name="EditorActionBar" parent="@miui:style/V5.Widget.ActionBar">
         <item name="android:displayOptions">showCustom</item>
     </style>
 
-    <style name="DetailActivitySmallPhotoActionBarStyle" parent="@miui:style/Theme.Light">
-        <item name="android:actionBarStyle">@style/UnknownContactActivityActionBarStyle</item>
-        <item name="android:windowAnimationStyle">@style/MiuiPhoneAnimations</item>
-    </style>
-
-    <style name="UnknownContactActivityActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
-        <item name="android:background">@android:color/transparent</item>
-        <item name="android:height">@dimen/unknown_contact_detail_action_bar_height</item>
-        <item name="android:displayOptions">showCustom</item>
-    </style>
-
-    <style name="GroupDetailActivityTheme" parent="@miui:style/Theme.Light">
-    </style>
-
-    <style name="ActionButton.Overflow" parent="@android:style/Widget.Holo.Light.ActionButton.Overflow">
-        <item name="android:src">@drawable/ic_menu_moreoverflow_normal</item>
-    </style>
-
-    <style name="EditorActivityTheme" parent="@miui:style/Theme.Light">
-        <item name="android:actionBarStyle">@miui:style/EditorCustomActionBarTheme</item>
+    <style name="NickNameEditorTheme" parent="@miui:style/V5.Theme.Light">
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:textColorPrimary">@miui:color/primary_text</item>
-        <item name="android:textColorSecondary">@miui:color/secondary_text</item>
+        <item name="android:actionBarStyle">@style/EditorActionBar</item>
     </style>
 
-    <style name="BackgroundOnlyTheme" parent="@miui:style/Theme.Light">
+    <style name="ContactEditorTheme" parent="@miui:style/V5.Theme.Light">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:actionBarStyle">@style/EditorActionBar</item>
+    </style>
+
+    <style name="BackgroundOnlyTheme" parent="@miui:style/V5.Theme.Light">
         <item name="android:windowBackground">@null</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowAnimationStyle">@null</item>
@@ -125,57 +114,39 @@
         <item name="android:windowIsFloating">true</item>
     </style>
 
-    <style name="Theme">
+    <style name="PeopleActionBar" parent="@miui:style/V5.Widget.ActionBar">
+        <item name="android:displayOptions">@null</item>
     </style>
 
-    <style name="Theme.QuickContact" parent="@miui:style/Theme.Light">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:colorBackgroundCacheHint">@null</item>
-        <item name="android:windowFrame">@null</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowAnimationStyle">@style/QuickContactAnimations</item>
-        <item name="android:windowIsFloating">false</item>
-        <item name="android:backgroundDimEnabled">true</item>
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowNoTitle">true</item>
-    </style>
-
-    <style name="QuickContactAnimations">
-         <item name="android:taskToBackEnterAnimation">@miui:anim/miui_phone_close_enter</item>
-         <item name="android:taskToBackExitAnimation">@miui:anim/miui_phone_close_exit</item>
-    </style>
-
-    <style name="PeopleTheme" parent="@miui:style/Theme.Light">
-        <item name="android:actionBarStyle">@style/ContactsActionBarStyle</item>
-        <item name="android:textColorPrimary">@miui:color/primary_text</item>
-        <item name="android:textColorSecondary">@miui:color/secondary_text</item>
-        <item name="android:windowAnimationStyle">@style/MiuiPhoneAnimations</item>
-        <item name="list_item_height">@dimen/list_item_height</item>
+    <style name="PeopleTheme" parent="@miui:style/V5.Theme.Light">
+        <item name="android:actionBarStyle">@style/PeopleActionBar</item>
+        <item name="list_item_height">@miui:dimen/v5_list_view_double_line_height</item>
         <item name="activated_background">@drawable/list_item_activated_background</item>
         <item name="section_header_background">@drawable/list_title_holo</item>
         <item name="list_section_header_height">24dip</item>
-        <item name="list_item_divider">?android:attr/listDivider</item>
         <item name="list_item_padding_top">0dip</item>
-        <item name="list_item_padding_right">0dip</item>
+        <item name="list_item_padding_right">25dip</item>
         <item name="list_item_padding_bottom">0dip</item>
         <item name="list_item_padding_left">0dip</item>
-        <item name="list_item_gap_between_image_and_text">8dip</item>
+        <item name="list_item_gap_between_image_and_text">15dip</item>
         <item name="list_item_gap_between_label_and_data">5dip</item>
-        <item name="list_item_call_button_padding">14dip</item>
         <item name="list_item_vertical_divider_margin">5dip</item>
         <item name="list_item_presence_icon_margin">4dip</item>
         <item name="list_item_presence_icon_size">16dip</item>
         <item name="list_item_photo_size">@dimen/contact_browser_list_item_photo_size</item>
-        <item name="list_item_profile_photo_size">70dip</item>
+        <item name="list_item_photo_left_margin">@dimen/list_item_photo_left_margin</item>
+        <item name="list_item_profile_photo_size">@miui:dimen/v5_list_view_double_line_height</item>
         <item name="list_item_prefix_highlight_color">@color/high_light_text</item>
         <item name="list_item_header_text_color">@color/people_app_theme_color</item>
         <item name="list_item_header_text_size">14sp</item>
-        <item name="list_item_header_height">@dimen/list_item_header_height</item>
+        <item name="list_item_header_height">32dip</item>
         <item name="list_item_header_underline_height">1dip</item>
         <item name="list_item_header_underline_color">@color/people_app_theme_color</item>
+        <item name="list_item_data_width_weight">5</item>
+        <item name="list_item_label_width_weight">3</item>
         <item name="list_item_contacts_count_text_color">@color/contact_count_text_color</item>
-        <item name="list_item_header_text_indent">7dip</item>
-        <item name="contact_browser_list_padding_left">16dip</item>
+        <item name="list_item_header_text_indent">8dip</item>
+        <item name="contact_browser_list_padding_left">0dip</item>
         <item name="contact_browser_list_padding_right">0dip</item>
         <item name="contact_browser_background">@android:color/transparent</item>
         <item name="list_item_text_indent">@dimen/contact_browser_list_item_text_indent</item>
@@ -184,99 +155,149 @@
         <item name="favorites_padding_bottom">0dip</item>
     </style>
 
-    <style name="ContactsActionBarStyle" parent="@miui:style/Widget.Holo.Light.ActionBar.Solid.HomeUp">
-        <item name="android:displayOptions">homeAsUp|useLogo</item>
+    <!-- TODO: update the android:background drawable -->
+    <style name="EditorTitleStyle" parent="@miui:style/V5.Widget.EditMode.TopBar">
+        <item name="android:background">@drawable/editor_title_bg</item>
+    </style>
+
+    <style name="ContactsActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/ab_solid_custom_blue_inverse_holo</item>
+        <item name="android:backgroundStacked">@drawable/ab_solid_custom_blue_inverse_holo</item>
+        <item name="android:displayOptions"></item>
+    </style>
+
+    <style name="ContactsActionBarDropDownStyle" parent="@android:style/Widget.Holo.Light.Spinner">
+        <item name="android:background">@drawable/ab_dropdown_navigation_item_background</item>
     </style>
 
     <style name="ContactsActionBarTheme" parent="@android:style/Theme.Holo">
         <item name="android:textColorHint">#CCCCCC</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:popupMenuStyle">@android:style/Widget.Holo.Light.PopupMenu</item>
+        <item name="android:dropDownListViewStyle">@style/ListViewDropdownStyle</item>
     </style>
 
     <style name="ContactsActionBarTabView" parent="@android:style/Widget.Holo.ActionBar.TabView">
         <item name="android:background">@drawable/action_bar_tab</item>
     </style>
 
-    <style name="ContactsTabView" parent="@android:style/Widget.Holo.ActionBar.TabView">
-        <item name="android:background">@drawable/tab2</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/detail_tab_carousel_tab_label_height</item>
-        <item name="android:layout_alignParentLeft">true</item>
-        <item name="android:layout_alignParentBottom">true</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:gravity">center|center_vertical</item>
-        <item name="android:textSize">@miui:dimen/text_font_size_medium</item>
-        <item name="android:textColor">@color/tab2_text_color</item>
+    <style name="ListViewDropdownStyle" parent="@android:style/Widget.ListView.DropDown">
+        <item name="android:listSelector">?android:attr/listChoiceBackgroundIndicator</item>
     </style>
 
-    <style name="ContactPickerTheme" parent="@style/PeopleTheme">
-        <item name="contact_browser_list_padding_left">13dip</item>
-        <item name="android:actionBarStyle">@miui:style/Widget.Holo.Light.ActionBar.Solid.HomeUp</item>
+    <style name="ListViewStyle" parent="@android:style/Widget.Holo.Light.ListView">
+        <item name="android:overScrollMode">always</item>
     </style>
 
-    <style name="ContactPickerMultipleTheme" parent="@style/PeopleTheme">
-        <item name="contact_browser_list_padding_left">13dip</item>
-        <item name="android:actionBarStyle">@miui:style/EditorCustomActionBarTheme</item>
+    <style name="PickerActionBar" parent="@miui:style/V5.Widget.ActionBar">
+        <item name="android:displayOptions">showCustom|showTitle</item>
     </style>
 
-    <style name="ContactPickerLayout" parent="ContactPickerTheme">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
+    <style name="PickerTheme" parent="PeopleTheme" >
+        <item name="android:actionBarStyle">@style/PickerActionBar</item>
+        <item name="list_item_height">@miui:dimen/v5_list_view_double_line_height</item>
+        <item name="list_item_padding_left">0dip</item>
+        <item name="list_item_padding_right">@dimen/picker_checkbox_padding_right_default</item>
+        <item name="miui:v5_tab_indicator_bg">@drawable/picker_tab_indicator_bg</item>
     </style>
 
-    <style name="JoinContactActivityTheme" parent="ContactPickerTheme" >
-        <item name="android:windowActionBar">true</item>
-        <item name="android:windowNoTitle">true</item>
+    <style name="GroupDetailTitleText" parent="@miui:style/V5.TextAppearance.Title.Large">
+        <item name="android:textSize">@dimen/group_detail_title_text_size</item>
     </style>
 
-    <style name="ContactPhonePickerActivityTheme" parent="PeopleTheme" >
-        <item name="contact_browser_list_padding_left">13dip</item>
-        <item name="android:windowActionBar">true</item>
-        <item name="android:windowNoTitle">false</item>
+    <style name="GroupDetailActionBar" parent="@miui:style/V5.Widget.ActionBar">
+        <item name="android:background">@drawable/group_detail_top_bg</item>
+        <item name="android:height">@dimen/group_detail_action_bar_height</item>
+        <item name="android:titleTextStyle">@style/GroupDetailTitleText</item>
+        <item name="android:subtitleTextStyle">@miui:style/V5.TextAppearance.Title.Large.Secondary</item>
     </style>
 
-    <style name="ContactsPreferencesTheme" parent="@style/PeopleTheme">
-        <item name="android:actionBarStyle">@miui:style/Widget.Holo.Light.ActionBar.Solid.HomeUp</item>
+    <style name="GroupDetailTheme" parent="@style/PeopleTheme">
+        <item name="android:homeAsUpIndicator">@drawable/group_detail_title_bar_indicator</item>
+        <item name="android:actionBarStyle">@style/GroupDetailActionBar</item>
     </style>
 
-    <style name="ContactListFilterTheme" parent="@android:Theme.Holo.Light">
-    </style>
-
-    <style name="CustomContactListFilterView" parent="ContactListFilterTheme">
+    <style name="ContactPickerLayout" parent="@miui:style/V5.Theme.Light.Dialog">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="android:listViewStyle">@style/ListViewStyle</item>
+        <item name="list_item_height">?android:attr/listPreferredItemHeight</item>
+        <item name="section_header_background">@drawable/list_title_holo</item>
+        <item name="list_item_divider">?android:attr/listDivider</item>
+        <item name="list_item_padding_top">0dip</item>
+        <item name="list_item_padding_right">0dip</item>
+        <item name="list_item_padding_bottom">0dip</item>
+        <item name="list_item_padding_left">0dip</item>
+        <item name="list_item_gap_between_image_and_text">8dip</item>
+        <item name="list_item_gap_between_label_and_data">5dip</item>
+        <item name="list_item_vertical_divider_margin">5dip</item>
+        <item name="list_item_presence_icon_margin">18dip</item>
+        <item name="list_item_photo_size">64dip</item>
+        <item name="list_item_profile_photo_size">80dip</item>
+        <item name="list_item_header_text_indent">8dip</item>
+        <item name="list_item_header_text_size">14sp</item>
+        <item name="list_item_header_text_color">@color/people_app_theme_color</item>
+        <item name="list_item_header_height">24dip</item>
+        <item name="list_item_header_underline_height">1dip</item>
+        <item name="list_item_header_underline_color">@color/people_app_theme_color</item>
+        <item name="list_item_data_width_weight">5</item>
+        <item name="list_item_label_width_weight">3</item>
+        <item name="list_item_contacts_count_text_color">@color/contact_count_text_color</item>
+        <item name="list_item_contacts_count_text_size">12sp</item>
+        <item name="contact_browser_list_padding_left">24dip</item>
+        <item name="contact_browser_list_padding_right">0dip</item>
+        <item name="contact_browser_background">@android:color/transparent</item>
+        <item name="list_item_text_indent">@dimen/contact_browser_list_item_text_indent</item>
+    </style>
+
+    <style name="JoinContactActivityTheme" parent="PickerTheme" >
+    </style>
+
+    <style name="RemoveDuplicateActivityTheme" parent="@miui:style/V5.Theme.Light.Settings">
+        <item name="list_item_height">@miui:dimen/v5_list_view_double_line_height</item>
+        <item name="list_item_gap_between_image_and_text">20dip</item>
+        <item name="list_item_gap_between_label_and_data">5dip</item>
+        <item name="list_item_photo_size">@dimen/contact_browser_list_item_photo_size</item>
+        <item name="list_item_photo_left_margin">5dip</item>
+        <item name="list_item_padding_right">7dip</item>
+        <item name="list_item_padding_left">7dip</item>
+    </style>
+
+    <style name="CustomContactListFilterView" parent="@miui:style/V5.Theme.Light.Dialog">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:listViewStyle">@style/ListViewStyle</item>
     </style>
 
     <style name="DirectoryHeader" parent="PeopleTheme">
         <item name="android:background">@android:color/transparent</item>
     </style>
 
-    <style name="NonPhoneActivityTheme" parent="@android:Theme.Translucent.NoTitleBar">
+    <style name="NonPhoneActivityTheme" parent="@miui:style/V5.Theme.Light.Translucent.NoTitle">
     </style>
 
-    <style name="NonPhoneDialogTheme" parent="@android:Theme.Holo.Light.Dialog">
+    <style name="NonPhoneDialogTheme" parent="@miui:style/V5.Theme.Light.Dialog">
     </style>
 
-    <style name="ContactCardDialogTheme" parent="@android:style/Theme.Holo.Light.Dialog.MinWidth">
+    <style name="ContactCardDialogTheme" parent="@miui:style/V5.Theme.Light.Dialog">
         <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
 
-    <style name="ContactEditorAccountsChangedActivityTheme" parent="@android:style/Theme.Holo.Light.Dialog.NoActionBar.MinWidth">
+    <style name="ConfirmAddDetailDialogTheme" parent="@miui:style/V5.Theme.Light.Dialog">
         <item name="android:windowCloseOnTouchOutside">true</item>
-        <item name="android:textColorPrimary">@miui:color/primary_text</item>
-        <item name="android:textColorSecondary">@miui:color/secondary_text</item>
+    </style>
+
+    <style name="ContactEditorAccountsChangedActivityTheme" parent="@miui:style/V5.Theme.Light.Dialog.NoTitle">
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
     <style name="SectionDivider">
-        <item name="android:background">@color/people_app_theme_color</item>
+        <item name="android:background">#7e7e87</item>
         <item name="android:layout_height">1dip</item>
         <item name="android:layout_width">match_parent</item>
-    </style>
-
-    <style name="ContactDetailItemType">
-        <item name="android:textAppearance">@miui:style/TextAppearance.ListView.SecondaryItem</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:ellipsize">marquee</item>
-        <item name="android:layout_gravity">center_vertical</item>
     </style>
 
     <style name="DialtactsDigitsTextAppearance">
@@ -309,27 +330,9 @@
     </style>
 
     <style name="DialtactsActionBarStyle" parent="android:Widget.Holo.ActionBar">
-        <item name="android:backgroundSplit">@drawable/ab_bottom_opaque_dark_holo</item>
+        <item name="android:backgroundSplit">@null</item>
         <item name="android:backgroundStacked">@drawable/ab_stacked_opaque_dark_holo</item>
         <item name="android:displayOptions"></item>
-    </style>
-
-    <style name="QuickContactListItemStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:minHeight">?android:attr/listPreferredItemHeight</item>
-        <item name="android:orientation">horizontal</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:background">?android:attr/selectableItemBackground</item>
-    </style>
-
-    <style name="QuickContactListItemTextWrapperStyle">
-        <item name="android:layout_width">0dip</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:orientation">vertical</item>
-        <item name="android:paddingLeft">@dimen/contact_detail_padding_left</item>
     </style>
 
     <style name="QuickContactListBottomStyle">
@@ -338,46 +341,104 @@
         <item name="android:background">@color/quickcontact_tab_indicator</item>
     </style>
 
-    <style name="QuickContactPhotoNameStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+    <style name="Theme.PhotoSelector" parent="@miui:style/V5.Theme.Light">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 
-    <style name="QuickContactPhotoTelocationStyle">
+    <style name="GroupMembershipSizeTextAppearance" parent="@android:style/TextAppearance.Small"/>
+
+    <!-- TextView style with blue underline. It is most suitable for headers.
+
+         This is similar to ?android:attr/listSeparatorTextView but uses different
+         background and text color. See also android:style/Widget.Holo.TextView.ListSeparator
+         (which is private, so we cannot specify it as a parent style).  -->
+    <style name="ContactListSeparatorTextViewStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textAppearance">@miui:style/TextAppearance.ListView.SecondaryItem</item>
+        <!-- See comments for @dimen/list_section_divider_min_height -->
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@miui:drawable/v5_list_view_section_item_bg_light</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
     </style>
 
-    <style name="TextStyleMissedCall">
-        <item name="android:textAppearance">@miui:style/TextAppearance.ListView.PrimaryItem</item>
+    <style name="PeopleNavigationDropDownTextAppearance">
+        <item name="android:textColor">#333333</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="PeopleNavigationDropDownHeaderTextAppearance">
+        <item name="android:textColor">#cdffffff</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="NoActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
+        <item name="android:displayOptions" />
+    </style>
+
+    <style name="MiuiPhoneAnimations" parent="@android:style/Animation.Activity">
+         <item name="android:taskToBackEnterAnimation">@miui:anim/miui_phone_close_enter</item>
+         <item name="android:taskToBackExitAnimation">@miui:anim/miui_phone_close_exit</item>
+    </style>
+
+    <style name="TextStyleNormal" parent="@miui:style/V5.TextAppearance.List.Primary">
+    </style>
+
+    <style name="TextStyleMissedCall" parent="@miui:style/V5.TextAppearance.List.Primary">
         <item name="android:textColor">@color/missed_call_text</item>
     </style>
 
-    <style name="TextStyleHighLight">
-        <item name="android:textAppearance">@miui:style/TextAppearance.ListView.PrimaryItem</item>
+    <style name="TextStyleHighLight" parent="@miui:style/V5.TextAppearance.List.Primary">
         <item name="android:textColor">@color/high_light_text</item>
     </style>
 
-    <style name="TextStyleNormal">
-        <item name="android:textAppearance">@miui:style/TextAppearance.ListView.PrimaryItem</item>
-        <item name="android:textColor">@miui:color/primary_text</item>
+    <style name="HighlightPinyinTextAppearancePrimary" parent="@miui:style/V5.TextAppearance.List.Secondary">
+        <item name="android:textColor">@color/primaryt_text_highlight_color</item>
+    </style>
+
+    <style name="HighlightPinyinTextAppearanceSecondary" parent="@miui:style/V5.TextAppearance.List.Secondary">
+    </style>
+
+    <style name="HighlightNameTextAppearancePrimary" parent="@miui:style/V5.TextAppearance.List.Primary">
+        <item name="android:textColor">@color/primaryt_text_highlight_color</item>
+    </style>
+
+    <style name="HighlightNameTextAppearanceSecondary" parent="@miui:style/V5.TextAppearance.List.Primary">
     </style>
 
     <style name="TextStyleSmartDialer">
-        <item name="android:textAppearance">@miui:style/TextAppearance.ListView.SecondaryItem</item>
-        <item name="android:textSize">@*miui:dimen/list_primary_text_size</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.List.Secondary</item>
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_medium</item>
     </style>
 
-    <style name="PrimaryItemSmall">
-        <item name="android:textAppearance">@miui:style/TextAppearance.ListView.PrimaryItem</item>
-        <item name="android:textSize">@*miui:dimen/list_secondary_text_size</item>
+    <style name="TextStyleDialerDigits" parent="@miui:style/V5.TextAppearance.TabIndicator">
+        <item name="android:textSize">25sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/dialer_digits_text_color</item>
+        <item name="android:background">@android:color/transparent</item>
     </style>
 
-    <style name="TextStyleDialerDigits">
-        <item name="android:textAppearance">@miui:style/TextAppearance.ListView.PrimaryItem</item>
-        <item name="android:textSize">28sp</item>
+    <style name="TextStyleDialerDigits.Location">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_small</item>
+        <item name="android:layout_marginBottom">3dip</item>
+    </style>
+
+    <style name="TextStyleOpenDailerButton">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/open_dialer_button_text</item>
+        <item name="android:shadowColor">@color/open_dialer_button_text_shadow</item>
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">1.0</item>
     </style>
 
     <style name="DialerButtonRow">
@@ -395,82 +456,226 @@
         <item name="android:hapticFeedbackEnabled">true</item>
     </style>
 
-    <style name="CallButton">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:background">@drawable/dialer_call</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:gravity">center</item>
-        <item name="android:soundEffectsEnabled">false</item>
+    <style name="UnknownContactActivityActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:height">@dimen/unknown_contact_detail_action_bar_height</item>
+        <item name="android:displayOptions">showCustom</item>
     </style>
 
-    <style name="TextStyleCallButton">
-        <item name="android:textSize">24sp</item>
-        <item name="android:textColor">@color/call_button_text</item>
-        <item name="android:shadowColor">@color/call_button_text_shadow</item>
-        <item name="android:shadowDx">0.0</item>
-        <item name="android:shadowDy">-1.0</item>
-        <item name="android:shadowRadius">1.0</item>
+    <style name="Theme.QuickContact" parent="@miui:style/V5.Theme.Light">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@style/QuickContactAnimations</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 
-    <style name="TextStyleOpenDailerButton">
-        <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@color/open_dialer_button_text</item>
-        <item name="android:shadowColor">@color/open_dialer_button_text_shadow</item>
-        <item name="android:shadowDx">0.0</item>
-        <item name="android:shadowDy">1.0</item>
-        <item name="android:shadowRadius">1.0</item>
-    </style>
-
-    <style name="HighlightPinyinTextAppearancePrimary" parent="@miui:style/TextAppearance.ListView.SecondaryItem">
-        <item name="android:textColor">@color/high_light_text</item>
-    </style>
-
-    <style name="HighlightPinyinTextAppearanceSecondary" parent="@miui:style/TextAppearance.ListView.SecondaryItem">
-    </style>
-
-    <style name="TwelveKeyDialerTheme" parent="@miui:style/Theme.Light">
-        <item name="android:actionBarStyle">@style/NoActionBarStyle</item>
-        <item name="android:windowAnimationStyle">@style/MiuiPhoneAnimations</item>
-    </style>
-
-    <style name="MiuiPhoneAnimations" parent="@android:style/Animation.Activity">
+    <style name="QuickContactAnimations">
          <item name="android:taskToBackEnterAnimation">@miui:anim/miui_phone_close_enter</item>
          <item name="android:taskToBackExitAnimation">@miui:anim/miui_phone_close_exit</item>
     </style>
 
-    <style name="NoActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
-        <item name="android:displayOptions" />
+    <style name="QcbNameText" parent="@miui:style/V5.TextAppearance.Title">
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textSize">@dimen/qcb_name_text_size</item>
+        <item name="android:textColor">@color/qcb_name_text_color</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowRadius">0</item>
     </style>
 
-    <style name="NickNameEditorTitle">
-        <item name="android:layout_width">0dip</item>
+    <style name="QcbCompanyText" parent="@miui:style/V5.TextAppearance.Title.Medium.Secondary">
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textSize">@dimen/qcb_company_text_size</item>
+        <item name="android:textColor">@color/eighty_percent_white</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="QcbTabText" parent="@miui:style/V5.TextAppearance.TabIndicator">
+        <item name="android:textSize">@dimen/qcb_tab_text_size</item>
+        <item name="android:textColor">@color/qcb_tab_text_color</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="QcbListItemText1" parent="@miui:style/V5.TextAppearance.List.Primary">
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="QcbListItemText2" parent="@miui:style/V5.TextAppearance.List.Secondary">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="NicknameEditorTitle">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:textSize">13dip</item>
+        <item name="android:paddingLeft">@dimen/nickname_editor_title_marginLeft</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:background">@drawable/edit_nickname_header_bg</item>
+        <item name="android:textSize">@dimen/nickname_editor_title_textSize</item>
+        <item name="android:textColor">@color/nickname_editor_title</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
-    <style
-        name="Theme.Resource.Theme.List"
-        parent="@miui:style/Theme.Light">
-        <item name="android:actionBarStyle">@style/Theme.Resource.ActionBar.Style.List</item>
-        <item name="android:actionBarSize">@miui:dimen/two_floors_action_bar_height</item>
+    <style name="NicknameEditorTextView">
+        <item name="android:singleLine">true</item>
+        <item name="android:focusable">false</item>
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">@dimen/nickname_editor_item_marginLeft</item>
+        <item name="android:textSize">@dimen/nickname_editor_text_textSize</item>
+        <item name="android:textColor">@color/nickname_editor_textView</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
-    <style
-        name="Theme.Resource.ActionBar.Style.List"
-        parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
-        <item name="android:logo">@drawable/action_bar_logo</item>
-        <item name="android:title">@string/photo_package_activity_title</item>
+    <style name="NicknameEditorEditText" parent="@miui:V5.Widget.EditText">
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">@dimen/nickname_editor_edit_marginLeft</item>
+        <item name="android:layout_marginRight">@dimen/nickname_editor_edit_marginRight</item>
+        <item name="android:layout_marginTop">@dimen/nickname_editor_edit_marginTop</item>
+        <item name="android:layout_marginBottom">@dimen/nickname_editor_edit_marginBottom</item>
+        <item name="android:textSize">@dimen/nickname_editor_edit_textSize</item>
+        <item name="android:textColor">@color/nickname_editor_textView</item>
+        <item name="android:textColorHint">@color/nickname_editor_editHint</item>
     </style>
 
-    <style name="TranslucentWithoutActionBarTheme" parent="@miui:style/Theme.Light">
-        <item name="android:windowIsTranslucent">true</item>
+    <style name="ContactDetailTitle" parent="@miui:style/V5.TextAppearance.Title">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_main_page_title</item>
+    </style>
+
+    <style name="ContactDetailSubTitle" parent="@miui:style/V5.TextAppearance.Title">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_title</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+
+    <style name="ContactDetailItemTextAppearancePrimary" parent="@miui:style/V5.TextAppearance.List.Primary">
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="ContactDetailItemTextAppearanceSecondary" parent="@miui:style/V5.TextAppearance.List.Secondary">
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="ListSeparator">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/list_separator_height</item>
+        <item name="android:paddingLeft">@dimen/list_separator_padding_left</item>
+        <item name="android:paddingRight">@dimen/list_separator_padding_right</item>
+        <item name="android:background">@miui:drawable/v5_list_view_section_item_bg_light</item>
+        <item name="android:focusable">false</item>
+    </style>
+
+    <style name="ListSeparatorText" parent="@miui:style/V5.TextAppearance.Label">
+        <item name="android:singleLine">true</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="PickerGroupAccount" parent="@miui:style/V5.TextAppearance.Label">
+    </style>
+
+    <style name="PickerGroupTitle" parent="@miui:style/V5.TextAppearance.List">
+        <item name="android:textColor">@color/picker_group_text_color</item>
+    </style>
+
+    <style name="PickerGroupCount" parent="@miui:style/V5.TextAppearance.Small">
+        <item name="android:textColor">@color/picker_group_text_color</item>
+    </style>
+
+    <style name="EditText">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_list_primary</item>
+        <item name="android:textColor">?android:attr/editTextColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColorHint">@color/edit_hint_color</item>
+    </style>
+
+    <style name="DialerListItemTrebleLine" parent="@miui:style/V5.Widget.ListView.Item.TrebleLine">
+        <item name="android:paddingLeft">0dip</item>
+        <item name="android:paddingRight">0dip</item>
+        <item name="list_item_photo_left_margin">5dip</item>
+    </style>
+
+    <style name="DialerListItemDoubleLine" parent="@miui:style/V5.Widget.ListView.Item.DoubleLine">
+        <item name="android:paddingLeft">0dip</item>
+        <item name="android:paddingRight">0dip</item>
+        <item name="list_item_photo_left_margin">5dip</item>
+    </style>
+
+    <style name="DialerListItemSingleLine" parent="@miui:style/V5.Widget.ListView.Item.SingleLine">
+        <item name="android:paddingLeft">0dip</item>
+        <item name="android:paddingRight">0dip</item>
+    </style>
+
+    <style name="DialerListItemSingleLine.ChildContact">
+        <item name="android:paddingLeft">0dip</item>
+        <item name="list_item_photo_left_margin">5dip</item>
+    </style>
+
+    <style name="V5DialogEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_marginLeft">20dip</item>
+        <item name="android:layout_marginRight">20dip</item>
+    </style>
+
+    <style name="ContactDetailCalllogSecondaryListItem">
+        <item name="android:layout_height">@miui:dimen/v5_list_view_single_line_height</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="ContactDetailCalllogSecondaryListItemTextAppearance" parent="@style/ContactDetailItemTextAppearanceSecondary">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/contact_detail_calllog_secondary_list_item_text_margin_left</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="ContactDetailCalllogSecondaryListItemIconStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="ImportActivityTheme" parent="@miui:style/V5.Theme.Light">
+        <item name="android:indeterminateProgressStyle">@android:style/Widget.ProgressBar.Small</item>
+    </style>
+
+    <style name="WeiboActivityTheme" parent="@miui:style/V5.Theme.Light.Dialog">
+        <item name="android:windowCloseOnTouchOutside">false</item>
         <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
-        <item name="android:actionBarStyle">@style/NoActionBarStyle</item>
+    </style>
+
+    <style name="AddXiaomiAccountTitleStyle" parent="@miui:style/V5.Widget.DialogTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">62dip</item>
+    </style>
+
+    <style name="AddXiaomiAccountBtnPositiveStyle" parent="@miui:style/V5.Widget.Button.PositiveWarn">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">30dip</item>
+    </style>
+
+    <style name="AddXiaomiAccountBtnStyle" parent="@miui:style/V5.Widget.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">15dip</item>
+        <item name="android:layout_marginBottom">10dip</item>
     </style>
 </resources>

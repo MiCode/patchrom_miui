@@ -4,8 +4,10 @@
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:paddingLeft="@dimen/notice_text_padding_h"
-                android:paddingRight="@dimen/notice_text_padding_h"
+                android:paddingLeft="@dimen/content_horizontal_margin"
+                android:paddingRight="@dimen/content_horizontal_margin"
+                android:paddingTop="@dimen/content_horizontal_margin"
+                android:paddingBottom="@dimen/content_bottom_margin"
         >
     <LinearLayout
             android:id="@+id/bottom_panel"
@@ -27,18 +29,16 @@
         <Button
                 android:id="@+id/btn_login"
                 android:layout_width="fill_parent"
-                android:layout_height="@dimen/button_height"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="@string/micloud_use_existing"
-                android:background="@drawable/btn_orange_bkg"
-                android:textColor="#ffffff"
+                style="@style/ButtonNotice"
                 />
         <Button
                 android:id="@+id/btn_reg"
                 android:layout_width="fill_parent"
-                android:layout_height="@dimen/button_height"
-                android:layout_marginTop="21dp"
-                android:layout_marginBottom="21dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/buttons_margin_v"
                 android:text="@string/micloud_reg_new"
                 />
     </LinearLayout>
@@ -47,18 +47,27 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="22dp"
+            android:layout_marginLeft="@dimen/notice_text_padding_h"
+            android:layout_marginRight="@dimen/notice_text_padding_h"
             android:gravity="center_horizontal"
             android:text="@string/account_dspt"
-            android:textAppearance="@android:style/TextAppearance.Medium"
-            android:textColor="?android:attr/textColorSecondary"
+            style="@style/TextPrimary"
             />
+    <View
+        android:id="@+id/divider"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_below="@id/account_dspt"
+        style="@style/Divider"
+        />
     <ImageView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_above="@id/bottom_panel"
-            android:layout_below="@id/account_dspt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="87dp"
             android:src="@drawable/mi_rabbit"
-            android:scaleType="center"
             />
 </RelativeLayout>

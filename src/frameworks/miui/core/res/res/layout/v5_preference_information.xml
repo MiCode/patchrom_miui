@@ -17,62 +17,55 @@
 <!-- Layout for a Preference in a PreferenceActivity. The
      Preference is able to place a specific widget for its particular
      type in the "widget_frame" layout. -->
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/v5_preference_item_bg">
+    android:gravity="center_vertical">
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="?android:attr/listPreferredItemHeight"
-        android:gravity="center_vertical"
-        android:paddingLeft="@dimen/v5_preference_item_padding_side"
-        android:paddingRight="@dimen/v5_preference_item_padding_side">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:minWidth="@dimen/android_preference_icon_minWidth"
-            android:gravity="center"
-            android:orientation="horizontal">
-            <ImageView
-                android:id="@+android:id/icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingRight="@dimen/android_preference_item_padding_inner" />
-        </LinearLayout>
-
-        <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:minWidth="@dimen/v5_preference_icon_minWidth"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+android:id/icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingRight="@dimen/android_preference_item_padding_inner"
-            android:paddingTop="6dip"
-            android:paddingBottom="6dip">
-
-            <TextView android:id="@+android:id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:textAppearance="@style/V5.TextAppearance.PreferenceList" />
-
-            <TextView android:id="@+android:id/summary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@android:id/title"
-                android:layout_alignLeft="@android:id/title"
-                android:textAppearance="@style/V5.TextAppearance.List.Secondary"
-                android:maxLines="10" />
-
-        </RelativeLayout>
-
-        <!-- Preference should place its actual preference widget here. -->
-        <LinearLayout android:id="@+android:id/widget_frame"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:orientation="vertical" />
-
+            android:layout_gravity="center"
+            android:paddingRight="@dimen/v5_preference_item_padding_inner" />
     </LinearLayout>
-</FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingRight="@dimen/v5_preference_item_padding_inner"
+        android:paddingTop="@dimen/v5_preference_item_padding_top"
+        android:paddingBottom="@dimen/v5_preference_item_padding_bottom">
+
+        <TextView android:id="@+android:id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textAppearance="@style/V5.TextAppearance.PreferenceList"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal" />
+
+        <TextView android:id="@+android:id/summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@android:id/title"
+            android:layout_alignLeft="@android:id/title"
+            android:textAppearance="@style/V5.TextAppearance.List.Secondary"
+            android:maxLines="10" />
+
+    </RelativeLayout>
+
+    <!-- Preference should place its actual preference widget here. -->
+    <LinearLayout android:id="@+android:id/widget_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical" />
+ </LinearLayout>

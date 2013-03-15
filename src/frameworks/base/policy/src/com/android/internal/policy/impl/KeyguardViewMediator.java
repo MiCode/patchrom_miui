@@ -321,7 +321,7 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
                 .getSystemService(Context.ALARM_SERVICE);
         mCallback = callback;
 
-        mUpdateMonitor = new KeyguardUpdateMonitor(context);
+        mUpdateMonitor = new MiuiKeyguardUpdateMonitor(context); // miui-modify
 
         mUpdateMonitor.registerInfoCallback(mInfoCallback);
 

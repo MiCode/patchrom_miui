@@ -1,36 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- 以下定义的是白色主题下的颜色值，后缀light表示白色主题 -->
-    <!-- 窗口背景颜色 -->
-    <drawable name="screen_background_light">#fff9f9f9</drawable>
-    <drawable name="screen_background_holo_light">#fff9f9f9</drawable>
-    <!-- 背景颜色 -->
-    <color name="background_holo_light">#fff9f9f9</color>
-
-    <!-- 主要文本颜色, 对应为ListView第一行文字的颜色，TextView文字颜色，不要直接使用这个颜色，使用?android:attr/textColorPrimary，ListView的第一行文本使用样式?android:attr/textAppearanceListItem-->
-    <color name="bright_foreground_holo_light">#cc000000</color>
-    <!-- 主要文本禁用状态下的颜色 -->
-    <color name="bright_foreground_disabled_holo_light">#ffb2b2b2</color>
-    <!-- 主要文本被选中状态下的颜色 -->
-    <color name="bright_foreground_inverse_holo_light">#fff3f3f3</color>
-
-    <!-- 次要文本颜色，对应为双行列表中第二行文字的颜色，不要直接使用这个颜色，使用？android:attr/textColorSecondary, ListView的第二行文本使用样式?android:attr/textAppearanceListItemSmall -->
-    <color name="dim_foreground_holo_light">#66000000</color>
-    <!-- 次要文本禁用状态下的颜色 -->
-    <color name="dim_foreground_disabled_holo_light">#80323232</color>
-    <!-- 次要文本被选中状态下的颜色 -->
-    <color name="dim_foreground_inverse_holo_light">#bebebe</color>
-    <!-- 次要文本禁用状态下被选中的颜色 -->
-    <color name="dim_foreground_inverse_disabled_holo_light">#80bebebe</color>
-
-    <!-- 输入框中提示文字的颜色，不要直接使用这个颜色，使用标准的EditText控件 -->
-    <color name="hint_foreground_holo_light">#4c000000</color>
-
-    <!-- A light Holo shade of orange -->
-    <color name="holo_orange_light">#ffff7e00</color>
-    <!-- A dark Holo shade of orange -->
-    <color name="holo_orange_dark">#ffff7e00</color>
-
     <!-- 以下是MIUI新加的颜色定义，原生系统没有单独提取出这些颜色定义 -->
     <add-resource type="color" name="menu_text_color" />
     <add-resource type="color" name="tab_text_color" />
@@ -38,33 +7,30 @@
     <add-resource type="color" name="edit_text_color" />
     <add-resource type="color" name="list_separator_foreground_holo_light" />
     <add-resource type="color" name="notification_action_text_color" />
-
-    <!-- 菜单，长按菜单中的文本颜色，不要直接使用这个颜色，使用标准的系统菜单 -->
-    <color name="menu_text_color">#ff000000</color>
-
-    <!-- tab标签栏的文本颜色， 不要直接使用这个颜色，使用标准的Tab控件-->
-    <color name="tab_text_color">#73ffffff</color>
-    <!-- tab标签栏被选中时的文本颜色 -->
-    <color name="tab_pressed_text_color">#ffffffff</color>
-
-    <!-- 输入框的文本颜色， 不要直接使用这个颜色，使用?android:attr/editTextColor -->
-    <color name="edit_text_color">#ff000000</color>
+    <add-resource type="color" name="statusbar_content" />
+    <add-resource type="color" name="statusbar_content_title" />
+    <add-resource type="color" name="statusbar_content_info" />
+    <add-resource type="color" name="statusbar_content_time" />
+    <add-resource type="color" name="statusbar_content_emphasis" />
 
     <!-- 列表分割符文本颜色， 不要直接使用这个颜色，使用?android:attr/listSeparatorTextViewStyle -->
     <color name="list_separator_foreground_holo_light">#ffff7e00</color>
 
     <!-- 输入框选中内容的提示颜色 -->
-    <color name="highlighted_text_dark">#ffffc960</color>
-    <color name="highlighted_text_light">#ffffc960</color>
-    <color name="highlighted_text_holo_dark">#ffffc960</color>
     <color name="highlighted_text_holo_light">#ffffc960</color>
+    <color name="statusbar_content">#999999</color>
+    <color name="statusbar_content_title">#ffffff</color>
+    <color name="statusbar_content_info">#999999</color>
+    <color name="statusbar_content_time">#999999</color>
+    <color name="statusbar_content_emphasis">#CCCCCC</color>
 
-    <!-- 通知背景颜色 -->
+    <!-- 虚线分割  -->
+    <drawable name="list_dashed_divider">@drawable/list_dashed_divider</drawable>
+    <!-- 截图action背景  -->
+    <drawable name="big_picture_action_bg">@drawable/big_picture_action_bg</drawable>
+    <!-- 截图前景 处理圆角  -->
+    <drawable name="big_picture_fg">@drawable/big_picture_fg</drawable>
+
     <drawable name="notification_bg">#00000000</drawable>
     <drawable name="notification_bg_low">#00000000</drawable>
-    <drawable name="notification_template_icon_bg">@drawable/notify_panel_notification_icon_bg_tile</drawable>
-    <drawable name="notification_template_icon_low_bg">@drawable/notify_panel_notification_icon_bg_tile</drawable>
-
-    <!-- 通知栏action字体颜色 -->
-    <color name="notification_action_text_color">#ff000000</color>
 </resources>

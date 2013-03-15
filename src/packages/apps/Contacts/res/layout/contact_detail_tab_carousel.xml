@@ -23,43 +23,49 @@
     android:fadingEdge="none">
 
     <LinearLayout
+        android:id="@+id/tab_and_shadow_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <FrameLayout
+        <LinearLayout
+            android:id="@+id/tab_container"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/detail_tab_carousel_height">
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
-            <ImageView
-                android:id="@+id/photo"
-                android:scaleType="centerCrop"
-                android:layout_width="match_parent"
+            <!-- "About" tab -->
+            <include
+                android:id="@+id/tab_about"
+                layout="@layout/carousel_about_tab" />
+
+            <!-- Vertical divider -->
+            <View
+                android:id="@+id/tab_divider"
+                android:layout_width="1dip"
                 android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true" />
+                android:background="@android:color/white"/>
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:background="@drawable/photo_fg" />
+            <!-- "Updates" tab -->
+            <include
+                android:id="@+id/tab_update"
+                layout="@layout/carousel_updates_tab" />
 
-            <ImageView
-                android:id="@+id/alpha_layer"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:alpha="0"
-                android:background="@drawable/alpha_layer" />
-        </FrameLayout>
+        </LinearLayout>
 
-        <include
-            layout="@layout/contact_detail_tabs"
-            android:layout_gravity="bottom"
+        <!--
+          Shadow below the carousel. The ContactDetailTabCarousel increases its height to
+          account for this shadow, and the class assumes the height of this shadow to be
+          @dimen/detail_contact_photo_shadow_height.
+        -->
+        <View
+            android:id="@+id/shadow"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/detail_tab_carousel_tab_label_height" />
+            android:layout_height="@dimen/detail_contact_photo_shadow_height"
+            android:background="?android:attr/windowContentOverlay"/>
+
     </LinearLayout>
+
 </view>

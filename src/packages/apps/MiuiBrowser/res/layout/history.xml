@@ -16,23 +16,37 @@
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/miui_home_fragment_bg">
 
     <ExpandableListView
         android:id="@+id/history"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:groupIndicator="@null"
-        android:divider="@android:color/transparent"
+        android:divider="@null"
         android:listSelector="@android:color/transparent"/>
 
-    <TextView android:id="@android:id/empty"
+    <LinearLayout
+        android:id="@+id/no_history_record"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/empty_history"
-        android:visibility="gone"
-    />
+        android:orientation="vertical" >
+
+        <ImageView android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/no_history_icon" />
+
+        <TextView android:id="@android:id/empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textAppearance="@miui:style/V5.TextAppearance.Small"
+            android:text="@string/empty_history" />
+
+    </LinearLayout>
 
 </FrameLayout>

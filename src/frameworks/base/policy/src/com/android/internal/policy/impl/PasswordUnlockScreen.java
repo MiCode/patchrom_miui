@@ -103,6 +103,26 @@ public class PasswordUnlockScreen extends LinearLayout implements KeyguardScreen
         }
     }
 
+    @MiuiHook(MiuiHookType.NEW_CLASS)
+    class MiuiPasswordEntryTextWatcher implements TextWatcher {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            final String editableString = s.toString();
+            // check password takes around 10 ms to finish, it's ok to put this in UI thread.
+            if (editableString.length() >= MINIMUM_PASSWORD_LENGTH_BEFORE_REPORT) {
+                verifyPassword(editableString);
+            }
+        }
+    }
+
     @MiuiHook(MiuiHookType.NEW_FIELD)
     boolean mIsLockByFindDevice;
 
@@ -158,6 +178,7 @@ public class PasswordUnlockScreen extends LinearLayout implements KeyguardScreen
         mKeyboardView = (PasswordEntryKeyboardView) findViewById(R.id.keyboard);
         mPasswordEntry = (EditText) findViewById(R.id.passwordEntry);
         mPasswordEntry.setOnEditorActionListener(this);
+        mPasswordEntry.addTextChangedListener(new MiuiPasswordEntryTextWatcher()); // miui-hook
         mPasswordEntry.setOnKeyListener(this);  //miui-hook
 
         mKeyboardHelper = new PasswordEntryKeyboardHelper(context, mKeyboardView, this, false);
@@ -324,6 +345,7 @@ public class PasswordUnlockScreen extends LinearLayout implements KeyguardScreen
     }
 
     /** {@inheritDoc} */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public void onResume() {
         mResuming = true;
         // reset status
@@ -333,6 +355,8 @@ public class PasswordUnlockScreen extends LinearLayout implements KeyguardScreen
         mPasswordEntry.setText("");
         mPasswordEntry.requestFocus();
 
+        checkImmOnResume();  // miui-add
+
         // if the user is currently locked out, enforce it.
         long deadline = mLockPatternUtils.getLockoutAttemptDeadline();
         if (deadline != 0) {
@@ -341,9 +365,34 @@ public class PasswordUnlockScreen extends LinearLayout implements KeyguardScreen
         mResuming = false;
     }
 
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    void checkImmOnResume() {
+        if (showImmOnResume()) {
+            final InputMethodManager imm = (InputMethodManager) getContext().getSystemService(
+                Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(mPasswordEntry, InputMethodManager.SHOW_IMPLICIT);
+        }
+    }
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private boolean showImmOnResume() {
+        // Do not show input method when torch is on, since torch cover is on the top of view stack in this case.
+        return mIsAlpha && Settings.System.getInt(getContext().getContentResolver(), ExtraSettings.System.TORCH_STATE, 0) == 0;
+    }
+
     /** {@inheritDoc} */
     public void cleanUp() {
         mUpdateMonitor.removeCallback(this);
+    }
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    void verifyPassword(final String password) {
+        if (mLockPatternUtils.checkPassword(password)) {
+            mCallback.keyguardDone(true);
+            mCallback.reportSuccessfulUnlockAttempt();
+            mStatusViewManager.setInstructionText(null);
+            Injector.clearPinLockForFindDevice(this, password);
+        }
     }
 
     @MiuiHook(MiuiHookType.CHANGE_CODE)

@@ -24,30 +24,14 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="pref_key_storage_settings"
-        android:title="@string/pref_sms_storage_title">
-        <CheckBoxPreference
-            android:key="pref_key_auto_delete"
-            android:title="@string/pref_title_auto_delete"
-            android:summary="@string/pref_summary_auto_delete"
-            android:defaultValue="false" />
-        <Preference
-            android:layout="?android:attr/preferenceLayoutChild"
-            android:key="pref_key_sms_delete_limit"
-            android:dependency="pref_key_auto_delete"
-            android:title="@string/pref_title_sms_delete"
-            android:persistent="false" />
-        <Preference
-            android:layout="?android:attr/preferenceLayoutChild"
-            android:key="pref_key_mms_delete_limit"
-            android:dependency="pref_key_auto_delete"
-            android:title="@string/pref_title_mms_delete"
-            android:persistent="false" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:key="pref_key_other_settings"
-        android:title="@string/pref_other_title">
+        android:title="@string/pref_system_title">
+        <CheckBoxPreference
+            android:key="pref_key_system_mms_priority"
+            android:title="@string/pref_title_system_mms_priority"
+            android:summaryOn="@string/pref_summary_on_system_mms_priority"
+            android:summaryOff="@string/pref_summary_off_system_mms_priority"
+            android:defaultValue="true" />
         <CheckBoxPreference android:key="pref_key_allow_si_sl_push"
             android:title="@string/pref_title_allow_si_sl_push"
             android:summary="@string/pref_summary_allow_si_sl_push"

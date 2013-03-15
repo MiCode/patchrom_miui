@@ -16,6 +16,11 @@
 
 package android.widget;
 
+import com.android.internal.R;
+
+import miui.util.UiUtils;
+import com.miui.internal.v5.widget.ActionBarView;
+
 import android.annotation.MiuiHook;
 import android.annotation.MiuiHook.MiuiHookType;
 import android.content.Context;
@@ -106,6 +111,9 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
     @MiuiHook(MiuiHookType.NEW_FIELD)
     int mTouchPaddingRight = 0;
 
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_FIELD)
+    Drawable mBottomLineDrawable;
+
     /**
      * @param padding is the value in pixel that indicates left/right unclickable area
      * @hide for libra only
@@ -118,12 +126,83 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
 
     @MiuiHook(MiuiHookType.NEW_CLASS)
     static class Injector {
+        static boolean FALSE = false;
+        static ChildSequenceStateTaggingListener mChildSequenceStateTaggingListener = new ChildSequenceStateTaggingListener();
+
         static boolean isOutOfTouchRange(AbsListView alv, MotionEvent ev) {
             if (ev.getX() < alv.mTouchPaddingLeft
                     || ev.getX() > (alv.getWidth() - alv.mTouchPaddingRight)) {
                 return true;
             }
             return false;
+        }
+
+        static class ChildSequenceStateTaggingListener implements ViewGroup.ChildSequenceStateTaggingListener {
+            @Override
+            public boolean onTaggingFirstChildSequenceState(ViewGroup parent, View child) {
+                return ((AbsListView) parent).getFirstVisiblePosition() <= 0;
+            }
+
+            @Override
+            public boolean onTaggingLastChildSequenceState(ViewGroup parent, View child) {
+                AbsListView list = ((AbsListView) parent);
+                return list.getFirstVisiblePosition() + list.getChildCount() >= list.getAdapter().getCount();
+            }
+        }
+
+        static void setChildSequenceStateTaggingListener(AbsListView list) {
+            list.setChildSequenceStateTaggingListener(mChildSequenceStateTaggingListener);
+        }
+
+        static void drawBorder(AbsListView listView, Canvas canvas) {
+            // draw the bottom line when
+            // 1. the list view's id is android.R.id.list
+            // 2. current theme is V5 Theme
+            // 3. has split action bar
+            boolean shouldDrawBottomLine = (listView.getId() == android.R.id.list)
+                    && UiUtils.isV5Ui(listView.getContext());
+            if (shouldDrawBottomLine) {
+                final ActionBarView abv = ActionBarView.findActionBarViewByView(listView);
+                shouldDrawBottomLine = abv == null ? false : abv.isSplitActionBar();
+            }
+
+            if (!shouldDrawBottomLine) {
+                return;
+            }
+
+            if (listView.mBottomLineDrawable == null) {
+                listView.mBottomLineDrawable = UiUtils.getDrawable(listView.getContext(),
+                        miui.R.attr.v5_bottom_bar_top_line);
+            }
+
+            final Drawable drawable = listView.mBottomLineDrawable;
+            if (drawable != null) {
+                final int childCount = listView.getChildCount();
+                if (childCount > 0) {
+                    final int width = listView.getWidth();
+                    final int height = listView.getHeight();
+                    final int scrollX = listView.getScrollX();
+                    final int scrollY = listView.getScrollY();
+
+                    final boolean fit = (listView.getChildAt(childCount - 1).getBottom() - scrollY) <= height
+                            - listView.mListPadding.bottom;
+                    if (!fit) {
+                        final int bottomLineHeight = drawable.getIntrinsicHeight();
+                        final int bottomLineTop = height - drawable.getIntrinsicHeight();
+                        drawable.setBounds(0, bottomLineTop, width, bottomLineTop
+                                + bottomLineHeight);
+
+                        if (scrollX != 0 || scrollY != 0) {
+                            int restoreCount = canvas.save();
+                            canvas.translate(scrollX, scrollY);
+                            drawable.draw(canvas);
+                            canvas.restoreToCount(restoreCount);
+                        } else {
+                            drawable.draw(canvas);
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -832,6 +911,7 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
         a.recycle();
     }
 
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     private void initAbsListView() {
         // Setting focusable in touch mode will set the focusable property to true
         setClickable(true);
@@ -848,6 +928,8 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
         mOverflingDistance = configuration.getScaledOverflingDistance();
 
         mDensityScale = getContext().getResources().getDisplayMetrics().density;
+
+        Injector.setChildSequenceStateTaggingListener(this); // Miui Hook
     }
 
     @Override
@@ -3381,7 +3463,10 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
     @MiuiHook(MiuiHookType.CHANGE_CODE)
     public boolean onTouchEvent(MotionEvent ev) {
         if (Injector.isOutOfTouchRange(this, ev)) {
-            return true;
+            // *DON'T* drop this event for it may contains some important information such as
+            // ACTION_UP/ACTION_CANCEL and so on.
+            // Just set it to ACTION_CANCEL so it will be ignored normally.
+            ev.setAction(MotionEvent.ACTION_CANCEL);
         } // miui add
 
         if (!isEnabled()) {
@@ -3849,6 +3934,8 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
                 mFastScroller.draw(canvas);
             }
         }
+
+        Injector.drawBorder(this, canvas);
     }
 
     /**
@@ -4171,10 +4258,21 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
             }
         }
 
+        @MiuiHook(MiuiHookType.NEW_METHOD)
+        private void endFling2() {
+            if (mScrollY != 0) {
+                startSpringback();
+            }
+            else {
+                endFling();
+            }
+        }
+
         void flywheelTouch() {
             postDelayed(mCheckFlywheel, FLYWHEEL_TIMEOUT);
         }
 
+        @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
         public void run() {
             switch (mTouchMode) {
             default:
@@ -4295,7 +4393,7 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
                         postOnAnimation(this);
                     }
                 } else {
-                    endFling();
+                    endFling2();
                 }
                 break;
             }
@@ -5057,6 +5155,8 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
 
         mBlockLayoutRequests = true;
 
+        calcFirstPosition(down, count);  //miui-add
+
         if (count > 0) {
             detachViewsFromParent(start, count);
             mRecycler.removeSkippedScrap();
@@ -5070,7 +5170,7 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
 
         offsetChildrenTopAndBottom(incrementalDeltaY);
 
-        if (down) {
+        if (Injector.FALSE) {  // miui-modify
             mFirstPosition += count;
         }
 
@@ -5098,6 +5198,13 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
         invokeOnItemScrollListener();
 
         return false;
+    }
+
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    private void calcFirstPosition(boolean down, int count) {
+        if (down) {
+            mFirstPosition += count;
+        }
     }
 
     /**

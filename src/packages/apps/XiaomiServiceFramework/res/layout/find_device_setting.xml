@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/content_horizontal_margin"
+                android:paddingRight="@dimen/content_horizontal_margin"
+                android:paddingTop="@dimen/content_horizontal_margin"
+                android:paddingBottom="@dimen/content_bottom_margin"
+        >
 
     <TextView
             android:id="@+id/info"
@@ -9,86 +14,46 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:paddingLeft="19dp"
-            android:paddingRight="19dp"
-            android:paddingTop="6dip"
-            android:paddingBottom="6dip"
+            android:layout_marginLeft="@dimen/notice_text_padding_h"
+            android:layout_marginRight="@dimen/notice_text_padding_h"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="22dp"
             android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="?android:attr/textColorSecondary"/>
+            style="@style/TextPrimary"
+            />
+
+    <View
+            android:id="@+id/top_divider"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/info"
+            style="@style/Divider"
+            />
 
     <Button
             android:id="@+id/btn_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="@dimen/button_top_margin"
-            android:layout_marginBottom="@dimen/button_top_margin"
-            android:layout_marginLeft="13dp"
-            android:layout_marginRight="13dp"
             android:text="@string/next"/>
-
-    <RelativeLayout
-            android:id="@+id/panel"
-            android:layout_width="fill_parent"
+    <ListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/content_horizontal_margin_neg"
+            android:layout_marginRight="@dimen/content_horizontal_margin_neg"
             android:layout_above="@id/btn_next"
-            android:minHeight="?android:attr/listPreferredItemHeight"
-            android:paddingLeft="17dp"
-            android:paddingRight="17dp"
-            android:paddingTop="6dip"
-            android:paddingBottom="6dip"
-            android:gravity="center_vertical"
-            android:background="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            >
-        <miui.widget.SlidingButton
-                android:id="@+id/check_box"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="16dp"
-                android:checked="true"
-                />
-        <TextView
-                android:id="@+id/find_device_dspt"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_toLeftOf="@id/check_box"
-                android:layout_alignParentLeft="true"
-                android:text="@string/find_device"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                />
-        <TextView
-                android:id="@+id/sync_sub_dspt"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/find_device_dspt"
-                android:layout_toLeftOf="@id/check_box"
-                android:layout_alignParentLeft="true"
-                android:text="@string/sync_sub_dspt"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="?android:attr/textColorSecondary"
-                />
-    </RelativeLayout>
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1px"
-        android:layout_marginLeft="13dp"
-        android:layout_marginRight="13dp"
-        android:layout_above="@id/panel"
-        android:background="?android:attr/listDivider"/>
+            android:layout_marginTop="@dimen/content_horizontal_margin"
+            android:layout_marginBottom="@dimen/content_horizontal_margin"
+            />
 
     <ImageView
             android:id="@+id/image"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_above="@id/panel"
-            android:layout_below="@id/info"
-            android:scaleType="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/top_divider"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true"
             android:src="@drawable/find_device"/>
 
 </RelativeLayout>

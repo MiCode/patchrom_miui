@@ -17,74 +17,83 @@
 <com.miui.home.launcher.FolderIcon xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/shortcut_selector"
+    android:layout_gravity="center"
     android:animationCache="false"
+    android:clipChildren="false"
+    android:clipToPadding="false"
     android:focusable="true" >
-    <include layout="@layout/icon_shadow" />
-    <include layout="@layout/icon_icon" />
-
-    <LinearLayout android:id="@+id/preview_icons_container"
-        android:layout_width="wrap_content"
-        android:layout_height="0dip"
-        android:layout_gravity="top|center_horizontal"
-        android:orientation="vertical" >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal" >
-
-            <ImageView android:id="@+id/item1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="centerInside"
-                android:layout_gravity="bottom|right"
-                android:layout_weight="1" />
-
-            <ImageView android:id="@+id/item2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="centerInside"
-                android:layout_gravity="bottom|left"
-                android:layout_weight="1" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal" >
-
-            <ImageView android:id="@+id/item3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="centerInside"
-                android:layout_gravity="top|right"
-                android:layout_weight="1" />
-
-            <ImageView android:id="@+id/item4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="centerInside"
-                android:layout_gravity="top|left"
-                android:layout_weight="1" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/folder_cover"
+    <FrameLayout
+        android:id="@+id/icon_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:paddingTop="0.5dip"
         android:layout_gravity="top|center_horizontal"
-        android:visibility="gone" />
-
-    <include layout="@layout/icon_title" />
+        android:clipChildren="false"
+        android:clipToPadding="false" >
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingTop="@dimen/icon_padding_top"
+            android:paddingLeft="@dimen/icon_padding_side"
+            android:paddingRight="@dimen/icon_padding_side" >
+            <ImageView
+                android:id="@+id/icon_icon"
+                android:layout_width="@dimen/config_icon_width"
+                android:layout_height="@dimen/config_icon_height"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter" />
+            <LinearLayout android:id="@+id/preview_icons_container"
+                android:layout_width="@dimen/folder_preview_width"
+                android:layout_height="@dimen/folder_preview_height"
+                android:layout_marginTop="@dimen/folder_preview_top_margin"
+                android:layout_gravity="top|center_horizontal"
+                android:orientation="vertical" >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+                    <ImageView android:id="@+id/item1"
+                        style="@style/FolderIconItem" />
+                    <ImageView android:id="@+id/item2"
+                        style="@style/FolderIconItem" />
+                    <ImageView android:id="@+id/item3"
+                        style="@style/FolderIconItem" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+                    <ImageView android:id="@+id/item4"
+                        style="@style/FolderIconItem" />
+                    <ImageView android:id="@+id/item5"
+                        style="@style/FolderIconItem" />
+                    <ImageView android:id="@+id/item6"
+                        style="@style/FolderIconItem" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+                    <ImageView android:id="@+id/item7"
+                        style="@style/FolderIconItem" />
+                    <ImageView android:id="@+id/item8"
+                        style="@style/FolderIconItem" />
+                    <ImageView android:id="@+id/item9"
+                        style="@style/FolderIconItem" />
+                    </LinearLayout>
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/cover"
+                android:layout_width="@dimen/config_icon_width"
+                android:layout_height="@dimen/config_icon_height"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter" />
+        </FrameLayout>
     <include layout="@layout/icon_message" />
-
+    </FrameLayout>
+    <include layout="@layout/icon_title" />
 </com.miui.home.launcher.FolderIcon>

@@ -40,6 +40,8 @@ import android.widget.NumberPicker.OnValueChangeListener;
 
 import com.android.internal.R;
 
+import miui.util.UiUtils;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -71,6 +73,7 @@ import java.util.TimeZone;
  */
 @Widget
 public class DatePicker extends FrameLayout {
+
     @MiuiHook(MiuiHookType.NEW_CLASS)
     class OnDateChangeListener implements OnValueChangeListener {
         public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
@@ -150,6 +153,9 @@ public class DatePicker extends FrameLayout {
 
     private boolean mIsEnabled = DEFAULT_ENABLED_STATE;
 
+    @MiuiHook(MiuiHookType.NEW_FIELD)
+    private int mLayoutResId;
+
     /**
      * The callback used to indicate the user changes\d the date.
      */
@@ -179,9 +185,6 @@ public class DatePicker extends FrameLayout {
     public DatePicker(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
-        // initialization based on locale
-        setCurrentLocale(Locale.getDefault());
-
         TypedArray attributesArray = context.obtainStyledAttributes(attrs, R.styleable.DatePicker,
                 defStyle, 0);
         boolean spinnersShown = attributesArray.getBoolean(R.styleable.DatePicker_spinnersShown,
@@ -196,6 +199,10 @@ public class DatePicker extends FrameLayout {
         int layoutResourceId = attributesArray.getResourceId(R.styleable.DatePicker_internalLayout,
                 R.layout.date_picker);
         attributesArray.recycle();
+        mLayoutResId = layoutResourceId; // Miui hook
+
+        // initialization based on locale
+        setCurrentLocale(Locale.getDefault());
 
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -496,6 +503,7 @@ public class DatePicker extends FrameLayout {
      *
      * @param locale The current locale.
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private void setCurrentLocale(Locale locale) {
         if (locale.equals(mCurrentLocale)) {
             return;
@@ -513,6 +521,18 @@ public class DatePicker extends FrameLayout {
         for (int i = 0; i < mNumberOfMonths; i++) {
             mShortMonths[i] = DateUtils.getMonthString(Calendar.JANUARY + i,
                     DateUtils.LENGTH_MEDIUM);
+        }
+        resetShortMonths(); // Miui hook
+    }
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private void resetShortMonths() {
+        if (mCurrentLocale.getCountry().toUpperCase().equals(("CN"))){
+            if (mLayoutResId == miui.R.layout.v5_date_picker) {
+                for (int i = 0; i < mShortMonths.length; ++i) {
+                    mShortMonths[i] = String.valueOf(i + 1);
+                }
+            }
         }
     }
 
@@ -538,6 +558,7 @@ public class DatePicker extends FrameLayout {
      * explicitly set by the user and if no such is set fall back
      * to the current locale's default format.
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private void reorderSpinners() {
         mSpinners.removeAllViews();
         char[] order = DateFormat.getDateFormatOrder(getContext());
@@ -545,20 +566,38 @@ public class DatePicker extends FrameLayout {
         for (int i = 0; i < spinnerCount; i++) {
             switch (order[i]) {
                 case DateFormat.DATE:
+                    setPosState(mDaySpinner, i, spinnerCount); // Miui hook
                     mSpinners.addView(mDaySpinner);
                     setImeOptions(mDaySpinner, spinnerCount, i);
                     break;
                 case DateFormat.MONTH:
+                    setPosState(mMonthSpinner, i, spinnerCount); // Miui hook
                     mSpinners.addView(mMonthSpinner);
                     setImeOptions(mMonthSpinner, spinnerCount, i);
                     break;
                 case DateFormat.YEAR:
+                    setPosState(mYearSpinner, i, spinnerCount); // Miui hook
                     mSpinners.addView(mYearSpinner);
                     setImeOptions(mYearSpinner, spinnerCount, i);
                     break;
                 default:
                     throw new IllegalArgumentException();
             }
+        }
+    }
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private void setPosState(NumberPicker v, int pos, int count) {
+        if (v instanceof miui.widget.NumberPicker) {
+            int state;
+            if (pos == 0) {
+                state = miui.widget.NumberPicker.STATE_FIRST;
+            } else if (pos == count - 1) {
+                state = miui.widget.NumberPicker.STATE_LAST;
+            } else {
+                state = miui.widget.NumberPicker.STATE_MIDDLE;
+            }
+            ((miui.widget.NumberPicker) v).setPositionState(state);
         }
     }
 

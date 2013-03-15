@@ -17,11 +17,11 @@ package com.android.internal.widget;
 
 import com.android.internal.view.ActionBarPolicy;
 
+import miui.util.UiUtils;
+
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.TimeInterpolator;
-import android.annotation.MiuiHook;
-import android.annotation.MiuiHook.MiuiHookType;
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -47,6 +47,16 @@ import android.widget.TextView;
  */
 public class ScrollingTabContainerView extends HorizontalScrollView
         implements AdapterView.OnItemClickListener {
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_CLASS)
+    static class Injector {
+        static void onTabViewClick(ScrollingTabContainerView tabContainer, View tabView) {
+            if (UiUtils.isV5Ui(tabContainer.getContext())) {
+                ((com.miui.internal.v5.widget.ScrollingTabContainerView) tabContainer)
+                        .animateIndicatorToTab(tabView);
+            }
+        }
+    }
+
     private static final String TAG = "ScrollingTabContainerView";
     Runnable mTabSelector;
     private TabClickListener mTabClickListener;
@@ -185,10 +195,9 @@ public class ScrollingTabContainerView extends HorizontalScrollView
         requestLayout();
     }
 
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private LinearLayout createTabLayout() {
-        final LinearLayout tabLayout = new MiuiTabLayout(getContext(), null,
-                com.android.internal.R.attr.actionBarTabBarStyle);    // miui modify
+        final LinearLayout tabLayout = new LinearLayout(getContext(), null,
+                com.android.internal.R.attr.actionBarTabBarStyle);
         tabLayout.setMeasureWithLargestChildEnabled(true);
         tabLayout.setGravity(Gravity.CENTER);
         tabLayout.setLayoutParams(new LinearLayout.LayoutParams(
@@ -495,6 +504,8 @@ public class ScrollingTabContainerView extends HorizontalScrollView
                 final View child = mTabLayout.getChildAt(i);
                 child.setSelected(child == view);
             }
+
+            Injector.onTabViewClick(ScrollingTabContainerView.this, view); // Miui Hook
         }
     }
 
@@ -530,5 +541,21 @@ public class ScrollingTabContainerView extends HorizontalScrollView
         @Override
         public void onAnimationRepeat(Animator animation) {
         }
+    }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    protected LinearLayout getTabLayout() {
+        return mTabLayout;
+    }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    protected int getSelectedTabIndex() {
+        return mSelectedTabIndex;
     }
 }

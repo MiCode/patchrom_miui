@@ -3,16 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:paddingTop="0dip"
-    android:paddingBottom="0dip"
-    style="@style/ListItem.Narrow">
+    android:paddingTop="@dimen/list_item_padding_outer"
+    android:paddingBottom="@dimen/list_item_padding_outer"
+    style="@style/ListItem">
     <TextView
         android:id="@+id/body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:lineSpacingMultiplier="1.2"
-        android:textAppearance="@style/TextAppearance.MessageBody.List"
-        android:paddingTop="@dimen/list_item_padding_outer"
-        android:paddingBottom="@dimen/list_item_padding_outer"
-        style="@style/ListItemContent" />
+        android:lineSpacingMultiplier="@dimen/message_body_line_spacing_multiplier"
+        android:textAppearance="@style/TextAppearance.List.Primary.Normal"/>
 </LinearLayout>
+

@@ -19,8 +19,12 @@ package com.android.internal.app;
 import com.android.internal.R;
 import com.android.internal.content.PackageMonitor;
 
+import miui.content.res.IconCustomizer;
+import miui.util.UiUtils;
+
 import android.annotation.MiuiHook;
 import android.annotation.MiuiHook.MiuiHookType;
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManagerNative;
 import android.content.ComponentName;
@@ -33,6 +37,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
+import android.graphics.Canvas;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -40,6 +46,7 @@ import android.os.PatternMatcher;
 import android.os.Process;
 import android.os.RemoteException;
 import android.os.UserId;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,6 +54,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -68,8 +76,117 @@ public class ResolverActivity extends AlertActivity implements AdapterView.OnIte
     @MiuiHook(MiuiHookType.NEW_CLASS)
     static class Injector {
         static Drawable loadIconForResolveInfo(ResolverActivity activity, ResolveInfo ri) {
-            return ri.loadIcon(activity.getPackageManager());
+            return ri.activityInfo.loadIcon(activity.getPackageManager());
         }
+
+        static void initialize(final ResolverActivity activity, boolean alwaysUseOption) {
+            if (UiUtils.isV5Ui(activity)) {
+                Button cancel = (Button) activity.findViewById(miui.R.id.cancel);
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        activity.finish();
+                    }
+                });
+                if (alwaysUseOption) {
+                    CheckBox alwaysOption = (CheckBox) activity.findViewById(miui.R.id.v5_always_option);
+                    alwaysOption.setVisibility(View.VISIBLE);
+                    alwaysOption.setChecked(false);
+                    activity.setAlwaysUseOption(false);
+                }
+                GridView grid = (GridView) activity.findViewById(
+                        miui.util.ResourceMapper.resolveReference(activity, miui.R.id.android_resolver_grid));
+                grid.setOnItemClickListener(null);
+                grid.setOnItemLongClickListener(null);
+            }
+        }
+
+        static int getMaxColumns(ResolverActivity activity) {
+            int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
+            return (rotation != android.view.Surface.ROTATION_0
+                    && rotation != android.view.Surface.ROTATION_180) ?
+                6 : 3;
+        }
+
+        static void addListener(View view, ResolverActivity activity, ResolveListAdapter adapter, int position) {
+            ResolveInfo ri = adapter.resolveInfoForPosition(position);
+            view.setTag(new Object[] {activity, ri, position});
+            view.setOnClickListener(sIconListener);
+            view.setOnLongClickListener(sIconListener);
+        }
+
+        static class IconListener implements View.OnClickListener, View.OnLongClickListener {
+            @Override
+            public void onClick(View v) {
+                Object[] tag = (Object[]) v.getTag();
+                ResolverActivity activity = (ResolverActivity) tag[0];
+                Integer position = (Integer) tag[2];
+                boolean always = false;
+                CheckBox alwaysOption = (CheckBox) activity.findViewById(miui.R.id.v5_always_option);
+                if (alwaysOption.getVisibility() == View.VISIBLE) {
+                    always = alwaysOption.isChecked();
+                }
+                activity.startSelected(position.intValue(), always);
+            }
+
+            @Override
+            public boolean onLongClick(View v) {
+                Object[] tag = (Object[]) v.getTag();
+                ResolverActivity activity = (ResolverActivity) tag[0];
+                ResolveInfo ri = (ResolveInfo) tag[1];
+                activity.showAppDetails(ri);
+                return true;
+            }
+        }
+
+        static IconListener sIconListener = new IconListener();
+
+        static class PressedMaskImageView extends ImageView {
+
+            private boolean mMasked = false;
+            private int mMaskColor;
+
+            public PressedMaskImageView(Context context) {
+                super(context);
+                init(context);
+            }
+
+            public PressedMaskImageView(Context context, AttributeSet attrs) {
+                super(context, attrs);
+                init(context);
+            }
+
+            public PressedMaskImageView(Context context, AttributeSet attrs, int defStyle) {
+                super(context, attrs, defStyle);
+                init(context);
+            }
+
+            private void init(Context context) {
+                mMaskColor = context.getResources().getColor(miui.R.color.v5_foreground_mask);
+            }
+
+            @Override
+            public void draw(Canvas canvas) {
+                super.draw(canvas);
+                if (mMasked) {
+                    canvas.drawColor(mMaskColor, PorterDuff.Mode.SRC_ATOP);
+                }
+            }
+
+            @Override
+            protected void drawableStateChanged() {
+                super.drawableStateChanged();
+                if (mMasked != isPressed()) {
+                    mMasked = !mMasked;
+                    invalidate();
+                }
+            }
+        }
+    }
+
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    void setAlwaysUseOption(boolean alwaysUseOption) {
+        mAlwaysUseOption = alwaysUseOption;
     }
 
     private static final String TAG = "ResolverActivity";
@@ -111,10 +228,11 @@ public class ResolverActivity extends AlertActivity implements AdapterView.OnIte
                 null, null, true);
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     protected void onCreate(Bundle savedInstanceState, Intent intent,
             CharSequence title, Intent[] initialIntents, List<ResolveInfo> rList,
             boolean alwaysUseOption) {
-        setTheme(R.style.Theme_DeviceDefault_Light_Dialog_Alert);
+        setTheme(miui.R.style.V5_Theme_Light_Dialog_Alert);
         super.onCreate(savedInstanceState);
         try {
             mLaunchedFromUid = ActivityManagerNative.getDefault().getLaunchedFromUid(
@@ -124,7 +242,7 @@ public class ResolverActivity extends AlertActivity implements AdapterView.OnIte
         }
         mPm = getPackageManager();
         mAlwaysUseOption = alwaysUseOption;
-        mMaxColumns = getResources().getInteger(R.integer.config_maxResolverActivityColumns);
+        mMaxColumns = Injector.getMaxColumns(this); // getResources().getInteger(R.integer.config_maxResolverActivityColumns); Miui Hook
         intent.setComponent(null);
 
         AlertController.AlertParams ap = mAlertParams;
@@ -169,7 +287,8 @@ public class ResolverActivity extends AlertActivity implements AdapterView.OnIte
 
         setupAlert();
 
-        if (alwaysUseOption) {
+        // Miui Hook: adds "&& !UiUtils.isV5Ui(this)" to ensure don't enter this block in v5
+        if (checkOption(alwaysUseOption)) {  // miui-midify
             final ViewGroup buttonLayout = (ViewGroup) findViewById(R.id.button_bar);
             if (buttonLayout != null) {
                 buttonLayout.setVisibility(View.VISIBLE);
@@ -179,6 +298,13 @@ public class ResolverActivity extends AlertActivity implements AdapterView.OnIte
                 mAlwaysUseOption = false;
             }
         }
+
+        Injector.initialize(this, alwaysUseOption); // Miui Hook
+    }
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private boolean checkOption(boolean alwaysUseOption) {
+        return alwaysUseOption && !UiUtils.isV5Ui(this);
     }
 
     void resizeGrid() {
@@ -630,6 +756,7 @@ public class ResolverActivity extends AlertActivity implements AdapterView.OnIte
             return position;
         }
 
+        @MiuiHook(MiuiHookType.CHANGE_CODE)
         public View getView(int position, View convertView, ViewGroup parent) {
             View view;
             if (convertView == null) {
@@ -639,7 +766,9 @@ public class ResolverActivity extends AlertActivity implements AdapterView.OnIte
                 // Fix the icon size even if we have different sized resources
                 ImageView icon = (ImageView)view.findViewById(R.id.icon);
                 ViewGroup.LayoutParams lp = (ViewGroup.LayoutParams) icon.getLayoutParams();
-                lp.width = lp.height = mIconSize;
+                if (lp.width == 0 || lp.height == 0) { // Miui Hook
+                    lp.width = lp.height = mIconSize;
+                }
             } else {
                 view = convertView;
             }
@@ -663,6 +792,7 @@ public class ResolverActivity extends AlertActivity implements AdapterView.OnIte
                 info.displayIcon = Injector.loadIconForResolveInfo(ResolverActivity.this, info.ri); // miui modify
             }
             icon.setImageDrawable(info.displayIcon);
+            Injector.addListener(icon, ResolverActivity.this, this, mList.indexOf(info)); // Miui Hook
         }
     }
 

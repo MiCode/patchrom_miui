@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+            android:key="accountInfo"
+            android:title="@string/micloud_account_name">
+        <Preference
+            style="?android:attr/preferenceInformationStyle"
+            android:key="accountSettings" />
+        <PreferenceScreen
+            android:key="miliCenterSettings"
+            android:title="@string/mili_center" />
+    </PreferenceCategory>
 
     <PreferenceCategory
             android:key="dataAndSynchronization"
@@ -9,7 +19,7 @@
     <PreferenceCategory
             android:key="otherSettings"
             android:title="@string/other_settings">
-        <com.xiaomi.xmsf.account.ui.SyncStatePreference
+        <miui.widget.SyncStatePreference
             android:key="pref_find_device"
             android:title="@string/find_device"
             android:icon="@drawable/ic_find_device"
