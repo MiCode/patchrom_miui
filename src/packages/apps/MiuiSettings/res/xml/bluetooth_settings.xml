@@ -17,9 +17,18 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/bluetooth_settings" >
+    <miui.preference.ValuePreference
+        android:key="bluetooth_device_name_edit"
+        android:order="-1"
+        android:title="@string/device_name"/>
+    <CheckBoxPreference
+        android:key="bluetooth_device_searchable"
+        android:dependency="bluetooth_enable"
+        android:persistent="false"
+        android:order="-1"/>
     <CheckBoxPreference
         android:key="bluetooth_enable"
         android:order="-1"
-        android:title="@string/bluetooth_enable"/>
-
+        android:title="@string/bluetooth_enable"
+        android:disableDependentsState="false"/>
 </PreferenceScreen>

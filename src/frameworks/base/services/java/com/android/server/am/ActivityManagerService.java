@@ -201,7 +201,7 @@ public final class ActivityManagerService extends ActivityManagerNative
             if (callingUid > 0) {
                 try {
                     String[] packages = AppGlobals.getPackageManager().getPackagesForUid(callingUid);
-                    if (packages.length > 0) {
+                    if (packages != null && packages.length > 0) {
                         return packages[0];
                     }
                 } catch (RemoteException e) {

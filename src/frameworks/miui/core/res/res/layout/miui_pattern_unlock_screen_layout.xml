@@ -41,39 +41,19 @@
                 android:layout_gravity="center_horizontal"
              />
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
+
+            <Button android:id="@+id/emergencyCallButton"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="?android:attr/buttonBarStyle"
                 android:gravity="center"
-                android:weightSum="2">
+                style="?android:attr/buttonBarButtonStyle"
+                android:textSize="@dimen/keyguard_lockscreen_status_line_font_size"
+                android:text="@string/emergency_call_string"
+                android:drawableLeft="@drawable/lockscreen_emergency_button"
+                android:drawablePadding="0dip"
+            />
 
-                <Button android:id="@+id/emergencyCallButton"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:textSize="@dimen/keyguard_lockscreen_status_line_font_size"
-                    android:text="@string/emergency_call_string"
-                    android:drawableLeft="@drawable/lockscreen_emergency_button"
-                    android:drawablePadding="0dip"
-                />
-
-                <Button android:id="@+id/forgotPatternButton"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:visibility="gone"
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:textSize="@dimen/keyguard_lockscreen_status_line_font_size"
-                    android:text="@string/forget_password_string"
-                    android:drawableLeft="@drawable/lockscreen_forgot_password_button"
-                    android:drawablePadding="0dip"
-                />
-            </LinearLayout>
         </LinearLayout>
         <include layout="@layout/miui_soft_keyboard_overlay"
             android:id="@+id/numeric_keyboard_overlay"

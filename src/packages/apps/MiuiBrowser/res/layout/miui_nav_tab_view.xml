@@ -17,19 +17,20 @@
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/nav_tab_view"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:focusable="false">
 
     <!-- 内容区 -->
     <FrameLayout android:id="@+id/tab_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/nav_tab_bg_normal">
+        android:layout_marginTop="@dimen/nav_close_tab_margin_top"
+        android:layout_marginRight="@dimen/nav_close_tab_margin_right">
         <ImageView android:id="@+id/tab_snapshot"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitStart" />
+            android:scaleType="fitXY" />
         <TextView android:id="@+id/tab_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

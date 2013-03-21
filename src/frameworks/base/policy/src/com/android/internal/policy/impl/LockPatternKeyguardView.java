@@ -116,6 +116,9 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
     Mode callGetInitialMode() { return getInitialMode(); }
 
     @MiuiHook(MiuiHookType.NEW_METHOD)
+    UnlockMode callGetUnlockMode() { return getUnlockMode(); }
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
     void callMaybeStartBiometricUnlock() { maybeStartBiometricUnlock(); }
 
     @MiuiHook(MiuiHookType.NEW_CLASS)
@@ -245,7 +248,8 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
      * Keeps track of what mode the current unlock screen is (cached from most recent computation in
      * {@link #getUnlockMode}).
      */
-    private UnlockMode mUnlockScreenMode = UnlockMode.Unknown;
+    @MiuiHook(MiuiHookType.CHANGE_ACCESS)
+    protected UnlockMode mUnlockScreenMode = UnlockMode.Unknown;
 
     private boolean mForgotPattern;
 

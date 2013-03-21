@@ -12,58 +12,73 @@
         android:layout_marginLeft="15dip"
         android:layout_marginRight="15dip"
         android:gravity="center" />
-    <LinearLayout
+
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dip"
+        android:layout_marginTop="15dip"
         android:layout_marginLeft="15dip"
-        android:layout_marginRight="15dip"
-        android:gravity="center_vertical"
-        style="@style/FakeEditView" >
-        <TextView
-            android:layout_width="wrap_content"
+        android:layout_marginRight="15dip" >
+        <TableRow
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/prepaid_number_edit_hint"
-            android:textSize="@dimen/text_size_small"
-            android:textColor="@color/text_color_black" />
-        <EditText
-            android:id="@+id/number_edit"
-            android:layout_width="0dip"
+            android:background="@miui:drawable/v5_group_first_item_bg_light"
+            android:gravity="center_vertical" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/prepaid_number_edit_hint"
+                android:textSize="@dimen/text_size_medium"
+                android:textColor="@color/text_color_black"
+                android:background="@drawable/input_item_first"
+                android:singleLine="true"
+                android:ellipsize="end" />
+            <EditText
+                android:id="@+id/number_edit"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dip"
+                android:gravity="center_vertical"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="@string/prepaid_edit_limit"
+                android:textSize="@dimen/text_size_medium"
+                android:textColor="@color/text_color_black"
+                android:background="@null" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="number"
-            android:hint="@string/prepaid_edit_limit"
-            android:textSize="@dimen/text_size_medium"
-            android:textColor="@color/text_color_black"
-            android:background="@null" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dip"
-        android:layout_marginLeft="15dip"
-        android:layout_marginRight="15dip"
-        android:gravity="center_vertical"
-        style="@style/FakeEditView" >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/prepaid_password_edit_hint"
-            android:textSize="@dimen/text_size_small"
-            android:textColor="@color/text_color_black" />
-        <EditText
-            android:id="@+id/password_edit"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="number"
-            android:hint="@string/prepaid_edit_limit"
-            android:textSize="@dimen/text_size_medium"
-            android:textColor="@color/text_color_black"
-            android:background="@null" />
-    </LinearLayout>
+            android:background="@miui:drawable/v5_group_last_item_bg_light"
+            android:gravity="center_vertical" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/prepaid_password_edit_hint"
+                android:textSize="@dimen/text_size_medium"
+                android:textColor="@color/text_color_black"
+                android:background="@drawable/input_item_last"
+                android:singleLine="true"
+                android:ellipsize="end" />
+            <EditText
+                android:id="@+id/password_edit"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dip"
+                android:gravity="center_vertical"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="@string/prepaid_edit_limit"
+                android:textSize="@dimen/text_size_medium"
+                android:textColor="@color/text_color_black"
+                android:background="@null" />
+        </TableRow>
+    </TableLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

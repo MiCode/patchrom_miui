@@ -5,29 +5,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/scan_icon"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/background_application_manage_bg">
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="@string/auto_startup_application_manage"
+        android:background="@drawable/background_application_manage_bg"
+        style="@miui:style/V5.TextAppearance.Title.Medium"/>
 
-        <TextView
-            style="@miui:style/V5.TextAppearance.Title.Medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:singleLine="true"
-            android:text="@string/auto_startup_application_manage"/>
-
-        <TextView
-            android:id="@+id/startup_count"
-            style="@miui:style/V5.TextAppearance.Title.Medium.Secondary"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"/>
-    </LinearLayout>
+    <TextView
+        android:id="@+id/startup_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:background="@miui:drawable/v5_list_view_section_item_bg_light"
+        style="@android:style/TextAppearance.Small"/>
 
     <ListView
         android:id="@android:id/list"

@@ -27,18 +27,24 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="13dip"
         android:gravity="center_vertical"
-        style="@style/FakeEditView">
+        android:background="@miui:drawable/v5_group_single_item_bg_light">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="@string/paytool_edit_hint"
-            android:textSize="@dimen/text_size_small"
-            android:textColor="@color/text_color_black" />
+            android:textSize="@dimen/text_size_medium"
+            android:textColor="@color/text_color_black"
+            android:background="@drawable/input_item_single"
+            android:singleLine="true"
+            android:ellipsize="end" />
         <EditText
             android:id="@+id/denomination_edit"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginLeft="10dip"
+            android:gravity="center_vertical"
             android:ems="10"
             android:inputType="number"
             android:textSize="@dimen/text_size_medium"

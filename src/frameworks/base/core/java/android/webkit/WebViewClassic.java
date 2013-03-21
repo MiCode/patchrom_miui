@@ -108,6 +108,7 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -1866,40 +1867,14 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
             neverRemember.getData().putString("password", password);
             neverRemember.obj = resumeMsg;
 
-            new AlertDialog.Builder(mContext)
-                    .setTitle(com.android.internal.R.string.save_password_label)
-                    .setMessage(com.android.internal.R.string.save_password_message)
-                    .setPositiveButton(com.android.internal.R.string.save_password_notnow,
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            if (mResumeMsg != null) {
-                                resumeMsg.sendToTarget();
-                                mResumeMsg = null;
-                            }
-                        }
-                    })
-                    .setNeutralButton(com.android.internal.R.string.save_password_remember,
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            if (mResumeMsg != null) {
-                                remember.sendToTarget();
-                                mResumeMsg = null;
-                            }
-                        }
-                    })
-                    .setNegativeButton(com.android.internal.R.string.save_password_never,
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            if (mResumeMsg != null) {
-                                neverRemember.sendToTarget();
-                                mResumeMsg = null;
-                            }
-                        }
-                    })
-                    .setOnCancelListener(new OnCancelListener() {
+            final LinearLayout savePsswordAlertDialog = (LinearLayout) LayoutInflater.from(mContext)
+                    .inflate(miui.R.layout.v5_three_buttons_of_alert_dialog, null);
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(mContext)
+                    .setView(savePsswordAlertDialog);
+            builder.setTitle(com.android.internal.R.string.save_password_message);
+            final AlertDialog alertDialog = builder.setOnCancelListener(
+                    new OnCancelListener() {
                         @Override
                         public void onCancel(DialogInterface dialog) {
                             if (mResumeMsg != null) {
@@ -1908,6 +1883,47 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
                             }
                         }
                     }).show();
+
+            Button positiveButton = (Button) savePsswordAlertDialog.findViewById(com.android.internal.R.id.button1);
+            positiveButton.setText(com.android.internal.R.string.save_password_notnow);
+            positiveButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View e) {
+                    if (mResumeMsg != null) {
+                        resumeMsg.sendToTarget();
+                        mResumeMsg = null;
+                    }
+                    alertDialog.dismiss();
+                }
+            });
+
+            Button neutralButton = (Button) savePsswordAlertDialog.findViewById(com.android.internal.R.id.button3);
+            neutralButton.setText(com.android.internal.R.string.save_password_remember);
+            neutralButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View e) {
+                    if (mResumeMsg != null) {
+                        remember.sendToTarget();
+                        mResumeMsg = null;
+                    }
+                    alertDialog.dismiss();
+                }
+            });
+
+            Button negativeButton = (Button) savePsswordAlertDialog.findViewById(com.android.internal.R.id.button2);
+            negativeButton.setText(com.android.internal.R.string.save_password_never);
+            negativeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View e) {
+                    if (mResumeMsg != null) {
+                        neverRemember.sendToTarget();
+                        mResumeMsg = null;
+                    }
+                    alertDialog.dismiss();
+                }
+
+            });
+
             // Return true so that WebViewCore will pause while the dialog is
             // up.
             rVal = true;
