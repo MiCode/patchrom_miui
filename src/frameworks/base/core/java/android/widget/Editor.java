@@ -3922,7 +3922,7 @@ public class Editor {
         @Override
         public void onClick(View v) {
             TextView t = (TextView) v;
-            mTextView.replaceText_internal(mMin, mMax, t.getText());
+            textview().replaceText_internal(mMin, mMax, t.getText());
             stopTextSelectionMode();
             ((MiuiCursorController.InsertionPointCursorController)mController).onClipBoardPancelClick();
         }
