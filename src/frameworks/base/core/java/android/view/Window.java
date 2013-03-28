@@ -479,9 +479,9 @@ public abstract class Window {
 
     /**
      * MIUI ADD:
-     * In order to keep miui apps(MiuiHome) in same branch for both jb4.1 and 4.2, adds this method
-     * jb4.2 removes isHardwareAccelerated() interface from WindowManager, the minimum change is to
-     * add this interface to {@link Window} in both jb4.1 and 4.2
+     * [JB41_42_COMPAT]
+     * jb42 removes isHardwareAccelerated() interface from WindowManager, the minimum change is to
+     * add this method to {@link Window} in both jb41 and jb42.
      * @hide
      */
     public boolean isHardwareAccelerated() {

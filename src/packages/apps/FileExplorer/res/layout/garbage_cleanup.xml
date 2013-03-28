@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/storage_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@miui:style/V5.TextAppearance.List.Primary" />
+
+    <TextView
+        android:id="@+id/storage_released"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@miui:style/V5.TextAppearance.List.Primary"
+        android:drawableLeft="@drawable/legend_document" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cleanup_help" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <Button
+            android:id="@+id/start_cleanup"
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:text="@string/start_cleanup" />
+        <Button
+            android:id="@+id/cancel_cleanup"
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:text="@string/cancel_cleanup" />
+    </LinearLayout>
+</LinearLayout>

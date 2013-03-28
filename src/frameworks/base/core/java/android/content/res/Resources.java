@@ -1905,8 +1905,12 @@ public class Resources {
             return dr;
         }
 
+        // MIUI MOD:
+        // get drawable from preload cache by consider theme overlay
+        // Drawable.ConstantState cs = isColorDrawable ?
+        //        sPreloadedColorDrawables.get(key) : sPreloadedDrawables.get(key);
         Drawable.ConstantState cs = isColorDrawable ?
-                sPreloadedColorDrawables.get(key) : sPreloadedDrawables.get(key);
+                sPreloadedColorDrawables.get(key) : getPreloadedDrawable(key, id);
         if (cs != null) {
             dr = cs.newDrawable(this);
         } else {
@@ -2255,5 +2259,36 @@ public class Resources {
         sPreloadedDrawables.clear();
         sPreloadedColorStateLists.clear();
         sPreloadedColorDrawables.clear();
+    }
+
+    /**
+     * @hide
+     * MIUI ADD:
+     * Get drawable from preload cache by consider theme overlay
+     */
+    Drawable.ConstantState getPreloadedDrawable(long key, int id) {
+        Drawable.ConstantState cs = sPreloadedDrawables.get(key);
+        if (cs != null && isPreloadOverlayed(id)) {
+            cs = null;
+        }
+        return cs;
+    }
+
+    /**
+     * @hide
+     * MIUI ADD:
+     * Check whether it's during the preloading process
+     */
+    boolean isPreloading() {
+        return mPreloading;
+    }
+
+    /**
+     * @hide
+     * MIUI ADD:
+     * Check whether it's during the preloading process
+     */
+    boolean isPreloadOverlayed(int id) {
+        return false;
     }
 }

@@ -109,6 +109,27 @@ public final class ViewRootImpl implements ViewParent,
         mSkipResizedMsg = true;
     }
 
+    /**
+     * Creates input channel whatever WindowManager.LayoutParams.inputFlags is.
+     */
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    void createInputChannelAnyWay() {
+        if (mInputChannel == null) {
+            mInputChannel = new InputChannel();
+        }
+    }
+
+    /**
+     * Discards input channel if WindowManager.LayoutParams.inputFlags contains
+     * WindowManager.LayoutParams.INPUT_FEATURE_NO_INPUT_CHANNEL flag.
+     */
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    void discardInputChannelBySetting() {
+        if ((mWindowAttributes.inputFeatures & WindowManager.LayoutParams.INPUT_FEATURE_NO_INPUT_CHANNEL) != 0) {
+            mInputChannel = null;
+        }
+    }
+
     @MiuiHook(MiuiHookType.NEW_CLASS)
     static class Injector {
         @MiuiHook(MiuiHookType.NEW_METHOD)
@@ -572,6 +593,10 @@ public final class ViewRootImpl implements ViewParent,
                         & WindowManager.LayoutParams.INPUT_FEATURE_NO_INPUT_CHANNEL) == 0) {
                     mInputChannel = new InputChannel();
                 }
+
+                // MIUI ADD
+                createInputChannelAnyWay();
+
                 try {
                     mOrigWindowType = mWindowAttributes.type;
                     mAttachInfo.mRecomputeGlobalAttributes = true;
@@ -646,6 +671,10 @@ public final class ViewRootImpl implements ViewParent,
                     mInputQueueCallback =
                         ((RootViewSurfaceTaker)view).willYouTakeTheInputQueue();
                 }
+
+                // MIUI ADD
+                discardInputChannelBySetting();
+
                 if (mInputChannel != null) {
                     if (mInputQueueCallback != null) {
                         mInputQueue = new InputQueue(mInputChannel);

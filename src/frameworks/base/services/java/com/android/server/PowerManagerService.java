@@ -2522,10 +2522,14 @@ public class PowerManagerService extends IPowerManager.Stub
         }
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private void forceUserActivityLocked() {
         if (isScreenTurningOffLocked()) {
             // cancel animation so userActivity will succeed
-            mScreenBrightnessAnimator.cancelAnimation();
+            // MIUI MODIFY
+            // Original:
+            // mScreenBrightnessAnimator.cancelAnimation();
+            Injector.animateTo(this, mScreenBrightnessAnimator, PowerManager.BRIGHTNESS_OFF, SCREEN_BRIGHT_BIT, 0);
         }
         boolean savedActivityAllowed = mUserActivityAllowed;
         mUserActivityAllowed = true;

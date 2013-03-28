@@ -125,22 +125,6 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
             }
         }
 
-        static void drawRoundedCorners(PhoneWindow wnd, DecorView decor, Canvas c, Rect frameOffsets, Rect drawingBounds) {
-            if (!UiUtils.enableRoundedCorners(wnd.getContext())
-                    || (wnd.getAttributes().type > WindowManager.LayoutParams.LAST_APPLICATION_WINDOW)
-                    || frameOffsets.left != 0 || frameOffsets.right != 0
-                    || frameOffsets.bottom != 0) {
-                return;
-            }
-
-            if (decor.mRoundedCorners == null) {
-                decor.mRoundedCorners = new RoundedCorners(wnd.getContext());
-            }
-
-            decor.mRoundedCorners.draw(c, drawingBounds.left, drawingBounds.top + frameOffsets.top,
-                    drawingBounds.right, drawingBounds.bottom);
-        }
-
         static int getFloatingWindowWidth(Context context) {
             return (UiUtils.isV5Ui(context)) ? MATCH_PARENT : WRAP_CONTENT;
         }
@@ -178,7 +162,9 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
                     if (abp.hasEmbeddedTabs()) {
                         abView.setEmbeddedTabView(v);
                     } else {
-                        ActionBarContainer abc = (ActionBarContainer) win.findViewById(miui.R.id.android_action_bar_container);
+                        ActionBarContainer abc = (ActionBarContainer) win
+                                .findViewById(miui.util.ResourceMapper.resolveReference(context,
+                                        miui.R.id.android_action_bar_container));
                         abc.setTabContainer(v);
                     }
                 }
@@ -1858,8 +1844,6 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
     @MiuiHook(MiuiHookType.CHANGE_CODE)
     final class DecorView extends FrameLayout implements RootViewSurfaceTaker,
             com.miui.internal.v5.widget.ActionBarView.ActionBarViewHolder {
-        @MiuiHook(MiuiHookType.NEW_FIELD)
-        RoundedCorners mRoundedCorners;
 
         /* package */int mDefaultOpacity = PixelFormat.OPAQUE;
 
@@ -2278,13 +2262,6 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
             if (measure) {
                 super.onMeasure(widthMeasureSpec, heightMeasureSpec);
             }
-        }
-
-        @MiuiHook(MiuiHookType.NEW_METHOD)
-        @Override
-        protected void dispatchDraw(Canvas canvas) {
-            super.dispatchDraw(canvas);
-            Injector.drawRoundedCorners(PhoneWindow.this, this, canvas, mFrameOffsets, mDrawingBounds); // miui add
         }
 
         @Override

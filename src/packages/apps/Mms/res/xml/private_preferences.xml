@@ -13,6 +13,12 @@
                 android:key="pref_key_private_protect_usage"
                 android:title="@string/enable_password_protect"
                 android:defaultValue="false"/>
+        <CheckBoxPreference
+                android:key="pref_key_private_protect_visible"
+                android:title="@string/enable_visible_pattern_title"
+                android:dependency="pref_key_private_protect_usage"
+                android:defaultValue="false"
+                android:persistent="false"/>
     </PreferenceCategory>
     <PreferenceCategory
         android:key="pref_key_private_contact_list"

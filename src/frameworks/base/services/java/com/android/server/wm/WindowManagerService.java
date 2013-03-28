@@ -155,6 +155,172 @@ import java.util.List;
 /** {@hide} */
 public class WindowManagerService extends IWindowManager.Stub
         implements Watchdog.Monitor, WindowManagerPolicy.WindowManagerFuncs {
+
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_CLASS)
+    static class Injector {
+        /**
+         * Finds the top window, which:
+         * 1. is visible
+         * 2. is an application window
+         * 3. is full screen or is an activity
+         * @param wms
+         * @return The WindowState of top window
+         */
+        static WindowState findTopWindow(WindowManagerService wms) {
+            for (int i = wms.mWindows.size() - 1; i >= 0; --i) {
+                WindowState w = wms.mWindows.get(i);
+                if (w.isVisibleOrBehindKeyguardLw() && !w.isGoneForLayoutLw()
+                        && w.mAttrs.type >= FIRST_APPLICATION_WINDOW
+                        && w.mAttrs.type <= LAST_APPLICATION_WINDOW
+                        && ((w.mAttrs.x == 0 && w.mAttrs.y == 0
+                                && w.mAttrs.width == WindowManager.LayoutParams.MATCH_PARENT
+                                && w.mAttrs.height == WindowManager.LayoutParams.MATCH_PARENT)
+                            || (w.mAttrs.token instanceof android.view.IApplicationToken))) {
+                    return w;
+                }
+            }
+            return null;
+        }
+
+        /**
+         * Checks whether the packages of the given uid is allowed to show floating window
+         * @param uid The given uid
+         * @return True if the packages of the given uid is allowed to show floating window
+         */
+        static boolean isFloatingWindowAllowed(int uid) {
+            boolean isSystem = false;
+            if (uid == android.os.Process.SYSTEM_UID
+                    || uid == android.os.Process.PHONE_UID
+                    || uid == android.os.Process.SHELL_UID
+                    || uid == android.os.Process.LOG_UID
+                    || uid == android.os.Process.WIFI_UID
+                    || uid == android.os.Process.MEDIA_UID
+                    || uid == android.os.Process.DRM_UID
+                    || uid == android.os.Process.VPN_UID
+                    || uid == android.os.Process.NFC_UID) {
+                isSystem = true;
+            } else {
+                com.android.server.pm.PackageManagerService pms =
+                        (com.android.server.pm.PackageManagerService) ServiceManager.getService("package");
+                String[] packages = pms.getPackagesForUid(uid);
+                if (packages != null && packages.length > 0) {
+                    android.content.pm.ApplicationInfo ai = pms.getApplicationInfo(packages[0], 0, 0);
+                    if (ai != null) {
+                        isSystem = (ai.flags & android.content.pm.ApplicationInfo.FLAG_SYSTEM) != 0;
+                    }
+                }
+            }
+
+            return isSystem || miui.util.UiUtils.isFloatingWindowAllowed(uid);
+        }
+
+        /**
+         * Shows window if it is hidden, include its child windows.
+         * @param wms The window manager service.
+         * @param w The given window.
+         */
+        static void showWindow(WindowManagerService wms, WindowState w) {
+            if (w.mWinAnimator.mMiuiHidden) {
+                w.mWinAnimator.mMiuiHidden = false;
+                w.mAttrs.flags = w.mWinAnimator.mAttrFlags;
+                // Restores its input channel
+                if (w.mInputChannel != null) {
+                    wms.mInputManager.registerInputChannel(w.mInputChannel, w.mInputWindowHandle);
+                }
+                // Shows the surface
+                if (w.mWinAnimator.mSurfaceShown) {
+                    w.mWinAnimator.mSurface.show();
+                }
+            }
+
+            for (int i = 0; i < w.mChildWindows.size(); ++i) {
+                showWindow(wms, w.mChildWindows.get(i));
+            }
+        }
+
+        /**
+         * Hides window if it is shown, include its child windows.
+         * @param wms The window manager service.
+         * @param w The given window.
+         */
+        static void hideWindow(WindowManagerService wms, WindowState w) {
+            if (!w.mWinAnimator.mMiuiHidden) {
+                w.mWinAnimator.mMiuiHidden = true;
+                // Hides the surface
+                if (w.mWinAnimator.mSurfaceShown) {
+                    w.mWinAnimator.mSurface.hide();
+                }
+                // Removes its input channel
+                if (w.mInputChannel != null) {
+                    wms.mInputManager.unregisterInputChannel(w.mInputChannel);
+                }
+
+                updateFloatingWindow(w);
+            }
+
+            for (int i = 0; i < w.mChildWindows.size(); ++i) {
+                hideWindow(wms, w.mChildWindows.get(i));
+            }
+        }
+
+        /**
+         * Hides the floating window if the window is not:
+         * 1. on it's own window.
+         * 2. belongs to a system app.
+         * 3. in a special list.
+         * 4. a toast.
+         * 5. input method window.
+         * @param wms The window manager service.
+         */
+        static void hideFloatingWindow(WindowManagerService wms) {
+            WindowState topWindow = findTopWindow(wms);
+            if (topWindow == null) {
+                // Keeps the last status if no top window found
+                return;
+            }
+
+            for (int i = wms.mWindows.size() - 1; i >= 0; --i) {
+                WindowState w = wms.mWindows.get(i);
+                if (w == topWindow) {
+                    showWindow(wms, w);
+                    break;
+                }
+                // Don't process (keeps the last state of) the window if it:
+                // 1. is a child window
+                // 2. is an input method window
+                // 3. is allowed by system
+                if (w.mAttachedWindow != null
+                        || w.mIsImWindow
+                        || isFloatingWindowAllowed(w.mSession.mUid)
+                        || (!w.isVisibleOrBehindKeyguardLw() && w.isGoneForLayoutLw())) {
+                    continue;
+                }
+                if (w.mWinAnimator != null && w.mWinAnimator.mSurface != null) {
+                    if (w.mSession.mUid != topWindow.mSession.mUid // allows to show floating window in itself windows
+                            && !(w.mAttrs.type == WindowManager.LayoutParams.TYPE_TOAST && w.mChildWindows.size() == 0) // allows toasts
+                            && !(w.mAttrs.token instanceof android.view.IApplicationToken)) { // allows activities
+                        hideWindow(wms, w);
+                    } else {
+                        showWindow(wms, w);
+                    }
+                }
+            }
+        }
+
+        /**
+         * Updates the attribute flags of the current window if it is hidden by MIUI
+         * @param w The current window
+         */
+        static void updateFloatingWindow(WindowState w) {
+            if (w.mWinAnimator.mMiuiHidden) {
+                w.mWinAnimator.mAttrFlags = w.mAttrs.flags;
+                w.mAttrs.flags |= WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+                        | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;
+                w.mAttrs.flags &= ~0x00FEFCE7;
+            }
+        }
+    }
+
     static final String TAG = "WindowManager";
     static final boolean DEBUG = false;
     static final boolean DEBUG_ADD_REMOVE = false;
@@ -2683,6 +2849,7 @@ public class WindowManagerService extends IWindowManager.Stub
         return null;
     }
 
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     public int relayoutWindow(Session session, IWindow client, int seq,
             WindowManager.LayoutParams attrs, int requestedWidth,
             int requestedHeight, int viewVisibility, int flags,
@@ -2981,6 +3148,9 @@ public class WindowManagerService extends IWindowManager.Stub
             }
 
             mInputMonitor.updateInputWindowsLw(true /*force*/);
+
+            // MIUI ADD
+            Injector.updateFloatingWindow(win);
         }
 
         if (configChanged) {
@@ -7792,6 +7962,7 @@ public class WindowManagerService extends IWindowManager.Stub
     }
 
     private boolean mInLayout = false;
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     private final void performLayoutAndPlaceSurfacesLocked() {
         if (mInLayout) {
             if (DEBUG) {
@@ -7887,6 +8058,9 @@ public class WindowManagerService extends IWindowManager.Stub
             mInLayout = false;
             Log.wtf(TAG, "Unhandled exception while laying out windows", e);
         }
+
+        // MIUI ADD
+        Injector.hideFloatingWindow(this);
 
         Trace.traceEnd(Trace.TRACE_TAG_WINDOW_MANAGER);
     }

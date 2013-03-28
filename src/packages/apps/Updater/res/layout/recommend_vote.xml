@@ -3,12 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:paddingTop="20dip"
-    android:paddingRight="20dip"
-    android:paddingLeft="20dip">
+    android:paddingTop="20dip">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
         <RadioGroup
             android:id="@+id/is_recommend"
@@ -18,24 +16,22 @@
                 android:id="@+id/recommend"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dip"
                 android:text="@string/recommend"
-                android:background="@miui:drawable/v5_group_item_bg_light"
+                android:background="@miui:drawable/v5_preference_item_bg"
                 android:checked="true"/>
             <RadioButton
                 android:id="@+id/not_recommend"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dip"
                 android:text="@string/not_recommend"
-                android:background="@miui:drawable/v5_group_item_bg_light"/>
+                android:background="@miui:drawable/v5_preference_item_bg"/>
         </RadioGroup>
         <EditText
             android:id="@+id/comment"
             style="@style/TextAppearance.Medium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dip"
+            android:layout_margin="@miui:dimen/v5_list_view_padding_horizontal"
             android:minHeight="105dip"
             android:maxLength="200"
             android:hint="@string/recommend_comment_hint"
@@ -49,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginBottom="10dip">
+            android:layout_margin="@miui:dimen/v5_list_view_padding_horizontal">
             <Button
                 android:id="@+id/cancel"
                 android:layout_width="match_parent"

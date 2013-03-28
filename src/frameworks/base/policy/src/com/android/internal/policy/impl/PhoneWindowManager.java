@@ -150,6 +150,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import miui.app.ExtraStatusBarManager;
 import miui.content.ExtraIntent;
 
 /**
@@ -204,7 +205,91 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 manager.getContext().sendBroadcast(new Intent(ExtraIntent.ACTION_KEYCODE_POWER_UP));
             }
         }
+
+        /**
+         * Adds Miui view layer translator.
+         * @param type The type of this window
+         * @param defaultLayer If the type is unknown, the layer will be returned
+         * @return The layer of the given type, if type is unknown, return defalut value.
+         */
+        static int getMiuiViewLayer(int type, int defaultLayer) {
+            switch (type) {
+                case WindowManager.LayoutParams.LAST_SYSTEM_WINDOW - 1:
+                    return HIDDEN_NAV_CONSUMER_LAYER + 1;
+            }
+            Log.e("WindowManager", "Unknown window type:" + type);
+            return defaultLayer;
+        }
+
+        /**
+         * Clears the remembered full screen and above status bar window.
+         * @param pwm The phone window manager.
+         */
+        static void clearAboveStatusBarFullScreenWindow(PhoneWindowManager pwm) {
+            pwm.mAboveStatusBarFullScreenWindow = null;
+        }
+
+        /**
+         * Remembers the window if it is full screen and above status bar.
+         * @param pwm The phone window manager.
+         * @param win The window to be checked.
+         * @param attrs The attributes of the window.
+         */
+        static void setAboveStatusBarFullScreenWindow(PhoneWindowManager pwm, WindowState win, WindowManager.LayoutParams attrs) {
+             if (pwm.mAboveStatusBarFullScreenWindow == null
+                     && attrs.type >= WindowManager.LayoutParams.FIRST_SYSTEM_WINDOW
+                     && pwm.windowTypeToLayerLw(attrs.type) > STATUS_BAR_LAYER
+                     && attrs.format != PixelFormat.TRANSLUCENT && attrs.format != PixelFormat.TRANSPARENT
+                     && attrs.x == 0 && attrs.y == 0
+                     && attrs.width == WindowManager.LayoutParams.MATCH_PARENT
+                     && attrs.height == WindowManager.LayoutParams.MATCH_PARENT
+                     && (attrs.flags & WindowManager.LayoutParams.FLAG_FULLSCREEN) != 0) {
+                 pwm.mAboveStatusBarFullScreenWindow = win;
+             }
+        }
+
+        /**
+         * Notifies status bar service the status bar view is showing or hiding.
+         * @param showing True indicates showing and False indicates hiding.
+         */
+        static void notifyStatusBarShowingOrHiding(PhoneWindowManager pwm, boolean showing) {
+            try {
+                IStatusBarService statusbar = pwm.getStatusBarService();
+                statusbar.disable(showing ? 0 : ExtraStatusBarManager.DISABLE_HIDE,
+                        pwm.mStatusBarDisableToken, "system");
+            } catch (RemoteException e) {
+                pwm.mStatusBarService = null;
+            }
+        }
+
+        /**
+         * Notifies status bar it is hiding when there is a full screen window covered status bar.
+         * @param pwm The phone window manager.
+         */
+        static void checkStatusBarVisibility(PhoneWindowManager pwm) {
+            if (pwm.mStatusBar != null) {
+                if (pwm.mAboveStatusBarFullScreenWindow != null) {
+                    notifyStatusBarShowingOrHiding(pwm, false);
+                }
+            }
+        }
+
+        static boolean statusBarShowingOrHideing(PhoneWindowManager pwm, boolean show) {
+            boolean ret;
+            if(show) {
+                ret = pwm.mStatusBar.showLw(true);
+            } else {
+                ret = pwm.mStatusBar.hideLw(true);
+            }
+            notifyStatusBarShowingOrHiding(pwm, show);
+            return ret;
+        }
     }
+
+    @MiuiHook(MiuiHookType.NEW_FIELD)
+    IBinder mStatusBarDisableToken = new android.os.Binder();
+    @MiuiHook(MiuiHookType.NEW_FIELD)
+    WindowState mAboveStatusBarFullScreenWindow;
 
     static final String TAG = "WindowManager";
     static final boolean DEBUG = false;
@@ -1373,6 +1458,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     }
 
     /** {@inheritDoc} */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public int windowTypeToLayerLw(int type) {
         if (type >= FIRST_APPLICATION_WINDOW && type <= LAST_APPLICATION_WINDOW) {
             return APPLICATION_LAYER;
@@ -1429,8 +1515,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         case TYPE_DREAM:
             return SCREENSAVER_LAYER;
         }
-        Log.e(TAG, "Unknown window type: " + type);
-        return APPLICATION_LAYER;
+
+        // MIUI MODIFY
+        // Log.e(TAG, "Unknown window type: " + type);
+        // return APPLICATION_LAYER;
+        return Injector.getMiuiViewLayer(type, APPLICATION_LAYER);
     }
 
     /** {@inheritDoc} */
@@ -2908,6 +2997,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     }
 
     /** {@inheritDoc} */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public void beginAnimationLw(int displayWidth, int displayHeight) {
         mTopFullscreenOpaqueWindowState = null;
         mForceStatusBar = false;
@@ -2915,9 +3005,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mHideLockScreen = false;
         mAllowLockscreenWhenOn = false;
         mDismissKeyguard = false;
+
+        // MIUI ADD
+        Injector.clearAboveStatusBarFullScreenWindow(this);
     }
 
     /** {@inheritDoc} */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public void animatingWindowLw(WindowState win,
                                 WindowManager.LayoutParams attrs) {
         if (DEBUG_LAYOUT) Slog.i(TAG, "Win " + win + ": isVisibleOrBehindKeyguardLw="
@@ -2947,9 +3041,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 }
             }
         }
+
+        // MIUI ADD
+        Injector.setAboveStatusBarFullScreenWindow(this, win, attrs);
     }
 
     /** {@inheritDoc} */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public int finishAnimationLw() {
         int changes = 0;
         boolean topIsFullscreen = false;
@@ -2963,7 +3061,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     + " top=" + mTopFullscreenOpaqueWindowState);
             if (mForceStatusBar) {
                 if (DEBUG_LAYOUT) Log.v(TAG, "Showing status bar: forced");
-                if (mStatusBar.showLw(true)) changes |= FINISH_LAYOUT_REDO_LAYOUT;
+
+                // MIUI MOD:
+                // if (mStatusBar.showLw(true)) changes |= FINISH_LAYOUT_REDO_LAYOUT;
+                if (Injector.statusBarShowingOrHideing(this, true)) changes |= FINISH_LAYOUT_REDO_LAYOUT;
+
             } else if (mTopFullscreenOpaqueWindowState != null) {
                 if (localLOGV) {
                     Log.d(TAG, "frame: " + mTopFullscreenOpaqueWindowState.getFrameLw()
@@ -2979,7 +3081,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 // case though.
                 if (topIsFullscreen) {
                     if (DEBUG_LAYOUT) Log.v(TAG, "** HIDING status bar");
-                    if (mStatusBar.hideLw(true)) {
+                    // MIUI MOD:
+                    // if (mStatusBar.hideLw(true)) {
+                    if (Injector.statusBarShowingOrHideing(this, false)) {
                         changes |= FINISH_LAYOUT_REDO_LAYOUT;
 
                         mHandler.post(new Runnable() { public void run() {
@@ -2993,15 +3097,22 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                                 mStatusBarService = null;
                             }
                         }});
+
                     } else if (DEBUG_LAYOUT) {
                         Log.v(TAG, "Preventing status bar from hiding by policy");
                     }
                 } else {
                     if (DEBUG_LAYOUT) Log.v(TAG, "** SHOWING status bar: top is not fullscreen");
-                    if (mStatusBar.showLw(true)) changes |= FINISH_LAYOUT_REDO_LAYOUT;
+                    // MIUI MOD:
+                    // if (mStatusBar.showLw(true)) changes |= FINISH_LAYOUT_REDO_LAYOUT;
+                    if (Injector.statusBarShowingOrHideing(this, true)) changes |= FINISH_LAYOUT_REDO_LAYOUT;
+
                 }
             }
         }
+
+        // MIUI ADD
+        Injector.checkStatusBarVisibility(this);
 
         mTopIsFullscreen = topIsFullscreen;
 

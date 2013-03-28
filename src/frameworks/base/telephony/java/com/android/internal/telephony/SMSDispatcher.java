@@ -81,6 +81,71 @@ public abstract class SMSDispatcher extends Handler {
             };
             return false;
         }
+
+        /*
+         * Check if current phone uses synchronized sending.
+         * We default it to true since it is faster and more reliable
+         * in most cases.
+         */
+        static void initSynchronousSending(SMSDispatcher dispatcher) {
+            dispatcher.mSyncronousSending = SystemProperties.getBoolean(
+                    TelephonyProperties.SMS_SYNCHRONOUS_SENDING,
+                    true);
+            dispatcher.mPendingMessagesList = new ArrayList<SmsTracker>();
+            Log.d(TAG, "SMSDispatcher: mSyncronousSending=" + dispatcher.mSyncronousSending);
+        }
+
+        /*
+         * Send next message in the queue, which is used in synchronized mode.
+         */
+        static void processNextPendingMessageIfSynchronous(SMSDispatcher dispatcher) {
+            if (dispatcher.mSyncronousSending) {
+                processNextPendingMessage(dispatcher);
+            }
+        }
+
+        /*
+         * In synchronized mode, all messages are queued up and then sent one after
+         * another. Otherwise, they would be sent immediately.
+         */
+        static void enqueueOrSendSms(SMSDispatcher dispatcher, SmsTracker tracker) {
+            if (dispatcher.mSyncronousSending) {
+                enqueueMessageForSending(dispatcher, tracker);
+            } else {
+                dispatcher.sendSms(tracker);
+            }
+        }
+
+        static void processNextPendingMessage(SMSDispatcher dispatcher) {
+            synchronized (dispatcher.mPendingMessagesList) {
+                // Remove sent message from the list
+                if (dispatcher.mPendingMessagesList.size() > 0) {
+                    dispatcher.mPendingMessagesList.remove(0);
+                    Log.d(TAG, "Removed message from pending queue. " +
+                            dispatcher.mPendingMessagesList.size() + " left");
+                } else {
+                    Log.e(TAG, "Pending messages list consistency failure detected!");
+                }
+
+                // If there are more messages waiting to be sent - send next one
+                if (dispatcher.mPendingMessagesList.size() > 0) {
+                    dispatcher.sendSms(dispatcher.mPendingMessagesList.get(0));
+                }
+            }
+        }
+
+        static void enqueueMessageForSending(SMSDispatcher dispatcher, SmsTracker tracker) {
+            synchronized (dispatcher.mPendingMessagesList) {
+                dispatcher.mPendingMessagesList.add(tracker);
+                Log.d(TAG, "Added message to the pending queue. Queue size is " +
+                        dispatcher.mPendingMessagesList.size());
+                // Trigger sending only if there are no other messages being sent right now
+                // i.e. the queue was empty before we added this message to it
+                if (dispatcher.mPendingMessagesList.size() == 1) {
+                    dispatcher.sendSms(tracker);
+                }
+            }
+        }
     }
 
     static final String TAG = "SMS";    // accessed from inner class
@@ -181,6 +246,19 @@ public abstract class SMSDispatcher extends Handler {
 
     protected int mRemainingMessages = -1;
 
+    /**
+     * MIUI ADD:
+     * List of messages awaiting to be sent.
+     * Message at index 0 is the one currently being sent
+     */
+    ArrayList<SmsTracker> mPendingMessagesList;
+
+    /**
+     * MIUI ADD:
+     * Should messages be sent one after another?
+     */
+    boolean mSyncronousSending;
+
     protected static int getNextConcatenatedRef() {
         sConcatenatedRef += 1;
         return sConcatenatedRef;
@@ -211,6 +289,9 @@ public abstract class SMSDispatcher extends Handler {
                                 TelephonyProperties.PROPERTY_SMS_RECEIVE, mSmsCapable);
         mSmsSendDisabled = !SystemProperties.getBoolean(
                                 TelephonyProperties.PROPERTY_SMS_SEND, mSmsCapable);
+        // MIUI ADD:
+        Injector.initSynchronousSending(this);
+
         Log.d(TAG, "SMSDispatcher: ctor mSmsCapable=" + mSmsCapable + " format=" + getFormat()
                 + " mSmsReceiveDisabled=" + mSmsReceiveDisabled
                 + " mSmsSendDisabled=" + mSmsSendDisabled);
@@ -410,6 +491,8 @@ public abstract class SMSDispatcher extends Handler {
                     }
                 } catch (CanceledException ex) {}
             }
+            // MIUI ADD:
+            Injector.processNextPendingMessageIfSynchronous(this);
         } else {
             if (false) {
                 Log.d(TAG, "SMS send failed");
@@ -456,6 +539,9 @@ public abstract class SMSDispatcher extends Handler {
 
                     tracker.mSentIntent.send(mContext, error, fillIn);
                 } catch (CanceledException ex) {}
+
+                // MIUI ADD:
+                Injector.processNextPendingMessageIfSynchronous(this);
             }
         }
     }
@@ -956,7 +1042,9 @@ public abstract class SMSDispatcher extends Handler {
         if (ss != ServiceState.STATE_IN_SERVICE) {
             handleNotInService(ss, tracker.mSentIntent);
         } else {
-            sendSms(tracker);
+            // MIUI MOD:
+            // sendSms(tracker);
+            Injector.enqueueOrSendSms(this, tracker);
         }
     }
 

@@ -13,22 +13,43 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
-    android:background="@drawable/miui_content_panel_bg">
+    android:layout_width="match_parent"
+    android:background="@drawable/miui_content_panel_bg"
+    android:orientation="vertical" >
 
-    <FrameLayout
-        android:id="@+id/main_frame"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_width="match_parent"/>
-    <ImageView
-        android:id="@+id/top_stub"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/miui_header_tail_bg" />
-</RelativeLayout>
+        android:layout_height="0dip"
+        android:layout_weight="1" >
+
+        <FrameLayout
+            android:id="@+id/main_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true" />
+
+        <ImageView
+            android:id="@+id/top_stub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/miui_header_tail_bg" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_stub"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/miui_bottom_padding"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true" >
+
+        <View
+            android:id="@+id/bottom_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/miui_separator_color" />
+    </LinearLayout>
+
+</LinearLayout>

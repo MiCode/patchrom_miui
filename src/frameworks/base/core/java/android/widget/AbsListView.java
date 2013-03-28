@@ -204,6 +204,14 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
                 }
             }
         }
+
+        static void finishActionModeIfNeeded(AbsListView listView, ActionMode actionMode) {
+            if (!UiUtils.isV5Ui(listView.getContext())) {
+                if (listView.getCheckedItemCount() == 0) {
+                    actionMode.finish();
+                }
+            }
+        }
     }
 
     @SuppressWarnings("UnusedDeclaration")
@@ -6271,10 +6279,14 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
                 int position, long id, boolean checked) {
             mWrapped.onItemCheckedStateChanged(mode, position, id, checked);
 
-            // If there are no items selected we no longer need the selection mode.
-            if (getCheckedItemCount() == 0) {
-                mode.finish();
-            }
+            // MIUI MODIFY
+            // do not finish action mode when there are no items selected for V5
+            // Origin:
+            // // If there are no items selected we no longer need the selection mode.
+            // if (getCheckedItemCount() == 0) {
+            //     mode.finish();
+            // }
+            Injector.finishActionModeIfNeeded(AbsListView.this, mode);
         }
     }
 
@@ -6757,5 +6769,21 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
         } else {
             return null;
         }
+    }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    protected LongSparseArray<Integer> getCheckedIdStates() {
+        return mCheckedIdStates;
+    }
+
+    /**
+     * @hide
+     */
+    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
+    protected void setCheckedItemCount(int count) {
+        mCheckedItemCount = count;
     }
 }
