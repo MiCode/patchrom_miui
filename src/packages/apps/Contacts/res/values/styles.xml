@@ -41,7 +41,7 @@
         <item name="list_item_header_text_indent">8dip</item>
         <item name="list_item_header_text_color">@color/people_app_theme_color</item>
         <item name="list_item_header_text_size">14sp</item>
-        <item name="list_item_header_height">24dip</item>
+        <item name="list_item_header_height">25dip</item>
         <item name="list_item_header_underline_height">1dip</item>
         <item name="list_item_header_underline_color">@color/people_app_theme_color</item>
         <item name="list_item_data_width_weight">5</item>
@@ -137,15 +137,15 @@
         <item name="list_item_photo_left_margin">@dimen/list_item_photo_left_margin</item>
         <item name="list_item_profile_photo_size">@miui:dimen/v5_list_view_double_line_height</item>
         <item name="list_item_prefix_highlight_color">@color/high_light_text</item>
-        <item name="list_item_header_text_color">@color/people_app_theme_color</item>
-        <item name="list_item_header_text_size">14sp</item>
-        <item name="list_item_header_height">32dip</item>
+        <item name="list_item_header_text_color">@miui:color/v5_secondary_text_color_light</item>
+        <item name="list_item_header_text_size">@miui:dimen/v5_text_font_size_small</item>
+        <item name="list_item_header_height">25dip</item>
         <item name="list_item_header_underline_height">1dip</item>
         <item name="list_item_header_underline_color">@color/people_app_theme_color</item>
+        <item name="list_item_header_text_indent">0dip</item>
         <item name="list_item_data_width_weight">5</item>
         <item name="list_item_label_width_weight">3</item>
         <item name="list_item_contacts_count_text_color">@color/contact_count_text_color</item>
-        <item name="list_item_header_text_indent">8dip</item>
         <item name="contact_browser_list_padding_left">0dip</item>
         <item name="contact_browser_list_padding_right">0dip</item>
         <item name="contact_browser_background">@android:color/transparent</item>
@@ -236,9 +236,9 @@
         <item name="list_item_photo_size">64dip</item>
         <item name="list_item_profile_photo_size">80dip</item>
         <item name="list_item_header_text_indent">8dip</item>
-        <item name="list_item_header_text_size">14sp</item>
-        <item name="list_item_header_text_color">@color/people_app_theme_color</item>
-        <item name="list_item_header_height">24dip</item>
+        <item name="list_item_header_text_color">@miui:color/v5_secondary_text_color_light</item>
+        <item name="list_item_header_text_size">@miui:dimen/v5_text_font_size_small</item>
+        <item name="list_item_header_height">25dip</item>
         <item name="list_item_header_underline_height">1dip</item>
         <item name="list_item_header_underline_color">@color/people_app_theme_color</item>
         <item name="list_item_data_width_weight">5</item>
@@ -363,11 +363,9 @@
         <item name="android:layout_height">wrap_content</item>
         <!-- See comments for @dimen/list_section_divider_min_height -->
         <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:background">@miui:drawable/v5_list_view_section_item_bg_light</item>
         <item name="android:ellipsize">end</item>
         <item name="android:singleLine">true</item>
+        <item name="android:layout_gravity">center_vertical</item>
     </style>
 
     <style name="PeopleNavigationDropDownTextAppearance">
@@ -468,6 +466,11 @@
         <item name="android:windowNoTitle">true</item>
     </style>
 
+    <style name="QuickContactAnimations">
+         <item name="android:taskToBackEnterAnimation">@anim/qcb_enter</item>
+         <item name="android:taskToBackExitAnimation">@anim/qcb_exit</item>
+    </style>
+
     <style name="QcbNameText" parent="@miui:style/V5.TextAppearance.Title">
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>
@@ -561,7 +564,7 @@
 
     <style name="ListSeparator">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/list_separator_height</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingLeft">@dimen/list_separator_padding_left</item>
         <item name="android:paddingRight">@dimen/list_separator_padding_right</item>
         <item name="android:background">@miui:drawable/v5_list_view_section_item_bg_light</item>

@@ -60,6 +60,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.res.CompatibilityInfo;
 import android.content.res.Configuration;
@@ -188,7 +189,7 @@ public class WindowManagerService extends IWindowManager.Stub
          * @return True if the packages of the given uid is allowed to show floating window
          */
         static boolean isFloatingWindowAllowed(int uid) {
-            boolean isSystem = false;
+            boolean isAllowed = false;
             if (uid == android.os.Process.SYSTEM_UID
                     || uid == android.os.Process.PHONE_UID
                     || uid == android.os.Process.SHELL_UID
@@ -198,7 +199,7 @@ public class WindowManagerService extends IWindowManager.Stub
                     || uid == android.os.Process.DRM_UID
                     || uid == android.os.Process.VPN_UID
                     || uid == android.os.Process.NFC_UID) {
-                isSystem = true;
+                isAllowed = true;
             } else {
                 com.android.server.pm.PackageManagerService pms =
                         (com.android.server.pm.PackageManagerService) ServiceManager.getService("package");
@@ -206,12 +207,12 @@ public class WindowManagerService extends IWindowManager.Stub
                 if (packages != null && packages.length > 0) {
                     android.content.pm.ApplicationInfo ai = pms.getApplicationInfo(packages[0], 0, 0);
                     if (ai != null) {
-                        isSystem = (ai.flags & android.content.pm.ApplicationInfo.FLAG_SYSTEM) != 0;
+                        isAllowed = (ai.flags & ApplicationInfo.FLAG_SHOW_FLOATING_WINDOW)
+                                  == ApplicationInfo.FLAG_SHOW_FLOATING_WINDOW;
                     }
                 }
             }
-
-            return isSystem || miui.util.UiUtils.isFloatingWindowAllowed(uid);
+            return isAllowed;
         }
 
         /**
@@ -291,8 +292,8 @@ public class WindowManagerService extends IWindowManager.Stub
                 // 3. is allowed by system
                 if (w.mAttachedWindow != null
                         || w.mIsImWindow
-                        || isFloatingWindowAllowed(w.mSession.mUid)
-                        || (!w.isVisibleOrBehindKeyguardLw() && w.isGoneForLayoutLw())) {
+                        || (!w.isVisibleOrBehindKeyguardLw() && w.isGoneForLayoutLw())
+                        || isFloatingWindowAllowed(w.mSession.mUid)) {
                     continue;
                 }
                 if (w.mWinAnimator != null && w.mWinAnimator.mSurface != null) {

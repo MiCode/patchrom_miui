@@ -22,9 +22,17 @@
     android:id="@+id/account_filter_header_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:background="@miui:drawable/v5_list_view_section_item_bg_light"
     android:visibility="gone">
     <TextView
         android:id="@+id/account_filter_header"
-        style="@style/ContactListSeparatorTextViewStyle"/>
+        style="@style/ContactListSeparatorTextViewStyle"
+        android:layout_width="0dip"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/account_filter_header_name"
+        style="@style/ContactListSeparatorTextViewStyle"
+        android:layout_width="wrap_content"
+        android:visibility="gone"/>
 </LinearLayout>

@@ -146,7 +146,6 @@ import libcore.io.ErrnoException;
 import libcore.io.IoUtils;
 import libcore.io.Libcore;
 import miui.provider.ExtraGuard;
-import com.miui.server.MiuiShellService;
 /**
  * Keep track of all those .apks everywhere.
  * 
@@ -194,31 +193,38 @@ public class PackageManagerService extends IPackageManager.Stub {
             libFiles.add(service.mFrameworkDir.getPath() + "/framework-miui-res.apk");
         }
 
-        static boolean setAccessControl(PackageManagerService service, String packageName, int newState, int flags){
+        static void addMiuiExtendFlags(PackageParser.Package pkg, PackageSetting pkgSetting) {
+            int miuiExtendFlags = ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD
+                    | ApplicationInfo.FLAG_DISABLE_AUTOSTART
+                    | ApplicationInfo.FLAG_SHOW_FLOATING_WINDOW;
+            pkg.applicationInfo.flags |= (pkgSetting.pkgFlags & miuiExtendFlags);
+        }
+
+        static void updateApplicationFlags(PackageSetting pkgSetting, PackageParser.Package pkg, int updateFlags, int flags) {
+            if (flags == updateFlags) {
+                pkgSetting.pkgFlags |= updateFlags;
+                pkg.applicationInfo.flags |= updateFlags;
+            } else {
+                pkgSetting.pkgFlags &= ~updateFlags;
+                pkg.applicationInfo.flags &= ~updateFlags;
+            }
+        }
+        static boolean setMiuiExtendFlags(PackageManagerService service, String packageName, int newState, int flags){
             HashMap<String, PackageParser.Package> packages = service.mPackages;
             Settings settings = service.mSettings;
             synchronized (packages) {
-                if (newState != PackageManager.COMPONENT_ENABLED_STATE_ACCESS_CONTROL
-                    && newState != PackageManager.COMPONENT_ENABLED_STATE_DISABLE_AUTOSTART) return false;
+                if (newState != PackageManager.COMPONENT_ENABLED_STATE_ACCESS_CONTROL &&
+                    newState != PackageManager.COMPONENT_ENABLED_STATE_DISABLE_AUTOSTART &&
+                    newState != PackageManager.COMPONENT_ENABLED_STATE_SHOW_FLOATING_WINDOW) return false;
                 PackageParser.Package pkg = packages.get(packageName);
                 PackageSetting pkgSetting = settings.mPackages.get(packageName);
                 if ((pkg != null) && (pkgSetting != null)) {
                     if (newState == PackageManager.COMPONENT_ENABLED_STATE_ACCESS_CONTROL) {
-                        if (flags == ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD) {
-                            pkgSetting.pkgFlags |= ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD;
-                            pkg.applicationInfo.flags |= ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD;
-                        } else {
-                            pkgSetting.pkgFlags &= ~ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD;
-                            pkg.applicationInfo.flags &= ~ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD;
-                        }
+                        updateApplicationFlags(pkgSetting, pkg, ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD, flags);
                     } else if (newState == PackageManager.COMPONENT_ENABLED_STATE_DISABLE_AUTOSTART) {
-                        if (flags == ApplicationInfo.FLAG_DISABLE_AUTOSTART) {
-                            pkgSetting.pkgFlags |= ApplicationInfo.FLAG_DISABLE_AUTOSTART;
-                            pkg.applicationInfo.flags |= ApplicationInfo.FLAG_DISABLE_AUTOSTART;
-                        } else {
-                            pkgSetting.pkgFlags &= ~ApplicationInfo.FLAG_DISABLE_AUTOSTART;
-                            pkg.applicationInfo.flags &= ~ApplicationInfo.FLAG_DISABLE_AUTOSTART;
-                        }
+                        updateApplicationFlags(pkgSetting, pkg, ApplicationInfo.FLAG_DISABLE_AUTOSTART, flags);
+                    } else if (newState == PackageManager.COMPONENT_ENABLED_STATE_SHOW_FLOATING_WINDOW) {
+                        updateApplicationFlags(pkgSetting, pkg, ApplicationInfo.FLAG_SHOW_FLOATING_WINDOW, flags);
                     }
                     service.scheduleWriteSettingsLocked();
                 }
@@ -254,10 +260,6 @@ public class PackageManagerService extends IPackageManager.Stub {
             }
 
             return pi != null ? list.append(pi) : false;
-        }
-
-        static void startMiuiShellService(Context context, Installer installer) {
-            MiuiShellService.setupService(context, installer);
         }
 
         static ResolveInfo checkMiuiHomeIntent(PackageManagerService pms, Intent intent, String resolvedType,
@@ -1032,8 +1034,7 @@ public class PackageManagerService extends IPackageManager.Stub {
             mSeparateProcesses = null;
         }
 
-        mInstaller = new MiuiInstaller();
-        Injector.startMiuiShellService(mContext, mInstaller);
+        mInstaller = new Installer();
 
         WindowManager wm = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
         Display d = wm.getDefaultDisplay();
@@ -3791,8 +3792,9 @@ public class PackageManagerService extends IPackageManager.Stub {
                 return null;
             }
 
+            // MIUI ADD:
             // Read saved libra extended flags
-            appendExtendedFlags(pkg, pkgSetting);  //miui-add
+            Injector.addMiuiExtendFlags(pkg, pkgSetting);
 
             if (pkgSetting.origPackage != null) {
                 // If we are first transitioning from an original package,
@@ -4419,12 +4421,6 @@ public class PackageManagerService extends IPackageManager.Stub {
         }
 
         return pkg;
-    }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    private void appendExtendedFlags(PackageParser.Package pkg, PackageSetting pkgSetting) {
-        pkg.applicationInfo.flags |= (pkgSetting.pkgFlags & ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD); // miui add
-        pkg.applicationInfo.flags |= (pkgSetting.pkgFlags & ApplicationInfo.FLAG_DISABLE_AUTOSTART); // miui add
     }
 
     private void killApplication(String pkgName, int uid) {
@@ -8356,11 +8352,11 @@ public class PackageManagerService extends IPackageManager.Stub {
     }
 
     @Override
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public void setApplicationEnabledSetting(String appPackageName,
             int newState, int flags, int userId) {
         if (!sUserManager.exists(userId)) return;
-        if (Injector.setAccessControl(this, appPackageName, newState, flags)) return; // miui add
+        // MIUI ADD:
+        if (Injector.setMiuiExtendFlags(this, appPackageName, newState, flags)) return;
         setEnabledSetting(appPackageName, null, newState, flags, userId);
     }
 

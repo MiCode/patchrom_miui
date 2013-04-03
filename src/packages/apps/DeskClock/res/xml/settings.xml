@@ -46,6 +46,11 @@
         android:entryValues="@array/volume_button_setting_values"
         android:summary="@string/volume_button_setting_summary"
         android:defaultValue="1" />
+
+    <Preference
+        android:key="holiday_update_pref"
+        android:title="@string/holiday_update_pref_title"
+        android:summary="@string/holiday_update_pref_summary"/>
 </PreferenceCategory>
 
 <PreferenceCategory
@@ -57,13 +62,10 @@
         android:title="@string/shutdown_alarm_title"
         android:summary="@string/shutdown_alarm_enable_summary" />
 
-    <com.android.deskclock.AlarmPreference
-        android:key="default_ringtone"
-        android:title="@string/default_ringtone_setting_title"
-        android:ringtoneType="alarm"
-        android:showDefault="false"
-        android:persistent="false"
-        android:showSilent="true" />
+    <Preference
+        android:key="default_alarm_alert"
+        android:title="@string/default_alarm_alert">
+    </Preference>
 </PreferenceCategory>
 
 </PreferenceScreen>

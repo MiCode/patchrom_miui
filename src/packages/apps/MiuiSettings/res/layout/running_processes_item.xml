@@ -21,74 +21,53 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="?android:attr/listPreferredItemHeight"
-    android:orientation="vertical"
-    style="@miui:style/V5.Widget.ListView.Item.DoubleLine"
-    android:gravity="fill" >
+    style="@miui:style/V5.Widget.ListView.Item.TrebleLine">
+
+    <ImageView android:id="@+id/icon"
+        android:layout_width="@android:dimen/app_icon_size"
+        android:layout_height="@android:dimen/app_icon_size"
+        android:layout_marginRight="11dip"
+        android:layout_gravity="center_vertical"
+        android:scaleType="fitCenter"
+        android:contentDescription="@null" />
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:gravity="center_vertical" >
-
-        <ImageView android:id="@+id/icon"
-            android:layout_width="@android:dimen/app_icon_size"
-            android:layout_height="@android:dimen/app_icon_size"
-            android:layout_marginRight="11dip"
-            android:layout_gravity="center_vertical"
-            android:scaleType="fitCenter"
-            android:contentDescription="@null" />
-
-        <LinearLayout
-            android:orientation="vertical"
+        android:layout_height="wrap_content" >
+        <TextView
+            android:id="@+id/name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <LinearLayout
-                android:orientation="horizontal"
-                android:baselineAlignedChildIndex="0"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView android:id="@+id/name"
-                    android:layout_width="0px"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingRight="4dip"
-                    android:textStyle="bold"
-                    android:singleLine="true"
-                    android:ellipsize="marquee"
-                    android:textAppearance="@miui:style/V5.TextAppearance.List.Primary"
-                    android:layout_marginBottom="2dip" />
-                <TextView android:id="@+id/size"
-                    android:layout_gravity="center_vertical|right"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0"
-                    android:singleLine="true"
-                    android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:baselineAlignedChildIndex="0"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView android:id="@+id/description"
-                    android:layout_gravity="center_vertical|left"
-                    android:layout_width="0px"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingRight="4dip"
-                    android:singleLine="true"
-                    android:ellipsize="marquee"
-                    android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
-                <TextView android:id="@+id/uptime"
-                    android:layout_gravity="center_vertical|right"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0"
-                    android:singleLine="true"
-                    android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
-            </LinearLayout>
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary" />
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dip"
+                android:singleLine="true"
+                android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+            <TextView
+                android:id="@+id/uptime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
         </LinearLayout>
     </LinearLayout>
+
 </LinearLayout>

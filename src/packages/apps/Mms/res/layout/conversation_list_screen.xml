@@ -18,10 +18,15 @@
  */
 -->
 
-<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:mms="http://schemas.android.com/apk/res/com.android.mms"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <com.android.mms.ui.PrivateEntryView
+        android:id="@+id/privateEntry"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <com.android.mms.util.EditableListView
         android:id="@android:id/list"
@@ -34,4 +39,4 @@
         android:divider="@null"
         mms:headerHidden="true"
         android:fadingEdgeLength="16dip" />
-</RelativeLayout>
+</FrameLayout>

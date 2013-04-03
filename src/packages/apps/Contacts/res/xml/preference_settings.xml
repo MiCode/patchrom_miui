@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <PreferenceCategory android:title="@string/preference_display" >
+    <PreferenceCategory android:title="@string/preference_display"
+        android:key="pref_key_display" >
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="pref_key_simple_mode"
@@ -14,6 +15,12 @@
             android:persistent="false"
             android:summary="@string/pref_key_photo_word_summary"
             android:title="@string/pref_key_photo_word_title" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_key_cloud_antispam"
+            android:persistent="false"
+            android:title="@string/cloud_antispam_title"
+            android:summary="@string/cloud_antispam_summary" />
         <PreferenceScreen
             android:key="pref_key_telocation"
             android:title="@string/preference_telocation_title" >

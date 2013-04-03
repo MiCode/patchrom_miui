@@ -43,13 +43,16 @@ class GrantedPermissions {
         }
     }
 
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     void setFlags(int pkgFlags) {
         this.pkgFlags = pkgFlags
                 & (ApplicationInfo.FLAG_SYSTEM
                         | ApplicationInfo.FLAG_FORWARD_LOCK
                         | ApplicationInfo.FLAG_EXTERNAL_STORAGE
-                        | ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD   // miui modify
-                        | ApplicationInfo.FLAG_DISABLE_AUTOSTART); // miui modify
+                        // MIUI ADD: START
+                        // access control, autostart, show floating window
+                        | ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD
+                        | ApplicationInfo.FLAG_DISABLE_AUTOSTART
+                        | ApplicationInfo.FLAG_SHOW_FLOATING_WINDOW);
+                        // END
     }
 }

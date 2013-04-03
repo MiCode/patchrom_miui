@@ -305,18 +305,25 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
     public static final int FLAG_SUPPORTS_RTL = 1<<22;
 
     /**
+     * MIUI ADD:
+     * Value for {@link #flags}: Set to true if the application ask for show floating window.
+     * @hide for libra only
+     */
+    public static final int FLAG_SHOW_FLOATING_WINDOW = 1<<27;
+
+    /**
+     * MIUI ADD:
      * Value for {@link #flags}: Set to true if the application ask for access control confirm.
      * User has to input correct password to access to activities in this pkg.
      * @hide for libra only
      */
-    @MiuiHook(MiuiHookType.NEW_FIELD)
     public static final int FLAG_ACCESS_CONTROL_PASSWORD = 1<<31;
 
     /**
+     * MIUI ADD:
      * Value for {@link #flags}: Set to true if the application is not allowed to be auto-start.
      * @hide for libra only
      */
-    @MiuiHook(MiuiHookType.NEW_FIELD)
     public static final int FLAG_DISABLE_AUTOSTART = 1<<30;
 
     /**

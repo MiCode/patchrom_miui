@@ -280,21 +280,30 @@ public abstract class PackageManager {
     public static final int COMPONENT_ENABLED_STATE_DISABLED_USER = 3;
 
     /**
+     * MIUI ADD:
+     * Value for {@link #setApplicationEnabledSetting(String, int, int}
+     * Combined with ApplicationInfo.FLAG_SHOW_FLOATING_WINDOW to indicate
+     * this app is allowed to show floating window.
+     * @hide for libra only
+     */
+    public static final int COMPONENT_ENABLED_STATE_SHOW_FLOATING_WINDOW = 1<<27;
+
+    /**
+     * MIUI ADD
      * Value for {@link #setApplicationEnabledSetting(String, int, int}
      * Combined with ApplicationInfo.FLAG_ACCESS_CONTROL_PASSWORD to indicate
      * this app is password protected, otherwise not.
      * @hide for libra only
      */
-    @MiuiHook(MiuiHookType.NEW_FIELD)
     public static final int COMPONENT_ENABLED_STATE_ACCESS_CONTROL = 1<<31;
 
     /**
+     * MIUI ADD:
      * Value for {@link #setApplicationEnabledSetting(String, int, int}
      * Combined with ApplicationInfo.FLAG_UNABLE_AUTOSTART to indicate
      * this app is not allowed to be auto-start, otherwise not.
      * @hide for libra only
      */
-    @MiuiHook(MiuiHookType.NEW_FIELD)
     public static final int COMPONENT_ENABLED_STATE_DISABLE_AUTOSTART = 1<<30;
 
     /**

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/page_layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:colorBackground="@null"
+    android:colorBackgroundCacheHint="@null"
+>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/cloud_album_set_create_panel"
+        android:background="@miui:drawable/v5_bottom_bar_bg_dark"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:colorBackground="@null"
+            android:colorBackgroundCacheHint="@null"
+        >
+
+            <!-- ================================================== -->
+            <!-- background of cloud page -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/albumset_title_view_height"
+                android:background="@drawable/v5_title_bar_bg">
+            </LinearLayout>
+            <!-- ================================================== -->
+
+            <!-- ================================================== -->
+            <!-- cloud page: initial cloud view -->
+            <RelativeLayout
+                android:id="@+id/initial_cloud_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="@dimen/albumset_title_view_height"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <ImageView android:id="@+id/initial_cloud_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|center_horizontal"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/initial_cloud_image"/>
+                <TextView android:id="@+id/initial_cloud_text"
+                    style="@style/CloudInitialText"
+                    android:layout_below="@+id/initial_cloud_image"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/initial_cloud_text"/>
+                <TextView android:id="@+id/initial_cloud_button"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/initial_cloud_button_text"
+                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/cloud_initial_button_width"
+                    android:layout_marginBottom="@dimen/cloud_initial_button_margin_bottom"
+                    android:textSize="@dimen/cloud_initial_button_text_size"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:background="@drawable/initial_cloud_button_bg"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:shadowColor="@color/initial_cloud_button_shadow_color"
+                    android:shadowRadius="4"
+                    android:shadowDx="0"
+                    android:shadowDy="1"/>
+            </RelativeLayout>
+            <!-- ================================================== -->
+
+            <!-- ================================================== -->
+            <!-- cloud page: normal views -->
+            <FrameLayout
+                android:id="@+id/cloud_page_normal_view_container"
+                android:paddingTop="@dimen/albumset_title_view_height"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- ================================================== -->
+                <!-- tab bar: start -->
+<!--                 <LinearLayout -->
+<!--                     android:id="@+id/cloud_page_tab" -->
+<!--                     android:layout_width="match_parent" -->
+<!--                     android:layout_height="match_parent" -->
+<!--                     android:orientation="vertical"> -->
+<!--                     <view -->
+<!--                         class="miui.v5.widget.TabContainerLayout" -->
+<!--                         android:id="@+id/tab_container" -->
+<!--                         android:layout_width="match_parent" -->
+<!--                         android:layout_height="wrap_content" -->
+<!--                         /> -->
+<!--                     <ImageView -->
+<!--                         android:layout_width="match_parent" -->
+<!--                         android:layout_height="wrap_content" -->
+<!--                         android:background="@drawable/tab_container_fading" /> -->
+<!--                 </LinearLayout> -->
+                <!-- tab bar: end -->
+                <!-- ================================================== -->
+
+                <!-- ================================================== -->
+                <!-- views of none picture: start -->
+                <FrameLayout
+                    android:id="@+id/cloud_page_none_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView android:id="@+id/cloud_none_image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/cloud_none_image"/>
+                        <TextView android:id="@+id/cloud_none_text"
+                            style="@style/CloudInitialText"
+                            android:layout_marginTop="@dimen/cloud_none_text_margin_top"
+                            android:text="@string/cloud_gallery_no_pictures"/>
+                    </LinearLayout>
+                </FrameLayout>
+                <!-- views of none picture: end -->
+                <!-- ================================================== -->
+
+                <!-- ================================================== -->
+                <!-- views of all photo tab: start -->
+                <FrameLayout
+                    android:id="@+id/cloud_page_tab_all_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+                        <!-- place holder for captured photos, which are displayed in GLRootView -->
+                        <LinearLayout
+                            android:id="@+id/album_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- mask shadow -->
+                    <ImageView
+                        style="@style/ListViewShadowImage"
+                        android:background="@drawable/album_list_shadow"/>
+                </FrameLayout>
+                <!-- views of AllPhoto tab: end -->
+                <!-- ================================================== -->
+
+                <!-- ================================================== -->
+                <!-- views of AlbumSet tab: start -->
+                <FrameLayout
+                    android:id="@+id/cloud_page_tab_albumset"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+
+                    <FrameLayout
+                        android:id="@+id/cloud_page_albumset_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            >
+
+                            <LinearLayout
+                                android:id="@+id/albumset_page_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- mask shadow -->
+                        <ImageView
+                            style="@style/ListViewShadowImage"
+                            android:background="@drawable/albumset_list_shadow"/>
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:id="@+id/cloud_album_set_create_panel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:gravity="center"
+                        android:background="@drawable/cloud_bottom_bar_bg">
+                        <TextView
+                            android:id="@+id/cloud_album_set_create"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:drawableTop="@miui:drawable/v5_bottom_bar_new_icon_dark"
+                            android:background="@miui:drawable/v5_bottom_bar_icon_bg_dark"
+                            android:text="@string/cloud_album_set_create"
+                            android:textAppearance="@miui:style/V5.TextAppearance.BottomBarIcon"
+                            />
+                    </LinearLayout>
+                </FrameLayout>
+                <!-- views of AlbumSet tab: end -->
+                <!-- ================================================== -->
+            </FrameLayout>
+
+        </FrameLayout>
+    </LinearLayout>
+</RelativeLayout>
