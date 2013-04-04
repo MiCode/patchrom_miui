@@ -207,8 +207,9 @@ public class WindowManagerService extends IWindowManager.Stub
                 if (packages != null && packages.length > 0) {
                     android.content.pm.ApplicationInfo ai = pms.getApplicationInfo(packages[0], 0, 0);
                     if (ai != null) {
-                        isAllowed = (ai.flags & ApplicationInfo.FLAG_SHOW_FLOATING_WINDOW)
-                                  == ApplicationInfo.FLAG_SHOW_FLOATING_WINDOW;
+                        isAllowed = (ai.flags & ApplicationInfo.FLAG_SYSTEM) == ApplicationInfo.FLAG_SYSTEM
+                                    || (ai.flags & ApplicationInfo.FLAG_SHOW_FLOATING_WINDOW)
+                                     == ApplicationInfo.FLAG_SHOW_FLOATING_WINDOW;
                     }
                 }
             }
