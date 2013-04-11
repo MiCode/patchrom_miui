@@ -295,15 +295,16 @@ public final class PreferenceScreen extends PreferenceGroup implements AdapterVi
             @Override
             public boolean onTaggingFirstChildSequenceState(ViewGroup parent, View child) {
                 ListView list = (ListView) parent;
-                int headerCount = list.getHeaderViewsCount();
-                int pos = list.getFirstVisiblePosition();
-                if (pos <= headerCount) {
-                    return true;
-                }
                 ListAdapter adapter = list.getAdapter();
-                Preference current = (Preference)adapter.getItem(pos);
-                Preference prev = (Preference)adapter.getItem(pos - 1);
-                return current.mPreferenceParent != prev.mPreferenceParent;
+                int pos = list.getFirstVisiblePosition();
+                if (pos > 0 && pos < adapter.getCount()) {
+                    Object cur = adapter.getItem(pos);
+                    Object prev = adapter.getItem(pos - 1);
+                    if (cur instanceof Preference && prev instanceof Preference) {
+                        return ((Preference) cur).mPreferenceParent != ((Preference) prev).mPreferenceParent;
+                    }
+                }
+                return true;
             }
 
             @Override
@@ -311,15 +312,14 @@ public final class PreferenceScreen extends PreferenceGroup implements AdapterVi
                 ListView list = (ListView) parent;
                 int pos = list.getLastVisiblePosition();
                 ListAdapter adapter = list.getAdapter();
-
-                int count = adapter.getCount();
-                int headerCount = list.getHeaderViewsCount();
-                if (pos >= count - 1 || pos <= headerCount) {
-                    return true;
+                if (pos > 0 && pos < adapter.getCount() - 1) {
+                    Object cur = adapter.getItem(pos);
+                    Object next = adapter.getItem(pos + 1);
+                    if (cur instanceof Preference && next instanceof Preference) {
+                        return ((Preference) cur).mPreferenceParent != ((Preference) next).mPreferenceParent;
+                    }
                 }
-                Preference current = (Preference)adapter.getItem(pos);
-                Preference next = (Preference)adapter.getItem(pos + 1);
-                return current.mPreferenceParent != next.mPreferenceParent;
+                return true;
             }
         }
 

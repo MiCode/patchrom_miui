@@ -823,11 +823,13 @@ public class ActionBarView extends AbsActionBarView {
         }
     }
 
-    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     private void initTitle() {
+        // MIUI ADD: START
         if (miuiInitTitle()) {
+            addView(mTitleLayout);
             return;
         }
+        // END
 
         if (mTitleLayout == null) {
             LayoutInflater inflater = LayoutInflater.from(getContext());

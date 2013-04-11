@@ -910,6 +910,17 @@ class CallbackProxy extends Handler {
     }
 
     /**
+     * Called by WebViewCore.java
+     *
+     */
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    void isImageFromCache(boolean success) {
+        if (mWebViewClient != null) {
+            mWebViewClient.onGotImageFromCache(success);
+        }
+    }
+
+    /**
      * Return the latest progress.
      */
     public int getProgress() {

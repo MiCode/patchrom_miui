@@ -223,8 +223,9 @@ public class WindowManagerService extends IWindowManager.Stub
          */
         static void showWindow(WindowManagerService wms, WindowState w) {
             if (w.mWinAnimator.mMiuiHidden) {
+                restoreFloatingWindowState(w);
+
                 w.mWinAnimator.mMiuiHidden = false;
-                w.mAttrs.flags = w.mWinAnimator.mAttrFlags;
                 // Restores its input channel
                 if (w.mInputChannel != null) {
                     wms.mInputManager.registerInputChannel(w.mInputChannel, w.mInputWindowHandle);
@@ -257,7 +258,7 @@ public class WindowManagerService extends IWindowManager.Stub
                     wms.mInputManager.unregisterInputChannel(w.mInputChannel);
                 }
 
-                updateFloatingWindow(w);
+                saveFloatingWindowState(w);
             }
 
             for (int i = 0; i < w.mChildWindows.size(); ++i) {
@@ -293,8 +294,8 @@ public class WindowManagerService extends IWindowManager.Stub
                 // 3. is allowed by system
                 if (w.mAttachedWindow != null
                         || w.mIsImWindow
-                        || (!w.isVisibleOrBehindKeyguardLw() && w.isGoneForLayoutLw())
-                        || isFloatingWindowAllowed(w.mSession.mUid)) {
+                        || w.mFloatingWindowAllowed
+                        || (!w.isVisibleOrBehindKeyguardLw() && w.isGoneForLayoutLw())) {
                     continue;
                 }
                 if (w.mWinAnimator != null && w.mWinAnimator.mSurface != null) {
@@ -310,16 +311,36 @@ public class WindowManagerService extends IWindowManager.Stub
         }
 
         /**
-         * Updates the attribute flags of the current window if it is hidden by MIUI
+         * Restores the attribute flags of the current window if it is hidden by MIUI
          * @param w The current window
          */
-        static void updateFloatingWindow(WindowState w) {
-            if (w.mWinAnimator.mMiuiHidden) {
-                w.mWinAnimator.mAttrFlags = w.mAttrs.flags;
-                w.mAttrs.flags |= WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
-                        | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;
-                w.mAttrs.flags &= ~0x00FEFCE7;
+        static void restoreFloatingWindowState(WindowState w) {
+            if (w.mWinAnimator.mMiuiHidden && w.mAttrFlagsSaved) {
+                w.mAttrs.flags = w.mWinAnimator.mAttrFlags;
+                w.mAttrFlagsSaved = false;
             }
+        }
+
+        /**
+         * Saves the attribute flags of the current window if it is hidden by MIUI
+         * @param w The current window
+         */
+        static void saveFloatingWindowState(WindowState w) {
+            if (w.mWinAnimator.mMiuiHidden && !w.mAttrFlagsSaved) {
+                w.mWinAnimator.mAttrFlags = w.mAttrs.flags;
+                w.mAttrFlagsSaved = true;
+                w.mAttrs.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+                        | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;
+            }
+        }
+
+        /**
+         * Is it necessary to update focus and layout?
+         */
+        static boolean updateFocusAndLayout(WindowManagerService wms, int tokenPos) {
+            return tokenPos != 0
+                    || wms.mNextAppTransition == WindowManagerPolicy.TRANSIT_UNSET
+                    || wms.mNextAppTransition == WindowManagerPolicy.TRANSIT_NONE;
         }
     }
 
@@ -2882,6 +2903,10 @@ public class WindowManagerService extends IWindowManager.Stub
             if (win == null) {
                 return 0;
             }
+
+            // MIUI ADD:
+            Injector.restoreFloatingWindowState(win);
+
             WindowStateAnimator winAnimator = win.mWinAnimator;
             if (win.mRequestedWidth != requestedWidth
                     || win.mRequestedHeight != requestedHeight) {
@@ -3022,6 +3047,9 @@ public class WindowManagerService extends IWindowManager.Stub
                              + client + " (" + win.mAttrs.getTitle() + ")",
                              e);
                     Binder.restoreCallingIdentity(origId);
+
+                    // MIUI ADD:
+                    Injector.saveFloatingWindowState(win);
                     return 0;
                 }
                 if (toBeDisplayed) {
@@ -3151,8 +3179,8 @@ public class WindowManagerService extends IWindowManager.Stub
 
             mInputMonitor.updateInputWindowsLw(true /*force*/);
 
-            // MIUI ADD
-            Injector.updateFloatingWindow(win);
+            // MIUI ADD:
+            Injector.saveFloatingWindowState(win);
         }
 
         if (configChanged) {
@@ -5031,6 +5059,12 @@ public class WindowManagerService extends IWindowManager.Stub
                 pos = reAddAppWindowsLocked(pos, token);
             }
         }
+
+        // MIUI ADD: START
+        if (!Injector.updateFocusAndLayout(this, tokenPos)) {
+            return;
+        }
+        // END
 
         mInputMonitor.setUpdateInputWindowsNeededLw();
         if (!updateFocusedWindowLocked(UPDATE_FOCUS_WILL_PLACE_SURFACES,

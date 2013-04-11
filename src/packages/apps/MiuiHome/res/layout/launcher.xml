@@ -32,6 +32,8 @@
                 android:id="@+id/screen_content"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:clipChildren="false"
+                android:clipToPadding="false"
                 android:foregroundGravity="top|fill_horizontal" >
                 <com.miui.home.launcher.Workspace
                     android:id="@+id/workspace"
@@ -69,7 +71,6 @@
         <include layout="@layout/folder_cling" />
     </FrameLayout>
     <include layout="@layout/delete_zone" />
-
     <com.miui.home.launcher.ErrorBar
         android:id="@+id/error"
         android:layout_width="match_parent"

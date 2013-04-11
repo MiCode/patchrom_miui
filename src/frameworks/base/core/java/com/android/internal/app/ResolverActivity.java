@@ -82,22 +82,28 @@ public class ResolverActivity extends AlertActivity implements AdapterView.OnIte
         static void initialize(final ResolverActivity activity, boolean alwaysUseOption) {
             if (UiUtils.isV5Ui(activity)) {
                 Button cancel = (Button) activity.findViewById(miui.R.id.cancel);
-                cancel.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        activity.finish();
-                    }
-                });
+                if (cancel != null) {
+                    cancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            activity.finish();
+                        }
+                    });
+                }
                 if (alwaysUseOption) {
                     CheckBox alwaysOption = (CheckBox) activity.findViewById(miui.R.id.v5_always_option);
-                    alwaysOption.setVisibility(View.VISIBLE);
-                    alwaysOption.setChecked(false);
-                    activity.setAlwaysUseOption(false);
+                    if (alwaysOption != null) {
+                        alwaysOption.setVisibility(View.VISIBLE);
+                        alwaysOption.setChecked(false);
+                        activity.setAlwaysUseOption(false);
+                    }
                 }
                 GridView grid = (GridView) activity.findViewById(
                         miui.util.ResourceMapper.resolveReference(activity, miui.R.id.android_resolver_grid));
-                grid.setOnItemClickListener(null);
-                grid.setOnItemLongClickListener(null);
+                if (grid != null) {
+                    grid.setOnItemClickListener(null);
+                    grid.setOnItemLongClickListener(null);
+                }
             }
         }
 

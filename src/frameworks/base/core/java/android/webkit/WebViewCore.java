@@ -1226,6 +1226,9 @@ public final class WebViewCore {
         @MiuiHook(MiuiHookType.NEW_FIELD)
         static final int CHECK_READ_MODE = 5010;
 
+        @MiuiHook(MiuiHookType.NEW_FIELD)
+        static final int SAVE_IMAGE_FROM_CACHE  = 5030;
+
         // Private handler for WebCore messages.
         private Handler mHandler;
         // Message queue for containing messages before the WebCore thread is
@@ -1814,6 +1817,13 @@ public final class WebViewCore {
                         case SAVE_VIEW_STATE:
                             SaveViewStateRequest request = (SaveViewStateRequest) msg.obj;
                             saveViewState(request.mStream, request.mCallback);
+                            break;
+                        case SAVE_IMAGE_FROM_CACHE:
+                            int x = msg.arg1;
+                            int y = msg.arg2;
+                            String filename = (String)msg.obj;
+                            boolean save = nativeSaveImageFromCache(mNativeClass, x, y, filename);
+                            mCallbackProxy.isImageFromCache(save);
                             break;
                     }
                 }
@@ -3106,7 +3116,6 @@ public final class WebViewCore {
         mWebViewClassic.mPrivateHandler.obtainMessage(WebViewClassic.SET_SCROLLBAR_MODES,
                 hMode, vMode).sendToTarget();
     }
-
     // called by JNI
     private void selectAt(int x, int y) {
         // TODO: Figure out what to do with this (b/6111818)
@@ -3193,6 +3202,7 @@ public final class WebViewCore {
     private native boolean nativeSelectWordAt(int nativeClass, int x, int y);
     private native void nativeSelectAll(int nativeClass);
     private native void nativeSetInitialFocus(int nativeClass, int keyDirection);
+    private native boolean nativeSaveImageFromCache(int nativeClass, int x, int y, String fileName);
 
     private static native void nativeCertTrustChanged();
 }

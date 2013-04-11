@@ -1,57 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/wrapper"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content" >
 
     <ImageView
-        android:id="@+id/divider_right"
+        android:id="@+id/logoIv"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="right"
-        android:background="@drawable/bookmark_divider" />
-
-    <ImageView
-        android:id="@+id/divider_bottom"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@drawable/bookmark_divider" />
+        android:layout_gravity="center"
+        android:scaleType="center"/>
 
-    <FrameLayout
-        android:id="@+id/wrapper"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_gravity="center"
+        android:orientation="vertical" >
 
         <ImageView
-            android:id="@+id/thumb"
+            android:id="@+id/favicon"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/browser_thumbnail"
-            android:scaleType="center"/>
+            android:scaleType="center"
+            android:src="@drawable/default_website_logo" />
 
         <TextView
             android:id="@+id/label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:gravity="center"
-            android:textSize="12sp"
-            android:textColor="@color/black"
-            android:singleLine="true"
             android:ellipsize="marquee"
-            android:typeface="sans"
-            android:background="@drawable/bookmark_label_bg"/>
-
-    </FrameLayout>
-
-    <ImageView
-        android:id="@+id/shadow_top"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:background="@drawable/bookmark_shadow_top"
-        android:visibility="gone" />
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="1"
+            android:shadowColor="#55616161"
+            android:typeface="sans" />
+    </LinearLayout>
 
 </FrameLayout>
-

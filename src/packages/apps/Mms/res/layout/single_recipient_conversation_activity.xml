@@ -16,6 +16,18 @@
         <include
             layout="@layout/message_edit_attachment_panel" />
     </com.android.mms.ui.SizeAwareLinearLayout>
-    <include
-        layout="@layout/single_recipient_contact_panel" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <include
+            layout="@layout/single_recipient_contact_panel" />
+        <ViewStub
+            android:id="@+id/mx_recommend_bar_stub"
+            android:layout="@layout/mx_recommend_bar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
 </FrameLayout>

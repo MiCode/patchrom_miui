@@ -15,12 +15,13 @@
             android:persistent="false"
             android:summary="@string/pref_key_photo_word_summary"
             android:title="@string/pref_key_photo_word_title" />
-        <CheckBoxPreference
-            android:defaultValue="false"
+        <PreferenceScreen
             android:key="pref_key_cloud_antispam"
-            android:persistent="false"
-            android:title="@string/cloud_antispam_title"
-            android:summary="@string/cloud_antispam_summary" />
+            android:title="@string/cloud_antispam_title">
+            <intent android:action="android.intent.action.TURN_ON_SMART_ANTISPAM"
+                android:targetPackage="com.miui.antispam"
+                android:targetClass="com.miui.antispam.firewall.TurnOnSmartAntiSpamActivity" />
+        </PreferenceScreen>
         <PreferenceScreen
             android:key="pref_key_telocation"
             android:title="@string/preference_telocation_title" >

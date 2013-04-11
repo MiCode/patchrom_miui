@@ -7,13 +7,29 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:background="@drawable/title_bar_tall_bg">
-    <QuickContactBadge
-        android:id="@+id/avatar"
-        android:layout_height="@dimen/avatar_size_medium"
-        android:layout_width="@dimen/avatar_size_medium"
-        android:layout_gravity="center_vertical"
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
         android:layout_marginLeft="15dp"
-        android:layout_marginRight="10dp"/>
+        android:layout_marginRight="10dp"
+        android:orientation="vertical"
+        >
+        <QuickContactBadge
+            android:id="@+id/avatar"
+            android:layout_height="@dimen/avatar_size_medium"
+            android:layout_width="@dimen/avatar_size_medium"
+            android:layout_centerVertical="true"
+            />
+        <ImageView
+            android:id="@+id/mx_recommend_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/mx_recommend_arrow"
+            android:visibility="gone"
+            />
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="0dip"
         android:layout_height="wrap_content"

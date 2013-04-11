@@ -4469,6 +4469,18 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
         return true;
     }
 
+    /**
+     *@hide
+     */
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    public boolean saveImageFromCache(int x, int y, String fileName) {
+        if (mWebViewCore == null) {
+            return false;
+        }
+        mWebViewCore.sendMessage(EventHub.SAVE_IMAGE_FROM_CACHE, x, y, fileName);
+        return true;
+    }
+
     private int mOrientation = Configuration.ORIENTATION_UNDEFINED;
 
     @Override
@@ -7988,10 +8000,12 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
                     && mInitialHitTestResult.getType() == HitTestResult.SRC_ANCHOR_TYPE) {
                 mInitialHitTestResult.setType(HitTestResult.SRC_IMAGE_ANCHOR_TYPE);
                 mInitialHitTestResult.setExtra(hit.mImageUrl);
+                mInitialHitTestResult.setXY(hit.mHitTestX, hit.mHitTestY);
             }
         } else if (hit.mImageUrl != null) {
             mInitialHitTestResult.setType(HitTestResult.IMAGE_TYPE);
             mInitialHitTestResult.setExtra(hit.mImageUrl);
+            mInitialHitTestResult.setXY(hit.mHitTestX, hit.mHitTestY);
         } else if (hit.mEditable) {
             mInitialHitTestResult.setType(HitTestResult.EDIT_TEXT_TYPE);
         } else if (hit.mIntentUrl != null) {

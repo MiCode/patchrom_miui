@@ -18,15 +18,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:background="@drawable/title_bar_nav_bg_port">
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="0dip"
         android:layout_weight="1.0"
         android:layout_height="match_parent">
+        <EditText android:layout_width="fill_parent" android:layout_height="0dip" />
         <LinearLayout
             android:id="@+id/url_part"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/search_part"
             android:orientation="horizontal">
             <ImageView
                 android:id="@+id/bookmark"
@@ -86,7 +89,7 @@
                         android:fadingEdge="horizontal"
                         android:fadingEdgeLength="24dip"
                         android:textSize="@dimen/text_font_size_medium"
-                        android:textColor="@color/black"
+                        android:textColorHint="@color/url_hint_color"
                         android:hint="@string/url_hint"
                         android:singleLine="true"
                         android:ellipsize="end"
@@ -94,6 +97,7 @@
                         android:scrollHorizontally="true"
                         android:inputType="textUri"
                         android:imeOptions="actionGo|flagNoExtractUi|flagNoFullscreen"
+                        android:textCursorDrawable="@drawable/titlebar_text_cursor"
                         style="@style/Suggestions"
                         android:background="@null" />
                     <ImageView
@@ -113,39 +117,23 @@
                         android:src="@drawable/ic_refresh"/>
                 </LinearLayout>
             </FrameLayout>
-            <ImageView
-                android:id="@+id/show_search"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_show_search"
-                android:contentDescription="@string/accessibility_button_goto"
-                android:visibility="gone" />
-
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/search_part"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.0"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
-            <ImageView
-                android:id="@+id/search_cancel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/search_cancel"/>
-
+          android:id="@+id/search_part"
+          android:layout_width="@dimen/search_part_width"
+          android:layout_height="match_parent"
+          android:layout_weight="1.0"
+          android:layout_gravity="center_vertical"
+          android:gravity="center_vertical"
+          android:layout_alignParentRight="true"
+          android:orientation="horizontal">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="0dip"
-                android:layout_marginRight="8dip"
                 android:orientation="horizontal"
+                android:layout_centerVertical="true"
                 android:background="@drawable/search_input_bg">
 
                 <ImageView
@@ -165,14 +153,16 @@
                     android:fadingEdge="horizontal"
                     android:fadingEdgeLength="24dip"
                     android:textSize="@dimen/text_font_size_medium"
-                    android:textColor="@color/black"
+                    android:textColor="@color/url_color"
+                    android:textColorHint="@color/url_hint_color"
                     android:hint="@string/search_hint"
                     android:singleLine="true"
                     android:ellipsize="end"
                     android:lines="1"
                     android:scrollHorizontally="true"
+                    android:textCursorDrawable="@drawable/titlebar_text_cursor"
                     android:imeOptions="actionSearch|flagNoExtractUi|flagNoFullscreen"
-                    android:background="@drawable/search_input_text_bg"
+                    android:background="@null"
                     style="@style/Suggestions"/>
                 <ImageView
                     android:id="@+id/search_go"
@@ -181,8 +171,7 @@
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/search_go"
                     android:layout_marginLeft="0dip"/>
-
             </LinearLayout>
-        </LinearLayout>
-    </FrameLayout>
+         </LinearLayout>
+    </RelativeLayout>
 </com.android.browser.MiuiNavigationBarPhone>

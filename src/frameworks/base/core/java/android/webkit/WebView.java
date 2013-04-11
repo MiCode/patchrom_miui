@@ -396,6 +396,9 @@ public class WebView extends AbsoluteLayout
         private int mType;
         private String mExtra;
 
+        private int hitX;
+        private int hitY;
+
         /**
          * @hide Only for use by WebViewProvider implementations
          */
@@ -436,6 +439,31 @@ public class WebView extends AbsoluteLayout
          */
         public String getExtra() {
             return mExtra;
+        }
+
+        /**
+         *@hide
+         */
+        @MiuiHook(MiuiHookType.NEW_METHOD)
+        public void setXY(int x, int y) {
+            hitX = x;
+            hitY= y;
+        }
+
+        /**
+         *@hide
+         */
+        @MiuiHook(MiuiHookType.NEW_METHOD)
+        public int getHitX() {
+            return hitX;
+        }
+
+        /**
+         *@hide
+         */
+        @MiuiHook(MiuiHookType.NEW_METHOD)
+        public int getHitY() {
+            return hitY;
         }
     }
 

@@ -321,4 +321,12 @@ public class WebViewClient {
     public void onReceivedLoginRequest(WebView view, String realm,
             String account, String args) {
     }
+
+    /**
+     * call by CallProxy
+     * @hide
+     */
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    public void onGotImageFromCache(boolean success) {
+    }
 }
