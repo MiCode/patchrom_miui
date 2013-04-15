@@ -183,6 +183,15 @@ public class Notification implements Parcelable
     public CharSequence tickerText;
 
     /**
+     * MIUI ADD:
+     * 通知icon默认为app的icon,有的app可能会发送多种类型的通知需要用不同的icon来表示。
+     * false: 通知icon默认为app的icon
+     * true:  通知icon为  if(largeIcon!=null) largeIcon else Notification#icon
+     * @hide
+     */
+    public boolean customizedIcon;
+
+    /**
      * The view to show as the ticker in the status bar when the notification
      * is posted.
      */
@@ -596,6 +605,16 @@ public class Notification implements Parcelable
         if (parcel.readInt() != 0) {
             bigContentView = RemoteViews.CREATOR.createFromParcel(parcel);
         }
+
+        // MIUI ADD
+        readCustomizedIcon(parcel);
+    }
+
+    /**
+     * MIUI ADD
+     */
+    private void readCustomizedIcon(Parcel parcel){
+        customizedIcon = parcel.readInt() == 1 ? true : false;
     }
 
     @Override
@@ -662,6 +681,9 @@ public class Notification implements Parcelable
         if (this.bigContentView != null) {
             that.bigContentView = this.bigContentView.clone();
         }
+
+        // MIUI ADD
+        that.customizedIcon = this.customizedIcon;
 
         return that;
     }
@@ -759,6 +781,16 @@ public class Notification implements Parcelable
         } else {
             parcel.writeInt(0);
         }
+
+        // MIUI ADD
+        writeCustomizedIcon(parcel);
+    }
+
+    /**
+     * MIUI ADD
+     */
+    private void writeCustomizedIcon(Parcel parcel){
+        parcel.writeInt(customizedIcon ? 1 : 0);
     }
 
     /**
@@ -951,6 +983,8 @@ public class Notification implements Parcelable
         private ArrayList<Action> mActions = new ArrayList<Action>(MAX_ACTION_BUTTONS);
         private boolean mUseChronometer;
         private Style mStyle;
+        // MIUI ADD
+        private boolean mCustomizedIcon;
 
         /**
          * Constructs a new Builder with the defaults:
@@ -1166,6 +1200,16 @@ public class Notification implements Parcelable
          */
         public Builder setTicker(CharSequence tickerText) {
             mTickerText = tickerText;
+            return this;
+        }
+
+        /**
+         * MIUI ADD:
+         * @see Notification#customizedIcon
+         * @hide
+         */
+        public Builder setCustomizedIcon(boolean customizedIcon) {
+            mCustomizedIcon = customizedIcon;
             return this;
         }
 
@@ -1587,6 +1631,8 @@ public class Notification implements Parcelable
                 n.actions = new Action[mActions.size()];
                 mActions.toArray(n.actions);
             }
+            // MIUI ADD
+            n.customizedIcon = mCustomizedIcon;
             return n;
         }
 

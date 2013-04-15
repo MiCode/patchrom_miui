@@ -263,6 +263,7 @@ public class CallerInfoAsyncQuery {
                     }
 
                     miui.telephony.CallerInfo.doSpNumberQuery(mQueryContext, cw.number, mCallerInfo); // miui add
+                    miui.telephony.CallerInfo.doAntiSpamQuery(mQueryContext, cw.number, mCallerInfo, cw.listener, token, cw.cookie); // miui add
 
                     // Final step: look up the geocoded description.
                     if (ENABLE_UNKNOWN_NUMBER_GEO_DESCRIPTION) {

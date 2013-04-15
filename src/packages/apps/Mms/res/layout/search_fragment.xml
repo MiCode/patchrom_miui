@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/search_bg">
-    <ListView android:id="@+id/list"
+    <ListView android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:cacheColorHint="@null"
@@ -12,6 +12,9 @@
         android:fadingEdgeLength="16dip" />
     <TextView android:id="@+id/empty"
         android:text="@string/search_empty"
+        style="@style/TextAppearance.List.EmptyView"
+        android:clickable="true"
+        android:focusable="true"
         android:layout_gravity="center"
         android:gravity="center"
         android:layout_width="match_parent"

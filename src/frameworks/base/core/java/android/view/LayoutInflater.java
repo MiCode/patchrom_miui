@@ -75,7 +75,8 @@ public abstract class LayoutInflater {
             miui.R.layout.android_resolver_grid, miui.R.layout.v5_resolver_grid,
             miui.R.layout.android_resolve_list_item, miui.R.layout.v5_resolver_list_item,
             miui.R.layout.android_search_view, miui.R.layout.v5_android_search_view,
-            miui.R.layout.android_search_bar, miui.R.layout.v5_android_search_bar
+            miui.R.layout.android_search_bar, miui.R.layout.v5_android_search_bar,
+            miui.R.layout.android_media_controller, miui.R.layout.v5_android_media_controller
         };
 
         static SparseArray<Integer> sLayoutMap;

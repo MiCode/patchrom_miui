@@ -714,7 +714,7 @@
 
     <style name="V5.Widget.SeekBar">
         <item name="android:indeterminateOnly">false</item>
-        <item name="android:progressDrawable">@drawable/v5_seekbar_progress_horizontal</item>
+        <item name="android:progressDrawable">@drawable/v5_seekbar_bg</item>
         <item name="android:indeterminateDrawable">@null</item>
         <item name="android:minHeight">@miui:dimen/v5_seekbar_height</item>
         <item name="android:maxHeight">@miui:dimen/v5_seekbar_height</item>
@@ -725,6 +725,17 @@
         <item name="android:paddingLeft">8dip</item>
         <item name="android:paddingRight">8dip</item>
         <item name="android:focusable">true</item>
+    </style>
+
+    <style name="V5.Widget.VerticalSeekBar" parent="V5.Widget.SeekBar">
+        <item name="android:paddingTop">8dip</item>
+        <item name="android:paddingBottom">8dip</item>
+        <item name="android:paddingLeft">0dip</item>
+        <item name="android:paddingRight">0dip</item>
+        <item name="android:minWidth">@miui:dimen/v5_seekbar_height</item>
+        <item name="android:maxWidth">@miui:dimen/v5_seekbar_height</item>
+        <item name="android:minHeight">@null</item>
+        <item name="android:maxHeight">@null</item>
     </style>
 
     <style name="V5.Widget.SeekBar.ForMultiPositionBar" >
@@ -830,6 +841,33 @@
         <item name="android:textColor">#ffffff</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="V5.Widget.MediaButton" parent="android:style/MediaButton">
+    </style>
+
+    <style name="V5.Widget.MediaButton.Previous">
+        <item name="android:src">@miui:drawable/v5_ic_media_previous</item>
+    </style>
+
+    <style name="V5.Widget.MediaButton.Next">
+        <item name="android:src">@miui:drawable/v5_ic_media_next</item>
+    </style>
+
+    <style name="V5.Widget.MediaButton.Play">
+        <item name="android:src">@miui:drawable/v5_ic_media_play</item>
+    </style>
+
+    <style name="V5.Widget.MediaButton.Ffwd">
+        <item name="android:src">@miui:drawable/v5_ic_media_ff</item>
+    </style>
+
+    <style name="V5.Widget.MediaButton.Rew">
+        <item name="android:src">@miui:drawable/v5_ic_media_rew</item>
+    </style>
+
+    <style name="V5.Widget.MediaButton.Pause">
+        <item name="android:src">@miui:drawable/v5_ic_media_pause</item>
     </style>
 
 </resources>
