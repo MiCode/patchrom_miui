@@ -4,7 +4,7 @@
     <string name="app_name">File Explorer</string>
     <string name="confirm">Confirm</string>
     <string name="menu_item_ftp">FTP</string>
-    <string name="menu_item_cleanup">File Cleanup</string>
+    <string name="menu_item_cleanup">File cleanup</string>
     <string name="menu_item_search">Search</string>
     <string name="operation_create_folder">New folder</string>
     <string name="menu_item_sort">Sort by</string>
@@ -91,7 +91,6 @@
     <string name="favorite_screen_cap">MIUI screenshots</string>
     <string name="favorite_ringtone">Ringtones</string>
     <string name="file_loading">Loading&#8230;</string>
-    <string name="remote_management">FTP</string>
     <string name="multi_select_title"><xliff:g id="number">%1$s</xliff:g>selected</string>
     <string name="tab_networkdisk">KuaiPan</string>
     <string name="operation_download_link">Generate download kink</string>
@@ -99,12 +98,17 @@
     <string name="show_message">File cannot be open without downloading</string>
     <string name="ui_main_progress_txt_open_file">Downloading&#8230;</string>
     <string name="networkView_notConnected">No available network</string>
-    <string name="networkView_offline">Offline mode, refreshing directory temporarily disabled</string>
     <string name="ui_main_toast_favorite_removed">Favorite(s) removed</string>
     <string name="ui_main_toast_operation_failed">Unfavorite operation failed for %1$s.</string>
     <string name="user_guide">User guide</string>
     <string name="user_guide_summary">How to use KuaiPan</string>
     <string name="rename_failed">Failed to rename %1$s </string>
+    <plurals name="directory_item_count">
+        <item quantity="one">1 item</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> items</item>
+    </plurals>
+    <string name="directory_no_item">Empty folder</string>
+    <string name="directory_info_divider">"  |  "</string>
 
     <string name="ui_bar_txt_download_progress">%1$d file(s) left to download</string>
     <string name="ui_bar_txt_upload_progress">%1$d file(s) left to upload</string>
@@ -145,7 +149,6 @@
     <string name="trash_box_message1">You can delete some unnecessary files \n to free up space </string>
     <string name="trash_box_message2">You can delete some unnecessary files or \n clean up the Recycle Bin to free up space</string>
     <string name="close">Close</string>
-    <string name="clean_trash_box_failed">Failed to delete files over 30 days in the recycle bin</string>
     <string name="space_info">KuaiPan space: %1$s available, %2$s in total</string>
     <string name="trash_box_capacity">Recycle bin %1$s</string>
     <string name="data_capacity">Data %1$s</string>
@@ -217,8 +220,6 @@
     <string name="paused">Paused</string>
     <string name="upload_failed">Upload failed</string>
     <string name="download_failed">Download failed</string>
-    <string name="upload_successful">Upload successful</string>
-    <string name="download_successful">Download successful</string>
     <string name="operation_pause">Pause</string>
     <string name="operation_resume">Start</string>
     <string name="operation_pause_all">Pause all</string>
@@ -230,11 +231,6 @@
     <string name="trans_task_delete_confirm_message">Are you sure you want to delete the selected %1$d tasks?</string>
     <string name="forward_to_web_recycle_prompt">&lt;a href=\"%1$s\">Click here&lt;/a>to go to Recycle bin to clean up</string>
 
-    <!-- Demo Code for 文件清理 -->
-    <string name="scanning">正在扫描...</string>
-    <string name="clean_complete">已清理</string>
-    <!-- End of Demo code -->
-
     <string name="storage_internal">Internal storage</string>
     <string name="storage_sd_card">SD card</string>
     <string name="storage_usb">USB storage</string>
@@ -242,16 +238,59 @@
     <string name="bind_account_summary">If you have already got a kuaipan account，then you can bind to this account to read its data</string>
     <string name="binded_accout_title">You currently have already binded to a kuaipan account</string>
     <string name="binded_accout_description">The two account have been merged,then using either xiaomi account or kuaipan account to login, both can read all your data</string>
-    <string name="binding_accout_title">bind to your exsiting kuaipan account</string>
-    <string name="kingsoft_account">kingsoft kuaipan account</string>
-    <string name="binded_accout_warning">Warning:This operation is not reversible</string>
 
-    <string name="cleanup_tab_garbage">Garbage Cleanup</string>
-    <string name="cleanup_tab_app">Application Cleanup</string>
+    <!-- for 文件清理 -->
+    <string name="scanning_on_going">Scanning...</string>
+    <string name="scanning">Scan <xliff:g id="count">%d</xliff:g> app ... (total <xliff:g id="total">%d</xliff:g> apps)</string>
+    <string name="sys_size_title">Total storage</string>
+    <string name="sys_size">Total storage <xliff:g id="size">%1$s</xliff:g></string>
+    <string name="application_size_label">Application</string>
+    <string name="data_size_label">Data</string>
+    <string name="cache_size_label">Cache</string>
+    <string name="sd_size_label">User storage</string>
+    <string name="version_text">version <xliff:g id="version_num">%1$s</xliff:g></string>
+    <string name="uninstall_app_data">Delete App and all data</string>
     <string name="start_cleanup">Start cleanup</string>
-    <string name="cancel_cleanup">Cancel cleanup</string>
-    <string name="cleanup_help">Clean up garbage files in the system\nRelease storage space</string>
 
+    <string name="header_text_scanning">Scanning garbage...</string>
+    <string name="header_text_scanned">You can delete garbage</string>
+    <string name="header_text_cleaning">Cleaning, garbage left</string>
+    <string name="header_text_cleaned">Deleted garbage</string>
+
+    <string name="waiting_for_cleaning">Waiting for cleaning</string>
+    <string name="item_name">No name</string>
+    <string name="waiting_for_scanning">Waiting for scanning</string>
+
+    <string name="temp_file_title">Temporary files</string>
+    <string name="thumbnail_title">Thumbnail files</string>
+    <string name="app_cache_title">Application cache</string>
+    <string name="empty_dir_title">Empty directories</string>
+    <string name="app_garbage_title">Application garbage</string>
+
+    <string name="temp_file_cleanup_indication" formatted="false">%s temporary files</string>
+    <string name="thumbnail_cleanup_indication" formatted="false">%s thumbnails</string>
+    <string name="app_cache_cleanup_indication" formatted="false">%s cache</string>
+    <string name="empty_dir_cleanup_indication" formatted="false">%s garbage files</string>
+    <string name="app_garbage_cleanup_indication" formatted="false">%s app garbage</string>
+
+    <string name="no_temp_file_indication">No temporary files</string>
+    <string name="no_thumbnail_indication">No thumbnail files</string>
+    <string name="no_app_cache_indication">No application cache</string>
+    <string name="no_empty_dir_indication">No empty directories</string>
+    <string name="no_app_garbage_indication">No application garbage</string>
+
+    <string name="cancel_app_garbage_cleanup">Do not clean</string>
+    <string name="clean_app_garbage" formatted="false">Delete %d item(s)</string>
+    <string name="app_garbage_path">Location:</string>
+
+    <string name="give_up_cleaning">Give up</string>
+    <string name="restart_cleaning">Restart</string>
+    <string name="cleanup_complete">Done</string>
+
+    <string name="garbage_size_metric" formatted="false">%s\nGarbage</string>
+
+    <string name="garbage_item_name_format" formatted="false">%s ( %s )</string>
+    <string name="garbage_item_path_format" formatted="false">%s %s</string>
     <string name="account_bind_prompt">Migrating user data\ndata migration may take a few minutes,\nyour account will be temporarily locked, please wait&#8230;</string>
     <string name="migrate_announcement_title">MiDriver has been migrated to kuaipan</string>
     <string name="migrate_announcement_msg">If you have kuaipan account, you could bind it in the setting and access kuaipan data.</string>
@@ -261,4 +300,7 @@
     <string name="operation_copying">Copying&#8230;</string>
     <string name="operation_copying_detail">Copying files(%1$d/%2$d)</string>
     <string name="name_illegal">File name can not be empty</string>
+    <string name="open_changed_file_title">File is changed</string>
+    <string name="open_changed_file_message">The file you try to open have been changed, your could:\n1. Download (update the local file)\n2. Upload (update the remote file)</string>
+    <string name="ui_filechange_btn_upload">Upload files</string>
 </resources>

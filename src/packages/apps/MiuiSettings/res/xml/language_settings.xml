@@ -18,20 +18,20 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:title="@string/language_keyboard_settings_title">
 
-    <PreferenceCategory android:title="@string/phone_language">
-        <PreferenceScreen
-                android:fragment="com.android.settings.MiuiLocalePicker"
-                android:key="phone_language"
-                android:title="@string/phone_language"/>
+    <PreferenceCategory
+         android:title="@string/phone_language"/>
+    <PreferenceScreen
+         android:fragment="com.android.settings.MiuiLocalePicker"
+         android:key="phone_language"
+         android:title="@string/phone_language"/>
 
-        <com.android.settings.inputmethod.SpellCheckersPreference
-                android:key="spellcheckers_settings"
-                android:title="@string/spellcheckers_settings_title"/>
+    <com.android.settings.inputmethod.SpellCheckersPreference
+         android:key="spellcheckers_settings"
+         android:title="@string/spellcheckers_settings_title"/>
 
-        <!-- User dictionary preference title and fragment will be set programmatically. -->
-        <PreferenceScreen
-                android:key="key_user_dictionary_settings" />
-    </PreferenceCategory>
+    <!-- User dictionary preference title and fragment will be set programmatically. -->
+    <PreferenceScreen
+         android:key="key_user_dictionary_settings" />
 
     <PreferenceCategory android:key="keyboard_settings_category"
             android:title="@string/keyboard_settings_category">

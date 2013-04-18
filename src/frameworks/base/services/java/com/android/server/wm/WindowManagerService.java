@@ -227,6 +227,7 @@ public class WindowManagerService extends IWindowManager.Stub
 
                 w.mWinAnimator.mMiuiHidden = false;
                 // Restores its input channel
+                w.mInputChannel = w.mInputChannelSaved;
                 if (w.mInputChannel != null) {
                     wms.mInputManager.registerInputChannel(w.mInputChannel, w.mInputWindowHandle);
                 }
@@ -256,6 +257,8 @@ public class WindowManagerService extends IWindowManager.Stub
                 // Removes its input channel
                 if (w.mInputChannel != null) {
                     wms.mInputManager.unregisterInputChannel(w.mInputChannel);
+                    w.mInputChannelSaved = w.mInputChannel;
+                    w.mInputChannel = null;
                 }
 
                 saveFloatingWindowState(w);

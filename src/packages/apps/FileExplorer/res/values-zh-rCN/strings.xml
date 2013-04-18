@@ -91,7 +91,6 @@
     <string name="favorite_screen_cap">MIUI截屏</string>
     <string name="favorite_ringtone">铃声</string>
     <string name="file_loading">正在载入&#8230;</string>
-    <string name="remote_management">远程管理</string>
     <string name="multi_select_title">已选择<xliff:g id="number">%1$s</xliff:g>个</string>
     <string name="tab_networkdisk">快盘</string>
     <string name="operation_download_link">生成下载链接</string>
@@ -99,12 +98,16 @@
     <string name="show_message">文件需要下载才可以打开</string>
     <string name="ui_main_progress_txt_open_file">正在下载&#8230;</string>
     <string name="networkView_notConnected">没有找到可用网络</string>
-    <string name="networkView_offline">离线模式, 目录暂时无法刷新</string>
     <string name="ui_main_toast_favorite_removed">收藏已取消</string>
     <string name="ui_main_toast_operation_failed">对%1$s的取消收藏操作失败。</string>
     <string name="user_guide">使用入门</string>
     <string name="user_guide_summary">告诉您如何使用快盘</string>
     <string name="rename_failed">重命名 "%1$s" 失败</string>
+    <plurals name="directory_item_count">
+        <item quantity="one">1项</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g>项</item>
+    </plurals>
+    <string name="directory_no_item">空文件夹</string>
 
     <!-- 通知栏 -->
     <string name="ui_bar_txt_download_progress">还有%1$d个文件需要下载</string>
@@ -153,7 +156,6 @@
     <string name="trash_box_message1">您可以删除一些不需要的文件\n来释放空间</string>
     <string name="trash_box_message2">您可以通过删除文件或\n清理回收站来释放部分空间</string>
     <string name="close">关闭</string>
-    <string name="clean_trash_box_failed">删除回收站中超过30天文件失败</string>
     <string name="space_info">快盘空间:%1$s可用，共%2$s</string>
     <string name="trash_box_capacity">回收站  %1$s</string>
     <string name="data_capacity">数据 %1$s</string>
@@ -225,8 +227,6 @@
     <string name="paused">已暂停</string>
     <string name="upload_failed">上传失败</string>
     <string name="download_failed">下载失败</string>
-    <string name="upload_successful">上传成功</string>
-    <string name="download_successful">下载成功</string>
     <string name="operation_pause">暂停</string>
     <string name="operation_resume">开始</string>
     <string name="operation_pause_all">全部暂停</string>
@@ -242,16 +242,63 @@
     <string name="storage_sd_card">"SD 卡"</string>
     <string name="storage_usb">"USB 存储器"</string>
     <string name="binded_accout_title">您当前已经绑定了快盘账户</string>
-    <string name="binding_accout_title">绑定您之前的金山账户</string>
     <string name="binded_accout_description">两个账户的数据已经合并，今后不论用小米账户或者快盘账户登录，都可以访问您的全部数据</string>
-    <string name="binded_accout_warning">注意：本操作不可逆</string>
-    <string name="kingsoft_account">金山快盘账户</string>
 
-    <string name="cleanup_tab_garbage">垃圾清理</string>
-    <string name="cleanup_tab_app">应用清理</string>
+    <!-- for 文件清理 -->
+    <string name="scanning_on_going">正在扫描...</string>
+    <string name="scanning">已扫描<xliff:g id="count">%d</xliff:g>个应用（共<xliff:g id="total">%d</xliff:g>个）</string>
+    <string name="sys_size_title">共占用存储空间</string>
+    <string name="sys_size">共占用存储空间<xliff:g id="size">%1$s</xliff:g></string>
+    <string name="application_size_label">应用</string>
+    <string name="data_size_label">数据</string>
+    <string name="cache_size_label">缓存</string>
+    <string name="sd_size_label">用户存储空间</string>
+    <string name="version_text" msgid="9189073826278676425">"版本 <xliff:g id="VERSION_NUM">%1$s</xliff:g>"</string>
+    <string name="uninstall_app_data">强力删除应用和数据目录</string>
+
+    <string name="header_text_scanning">正在扫描垃圾文件...</string>
+    <string name="header_text_scanned">可删除垃圾文件</string>
+    <string name="header_text_cleaning">正在清理，垃圾文件仅剩</string>
+    <string name="header_text_cleaned">共删除垃圾</string>
+
     <string name="start_cleanup">开始清理</string>
-    <string name="cancel_cleanup">取消</string>
-    <string name="cleanup_help">清理系统中的垃圾文件\n节省存储空间</string>
+
+    <string name="waiting_for_cleaning">等待扫描</string>
+    <string name="item_name">未命名</string>
+
+    <string name="waiting_for_scanning">等待扫描</string>
+
+    <string name="temp_file_title">系统临时文件</string>
+    <string name="thumbnail_title">缩略图缓存文件</string>
+    <string name="app_cache_title">应用程序缓存</string>
+    <string name="empty_dir_title">空文件夹</string>
+    <string name="app_garbage_title">程序卸载残留</string>
+
+    <string name="temp_file_cleanup_indication" formatted="false">%s系统临时文件</string>
+    <string name="thumbnail_cleanup_indication" formatted="false">%s缩略图缓存</string>
+    <string name="app_cache_cleanup_indication" formatted="false">%s应用程序缓存</string>
+    <string name="empty_dir_cleanup_indication" formatted="false">%s垃圾文件</string>
+    <string name="app_garbage_cleanup_indication" formatted="false">%s应用卸载残留</string>
+
+    <string name="no_temp_file_indication">没有系统临时文件</string>
+    <string name="no_thumbnail_indication">没有缩略图缓存</string>
+    <string name="no_app_cache_indication">没有应用程序缓存</string>
+    <string name="no_empty_dir_indication">没有空目录</string>
+    <string name="no_app_garbage_indication">没有程序卸载残留</string>
+
+    <string name="cancel_app_garbage_cleanup">不清理残留</string>
+    <string name="clean_app_garbage" formatted="false">删除%d项</string>
+    <string name="app_garbage_path">残留位置：</string>
+
+    <string name="give_up_cleaning">放弃</string>
+    <string name="restart_cleaning">再次清理</string>
+    <string name="cleanup_complete">完成</string>
+
+    <string name="clean_complete">已清理</string>
+
+    <!-- <string name="release_space_indication">清理后可获得空间</string> -->
+    <string name="release_space_indication">检测到垃圾文件</string>
+    <string name="garbage_size_metric" formatted="false">%s\n垃圾</string>
 
     <string name="account_bind_prompt">正在迁移用户数据\n数据迁移可能需要几分钟时间\n期间您的账号将暂时被锁定，请稍后&#8230;</string>
     <string name="migrate_announcement_title">小米网盘已经迁移至金山快盘</string>
@@ -262,4 +309,33 @@
     <string name="operation_copying">正在复制&#8230;</string>
     <string name="operation_copying_detail">正在复制文件(%1$d/%2$d)</string>
     <string name="name_illegal">文件名不能为空</string>
+    <string name="open_changed_file_title">文件内容发生改变</string>
+    <string name="open_changed_file_message">正在打开的本地文件与云端文件\n内容不一致，您可以选择\n1.下载（更新本地文件）\n2.上传（更新云端文件）</string>
+    <string name="ui_filechange_btn_upload">上传文件</string>
+
+    <!-- 系统文件夹名称 -->
+    <string name="directory_android">安卓</string>
+    <string name="directory_android_data">安卓数据</string>
+    <string name="directory_dcim">相册</string>
+    <string name="directory_dcim_100andro">缩略图</string>
+    <string name="directory_dcim_camera">相机</string>
+    <string name="directory_dcim_screenshots">截图</string>
+    <string name="directory_download">下载</string>
+    <string name="directory_miui">米柚</string>
+    <string name="directory_miui_backup">备份</string>
+    <string name="directory_miui_browser">浏览器</string>
+    <string name="directory_miui_contactphoto">联系人头像</string>
+    <string name="directory_miui_gallery">相册</string>
+    <string name="directory_miui_music">音乐</string>
+    <string name="directory_miui_notes">便签</string>
+    <string name="directory_miui_sound_recorder">录音机</string>
+    <string name="directory_miui_theme">主题风格</string>
+    <string name="directory_miui_wallpaper">壁纸</string>
+    <string name="directory_miui_weather">天气</string>
+    <string name="directory_miui_transfer">快传</string>
+    <string name="directory_downloaded_rom">系统更新包</string>
+
+    <!-- 一些公司通常会有多个应用放在同一个文件夹下 -->
+    <string name="directory_tencent">腾讯</string>
+    <string name="directory_youmicache">有米广告</string>
 </resources>

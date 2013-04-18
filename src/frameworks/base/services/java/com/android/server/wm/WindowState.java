@@ -58,6 +58,9 @@ final class WindowState implements WindowManagerPolicy.WindowState {
     // MIUI ADD:
     boolean mAttrFlagsSaved;
 
+    // MIUI ADD:
+    InputChannel mInputChannelSaved;
+
     static final String TAG = "WindowState";
     
     static final boolean DEBUG_VISIBILITY = WindowManagerService.DEBUG_VISIBILITY;

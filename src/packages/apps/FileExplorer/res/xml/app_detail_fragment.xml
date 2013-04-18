@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.android.fileexplorer.view.AppInfoPreference android:key="applications_info"
+        android:clickable="false"
+        android:persistent="false"/>
+
+    <PreferenceCategory android:key="sys_storage_size"
+        android:title="@string/sys_size_title"
+        >
+        <miui.preference.ValuePreference
+             android:key="application_size"
+             android:clickable="false"
+             android:persistent="false"
+             android:title="@string/application_size_label"/>
+        <miui.preference.ValuePreference
+             android:key="data_size"
+             android:clickable="false"
+             android:persistent="false"
+             android:title="@string/data_size_label"/>
+        <miui.preference.ValuePreference
+             android:key="cache_size"
+             android:clickable="false"
+             android:persistent="false"
+             android:title="@string/cache_size_label"/>
+        <miui.preference.ValuePreference
+             android:key="sd_size"
+             android:clickable="false"
+             android:persistent="false"
+             android:title="@string/sd_size_label"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory>
+        <miui.preference.ButtonPreference
+            android:key="uninstall_button"
+            android:persistent="false"
+            />
+    </PreferenceCategory>
+
+</PreferenceScreen>
