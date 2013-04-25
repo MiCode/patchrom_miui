@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <miui.preference.ValuePreference
+        android:key="device_key"
+        android:title="@string/device_name"
+        android:persistent="false"/>
+    <PreferenceCategory
+        android:title="@string/settings_connect">
+        <CheckBoxPreference
+            android:key="auto_pair_sender_key"
+            android:title="@string/settings_auto_pair_sender_title"
+            android:summary="@string/settings_auto_pair_sender_summary"
+            android:defaultValue="true"/>
+        <CheckBoxPreference
+            android:key="receive_confirm_key"
+            android:title="@string/settings_receive_confirm_title"
+            android:summary="@string/settings_receive_confirm_summary"
+            android:defaultValue="false"/>
+    </PreferenceCategory>
+    <PreferenceCategory>
+        <Preference
+            android:title="@string/guide_label"
+            android:persistent="false">
+            <intent
+                android:targetPackage="com.miui.transfer"
+                android:targetClass="com.miui.transfer.activity.GuideActivity" />
+        </Preference>
+    </PreferenceCategory>
+
+</PreferenceScreen>

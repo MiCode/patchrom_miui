@@ -318,7 +318,6 @@ public class CallerInfoAsyncQuery {
          */
         private void doSpNumberAndAntiSpamQuery(CookieWrapper cw, int token){
             miui.telephony.CallerInfo.doSpNumberQuery(mQueryContext, cw.number, mCallerInfo);
-            miui.telephony.CallerInfo.doAntiSpamQuery(mQueryContext, cw.number, mCallerInfo, cw.listener, token, cw.cookie);
         }
     }
 

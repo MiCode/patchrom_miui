@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffffff"
+    android:orientation="horizontal"
+    android:paddingLeft="12dip"
+    android:paddingRight="14dip" >
+
+    <ImageView
+        android:id="@+id/iv_thumbnail"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_gravity="center_vertical"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="14dip"
+        android:layout_marginTop="5dip"
+        android:layout_weight="1.0"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:lines="1" />
+
+        <ProgressBar
+            android:id="@+id/pb_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="5dip"
+            android:layout_marginTop="5dip"
+            android:visibility="gone"
+            android:indeterminateOnly="false" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/tv_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dip"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/tv_failed"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:singleLine="true"
+                android:visibility="gone"
+                android:textColor="@color/red" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="60dip"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="14dip"
+        android:paddingLeft="0dip"
+        android:paddingRight="0dip" >
+
+        <Button
+            android:id="@+id/bt_operation"
+            android:layout_width="75dip"
+            android:layout_height="40dip"
+            android:layout_gravity="center"
+            android:ems="3"
+            android:paddingLeft="0dip"
+            android:paddingRight="0dip"
+            android:text="@string/cancel"
+            android:textSize="18sp"
+            android:visibility="gone" />
+    </FrameLayout>
+
+</LinearLayout>

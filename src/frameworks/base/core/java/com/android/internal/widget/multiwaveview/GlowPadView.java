@@ -121,6 +121,11 @@ public class GlowPadView extends View {
     @MiuiHook(MiuiHookType.NEW_METHOD)
     void setActiveTarget(int value) { mActiveTarget = value; }
 
+    /**
+     * MIUI ADD:
+     */
+    void updateTargetPosition(int i, float centerX, float centerY, float angle) {}
+
     private static final String TAG = "GlowPadView";
     private static final boolean DEBUG = false;
 

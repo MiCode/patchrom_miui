@@ -341,8 +341,7 @@ public class WindowManagerService extends IWindowManager.Stub
          * Is it necessary to update focus and layout?
          */
         static boolean updateFocusAndLayout(WindowManagerService wms, int tokenPos) {
-            return tokenPos != 0
-                    || wms.mNextAppTransition == WindowManagerPolicy.TRANSIT_UNSET
+            return wms.mNextAppTransition == WindowManagerPolicy.TRANSIT_UNSET
                     || wms.mNextAppTransition == WindowManagerPolicy.TRANSIT_NONE;
         }
     }

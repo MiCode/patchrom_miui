@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/RecordItem"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/list_item_height_large"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:paddingLeft="15dip"
     android:paddingRight="15dip"
-    style="@style/RecordItem">
-    <TextView
-        android:id="@+id/secondary"
-        android:layout_width="wrap_content"
+    android:gravity="center_vertical" >
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        style="@style/ListItemSecondary"
-        android:textColor="@color/primary_color" />
-    <TextView
-        android:id="@+id/primary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@id/secondary"
-        style="@style/ListItemPrimary" />
-    <TextView
-        android:id="@+id/record_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_above="@id/primary"
-        style="@style/ListItemSecondary" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical" >
+        <TextView
+            android:id="@+id/primary"
+            style="@style/ListItemPrimary"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:singleLine="true" />
+        <TextView
+            android:id="@+id/secondary"
+            style="@style/ListItemSecondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dip"
+            android:textColor="@color/primary_color"
+            android:singleLine="true" />
+    </LinearLayout>
     <TextView
         android:id="@+id/record_time"
+        style="@style/ListItemSecondary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/primary"
-        style="@style/ListItemSecondary" />
-</RelativeLayout>
+        android:layout_marginTop="3dip"
+        android:singleLine="true" />
+</LinearLayout>

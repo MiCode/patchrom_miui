@@ -28,6 +28,18 @@
     <style name="BlankWarnTitleText" parent="WarnTitleText">
         <item name="android:textColor">@android:color/black</item>
     </style>
+    <style name="LoginErrorNoticeAppearance" parent="@miui:style/V5.TextAppearance">
+        <item name="android:textColor">@color/text_color_warn</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+    </style>
+    <style name="LoginNormalNoticeAppearance" parent="@miui:style/V5.TextAppearance">
+        <item name="android:textColor">@miui:color/v5_secondary_text_color_light</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+    </style>
+    <style name="LoginInfoNoticeAppearance" parent="@miui:style/V5.TextAppearance">
+        <item name="android:textColor">@color/text_color_notice</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+    </style>
     <style name="PrivacyPolicy">
         <item name="android:textSize">@miui:dimen/v5_text_font_size_button</item>
         <item name="android:textColor">@color/hyper_area_text_color</item>
@@ -65,14 +77,28 @@
     <style name="FakeEditView">
         <item name="android:background">?miui:attr/v5_edit_text_bg</item>
     </style>
-    <style name="RechargeItem">
-        <item name="android:layout_height">@miui:dimen/v5_list_view_double_line_height</item>
-        <item name="android:background">@miui:drawable/v5_list_view_item_bg_light</item>
-    </style>
-    <style name="RecordItem">
-        <item name="android:background">@miui:drawable/v5_list_view_item_bg_light</item>
-    </style>
+    <style name="RechargeItem" parent="@miui:style/V5.Widget.ListView.Item.DoubleLine" />
+    <style name="RecordItem" parent="@miui:style/V5.Widget.ListView.Item.DoubleLine" />
     <style name="Spinner">
         <item name="android:background">@miui:drawable/v5_spinner_bg_light</item>
+    </style>
+    <style name="WeiBo.ButtonUpdateContacts" parent="ButtonLogin">
+    </style>
+    <style name="ContentPadding">
+        <item name="android:paddingLeft">@dimen/content_horizontal_margin</item>
+        <item name="android:paddingRight">@dimen/content_horizontal_margin</item>
+        <item name="android:paddingTop">@dimen/content_horizontal_margin</item>
+        <item name="android:paddingBottom">@dimen/content_horizontal_margin</item>
+    </style>
+    <style name="TextAppearance.WeiBo" parent="miui:style/V5.TextAppearance">
+    </style>
+    <style name="TextAppearance.WeiBo.Description" parent="TextAppearance.WeiBo">
+        <item name="android:textColor">@color/text_color_gray</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+    <style name="TextAppearance.WeiBo.Primary" parent="TextAppearance.WeiBo">
+        <item name="android:textColor">@color/text_color_black</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>

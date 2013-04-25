@@ -19,17 +19,32 @@
     android:orientation="horizontal"
     android:background="@drawable/title_bar_nav_bg_port">
     <RelativeLayout
+        android:id= "@+id/title_bar_panel"
         android:layout_width="0dip"
         android:layout_weight="1.0"
         android:layout_height="match_parent">
         <EditText android:layout_width="fill_parent" android:layout_height="0dip" />
+        <TextView android:id="@+id/assistant_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/url_input_height"
+            android:textSize="@dimen/text_font_size_medium"
+            android:textColor="@color/url_color"
+            android:textColorHint="@color/url_hint_color"
+            android:hint="@string/search_hint"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:lines="1"
+            android:gravity="center_vertical"
+            android:scrollHorizontally="true"
+            android:textCursorDrawable="@drawable/titlebar_text_cursor"
+            android:background="@null"
+            android:visibility="invisible" />
         <LinearLayout
             android:id="@+id/url_part"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/search_part"
             android:orientation="horizontal">
             <ImageView
                 android:id="@+id/bookmark"
@@ -85,11 +100,13 @@
                         android:focusable="true"
                         android:layout_width="0dip"
                         android:layout_weight="1.0"
-                        android:layout_height="match_parent"
+                        android:layout_height="@dimen/url_input_height"
+                        android:gravity="center_vertical"
                         android:fadingEdge="horizontal"
                         android:fadingEdgeLength="24dip"
                         android:textSize="@dimen/text_font_size_medium"
-                        android:textColorHint="@color/url_hint_color"
+                        android:textColor="@color/url_color"
+                      android:textColorHint="@color/url_hint_color"
                         android:hint="@string/url_hint"
                         android:singleLine="true"
                         android:ellipsize="end"
@@ -104,7 +121,6 @@
                         android:id="@+id/reader"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:paddingLeft="6dip"
                         android:paddingRight="0dip"
                         android:src="@drawable/reading_mode"
                         android:visibility="gone" />
@@ -148,7 +164,8 @@
                     android:focusable="true"
                     android:layout_width="0dip"
                     android:layout_weight="1.0"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/url_input_height"
+                    android:gravity="center_vertical"
                     android:layout_gravity="center_vertical"
                     android:fadingEdge="horizontal"
                     android:fadingEdgeLength="24dip"
