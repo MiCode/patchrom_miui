@@ -172,6 +172,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
     }
 
+    /**
+     * MIUI ADD:
+     */
+    void onScreenShotMessageSend(Message msg) {}
+
     @MiuiHook(MiuiHookType.NEW_METHOD)
     Runnable getScreenshotChordLongPress() { return mScreenshotChordLongPress; }
 
@@ -214,8 +219,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
          */
         static int getMiuiViewLayer(int type, int defaultLayer) {
             switch (type) {
-                case WindowManager.LayoutParams.LAST_SYSTEM_WINDOW - 1:
+                case WindowManager.LayoutParams.LAST_SYSTEM_WINDOW - 2:
                     return HIDDEN_NAV_CONSUMER_LAYER + 1;
+                case WindowManager.LayoutParams.LAST_SYSTEM_WINDOW - 1:
+                    return HIDDEN_NAV_CONSUMER_LAYER + 2;
             }
             Log.e("WindowManager", "Unknown window type:" + type);
             return defaultLayer;
@@ -3349,6 +3356,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                             msg.arg1 = 1;
                         if (mNavigationBar != null && mNavigationBar.isVisibleLw())
                             msg.arg2 = 1;
+
+                        // MIUI ADD:
+                        onScreenShotMessageSend(msg);
+
                         try {
                             messenger.send(msg);
                         } catch (RemoteException e) {

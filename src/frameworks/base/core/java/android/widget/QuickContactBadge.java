@@ -52,8 +52,12 @@ public class QuickContactBadge extends ImageView implements OnClickListener {
             if (trigger && lookupUri != null) {
                 return createUri;
             }
-            QuickContact.showQuickContact(badge.getContext(), badge, createUri,
-                    QuickContact.MODE_LARGE, badge.mExcludeMimes);
+
+            // add if condition to make the order same with former(android native)
+            if (createUri != null){
+                QuickContact.showQuickContact(badge.getContext(), badge, createUri,
+                        QuickContact.MODE_LARGE, badge.mExcludeMimes);
+            }
             return null;
         }
     }

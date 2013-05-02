@@ -85,6 +85,7 @@
     <string name="data_sync_notice">您能使用小米帐户同步您的短信、联系人等各种数据，从此无需担心数据丢失，同时享受网络短信等云服务。</string>
     <string name="sync_dspt">开启同步和云服务</string>
     <string name="sync_sub_dspt">系统可能会发送一条短信来激活服务</string>
+    <string name="sync_sub_int_dspt">系统可能会发送一条国际短信来激活服务</string>
     <string name="send_sms_for_sync_title">同步服务需要激活</string>
     <string name="send_sms_for_sync_notice">系统将发送一条普通短信来激活服务，产生的费用由运营商收取，是否继续？</string>
     <string name="send_int_sms_for_sync_notice">系统将发送一条国际短信来激活服务，产生的费用由运营商收取，是否继续？</string>
@@ -166,37 +167,40 @@
     <string name="error_illegal_order_title">订单错误！</string>
     <string name="error_illegal_order_summary">订单错误，请返回重试</string>
     <string name="error_verify_summary">您的应用没有权限请求该服务</string>
+    <string name="error_expired_summary">您的订单已过期</string>
     <string name="error_frozen_title">帐户冻结！</string>
     <string name="error_frozen_summary">您的帐户已被冻结</string>
     <string name="error_account_changed_title">帐户发生变化！</string>
     <string name="error_account_changed_summary">您登录的账户发生变化，请检查并重新开始</string>
 
     <string name="title_recharge">米币充值</string>
+    <string name="title_pay">米币支付</string>
     <string name="recharge_prepaid_title">手机充值卡</string>
     <string name="recharge_prepaid_summary">支持移动、联通、电信手机充值卡</string>
     <string name="recharge_alipay_title">支付宝</string>
-    <string name="recharge_alipay_summary">支持用支付宝充值</string>
+    <string name="recharge_alipay_summary">支持消费支付宝账户余额</string>
     <string name="recharge_tenpay_title">财付通</string>
-    <string name="recharge_tenpay_summary">支持用财付通充值</string>
-    <string name="recharge_voucher_title">米币券</string>
-    <string name="recharge_voucher_summary">支持兑换米币券充值</string>
-    <string name="recharge_hint">1元可充值1米币</string>
+    <string name="recharge_tenpay_summary">支持消费财付通账户余额</string>
+    <string name="recharge_voucher_title">米币卡</string>
+    <string name="recharge_voucher_summary">支持兑换小米公司的米币卡</string>
+    <string name="recharge_hint">1元可兑换1米币</string>
 
-    <string name="title_prepaid">手机充值卡充值</string>
-    <string name="title_paytool"><xliff:g id="tool">%1$s</xliff:g>充值</string>
-    <string name="title_voucher">米币券充值</string>
+    <string name="title_prepaid">手机充值卡</string>
+    <string name="title_paytool"><xliff:g id="tool">%1$s</xliff:g></string>
+    <string name="title_voucher">米币券</string>
     <string name="paytool_alipay">支付宝</string>
     <string name="paytool_tenpay">财付通</string>
     <string name="recharge_denomination"><xliff:g id="value">%1$s</xliff:g>元</string>
     <string name="btn_recharge_large">立即充值</string>
+    <string name="btn_pay_large">立即支付</string>
     <string name="recharge_other">选择其他方式</string>
 
-    <string name="paytool_picker_hint">请选择充值金额</string>
-    <string name="paytool_edit_hint">充值金额（元）</string>
+    <string name="paytool_picker_hint">请选择金额</string>
+    <string name="paytool_edit_hint">金额（元）</string>
     <string name="paytool_edit_limit">单笔不超过<xliff:g id="value">%1$s</xliff:g></string>
     <string name="paytool_error_install"><xliff:g id="tool">%1$s</xliff:g>安全控件安装失败</string>
-    <string name="paytool_error_denomination">请输入正确的充值额度</string>
-    <string name="paytool_error_msp"><xliff:g id="tool">%1$s</xliff:g>充值失败</string>
+    <string name="paytool_error_denomination">请输入正确的额度</string>
+    <string name="paytool_error_msp"><xliff:g id="tool">%1$s</xliff:g>消费失败</string>
     <string name="paytool_msp_not_installed">您没有安装<xliff:g id="tool">%1$s</xliff:g>安全控件，是否要安装？</string>
     <string name="progress_paytool_creating">正在创建<xliff:g id="tool">%1$s</xliff:g>订单…</string>
     <string name="progress_paytool_installing">正在安装<xliff:g id="tool">%1$s</xliff:g>安全控件…</string>
@@ -215,11 +219,11 @@
     <string name="prepaid_password_edit_hint">密码</string>
     <string name="prepaid_edit_limit">数字</string>
     <string name="prepaid_error_carrier">请选择运营商</string>
-    <string name="prepaid_error_denomination">请选择一个充值额度</string>
+    <string name="prepaid_error_denomination">请选择一个额度</string>
     <string name="prepaid_error_card_number">请输入正确的充值卡号</string>
     <string name="prepaid_error_password">请输入正确的充值卡密码</string>
     <string name="prepaid_error_card_length">充值卡号或密码位数错误</string>
-    <string name="progress_prepaid_creating">正在创建充值订单…</string>
+    <string name="progress_prepaid_creating">正在创建订单…</string>
 
     <string name="voucher_input">输入</string>
     <string name="voucher_exchange">兑换</string>
@@ -237,15 +241,18 @@
     <string name="progress_voucher_creating">正在充值米币券…</string>
 
     <string name="progress_submit_title">验证中，请求已提交</string>
-    <string name="progress_submit_summary">正在充值：<xliff:g id="value">%1$s</xliff:g>元</string>
+    <string name="progress_submit_recharge_summary">正在充值：<xliff:g id="value">%1$s</xliff:g>元</string>
+    <string name="progress_submit_pay_summary">正在支付：<xliff:g id="value">%1$s</xliff:g>元</string>
     <string name="progress_submit_hint">预计3分钟内到帐</string>
     <string name="btn_count_down_auto"><xliff:g id="count">%1$s</xliff:g>秒自动查询</string>
     <string name="btn_count_down_wait"><xliff:g id="count">%1$s</xliff:g>秒等候</string>
     <string name="btn_query">立即查询</string>
-    <string name="progress_querying">正在查询充值结果…</string>
-    <string name="progress_success_title"><xliff:g id="value">%1$s</xliff:g>米币充值成功</string>
-    <string name="progress_success_summary">帐户余额：<xliff:g id="balance">%1$s</xliff:g>米币</string>
-    <string name="progress_error_title">充值失败</string>
+    <string name="progress_querying">正在查询结果…</string>
+    <string name="progress_success_recharge_title"><xliff:g id="value">%1$s</xliff:g>米币充值成功</string>
+    <string name="progress_success_pay_title"><xliff:g id="value">%1$s</xliff:g>米币支付成功</string>
+    <string name="progress_success_recharge_summary">帐户余额：<xliff:g id="balance">%1$s</xliff:g>米币</string>
+    <string name="progress_error_recharge_title">充值失败</string>
+    <string name="progress_error_pay_title">支付失败</string>
     <string name="progress_warning_waiting">还没有到帐，过会儿再试:)</string>
     <string name="progress_warning_contact_server">还没有到帐，请放心款不会丢失：\n1. 联系神舟付客服：<xliff:g id="number">%1$s</xliff:g>\n2. 提供本次充值流水号：<xliff:g id="order">%2$s</xliff:g></string>
     <string name="btn_back">返回</string>

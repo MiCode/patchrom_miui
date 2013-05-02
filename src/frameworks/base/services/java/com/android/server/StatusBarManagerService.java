@@ -39,6 +39,8 @@ import com.android.internal.statusbar.StatusBarIconList;
 import com.android.internal.statusbar.StatusBarNotification;
 import com.android.server.wm.WindowManagerService;
 
+import miui.app.ExtraStatusBarManager;
+
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -100,7 +102,7 @@ public class StatusBarManagerService extends IStatusBarService.Stub
 
         public void binderDied() {
             Slog.i(TAG, "binder died for pkg=" + pkg);
-            setStatus(0, token, pkg, null);
+            setStatus(ExtraStatusBarManager.STATUS_BAR_RECORDER_DEAD, token, pkg, null);
             token.unlinkToDeath(this, 0);
         }
     }

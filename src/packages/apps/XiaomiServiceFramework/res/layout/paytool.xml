@@ -8,6 +8,7 @@
     android:layout_marginBottom="13dip"
     android:orientation="vertical" >
     <TextView
+        android:id="@+id/denomination_hint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="6dip"
@@ -49,7 +50,21 @@
             android:inputType="number"
             android:textSize="@dimen/text_size_medium"
             android:textColor="@color/text_color_orange"
-            android:background="@null" />
+            android:background="@null"
+            android:singleLine="true" />
+        <TextView
+            android:id="@+id/denomination_text"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dip"
+            android:gravity="center_vertical"
+            android:ems="10"
+            android:textSize="@dimen/text_size_medium"
+            android:textColor="@color/text_color_orange"
+            android:background="@null"
+            android:singleLine="true"
+            android:ellipsize="marquee" />
     </LinearLayout>
     <Space
         android:layout_width="match_parent"
