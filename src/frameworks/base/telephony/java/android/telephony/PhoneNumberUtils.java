@@ -60,7 +60,8 @@ public class PhoneNumberUtils
             return callIndexOfLastNetworkChar(str) + 1;
         }
 
-        static void appendNonSeparator(StringBuilder sb, char c) {
+        static void appendNonSeparator(StringBuilder sb, char c, int pos) {
+            if (pos == 0 && c == '+') return;
             int digit = Character.digit(c, 10);
             if (digit == -1 && PhoneNumberUtils.isNonSeparator(c)) {
                 sb.append(c);
@@ -1516,7 +1517,7 @@ public class PhoneNumberUtils
         int len = phoneNumber.length();
         for (int i = 0; i < len; i++) {
             char c = phoneNumber.charAt(i);
-            Injector.appendNonSeparator(sb, c); // miui add
+            Injector.appendNonSeparator(sb, c, i); // miui add
             // Character.digit() supports ASCII and Unicode digits (fullwidth, Arabic-Indic, etc.)
             int digit = Character.digit(c, 10);
             if (digit != -1) {

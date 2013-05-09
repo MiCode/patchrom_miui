@@ -96,13 +96,15 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView 
             return false;
         }
 
-        static void checkTextColor(TextView titleView, boolean checked) {
-            if (checked) {
-                titleView.setTextColor(
+        static void checkTextColor(ListMenuItemView v, TextView titleView, boolean checked) {
+            if (UiUtils.isV5Ui(v.getContext())) {
+                if (checked) {
+                    titleView.setTextColor(
                         titleView.getContext().getResources().getColor(miui.R.color.v5_text_color_hilighted_light));
-            } else {
-                titleView.setTextColor(UiUtils.getColor(titleView.getContext(),
+                } else {
+                    titleView.setTextColor(UiUtils.getColor(titleView.getContext(),
                         miui.R.attr.v5_checkable_list_item_text_color));
+                }
             }
         }
     }
@@ -223,7 +225,7 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView 
             compoundButton.setChecked(mItemData.isChecked());
 
             // Miui Hook
-            Injector.checkTextColor(mTitleView, mItemData.isChecked());
+            Injector.checkTextColor(this, mTitleView, mItemData.isChecked());
 
             final int newVisibility = checkable ? VISIBLE : GONE;
             if (compoundButton.getVisibility() != newVisibility) {
@@ -259,7 +261,7 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView 
         compoundButton.setChecked(checked);
 
         // Miui Hook
-        Injector.checkTextColor(mTitleView, checked);
+        Injector.checkTextColor(this, mTitleView, checked);
     }
 
     public void setShortcut(boolean showShortcut, char shortcutKey) {

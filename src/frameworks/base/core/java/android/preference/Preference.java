@@ -559,10 +559,14 @@ public class Preference implements Comparable<Preference>, OnDependencyChangeLis
     @MiuiHook(MiuiHookType.NEW_CLASS)
     static class Injector {
         static void onBindView(Preference preference, View view) {
-            PreferenceGroup parent = preference.mPreferenceParent;
             Context context = preference.getContext();
+            if(!UiUtils.isV5Ui(context)) {
+                return;
+            }
+
+            PreferenceGroup parent = preference.mPreferenceParent;
             int size = parent.getPreferenceCount();
-            if (size == 0 || !UiUtils.isV5Ui(context)) {
+            if (size == 0) {
                 return;
             }
 
