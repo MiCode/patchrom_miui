@@ -8,8 +8,7 @@
     <FrameLayout
         android:id="@+id/aqi_index"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1" >
+        android:layout_height="wrap_content" >
         <com.miui.weather2.view.ViewAQI
             android:id="@+id/act_weather_aqi"
             android:layout_width="wrap_content"
@@ -59,13 +58,12 @@
                 style="@style/text_shadow_1" />
         </LinearLayout>
     </FrameLayout>
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-37dip"
-        android:layout_marginLeft="40dip"
-        android:layout_marginRight="40dip"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginTop="-50dip"
         android:gravity="bottom|center_horizontal" >
         <include layout="@layout/act_weather_aqi_details" />
-    </LinearLayout>
+    </ScrollView>
 </LinearLayout>

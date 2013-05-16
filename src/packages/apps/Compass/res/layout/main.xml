@@ -46,6 +46,14 @@
                 android:textColor="@android:color/white"
                 android:layout_marginTop="@dimen/direction_margin_top" />
 
+            <ImageView
+                android:id="@+id/direction_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/arrow"
+                android:layout_marginTop="@dimen/direction_arrow_margin_top" />
+
             <com.miui.compass.CompassView
                 android:id="@+id/compass_pointer"
                 android:layout_width="wrap_content"
@@ -53,6 +61,14 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/compass_margin_top"
                 android:src="@drawable/compass" />
+
+            <com.miui.compass.CompassView
+                android:id="@+id/compass_values"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/compass_margin_top"
+                android:src="@drawable/compass_v" />
 
             <LinearLayout
                 android:id="@+id/layout_angle"
@@ -62,6 +78,25 @@
                 android:layout_marginLeft="2dip"
                 android:orientation="horizontal"
                 android:layout_marginTop="@dimen/degree_text_margin_top" />
+
+            <ImageView
+                android:id="@+id/guide_animation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:src="@drawable/calibrate_animation"
+                android:layout_marginTop="@dimen/degree_text_margin_top" />
+            <TextView
+                android:id="@+id/guide_toast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="15dip"
+                android:gravity="center"
+                android:text="@string/guide_toast"
+                android:textColor="@miui:color/v5_secondary_text_dark"
+                android:visibility="gone" />
         </FrameLayout>
 
         <LinearLayout
@@ -150,27 +185,5 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/view_guide"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone" >
-
-        <ImageView
-            android:id="@+id/guide_description"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:background="@drawable/guide" />
-
-        <ImageView
-            android:id="@+id/guide_animation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top|center_horizontal"
-            android:layout_marginTop="195dip"
-            android:src="@drawable/calibrate_animation" />
-    </FrameLayout>
 
 </FrameLayout>

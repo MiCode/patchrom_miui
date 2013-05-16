@@ -19,81 +19,35 @@
     android:id="@+id/search_activity_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFFFF"
 >
-
-    <view
-        class="com.android.quicksearchbox.ui.SuggestionsView"
-        android:id="@+id/suggestions"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/search_edit_frame"
         android:layout_alignParentBottom="true"
-        android:scrollbars="none"
-        >
-    </view>
-
-    <!-- The search plate is after the suggestions, to give it a higher
-         z-index. -->
-    <LinearLayout
-        android:id="@+id/search_edit_frame"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="-10dip"
-        android:paddingRight="4dip"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:background="@drawable/search_plate_global"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        >
-
-        <include layout="@layout/corpus_indicator" />
-
-        <com.android.quicksearchbox.ui.QueryTextView
-            android:id="@+id/search_src_text"
-            android:layout_width="0dip"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/search_outside"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1.0"
-            android:layout_marginTop="6dip"
-            android:layout_marginBottom="6dip"
-            android:paddingLeft="10dip"
-            android:paddingRight="10dip"
-            android:paddingTop="5dip"
-            android:paddingBottom="5dip"
-            android:gravity="center_vertical|left"
-            android:singleLine="true"
-            android:ellipsize="end"
-            android:inputType="text|textAutoComplete"
-            android:textSize="18sp"
-            android:textStyle="normal"
-            android:textColor="@android:color/primary_text_light"
-            android:textColorHint="@color/search_hint"
-            android:imeOptions="actionGo"
-        />
-
-        <ImageButton 
-            android:id="@+id/search_go_btn"
-            android:background="@drawable/btn_search_dialog"
-            android:src="@drawable/ic_btn_search"
-            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+            <include
+                android:id="@+id/search_in_web"
+                layout="@layout/suggestion"/>
+            <include
+                android:id="@+id/search_in_app_store"
+                layout="@layout/suggestion"/>
+        </LinearLayout>
+        <view
+            class="com.android.quicksearchbox.ui.SuggestionsView"
+            android:id="@+id/suggestions"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="6dip"
-            android:layout_marginBottom="6dip"
-            android:visibility="gone"
-        />
-
-        <ImageButton
-            android:id="@+id/search_voice_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@drawable/btn_search_dialog_voice"
-            android:src="@drawable/ic_btn_speak_now"
-            android:layout_marginRight="-4dip"
-        />
+            android:scrollbars="none"
+            >
+        </view>
     </LinearLayout>
-
 </com.android.quicksearchbox.ui.SearchActivityViewSinglePane>
