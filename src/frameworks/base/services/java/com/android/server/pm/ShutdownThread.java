@@ -73,13 +73,18 @@ public final class ShutdownThread extends Thread {
 
     @MiuiHook(MiuiHookType.NEW_CLASS)
     static class Injector {
-        static int getResourceId(int id){
-            return getReboot() ? miui.R.string.reboot_confirm : id;
+        static void setDialogTitle(Dialog dialog){
+            int id = getReboot()
+                    ? miui.R.string.reboot_confirm_title
+                    : miui.R.string.shutdown_confirm_title;
+            dialog.setTitle(id);
         }
 
-        static void setDialogTitle(Dialog dialog){
-            int id = getReboot() ? miui.R.string.android_factorytest_reboot : miui.R.string.android_power_off;
-            dialog.setTitle(id);
+        static void setDialogPositiveButtonText(AlertDialog dialog) {
+            int id = getReboot()
+                    ? miui.R.string.android_factorytest_reboot
+                    : miui.R.string.android_power_off;
+            dialog.getButton(Dialog.BUTTON_POSITIVE).setText(id);
         }
 
         static void createShutDownDialog(Context context){
@@ -186,7 +191,6 @@ public final class ShutdownThread extends Thread {
                 : (longPressBehavior == 2
                         ? com.android.internal.R.string.shutdown_confirm_question
                         : com.android.internal.R.string.shutdown_confirm);
-        resourceId = Injector.getResourceId(resourceId); // miui add
         Log.d(TAG, "Notifying thread to start shutdown longPressBehavior=" + longPressBehavior);
 
         if (confirm) {
@@ -195,7 +199,6 @@ public final class ShutdownThread extends Thread {
                     .setTitle(mRebootSafeMode
                             ? com.android.internal.R.string.reboot_safemode_title
                             : com.android.internal.R.string.power_off)
-                    .setMessage(resourceId)
                     .setPositiveButton(com.android.internal.R.string.yes, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             beginShutdownSequence(context);
@@ -208,6 +211,7 @@ public final class ShutdownThread extends Thread {
             dialog.setOnDismissListener(closer);
             dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD_DIALOG);
             dialog.show();
+            Injector.setDialogPositiveButtonText(dialog); // miui add
         } else {
             beginShutdownSequence(context);
         }
