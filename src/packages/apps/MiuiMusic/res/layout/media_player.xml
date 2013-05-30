@@ -11,7 +11,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:gravity="left|top" >
 
         <ImageView
             android:id="@+id/nowplaying_lower_top_mask"
@@ -32,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/bottom_bar"
-            android:layout_below="@+id/title_bar"
+            android:layout_below="@+id/title_placeholder"
             class="miui.v5.widget.CooperativeViewPager" />
 
         <ImageView
@@ -49,10 +50,16 @@
             android:layout_alignParentBottom="true"
             android:background="@drawable/nowplaying_bottom_mask" />
 
-        <include
-            android:id="@+id/title_bar"
+        <View
+            android:id="@+id/title_placeholder"
             android:layout_alignParentTop="true"
-            layout="@miui:layout/v5_title_bar_large" />
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_bar_large_height" />
+
+        <include
+            android:id="@+id/tool_bar"
+            android:layout_alignParentTop="true"
+            layout="@layout/tool_bar" />
 
         <LinearLayout
             android:id="@+id/bottom_bar"
@@ -96,13 +103,4 @@
             android:layout_below="@miui:id/view_pager"
             android:background="@drawable/nowplaying_border" />
     </RelativeLayout>
-
-    <ImageView
-        android:id="@+id/nowplaying_download"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right|top"
-        android:layout_marginTop="100dp"
-        android:src="@drawable/nowplaying_download" />
-
 </FrameLayout>

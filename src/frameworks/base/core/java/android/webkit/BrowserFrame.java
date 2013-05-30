@@ -1212,6 +1212,14 @@ class BrowserFrame extends Handler {
         mCallbackProxy.onMainFrameFinishParsing();
     }
 
+    /**
+     * MIUI ADD
+     * Called by JNI when need update loading url.
+     */
+    private void updateLoadingUrl(String newUrl){
+        mCallbackProxy.onUpdateLoadingUrl(newUrl);
+    }
+
     //==========================================================================
     // native functions
     //==========================================================================

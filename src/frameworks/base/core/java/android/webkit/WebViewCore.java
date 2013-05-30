@@ -46,6 +46,7 @@ import junit.framework.Assert;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
@@ -2050,15 +2051,23 @@ public final class WebViewCore {
      * Sends a DESTROY message to WebCore.
      * Called from UI thread.
      */
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     void destroy() {
         synchronized (mEventHub) {
+            //MIUI ADD:
+            //do unregisterWebView before send destory message, because in EventHub.DESTROY message hanlder will set mWebViewClassic = null
+            //if this case will be cause WebCoreThreadWatchdog.unregisterWebView(null);
+            //the WebCoreThreadWatchdog's attribute mWebViews which is a HashSet may not release this mWebViewClassic then cause memory leak
+            WebCoreThreadWatchdog.unregisterWebView(mWebViewClassic);
             // send DESTROY to front of queue
             // PAUSE/RESUME timers will still be processed even if they get handled later
             mEventHub.mDestroying = true;
             mEventHub.sendMessageAtFrontOfQueue(
                     Message.obtain(null, EventHub.DESTROY));
             mEventHub.blockMessages();
-            WebCoreThreadWatchdog.unregisterWebView(mWebViewClassic);
+            //MIUI DEL:
+            //do it before send destory message
+            //WebCoreThreadWatchdog.unregisterWebView(mWebViewClassic);
         }
     }
 
@@ -2452,6 +2461,14 @@ public final class WebViewCore {
             mDrawIsScheduled = true;
             mEventHub.sendMessage(Message.obtain(null, EventHub.WEBKIT_DRAW));
         }
+    }
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    // called by JNI
+    private void reportWebCoreError() {
+        Date date = new Date();
+        Log.e(LOGTAG, "Report WebCore crash to the ErrorReportUtils at:" + date);
+        miui.util.ErrorReportUtils.sendExceptionErrorReport(mContext, new Throwable("SIGSEGV in webcore at:" + date));
     }
 
     // called by JNI

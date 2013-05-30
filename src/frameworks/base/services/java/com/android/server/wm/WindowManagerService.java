@@ -295,9 +295,11 @@ public class WindowManagerService extends IWindowManager.Stub
                 // 1. is a child window
                 // 2. is an input method window
                 // 3. is allowed by system
+                // 4. is a wallpaper window
                 if (w.mAttachedWindow != null
                         || w.mIsImWindow
                         || w.mFloatingWindowAllowed
+                        || w.mWallpaperX != -1
                         || (!w.isVisibleOrBehindKeyguardLw() && w.isGoneForLayoutLw())) {
                     continue;
                 }

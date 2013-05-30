@@ -172,6 +172,13 @@ public class WebViewClient {
     }
 
     /**
+     * MIUI ADD:
+     * @hide
+     */
+    public void onUpdateLoadingUrl(WebView view, String newUrl) {
+    }
+
+    /**
      * As the host application if the browser should resend data as the
      * requested page was a result of a POST. The default is to not resend the
      * data.

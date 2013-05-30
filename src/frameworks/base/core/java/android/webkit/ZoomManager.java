@@ -27,6 +27,11 @@ import android.util.FloatMath;
 import android.util.Log;
 import android.view.ScaleGestureDetector;
 import android.view.View;
+import android.webkit.WebSettings.LayoutAlgorithm;
+
+import android.annotation.MiuiHook;
+import android.annotation.MiuiHook.MiuiHookType;
+
 
 /**
  * The ZoomManager is responsible for maintaining the WebView's current zoom
@@ -545,7 +550,17 @@ class ZoomManager {
         setZoomScale(scale, reflowText, false);
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private void setZoomScale(float scale, boolean reflowText, boolean force) {
+        // MIUI begin: Workaround for cmread, which is important on our homepage.
+        final String cmread = "http://wap.cmread.com/iread/wml/p/monternetcmread.jsp";
+        if (mWebView != null && mWebView.getUrl() != null && mWebView.getUrl().startsWith(cmread)) {
+            scale = 3.2f;
+            WebSettings settings = mWebView.getSettings();
+            settings.setLayoutAlgorithm(LayoutAlgorithm.NARROW_COLUMNS);
+        }
+        // MIUI end
+
         final boolean isScaleLessThanMinZoom = scale < mMinZoomScale;
         scale = computeScaleWithLimits(scale);
 

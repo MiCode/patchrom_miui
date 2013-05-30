@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:gravity="center_vertical">
+   <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:singleLine="true"
+            android:text="@string/giftcard_record"
+            android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList"
+            android:ellipsize="marquee"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/number"
+            android:layout_marginLeft="5dip"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/giftcard_available_num_bg"
+            android:gravity="center"
+            android:textColor="@color/text_color_white" />
+    </LinearLayout>
+    <!-- Preference should place its actual preference widget here. -->
+    <LinearLayout android:id="@+id/widget_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:minWidth="@miui:dimen/v5_preference_widget_width"
+        android:gravity="center"
+        android:orientation="vertical" />
+    <!-- right arrow -->
+    <ImageView android:id="@+id/right_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@miui:drawable/v5_arrow_right"
+        android:layout_gravity="center_vertical|right"
+        android:gravity="center" />
+</LinearLayout>

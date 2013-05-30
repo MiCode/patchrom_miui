@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2011 The Android Open Source Project
+<!--
+     Copyright (C) 2011 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,42 +15,60 @@
      limitations under the License.
 -->
 
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/nav_tab_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:focusable="false">
+    android:focusable="false"
+    android:orientation="vertical" >
 
-    <!-- 内容区 -->
-    <FrameLayout android:id="@+id/tab_content"
+    <FrameLayout
+        android:id="@+id/tab_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/nav_close_tab_margin_top"
-        android:layout_marginRight="@dimen/nav_close_tab_margin_right">
-        <ImageView android:id="@+id/tab_snapshot"
+        android:layout_height="0dip"
+        android:layout_weight="1" >
+<!--
+        <ImageView
+            android:id="@+id/tab_snapshot"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/nav_close_tab_margin_right"
+            android:layout_marginTop="@dimen/nav_close_tab_margin_top"
             android:scaleType="fitXY" />
-        <TextView android:id="@+id/tab_title"
-            android:layout_width="match_parent"
+-->
+        <ImageView
+            android:id="@+id/close_tab"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:gravity="left|center_vertical"
-            android:background="@drawable/nav_tab_title_bg"
-            android:singleLine="true"
-            android:ellipsize="end"
-            android:lines="1"
-            android:textSize="@dimen/text_font_size_medium"
-            android:textColor="@color/black"
-            android:scrollHorizontally="true" />
+            android:layout_gravity="top|right"
+            android:src="@drawable/nav_tab_close" />
     </FrameLayout>
 
-    <!-- 关闭 -->
-    <ImageView android:id="@+id/close_tab"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/tab_info_part"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="right|top"
-        android:src="@drawable/nav_tab_close" />
+        android:gravity="top|left"
+        android:orientation="vertical"
+        android:paddingRight="@dimen/nav_close_tab_margin_right">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/tab_title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:singleLine="true"
+            android:layout_marginTop="0dip"/>
+
+        <TextView
+            android:id="@+id/tab_url_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="14sp"
+            android:singleLine="true"
+            android:layout_marginTop="-2dip"/>
+    </LinearLayout>
+
+</LinearLayout>

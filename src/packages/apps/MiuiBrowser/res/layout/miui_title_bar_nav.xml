@@ -16,13 +16,18 @@
 -->
 <com.android.browser.MiuiNavigationBarPhone
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
-    android:background="@drawable/title_bar_nav_bg_port">
+    android:background="@drawable/title_bar_nav_bg" >
+    <ImageView
+        android:id="@+id/mask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible" />
     <RelativeLayout
         android:id= "@+id/title_bar_panel"
-        android:layout_width="0dip"
-        android:layout_weight="1.0"
-        android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@id/top_bar">
         <EditText android:layout_width="fill_parent" android:layout_height="0dip" />
         <TextView android:id="@+id/assistant_tv"
             android:layout_width="match_parent"
@@ -106,7 +111,7 @@
                         android:fadingEdgeLength="24dip"
                         android:textSize="@dimen/text_font_size_medium"
                         android:textColor="@color/url_color"
-                      android:textColorHint="@color/url_hint_color"
+                        android:textColorHint="@color/url_hint_color"
                         android:hint="@string/url_hint"
                         android:singleLine="true"
                         android:ellipsize="end"

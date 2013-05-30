@@ -129,6 +129,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URLDecoder;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -4323,6 +4326,190 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
         canvas.clipRect(0, top, right, bottom);
     }
 
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private Rect makeRect(Point point1, Point point2, Point point3) {
+        int left = Math.min(Math.min(point1.x, point2.x), point3.x);
+        int top = Math.min(Math.min(point1.y, point2.y), point3.y);
+        int right = Math.max(Math.max(point1.x, point2.x), point3.x);
+        int bottom = Math.max(Math.max(point1.y, point2.y), point3.y);
+        return new Rect(left, top, right, bottom);
+    }
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private void drawOutline(Vector<Point> points, int radius, Canvas canvas, Paint paint) {
+        if (points.size() < 4) {
+            Log.e(LOGTAG, "drawOutline error : wrong point vector");
+            return;
+        }
+        // use 3 points to decide the turn direction and draw the arc
+        Point turn[] = new Point[3];
+        int offset = 0;
+        while (true) {
+            // 1. init
+            for (int i=0; i<3; i++) {
+                int index = (offset+i) % points.size();
+                turn[i] = points.get(index);
+            }
+
+            if (turn[0].equals(turn[1]) || turn[1].equals(turn[2])) {
+                Log.e(LOGTAG, "should not be here. turn[0]="+turn[0]+", turn[1]="+turn[1]+", turn[2]="+turn[2]);
+                offset++;
+                continue;
+            }
+
+            // 2. draw a line and an arc
+            Point newStartPoint = null, newEndPoint = null;
+            if (turn[0].x == turn[1].x) {
+                if (turn[0].y < turn[1].y) {
+                    newStartPoint = new Point(turn[0].x, turn[0].y + radius);
+                    newEndPoint = new Point(turn[1].x, turn[1].y - radius);
+                } else {
+                    newStartPoint = new Point(turn[0].x, turn[0].y - radius);
+                    newEndPoint = new Point(turn[1].x, turn[1].y + radius);
+                }
+            } else if (turn[0].y == turn[1].y) {
+                if (turn[0].x < turn[1].x) {
+                    newStartPoint = new Point(turn[0].x + radius, turn[0].y);
+                    newEndPoint = new Point(turn[1].x - radius, turn[1].y);
+                } else {
+                    newStartPoint = new Point(turn[0].x - radius, turn[0].y);
+                    newEndPoint = new Point(turn[1].x + radius, turn[1].y);
+                }
+            } else {
+                Log.e(LOGTAG, "position illegal *** !");
+                return;
+            }
+            canvas.drawLine(newStartPoint.x, newStartPoint.y, newEndPoint.x, newEndPoint.y, paint);
+
+            //draw arc
+            Rect orig = makeRect(turn[0], turn[1], turn[2]);
+            Rect outClip = new Rect(turn[1].x - 2*radius, turn[1].y - 2*radius, turn[1].x + 2*radius, turn[1].y + 2*radius);
+            Rect outIntersect = new Rect();
+            outIntersect.setIntersect(orig, outClip);
+            Rect innerClip = new Rect(turn[1].x - radius, turn[1].y - radius, turn[1].x + radius, turn[1].y + radius);
+            canvas.save();
+            canvas.clipRect(innerClip);
+            canvas.drawArc(new RectF(outIntersect), 0, 360, false, paint);
+            canvas.restore();
+
+            // 3. check if reached the last point
+            if (offset == points.size() - 1) {
+                return;
+            }
+            offset++;
+        }
+    }
+
+    /**
+     * MIUI ADD：
+     * add points from rectangular to point vectors for drawing
+     */
+    private void addRectToTwoSides(Vector<Point> leftPoints, Vector<Point> rightPoints, Rect rect) {
+        addPointIfValid(rightPoints, new Point(rect.right, rect.top));
+        addPointIfValid(rightPoints, new Point(rect.right, rect.bottom));
+        addPointIfValid(leftPoints, new Point(rect.left, rect.top));
+        addPointIfValid(leftPoints, new Point(rect.left, rect.bottom));
+    }
+
+    /**
+     * MIUI ADD：
+     * draw focus outline using point vectors
+     */
+    private void drawOutlineWithTwoSides(Vector<Point> leftPoints, Vector<Point> rightPoints, int radius, Canvas canvas, Paint paint) {
+        for (int i = leftPoints.size() - 1; i >= 0; --i) {
+            rightPoints.add(leftPoints.get(i));
+        }
+        drawOutline(rightPoints, radius, canvas, paint);
+    }
+
+
+    /**
+     * MIUI ADD:
+     * add big enough and margined rectangulars into list
+     */
+    private void addGoodRect(Rect r, List<Rect> rect) {
+        final int minHeight = 6;
+        if (r.height() > minHeight) {
+            final int vMargin = 2, hMargin = 4;
+            r.top -= vMargin;
+            r.bottom += vMargin;
+            r.left -= hMargin;
+            r.right += hMargin;
+            rect.add(new Rect(r));
+        }
+    }
+
+    /**
+     * MIUI ADD：
+     * draw focus highlight rectangular and outline
+     */
+    private void drawFocus(Canvas canvas, Rect r, List<Rect> rect) {
+        final int radius = 10;
+        final int strokeWidth = 3;
+        Paint paint = new Paint();
+        paint.setAntiAlias(true);
+        paint.setARGB(0xff, 0xff, 0x72, 0);
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(strokeWidth);
+
+        if (mTouchHighlightRegion.isRect()) {
+            canvas.drawRect(new RectF(r), mTouchHightlightPaint);
+            canvas.drawRoundRect(new RectF(r), radius, radius, paint);
+        } else {
+            Collections.sort(rect, new Comparator<Rect>(){
+                public int compare(Rect r1, Rect r2) {
+                    return r1.top - r2.top;
+                }
+            });
+            Rect top = rect.get(0);
+            Vector<Point> rightPoints = new Vector<Point>(), leftPoints = new Vector<Point>();
+            for (int i = 1; i < rect.size(); ++i) {
+                Rect bottom = rect.get(i);
+                if (top.left > bottom.right || top.right < bottom.left) {
+                    addRectToTwoSides(leftPoints, rightPoints, top);
+                    canvas.drawRect(top, mTouchHightlightPaint);
+                    drawOutlineWithTwoSides(leftPoints, rightPoints, radius, canvas, paint);
+                    leftPoints.clear();
+                    rightPoints.clear();
+                } else {
+                    if (top.bottom != bottom.top) {
+                        int middle = (top.bottom + bottom.top) / 2;
+                        top.bottom = middle;
+                        bottom.top = middle;
+                    }
+                    if (Math.abs(top.left - bottom.left) < 2 * radius) {
+                        top.left = bottom.left = Math.min(top.left, bottom.left);
+                    }
+                    if (Math.abs(top.right - bottom.right) < 2 * radius) {
+                        top.right = bottom.right = Math.max(top.right, bottom.right);
+                    }
+                    addRectToTwoSides(leftPoints, rightPoints, top);
+                    canvas.drawRect(top, mTouchHightlightPaint);
+                }
+                top = rect.get(i);
+            }
+            addRectToTwoSides(leftPoints, rightPoints, top);
+            canvas.drawRect(top, mTouchHightlightPaint);
+            drawOutlineWithTwoSides(leftPoints, rightPoints, radius, canvas, paint);
+        }
+    }
+
+    @MiuiHook(MiuiHookType.NEW_METHOD)
+    private void addPointIfValid(Vector<Point> points, Point point) {
+        if (points.size() < 2) {
+            points.add(point);
+            return;
+        }
+        Point start = points.get(points.size() - 2);
+        Point middle = points.get(points.size() - 1);
+        if ((start.x == middle.x && middle.x == point.x) || (start.y == middle.y && middle.y == point.y)) {
+            middle.set(point.x, point.y);
+            return;
+        }
+        points.add(point);
+    }
+
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     @Override
     public void onDraw(Canvas canvas) {
         if (inFullScreenMode()) {
@@ -4377,9 +4564,17 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
         } else if (shouldDrawHighlightRect()) {
             RegionIterator iter = new RegionIterator(mTouchHighlightRegion);
             Rect r = new Rect();
+
+            // MIUI ADD:
+            List<Rect> rect = new ArrayList<Rect>();
+
             while (iter.next(r)) {
-                canvas.drawRect(r, mTouchHightlightPaint);
+                // MIUI MOD: 
+                // canvas.drawRect(r, mTouchHightlightPaint);
+                addGoodRect(r, rect);
             }
+            // MIUI ADD:
+            drawFocus(canvas, r, rect);
         }
         if (DEBUG_TOUCH_HIGHLIGHT) {
             if (getSettings().getNavDump()) {

@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- For all browser activities -->
-    <style name="MusicActivityStyle">
-        <item name="android:paddingTop">@dimen/action_bar_height</item>
-    </style>
-
-    <!-- For all browser activities -->
-    <style name="MusicTabActivityStyle">
-        <item name="android:paddingTop">@dimen/tab_action_bar_padding</item>
-    </style>
 
     <!-- For primary text of vertical title -->
     <style name="TitlePrimaryText">
@@ -223,6 +214,9 @@
         <item name="android:layout_height">match_parent</item>
         <item name="miui:indexerBackground">@drawable/alphabet_indexer_bg</item>
         <item name="miui:indexerTextColor">@color/white_30_transparent</item>
+        <item name="miui:overlayBackground">@drawable/alphabet_indexer_overlay</item>
+        <item name="miui:overlayMarginTop">@dimen/alphabet_indexer_overlay_margin_top</item>
+        <item name="miui:overlayTextSize">@dimen/alphabet_indexer_overlay_text_size</item>
     </style>
 
     <style name="ErrorMsgTitle">
@@ -300,4 +294,30 @@
     <style name="DropDownItemStyle" parent="@miui:style/V5.Widget.DropDownItem">
         <item name="android:textColor">@android:color/black</item>
     </style>
+
+    <style name="MovableActionBarStyle" parent="@miui:style/V5.Widget.ActionBar.Large">
+        <item name="android:background">@null</item>
+        <item name="android:height">@dimen/mainpage_action_bar_height</item>
+        <item name="android:displayOptions">showTitle</item>
+    </style>
+
+    <style name="MovableActionBarLayoutStyle" parent="@miui:style/V5.Widget.ActionBarMovableLayout">
+        <item name="miui:v5_over_scroll_range">@dimen/movable_action_bar_over_scroll_range</item>
+        <item name="miui:v5_scroll_range">@dimen/movable_action_bar_scroll_range</item>
+        <item name="miui:v5_initial_motion">@dimen/movable_action_bar_scroll_range</item>
+    </style>
+
+    <style name="TabIndicatorArrowGoneStyle" parent="@miui:style/V5.Widget.TabIndicatorArrow">
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="OnlineMovableActionBarStyle" parent="@style/MovableActionBarStyle">
+        <item name="android:height">@dimen/online_movable_action_bar_height</item>
+    </style>
+
+    <style name="OnlineMovableActionBarLayoutStyle" parent="@style/MovableActionBarLayoutStyle">
+        <item name="miui:v5_scroll_range">@dimen/online_tab_scroll_range</item>
+        <item name="miui:v5_initial_motion">@dimen/online_tab_scroll_range</item>
+    </style>
+
 </resources>

@@ -22,32 +22,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/bottom_bar"
     android:layout_gravity="bottom"
     android:orientation="horizontal"
     android:gravity="center"
     android:background="@drawable/bottom_bar_bg">
 
     <!-- 后退 -->
-    <Button style="@style/BottomBarIconNormal"
+    <ImageButton
         android:id="@+id/action_back"
-        android:drawableTop="@drawable/action_backward"
-        android:text="@string/accessibility_button_back" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/action_backward"/>
 
     <!-- 前进 -->
-    <Button style="@style/BottomBarIconNormal"
+    <ImageButton
         android:id="@+id/action_forward"
-        android:drawableTop="@drawable/action_forward"
-        android:text="@string/accessibility_button_forward" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/action_forward"/>
 
     <!-- 标签管理页 -->
-    <Button style="@style/BottomBarIconSpecial"
+    <ImageButton
         android:id="@+id/action_tabs"
-        android:text="@string/accessibility_button_tabs" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/action_tabs"/>
 
     <!-- 新建标签 -->
-    <Button style="@style/BottomBarIconNormal"
+    <ImageButton
         android:id="@+id/action_new_tab"
-        android:drawableTop="@drawable/action_new_tab"
-        android:text="@string/accessibility_button_newtab" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/action_new_tab"/>
 
 </LinearLayout>

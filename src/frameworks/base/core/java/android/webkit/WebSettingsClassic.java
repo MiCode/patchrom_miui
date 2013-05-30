@@ -284,6 +284,12 @@ public class WebSettingsClassic extends WebSettings {
         mDefaultTextEncoding = context.getString(com.android.internal.
                                                  R.string.default_text_encoding);
 
+        if (miui.util.UiUtils.usingMiuiFonts(mContext)) {
+            mStandardFontFamily = "miui";
+        } else {
+            mStandardFontFamily = "sans-serif";
+        }
+
         if (sLockForLocaleSettings == null) {
             sLockForLocaleSettings = new Object();
             sLocale = Locale.getDefault();

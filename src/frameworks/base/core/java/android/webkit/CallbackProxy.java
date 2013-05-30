@@ -132,6 +132,9 @@ class CallbackProxy extends Handler {
 
     @MiuiHook(MiuiHookType.NEW_FIELD)
     private static final int MAIN_FRAME_FINISH_PARSING              = 210;
+    // MIUI ADD:
+    private static final int UPDATE_LOADING_URL                   = 211;
+
 
     // Result transportation object for returning results across thread
     // boundaries.
@@ -340,6 +343,15 @@ class CallbackProxy extends Handler {
                 }
                 break;
             // end add
+
+            // MIUI ADD:
+            case UPDATE_LOADING_URL:
+                if (mWebViewClient != null) {
+                    String newUrl  = msg.getData().getString("newUrl");
+                    mWebViewClient.onUpdateLoadingUrl(mWebView.getWebView(), newUrl);
+                }
+                break;
+            // END
 
             case RECEIVED_ICON:
                 if (mWebChromeClient != null) {
@@ -1030,6 +1042,16 @@ class CallbackProxy extends Handler {
     @MiuiHook(MiuiHookType.NEW_METHOD)
     public void onMainFrameFinishParsing() {
         Message msg = obtainMessage(MAIN_FRAME_FINISH_PARSING);
+        sendMessage(msg);
+    }
+
+    /**
+     * MIUI ADD:
+     * @hide
+     */
+    public void onUpdateLoadingUrl(String newUrl){
+        Message msg = obtainMessage(UPDATE_LOADING_URL);
+        msg.getData().putString("newUrl", newUrl);
         sendMessage(msg);
     }
 
