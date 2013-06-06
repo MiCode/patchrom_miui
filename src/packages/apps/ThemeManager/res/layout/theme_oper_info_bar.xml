@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/theme_oper_info_bar_bg"
         android:gravity="center"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:paddingLeft="10dip">
         <ImageView
             android:id="@+id/info_icon"
             android:layout_width="wrap_content"
@@ -25,14 +26,24 @@
         <TextView
             android:id="@+id/info_text"
             android:layout_width="0dip"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center_vertical|left"
             android:textColor="@miui:color/v5_primary_text_color_light" />
         <ImageView
             android:id="@+id/info_oper_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:src="@drawable/batch_import_arrow" />
+        <Button
+            android:id="@+id/info_oper_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/batch_update_btn"
+            android:minWidth="@dimen/batch_update_btn_min_width"
+            android:text="@string/theme_batch_update_all"
+            android:textSize="@dimen/batch_udpate_btn_text_size"
+            android:textColor="@color/batch_update_btn_text_color"
+            android:visibility="gone" />
     </LinearLayout>
 </LinearLayout>

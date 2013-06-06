@@ -699,6 +699,12 @@ public final class WebViewCore {
     @MiuiHook(MiuiHookType.NEW_METHOD)
     private native String[] nativeSwitchReadMode(int nativeClass, boolean inSession, Vector<String> readModeTemplateVector);
 
+    // MIUI ADD:
+    private native void nativeSetShowingMagnifier(int nativeClass, boolean showing);
+
+    // MIUI ADD:
+    private native void nativeSetJavaScriptWhenSelecting(int nativeClass, boolean javaScriptEnabled);
+
     private native void nativeDumpDomTree(int nativeClass, boolean useFile);
 
     private native void nativeDumpRenderTree(int nativeClass, boolean useFile);
@@ -984,7 +990,7 @@ public final class WebViewCore {
         public int mMaxLength;
         public Rect mContentBounds;
         public int mNodeLayerId;
-        public Rect mContentRect;
+        public Rect mClientRect;
     }
 
     // mAction of TouchEventData can be MotionEvent.getAction() which uses the
@@ -1226,9 +1232,14 @@ public final class WebViewCore {
 
         @MiuiHook(MiuiHookType.NEW_FIELD)
         static final int CHECK_READ_MODE = 5010;
+        // MIUI ADD:
+        static final int SET_SHOWING_MAGNIFIER  = 5020;
 
         @MiuiHook(MiuiHookType.NEW_FIELD)
         static final int SAVE_IMAGE_FROM_CACHE  = 5030;
+
+        // MIUI ADD:
+        static final int SET_JAVASCRIPT_WHEN_SELECTING = 5040;
 
         // Private handler for WebCore messages.
         private Handler mHandler;
@@ -1337,13 +1348,8 @@ public final class WebViewCore {
                             } else {
                                 xPercent = ((Float) msg.obj).floatValue();
                             }
-                            Rect contentBounds = new Rect();
                             nativeScrollFocusedTextInput(mNativeClass, xPercent,
-                                    msg.arg2, contentBounds);
-                            Message.obtain(
-                                    mWebViewClassic.mPrivateHandler,
-                                    WebViewClassic.UPDATE_CONTENT_BOUNDS,
-                                    contentBounds).sendToTarget();
+                                    msg.arg2);
                             break;
 
                         case LOAD_URL: {
@@ -1638,6 +1644,18 @@ public final class WebViewCore {
                             break;
                         //MiuiHook read mode end
 
+                        // MIUI ADD:
+                        case SET_SHOWING_MAGNIFIER:
+                            nativeSetShowingMagnifier(mNativeClass, msg.arg1 == 1);
+                            break;
+                        // END
+
+                        // MIUI ADD:
+                        case SET_JAVASCRIPT_WHEN_SELECTING:
+                            nativeSetJavaScriptWhenSelecting(mNativeClass, msg.arg1 == 1);
+                            break;
+                        // END
+
                         case DUMP_DOMTREE:
                             nativeDumpDomTree(mNativeClass, msg.arg1 == 1);
                             break;
@@ -1754,19 +1772,16 @@ public final class WebViewCore {
                             nativeInsertText(mNativeClass, (String) msg.obj);
                             break;
                         case SELECT_TEXT: {
-                            int[] args = (int[]) msg.obj;
-                            if (args == null) {
-                                nativeClearTextSelection(mNativeClass);
-                            } else {
-                                // args[0] ~ args[3] is the handles, args[4] is indicator of draggingLeft
-                                String[] strArray = nativeSelectText(mNativeClass, args[0],
-                                        args[1], args[2], args[3], args[4]);
-                                if (true /*copiedText != null*/ ) {
-                                    mWebViewClassic.mPrivateHandler.obtainMessage(
-                                            WebViewClassic.SHOW_MAGNIFIER, strArray)
-                                            .sendToTarget();
-                                }
-                            }
+                            int handleId = (Integer) msg.obj;
+                            // MIUI MOD:
+                            // nativeSelectText(mNativeClass, handleId,
+                            //        msg.arg1, msg.arg2);
+                            String[] strArray = nativeSelectText(mNativeClass, handleId,
+                                    msg.arg1, msg.arg2);
+                            mWebViewClassic.mPrivateHandler.obtainMessage(
+                                    WebViewClassic.SHOW_MAGNIFIER, strArray)
+                                    .sendToTarget();
+                            // END
                             break;
                         }
                         case SELECT_WORD_AT: {
@@ -1822,9 +1837,9 @@ public final class WebViewCore {
                         case SAVE_IMAGE_FROM_CACHE:
                             int x = msg.arg1;
                             int y = msg.arg2;
-                            String filename = (String)msg.obj;
-                            boolean save = nativeSaveImageFromCache(mNativeClass, x, y, filename);
-                            mCallbackProxy.isImageFromCache(save);
+                            String path = (String)msg.obj;
+                            boolean success = nativeSaveImageFromCache(mNativeClass, x, y, path);
+                            mCallbackProxy.savedImageFromCache(success, path);
                             break;
                     }
                 }
@@ -2935,7 +2950,7 @@ public final class WebViewCore {
      * Scroll the focused textfield to (xPercent, y) in document space
      */
     private native void nativeScrollFocusedTextInput(int nativeClass,
-            float xPercent, int y, Rect contentBounds);
+            float xPercent, int y);
 
     // these must be in document space (i.e. not scaled/zoomed).
     private native void nativeSetScrollOffset(int nativeClass,
@@ -3138,6 +3153,20 @@ public final class WebViewCore {
         // TODO: Figure out what to do with this (b/6111818)
     }
 
+    // called by JNI
+    // MIUI ADD:
+    private void updateMagnifierCaret() {
+        mWebViewClassic.mPrivateHandler.obtainMessage(WebViewClassic.UPDATE_MAGNIFIER_CARET).sendToTarget();
+    }
+
+    /**
+     * MIUI ADD:
+     * Called by JNI, Update the caret rect for caret selection handle
+     */
+    private void updateCaretRect(int x, int y, int width, int height) {
+        mWebViewClassic.mPrivateHandler.obtainMessage(WebViewClassic.UPDATE_CARET_RECT, new Rect(x, y, x + width, y + height)).sendToTarget();
+    }
+
     private void setUseMockDeviceOrientation() {
         mDeviceMotionAndOrientationManager.setUseMock();
     }
@@ -3213,13 +3242,17 @@ public final class WebViewCore {
      */
     private native String nativeGetText(int nativeClass,
             int startX, int startY, int endX, int endY);
+    // MIUI MOD:
+    // private native void nativeSelectText(int nativeClass,
+    //        int handleId, int x, int y);
     private native String[] nativeSelectText(int nativeClass,
-            int startX, int startY, int endX, int endY, int draggingLeft);
+            int handleId, int x, int y);
+    // END
     private native void nativeClearTextSelection(int nativeClass);
     private native boolean nativeSelectWordAt(int nativeClass, int x, int y);
     private native void nativeSelectAll(int nativeClass);
     private native void nativeSetInitialFocus(int nativeClass, int keyDirection);
-    private native boolean nativeSaveImageFromCache(int nativeClass, int x, int y, String fileName);
+    private native boolean nativeSaveImageFromCache(int nativeClass, int x, int y, String path);
 
     private static native void nativeCertTrustChanged();
 }

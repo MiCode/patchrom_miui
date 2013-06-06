@@ -23,20 +23,17 @@
     <ImageView
         android:src="@drawable/ic_search_category_history"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:paddingLeft="8dip" />
-    <ImageButton
+        android:layout_height="wrap_content"/>
+    <ImageView
         android:id="@+id/favicon"
-        android:layout_width="52dip"
-        android:layout_height="match_parent"
-        android:paddingLeft="16dip"
-        android:paddingRight="16dip"
-        android:scaleType="fitCenter"
-        style="@style/HoloButton" />
+        android:layout_width="16dip"
+        android:layout_height="16dip"
+        android:layout_gravity="center"/>
     <FrameLayout
         android:id="@+id/toggle_container"
         android:layout_width="0dip"
         android:layout_height="match_parent"
+        android:layout_marginLeft="12dip"
         android:layout_weight="1">
         <TextView
             android:id="@+id/title"
@@ -44,14 +41,15 @@
             android:layout_height="match_parent"
             android:singleLine="true"
             android:gravity="center_vertical"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textSize="@dimen/text_font_size_medium"
+            android:textColor="@color/url_color"/>
         <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:singleLine="true"
             android:gravity="center_vertical"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textColor="@color/url_color"/>
     </FrameLayout>
     <ImageButton
         android:id="@+id/tab_switcher"

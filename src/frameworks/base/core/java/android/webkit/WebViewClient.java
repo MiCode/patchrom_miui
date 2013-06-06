@@ -334,6 +334,6 @@ public class WebViewClient {
      * @hide
      */
     @MiuiHook(MiuiHookType.NEW_METHOD)
-    public void onGotImageFromCache(boolean success) {
+    public void onGotImageFromCache(boolean success, String path) {
     }
 }

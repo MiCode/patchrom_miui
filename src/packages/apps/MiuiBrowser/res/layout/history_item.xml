@@ -1,80 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2008 The Android Open Source Project
-
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-
-          http://www.apache.org/licenses/LICENSE-2.0
-
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingLeft="7dip"
-    android:paddingRight="7dip" >
+    android:paddingLeft="@dimen/history_padding_left" >
+
+    <ImageView
+        android:layout_width="@dimen/bookmark_icon_width"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/miui_history_time_line" />
 
     <LinearLayout
         android:id="@+id/content_panel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal" >
-
-        <ImageView
-            android:id="@+id/favicon"
-            android:layout_width="32dip"
-            android:layout_height="32dip"
-            android:background="@drawable/bookmark_list_favicon_bg"
-            android:scaleType="fitXY"
-            android:src="@drawable/app_web_browser_sm" />
-
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical" >
         <LinearLayout
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:layout_marginTop="5dip"
-            android:layout_marginBottom="5dip"
-            android:orientation="vertical"
-            android:paddingLeft="10dip" >
-
+            android:id="@+id/label_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <ImageView
+                android:id="@+id/favicon"
+                android:layout_width="@dimen/bookmark_icon_width"
+                android:layout_height="@dimen/bookmark_icon_height"
+                android:scaleType="fitXY"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/bookmark_list_favicon_bg"
+                android:src="@drawable/app_web_browser_sm" />
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/black" />
+                android:paddingLeft="10dip"
+                android:paddingRight="40dip"
+                style="@style/BookmarkLabelTextStyle" />
+        </LinearLayout>
 
-            <TextView
+        <!-- paddingLeft = label.paddingLeft + ImageView.width -->
+        <TextView
                 android:id="@+id/url"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ellipsize="middle"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/black" />
-        </LinearLayout>
-
-        <CheckBox
+                android:paddingLeft="23dip"
+                android:paddingRight="40dip"
+                style="@style/BookmarkUrlTextStyle" />
+    </LinearLayout>
+    <CheckBox
             android:id="@+id/star"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="center_vertical|right"
             android:button="@drawable/btn_checkbox_star"
-            android:focusable="false"
-            android:gravity="right" />
-    </LinearLayout>
-
+            android:focusable="false" />
 </FrameLayout>

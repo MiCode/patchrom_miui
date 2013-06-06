@@ -501,7 +501,9 @@ public class MediaScanner
                 }
             }
 
-            FileEntry entry = makeEntryFor(path);
+            // MIUI MOD:
+            // FileEntry entry = makeEntryFor(path);
+            FileEntry entry = fastMakeEntryFor(path);
             // add some slack to avoid a rounding error
             long delta = (entry != null) ? (lastModified - entry.mLastModified) : 0;
             boolean wasModified = delta > 1 || delta < -1;
@@ -1461,7 +1463,9 @@ public class MediaScanner
                 // build file cache so we can look up tracks in the playlist
                 prescan(null, true);
 
-                FileEntry entry = makeEntryFor(path);
+                // MIUI MOD:
+                // FileEntry entry = makeEntryFor(path);
+                FileEntry entry = fastMakeEntryFor(path);
                 if (entry != null) {
                     fileList = mMediaProvider.query(mFilesUri, FILES_PRESCAN_PROJECTION,
                             null, null, null, null);
@@ -1483,6 +1487,61 @@ public class MediaScanner
                 fileList.close();
             }
         }
+    }
+
+    /**
+     * MIUI ADD:
+     * This method is copied from jellybean42. It fixes the media scan slow issue when filename contains wildcard characters.
+     */
+    FileEntry fastMakeEntryFor(String path) {
+        String where;
+        String[] selectionArgs;
+
+        Cursor c = null;
+        try {
+            boolean hasWildCards = path.contains("_") || path.contains("%");
+
+            if (hasWildCards || !mCaseInsensitivePaths) {
+                // if there are wildcard characters in the path, the "like" match
+                // will be slow, and it's worth trying an "=" comparison
+                // first, since in most cases the case will match.
+                // Also, we shouldn't do a "like" match on case-sensitive filesystems
+                where = Files.FileColumns.DATA + "=?";
+                selectionArgs = new String[] { path };
+            } else {
+                // if there are no wildcard characters in the path, then the "like"
+                // match will be just as fast as the "=" case, because of the index
+                where = "_data LIKE ?1 AND lower(_data)=lower(?1)";
+                selectionArgs = new String[] { path };
+            }
+            c = mMediaProvider.query(mFilesUri, FILES_PRESCAN_PROJECTION,
+                    where, selectionArgs, null, null);
+            if (!c.moveToFirst() && hasWildCards && mCaseInsensitivePaths) {
+                // Try again with case-insensitive match. This will be slower, especially
+                // if the path contains wildcard characters.
+                // The 'like' makes it use the index, the 'lower()' makes it correct
+                // when the path contains sqlite wildcard characters,
+                where = "_data LIKE ?1 AND lower(_data)=lower(?1)";
+                selectionArgs = new String[] { path };
+                c.close();
+                c = mMediaProvider.query(mFilesUri, FILES_PRESCAN_PROJECTION,
+                        where, selectionArgs, null, null);
+                // TODO update the path in the db with the correct case so the fast
+                // path works next time?
+            }
+            if (c.moveToFirst()) {
+                long rowId = c.getLong(FILES_PRESCAN_ID_COLUMN_INDEX);
+                int format = c.getInt(FILES_PRESCAN_FORMAT_COLUMN_INDEX);
+                long lastModified = c.getLong(FILES_PRESCAN_DATE_MODIFIED_COLUMN_INDEX);
+                return new FileEntry(rowId, path, lastModified, format);
+            }
+        } catch (RemoteException e) {
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+        }
+        return null;
     }
 
     FileEntry makeEntryFor(String path) {

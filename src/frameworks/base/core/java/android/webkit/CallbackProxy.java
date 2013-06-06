@@ -926,9 +926,9 @@ class CallbackProxy extends Handler {
      *
      */
     @MiuiHook(MiuiHookType.NEW_METHOD)
-    void isImageFromCache(boolean success) {
+    void savedImageFromCache(boolean success, String path) {
         if (mWebViewClient != null) {
-            mWebViewClient.onGotImageFromCache(success);
+            mWebViewClient.onGotImageFromCache(success, path);
         }
     }
 

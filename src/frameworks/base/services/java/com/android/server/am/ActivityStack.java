@@ -74,6 +74,13 @@ import java.util.List;
  * State and management of a single stack of activities.
  */
 final class ActivityStack {
+
+    static class Injector {
+        static boolean isDestroyHomeReasonAlwaysOrFinishing(String reason, ActivityRecord record) {
+            return record.finishing || "always-finish".equals(reason) && "com.miui.home".equals(record.packageName);
+        }
+    }
+
     static final String TAG = ActivityManagerService.TAG;
     static final boolean localLOGV = ActivityManagerService.localLOGV;
     static final boolean DEBUG_SWITCH = ActivityManagerService.DEBUG_SWITCH;
@@ -3991,7 +3998,9 @@ final class ActivityStack {
         boolean activityRemoved = false;
         for (int i=mHistory.size()-1; i>=0; i--) {
             ActivityRecord r = mHistory.get(i);
-            if (r.finishing) {
+            // MIUI MOD:
+            // if (r.finishing) {
+            if (Injector.isDestroyHomeReasonAlwaysOrFinishing(reason, r)) {
                 continue;
             }
             if (r.fullscreen) {
