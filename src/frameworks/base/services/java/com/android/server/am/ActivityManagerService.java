@@ -4320,9 +4320,13 @@ public final class ActivityManagerService extends ActivityManagerNative
                         null, null, 0, null, null,
                         android.Manifest.permission.RECEIVE_BOOT_COMPLETED,
                         false, false, MY_PID, Process.SYSTEM_UID, Binder.getOrigCallingUser());
-                ExtraActivityManagerService.finishBooting(mContext); // miui add
             }
         }
+        // miui add start
+        if (mFactoryTest != SystemServer.FACTORY_TEST_LOW_LEVEL) {
+            ExtraActivityManagerService.finishBooting(mContext);
+        }
+        // miui add end
     }
     
     final void ensureBootCompleted() {

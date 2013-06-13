@@ -92,9 +92,11 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
+            <!-- category buttons -->
             <FrameLayout
-                    android:layout_height="wrap_content"
                     android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1"
                     android:gravity="center_horizontal"
                     android:paddingTop="@dimen/category_panel_paddingtop"
                     android:paddingLeft="@dimen/category_panel_paddingtleft"
@@ -103,7 +105,7 @@
                 <LinearLayout
                         android:id="@+id/category_buttons"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:orientation="vertical">
                     <LinearLayout
                             android:layout_width="match_parent"
@@ -256,15 +258,14 @@
             <LinearLayout
                     android:layout_width="match_parent"
                     android:orientation="vertical"
-                    android:layout_height="0dip"
-                    android:layout_weight="1">
+                    android:layout_height="wrap_content">
                 <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="0dip"
-                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
                         android:layout_marginTop="@dimen/category_storage_info_margintop"
+                        android:layout_marginBottom="@dimen/category_storage_info_marginbottom"
                         android:paddingLeft="@dimen/category_information_paddingtleft">
 
                     <TextView

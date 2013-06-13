@@ -17,9 +17,10 @@
 <!-- Spinner for a field in the contact editor. -->
 
 <!-- Note: explicitly override the default left and right padding on spinner -->
+<!-- 高度和PARENT一致，否则直接指定高度有可能导致spinner比PARENT矮，导致spinner下部看上去变粗 -->
 <Spinner
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/spinner"
     android:layout_width="@dimen/spinner_width"
-    android:layout_height="@dimen/spinner_height"
+    android:layout_height="match_parent"
     android:spinnerMode="dialog"/>

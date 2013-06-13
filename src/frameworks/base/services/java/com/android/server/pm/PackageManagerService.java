@@ -262,12 +262,25 @@ public class PackageManagerService extends IPackageManager.Stub {
             return pi != null ? list.append(pi) : false;
         }
 
-        static ResolveInfo checkMiuiHomeIntent(PackageManagerService pms, Intent intent, String resolvedType,
+        static ResolveInfo checkMiuiIntent(PackageManagerService pms, Intent intent, String resolvedType,
                 int flags, int userId, ResolveInfo defaultResolveInfo) {
-            if (intent != null && intent.getCategories() != null
-                    && intent.getCategories().contains(Intent.CATEGORY_HOME)) {
-                intent.setClassName("com.miui.home", "com.miui.home.launcher.Launcher");
-                return pms.resolveIntent(intent, resolvedType, flags, userId);
+            if (intent != null) {
+                if (intent.getCategories() != null && intent.getCategories().contains(Intent.CATEGORY_HOME)) {
+                    intent.setClassName("com.miui.home", "com.miui.home.launcher.Launcher");
+                } else if ("http".equals(intent.getScheme()) && Intent.ACTION_VIEW.equals(intent.getAction())) {
+                    Uri uri = intent.getData();
+                    if (uri != null) {
+                        String host = uri.getHost();
+                        String path = uri.getPath();
+                        if (host != null && host.indexOf("zhuti.xiaomi.com") >=0
+                                && path != null && path.startsWith("/detail/")) {
+                            intent.setClassName("com.android.thememanager", "com.android.thememanager.activity.ThemeDetailActivity");
+                        }
+                    }
+                }
+                if (intent.getComponent() != null) {
+                    return pms.resolveIntent(intent, resolvedType, flags, userId);
+                }
             }
             return defaultResolveInfo;
         }
@@ -2496,7 +2509,7 @@ public class PackageManagerService extends IPackageManager.Stub {
                 /** Original
                  * return mResolveInfo;
                  */
-                return Injector.checkMiuiHomeIntent(this, intent, resolvedType, flags, userId, mResolveInfo); // Miui Hook
+                return Injector.checkMiuiIntent(this, intent, resolvedType, flags, userId, mResolveInfo); // Miui Hook
             }
         }
         return null;
