@@ -690,6 +690,17 @@ class ZoomManager {
         }
     }
 
+    private void reflowAfterScale(float lastTouchY) {
+        mInitialZoomOverview = false;
+        setZoomCenter(0, lastTouchY);
+        mAnchorX = 0;
+        mAnchorY = mWebView.viewToContentY((int) lastTouchY + mWebView.getScrollY());
+
+        final float newTextWrapScale = Math.max(mActualScale, getReadingLevelScale());
+        mTextWrapScale = newTextWrapScale;
+        setZoomScale(mActualScale, true, true);
+    }
+
     private void setZoomOverviewWidth(int width) {
         if (width == 0) {
             mZoomOverviewWidth = WebViewClassic.DEFAULT_VIEWPORT_WIDTH;
@@ -915,6 +926,7 @@ class ZoomManager {
                 // new view size will be passed to the WebKit
                 refreshZoomScale(reflowNow &&
                     !mWebView.getSettings().getUseFixedViewport());
+                reflowAfterScale(mAnchorY);
                 // call invalidate() to draw without zoom filter
                 mWebView.invalidate();
             }

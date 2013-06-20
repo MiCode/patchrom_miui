@@ -4522,9 +4522,22 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
         } else {
             Collections.sort(rect, new Comparator<Rect>(){
                 public int compare(Rect r1, Rect r2) {
-                    return r1.top - r2.top;
+                    int diff = r1.top - r2.top;
+                    return diff != 0 ? diff : r1.left - r2.left;
                 }
             });
+
+            // merge rects on the same line
+            for (int i = 0; i < rect.size() - 1; ++i) {
+                Rect p = rect.get(i), q = rect.get(i + 1);
+                if (p.left < q.left && p.bottom > q.top) {
+                    p.bottom = Math.max(p.bottom, q.bottom);
+                    p.right= Math.max(p.right, q.right);
+                    rect.remove(i + 1);
+                    --i;
+                }
+            }
+
             Rect top = rect.get(0);
             Vector<Point> rightPoints = new Vector<Point>(), leftPoints = new Vector<Point>();
             for (int i = 1; i < rect.size(); ++i) {

@@ -25,7 +25,14 @@ import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.Resources.NotFoundException;
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.NetworkInfo.State;
+import android.net.DhcpInfo;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.net.ParseException;
 import android.net.Uri;
 import android.net.WebAddress;
@@ -46,6 +53,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.WeakReference;
 import java.net.URLEncoder;
+import java.net.InetAddress;
+import java.net.URL;
 import java.nio.charset.Charsets;
 import java.security.PrivateKey;
 import java.security.cert.CertificateEncodingException;
@@ -56,6 +65,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import android.text.format.Formatter;
 
 import org.apache.harmony.security.provider.cert.X509CertImpl;
 import org.apache.harmony.xnet.provider.jsse.OpenSSLDSAPrivateKey;
@@ -97,6 +107,7 @@ class BrowserFrame extends Handler {
     // Key store handler when Chromium HTTP stack is used.
     private KeyStoreHandler mKeyStoreHandler = null;
 
+    private Context appContext;
     // Implementation of the searchbox API.
     private final SearchBoxImpl mSearchBox;
 
@@ -118,6 +129,9 @@ class BrowserFrame extends Handler {
     static final int FRAME_LOADTYPE_SAME = 6;
     static final int FRAME_LOADTYPE_REDIRECT = 7;
     static final int FRAME_LOADTYPE_REPLACE = 8;
+
+    // set current apn
+    static final Uri PREFERRED_APN_URI = Uri.parse("content://telephony/carriers/preferapn");
 
     // A progress threshold to switch from history Picture to live Picture
     private static final int TRANSITION_SWITCH_THRESHOLD = 75;
@@ -207,6 +221,7 @@ class BrowserFrame extends Handler {
 
         Context appContext = context.getApplicationContext();
 
+        this.appContext = appContext;
         // Create a global JWebCoreJavaBridge to handle timers and
         // cookies in the WebCore thread.
         if (sJavaBridge == null) {
@@ -363,6 +378,71 @@ class BrowserFrame extends Handler {
             description = ErrorStrings.getString(errorCode, mContext);
         }
         mCallbackProxy.onReceivedError(errorCode, description, failingUrl);
+    }
+
+    public String getNetErrorInfo(int errorCode, String failingUrl) {
+        ConnectivityManager cm = (ConnectivityManager)appContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        int errorType = 0;
+        int recommendAction = 0;
+        errorType = errorCode;
+        int wifiState = 0;
+        State state = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState();
+        if (State.CONNECTED == state) {
+            wifiState = 1;
+        } else if (State.CONNECTED != state) {
+            wifiState = 2;
+        }
+        InetAddress address=null;
+        String ipAddress = "";
+        try {
+            address = InetAddress.getByName(new URL(failingUrl).getHost());
+            ipAddress = address.getHostAddress();
+        } catch (Exception e) {
+            ipAddress = "";
+        }
+        WifiManager wifi_service = (WifiManager) appContext.getSystemService(Context.WIFI_SERVICE);
+        DhcpInfo dhcpInfo = wifi_service.getDhcpInfo();
+        String gateway = Formatter.formatIpAddress(dhcpInfo.gateway);
+        String apn = getCurrentApnInUse(appContext);
+        String ret = errorType + "&var1=" + recommendAction + "&var2=" + ipAddress + "&var3=" + wifiState + "&var4=" + apn + "&var5=" + gateway;
+        return ret;
+    }
+
+    private String getCurrentApnInUse(Context context) {
+        String apnType = null;
+        Cursor cursor = context.getContentResolver().query(PREFERRED_APN_URI,
+            new String[] { "_id", "apn", "type" }, null, null, null);
+        if (cursor == null) {
+            return apnType;
+        }
+        cursor.moveToFirst();
+        int counts = cursor.getCount();
+        if (counts != 0) {
+            if (!cursor.isAfterLast()) {
+                String apn = cursor.getString(1);
+                // #777、ctnet is china net
+                if (apn.equalsIgnoreCase("cmnet") || apn.equalsIgnoreCase("3gnet") || apn.equalsIgnoreCase("uninet")
+                    || apn.equalsIgnoreCase("ctnet") || apn.equalsIgnoreCase("internet") || apn.equalsIgnoreCase("cmwap")
+                    || apn.equalsIgnoreCase("3gwap") || apn.equalsIgnoreCase("uniwap")) {
+                    apnType = apn.toUpperCase();
+                } else if (apn.equalsIgnoreCase("#777")) {
+                    apnType = "CTNET";
+                }
+            } else {
+                //adapter china net
+                Cursor c = context.getContentResolver().query(PREFERRED_APN_URI, null, null, null, null);
+                c.moveToFirst();
+                String user=c.getString(c.getColumnIndex("user"));
+                if (user.equalsIgnoreCase("ctnet")) {
+                    apnType = "CTNET";
+                }
+                    c.close();
+            }
+        } else {
+            apnType = "CMNET";
+        }
+        cursor.close();
+        return apnType;
     }
 
     private void resetLoadingStates() {
@@ -743,7 +823,9 @@ class BrowserFrame extends Handler {
                 AssetManager assets = mContext.getAssets();
                 Uri uri = Uri.parse(url);
                 return assets.open(uri.getPath(), AssetManager.ACCESS_STREAMING);
-            } catch (IOException e) {
+            // MIUI MOD:
+            // } catch (IOException e) {
+            } catch (Exception e) {
                 return null;
             }
         } else if (mSettings.getAllowContentAccess() &&

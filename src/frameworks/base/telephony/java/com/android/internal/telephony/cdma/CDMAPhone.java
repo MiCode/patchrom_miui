@@ -991,6 +991,10 @@ public class CDMAPhone extends PhoneBase {
                 mImeiSv = respId[1];
                 mEsn  =  respId[2];
                 mMeid =  respId[3];
+                // MIUI ADD: START
+                sendDeviceIdReadyBroadcast();
+                setDeviceIdSystemProperty();
+                // END
             }
             break;
 

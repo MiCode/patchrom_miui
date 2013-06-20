@@ -194,4 +194,11 @@ public interface TelephonyProperties
      * Type: boolean ( false = asynchronous, true = send next queued sms after
      * making sure previous sms was sent) */
     static final String SMS_SYNCHRONOUS_SENDING = "persist.radio.sms_sync_sending";
+
+    /**
+     * MIUI ADD:
+     * Property to get device id
+     * Type: String
+     */
+    static final String PROPERTY_DEVICE_ID = "ro.ril.miui.imei";
 }

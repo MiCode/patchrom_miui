@@ -48,18 +48,18 @@
              </LinearLayout>
 
              <LinearLayout
-                       style="@style/wifi_item" >
+                       style="@style/wifi_spinner_item" >
                  <TextView
-                         style="@style/input_category"
+                         style="@style/wifi_spinner_item_label"
                          android:text="@string/wifi_security" />
 
                  <Spinner android:id="@+id/security"
-                         style="@style/wifi_item_content"
+                         style="@style/wifi_spinner_item_content"
                          android:prompt="@string/wifi_security"
                          android:entries="@array/wifi_security"
                          android:visibility="gone" />
                  <Spinner android:id="@+id/mi2_security"
-                         style="@style/wifi_item_content"
+                         style="@style/wifi_spinner_item_content"
                          android:prompt="@string/wifi_security"
                          android:entries="@array/mi2_wifi_security"
                          android:visibility="gone" />
@@ -77,51 +77,51 @@
 
                 <LinearLayout android:id="@+id/l_method"
                         android:visibility="gone"
-                        style="@style/wifi_item" >
+                        style="@style/wifi_spinner_item" >
                     <TextView
-                            style="@style/input_category"
+                            style="@style/wifi_spinner_item_label"
                             android:text="@string/wifi_eap_method" />
 
                     <Spinner android:id="@+id/method"
-                            style="@style/wifi_item_content"
+                            style="@style/wifi_spinner_item_content"
                             android:prompt="@string/wifi_eap_method"
                             android:entries="@array/wifi_eap_method" />
                 </LinearLayout>
 
                 <LinearLayout android:id="@+id/l_phase2"
                         android:visibility="gone"
-                        style="@style/wifi_item" >
+                        style="@style/wifi_spinner_item" >
                     <TextView
-                            style="@style/input_category"
+                            style="@style/wifi_spinner_item_label"
                             android:text="@string/please_select_phase2" />
 
                     <Spinner android:id="@+id/phase2"
-                            style="@style/wifi_item_content"
+                            style="@style/wifi_spinner_item_content"
                             android:prompt="@string/please_select_phase2"
                             android:entries="@array/wifi_phase2_entries" />
                 </LinearLayout>
 
                 <LinearLayout android:id="@+id/l_ca_cert"
                         android:visibility="gone"
-                        style="@style/wifi_item" >
+                        style="@style/wifi_spinner_item" >
                     <TextView
-                            style="@style/input_category"
+                            style="@style/wifi_spinner_item_label"
                             android:text="@string/wifi_eap_ca_cert" />
 
                     <Spinner android:id="@+id/ca_cert"
-                            style="@style/wifi_item_content"
+                            style="@style/wifi_spinner_item_content"
                             android:prompt="@string/wifi_eap_ca_cert" />
                 </LinearLayout>
 
                 <LinearLayout android:id="@+id/l_user_cert"
                         android:visibility="gone"
-                        style="@style/wifi_item" >
+                        style="@style/wifi_spinner_item" >
                     <TextView
-                            style="@style/input_category"
+                            style="@style/wifi_spinner_item_label"
                             android:text="@string/wifi_eap_user_cert" />
 
                     <Spinner android:id="@+id/user_cert"
-                            style="@style/wifi_item_content"
+                            style="@style/wifi_spinner_item_content"
                             android:prompt="@string/wifi_eap_user_cert" />
                 </LinearLayout>
 
@@ -177,26 +177,23 @@
             </LinearLayout>
 
             <LinearLayout
-                    style="@style/wifi_item" >
+                    style="@style/wifi_spinner_item" >
 
                 <CheckBox android:id="@+id/show_password"
-                    style="@style/wifi_item_content"
+                    style="@style/wifi_spinner_item_content"
                     android:textSize="14sp"
                     android:text="@string/wifi_show_password" />
                 <!-- CERTIFICATE -->
                 <TextView android:id="@+id/wapi_certificate_text"
-                    style="@style/input_category"
+                    style="@style/wifi_spinner_item_label"
                     android:text="@string/wifi_certificate" />
 
                 <Spinner android:id="@+id/wapi_certificate_spinner"
-                    style="@style/wifi_item_content"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" />
+                    style="@style/wifi_spinner_item_content" />
 
                 <!-- wapi psk type -->
                 <Spinner android:id="@+id/cfg_wapi_key_type_spinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/wifi_spinner_item_content"
                     android:entries="@array/wifi_wapi_key_type" />
             </LinearLayout>
         </LinearLayout>
@@ -218,15 +215,15 @@
                     android:visibility="gone">
 
             <LinearLayout android:id="@+id/proxy_settings_fields"
-                    style="@style/wifi_item"
+                    style="@style/wifi_spinner_item"
                     android:visibility="gone">
 
                 <TextView android:id="@+id/proxy_settings_title"
-                        style="@style/input_category"
+                        style="@style/wifi_spinner_item_label"
                         android:text="@string/proxy_settings_title" />
 
                 <Spinner android:id="@+id/proxy_settings"
-                        style="@style/wifi_item_content"
+                        style="@style/wifi_spinner_item_content"
                         android:prompt="@string/proxy_settings_title"
                         android:entries="@array/wifi_proxy_settings" />
             </LinearLayout>
@@ -291,15 +288,15 @@
             </LinearLayout>
 
             <LinearLayout android:id="@+id/ip_fields"
-                    style="@style/wifi_item"
+                    style="@style/wifi_spinner_item"
                     android:visibility="gone">
 
                 <TextView
-                        style="@style/input_category"
+                        style="@style/wifi_spinner_item_label"
                         android:text="@string/wifi_ip_settings" />
 
                 <Spinner android:id="@+id/ip_settings"
-                        style="@style/wifi_item_content"
+                        style="@style/wifi_spinner_item_content"
                         android:prompt="@string/wifi_ip_settings"
                         android:entries="@array/wifi_ip_settings" />
 

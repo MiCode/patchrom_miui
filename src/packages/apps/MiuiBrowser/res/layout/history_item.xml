@@ -3,11 +3,12 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingLeft="@dimen/history_padding_left" >
+    android:background="@drawable/miui_history_list_bg" >
 
     <ImageView
         android:layout_width="@dimen/bookmark_icon_width"
         android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/history_padding_left"
         android:scaleType="fitXY"
         android:src="@drawable/miui_history_time_line" />
 
@@ -16,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/history_padding_left"
         android:orientation="vertical" >
         <LinearLayout
             android:id="@+id/label_wrapper"
@@ -54,4 +56,11 @@
             android:layout_gravity="center_vertical|right"
             android:button="@drawable/btn_checkbox_star"
             android:focusable="false" />
+    <View
+        android:id="@+id/separator_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_gravity="bottom"
+        android:background="@color/history_list_item_separator_color"
+        android:visibility="gone" />
 </FrameLayout>

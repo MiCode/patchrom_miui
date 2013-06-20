@@ -75,6 +75,7 @@ public class WebSettingsClassic extends WebSettings {
     private int             mDefaultFixedFontSize = 13;
     private int             mPageCacheCapacity = 0;
     private boolean         mLoadsImagesAutomatically = true;
+    private boolean         mLoadsImagesOnDemand = false;
     private boolean         mBlockNetworkImage = false;
     private boolean         mBlockNetworkLoads;
     private boolean         mJavaScriptEnabled = false;
@@ -1071,6 +1072,13 @@ public class WebSettingsClassic extends WebSettings {
     public synchronized void setLoadsImagesAutomatically(boolean flag) {
         if (mLoadsImagesAutomatically != flag) {
             mLoadsImagesAutomatically = flag;
+            postSync();
+        }
+    }
+
+    public synchronized void setLoadsImagesOnDemand(boolean flag) {
+        if (mLoadsImagesOnDemand != flag) {
+            mLoadsImagesOnDemand = flag;
             postSync();
         }
     }

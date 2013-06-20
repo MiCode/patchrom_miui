@@ -49,12 +49,26 @@
     </style>
 
     <style name="input_category" parent="@miui:style/V5.TextAppearance.PreferenceCategory">
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingLeft">@miui:dimen/v5_preference_item_padding_side</item>
         <item name="android:paddingRight">@miui:dimen/v5_preference_item_padding_side</item>
         <item name="android:background">@miui:drawable/v5_preference_category_background</item>
         <item name="android:gravity">bottom</item>
+    </style>
+
+    <style name="wifi_spinner_item_label" parent="@style/input_category">
+        <item name="android:paddingLeft">@miui:dimen/v5_preference_category_item_padding_side</item>
+        <item name="android:paddingRight">@miui:dimen/v5_preference_category_item_padding_side</item>
+    </style>
+
+    <style name="wifi_spinner_item" parent="@style/wifi_item">
+        <item name="android:layout_marginLeft">0dip</item>
+        <item name="android:layout_marginRight">0dip</item>
+    </style>
+    <style name="wifi_spinner_item_content" parent="@style/wifi_item_content">
+        <item name="android:layout_marginLeft">16dip</item>
+        <item name="android:layout_marginRight">16dip</item>
     </style>
 
     <style name="wifi_item_label">
@@ -156,6 +170,7 @@
     <style name="TextAppearance.Title.Big" parent="@miui:V5.TextAppearance.Title">
         <item name="android:textSize">35sp</item>
         <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/title_big_text_color</item>
     </style>
 
     <style name="TextAppearance.Title.Medium" parent="@miui:V5.TextAppearance.Title">
@@ -163,19 +178,15 @@
         <item name="android:textStyle">normal</item>
     </style>
 
+    <style name="TextAppearance.Title.Small" parent="@miui:style/V5.TextAppearance.Title.Medium.Secondary">
+        <item name="android:textColor">@color/title_small_text_color</item>
+    </style>
+
     <style name="TextAppearance.AppInfo.Medium" parent="@miui:V5.TextAppearance.Medium">
         <item name="android:textColorHighlight">?android:attr/textColorPrimary</item>
     </style>
     <style name="TextAppearance.AppInfo.Small" parent="@miui:V5.TextAppearance.Small">
         <item name="android:textColorHighlight">?android:attr/textColorPrimary</item>
-    </style>
-
-    <style name="TextAppearance.PasswordGuardTitle">
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:shadowColor">@color/shadow</item>
-        <item name="android:shadowRadius">7</item>
-        <item name="android:shadowDx">0</item>
-        <item name="android:shadowDy">7</item>
     </style>
 
     <style name="ListView.WithDivider" parent="@miui:style/V5.Widget.ListView">

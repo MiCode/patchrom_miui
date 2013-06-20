@@ -1227,6 +1227,10 @@ public class GSMPhone extends PhoneBase {
                 }
 
                 mImei = (String)ar.result;
+                // MIUI ADD: START
+                sendDeviceIdReadyBroadcast();
+                setDeviceIdSystemProperty();
+                // END
             break;
 
             case EVENT_GET_IMEISV_DONE:

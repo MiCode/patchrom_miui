@@ -173,6 +173,12 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
                 }
             }
         }
+
+        static void clearChildFocus(ViewGroup group, View child) {
+            if (child != null && child.mParent == null) {
+                group.clearChildFocus(child);
+            }
+        }
     }
 
     private static final String TAG = "ViewGroup";
@@ -4044,6 +4050,9 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
      */
     protected void detachViewFromParent(View child) {
         removeFromArray(indexOfChild(child));
+
+        // MIUI ADD:
+        Injector.clearChildFocus(this, mFocused);
     }
 
     /**
@@ -4062,6 +4071,9 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
      */
     protected void detachViewFromParent(int index) {
         removeFromArray(index);
+
+        // MIUI ADD:
+        Injector.clearChildFocus(this, mFocused);
     }
 
     /**
@@ -4081,6 +4093,9 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
      */
     protected void detachViewsFromParent(int start, int count) {
         removeFromArray(start, count);
+
+        // MIUI ADD:
+        Injector.clearChildFocus(this, mFocused);
     }
 
     /**
@@ -4109,6 +4124,9 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
             children[i].mParent = null;
             children[i] = null;
         }
+
+        // MIUI ADD:
+        Injector.clearChildFocus(this, mFocused);
     }
 
     /**

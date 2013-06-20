@@ -412,8 +412,10 @@ class CallbackProxy extends Handler {
                     HttpAuthHandler handler = (HttpAuthHandler) msg.obj;
                     String host = msg.getData().getString("host");
                     String realm = msg.getData().getString("realm");
-                    mWebViewClient.onReceivedHttpAuthRequest(mWebView.getWebView(), handler,
-                            host, realm);
+                    if (isValidAuthRequest(host, mWebView.getUrl())) {
+                        mWebViewClient.onReceivedHttpAuthRequest(mWebView.getWebView(), handler,
+                                                                    host, realm);
+                    }
                 }
                 break;
 
@@ -1713,5 +1715,28 @@ class CallbackProxy extends Handler {
             Log.e(LOGTAG, Log.getStackTraceString(e));
         }
         WebCoreThreadWatchdog.resume();
+    }
+
+    private boolean isValidAuthRequest(String host, String webViewUrl) {
+        String authHost = null;
+        if (host != null) {
+            authHost = host.split(":")[0];
+        }
+
+        Uri uriCurrent = null;
+        if (webViewUrl != null) {
+            uriCurrent = Uri.parse(webViewUrl);
+        }
+
+        String currentHost = null;
+        if (uriCurrent != null) {
+            currentHost = uriCurrent.getHost();
+        }
+
+        if (currentHost==null || currentHost.equals("") || currentHost.equalsIgnoreCase(authHost)) {
+            return true;
+        }
+
+        return false;
     }
 }
