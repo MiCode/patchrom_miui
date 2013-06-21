@@ -63,14 +63,21 @@ public class KeyguardViewManager implements KeyguardWindowController {
             KeyguardViewBase keyguardView = manager.getKeyguardView();
             WindowManager.LayoutParams params = manager.getWindowLayoutParams();
             boolean displayDesktop = false;
+            boolean showSysWallpaper = false;
             if (keyguardView instanceof MiuiLockPatternKeyguardView) {
-                displayDesktop = ((MiuiLockPatternKeyguardView)keyguardView).isDisplayDesktop();
+                displayDesktop = Boolean.parseBoolean(((MiuiLockPatternKeyguardView) keyguardView).getProperty("displayDesktop"));
+                showSysWallpaper = Boolean.parseBoolean(((MiuiLockPatternKeyguardView) keyguardView)
+                        .getProperty("showSysWallpaper"));
             }
             if (displayDesktop && !manager.getKeyguardViewProperties().isSecure()) {
                 params.flags &= ~WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER;
                 params.privateFlags |= ExtraWindowManager.LayoutParams.PRIVATE_FLAG_LOCKSCREEN_DISPALY_DESKTOP;
             } else {
-                params.flags |= WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER;
+                if (showSysWallpaper) {
+                    params.flags |= WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER;
+                } else {
+                    params.flags &= ~WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER;
+                }
                 params.privateFlags &= ~ExtraWindowManager.LayoutParams.PRIVATE_FLAG_LOCKSCREEN_DISPALY_DESKTOP;
             }
         }
