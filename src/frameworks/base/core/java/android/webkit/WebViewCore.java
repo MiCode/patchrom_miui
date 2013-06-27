@@ -18,6 +18,7 @@ package android.webkit;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.database.Cursor;
 import android.graphics.Point;
@@ -2483,7 +2484,8 @@ public final class WebViewCore {
     private void reportWebCoreError() {
         Date date = new Date();
         Log.e(LOGTAG, "Report WebCore crash to the ErrorReportUtils at:" + date);
-        miui.util.ErrorReportUtils.sendExceptionErrorReport(mContext, new Throwable("SIGSEGV in webcore at:" + date));
+        //miui.util.ErrorReportUtils.sendExceptionErrorReport(mContext, new Throwable("SIGSEGV in webcore at:" + date));
+        mContext.startService(new Intent("com.android.browser.CrashReportService"));
     }
 
     // called by JNI

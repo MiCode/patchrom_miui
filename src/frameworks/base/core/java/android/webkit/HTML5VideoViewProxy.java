@@ -98,7 +98,13 @@ class HTML5VideoViewProxy extends Handler
         private static int mBaseLayer = 0;
 
         private static void setPlayerBuffering(boolean playerBuffering) {
-            mHTML5VideoView.setPlayerBuffering(playerBuffering);
+          //MIUI MODE:
+            // mHTML5VideoView may null then caused NullPointerException
+            //mHTML5VideoView.setPlayerBuffering(playerBuffering);
+            if (mHTML5VideoView != null) {
+                mHTML5VideoView.setPlayerBuffering(playerBuffering);
+            }
+            //END
         }
 
         // Every time webView setBaseLayer, this will be called.

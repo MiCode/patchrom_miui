@@ -4074,7 +4074,15 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
         mZoomManager.onPageFinished(url);
 
         if (isAccessibilityEnabled()) {
-            getAccessibilityInjector().onPageFinished(url);
+            // MIUI MOD:
+            // getAccessibilityInjector().onPageFinished(url);
+            // Some url is not standard, so we catch the Exception and do nothing
+            try {
+                getAccessibilityInjector().onPageFinished(url);
+            } catch (IllegalArgumentException e) {
+                Log.d("MiuiRunErrorUrl", "MiuiUrl=" + url);
+            }
+            // END
         }
     }
 
@@ -4519,7 +4527,7 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
         if (mTouchHighlightRegion.isRect()) {
             canvas.drawRect(new RectF(r), mTouchHightlightPaint);
             canvas.drawRoundRect(new RectF(r), radius, radius, paint);
-        } else {
+        } else if (rect.size() > 0) {
             Collections.sort(rect, new Comparator<Rect>(){
                 public int compare(Rect r1, Rect r2) {
                     int diff = r1.top - r2.top;
