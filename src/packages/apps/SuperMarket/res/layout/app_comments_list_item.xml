@@ -29,31 +29,42 @@
             android:textSize="@dimen/text_font_size_medium" />
     </com.xiaomi.market.ui.ExpandableTextView>
 
+    <RatingBar
+            android:id="@+id/ratingbar"
+            style="@style/RatingBar.ReadOnly"
+            android:paddingTop="@dimen/comment_padding_list_item_ratingbar_top"
+            android:paddingBottom="@dimen/comment_padding_list_item_ratingbar_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/comment_list_item_ratingbar_height" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
-        <RatingBar
-            android:id="@+id/ratingbar"
-            style="@style/RatingBar.ReadOnly"
+        <TextView
+            android:id="@+id/username"
+            style="@style/TextAppearance.Secondary"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_font_size_small" />
+
+        <TextView
+            android:id="@+id/date"
+            style="@style/TextAppearance.Secondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/comment_padding_horizontal"
+            android:textSize="@dimen/text_font_size_small" />
 
         <TextView
             android:id="@+id/version"
             style="@style/TextAppearance.Secondary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/comment_padding_horizontal"
             android:textSize="@dimen/text_font_size_small" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/description"
-        style="@style/TextAppearance.Secondary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/text_font_size_small" />
 
 </com.xiaomi.market.ui.AppCommentsItem>

@@ -2,19 +2,18 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory
-            android:key="accountInfo"
-            android:title="@string/micloud_account_name">
-        <Preference
-            style="?android:attr/preferenceInformationStyle"
-            android:key="accountSettings" />
-        <PreferenceScreen
-            android:key="miliCenterSettings"
-            android:title="@string/mili_center" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
             android:key="dataAndSynchronization"
             android:title="@string/header_data_and_synchronization"/>
+
+    <PreferenceCategory
+        android:key="internetCommunication"
+        android:title="@string/internet_comm">
+        <com.xiaomi.xmsf.account.ui.TwoLevelSyncStatePreference
+            android:key="pref_cloud_msg"
+            android:title="@string/cloud_messaging"
+            android:persistent="false"
+            />
+    </PreferenceCategory>
 
     <PreferenceCategory
             android:key="otherSettings"
@@ -22,7 +21,6 @@
         <miui.widget.SyncStatePreference
             android:key="pref_find_device"
             android:title="@string/find_device"
-            android:icon="@drawable/ic_find_device"
             android:persistent="false"
             />
         <com.xiaomi.xmsf.account.ui.TwoLevelSyncStatePreference

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.yellowpage.ui.CallLogListItem
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/calllog_list_item"
+    android:layout_width="match_parent"
+    android:layout_height="@miui:dimen/v5_list_view_single_line_height"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:background="@drawable/call_log_list_item_bg">
+
+    <TextView
+        android:id="@+id/call_date"
+        style="@style/CallLogListItemTextAppearancePrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:shrinkColumns="0">
+
+            <TableRow>
+                <TextView
+                    android:id="@+id/number"
+                    style="@style/CallLogListItemTextAppearanceSecondary"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/call_log_list_item_location_margin"
+                    android:ellipsize="end"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/location"
+                    style="@style/CallLogListItemTextAppearanceSecondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/call_log_list_item_location_margin"
+                    android:singleLine="true" />
+
+                <ImageView
+                    android:id="@+id/call_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/call_log_list_item_type_margin_right" />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/duration"
+            style="@style/CallLogListItemTextAppearanceSecondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:singleLine="true" />
+    </LinearLayout>
+</com.miui.yellowpage.ui.CallLogListItem>

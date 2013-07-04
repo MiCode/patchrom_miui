@@ -46,6 +46,7 @@
         <item name="android:textColor">@color/tab_text</item> <!-- Button默认样式中也定义了color，会使得textAppearance中的color失效 -->
     </style>
 
+    <!-- specify layout_height as match_parent to enlarge touch area! -->
     <style name="Button.Action">
         <item name="android:background">@drawable/action_btn</item>
         <item name="android:textAppearance">@style/TextAppearance.Button.Action</item>
@@ -135,8 +136,9 @@
 
     <style name="ProgressBar.ReadOnly" parent="@android:Widget.ProgressBar.Horizontal">
         <item name="android:background">@null</item>
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">0dip</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
         <item name="android:max">100</item>
         <item name="android:progressDrawable">@drawable/progressbar_readonly</item>
         <item name="android:minHeight">@dimen/comment_progressbar_height</item>
@@ -210,6 +212,34 @@
     <style name="TextAppearance.Button.BottomAction"> <!-- 需要反色 -->
         <item name="android:textColor">@color/bottom_bar_text</item>
         <item name="android:textSize">@dimen/text_font_size_huge</item>
+    </style>
+
+    <!-- App Comments Style -->
+    <style name="TextAppearance.Comment" parent="TextAppearance.Primary" />
+
+    <style name="TextAppearance.Comment.AverageScoreText">
+        <item name="android:textColor">@color/text_color_comment_title</item>
+        <item name="android:textSize">@dimen/text_font_size_comment_summary_title</item>
+    </style>
+
+    <style name="TextAppearance.Comment.AverageScore">
+        <item name="android:textColor">@color/text_color_comment_average_score</item>
+        <item name="android:textSize">@dimen/text_font_size_comment_score</item>
+    </style>
+
+    <style name="TextAppearance.Comment.TotalScoreCount">
+        <item name="android:textColor">@color/text_color_comment_score_count</item>
+        <item name="android:textSize">@dimen/text_font_size_comment_score_count</item>
+    </style>
+
+    <style name="TextAppearance.Comment.Percentage">
+        <item name="android:textColor">@color/text_color_comment_score_count</item>
+        <item name="android:textSize">@dimen/text_font_size_comment_rating_list</item>
+    </style>
+
+    <style name="TextAppearance.Comment.Footer">
+        <item name="android:textColor">@color/text_color_comment_title</item>
+        <item name="android:textSize">@dimen/text_font_size_small</item>
     </style>
 
 </resources>

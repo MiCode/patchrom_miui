@@ -262,9 +262,6 @@ public class CallerInfoAsyncQuery {
                                 + mCallerInfo);
                     }
 
-                    // MIUI ADD:
-                    doSpNumberAndAntiSpamQuery(cw, token);
-
                     // Final step: look up the geocoded description.
                     if (ENABLE_UNKNOWN_NUMBER_GEO_DESCRIPTION) {
                         // Note we do this only if we *don't* have a valid name (i.e. if
@@ -311,13 +308,6 @@ public class CallerInfoAsyncQuery {
                              " for token: " + token + mCallerInfo);
                 cw.listener.onQueryComplete(token, cw.cookie, mCallerInfo);
             }
-        }
-
-        /**
-         * MIUI ADD
-         */
-        private void doSpNumberAndAntiSpamQuery(CookieWrapper cw, int token){
-            miui.telephony.CallerInfo.doSpNumberQuery(mQueryContext, cw.number, mCallerInfo);
         }
     }
 

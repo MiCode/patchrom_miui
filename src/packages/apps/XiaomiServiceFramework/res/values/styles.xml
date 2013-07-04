@@ -25,6 +25,10 @@
         <item name="android:textColor">@color/text_color_gray</item>
         <item name="android:textSize">@miui:dimen/v5_text_font_size_primary</item>
     </style>
+    <style name="TextPrimary.Reverse">
+        <item name="android:textColor">@color/text_color_white</item>
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_primary</item>
+    </style>
     <style name="BlankWarnTitleText" parent="WarnTitleText">
         <item name="android:textColor">@android:color/black</item>
     </style>
@@ -68,6 +72,9 @@
     </style>
     <style name="ButtonNormal" parent="@miui:style/V5.Widget.Button">
     </style>
+    <style name="ButtonNormal.Reverse" parent="@style/ButtonNormal">
+        <item name="android:textColor">@color/text_color_white</item>
+    </style>
     <style name="ButtonNotice" parent="@miui:style/V5.Widget.Button.PositiveWarn">
     </style>
     <style name="Divider" parent="@miui:style/V5.Widget.BottomBar.TopLine">
@@ -100,5 +107,67 @@
         <item name="android:textColor">@color/text_color_black</item>
         <item name="android:textSize">@dimen/text_size_large</item>
         <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TitleStyle">
+        <item name="android:textColor">@miui:color/v5_title_text_dark</item>
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_title_bar_secondary_medium</item>
+    </style>
+    <style name="UserNameStyle">
+        <item name="android:textColor">@miui:color/v5_title_text_dark</item>
+        <item name="android:textSize">@dimen/micloud_settings_user_id_text_size</item>
+    </style>
+    <style name="Theme.NoTitle" parent="@style/Theme.Main">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
+    <style name="Theme.MiCloudEntrance" parent="@style/Theme.NoTitle">
+        <item name="android:windowBackground">@drawable/user_detail_info_bg</item>
+    </style>
+    <style name="Theme.MiCloudUserDetails" parent="@style/Theme.Main">
+        <item name="android:windowBackground">@drawable/user_detail_info_bg</item>
+    </style>
+    <style name="ActionBarStyle.ShowCustom" parent="@miui:V5.Widget.ActionBar">
+        <item name="android:displayOptions">showCustom</item>
+        <item name="android:background">@drawable/micloud_settings_title_bg</item>
+        <item name="android:height">@dimen/micloud_settings_title_height</item>
+    </style>
+    <style name="Theme.Settings.MiCloudSettings" parent="miui:style/V5.Theme.Light.Settings">
+        <item name="android:actionBarStyle">@style/ActionBarStyle.ShowCustom</item>
+    </style>
+    <style name="MiCloudDspt" parent="TextPrimary.Reverse">
+        <item name="android:textColor">@color/micloud_dspt</item>
+    </style>
+    <style name="UserDetailName">
+        <item name="android:textColor">@color/text_color_white</item>
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_large</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="UserDetailBindInfo">
+        <item name="android:textColor">@color/text_color_white</item>
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_medium</item>
+    </style>
+    <style name="MiCloudIntro01Part1">
+        <item name="android:textSize">@dimen/micloud_intro_01_text_size</item>
+        <item name="android:textColor">@color/micloud_intro_01</item>
+    </style>
+    <style name="MiCloudIntro01Part2">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_medium</item>
+        <item name="android:textColor">@color/micloud_intro_01</item>
+    </style>
+    <style name="MiCloudIntro02Part1">
+        <item name="android:textSize">@dimen/micloud_intro_02_text_size</item>
+        <item name="android:textColor">@color/micloud_intro_02</item>
+    </style>
+    <style name="MiCloudIntro02Part2">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_medium</item>
+        <item name="android:textColor">@color/micloud_intro_02</item>
+    </style>
+    <style name="MiCloudIntro03Part1">
+        <item name="android:textSize">@dimen/micloud_intro_03_text_size</item>
+        <item name="android:textColor">@color/micloud_intro_03</item>
+    </style>
+    <style name="MiCloudIntro03Part2">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_medium</item>
+        <item name="android:textColor">@color/micloud_intro_03</item>
     </style>
 </resources>

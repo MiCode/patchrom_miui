@@ -66,12 +66,22 @@ import com.miui.server.MiuiUsbService;
 import dalvik.system.VMRuntime;
 import dalvik.system.Zygote;
 import miui.content.ClipServiceManagerExtra;
+import miui.provider.ExtraSettings;
 
 import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
 
 class ServerThread extends Thread {
+    static class Injector {
+        static void setMemoryLowThresholdProperty() {
+            DeviceStorageMonitorService dsm = (DeviceStorageMonitorService)
+                    ServiceManager.getService(DeviceStorageMonitorService.SERVICE);
+            SystemProperties.set(ExtraSettings.System.MEMORY_LOW_THRESHOLD_PROPERTY,
+                    Long.toString(dsm.getMemoryLowThreshold()));
+        }
+    }
+
     private static final String TAG = "SystemServer";
     private static final String ENCRYPTING_STATE = "trigger_restart_min_framework";
     private static final String ENCRYPTED_STATE = "1";
@@ -502,6 +512,8 @@ class ServerThread extends Thread {
                 Slog.i(TAG, "Device Storage Monitor");
                 ServiceManager.addService(DeviceStorageMonitorService.SERVICE,
                         new DeviceStorageMonitorService(context));
+                // MIUI ADD
+                Injector.setMemoryLowThresholdProperty();
             } catch (Throwable e) {
                 reportWtf("starting DeviceStorageMonitor service", e);
             }
@@ -666,7 +678,7 @@ class ServerThread extends Thread {
             } catch (Throwable e) {
                 reportWtf("starting CertBlacklister", e);
             }
-            
+
             if (context.getResources().getBoolean(
                     com.android.internal.R.bool.config_enableDreams)) {
                 try {

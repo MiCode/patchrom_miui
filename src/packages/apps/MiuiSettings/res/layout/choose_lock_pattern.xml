@@ -31,6 +31,7 @@
         <TextView android:id="@+id/headerText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dip"
             android:gravity="center"
             android:textSize="18sp"/>
 
@@ -41,7 +42,7 @@
 
         <miui.widget.LockPatternView android:id="@+id/lockPattern"
              style="@style/SecurityLockPatternView"
-             android:layout_marginTop="70dip"
+             android:layout_marginTop="40dip"
              android:layout_marginLeft="18dip"
              android:layout_marginRight="18dip" />
 
@@ -57,6 +58,14 @@
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="14sp"/>
+
+        <TextView android:id="@+id/choose_other_unlock_way"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone"
+                android:text="@string/change_security_lock"
+                android:textSize="@dimen/choose_other_unlock_text_size"/>
 
     </LinearLayout>
 

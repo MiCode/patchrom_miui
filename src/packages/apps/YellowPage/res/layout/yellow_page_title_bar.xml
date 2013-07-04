@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@miui:style/V5.Widget.Title.Large"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        style="@miui:style/V5.Widget.Title.Back.Large"
+        android:id="@android:id/home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/yellow_page_home_icon_single"
+        android:scaleType="center" />
+
+    <view
+        class="miui.widget.MarqueeTextView"
+        style="@miui:style/V5.TextAppearance.Title.Large"
+        android:id="@android:id/primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@android:id/home"
+        android:layout_toLeftOf="@android:id/icon"
+        android:singleLine="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/yellow_page_detail_title_margin_top" />
+
+    <ImageView
+        android:id="@android:id/icon"
+        android:layout_width="@dimen/yellow_page_thumbnail_size"
+        android:layout_height="@dimen/yellow_page_thumbnail_size"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/yellow_page_title_bar_thumbnail_margin"
+        android:scaleType="centerCrop"
+        android:background="@drawable/yellow_page_thumbnail_view_bg" />
+</RelativeLayout>

@@ -2,6 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Xiaomi service framework</string>
 
+    <string name="show_password">Show password</string>
+
     <string name="account">Account</string>
     <string name="account_hint_text">Email/Phone number</string>
     <string name="login">Sign in</string>
@@ -27,18 +29,27 @@
         8~16 chars, contains digits, alphabet letters, case sensitive
     </string>
     <string name="micloud_password_error_inconsistent">Passwords mismatch</string>
-    <string name="micloud_via_sms_alert">An SMS will be sent to validate your phone number. Continue?</string>
-    <string name="micloud_via_int_sms_alert">An SMS which may incur international charges will be sent to validate your phone number. Continue?</string>
+    <string name="micloud_active_alert_title">Activate your account</string>
+    <string name="micloud_via_sms_alert">An activate SMS which may incur carrier charges will be sent to validate your phone number. Continue?</string>
+    <string name="micloud_via_int_sms_alert">An activate SMS which may incur international charges will be sent to validate your phone number. Continue?</string>
     <string name="micloud_error_email">Invalid email</string>
     <string name="micloud_account">Xiaomi account</string>
     <string name="micloud_activing_account">Activating your account, waiting...</string>
+    <string name="micloud_activing_account_delayed">It probably needs 30 seconds to complete activating\nYou can do something else...</string>
+    <string name="micloud_activing_account_failed">Failed to activate your account</string>
+    <string name="micloud_activating_account_notify_title">Activating your Xiaomi account...</string>
+    <string name="micloud_activate_account_success_notify_title">Successfully activated your Xiaomi account</string>
+    <string name="micloud_activate_account_fail_notify_title">Failed to activate your Xiaomi account</string>
+    <string name="micloud_activating_account_notify_info">You are activating your Xiaomi account</string>
+    <string name="micloud_activate_back_btn">Cancel</string>
+    <string name="micloud_activate_retry_btn">Retry activation</string>
     <string name="micloud_account_not_actived">Account not activated</string>
     <string name="micloud_active_email_visit">Visit
         <xliff:g id="email">%s</xliff:g>
     </string>
     <string name="micloud_click_email_to_valid">Click the activation link in your inbox</string>
     <string name="micloud_resend_active_email">Re-send activation email</string>
-    <string name="micloud_delete_account">Delete account</string>
+    <string name="micloud_delete_account">Logout account</string>
     <string name="micloud_active_email_sent_1">We have sent an activation link to your email: </string>
     <string name="micloud_active_email_sent_2"></string>
     <string name="micloud_click_email">Click the link in the email to activate your Xiaomi Account</string>
@@ -59,6 +70,8 @@
     </string>
     <string name="unactivated_user">Unactivated</string>
     <string name="reg_failed">Registration failed</string>
+    <string name="login_instead_reg">Login using this phone number</string>
+    <string name="get_back_pwd">Retrieve account password</string>
     <string name="login_failed">Sign in failed</string>
     <string name="error_network">Network error</string>
     <string name="error_dup_phone">Phone has been registered</string>
@@ -77,21 +90,23 @@
     </string>
     <string name="input_password_hint">Input password</string>
     <string name="confirm">Confirm</string>
-    <string name="alert_title_remove_account">Delete account</string>
+    <string name="alert_title_remove_account">Logout account</string>
     <string name="remove_account_notice">What would you like to do with the previously synced messages and contacts on your device?</string>
     <string name="data_keep_in_phone">Keep on my device</string>
     <string name="data_wipe_from_phone">Delete from my device</string>
     <string name="login_notice">Signing in...</string>
     <string name="data_sync_notice">Use your Xiaomi account to sync messages, Contacts and other data. Meanwhile, Enjoy the cloud services.</string>
     <string name="sync_dspt">Enable sync and cloud services</string>
-    <string name="sync_sub_dspt">An SMS may be sent to activate the service</string>
-    <string name="sync_sub_int_dspt">An international SMS may be sent to activate the service</string>
+    <string name="sync_sub_dspt">An SMS which may incur carrier charges may be sent to activate the service</string>
+    <string name="sync_sub_int_dspt">An SMS which may incur international charges may be sent to activate the service</string>
     <string name="send_sms_for_sync_title">Sync Service not activated</string>
-    <string name="send_sms_for_sync_notice">An activate SMS which may incur carrier fee is required to activate the service. Do you want to continue?</string>
+    <string name="send_sms_for_sync_notice">An activate SMS which may incur carrier charges is required to activate the service. Do you want to continue?</string>
     <string name="send_int_sms_for_sync_notice">An activate SMS which may incur international charges is required to activate sync. Do you want to continue?</string>
     <string name="failed_to_send_activate_email">Failed to send activation email.</string>
     <string name="access_denied">Access denied</string>
     <string name="reging">Registering. Please wait…</string>
+    <string name="reg_success">Registration succeeded</string>
+    <string name="reg_success_summary">Your mobile number <xliff:g id="code">%1$s</xliff:g> is already designated to MiLock where you can use it to login and retrieve password.</string>
 
     <string name="sync_on">On</string>
     <string name="sync_off">Off</string>
@@ -119,6 +134,12 @@
     <string name="find_device_disabled_title">Find device disabled</string>
     <string name="find_device_disabled_notice">You can reopen find device via settings -> accounts &amp; sync-> xiaomi account</string>
 
+    <string name="activate_phone_send_sms_fail">Failed to send activation SMS, unable to open sync service</string>
+    <string name="activate_phone_server_error">Server error，unable to open sync service</string>
+    <string name="activate_phone_failed_notif_title">Failed to enable MiCloud service</string>
+    <string name="activate_phone_send_sms_failed_notif">Failed to send activation SMS</string>
+    <string name="activate_phone_server_error_notif">Server error</string>
+
     <string name="user_agreement_p1">By signing in, you are agreeing to\n the&#160;</string>
     <string name="user_agreement_p2">Xiaomi terms of service</string>
     <string name="user_agreement_p3">&#160;and the&#160;</string>
@@ -127,12 +148,12 @@
     <string name="skip_setup_account_title">Skip account setting</string>
     <string name="skip_setup_account_msg">Using your Xiaomi Account, you can synchronize and backup your SMS, contacts, photos, notes, etc. Continue and setup later?</string>
     <string name="account_dspt">Xiaomi account can synchronize and backup your SMS,\ncontacts, photos, etc</string>
-    <string name="remove_unactivated_account_notice">The Xiaomi account is not activated, remove it now?</string>
-    <string name="remove_confirm">Delete it</string>
+    <string name="remove_unactivated_account_notice">The Xiaomi account is not activated, logout now?</string>
+    <string name="remove_confirm">Logout it</string>
     <string name="find_password_on_web_msg">Please visit account.xiaomi.com to retrieve password</string>
     <string name="relogin">Re-login</string>
     <string name="skip_login">Skip login</string>
-    <string name="removing_account">Deleting account...</string>
+    <string name="removing_account">Logging out account...</string>
     <string name="checking_account">Verifying account...</string>
 
     <string name="label_order_name">Product name:</string>
@@ -265,7 +286,7 @@
     <string name="btn_call">Call</string>
 
     <string name="recharge_notification">Recharging <xliff:g id="value">%1$s</xliff:g> MiCredits</string>
-    <string name="title_mili_center">MiCredits</string>
+    <string name="title_mili_center">MiCredit center</string>
     <string name="title_recharge_record">Recharge records</string>
     <string name="title_pay_record"><xliff:g id="type">%1$s</xliff:g> payment records</string>
     <string name="my_mili_record">My MiCredit</string>
@@ -294,8 +315,33 @@
     <string name="update_contacts_description">Sina micro Fair use your millet account phone number, the corresponding and synchronous microblogging friends avatar, birthday, and other information to the address book</string>
     <string name="updated_contacts">Updated %s contacts</string>
     <string name="process_result">Process Result:</string>
+    <string name="access_token_expired_warning">Weibo account has expired, please rebind</string>
+    <string name="access_token_invalid_warning">Weibo account is invalid, please rebind</string>
+    <string name="service_error">Service error</string>
 
+    <string name="enable_micloud">Enable cloud services</string>
+    <string name="micloud_summary">Login to Xiaomi account to sync Contacts, Gallery Albums and other functions.</string>
+    <string name="micloud_is_what">What is MiCloud?</string>
+    <string name="available_functionality">Available functions</string>
+    <string name="internet_message">MiCloud messaging</string>
+    <string name="micloud_more">Learn more</string>
+    <string name="internet_comm">Messaging services</string>
+    <string name="cloud_messaging">MiCloud messaging</string>
+    <string name="xiaomi_cloud_service">MiCloud</string>
+    <string name="current_account">Current account</string>
+    <string name="my_xiaomi_account">My current Xiaomi account</string>
+    <string name="micloud_intro_01_part_01">Save on SMS costs</string>
+    <string name="micloud_intro_01_part_02">MIUI allows you to send free cloud messaging via the network </string>
+    <string name="micloud_intro_02_part_01">Don’t need to do anything</string>
+    <string name="micloud_intro_02_part_02">Cloud services helps you sync up contacts, messages, photos and other data on to various mobile devices. </string>
+    <string name="micloud_intro_03_part_01">Never lose your data again and ensure that contents are secure</string>
+    <string name="micloud_intro_03_part_02">Mange your data and also locate, lock or erase device contents on i.xiaomi.com </string>
+    <string name="micloud_dspt">Cloud services include MiCloud messaging, mobile sync, locating device and other features. You can also manage your data online at any time! </string>
+    <string name="start_micloud">Start</string>
     <string name="account_detail">Xiaomi account:\n<xliff:g id="account_id">%1$s</xliff:g></string>
 
     <string name="memu_refresh">Refresh</string>
+
+    <string name="micloud_proceed">Continue</string>
+    <string name="disable_micloud"><u>Do not enable MiCloud</u></string>
 </resources>
