@@ -18,19 +18,44 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="?android:attr/listPreferredItemHeight"
     android:gravity="center_vertical"
-    android:paddingRight="?android:attr/scrollbarSize"
-    android:paddingLeft="@miui:dimen/android_preference_widget_width">
+    android:orientation="vertical"
+    android:minHeight="?android:attr/listPreferredItemHeight">
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:layout_weight="1"
+        android:layout_marginTop="@miui:dimen/v5_preference_item_padding_top"
+        android:layout_marginBottom="@miui:dimen/v5_preference_item_padding_bottom">
+
+        <TextView android:id="@+android:id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal" />
+
+        <TextView android:id="@+android:id/summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@android:id/title"
+            android:layout_alignLeft="@android:id/title"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary.Preference"
+            android:maxLines="10" />
+
+    </RelativeLayout>
     <com.android.settings.deviceinfo.PercentageBarChart
         android:id="@+id/percentage_bar_chart"
         android:layout_width="match_parent"
-        android:layout_height="32dip"
-        android:minHeight="?android:attr/listPreferredItemHeight"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         settings:minTickWidth="6dip"
-        settings:emptyColor="@color/memory_avail">
+        android:background="@drawable/memory_bar_empty"
+        android:layout_marginBottom="@miui:dimen/v5_preference_item_padding_bottom">
     </com.android.settings.deviceinfo.PercentageBarChart>
 
 </LinearLayout>

@@ -1,25 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
-    <ListView
-        android:id="@android:id/list"
+    android:layout_height="match_parent" >
+    <fragment android:name="com.xiaomi.xmsf.payment.RechargeFragment"
+        android:id="@+id/recharge_fragment"
         android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
-        android:cacheColorHint="@null"
-        android:scrollbarStyle="outsideOverlay"
-        android:fastScrollEnabled="true"
-        android:divider="@null"
-        android:clipToPadding="false"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:background="@drawable/bottom_label_bg"
-        android:singleLine="true"
-        android:text="@string/recharge_hint"
-        android:textColor="@color/text_color_black_hint"
-        android:textSize="@dimen/text_size_small" />
-</LinearLayout>
+        android:layout_height="match_parent" />
+</FrameLayout>
