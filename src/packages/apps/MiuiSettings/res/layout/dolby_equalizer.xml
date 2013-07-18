@@ -4,7 +4,12 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
+    android:background="@drawable/dolby_eq_bg"
     >
+
+    <include
+        android:id="@+id/title_view"
+        layout="@layout/equalizer_title_bar" />
 
     <TextView
         android:id="@+id/effect_type"
@@ -12,8 +17,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:gravity="left|center_vertical"
-        android:background="@drawable/dolby_eq_config_bg"
-        android:layout_marginTop="8dp"
+        android:background="@drawable/eq_config_bg"
+        android:layout_marginTop="-7dp"
         android:paddingLeft="25dp"
         android:paddingRight="50dp"
         android:textStyle="bold"
@@ -23,13 +28,13 @@
 
     <!-- 均衡器设置曲线显示 -->
     <view
-        class="com.android.settings.dolby.EqualizerView"
+        class="com.android.settings.EqualizerView"
         android:id="@+id/surface"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="15dp"
         android:paddingBottom="5dp"
-        android:background="@drawable/dolby_eq_curve_bg"
+        android:background="@drawable/eq_curve_bg"
         xmlns:miui="http://schemas.android.com/apk/res/com.android.settings"
         miui:curve_color="@color/equalizer_curve"
         miui:curve_shadow_color="@color/equalizer_curve_shadow"
@@ -45,50 +50,50 @@
         android:paddingRight="10dp"
         >
         <view
-            class="com.android.settings.dolby.VerticalSeekBar"
-            style="@style/DolbyEQSeekBar"
+            class="com.android.settings.VerticalSeekBar"
+            style="@style/EQSeekBar"
             android:id="@+id/progress_eq0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
         <view
-            class="com.android.settings.dolby.VerticalSeekBar"
-            style="@style/DolbyEQSeekBar"
+            class="com.android.settings.VerticalSeekBar"
+            style="@style/EQSeekBar"
             android:id="@+id/progress_eq1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
         <view
-            class="com.android.settings.dolby.VerticalSeekBar"
-            style="@style/DolbyEQSeekBar"
+            class="com.android.settings.VerticalSeekBar"
+            style="@style/EQSeekBar"
             android:id="@+id/progress_eq2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
         <view
-            class="com.android.settings.dolby.VerticalSeekBar"
-            style="@style/DolbyEQSeekBar"
+            class="com.android.settings.VerticalSeekBar"
+            style="@style/EQSeekBar"
             android:id="@+id/progress_eq3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
         <view
-            class="com.android.settings.dolby.VerticalSeekBar"
-            style="@style/DolbyEQSeekBar"
+            class="com.android.settings.VerticalSeekBar"
+            style="@style/EQSeekBar"
             android:id="@+id/progress_eq4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
          <view
-            class="com.android.settings.dolby.VerticalSeekBar"
-            style="@style/DolbyEQSeekBar"
+            class="com.android.settings.VerticalSeekBar"
+            style="@style/EQSeekBar"
             android:id="@+id/progress_eq5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
          <view
-            class="com.android.settings.dolby.VerticalSeekBar"
-            style="@style/DolbyEQSeekBar"
+            class="com.android.settings.VerticalSeekBar"
+            style="@style/EQSeekBar"
             android:id="@+id/progress_eq6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

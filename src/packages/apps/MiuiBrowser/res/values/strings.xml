@@ -15,8 +15,8 @@
     <string name="history_most_visited">Most visited</string>
     <string name="history_saved_webpage">Save webpage</string>
     <string name="clear_history">Clear history</string>
-    <string name="clear_history_group">clear all history</string>
-    <string name="open_history_group_in_new_window">open all history in new window</string>
+    <string name="clear_history_group">clear all %s history</string>
+    <string name="open_history_group_in_new_window">open all %s history in new window</string>
     <string name="open_history_most_visited_group_in_new_window">open all most visited history</string>
     <string name="pref_privacy_clear_history_dlg">Delete the browser all history?</string>
     <string name="pref_privacy_clear_history_by_group_dlg">Are you sure you want to clear history ？</string>
@@ -33,6 +33,8 @@
     <string name="bookmark_add_to">Add to</string>
     <string name="add_folder">Add folder</string>
     <string name="folder_name">Folder name</string>
+    <string name="same_folder_name_warning">This folder has already existed</string>
+    <string name="same_bookmarks_warning">This bookmark has already existed</string>
     <string name="have_sent_bookmark_to_home_screen">Has sent to home screen</string>
 
     <string name="bookmark_this_page_to_readmodelist">"Add this page to reading list bookmark"</string>
@@ -49,7 +51,7 @@
     <string name="tab_yellowpage">Yellow pages</string>
 
     <!-- Name of tab containing quick link sites -->
-    <string name="tab_quicklinks">Useful site</string>
+    <string name="tab_quicklinks">Hot sites</string>
 
     <!-- Settings label -->
     <string name="pref_content_night_read_mode">Enable night mode</string>
@@ -69,9 +71,7 @@
     </string-array>
 
     <!-- Checkbox setting for enabling/disabling the ExitOnClosingLastTab feature [CHAR-LIMIT=32] -->
-    <string name="pref_exit_on_closing_last_tab_enabled_title">Exit on closing last window</string>
-    <!-- Settings summary for the ExitOnClosingLastTab feature. [CHAR-LIMIT=none] -->
-    <string name="pref_exit_on_closing_last_tab_enabled_summary">Exit browser when closing last window in navigation screen. Uncheck to show browser homepage</string>
+    <string name="pref_exit_on_closing_last_tab_enabled_title">Exit browser on closing last window</string>
 
     <string name="url_hint">Search or type URL</string>
     <string name="search_hint">Search</string>
@@ -264,7 +264,7 @@
     <string name="pref_images_preload_value_never" translatable="false">0</string>
     <string name="pref_images_preload_value_wifi_only" translatable="false">1</string>
     <string name="pref_images_preload_value_always" translatable="false">2</string>
-    <string name="pref_images_preload_default_value" translatable="false">@string/pref_images_preload_value_wifi_only</string>
+    <string name="pref_images_preload_default_value" translatable="false">@string/pref_images_preload_value_always</string>
     <string-array name="pref_images_preload_values" translatable="false">
         <item><xliff:g>@string/pref_images_preload_value_never</xliff:g></item>
         <item><xliff:g>@string/pref_images_preload_value_wifi_only</xliff:g></item>
@@ -302,7 +302,7 @@
     <!-- Setting homepage -->
     <string name="pref_data_title" msgid="7255058703417796578">"Traffic management"</string>
 
-    <string name="return_to_homepage">"Go back to homepage"</string>
+    <string name="return_to_homepage">"Go back to Start page"</string>
 
     <string name="new_tab">New window</string>
     <string name="new_incognito_tab">"New incognito window"</string>
@@ -312,7 +312,7 @@
     <string name="pref_content_open_in_background_summary">Open new windows behind the current window</string>
     <string name="too_many_windows_dialog_title">Window limit reached</string>
     <string name="too_many_windows_dialog_message">Can\'t open a new window until you close one</string>
-    <string name="max_tabs_warning">No more windows available</string>
+    <string name="max_tabs_warning">Window limit reached</string>
     <string name="accessibility_button_closetab">Close window</string>
     <string name="accessibility_transition_navscreen">Window management</string>
 
@@ -347,4 +347,43 @@
 
     <!-- clip dialog -->
     <string name="clip_dialog_title">Open the copied link?</string>
+    <string name="quicklinks_management">Hot Sites</string>
+    <string name="download">Download</string>
+    <string name="loading_rest_candidates">Loading rest candidates</string>
+    <string name="downloading">Downloading</string>
+    <string name="downloaded">Downloaded</string>
+    <string name="disk_space_used">"<xliff:g id="number">%1$s</xliff:g> used"</string>
+    <string name="disk_space_selected">"<xliff:g id="number">%1$s</xliff:g> selected"</string>
+    <string name="disk_space_available">"<xliff:g id="number">%1$s</xliff:g> available</string>
+    <string name="not_enough_disk_space_alert">There is not enough disk space</string>
+    <string name="download_video_alert_title">Download Alert</string>
+    <string name="download_video_alert_message">Current network is metered network, download videos may have a greater traffic costs, continue?</string>
+
+    <!-- common use phrase bottom bar string -->
+    <string name="common_use_phrase_bottom_bar_www_txt">"www."</string>
+    <string name="common_use_phrase_bottom_bar_com_txt">".com"</string>
+    <string name="common_use_phrase_bottom_bar_cn_txt">".cn"</string>
+    <string name="common_use_phrase_bottom_bar_https_txt">"https://"</string>
+    <string name="common_use_phrase_bottom_bar_point_txt">"."</string>
+    <string name="common_use_phrase_bottom_bar_slash_txt">"/"</string>
+    <string name="common_use_phrase_bottom_bar_net_txt">".net"</string>
+    <string name="common_use_phrase_bottom_bar_org_txt">".org"</string>
+    <string name="common_use_phrase_bottom_bar_paste_txt">"Paste"</string>
+
+    <!-- accessibility_preferences: url shortcut enter -->
+    <string name="pref_accessibility_url_shortcut_enter_title">"Quick URL input"</string>
+    <string name="pref_accessibility_url_shortcut_enter_summary">"When inputting in the address bar, common letter combinations can be entered at one press"</string>
+    <string name="common_use_phrase_bottom_bar_paste_analytic_txt">"Paste"</string>
+    <string name="common_use_phrase_bottom_bar_up_analytic_txt">"Expand"</string>
+    <string name="common_use_phrase_bottom_bar_down_analytic_txt">"Collapse"</string>
+
+    <!-- file download and save -->
+    <string name="download_default_path_txt">"Set as default save path and will no longer remind"</string>
+    <string name="pref_file_download_save_title">"Download and save the file"</string>
+    <string name="pref_file_downlaod_save_reset_default_settings">"Restore the default settings"</string>
+    <string name="pref_file_downlaod_save_is_reset_default_settings">"To restore the default settings for save the file?"</string>
+    <string name="pref_file_download_save_modify_default_path">"Modify storage directory"</string>
+
+    <string name="geolocation_permissions_prompt_toast_disallowed" msgid="156443445797377409">"This site cannot access your location. Change this on the Settings &gt; Privacy&amp;security &gt; Clear location access."</string>
+    <string name="pref_content_homepage" msgid="3324574611613105696">"Set Start page"</string>
 </resources>

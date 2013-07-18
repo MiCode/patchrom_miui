@@ -1,50 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:miui="http://schemas.android.com/apk/res/com.android.settings" >
+
     <PreferenceCategory
         android:key="music_advance"
-        android:title="@string/dolby_music_advance">
-        <com.android.settings.RankPreference
-            android:key="music_bassboost"
-            android:title="@string/dolby_bassboost_title"
-            android:persistent="false"
-            miui:rankNames="@array/dolby_bassboost_ranks"
-            miui:rankValues="@array/dolby_bassboost_rank_valus"
-            miui:defaultRank="@integer/dolby_default_bassboost"/>
-        <com.android.settings.RankPreference
-            android:key="music_roomsize"
-            android:title="@string/dolby_roomsize_title"
-            android:summary="@string/dolby_roomsize_summary"
-            android:persistent="false"
-            miui:rankNames="@array/dolby_roomsize_ranks"
-            miui:rankValues="@array/dolby_roomsize_rank_valus"
-            miui:defaultRank="@integer/dolby_default_roomsize"/>
+        android:title="@string/dolby_mode_music" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="music_volume_leveler"
+            android:title="@string/dolby_volume_leveler" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="music_dialogue_enhancer"
+            android:title="@string/dolby_dialogue_enhancer" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="music_surround_virtualizer"
+            android:title="@string/dolby_surround_virtualizer" />
+
         <Preference
             android:key="dolby_equalizer"
-            android:title="@string/dolby_equalizer"
-            >
-            <intent android:action="com.android.settings.DOLBY_EQUALIZER"
-                android:targetPackage="com.android.settings"
-                android:targetClass="com.android.settings.dolby.DolbyEqualizer" />
+            android:title="@string/equalizer" >
+            <intent
+                android:action="com.android.settings.DOLBY_EQUALIZER"
+                android:targetClass="com.android.settings.dolby.DolbyEqualizerAlert"
+                android:targetPackage="com.android.settings" />
         </Preference>
     </PreferenceCategory>
     <PreferenceCategory
         android:key="movie_advance"
-        android:title="@string/dolby_movie_advance">
-        <com.android.settings.RankPreference
-            android:key="movie_bassboost"
-            android:title="@string/dolby_bassboost_title"
-            android:persistent="false"
-            miui:rankNames="@array/dolby_bassboost_ranks"
-            miui:rankValues="@array/dolby_bassboost_rank_valus"
-            miui:defaultRank="@integer/dolby_default_bassboost"/>
-        <com.android.settings.RankPreference
-            android:key="movie_roomsize"
-            android:title="@string/dolby_roomsize_title"
-            android:summary="@string/dolby_roomsize_summary"
-            android:persistent="false"
-            miui:rankNames="@array/dolby_roomsize_ranks"
-            miui:rankValues="@array/dolby_roomsize_rank_valus"
-            miui:defaultRank="@integer/dolby_default_roomsize"/>
+        android:title="@string/dolby_mode_movie" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="movie_volume_leveler"
+            android:title="@string/dolby_volume_leveler" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="movie_dialogue_enhancer"
+            android:title="@string/dolby_dialogue_enhancer" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="movie_surround_virtualizer"
+            android:title="@string/dolby_surround_virtualizer" />
     </PreferenceCategory>
+
 </PreferenceScreen>

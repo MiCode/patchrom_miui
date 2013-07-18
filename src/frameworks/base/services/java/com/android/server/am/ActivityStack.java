@@ -64,6 +64,8 @@ import android.util.Log;
 import android.util.Slog;
 import android.view.WindowManagerPolicy;
 
+import miui.net.FirewallManager;
+
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -78,6 +80,16 @@ final class ActivityStack {
     static class Injector {
         static boolean isDestroyHomeReasonAlwaysOrFinishing(String reason, ActivityRecord record) {
             return record.finishing || "always-finish".equals(reason) && "com.miui.home".equals(record.packageName);
+        }
+
+        static boolean checkAccessControl(Context context, String packageName) {
+            Intent checkIntent = FirewallManager.getCheckIntent(context, packageName);
+            if (checkIntent == null) {
+                return false;
+            } else {
+                context.startActivity(checkIntent);
+                return true;
+            }
         }
     }
 
@@ -1419,6 +1431,11 @@ final class ActivityStack {
                 ActivityOptions.abort(options);
                 return mService.startHomeActivityLocked(0);
             }
+        }
+
+        // MIUI ADD
+        if (Injector.checkAccessControl(mContext, next.packageName)) {
+            return false;
         }
 
         next.delayedResume = false;

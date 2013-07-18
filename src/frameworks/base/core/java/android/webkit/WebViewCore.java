@@ -2484,8 +2484,11 @@ public final class WebViewCore {
     private void reportWebCoreError() {
         Date date = new Date();
         Log.e(LOGTAG, "Report WebCore crash to the ErrorReportUtils at:" + date);
-        //miui.util.ErrorReportUtils.sendExceptionErrorReport(mContext, new Throwable("SIGSEGV in webcore at:" + date));
-        mContext.startService(new Intent("com.android.browser.CrashReportService"));
+        Intent intent = new Intent("com.android.browser.CrashReportService");
+        Bundle bundle = new Bundle();
+        bundle.putString("packageName", mContext.getPackageName());
+        intent.putExtra("data", bundle);
+        mContext.startService(intent);
     }
 
     // called by JNI

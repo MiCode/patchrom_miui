@@ -24,6 +24,7 @@ import android.app.ApplicationErrorReport;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Resources;
+import android.database.CursorWindow;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Slog;
@@ -39,6 +40,22 @@ class AppErrorDialog extends BaseErrorDialog {
             if (dialog.getProc() != null && dialog.mCrashInfo != null) {
                 MiuiErrorReport.sendFcErrorReport(dialog.getContext(), dialog.getProc(), dialog.mCrashInfo,
                         msg.what == FORCE_QUIT_AND_REPORT);
+            }
+        }
+
+        static void showSpecialMessageForResourceLeak(Context context, ProcessRecord app,
+                ApplicationErrorReport.CrashInfo crashInfo, AppErrorDialog dialog) {
+            if (CursorWindow.Injector.causeByCursorLeak(crashInfo.exceptionMessage)) {
+                CharSequence name = null;
+                if (app.pkgList.size() == 1) {
+                    name = context.getPackageManager().getApplicationLabel(app.info);
+                }
+                if (name == null){
+                    name = app.processName;
+                }
+                dialog.setMessage(context.getResources().getString(
+                        miui.R.string.err_resource_leak,
+                        name.toString()));
             }
         }
     }
@@ -60,9 +77,9 @@ class AppErrorDialog extends BaseErrorDialog {
 
     public AppErrorDialog(Context context, AppErrorResult result, ProcessRecord app) {
         super(context);
-        
+
         Resources res = context.getResources();
-        
+
         mProc = app;
         mResult = result;
         CharSequence name;
@@ -111,6 +128,8 @@ class AppErrorDialog extends BaseErrorDialog {
         setButton(DialogInterface.BUTTON_NEGATIVE,
                 context.getResources().getText(com.android.internal.R.string.report) + " MIUI",
                 mHandler.obtainMessage(FORCE_QUIT_AND_REPORT));
+        // MIUI ADD
+        Injector.showSpecialMessageForResourceLeak(context, app, crashInfo, this);
     }
 
     private final Handler mHandler = new Handler() {

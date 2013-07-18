@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miui="http://schemas.android.com/apk/res/miui"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/diagram"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/headset_diagram"
+        />
+
+    <ImageView
+        android:id="@+id/diagram_anim"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/headset_diagram_anim"
+        />
+
+    <TextView
+        style="@miui:style/V5.TextAppearance.Medium"
+        android:id="@+id/calibrate_hint"
+        android:layout_height="wrap_content"
+        android:layout_width="@dimen/headset_calibrate_hint_margin_width"
+        android:layout_marginTop="@dimen/headset_calibrate_hint_margin_top"
+        android:layout_centerHorizontal="true"
+        android:text="@string/headset_calibrate_hint"
+        android:textColor="@color/headset_calibrate_text"
+        android:textSize="@dimen/headset_calibrate_hint_text"
+        android:gravity="center"
+        />
+
+    <TextView
+        style="@miui:style/V5.TextAppearance.Medium"
+        android:id="@+id/calibrate_success"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/headset_calibrate_hint_margin_top"
+        android:layout_centerHorizontal="true"
+        android:text="@string/headset_calibrate_success"
+        android:textColor="@color/headset_calibrate_text"
+        android:textSize="@dimen/headset_calibrate_hint_text"
+        android:gravity="center"
+        />
+
+    <TextView
+        style="@miui:style/V5.TextAppearance.Medium"
+        android:id="@+id/headset_key_up"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="@dimen/headset_key_margin_left"
+        android:layout_marginTop="@dimen/headset_key_up_margin_top"
+        android:drawableLeft="@drawable/headset_indicator_line"
+        android:text="@string/headset_calibrate_volume_up"
+        android:textColor="@color/headset_calibrate_text"
+        android:textSize="@dimen/headset_calibrate_key_function_text"
+        />
+
+    <TextView
+        style="@miui:style/V5.TextAppearance.Medium"
+        android:id="@+id/headset_key_down"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="@dimen/headset_key_margin_left"
+        android:layout_marginTop="@dimen/headset_key_down_margin_top"
+        android:drawableLeft="@drawable/headset_indicator_line"
+        android:text="@string/headset_calibrate_volume_down"
+        android:textColor="@color/headset_calibrate_text"
+        android:textSize="@dimen/headset_calibrate_key_function_text"
+        />
+
+    <Button
+        android:id="@+id/apply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/diagram"
+        android:layout_centerHorizontal="true"
+        android:text="@string/headset_calibrate_apply"
+        android:background="@miui:drawable/v5_btn_bg_positive_warn_light"
+        android:textColor="@miui:color/v5_button_text_dark"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        />
+</RelativeLayout>

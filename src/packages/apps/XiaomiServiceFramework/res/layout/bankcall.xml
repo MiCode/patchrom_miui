@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dip"
+        android:paddingBottom="13dip"
+        android:orientation="vertical" >
+        <TextView
+            android:id="@+id/denomination_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="21dip"
+            android:layout_marginRight="15dip"
+            android:singleLine="true"
+            android:text="@string/recharge_grid_picker_hint"
+            android:textColor="@color/text_color_gray"
+            android:textSize="@dimen/text_size_small"
+            android:textStyle="bold" />
+        <com.xiaomi.xmsf.payment.DenominationGrid
+            android:id="@+id/denomination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:layout_marginTop="10dip"
+            android:gravity="center" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:layout_marginTop="13dip"
+            android:gravity="center_vertical"
+            android:background="@miui:drawable/v5_group_single_item_bg_light" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/recharge_grid_edit_hint"
+                android:textSize="@dimen/text_size_medium"
+                android:textColor="@color/text_color_black"
+                android:background="@drawable/input_item_single"
+                android:singleLine="true"
+                android:ellipsize="end" />
+            <EditText
+                android:id="@+id/denomination_edit"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dip"
+                android:gravity="center_vertical"
+                android:inputType="number"
+                android:textSize="@dimen/text_size_medium"
+                android:textColor="@color/text_color_orange"
+                android:background="@null"
+                android:singleLine="true" />
+            <TextView
+                android:id="@+id/denomination_text"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dip"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/text_size_medium"
+                android:textColor="@color/text_color_orange"
+                android:background="@null"
+                android:singleLine="true"
+                android:ellipsize="marquee" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/recent_card_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dip"
+            android:orientation="vertical"
+            android:gravity="center_vertical" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1" />
+        <Button
+            android:id="@+id/button_recharge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:layout_marginTop="15dip"
+            android:text="@string/btn_recharge_large"
+            style="@style/ButtonNotice" />
+        <Button
+            android:id="@+id/button_recharge_other"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:layout_marginTop="6dip"
+            android:text="@string/recharge_other"
+            style="@style/ButtonNormal" />
+    </LinearLayout>
+</ScrollView>

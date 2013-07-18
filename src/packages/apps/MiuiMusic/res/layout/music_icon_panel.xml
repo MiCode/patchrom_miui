@@ -51,13 +51,6 @@
             <include layout="@layout/album_background"/>
         </FrameLayout>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/icon_panel_album_foreground"
-            android:scaleType="center"
-            />
-
         <view
             class="miui.widget.MarqueeTextView"
             android:id="@+id/primary"
@@ -123,7 +116,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@id/progress"
             android:src="@drawable/icon_panel_prev" />
 
         <ImageView
@@ -131,7 +124,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@id/progress"
             android:src="@drawable/icon_panel_next" />
     </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/album_foreground"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@id/control"
+        android:layout_below="@id/spectrum_visualizer"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_panel_album_foreground" />
+
 </RelativeLayout>

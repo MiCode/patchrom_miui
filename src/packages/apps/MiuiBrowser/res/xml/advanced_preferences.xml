@@ -18,7 +18,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:key="advanced_settings">
 
- <PreferenceCategory android:title="@string/pref_setting_title">
+ <PreferenceCategory android:key="web_setting" android:title="@string/pref_setting_title">
     <!-- Entries and values in this list are set dynamically. -->
     <com.android.browser.search.SearchEnginePreference
         android:key="search_engine"
@@ -101,6 +101,18 @@
             android:entryValues="@array/pref_default_text_encoding_values"
             android:dialogTitle="@string/pref_default_text_encoding_dialogtitle" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_file_download_save_title" >
+        <PreferenceScreen
+            android:key="file_download_save_settings"
+            android:title="@string/pref_file_download_save_modify_default_path" />
+
+        <com.android.browser.MiuiBrowserYesNoPreference
+            android:dialogMessage="@string/pref_file_downlaod_save_is_reset_default_settings"
+            android:key="reset_default_download_path"
+            android:summary="@string/pref_extras_reset_default_summary"
+            android:title="@string/pref_file_downlaod_save_reset_default_settings" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/pref_ua_title">

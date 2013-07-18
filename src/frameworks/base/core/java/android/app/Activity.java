@@ -678,16 +678,28 @@ public class Activity extends ContextThemeWrapper
         }
 
         static void onWindowShow(Activity activity) {
-            ActionBar actionBar = activity.getActionBar();
-            if (actionBar instanceof com.miui.internal.v5.app.ActionBarImpl) {
-                ((com.miui.internal.v5.app.ActionBarImpl) actionBar).onWindowShow();
+            if (UiUtils.isV5Ui(activity)) {
+                try {
+                    ActionBar actionBar = activity.getActionBar();
+                    if (actionBar instanceof com.miui.internal.v5.app.ActionBarImpl) {
+                        ((com.miui.internal.v5.app.ActionBarImpl) actionBar).onWindowShow();
+                    }
+                } catch (Exception e) {
+                    Log.w(TAG, "Unable to get action bar for activity " + activity.getClass().getName(), e);
+                }
             }
         }
 
         static void onWindowHide(Activity activity) {
-            ActionBar actionBar = activity.getActionBar();
-            if (actionBar instanceof com.miui.internal.v5.app.ActionBarImpl) {
-                ((com.miui.internal.v5.app.ActionBarImpl) actionBar).onWindowHide();
+            if (UiUtils.isV5Ui(activity)) {
+                try {
+                    ActionBar actionBar = activity.getActionBar();
+                    if (actionBar instanceof com.miui.internal.v5.app.ActionBarImpl) {
+                        ((com.miui.internal.v5.app.ActionBarImpl) actionBar).onWindowHide();
+                    }
+                } catch (Exception e) {
+                    Log.w(TAG, "Unable to get action bar for activity " + activity.getClass().getName(), e);
+                }
             }
         }
     }

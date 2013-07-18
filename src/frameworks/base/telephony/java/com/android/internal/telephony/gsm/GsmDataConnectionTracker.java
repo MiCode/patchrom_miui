@@ -124,15 +124,18 @@ public final class GsmDataConnectionTracker extends DataConnectionTracker {
         static void onDataSetupComplete(ApnContext apnContext) {
             DataConnectionAc dcac = apnContext.getDataConnectionAc();
             ApnSetting apn = apnContext.getApnSetting();
-            FirewallManager.getInstance().onDataConnected(ConnectivityManager.TYPE_MOBILE,
-                    FirewallManager.encodeApnSetting(apn),
-                    dcac.getLinkPropertiesSync().getInterfaceName());
+            if (apn != null) {
+                FirewallManager.getInstance().onDataConnected(ConnectivityManager.TYPE_MOBILE,
+                        FirewallManager.encodeApnSetting(apn),
+                        dcac.getLinkPropertiesSync().getInterfaceName());
+            }
         }
 
         static void onDisconnectDone(ApnContext apnContext) {
-            if (apnContext.getApnSetting() != null) {
+            ApnSetting apn = apnContext.getApnSetting();
+            if (apn != null) {
                 FirewallManager.getInstance().onDataDisconnected(ConnectivityManager.TYPE_MOBILE,
-                        FirewallManager.encodeApnSetting(apnContext.getApnSetting()));
+                        FirewallManager.encodeApnSetting(apn));
             }
 
         }

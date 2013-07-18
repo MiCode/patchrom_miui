@@ -222,12 +222,14 @@ public class KeyguardViewManager implements KeyguardWindowController {
         // useful for the lockscreen but can be re-shown by dialogs or SHOW_WHEN_LOCKED activities.
         // Other disabled bits are handled by the KeyguardViewMediator talking directly to the
         // status bar service.
-        int visFlags =
-                ( View.STATUS_BAR_DISABLE_BACK
-                | View.STATUS_BAR_DISABLE_HOME
-                );
-        Log.v(TAG, "KGVM: Set visibility on " + mKeyguardHost + " to " + visFlags);
-        mKeyguardHost.setSystemUiVisibility(visFlags);
+        //MIUI DEL: START   在锁屏下显示出虚拟键的home和back键
+        //int visFlags =
+        //        ( View.STATUS_BAR_DISABLE_BACK
+        //        | View.STATUS_BAR_DISABLE_HOME
+        //        );
+        //Log.v(TAG, "KGVM: Set visibility on " + mKeyguardHost + " to " + visFlags);
+        //mKeyguardHost.setSystemUiVisibility(visFlags);
+        //END
 
         Injector.updateDisplayDesktopFlag(this); // miui add
         mViewManager.updateViewLayout(mKeyguardHost, mWindowLayoutParams);

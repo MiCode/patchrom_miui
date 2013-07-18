@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaomi.xmsf.payment.BankCallCardItem
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:gravity="center_vertical"
+    android:background="@miui:drawable/v5_preference_item_bg" >
+
+    <RadioButton
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:clickable="false"
+        android:duplicateParentState="true"
+        android:focusable="false" />
+
+    <RelativeLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:paddingBottom="@miui:dimen/v5_preference_item_padding_bottom"
+        android:paddingRight="@miui:dimen/v5_preference_item_padding_inner"
+        android:paddingTop="@miui:dimen/v5_preference_item_padding_top" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal"
+            android:singleLine="true"
+            android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@android:id/title"
+            android:layout_below="@android:id/title"
+            android:maxLines="10"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary.Preference" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/detail_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@miui:drawable/v5_btn_next_light" />
+
+</com.xiaomi.xmsf.payment.BankCallCardItem>
