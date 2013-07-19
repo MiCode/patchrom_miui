@@ -1733,7 +1733,10 @@ class CallbackProxy extends Handler {
             currentHost = uriCurrent.getHost();
         }
 
-        if (currentHost==null || currentHost.equals("") || currentHost.equalsIgnoreCase(authHost)) {
+        // Add mLatestProgress check:
+        // Manual action <= 10, resource loading > 10
+        if (currentHost == null || currentHost.equals("") || 
+            currentHost.equalsIgnoreCase(authHost) || mLatestProgress <= 10) {
             return true;
         }
 
