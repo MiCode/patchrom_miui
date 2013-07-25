@@ -2188,6 +2188,10 @@ public final class WebViewCore {
             height = Math.round(ratio * width);
         }
         int screenHeight = data.mActualViewHeight > 0 ? data.mActualViewHeight : h;
+        if (mSettings.isNarrowColumnLayout()) {
+            textwrapWidth = Math.round(mWebViewClassic.getViewWidth() / mWebViewClassic.getScale());
+        }
+
         nativeSetSize(mNativeClass, width, height, textwrapWidth, scale,
                 w, screenHeight, data.mAnchorX, data.mAnchorY, data.mIgnoreHeight);
         // Remember the current width and height

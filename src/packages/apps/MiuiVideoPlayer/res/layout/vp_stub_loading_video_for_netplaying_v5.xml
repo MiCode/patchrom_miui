@@ -33,48 +33,42 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" >
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-5dp" >
 
-        <ImageView
+
+     <ProgressBar 
             android:id="@+id/buffering"
+            android:indeterminateBehavior="repeat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/vp_buffering_v5" />
-
+            android:background="@miui:drawable/v5_progress_bar_bg_light"
+            android:indeterminateDrawable="@miui:drawable/v5_progress_bar_ani_light"
+            android:minWidth="64dp"
+            android:maxWidth="64dp"
+            android:minHeight="64dp"
+            android:maxHeight="64dp"
+            android:layout_centerVertical="true"/>
+        
         <RelativeLayout
             android:id="@+id/progress_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/buffering" >
-
-            <TextView
-                android:id="@+id/time_current"
-                style="@style/popup_bottom_controller_textview_style"
-                android:layout_width="@dimen/popup_bottom_controller_position_duration_textview_width"
-                android:layout_height="wrap_content"
-                android:gravity="center" />
-
-            <TextView
-                android:id="@+id/time"
-                style="@style/popup_bottom_controller_textview_style"
-                android:layout_width="@dimen/popup_bottom_controller_position_duration_textview_width"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/popup_bottom_controller_seekbar_line_margin_left"
-                android:gravity="center" />
+            android:layout_toRightOf="@id/buffering"
+            android:layout_centerVertical="true" >
 
             <com.miui.videoplayer.framework.views.DuoKanSeekbar
                 android:id="@+id/mediacontroller_progress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/time_current"
                 android:maxHeight="@dimen/popup_bottom_seekbar_height_v5"
                 android:minHeight="@dimen/popup_bottom_seekbar_height_v5"
                 android:paddingLeft="@dimen/horizontal_seekbar_padding_left"
                 android:paddingRight="@dimen/horizontal_seekbar_padding_right"
                 android:progressDrawable="@drawable/vp_progressbar_v5"
                 android:thumb="@drawable/vp_seekbar_v5_thumb"
-                android:thumbOffset="@dimen/vertical_seekbar_thumb_offset" />
+                android:thumbOffset="@dimen/vertical_seekbar_thumb_offset" 
+                android:layout_centerVertical="true"/>
         </RelativeLayout>
     </RelativeLayout>
 

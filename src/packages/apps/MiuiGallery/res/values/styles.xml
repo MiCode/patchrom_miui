@@ -35,9 +35,12 @@
         <item name="miui:v5_bottom_bar_top_line">@null</item>
         <item name="miui:v5_menu_list_view_bg">@drawable/v5_edit_mode_bottom_bar_list_bg_light</item>
         <item name="miui:v5_menu_list_view_item_bg">@drawable/v5_edit_mode_bottom_bar_list_item_bg_light</item>
+        <item name="miui:v5_edit_mode_bottom_bar_bg">@drawable/v5_edit_mode_bottom_bar_bg_light</item>
+        <item name="miui:v5_edit_mode_bottom_bar_icon_bg">@drawable/v5_edit_mode_bottom_bar_icon_bg_light</item>
 
         <item name="android:fastScrollTrackDrawable">@null</item>
     </style>
+
     <style name="Holo.ActionBar" parent="@android:style/Widget.Holo.ActionBar.Solid">
         <item name="android:height">@dimen/action_bar_height</item>
         <item name="android:background">@drawable/title</item>
@@ -131,12 +134,6 @@
         <item name="android:singleLine">true</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:paddingLeft">@dimen/home_page_title_padding_left</item>
-    </style>
-
-    <style name="HomePageLargeTitleContainer">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/home_page_title_height_large</item>
-        <item name="android:orientation">horizontal</item>
     </style>
 
     <style name="HomePageTitleNavigatorIcon">
@@ -403,5 +400,15 @@
         <item name="android:textSize">13sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:alpha">0.80</item>
+    </style>
+
+    <style name="BottomBarTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@miui:drawable/v5_bottom_bar_icon_bg_dark</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.BottomBarIcon</item>
+        <item name="android:paddingLeft">@dimen/bottom_bar_text_padding_left</item>
+        <item name="android:paddingRight">@dimen/bottom_bar_text_padding_right</item>
     </style>
 </resources>

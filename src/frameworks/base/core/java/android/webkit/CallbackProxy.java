@@ -136,6 +136,12 @@ class CallbackProxy extends Handler {
     private static final int UPDATE_LOADING_URL                   = 211;
 
 
+    // MIUI ADD:
+    private static final int ENTER_FULL_SCREEN                    = 213;
+    // MIUI ADD:
+    private static final int EXIT_FULL_SCREEN                     = 214;
+
+
     // Result transportation object for returning results across thread
     // boundaries.
     private static class ResultTransport<E> {
@@ -349,6 +355,19 @@ class CallbackProxy extends Handler {
                 if (mWebViewClient != null) {
                     String newUrl  = msg.getData().getString("newUrl");
                     mWebViewClient.onUpdateLoadingUrl(mWebView.getWebView(), newUrl);
+                }
+                break;
+            // END
+
+            // MIUI ADD:
+            case ENTER_FULL_SCREEN:
+                if (mWebChromeClient != null) {
+                    mWebChromeClient.enterFullScreen();
+                }
+                break;
+            case EXIT_FULL_SCREEN:
+                if (mWebChromeClient != null) {
+                    mWebChromeClient.exitFullScreen();
                 }
                 break;
             // END
@@ -1054,6 +1073,28 @@ class CallbackProxy extends Handler {
     public void onUpdateLoadingUrl(String newUrl){
         Message msg = obtainMessage(UPDATE_LOADING_URL);
         msg.getData().putString("newUrl", newUrl);
+        sendMessage(msg);
+    }
+
+    /**
+     * MIUI ADD:
+     */
+    void enterFullScreen() {
+        if (mWebChromeClient == null) {
+            return;
+        }
+        Message msg = obtainMessage(ENTER_FULL_SCREEN);
+        sendMessage(msg);
+    }
+
+    /**
+     * MIUI ADD:
+     */
+    void exitFullScreen() {
+        if (mWebChromeClient == null) {
+            return;
+        }
+        Message msg = obtainMessage(EXIT_FULL_SCREEN);
         sendMessage(msg);
     }
 

@@ -5408,6 +5408,8 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
         }
         // END
 
+        // MIUI ADD:
+        willDisplaySoftKeyBoard();
         InputMethodManager imm = (InputMethodManager)
                 mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
 
@@ -5430,6 +5432,14 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
         InputMethodManager imm = InputMethodManager.peekInstance();
         if (imm != null && (imm.isActive(mWebView))) {
             imm.hideSoftInputFromWindow(mWebView.getWindowToken(), 0);
+        }
+    }
+
+    // MIUI ADD:
+    private void willDisplaySoftKeyBoard() {
+        WebChromeClient webChromeClient = getWebChromeClient();
+        if (webChromeClient != null) {
+            webChromeClient.onWillDisplaySoftKeyBoard();
         }
     }
 
@@ -5999,8 +6009,12 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
         ClipData clipData = cm.getPrimaryClip();
         if (clipData != null) {
             ClipData.Item clipItem = clipData.getItemAt(0);
-            CharSequence pasteText = clipItem.getText();
-            if (mInputConnection != null) {
+            // MIUI MOD:
+            // CharSequence pasteText = clipItem.getText();
+            // if (mInputConnection != null
+            CharSequence pasteText = clipItem.coerceToText(mContext);
+            if (mInputConnection != null && pasteText != null && pasteText.length() > 0) {
+            // END
                 mInputConnection.replaceSelection(pasteText);
             }
         }

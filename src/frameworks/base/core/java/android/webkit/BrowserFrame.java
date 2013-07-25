@@ -1302,6 +1302,21 @@ class BrowserFrame extends Handler {
         mCallbackProxy.onUpdateLoadingUrl(newUrl);
     }
 
+    /**
+     * MIUI ADD:
+     * Called by JNI
+     */
+    private void enterFullScreen() {
+        mCallbackProxy.enterFullScreen();
+    }
+    /**
+     * MIUI ADD:
+     * Called by JNI
+     */
+    private void exitFullScreen() {
+        mCallbackProxy.exitFullScreen();
+    }
+
     //==========================================================================
     // native functions
     //==========================================================================

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/page_layout_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,14 +9,9 @@
 >
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="@dimen/album_page_title_height"
-            >
-
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/album_page_title_height"
+        android:gravity="center" >
             <!-- place holder for captured photos, which are displayed in GLRootView -->
             <LinearLayout
                 android:id="@+id/album_view"
@@ -24,11 +19,13 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
             </LinearLayout>
-        </LinearLayout>
 
-        <!-- mask shadow -->
-        <ImageView
-            style="@style/ListViewShadowImage"
-            android:background="@drawable/album_list_shadow"/>
+            <include android:id="@+id/album_page_none_view"
+                layout="@layout/album_none_view" />
     </FrameLayout>
-</LinearLayout>
+
+     <ImageView
+            style="@style/ListViewShadowImage"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/album_list_shadow" />
+</RelativeLayout>

@@ -37,18 +37,16 @@
             android:layout_height="wrap_content"
         />
 
-        <com.android.browser.TabPager android:id="@+id/main_content"
-            android:background="@drawable/tab_bg"
+        <FrameLayout android:id="@+id/main_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
-            <com.android.browser.WebViewPager
+            <com.android.browser.TabPager
                 android:id="@+id/tab_pager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:flipInterval="30"
-                android:persistentDrawingCache="animation" />
-        </com.android.browser.TabPager>
+                android:background="@drawable/tab_bg"/>
+        </FrameLayout>
+
     </com.android.browser.view.MiuiCustomScreenLinearLayout>
 
     <FrameLayout android:id="@+id/miui_container"

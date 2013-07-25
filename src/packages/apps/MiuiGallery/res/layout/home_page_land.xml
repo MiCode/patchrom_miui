@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/page_layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <!-- 通常情况下的用户视图 -->
+    <RelativeLayout
+        android:id="@+id/user_mode_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <!-- 正常情况下的Camera视图 -->
+        <RelativeLayout
+            android:id="@+id/camera_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <!-- mask shadow -->
+            <ImageView
+                style="@style/ListViewShadowImage"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/album_list_shadow" />
+
+        </RelativeLayout>
+
+        <!-- Camera中没有照片时的视图 -->
+        <include layout="@layout/home_page_camera_view_no_image" />
+
+         <!-- 顶部bar 必须放在最后，以覆盖在camera_view或者home_page_camera_view_no_image之上-->
+        <include layout="@layout/home_page_top_bar" />
+    </RelativeLayout>
+
+    <include layout="@layout/home_page_privacy_mode_view" />
+
+</FrameLayout>
