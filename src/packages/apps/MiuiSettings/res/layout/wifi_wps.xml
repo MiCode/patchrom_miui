@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="vertical"
+     android:layout_marginLeft="30dip"
+     android:layout_marginRight="30dip"
+     android:layout_marginTop="30dip"
+     android:layout_marginBottom="15dip">
+
+     <TextView
+         android:id="@+id/wps_txt"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center_horizontal"
+         android:gravity="center"
+         style="?android:attr/textAppearanceMedium" />
+
+     <ImageView
+         android:id="@+id/refresh"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center"
+         android:layout_marginTop="20dip"
+         android:src="@miui:drawable/v5_bottom_bar_refresh_icon_light" />
+
+     <ProgressBar
+         android:id="@+id/wps_timeout_bar"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="20dip"
+         style="?android:attr/progressBarStyleHorizontal" />
+
+     <ProgressBar
+         android:id="@+id/wps_progress_bar"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="20dip"
+         style="?android:attr/progressBarStyle" />
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center_vertical"
+         android:layout_marginTop="20dip"
+         android:gravity="center">
+         <Button
+             android:id="@+id/cancel"
+             android:layout_width="0dip"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:text="@string/cancel" />
+         <Button
+             android:id="@+id/retry"
+             android:layout_width="0dip"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:text="@string/retry"
+             android:visibility="gone" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/componentDetail"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/component_grid_padding"
+        android:paddingRight="@dimen/component_grid_padding">
+
+        <TextView
+            android:id="@+id/componentNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@miui:style/V5.TextAppearance.PreferenceCategory"
+            android:paddingLeft="5dip"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <com.android.thememanager.view.FixedHeightGridView
+                android:id="@+id/componentGrid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:numColumns="3"
+                android:stretchMode="columnWidth" />
+        </ScrollView>
+
+    </LinearLayout>
+    <include
+        layout="@layout/resource_operation_view" />
+</LinearLayout>

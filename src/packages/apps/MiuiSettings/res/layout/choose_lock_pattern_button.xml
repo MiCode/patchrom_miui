@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:divider="?android:attr/dividerHorizontal"
+    android:showDividers="beginning"
+    android:paddingTop="16dip">
+    <LinearLayout
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:measureWithLargestChild="true">
+
+        <Button android:id="@+id/footerLeftButton"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="1"
+                android:text="@string/lockpattern_tutorial_cancel_label"
+                android:maxLines="2"
+                style="?android:attr/buttonBarButtonStyle" />
+
+        <Button android:id="@+id/footerRightButton"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_weight="1"
+                android:text="@string/lockpattern_tutorial_continue_label"
+                android:maxLines="2"
+                android:filterTouchesWhenObscured="true"
+                style="?android:attr/buttonBarButtonStyle" />
+
+    </LinearLayout>
+
+</LinearLayout>

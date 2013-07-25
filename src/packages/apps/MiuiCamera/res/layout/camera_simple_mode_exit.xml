@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/simple_mode_exit_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/control_panel_bottom"
+        android:layout_below="@+id/control_panel_top">
+    <com.android.camera.ui.RotateLayout
+            android:id="@+id/simple_mode_exit_area"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+                <com.android.camera.ui.TwoStateTextView android:id="@+id/simple_mode_exit_button"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/btn_pano_exit"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:clickable="true"
+                    android:textSize="@dimen/pano_review_saving_indication_size"
+                    android:textColor="@android:color/white"/>
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/simple_mode_hint_for_pano"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:shadowColor="@android:color/black"
+                    android:shadowDx="0"
+                    android:shadowDy="2"
+                    android:shadowRadius="5"
+                    android:text="@string/pano_how_to_use_prompt"
+                    android:textSize="@dimen/pano_review_saving_indication_size"/>
+            </LinearLayout>
+    </com.android.camera.ui.RotateLayout>
+</RelativeLayout>

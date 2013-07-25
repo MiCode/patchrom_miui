@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/view_compass"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:background="@drawable/background_compass" >
+
+            <LinearLayout
+                android:id="@+id/pressure_altitude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <com.miui.compass.PressureAltitude
+                    android:id="@+id/pressure_show"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/pressure_bg" />
+
+                <com.miui.compass.PressureAltitude
+                    android:id="@+id/altitude_show"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/altitude_bg" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/layout_direction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/text_direction_size"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="@dimen/direction_margin_top" />
+
+            <ImageView
+                android:id="@+id/direction_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/arrow"
+                android:layout_marginTop="@dimen/direction_arrow_margin_top" />
+
+            <com.miui.compass.CompassView
+                android:id="@+id/compass_pointer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/compass_margin_top"
+                android:src="@drawable/compass" />
+
+            <com.miui.compass.CompassView
+                android:id="@+id/compass_values"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/compass_margin_top"
+                android:src="@drawable/compass_v" />
+
+            <LinearLayout
+                android:id="@+id/layout_angle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="2dip"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/degree_text_margin_top" />
+
+            <ImageView
+                android:id="@+id/guide_animation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:src="@drawable/calibrate_animation"
+                android:layout_marginTop="@dimen/degree_text_margin_top" />
+            <TextView
+                android:id="@+id/guide_toast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="15dip"
+                android:gravity="center"
+                android:text="@string/guide_toast"
+                android:textColor="@miui:color/v5_secondary_text_dark"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:background="@drawable/background_bottom" >
+
+            <LinearLayout
+                style="@style/BottomUnitStyle" >
+
+                <TextView
+                    android:id="@+id/textview_location_latitude"
+                    style="@style/TextAppearance.text_title_sign"
+                    android:text="@string/latitude" />
+
+                <TextView
+                    android:id="@+id/textview_location_latitude_degree"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    style="@style/TextAppearance"
+                    android:text="@string/cannot_get_location" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/BottomUnitStyle" >
+
+                <TextView
+                    android:id="@+id/textview_location_longitude"
+                    style="@style/TextAppearance.text_title_sign"
+                    android:text="@string/longitude" />
+
+                <TextView
+                    android:id="@+id/textview_location_longitude_degree"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    style="@style/TextAppearance"
+                    android:text="@string/cannot_get_location" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bottom_unit_pressure"
+                style="@style/BottomUnitStyle" >
+
+                <TextView
+                    style="@style/TextAppearance.text_title_sign"
+                    android:text="@string/pressure_title" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dip"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/textview_pressure"
+                        style="@style/TextAppearance" />
+
+                    <TextView
+                        style="@style/TextAppearance.text_unit"
+                        android:text="@string/pressure_unit" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bottom_unit_altitude"
+                style="@style/BottomUnitStyle" >
+
+                <TextView
+                    style="@style/TextAppearance.text_title_sign"
+                    android:text="@string/altitude_title" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="4dip"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/textview_altitude"
+                        style="@style/TextAppearance" />
+
+                    <TextView
+                        style="@style/TextAppearance.text_unit"
+                        android:text="@string/altitude_unit" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

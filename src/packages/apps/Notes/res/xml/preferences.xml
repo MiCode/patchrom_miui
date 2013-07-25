@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/pref_title_note_style">
+        <com.miui.notes.view.ToggleStylePreference
+            android:key="toggle_style"
+            android:persistent="false" />
+        <CheckBoxPreference
+            android:key="pref_key_bg_random_appear"
+            android:title="@string/preferences_bg_random_appear_title"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/pref_title_common">
+        <CheckBoxPreference
+            android:key="pref_key_alarm_when_silent"
+            android:title="@string/pref_title_alarm_when_silent"
+            android:summary="@string/pref_desc_alarm_when_silent"
+            android:persistent="false" />
+        <PreferenceScreen
+            android:key="pref_key_data_export_to_sdcard"
+            android:title="@string/pref_title_data_export_to_sdcard" />
+    </PreferenceCategory>
+</PreferenceScreen>

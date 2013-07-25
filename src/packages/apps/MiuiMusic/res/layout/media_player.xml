@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <fragment
+        android:id="@+id/background_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        class="com.miui.player.ui.fragment.NowplayingBgFragment" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="left|top" >
+
+        <ImageView
+            android:id="@+id/nowplaying_lower_top_mask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/nowplaying_top_mask" />
+
+        <ImageView
+            android:id="@+id/nowplaying_lower_bottom_mask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/nowplaying_bottom_mask" />
+
+        <view
+            android:id="@miui:id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_bar"
+            android:layout_below="@+id/title_placeholder"
+            class="miui.v5.widget.CooperativeViewPager" />
+
+        <ImageView
+            android:id="@+id/nowplaying_upper_top_mask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/nowplaying_top_mask" />
+
+        <ImageView
+            android:id="@+id/nowplaying_upper_bottom_mask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/nowplaying_bottom_mask" />
+
+        <View
+            android:id="@+id/title_placeholder"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_bar_large_height" />
+
+        <include
+            android:id="@+id/tool_bar"
+            android:layout_alignParentTop="true"
+            layout="@layout/tool_bar" />
+
+        <include
+            android:id="@+id/tool_bar"
+            android:layout_alignParentTop="true"
+            layout="@layout/tool_bar" />
+
+        <LinearLayout
+            android:id="@+id/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+            android:orientation="vertical"
+            android:paddingTop="20dp" >
+
+            <ImageView
+                android:id="@+id/page_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center_horizontal"
+                android:scaleType="center" />
+
+            <include layout="@layout/audio_player_common" />
+
+            <LinearLayout
+                android:id="@+id/time_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <include layout="@layout/time_indicator" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider_line_top"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_above="@miui:id/view_pager"
+            android:background="@drawable/nowplaying_border" />
+
+        <View
+            android:id="@+id/divider_line_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@miui:id/view_pager"
+            android:background="@drawable/nowplaying_border" />
+    </RelativeLayout>
+</FrameLayout>

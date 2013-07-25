@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:phone="http://schemas.android.com/apk/res/com.android.phone"
+     android:title="@string/labelGSMMore">
+
+    <PreferenceScreen
+        android:key="button_cf_expand_key"
+        android:title="@string/labelCF"
+        android:persistent="false"
+        android:summary="@string/call_forwarding_settings">
+
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.phone"
+            android:targetClass="com.android.phone.GsmUmtsCallForwardOptions"/>
+    </PreferenceScreen>
+
+    <PreferenceScreen
+        android:key="button_cb_expand_key"
+        android:title="@string/lable_call_barring" 
+        android:persistent="false"
+        android:summary="@string/call_barring_sum">
+
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.phone"
+            android:targetClass="com.mediatek.settings.CallBarring" />
+    </PreferenceScreen>
+
+    <PreferenceScreen
+        android:key="button_more_expand_key"
+        android:title="@string/additional_gsm_call_settings"
+        android:persistent="false"
+        android:summary="@string/call_additional_sum">
+
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.phone"
+            android:targetClass="com.android.phone.GsmUmtsAdditionalCallOptions"/>
+    </PreferenceScreen>
+
+</PreferenceScreen>

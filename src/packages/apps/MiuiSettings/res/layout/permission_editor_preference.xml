@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:paddingRight="@miui:dimen/v5_preference_item_padding_inner"
+        android:paddingTop="@miui:dimen/v5_preference_item_padding_top"
+        android:paddingBottom="@miui:dimen/v5_preference_item_padding_bottom" >
+        <TextView
+            android:id="@+android:id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal" />
+
+        <TextView
+            android:id="@+android:id/summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@android:id/title"
+            android:layout_alignLeft="@android:id/title"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"
+            android:visibility="gone"
+            android:maxLines="10" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|right"
+        android:gravity="center" />
+
+</LinearLayout>

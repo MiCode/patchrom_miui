@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/page_layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:colorBackground="@null"
+    android:colorBackgroundCacheHint="@null"
+>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/album_page_title_height"
+        android:gravity="center" >
+            <!-- place holder for captured photos, which are displayed in GLRootView -->
+            <LinearLayout
+                android:id="@+id/album_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+            </LinearLayout>
+
+            <include android:id="@+id/album_page_none_view"
+                layout="@layout/album_none_view" />
+    </FrameLayout>
+
+     <ImageView
+            style="@style/ListViewShadowImage"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/album_list_shadow" />
+</RelativeLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+         android:title="@string/erase_sure">
+         <Preference
+            style="?android:attr/preferenceInformationStyle"
+            android:title="@string/erase_personal_data"
+            android:summary="@string/erase_personal_data_description"
+            android:persistent="false" />
+    </PreferenceCategory>
+    <PreferenceCategory
+         android:title="@string/erase_optional"
+         android:key="erase_optional">
+         <CheckBoxPreference
+            android:key="erase_application"
+            android:title="@string/erase_application"
+            android:summary="@string/erase_application_description" />
+         <CheckBoxPreference
+            android:key="erase_external_storage"
+            android:title="@string/erase_external_storage"
+            android:summary="@string/erase_external_storage_description" />
+    </PreferenceCategory>
+</PreferenceScreen>

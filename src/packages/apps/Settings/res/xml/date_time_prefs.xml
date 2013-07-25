@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/date_and_time">
+    <CheckBoxPreference android:key="auto_time"
+        android:title="@string/date_time_auto"
+        android:summaryOn="@string/date_time_auto_summaryOn"
+        android:summaryOff="@string/date_time_auto_summaryOff"
+        />
+    <CheckBoxPreference android:key="auto_zone"
+        android:title="@string/zone_auto"
+        android:summaryOn="@string/zone_auto_summaryOn"
+        android:summaryOff="@string/zone_auto_summaryOff"
+        />
+    <Preference android:key="date"
+        android:title="@string/date_time_set_date"
+        android:summary="03/10/2008"
+        />
+    <Preference android:key="time"
+        android:title="@string/date_time_set_time"
+        android:summary="12:00am"
+        />
+    <PreferenceScreen
+        android:fragment="com.android.settings.ZonePicker"
+        android:key="timezone"
+        android:title="@string/date_time_set_timezone"
+        android:summary="GMT-8:00"
+        />
+    <CheckBoxPreference android:key="24 hour"
+        android:title="@string/date_time_24hour"
+        />
+    <ListPreference
+        android:key="date_format"
+        android:title="@string/date_time_date_format"
+        android:summary="mm/dd/yyyy"/>
+</PreferenceScreen>

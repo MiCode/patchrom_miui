@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <TextView android:id="@+id/pop_up_time"
+        android:layout_width="80dip"
+        android:layout_height="wrap_content"
+        android:gravity="top|center_horizontal"
+        android:paddingTop="@dimen/pop_up_time_text_padding_top"
+        android:layout_gravity="top|left"
+        android:singleLine="true"
+        android:textSize="18dip"
+        android:background="@drawable/pop_progress_bg"
+        android:textColor="@color/black_70_transparent"
+        android:shadowColor="@color/white_70_transparent"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+     />
+
+     <LinearLayout
+         android:layout_width="fill_parent"
+         android:layout_height="100dip"
+         android:layout_gravity="top"
+         android:layout_marginLeft="15dip"
+         android:layout_marginRight="15dip"
+         android:layout_marginTop="20dip"
+         android:gravity="center" >
+
+         <TextView
+             android:id="@+id/left"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center_vertical"
+             android:text="@string/min_interval"
+             android:textColor="@android:color/black" />
+
+         <SeekBar
+             android:id="@+id/seekbar"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center_vertical"
+             android:layout_weight="1"
+             android:max="89"
+             android:paddingLeft="10dip"
+             android:paddingRight="10dip" />
+
+         <TextView
+             android:id="@+id/right"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center_vertical"
+             android:text="@string/max_interval"
+             android:textColor="@android:color/black" />
+
+      </LinearLayout>
+</FrameLayout>

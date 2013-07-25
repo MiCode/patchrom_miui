@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- android:layout_alignParentLeft="true"  -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+	android:layout_width="match_parent" 
+	android:layout_height="wrap_content" 
+	android:orientation="horizontal" 
+        android:focusable="false"
+	android:gravity="center">
+	<CheckBox android:id="@+id/call_reject_contact_check_btn" 
+		android:layout_width="wrap_content" 
+		android:layout_height="match_parent"
+		android:layout_centerVertical="true" 
+                android:focusable="false"
+		android:layout_marginLeft="15dip">
+	</CheckBox>
+
+	<LinearLayout 
+		android:layout_width="0dip" 
+		android:layout_height="wrap_content"  
+		android:layout_weight="1"
+		android:layout_centerVertical="true" 
+		android:layout_marginLeft="5dip" 
+                android:background="?android:attr/selectableItemBackground"
+		android:orientation="vertical">
+		<TextView android:id="@+id/call_reject_contact_name" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" 
+			android:textAppearance="?android:attr/textAppearanceMedium" 
+			android:singleLine="true" 
+			android:ellipsize="marquee" 
+			android:gravity="center_vertical"/>
+		<TextView android:id="@+id/call_reject_contact_phone_num" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" 
+			android:layout_centerVertical="true" 
+			android:textAppearance="?android:attr/textAppearanceSmall" 
+			android:singleLine="true" 
+			android:ellipsize="marquee" 
+			android:gravity="center_vertical"/>
+	</LinearLayout>
+</LinearLayout>

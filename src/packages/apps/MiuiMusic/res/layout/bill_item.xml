@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_height="wrap_content"
+     android:layout_width="match_parent"
+     android:orientation="vertical">
+
+    <TextView
+        style="@miui:style/V5.TextAppearance.List.Secondary"
+        android:id="@+id/billboard_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textColor="@miui:color/v5_list_secondary_text_color_light"
+        android:gravity="center_vertical|left" />
+
+    <LinearLayout
+        android:id="@+id/preview_wrap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bill_item_bg_bottom" >
+
+        <include
+            android:id="@+id/song_item_preview_1"
+            layout="@layout/bill_preview_item" />
+
+        <include
+            android:id="@+id/song_item_preview_2"
+            layout="@layout/bill_preview_item" />
+
+        <include
+            android:id="@+id/song_item_preview_3"
+            layout="@layout/bill_preview_item" />
+
+        <include
+            android:id="@+id/song_item_preview_4"
+            layout="@layout/bill_preview_item" />
+    </LinearLayout>
+
+</LinearLayout>

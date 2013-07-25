@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <FrameLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@miui:drawable/v5_bottom_bar_bg_dark" >
+
+        <Button
+            android:id="@+id/btn_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/btn_complete"
+            android:text="@string/complete"
+            android:textColor="@color/btn_complete_text" />
+    </FrameLayout>
+
+    <fragment
+        android:id="@+id/track_picker_list_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_bar"
+        class="com.miui.player.ui.fragment.TrackPickerForPlaylistFragment" />
+
+</RelativeLayout>

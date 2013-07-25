@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:clickable="true"
+    android:focusable="true">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gadget_weather_a1_bg" >
+        <include
+            android:id="@+id/frame2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/gadget_weather_2x4_new_frame" />
+        <include
+            android:id="@+id/frame1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/gadget_weather_2x4_new_frame" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="15dip">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0">
+            <ImageView
+                android:id="@+id/widget_2x4_up_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0" />
+            <ImageView
+                android:id="@+id/widget_2x4_up_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0">
+            <ImageView
+                android:id="@+id/widget_2x4_down_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"/>
+            <ImageView
+                android:id="@+id/widget_2x4_down_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

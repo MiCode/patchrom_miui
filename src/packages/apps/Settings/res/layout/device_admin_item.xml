@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+** Copyright 2010, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:orientation="horizontal"
+    android:paddingEnd="6dip"
+    android:paddingStart="6dip"
+    android:gravity="center_vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:minWidth="64dip"
+        android:gravity="center"
+        android:padding="8dip"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="@android:dimen/app_icon_size"
+            android:layout_height="@android:dimen/app_icon_size"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@null"
+            />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dip"
+        android:layout_marginBottom="8dip"
+        android:layout_weight="1">
+
+        <TextView android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:ellipsize="marquee"
+            android:layout_alignParentTop="true"
+            android:fadingEdge="horizontal" />
+
+        <TextView android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dip"
+            android:layout_below="@id/name"
+            android:layout_alignStart="@id/name"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="?android:attr/textColorSecondary"
+            android:maxLines="4" />
+
+    </RelativeLayout>
+
+    <CheckBox xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="16dip"
+        android:layout_marginStart="16dip"
+        android:focusable="false"
+        android:clickable="false" />
+
+</LinearLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:paddingLeft="@dimen/content_horizontal_margin"
+              android:paddingRight="@dimen/content_horizontal_margin"
+              android:paddingTop="@dimen/content_horizontal_margin"
+              android:paddingBottom="@dimen/content_bottom_margin"
+              android:orientation="vertical"
+              android:gravity="center_horizontal">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:minHeight="64dp"
+            >
+        <ImageView android:id="@+id/icon"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:maxHeight="43dip"
+                   android:maxWidth="43dip"
+                   android:adjustViewBounds="true"
+                   android:layout_gravity="center_horizontal"
+                   android:gravity="center"
+                   android:scaleType="fitCenter"
+                   android:layout_marginBottom="2dip"
+                   android:background="?android:alertDialogIcon"
+                />
+        <TextView
+                android:id="@android:id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="@string/alert_title_remove_account"
+                style="@style/DialogTitleStyle"
+                />
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:text="@string/remove_account_notice"
+                style="?android:attr/textAppearanceMedium"
+                />
+    </LinearLayout>
+    <!-- Alert dialog style buttons along the bottom. -->
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:measureWithLargestChild="true"
+            android:orientation="vertical"
+            >
+        <Button
+                android:id="@+id/btn_keep_data"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/data_keep_in_phone"/>
+        <Button
+                android:id="@+id/btn_wipe_data"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/buttons_margin_v"
+                android:text="@string/data_wipe_from_phone"
+                style="@style/ButtonRemove"
+                />
+        <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/buttons_margin_v"
+                android:text="@android:string/cancel"/>
+    </LinearLayout>
+</LinearLayout>

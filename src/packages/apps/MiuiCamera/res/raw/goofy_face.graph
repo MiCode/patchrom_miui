@@ -1,0 +1,123 @@
+//
+// Copyright (C) 2011 The Android Open Source Project
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+// Imports ---------------------------------------------------
+@import android.filterpacks.videosrc;
+@import android.filterpacks.videosink;
+@import android.filterpacks.ui;
+@import android.filterpacks.base;
+@import android.filterpacks.imageproc;
+
+@import com.google.android.filterpacks.facedetect;
+
+@setting autoBranch = "synced";
+
+// Externals -------------------------------------------------
+
+@external textureSourceCallback;
+@external recordingWidth;
+@external recordingHeight;
+@external recordingProfile;
+@external recordingDoneListener;
+
+@external previewSurfaceTexture;
+@external previewWidth;
+@external previewHeight;
+
+// Not used by this graph, but simplifies higher-level
+// graph initialization code.
+@external orientation;
+
+// Filters ---------------------------------------------------
+
+// Camera input
+@filter SurfaceTextureSource source {
+  sourceListener = $textureSourceCallback;
+  width = $recordingWidth;
+  height = $recordingHeight;
+  closeOnTimeout = true;
+}
+
+// Face detection
+@filter ToPackedGrayFilter toPackedGray {
+  owidth = 320;
+  oheight = 240;
+  keepAspectRatio = true;
+}
+
+@filter MultiFaceTrackerFilter faceTracker {
+  numChannelsDetector = 3;
+  quality = 0.0f;
+  smoothness = 0.2f;
+  minEyeDist = 25.0f;
+  rollRange = 45.0f;
+  numSkipFrames = 9;
+  trackingError = 1.0;
+  mouthOnlySmoothing = 0;
+  useAffineCorrection = 1;
+  patchSize = 15;
+}
+
+// Goofyface
+@filter GoofyFastRenderFilter goofyrenderer {
+  distortionAmount = 1.0;
+}
+
+// Display output
+@filter SurfaceTextureTarget display {
+  surfaceTexture = $previewSurfaceTexture;
+  width = $previewWidth;
+  height = $previewHeight;
+  renderMode = "stretch";
+}
+
+// Orientation rotation filter
+@filter FixedRotationFilter rotate {
+    rotation = 0;
+}
+
+// Orientation rotation filter for facemeta data
+@filter FaceMetaFixedRotationFilter metarotate {
+    rotation = 0;
+}
+
+
+// Recording output
+@filter MediaEncoderFilter recorder {
+  recordingProfile = $recordingProfile;
+  recordingDoneListener = $recordingDoneListener;
+  recording = false;
+  width = $recordingWidth;
+  height = $recordingHeight;
+  // outputFile, orientationHint, inputRegion,
+  // audioSource, listeners, captureRate
+  // will be set when recording starts
+}
+
+// Connections -----------------------------------------------
+// camera -> faceTracker
+@connect source[video] => rotate[image];
+@connect rotate[image] => toPackedGray[image];
+@connect toPackedGray[image] => faceTracker[image];
+// camera -> goofy
+@connect source[video] => goofyrenderer[image];
+// faceTracker -> metarotate -> goofy
+@connect faceTracker[faces] => metarotate[faces];
+@connect metarotate[faces] => goofyrenderer[faces];
+// goofy -> display out
+@connect goofyrenderer[outimage] => display[frame];
+// goofy -> record
+@connect goofyrenderer[outimage] => recorder[videoframe];

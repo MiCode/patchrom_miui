@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/content"
+    android:layout_width="match_parent"
+    android:background="@drawable/agenda_item_bg"
+    android:paddingLeft="0dip"
+    android:paddingRight="0dip"
+    style="@miui:style/V5.Widget.ListView.Item.TrebleLine">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/agenda_item_day_container"
+            android:layout_width="78dip"
+            android:layout_height="match_parent"
+            android:paddingTop="6dip"
+            android:background="@color/miui_agenda_item_day_background_color">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:textStyle="bold"
+                    android:textSize="19sp"
+                    android:textColor="@color/miui_primary_text_color_dark"
+                    style="@miui:style/V5.TextAppearance.List.Primary" />
+
+                <TextView
+                    android:id="@+id/week"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:textSize="12sp"
+                    android:textColor="@color/miui_secondary_text_color_dark"
+                    style="@miui:style/V5.TextAppearance.List.Secondary" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/agenda_list_separator_color" />
+
+        <FrameLayout
+            android:id="@+id/agenda_item_text_container"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/agenda_item_left_margin"
+            android:paddingRight="@dimen/agenda_item_right_margin">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dip"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:textColor="@color/miui_primary_text_color_dark"
+                    style="@miui:style/V5.TextAppearance.List.Primary" />
+
+                <TextView
+                    android:id="@+id/when"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:textColor="@color/miui_secondary_text_color_dark"
+                    style="@miui:style/V5.TextAppearance.List.Secondary" />
+
+                <TextView
+                    android:id="@+id/where"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:textColor="@color/miui_secondary_text_color_dark"
+                    style="@miui:style/V5.TextAppearance.List.Secondary" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/selected_marker"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:contentDescription="@string/acessibility_selected_marker_description"
+            android:background="@drawable/list_multi_left_activated_holo" />
+
+        <FrameLayout
+            android:layout_width="8dip"
+            android:layout_height="match_parent">
+
+            <com.android.calendar.ColorChipView
+                android:id="@+id/agenda_item_color"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:background="@color/agenda_list_separator_color" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/top_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_gravity="bottom"
+        android:background="@color/agenda_list_separator_color" />
+
+</FrameLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <View
+        android:id="@+id/lyric_nowplaying_line"
+        android:layout_width="wrap_content"
+        android:layout_height="1px"
+        android:layout_marginLeft="@dimen/spacing_to_border"
+        android:layout_marginRight="@dimen/spacing_to_border"
+        android:background="@android:color/white"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/lyric_anim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.miui.player.ui.view.ExtendScrollView
+            android:id="@+id/lyric_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|top"
+            android:paddingLeft="@dimen/spacing_to_border"
+            android:paddingRight="@dimen/spacing_to_border"
+            android:scrollbars="none" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/lyric_before"
+                    style="@style/LyricNormalStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal|bottom" />
+
+                <TextView
+                    android:id="@+id/lyric_current"
+                    style="@style/LyricHighLightStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/lyric_after"
+                    style="@style/LyricNormalStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal|top"
+                    android:minHeight="120dip" />
+            </LinearLayout>
+        </com.miui.player.ui.view.ExtendScrollView>
+
+        <RelativeLayout
+            android:id="@+id/lyric_status"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <ImageView
+                android:id="@+id/no_lyric_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:scaleType="center"
+                android:src="?miui:attr/v5_content_empty_icon" />
+
+            <TextView
+                android:id="@+id/lyric_status_text"
+                style="@style/LyricNormalStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/no_lyric_indicator"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:includeFontPadding="true" />
+        </RelativeLayout>
+    </FrameLayout>
+
+</FrameLayout>

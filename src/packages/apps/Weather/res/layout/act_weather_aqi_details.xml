@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="40dip"
+    android:layout_marginRight="40dip"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+        <TableRow>
+            <TextView
+                style="@style/aqi_deails_text"
+                android:gravity="right"
+                android:text="@string/act_aqi_pm25_title" />
+            <TextView
+                android:id="@+id/aqi_pm25_value"
+                android:layout_marginLeft="10dip"
+                style="@style/aqi_deails_text" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                style="@style/aqi_deails_text"
+                android:gravity="right"
+                android:text="@string/act_aqi_pm10_title" />
+            <TextView
+                android:id="@+id/aqi_pm10_value"
+                android:layout_marginLeft="10dip"
+                style="@style/aqi_deails_text" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                style="@style/aqi_deails_text"
+                android:gravity="right"
+                android:text="@string/act_aqi_so2_title" />
+            <TextView
+                android:id="@+id/aqi_so2_value"
+                android:layout_marginLeft="10dip"
+                style="@style/aqi_deails_text" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                style="@style/aqi_deails_text"
+                android:gravity="right"
+                android:text="@string/act_aqi_no2_title" />
+            <TextView
+                android:id="@+id/aqi_no2_value"
+                android:layout_marginLeft="10dip"
+                style="@style/aqi_deails_text" />
+        </TableRow>
+    </TableLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="@dimen/weather_aqi_details_line_offset_value"
+        android:layout_marginBottom="@dimen/weather_aqi_details_line_offset_value"
+        android:background="#9e9e9e" />
+    <TextView
+        android:id="@+id/aqi_details_taps"
+        style="@style/aqi_deails_taps_text"
+        android:maxLines="3"
+        android:minLines="1"
+        android:ellipsize="end"
+        android:gravity="center" />
+    <TextView
+        android:id="@+id/aqi_publish_time"
+        style="@style/aqi_deails_publish_time_text"
+        android:singleLine="true"
+        android:layout_marginTop="8dip"
+        android:gravity="center" />
+</LinearLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.home.launcher.CellScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animationCache="false" >
+    <FrameLayout
+        android:id="@+id/background_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animationCache="false"
+        android:visibility="invisible" >
+        <ImageView
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY" />
+        <ImageView
+            android:id="@+id/delete_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:visibility="invisible"
+            android:clickable="true"
+            android:src="@drawable/editing_delete_screen_btn" />
+        <ImageView
+            android:id="@+id/new_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/workspace_cell_padding_bottom"
+            android:visibility="invisible"
+            android:clickable="true"
+            android:src="@drawable/editing_new_screen_btn" />
+
+    </FrameLayout>
+    <com.miui.home.launcher.CellLayout
+        android:id="@+id/cell_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animationCache="false"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/workspace_cell_padding_bottom" >
+    </com.miui.home.launcher.CellLayout>
+</com.miui.home.launcher.CellScreen>
+

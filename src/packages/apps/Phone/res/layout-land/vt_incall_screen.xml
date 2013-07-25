@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0  
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<com.mediatek.phone.vt.VTInCallScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/VTInCallCanvas"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:visibility="gone" >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                
+                    <include layout="@layout/vt_call_banner"
+                        android:layout_alignParentTop="true"/>
+
+                    <SurfaceView
+                        android:id="@+id/VTHighVideo"
+                        android:layout_width="@dimen/vt_incall_screen_high_video_width"
+                        android:layout_height="@dimen/vt_incall_screen_high_video_height"
+                        android:layout_below="@id/callBanner"
+                        android:layout_centerHorizontal="true" >
+                    </SurfaceView>
+                    <ImageButton
+                        android:id="@+id/VTHighUp"
+                        android:layout_width="@dimen/vt_incall_screen_image_button_width"
+                        android:layout_height="@dimen/vt_incall_screen_image_button_height"
+                        android:layout_alignLeft="@id/VTHighVideo"
+                        android:layout_alignTop="@id/VTHighVideo"
+                        android:layout_marginLeft="@dimen/vt_incall_screen_high_video_image_button_margin_edge"
+                        android:layout_marginTop="@dimen/vt_incall_screen_high_video_image_button_margin_edge" >
+                    </ImageButton>
+
+                    <ImageButton
+                        android:id="@+id/VTHighDown"
+                        android:layout_width="@dimen/vt_incall_screen_image_button_width"
+                        android:layout_height="@dimen/vt_incall_screen_image_button_height"
+                        android:layout_alignBottom="@id/VTHighVideo"
+                        android:layout_alignLeft="@id/VTHighVideo"
+                        android:layout_marginBottom="@dimen/vt_incall_screen_high_video_image_button_margin_edge"
+                        android:layout_marginLeft="@dimen/vt_incall_screen_high_video_image_button_margin_edge" >
+                    </ImageButton>
+                    
+                </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <SurfaceView
+                    android:id="@+id/VTLowVideo"
+                    android:layout_width="@dimen/vt_incall_screen_low_video_width"
+                    android:layout_height="@dimen/vt_incall_screen_low_video_height"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="@dimen/vt_incall_screen_low_video_margin_left"
+                    android:layout_marginTop="@dimen/vt_incall_screen_low_video_margin_top" >
+                </SurfaceView>
+                
+                <ImageView
+                    android:id="@+id/VTVoiceRecording"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/VTLowVideo"
+                    android:layout_alignLeft="@id/VTLowVideo"
+                    android:layout_marginBottom="10dip"
+                    android:layout_marginLeft="10dip" >
+                </ImageView>
+                
+                <ToggleButton android:id="@+id/VTSpeaker"
+                    android:layout_width="@dimen/vt_incall_screen_button_width"
+                    android:layout_height="@dimen/vt_incall_screen_button_height"
+                    style="@style/InCallCompoundButton"
+                    android:background="@drawable/btn_compound_audio_vt"
+                    android:contentDescription="@string/onscreenAudioText"
+                    android:layout_above="@id/VTHangUpWrapper"
+                    android:layout_marginLeft="@dimen/vt_incall_screen_button_margin_out"
+                    android:layout_marginTop="@dimen/vt_incall_screen_low_video_margin_top"/>
+
+                <ToggleButton android:id="@+id/VTMute"
+                    android:layout_width="@dimen/vt_incall_screen_button_width"
+                    android:layout_height="@dimen/vt_incall_screen_button_height"
+                    style="@style/InCallCompoundButton"
+                    android:background="@drawable/btn_compound_mute_vt"
+                    android:contentDescription="@string/onscreenMuteText"
+                    android:layout_above="@id/VTHangUpWrapper"
+                    android:layout_toRightOf="@id/VTSpeaker"
+                    android:layout_marginTop="@dimen/vt_incall_screen_low_video_margin_top"
+                    android:layout_marginLeft="@dimen/vt_incall_screen_button_interval"/>
+
+                <ToggleButton android:id="@+id/VTSwapVideo"
+                    android:layout_width="@dimen/vt_incall_screen_button_width"
+                    android:layout_height="@dimen/vt_incall_screen_button_height"
+                    style="@style/InCallCompoundButton"
+                    android:background="@drawable/btn_compound_swap_video_vt"
+                    android:contentDescription="@string/vt_swap_video"
+                    android:layout_above="@id/VTHangUpWrapper"
+                    android:layout_toRightOf="@id/VTSpeaker"
+                    android:layout_marginTop="@dimen/vt_incall_screen_low_video_margin_top"
+                    android:layout_marginLeft="@dimen/vt_incall_screen_button_interval"
+                    android:visibility="gone"/>
+
+                <ImageButton
+                    android:id="@+id/VTOverflowMenu"
+                    android:src="@drawable/ic_menu_overflow"
+                    android:background="@drawable/btn_image_overflow_vt"
+                    android:layout_width="@dimen/vt_incall_screen_button_width"
+                    android:layout_height="@dimen/vt_incall_screen_button_height"
+                    android:layout_above="@id/VTHangUpWrapper"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/vt_incall_screen_button_margin_out"
+                    android:layout_marginTop="@dimen/vt_incall_screen_low_video_margin_top" >
+                </ImageButton>
+
+                <ToggleButton android:id="@+id/VTDialpad"
+                    android:layout_width="@dimen/vt_incall_screen_button_width"
+                    android:layout_height="@dimen/vt_incall_screen_button_height"
+                    style="@style/InCallCompoundButton"
+                    android:background="@drawable/btn_compound_dialpad_vt"
+                    android:contentDescription="@string/onscreenShowDialpadText"
+                    android:layout_above="@id/VTHangUpWrapper"
+                    android:layout_toLeftOf="@id/VTOverflowMenu"
+                    android:layout_marginTop="@dimen/vt_incall_screen_low_video_margin_top"
+                    android:layout_marginRight="@dimen/vt_incall_screen_button_interval"/>
+
+                <!-- "DTMF dialpad shown in the upper part of the screen
+                (above the main cluster of buttons.)" -->
+                <ViewStub android:id="@+id/dtmf_twelve_key_dialer_stub_vt"
+                    android:layout="@layout/dtmf_twelve_key_dialer_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_above="@id/VTDialpad"/>
+
+                <LinearLayout
+                    android:id="@+id/VTHangUpWrapper"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/vt_incall_screen_button_height"
+		    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/vt_incall_screen_button_margin_out"
+                    android:layout_marginRight="@dimen/vt_incall_screen_button_margin_out"
+                    android:layout_marginTop="@dimen/vt_incall_screen_button_margin_out"
+                    android:background="@drawable/end_call_background"
+                    >
+                    <ImageButton android:id="@+id/VTHangUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_end_call"
+                        android:contentDescription="@string/onscreenEndCallText"
+                        android:background = "?android:attr/selectableItemBackground"
+                        />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/VTLowUp"
+                    android:layout_width="@dimen/vt_incall_screen_image_button_height"
+                    android:layout_height="@dimen/vt_incall_screen_image_button_height"
+                    android:layout_alignLeft="@id/VTLowVideo"
+                    android:layout_alignTop="@id/VTLowVideo"
+                    android:layout_marginLeft="@dimen/vt_incall_screen_low_video_image_button_margin_edge"
+                    android:layout_marginTop="@dimen/vt_incall_screen_low_video_image_button_margin_edge" >
+                </ImageButton>
+
+                <ImageButton
+                    android:id="@+id/VTLowDown"
+                    android:layout_width="@dimen/vt_incall_screen_image_button_height"
+                    android:layout_height="@dimen/vt_incall_screen_image_button_height"
+                    android:layout_alignBottom="@id/VTLowVideo"
+                    android:layout_alignLeft="@id/VTLowVideo"
+                    android:layout_marginBottom="@dimen/vt_incall_screen_low_video_image_button_margin_edge"
+                    android:layout_marginLeft="@dimen/vt_incall_screen_low_video_image_button_margin_edge" >
+                </ImageButton>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.mediatek.phone.vt.VTInCallScreen>

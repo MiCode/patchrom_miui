@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/vp_loading_background_v5" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" >
+
+        <TextView
+            android:id="@+id/loading_textview"
+            style="@style/vp_loading_buffering_textview_style_v5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/loading_video_netplay_label_v5" />
+
+        <TextView
+            android:id="@+id/to_be_play_media_textview"
+            style="@style/vp_loading_buffering_to_be_play_textview_style_v5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/loading_textview"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="42dp"
+            android:gravity="center"
+            android:text="@string/to_be_play_label_v5" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-5dp" >
+
+
+     <ProgressBar 
+            android:id="@+id/buffering"
+            android:indeterminateBehavior="repeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@miui:drawable/v5_progress_bar_bg_light"
+            android:indeterminateDrawable="@miui:drawable/v5_progress_bar_ani_light"
+            android:minWidth="64dp"
+            android:maxWidth="64dp"
+            android:minHeight="64dp"
+            android:maxHeight="64dp"
+            android:layout_centerVertical="true"/>
+        
+        <RelativeLayout
+            android:id="@+id/progress_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/buffering"
+            android:layout_centerVertical="true" >
+
+            <com.miui.videoplayer.framework.views.DuoKanSeekbar
+                android:id="@+id/mediacontroller_progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxHeight="@dimen/popup_bottom_seekbar_height_v5"
+                android:minHeight="@dimen/popup_bottom_seekbar_height_v5"
+                android:paddingLeft="@dimen/horizontal_seekbar_padding_left"
+                android:paddingRight="@dimen/horizontal_seekbar_padding_right"
+                android:progressDrawable="@drawable/vp_progressbar_v5"
+                android:thumb="@drawable/vp_seekbar_v5_thumb"
+                android:thumbOffset="@dimen/vertical_seekbar_thumb_offset" 
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

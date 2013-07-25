@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- XML resource file for secondary call info, which will be used by CallCard.
+     See also call_card.xml.
+android:layout_marginTop="@dimen/incoming_call_2_name_margintop"
+     This should look similar to primary call info (primary_call_info.xml), but
+     to optimize the view usage, the structure is different. -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_alignParentRight="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/incoming_call_2_info_padding"
+    android:paddingLeft="@dimen/incoming_call_2_info_padding"
+    android:background="@drawable/incall_shadow_left"
+    android:visibility="gone">
+
+    <TextView android:id="@+id/incoming_call_2_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/call_state_label_height"
+        android:gravity="left"
+        android:textSize="@dimen/call_banner_text_size"
+        android:textColor="@color/incall_call_banner_text_color"
+        android:textAllCaps="false"
+        android:singleLine="true"
+        android:paddingRight="@dimen/call_banner_side_padding"
+        android:paddingLeft="@dimen/call_banner_side_padding"
+        android:maxWidth="@dimen/incoming_call_2_width"
+        android:ellipsize="end"
+        android:visibility="gone"
+        android:background="@color/incall_call_banner_background"/>
+
+    <ImageView android:id="@+id/inset_Incoming_call_2_Photo"
+        android:layout_below="@id/incoming_call_2_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="right"
+        android:layout_alignParentRight="true"
+        android:scaleType="centerCrop"
+        android:visibility="gone"/>
+
+    <!-- Overlaps secondary photo when the secondary call is in incomming state.
+
+    TODO: We could do better. See equivalent in primary xml. -->
+    <View android:id="@+id/dim_effect_for_incoming_call_2_photo"
+        android:layout_below="@id/incoming_call_2_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/clickable_dim_effect"
+        android:visibility="gone" />
+
+    <LinearLayout android:id="@+id/incoming_call_2_banner"
+        android:layout_below="@id/incoming_call_2_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/incoming_call_2_state__label_height"
+        android:background="@android:color/transparent">
+
+        <TextView android:id="@+id/incoming_call_2_state"
+            android:layout_width="@dimen/incoming_call_2_width"
+            android:layout_height="@dimen/incoming_call_2_state__label_height"
+            android:gravity="left"
+            android:singleLine="true"
+            android:paddingRight="@dimen/call_banner_side_padding"
+            android:paddingLeft="@dimen/call_banner_side_padding"
+            android:textSize="@dimen/incoming_call_2_state_text_size"
+            android:textColor="@color/incall_call_banner_text_color"
+            android:maxWidth="@dimen/incoming_call_2_width"
+            android:ellipsize="end"
+            android:textAllCaps="true"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+</RelativeLayout>
+

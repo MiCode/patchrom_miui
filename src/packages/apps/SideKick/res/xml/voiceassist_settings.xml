@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miui="http://schemas.android.com/apk/res/com.miui.player"
+    android:title="@string/voiceassist_settings" >
+
+    <PreferenceCategory android:title="@string/voice_report" >
+        <ListPreference
+            android:defaultValue="2"
+            android:entries="@array/report_method_entries"
+            android:entryValues="@array/report_method_entry_values"
+            android:key="voiceassist_report_method"
+            android:title="@string/report_method" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="voiceassist_phone_report"
+            android:title="@string/phone_report" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="voiceassist_sms_report"
+            android:title="@string/sms_report" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/tts_voice_effect">
+        <com.miui.voiceassist.ui.setting.TtsPreference
+            android:key="voiceassist_tts_voice_effect"
+            android:title="@string/voice_effect"
+            android:dialogTitle="@string/voice_effect"
+            android:persistent="true"
+            android:ringtoneType="ringtone" />
+    </PreferenceCategory>
+</PreferenceScreen>

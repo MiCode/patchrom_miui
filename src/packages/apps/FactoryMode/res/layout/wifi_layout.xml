@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <TextView 
+    	android:id="@+id/wifiStatusTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.6"
+        android:gravity="center"
+        android:textColor="#FFFFFF" />
+    <TextView
+	    android:id="@+id/currentStatusTextView"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_weight="0.6"
+	    android:textColor="#FFFFFF" />
+  
+	<LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:gravity="center"
+        android:orientation="vertical">
+		<ScrollView 
+	    	xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:layout_width="wrap_content"
+	        android:layout_height="0dp" 
+	        android:layout_weight="1" >        
+			<TextView 
+			    android:id="@+id/connectingTextView"
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:textColor="#FFFFFF"/> 
+		</ScrollView> 
+    
+	</LinearLayout>
+
+	<LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
+        
+		<TextView 
+		    android:id="@+id/connectedTextView"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:textColor="#FFFFFF"/>  
+	</LinearLayout>
+
+	<LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+		<Button 
+		    android:id="@+id/succeedWifiButton"
+		    android:layout_width="0dp"
+		    android:layout_height="wrap_content"
+		    android:layout_weight="1"
+		    android:gravity="center"
+		    android:text="@string/test_succeed"/>	
+	    <Button 
+		    android:id="@+id/failWifiButton"
+		    android:layout_width="0dp"
+		    android:layout_height="wrap_content"
+		    android:layout_weight="1"
+		    android:gravity="center"
+		    android:text="@string/test_fail" />	
+	    <Button 
+		    android:id="@+id/checkWifiButton"
+		    android:layout_width="0dp"
+		    android:layout_height="wrap_content"
+		    android:layout_weight="1"
+		    android:gravity="center"
+		    android:text="@string/test_start" />	
+	</LinearLayout>
+
+	<Button
+	    android:id="@+id/wifi_back_button"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center"
+	    android:text="@string/back_return" />
+
+</LinearLayout>

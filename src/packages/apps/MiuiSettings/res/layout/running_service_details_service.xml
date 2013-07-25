@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Icon and label of the service. -->
+    <include
+        layout="@layout/running_processes_item"
+        android:id="@+id/service"/>
+
+    <TextView android:id="@+id/comp_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingLeft="@miui:dimen/v5_list_view_padding_horizontal"
+        android:paddingRight="@miui:dimen/v5_list_view_padding_horizontal"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <include
+        layout="@layout/two_buttons_panel"
+        android:id="@+id/control_buttons_panel"/>
+
+</LinearLayout>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- Incoming server settings - tablet - see layout/ for phone UX variant -->
+<!-- This is used directly by the account setup activity, but during settings it is
+     wrapped in an outer layout (account_settings_incoming_fragment) -->
+<TableLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="1" >
+
+    <TableRow
+        android:paddingTop="16dip" >
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="16dip"
+            android:text="@string/account_setup_incoming_username_label" />
+        <EditText
+            android:id="@+id/account_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/account_setup_incoming_username_label"
+            android:inputType="textEmailAddress"
+            android:imeOptions="actionDone" />
+    </TableRow>
+    <TableRow
+        android:paddingTop="16dip" >
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="16dip"
+            android:text="@string/account_setup_incoming_password_label" />
+        <EditText
+            android:id="@+id/account_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/account_setup_incoming_password_label"
+            android:inputType="textPassword"
+            android:imeOptions="actionDone" />
+    </TableRow>
+    <TableRow
+        android:paddingTop="16dip" >
+        <!-- This text may be changed in code if the server is IMAP, etc. -->
+        <TextView
+            android:id="@+id/account_server_label"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="16dip"
+            android:text="@string/account_setup_incoming_pop_server_label" />
+        <!-- Note: we use inputType=textUri as the closest approximation to a server name -->
+        <EditText
+            android:id="@+id/account_server"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/account_setup_incoming_pop_server_label"
+            android:inputType="textUri"
+            android:imeOptions="actionDone" />
+    </TableRow>
+    <TableRow
+        android:paddingTop="16dip" >
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="16dip"
+            android:text="@string/account_setup_incoming_security_label" />
+        <Spinner
+            android:id="@+id/account_security_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/account_setup_incoming_security_label" />
+    </TableRow>
+    <TableRow
+        android:paddingTop="16dip" >
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="16dip"
+            android:text="@string/account_setup_incoming_port_label" />
+        <EditText
+            android:id="@+id/account_port"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/account_setup_incoming_port_label"
+            android:inputType="number"
+            android:imeOptions="actionDone" />
+    </TableRow>
+    <TableRow
+        android:paddingTop="16dip" >
+        <TextView
+            android:id="@+id/account_delete_policy_label"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="16dip"
+            android:text="@string/account_setup_incoming_delete_policy_label" />
+        <Spinner
+            android:id="@+id/account_delete_policy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/account_setup_incoming_delete_policy_label" />
+    </TableRow>
+    <TableRow
+        android:id="@+id/imap_path_prefix_section"
+        android:paddingTop="16dip" >
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="16dip"
+            android:text="@string/account_setup_incoming_imap_path_prefix_label" />
+        <EditText
+            android:id="@+id/imap_path_prefix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/account_setup_incoming_imap_path_prefix_label"
+            android:hint="@string/account_setup_incoming_imap_path_prefix_hint"
+            android:inputType="text"
+            android:imeOptions="actionDone" />
+    </TableRow>
+</TableLayout>
+

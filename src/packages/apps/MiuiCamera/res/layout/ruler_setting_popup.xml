@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.camera.ui.RulerSettingPopup xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/SettingPopupWindow">
+    <LinearLayout android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView android:id="@+id/title"
+                      style="@style/PopupTitleText" />
+        </FrameLayout>
+        <RelativeLayout
+                android:paddingTop="@dimen/ruler_line_layout_paddingTop"
+                android:paddingBottom="@dimen/ruler_line_layout_paddingBottom"
+                android:clickable="true"
+                style="@style/SettingItemRulerLine">
+            <LinearLayout
+                    android:id="@+id/ruler_scale"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:layout_alignLeft="@+id/ruler_line"
+                    android:orientation="horizontal">
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/ruler_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ruler_scale"
+                android:layout_marginTop="@dimen/ruler_line_marginTop"
+                android:layout_centerInParent="true"
+                android:background="@drawable/ic_camera_exposure_line"/>
+            <ImageView
+                android:id="@+id/ruler_corsor"
+                android:layout_below="@+id/ruler_scale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_camera_exposure_cursor"/>
+        </RelativeLayout>
+        <View style="@style/PopupTitleSeperator" />
+    </LinearLayout>
+</com.android.camera.ui.RulerSettingPopup>

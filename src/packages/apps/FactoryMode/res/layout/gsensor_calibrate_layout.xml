@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center"
+	    android:padding="10dp"
+	    android:textSize="20dp"
+	    android:text="@string/gsensor_calibrate_title" />
+
+    <LinearLayout
+       	android:layout_width="match_parent"
+	    android:layout_height="0dp"
+	    android:layout_weight="1"
+	    android:orientation="vertical"
+	    android:gravity="center" >
+	    
+        <TextView
+            android:id="@+id/calibrate_result"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:gravity="center_horizontal"
+		    android:padding="20dp"
+		    android:textSize="18dp"
+		    android:text="@string/calibrate_message_z" />
+        
+	    <ImageView
+	        android:src="@drawable/phone_place_show"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center" />
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal" >
+	    
+        <Button
+            android:id="@+id/calibrate_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/calibrate_button" />
+        
+	    <Button
+		    android:id="@+id/calibrate_reset"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_weight="1"
+		    android:text="@string/kepad_test_reset" />
+        
+    </LinearLayout>
+    
+   	<Button
+	    android:id="@+id/calibrate_back_btn"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center"
+	    android:text="@string/back_return" />
+    
+</LinearLayout>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/sound_settings"
+        android:key="sound_settings"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <com.android.settings.RingerVolumePreference
+            android:key="ring_volume"
+            android:title="@string/all_volume_title"
+            android:dialogTitle="@string/all_volume_title"
+            android:persistent="false"
+            android:streamType="ring" />
+
+    <Preference
+            android:key="musicfx"
+            android:title="@string/musicfx_title">
+        <intent android:targetPackage="com.android.musicfx"
+                android:targetClass="com.android.musicfx.ControlPanelPicker" />
+    </Preference>
+
+    <PreferenceCategory
+            android:key="category_calls_and_notification"
+            android:title="@string/sound_category_call_ringtone_vibrate_title"/>
+
+    <!-- Do not nest these, or removals in code will break -->
+    <com.android.settings.DefaultRingtonePreference
+            android:key="ringtone"
+            android:title="@string/ringtone_title"
+            android:dialogTitle="@string/ringtone_title"
+            android:persistent="false"
+            android:ringtoneType="ringtone" />
+
+    <CheckBoxPreference
+         android:key="vibrate_when_ringing"
+         android:title="@string/vibrate_when_ringing_title"
+         android:persistent="false" />
+
+    <PreferenceCategory
+            android:title="@string/sound_category_system_title"/>
+
+    <!-- Do not nest these, or removals in code will break -->
+
+    <com.android.settings.DefaultRingtonePreference
+            android:key="notification_sound"
+            android:title="@string/notification_sound_title"
+            android:dialogTitle="@string/notification_sound_dialog_title"
+            android:persistent="false"
+            android:ringtoneType="notification" />
+
+    <CheckBoxPreference
+            android:key="dtmf_tone"
+            android:title="@string/dtmf_tone_enable_title"
+            android:defaultValue="true" />
+
+    <CheckBoxPreference
+            android:key="sound_effects"
+            android:title="@string/sound_effects_enable_title"
+            android:defaultValue="true" />
+
+    <CheckBoxPreference
+            android:key="lock_sounds"
+            android:title="@string/lock_sounds_enable_title"
+            android:defaultValue="true" />
+
+    <CheckBoxPreference
+            android:key="haptic_feedback"
+            android:title="@string/haptic_feedback_enable_title"
+            android:defaultValue="true" />
+
+    <ListPreference
+            android:key="emergency_tone"
+            android:title="@string/emergency_tone_title"
+            android:entries="@array/emergency_tone_entries"
+            android:entryValues="@array/emergency_tone_values" />
+
+    <!-- Dock -->
+    <PreferenceCategory
+        android:key="dock_category"
+        android:title="@string/dock_settings"/>
+
+    <!-- Do not nest these, or removals in code will break -->
+    <PreferenceScreen
+        android:key="dock_audio"
+        android:title="@string/dock_audio_settings_title">
+        <CheckBoxPreference
+            android:title="@string/bluetooth_dock_settings_a2dp"
+            android:key="dock_audio_media_enabled"
+            android:enabled="true"
+            />
+    </PreferenceScreen>
+
+    <CheckBoxPreference
+        android:key="dock_sounds"
+        android:title="@string/dock_sounds_enable_title"
+        android:defaultValue="false" />
+
+</PreferenceScreen>

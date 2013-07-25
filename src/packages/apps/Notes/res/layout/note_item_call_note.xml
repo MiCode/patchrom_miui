@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<view
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    class="com.miui.notes.ui.NoteListItemCallNote"
+    android:layout_width="match_parent"
+    android:layout_height="@miui:dimen/v5_list_view_double_line_height">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_list_icon"
+            android:layout_width="@dimen/list_item_time_width"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:src="@drawable/ic_list_folder" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="@dimen/list_item_time_width"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:singleLine="true"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.List.Secondary" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/list_item_line_color" />
+
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.List.Primary"
+                android:ellipsize="end"
+                android:singleLine="true" />
+
+            <com.miui.notes.view.TextViewSnippet
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.List.Secondary"
+                android:ellipsize="end"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_alert_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dip"
+            android:src="@drawable/ic_list_alert"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_image_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dip"
+            android:src="@drawable/ic_list_image"
+            android:visibility="gone" />
+
+        <CheckBox
+            android:id="@android:id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:clickable="false"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/stick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dip"
+        android:layout_gravity="top|right"
+        android:visibility="gone"
+        android:background="@drawable/ic_list_stick" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_gravity="top"
+        android:background="@color/list_item_line_color" />
+
+</view>

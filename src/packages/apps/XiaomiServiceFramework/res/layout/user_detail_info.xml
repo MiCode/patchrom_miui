@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:paddingLeft="@dimen/content_horizontal_margin"
+                android:paddingRight="@dimen/content_horizontal_margin"
+                android:paddingTop="@dimen/content_horizontal_margin"
+                android:paddingBottom="@dimen/content_bottom_margin">
+
+    <Button
+        android:id="@+id/btn_delete_account"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/micloud_delete_account"
+        style="@style/ButtonRemove"
+        />
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="127dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        />
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/avatar"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:singleLine="true"
+        android:text="@string/my_xiaomi_account"
+        style="@style/UserDetailName"
+        />
+    <TextView
+        android:id="@+id/user_bind_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user_name"
+        android:layout_marginTop="12dp"
+        android:layout_centerHorizontal="true"
+        android:singleLine="true"
+        android:scrollHorizontally="true"
+        style="@style/UserDetailBindInfo"
+        />
+</RelativeLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Layout of time picker -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miui="http://schemas.android.com/apk/res/miui"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:orientation="horizontal" >
+
+    <!-- hour -->
+
+    <miui.widget.NumberPicker
+        android:id="@id/android_hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:focusableInTouchMode="true"
+        android:text="@string/v5_time_picker_label_hour"
+        miui:state_first="true" />
+
+    <!-- minute -->
+
+    <miui.widget.NumberPicker
+        android:id="@id/android_minute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:focusableInTouchMode="true"
+        android:text="@string/v5_time_picker_label_minute"
+        miui:state_middle="true" />
+
+    <!-- AM / PM -->
+
+    <miui.widget.NumberPicker
+        android:id="@id/android_amPm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:focusableInTouchMode="true"
+        miui:state_last="true" />
+
+</LinearLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miui="http://schemas.android.com/apk/res/com.miui.player"
+    android:title="@string/drive_mode_settings" >
+    <CheckBoxPreference
+            android:key="enable_drive_mode"
+            android:title="@string/enable_drive_mode" />
+    <PreferenceCategory android:title="@string/drive_mode_voice_report" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="phone_report"
+            android:title="@string/drive_mode_phone_report" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="sms_report"
+            android:title="@string/drive_mode_sms_report" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/drive_mode_auto_reply" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="calling_auto_sms_reply"
+            android:title="@string/drive_mode_calling_auto_sms_reply" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="sms_auto_sms_reply"
+            android:title="@string/drive_mode_sms_auto_sms_reply" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="only_contact_reply"
+            android:title="@string/drive_mode_only_contact_reply" />
+        <EditTextPreference
+            android:defaultValue="@string/drive_mode_auto_sms_reply_content"
+            android:summary="@string/drive_mode_auto_sms_reply_content"
+            android:key="sms_auto_reply_content"
+            android:title="@string/drive_mode_auto_sms_reply_content_title" />
+    </PreferenceCategory>
+</PreferenceScreen>

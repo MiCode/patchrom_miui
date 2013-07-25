@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/content_horizontal_margin"
+                android:paddingRight="@dimen/content_horizontal_margin"
+                android:paddingTop="@dimen/content_horizontal_margin"
+                android:paddingBottom="@dimen/content_bottom_margin"
+        >
+    <include
+            android:id="@+id/bottom_panel"
+            layout="@layout/micloud_steps_bar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            />
+    <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:inputType="textEmailAddress|textVisiblePassword"
+            android:imeOptions="actionNext"
+            android:hint="@string/micloud_email"
+            android:background="@drawable/single_edit_normal_bg"
+            />
+</RelativeLayout>

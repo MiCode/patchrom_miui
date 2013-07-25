@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/photo_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/qcb_window_title_bg" >
+
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="@dimen/qcb_photo_size"
+        android:layout_height="@dimen/qcb_photo_size"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/qcb_photo_margin_left"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:id="@+id/name_layout"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/qcb_name_padding_left" >
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/QcbNameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/company"
+            style="@style/QcbCompanyText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/qcb_company_margin_top"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/arrow_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="@dimen/qcb_arrow_right_marginRight"
+        android:src="@drawable/qcb_arrow_right" />
+
+</LinearLayout>

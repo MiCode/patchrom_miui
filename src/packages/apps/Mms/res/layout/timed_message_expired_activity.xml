@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/timed_message_expired_title"
+        android:layout_width="match_parent"
+        android:layout_height="32dip"
+        android:gravity="center|bottom"
+        android:textAppearance="@style/TextAppearance.DialogTitle"/>
+    <TextView
+        android:id="@+id/timed_message_expired_title_2"
+        android:text="@string/timed_message_expired_title_2"
+        android:layout_width="match_parent"
+        android:layout_height="32dip"
+        android:gravity="center|top"
+        android:textAppearance="@style/TextAppearance.DialogTitle"/>
+    <View
+        style="@miui:style/V5.Widget.BottomBar.TopLine"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
+    <com.android.mms.ui.MessageListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:fastScrollEnabled="true"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarStyle="insideOverlay"
+        android:visibility="visible"
+        android:layout_weight="1"
+        android:fadingEdge="none"
+        android:divider="@null"
+        android:cacheColorHint="@null" />
+    <LinearLayout
+        android:layout_marginTop="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false">
+        <Button android:id="@+id/resend"
+            android:text="@string/resent_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="?android:attr/buttonBarButtonStyle" />
+        <Button android:id="@+id/close"
+            android:text="@string/nosend_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="?android:attr/buttonBarButtonStyle" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pinned_header_list_layout"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/contact_browser_background">
+
+    <include layout="@layout/list_empty_view" />
+
+    <include
+        layout="@layout/list_separator" />
+
+    <view
+        class="com.android.contacts.widget.PinnedHeaderListView"
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:fastScrollEnabled="true"
+        android:fadingEdge="none" />
+</LinearLayout>

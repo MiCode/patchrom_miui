@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:miui="http://schemas.android.com/apk/res/miui"
+    android:id="@+id/topLayout"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/lock_pattern_background">
+
+    <!-- left side: instructions and messages -->
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            >
+
+        <!-- header message -->
+        <TextView android:id="@+id/headerText"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="center"
+                  android:textSize="18sp"/>
+
+        <!-- fill space between header and button below -->
+        <View
+            android:layout_weight="1.0"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+
+            <Button android:id="@+id/emergencyCall"
+                android:layout_height="wrap_content"
+                android:layout_width="144dip"
+                android:layout_marginTop="10dip"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:drawableLeft="@miui:drawable/v5_ic_emergency"
+                android:singleLine="true"
+                android:text="@miui:string/android_lockscreen_emergency_call"
+                android:visibility="gone" />
+
+            <Button android:id="@+id/forgetPattern"
+                android:layout_height="wrap_content"
+                android:layout_width="144dip"
+                android:layout_marginTop="10dip"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@*android:string/lockscreen_forgot_pattern_button_text"
+                android:visibility="gone"
+                />
+        </LinearLayout>
+
+        <!-- footer message -->
+        <TextView android:id="@+id/footerText"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="center"
+                  android:textSize="14sp"/>
+    </LinearLayout>
+
+    <!-- right side: lock pattern -->
+    <miui.widget.LockPatternView android:id="@+id/lockPattern"
+        style="@style/SecurityLockPatternView" />
+
+</com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient>
+

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sv_note_edit"
+    android:paddingBottom="7dip"
+    android:clipToPadding="false"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/edit_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-7dip"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/error_unsupport_content"
+        android:textAppearance="@style/TextAppearance.Editor.Info"
+        android:background="@drawable/edit_info_bg" />
+
+    <view
+        class="com.miui.notes.editor.RichEditor"
+        android:id="@+id/rich_editor"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_above="@id/edit_info"
+        android:layout_alignParentTop="true"
+        android:layout_alignWithParentIfMissing="true"
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        android:fadingEdgeLength="0dip" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-7dip"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/edit_bottom_cover" />
+
+</RelativeLayout>

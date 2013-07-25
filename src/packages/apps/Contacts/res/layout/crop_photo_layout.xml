@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <view
+        class="miui.widget.PhotoFrameView"
+        xmlns:miui="http://schemas.android.com/apk/res/miui"
+        android:id="@+id/photo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"
+        miui:boundType="inside"
+        miui:insideTop="@dimen/crop_photo_inside_top" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dip"
+            android:paddingRight="8dip"
+            style="@miui:style/V5.Widget.EditMode.TopBar"
+            android:background="@drawable/topbar_bg" >
+
+            <Button
+                android:id="@+id/cancel"
+                style="@miui:style/V5.Widget.EditMode.TopBar.Button"
+                android:background="@drawable/topbar_button"
+                android:text="@android:string/cancel" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                style="@miui:style/V5.TextAppearance.EditMode"
+                android:text="@string/move_and_resize"/>
+
+            <Button
+                android:id="@+id/turn_btn"
+                style="@miui:style/V5.Widget.EditMode.TopBar.Button"
+                android:background="@drawable/topbar_button"
+                android:text="@string/btn_rotation" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/toolbar_bg"
+            android:gravity="center_vertical|center" >
+
+            <Button
+                android:id="@+id/ok"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/toolbar_button"
+                android:text="@android:string/ok"
+                style="@miui:style/V5.Widget.EditMode.TopBar.Button" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <com.android.contacts.widget.ContactPhotoThumbnailView
+        android:id="@+id/animate_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/crop_photo_inside_top"
+        android:background="@drawable/contact_photo_thumbnail_area" />
+</FrameLayout>

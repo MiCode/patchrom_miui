@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<com.miui.home.launcher.DragLayer xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:launcher="http://schemas.android.com/apk/res/com.android.launcher"
+    android:id="@+id/drag_layer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.miui.home.launcher.Background
+            android:id="@+id/drag_layer_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    <FrameLayout
+        android:id="@+id/screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foregroundGravity="top|fill_horizontal" >
+            <FrameLayout
+                android:id="@+id/screen_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:foregroundGravity="top|fill_horizontal" >
+                <com.miui.home.launcher.Workspace
+                    android:id="@+id/workspace"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/status_bar_height"
+                    android:layout_marginBottom="@dimen/workspace_margin_bottom">
+                </com.miui.home.launcher.Workspace>
+
+                <com.miui.home.launcher.WorkspaceThumbnailView
+                    android:id="@+id/workspace_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/status_bar_height"
+                    android:visibility="invisible" />
+
+                <com.miui.home.launcher.WidgetThumbnailView
+                    android:id="@+id/widget_thumbnail_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/widget_box_height"
+                    android:layout_gravity="bottom"
+                    android:paddingLeft="10dip"
+                    android:paddingRight="10dip"
+                    android:visibility="invisible" />
+
+                <com.miui.home.launcher.MultiSelectContainerView
+                    android:id="@+id/multi_select_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/multi_select_container_height"
+                    android:layout_gravity="bottom"
+                    android:visibility="invisible" />
+
+                <com.miui.home.launcher.HotSeats
+                    android:id="@+id/hot_seats"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hotseats_height"
+                    android:layout_gravity="bottom"
+                    android:gravity="center"
+                    android:animationCache="false" >
+                </com.miui.home.launcher.HotSeats>
+            </FrameLayout>
+        <include layout="@layout/folder_cling" />
+    </FrameLayout>
+    <include layout="@layout/delete_zone" />
+    <com.miui.home.launcher.ErrorBar
+        android:id="@+id/error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/prompt_message_bg"
+        android:paddingTop="13dip"
+        android:singleLine="true"
+        android:visibility="invisible"
+        android:gravity="top|center_horizontal"
+        style="@style/WorkspaceIconTitle.notification" />
+
+    <FrameLayout
+        android:layout_width="1px"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/status_bar_height" >
+        <FrameLayout
+            android:id="@+id/default_position"
+            android:layout_width="1px"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+</com.miui.home.launcher.DragLayer>
+

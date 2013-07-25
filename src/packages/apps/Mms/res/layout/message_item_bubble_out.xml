@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="right">
+    <include
+        layout="@layout/message_item_bubble_deliver_text" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <miui.widget.CircleProgressBar
+            android:id="@+id/group_send_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="6dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/message_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/message_bubble_out_bg">
+            <View
+                android:id="@+id/timed_message_padding_view"
+                android:layout_width="@dimen/timed_message_padding_width"
+                android:layout_height="1px"
+                android:background="@null"
+                android:visibility="gone"
+                android:focusable="false"
+                android:clickable="false"
+                android:longClickable="false" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/group_send_to_panel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/bubble_text_extra_padding"
+                    android:visibility="gone"
+                    android:background="@drawable/group_item_bg" >
+                    <TextView
+                        android:id="@+id/group_send_to_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/TextAppearance.MessageDesc"
+                        android:text="@string/send_to"/>
+                    <TextView
+                        android:id="@+id/group_send_to"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        style="@style/TextAppearance.MessageDesc" />
+                    <TextView
+                        android:id="@+id/group_send_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dip"
+                        style="@style/TextAppearance.MessageDesc.Black"
+                        android:visibility="gone" />
+                </LinearLayout>
+                <include
+                    layout="@layout/message_item_bubble_out_body" />
+            </LinearLayout>
+        </LinearLayout>
+        <Button
+            android:id="@+id/timed_message_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|center_vertical"
+            android:background="@drawable/timed_message_indicator" />
+        <ImageView
+            android:id="@+id/favourite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|bottom"
+            android:src="@drawable/favourite_bubble_out"
+            android:visibility="gone"
+            android:background="@null" />
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/feedback_submit_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:paddingLeft="@dimen/section_separator_padding_horinzontal"
+                android:paddingRight="@dimen/section_separator_padding_horinzontal"
+                android:paddingTop="@dimen/section_separator_padding_top"
+                android:singleLine="true"
+                android:text="@string/section_err_type"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.SectionTitle" />
+
+            <TextView
+                android:id="@+id/err_type_text_view"
+                style="@miui:style/V5.TextAppearance.List.Primary"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/section_err_type_margin_top"
+                android:background="@miui:drawable/v5_preference_item_bg"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/section_err_type_padding_left"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:paddingLeft="@dimen/section_separator_padding_horinzontal"
+                android:paddingRight="@dimen/section_separator_padding_horinzontal"
+                android:paddingTop="@dimen/section_separator_padding_top"
+                android:singleLine="true"
+                android:text="@string/section_description"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.SectionTitle" />
+
+            <EditText
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/section_description_margin_horizontal"
+                android:layout_marginRight="@dimen/section_description_margin_horizontal"
+                android:layout_marginTop="@dimen/section_description_margin_top"
+                android:gravity="left|top"
+                android:hint="@string/description"
+                android:minHeight="@dimen/section_description_min_height"
+                android:textAppearance="@style/TextAppearance.Medium"
+                android:textColor="#666666"
+                android:singleLine="false" />
+
+            <TextView
+                android:id="@+id/section_screenshot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:paddingLeft="@dimen/section_separator_padding_horinzontal"
+                android:paddingRight="@dimen/section_separator_padding_horinzontal"
+                android:paddingTop="@dimen/section_separator_padding_top"
+                android:singleLine="true"
+                android:text="@string/section_screenshot"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.SectionTitle" />
+
+            <com.miui.bugreport.ui.ScreenshotContainerLayout
+                android:id="@+id/screenshot_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/screenshot_margin_horizontal"
+                android:layout_marginRight="@dimen/screenshot_margin_horizontal"
+                android:layout_marginTop="@dimen/screenshot_margin_top" >
+
+                <ViewStub
+                    android:id="@+id/screenshot_attachement_stub_1"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/screenshot_margin_gap"
+                    android:layout_marginRight="@dimen/screenshot_margin_gap"
+                    android:layout_weight="1"
+                    android:layout="@layout/screenshot_attach_layout" />
+
+                <ViewStub
+                    android:id="@+id/screenshot_attachement_stub_2"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/screenshot_margin_gap"
+                    android:layout_marginRight="@dimen/screenshot_margin_gap"
+                    android:layout_weight="1"
+                    android:layout="@layout/screenshot_attach_layout" />
+
+                <ViewStub
+                    android:id="@+id/screenshot_attachement_stub_3"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/screenshot_margin_gap"
+                    android:layout_marginRight="@dimen/screenshot_margin_gap"
+                    android:layout_weight="1"
+                    android:layout="@layout/screenshot_attach_layout" />
+            </com.miui.bugreport.ui.ScreenshotContainerLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/log_collection_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_bar_height"
+        android:baselineAligned="false"
+        android:gravity="center"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/status_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/status_msg_collecting_log"
+            android:textAppearance="@style/TextAppearance.Small" />
+    </LinearLayout>
+
+</LinearLayout>

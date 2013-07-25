@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    android:orientation="vertical"
+    android:gravity="bottom"
+    android:background="@drawable/photo_frame_picker_bg"
+    >
+    <FrameLayout
+        android:id="@+id/list_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/titlebar_tall_bg"
+        android:gravity="center_vertical"
+    >
+        <TextView
+            android:id="@+id/main_header"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:textAppearance="@android:style/TextAppearance.WindowTitle"
+            android:text="@string/photo_adjust"
+        />
+        <ImageView
+            android:id="@+id/header_action"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:src="@drawable/rturn_icon_normal"
+            android:background="@drawable/photo_frame_btn"
+        />
+    </FrameLayout>
+
+    <miui.widget.PhotoFrameView
+        android:id="@+id/edit_image"
+        android:layout_height="0dip"
+        android:layout_width="fill_parent"
+        android:layout_weight="1"
+    />
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center"
+        android:background="@drawable/bottombar_bg"
+        >
+        <Button style="@style/MultiSelectActionButton"
+            android:id="@+id/select_image"
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:text="@string/select_photo"
+            android:background="@drawable/bottom_btn_bg"
+        />
+        <Button style="@style/MultiSelectActionButton"
+            android:id="@+id/select_frame"
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:text="@string/select_frame"
+            android:background="@drawable/bottom_btn_bg"
+        />
+        <Button style="@style/MultiSelectActionButton"
+            android:id="@+id/confirm"
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:text="@string/photo_confirm"
+            android:background="@drawable/bottom_btn_commit_bg"
+        />
+    </LinearLayout>
+
+</LinearLayout>

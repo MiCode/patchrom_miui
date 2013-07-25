@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/history"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1.0"
+    android:foregroundGravity="left|bottom"
+    android:foreground="@drawable/message_list_bottom_foreground">
+    <com.android.mms.ui.MessageListView
+        android:id="@+id/message_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fastScrollEnabled="true"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarStyle="insideOverlay"
+        android:visibility="visible"
+        android:fadingEdge="none"
+        android:divider="@drawable/transparent_bg"
+        android:cacheColorHint="@null" />
+    <com.android.mms.ui.PesudoListView
+        android:id="@+id/message_list_animator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="invisible" />
+</FrameLayout>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/title_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <TextView
+        android:id="@+id/error_msg"
+        style="@style/ErrorMsgTitle"/>
+
+    <RelativeLayout
+        android:id="@+id/normal_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal"
+        >
+        <TableLayout
+            android:id="@+id/image_bar"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_toLeftOf="@+id/goto_nowplaying"
+            android:gravity="left|center_vertical"
+            android:orientation="horizontal"
+            android:shrinkColumns="0"
+            android:visibility="gone">
+
+            <TableRow>
+                <miui.widget.GradientTextView
+                    android:id="@+id/primary_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:gravity="left|center_vertical"
+                    android:singleLine="true"
+                    android:textSize="25sp"
+                    xmlns:miui="http://schemas.android.com/apk/res/miui"
+                    miui:startColor="@color/title_primary_gradual_start"
+                    miui:endColor="@color/title_primary_gradual_end"
+                />
+                <ImageView
+                   android:id="@+id/secondary_item"
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   android:layout_gravity="center_vertical"
+                   android:layout_marginLeft="@dimen/spacing_picker_item"
+                   android:scaleType="center"
+                   />
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:id="@+id/horizontal_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/goto_nowplaying"
+            android:gravity="left"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <miui.widget.GradientTextView
+                android:id="@+id/primary_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/title_number_margin_top"
+                android:textStyle="bold"
+                android:gravity="left"
+                android:singleLine="true"
+                android:textSize="30sp"
+                xmlns:miui="http://schemas.android.com/apk/res/miui"
+                miui:startColor="@color/title_primary_gradual_start"
+                miui:endColor="@color/title_primary_gradual_end"
+                />
+
+            <TextView
+                android:id="@+id/secondary_item"
+                style="@style/HorizontalTitleSecondaryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center_vertical"
+                android:singleLine="true"
+                android:layout_marginLeft="6.667dip"
+                android:layout_marginTop="@dimen/title_text_margin_top"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/vertical_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/goto_nowplaying"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/primary_item"
+                style="@style/TitlePrimaryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center_vertical"
+                android:singleLine="true"/>
+
+            <TextView
+                android:id="@+id/secondary_item"
+                style="@style/TitleSecondaryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center_vertical"
+                android:singleLine="true" />
+        </LinearLayout>
+
+         <LinearLayout
+            android:id="@+id/normal_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/goto_nowplaying"
+            android:gravity="center_vertical"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/primary_item"
+                style="@style/TitlePrimaryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center_vertical"
+                android:singleLine="true"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/goto_nowplaying"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/goto_nowplaying_selector"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginLeft="@dimen/spacing_to_border"
+            android:gravity="center"
+            android:scaleType="center"/>
+    </RelativeLayout>
+</FrameLayout>

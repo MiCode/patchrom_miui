@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/PickerItemStyle"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/list_image_maginLeft" >
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/list_image_maginRight" >
+
+        <include layout="@layout/album_picker_item_image" />
+    </FrameLayout>
+
+    <include layout="@layout/album_picker_item_text" />
+
+    <ImageView
+        android:id="@+id/enter_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center_vertical"
+        android:scaleType="center"
+        android:src="@drawable/enter_indicator" />
+
+    <CheckBox
+        android:id="@+id/batch_selection_check"
+        style="@style/BatchSelectionCheckBoxStyle"
+        android:layout_gravity="right|center_vertical"
+        android:checked="true"
+        android:clickable="false"
+        android:focusable="false"
+        android:visibility="gone" />
+
+</LinearLayout>

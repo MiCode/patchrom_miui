@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="left">
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/message_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/message_bubble_in_bg"
+            android:orientation="horizontal">
+            <include
+                layout="@layout/message_item_bubble_in_body" />
+            <View
+                android:id="@+id/mms_download_padding_view"
+                android:layout_width="@dimen/mms_download_padding_width"
+                android:layout_height="1px"
+                android:background="@null"
+                android:visibility="gone"
+                android:focusable="false"
+                android:clickable="false"
+                android:longClickable="false" />
+        </LinearLayout>
+        <FrameLayout
+            android:id="@+id/mms_download_controls"
+            android:layout_width="@dimen/mms_download_padding_width"
+            android:layout_height="match_parent"
+            android:layout_gravity="right|center_vertical"
+            android:background="@drawable/download_progress_bg"
+            android:visibility="gone" >
+            <ImageView
+                android:id="@+id/download_pending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/pending_bg"
+                android:src="@drawable/pending_fg" />
+            <Button
+                android:id="@+id/btn_download_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/download_btn" />
+            <miui.widget.CircleProgressBar
+                android:id="@+id/download_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+        </FrameLayout>
+        <ImageView
+            android:id="@+id/favourite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:src="@drawable/favourite_bubble_in"
+            android:visibility="gone"
+            android:background="@null" />
+    </FrameLayout>
+</LinearLayout>

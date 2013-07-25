@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@miui:style/V5.Widget.ListView.Item.DoubleLine"
+    android:paddingLeft="14dip"
+    android:paddingRight="6dip"
+    android:paddingTop="10dip"
+    android:paddingBottom="10dip"
+    android:gravity="center_vertical"
+    android:layout_width="match_parent">
+
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <TextView
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary"
+            android:id="@+id/data_detail_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"
+            android:id="@+id/data_detail_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/unknown_hint"/>
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/data_detail_item_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="false" />
+
+</LinearLayout>

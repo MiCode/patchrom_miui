@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    style="@style/ResourceBrowser.ListItem">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/thumbnail"
+            style="@style/ResourceBrowser.ResourceImage"
+            android:paddingBottom="30dip"
+            android:background="@drawable/resource_font_bg"
+            android:scaleType="fitCenter" />
+        <TextView
+            android:id="@+id/inline_title"
+            style="@style/ResourceBrowser.ResourceDescription.Font" />
+        <include layout="@layout/resource_flag" />
+    </FrameLayout>
+</LinearLayout>

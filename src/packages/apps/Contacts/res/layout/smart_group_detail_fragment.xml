@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/group_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbarStyle="outsideOverlay" />
+
+        <view
+            android:id="@+id/fast_indexer"
+            style="@miui:style/AlphabetFastIndexerStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            class="miui.widget.AlphabetFastIndexer" />
+
+        <include layout="@layout/list_empty_view"/>
+    </FrameLayout>
+
+</LinearLayout>

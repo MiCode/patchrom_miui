@@ -1,0 +1,93 @@
+<com.miui.home.launcher.DeleteZone xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/delete_zone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:orientation="horizontal"
+        android:visibility="invisible" >
+        <com.miui.home.launcher.UninstallDialog
+            android:id="@+id/uninstall_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/uninstall_dialog_bg" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="10dp" >
+                    <include
+                        layout="@layout/application"
+                        android:id="@+id/icon"
+                        android:layout_width="@dimen/workspace_cell_width"
+                        android:layout_height="@dimen/workspace_cell_width" />
+                    <LinearLayout
+                        android:id="@+id/messages"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:layout_gravity="left|center_vertical"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/UninstallDialog.Title" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dip"
+                            style="@style/UninstallDialog.Message"
+                            android:text="@string/uninstall_dialog_message" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/buttons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@drawable/uninstall_dialog_btn_divider"
+                    android:showDividers="middle"
+                    android:layout_gravity="bottom|center_horizontal" >
+                    <Button
+                        android:id="@+id/btnCancel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cancel_action"
+                        android:background="@drawable/uninstall_dialog_cancel_btn"
+                        style="@style/UninstallDialog.Button" />
+                    <Button
+                        android:id="@+id/btnOk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/uninstall"
+                        android:background="@drawable/uninstall_dialog_confirm_btn"
+                        style="@style/UninstallDialog.Button" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.miui.home.launcher.UninstallDialog>
+        <FrameLayout
+            android:id="@+id/indicate_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/prompt_message_bg" >
+            <ImageView
+                android:id="@+id/trash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="7dip"
+                android:layout_gravity="top|center_horizontal"
+                android:visibility="invisible"
+                android:src="@drawable/delete_zone_t0" />
+            <TextView
+                android:id="@+id/editing_tips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center_horizontal"
+                android:paddingTop="12dip"
+                style="@style/WorkspaceIconTitle.notification"
+                android:text="@string/editing_tips" />
+        </FrameLayout>
+    </com.miui.home.launcher.DeleteZone>

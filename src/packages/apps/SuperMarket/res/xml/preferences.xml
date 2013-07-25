@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/menu_preferences">
+    <ListPreference
+        android:key="pref_key_auto_update_setting"
+        android:title="@string/pref_title_auto_update_setting"
+        android:entries="@array/pref_entries_update"
+        android:entryValues="@array/pref_values_update"
+        android:defaultValue="1">
+    </ListPreference>
+    <CheckBoxPreference
+        android:key="pref_key_auto_update_onlyby_wifi"
+        android:title="@string/pref_title_update_onlyby_wifi"
+        android:defaultValue="true">
+    </CheckBoxPreference>
+    <ListPreference
+        android:key="pref_key_update_notify_mode"
+        android:title="@string/pref_title_update_notify_mode"
+        android:entries="@array/pref_entries_update_notify_mode"
+        android:entryValues="@array/pref_values_update_notify_mode"
+        android:defaultValue="1">
+    </ListPreference>
+    <CheckBoxPreference
+        android:key="pref_key_auto_update_via_wifi"
+        android:title="@string/pref_title_auto_update_via_wifi"
+        android:summary="@string/pref_summary_auto_update_via_wifi"
+        android:defaultValue="false">
+    </CheckBoxPreference>
+    <ListPreference
+        android:key="pref_key_data_save_mode"
+        android:title="@string/pref_title_data_save_mode"
+        android:entries="@array/pref_entries_data_save_mode"
+        android:entryValues="@array/pref_values_data_save_mode"
+        android:defaultValue="2">
+    </ListPreference>
+    <Preference
+        android:key="pref_key_clear_search_record"
+        android:title="@string/pref_title_clear_search_record">
+    </Preference>
+    <CheckBoxPreference
+        android:key="pref_key_use_staging"
+        android:title="@string/pref_title_use_staging"
+        android:defaultValue="false">
+    </CheckBoxPreference>
+    <CheckBoxPreference
+        android:key="pref_key_silent_install"
+        android:title="@string/pref_title_silent_install"
+        android:defaultValue="true">
+    </CheckBoxPreference>
+    <Preference
+        style="?android:attr/preferenceInformationStyle"
+        android:key="pref_key_about"
+        android:title="@string/app_name" >
+    </Preference>
+</PreferenceScreen>

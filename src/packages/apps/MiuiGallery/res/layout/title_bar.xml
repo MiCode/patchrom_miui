@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/title_bar"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:layout_gravity="center_vertical"
+    android:orientation="horizontal"
+    >
+
+    <!-- Action bar will set root view: layout_width as wrap_content, layout_height as match_parent
+         therefore, we have to use RelativeLayout to make the title bar's width really match_parent -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal"
+        >
+        <LinearLayout
+            android:id="@+id/horizontal_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:layout_toLeftOf="@+id/cloud_icon">
+
+            <miui.widget.GradientTextView
+                android:id="@+id/count_item"
+                style="@style/TitleGradualText"/>
+
+            <TextView
+                android:id="@+id/title_item"
+                style="@style/TitleDescText"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/vertical_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            android:layout_toLeftOf="@+id/cloud_icon">
+
+            <TextView
+                android:id="@+id/title_item"
+                style="@style/TitlePrimaryText"/>
+
+            <TextView
+                android:id="@+id/count_item"
+                style="@style/TitleSecondaryText"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

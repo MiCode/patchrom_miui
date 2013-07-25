@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="7dip"
+    android:paddingRight="7dip" >
+    <LinearLayout
+        android:id="@+id/bookmark_group_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:minHeight="@dimen/widgetItemMinHeight"
+        android:layout_marginTop="7dip"
+        android:background="@drawable/ic_group_one" >
+        <include
+            layout="@layout/bookmark_path_gallery"
+            android:id="@+id/path_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+        <ImageView
+            android:id="@+id/arrow_mark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/arrow_left" />
+    </LinearLayout>
+
+</FrameLayout>

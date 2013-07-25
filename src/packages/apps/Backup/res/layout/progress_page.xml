@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/progress_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/progress_title_bg"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/result_image"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:scaleType="centerInside"
+            android:layout_gravity="center"
+            android:src="@drawable/result_succeed"
+            android:gravity="center"
+            android:visibility="gone"/>
+
+        <miui.v5.widget.NumberProgressView
+            android:id="@+id/progress_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/progress_title"
+            style="@style/TextAppearance.Title.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dip"
+            android:singleLine="true"/>
+        <TextView
+            android:id="@+id/progress_summary"
+            style="@miui:style/V5.TextAppearance.Title.Medium.Secondary"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/backup_hint"/>
+    </LinearLayout>
+    <ListView
+        android:id="@+id/progress_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:divider="@null"
+        android:cacheColorHint="@null"/>
+
+    <Button
+       android:id="@+id/button_cancel"
+       android:text="@string/button_cancel"
+       android:textAppearance="@miui:style/V5.TextAppearance.Button"
+       android:layout_height="wrap_content"
+       android:layout_width="match_parent"
+       android:gravity="center"
+       android:layout_margin="15dip"
+       android:layout_gravity="center_vertical"/>
+</LinearLayout>

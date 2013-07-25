@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/bind_to_account_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/binded_account_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/kuaipan_account_info_margin"
+        android:layout_marginLeft="@dimen/kuaipan_account_info_margin"
+        android:layout_marginRight="@dimen/kuaipan_account_info_margin"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/binded_accout_title"
+            style="@miui:style/V5.TextAppearance.List.Primary" />
+
+        <TextView
+            android:id="@+id/binded_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@miui:style/V5.TextAppearance.List.Primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:text="@string/binded_accout_description"
+            style="@miui:style/V5.TextAppearance.List.Secondary" />
+    </LinearLayout>
+
+</FrameLayout>

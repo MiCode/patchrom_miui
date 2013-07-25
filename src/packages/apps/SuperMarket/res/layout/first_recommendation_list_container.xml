@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <ImageSwitcher
+            android:id="@+id/banner_switcher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+        </ImageSwitcher>
+
+        <fragment
+            android:id="@+id/container"
+            android:name="com.xiaomi.market.ui.FirstRecommendationListFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1" />
+
+        <View
+            android:id="@+id/bottom_bar_top_line"
+            style="@miui:style/V5.Widget.BottomBar.TopLine"
+            android:layout_width="match_parent"
+            android:layout_height="1px" >
+        </View>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@miui:style/V5.Widget.BottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="@dimen/main_padding"
+        android:layout_marginRight="@dimen/main_padding"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/first_button"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/first_recommend_download"
+            android:textAppearance="@style/TextAppearance.Primary" />
+
+        <Button
+            android:id="@+id/last_button"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/first_recommend_enter"
+            android:textAppearance="@style/TextAppearance.Primary" />
+    </LinearLayout>
+
+</FrameLayout>

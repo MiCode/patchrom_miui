@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@miui:style/V5.Widget.ListView.Item.DoubleLine"
+    android:background = "@miui:drawable/v5_dialog_list_item_bg_light"
+    android:layout_width="match_parent"
+    android:paddingLeft="@dimen/cloud_folder_list_left_padding"
+    android:gravity="center_vertical|left"
+    android:orientation="horizontal">
+<!--
+    <ImageView
+        android:id="@+id/folder_cover"
+        android:layout_gravity="center_vertical"
+        android:layout_width="@dimen/cloud_folder_list_bimtap_size"
+        android:layout_height="@dimen/cloud_folder_list_bimtap_size"
+        android:scaleType="fitCenter"
+        android:src="@drawable/create_cloud_folder" />
+-->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0px"
+        android:layout_weight="1"
+        android:layout_marginLeft = "@dimen/cloud_folder_list_text_leftmargin"
+        android:layout_height="wrap_content" >
+        <TextView android:id="@+id/folder_name"
+            android:layout_gravity="center_vertical|left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary"
+            android:textStyle="bold"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:layout_marginBottom="2dip" />
+        <TextView android:id="@+id/folder_count"
+            android:layout_gravity="center_vertical|left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"/>
+    </LinearLayout>
+</LinearLayout>
+

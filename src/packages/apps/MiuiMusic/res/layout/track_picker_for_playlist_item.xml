@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/music_pick_item"
+    style="@style/PickerItemStyle" >
+
+    <CheckBox
+        android:id="@+id/track_check_box"
+        style="@style/BatchSelectionCheckBoxStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:checked="false"
+        android:focusable="false"
+        android:gravity="center_vertical" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@id/track_check_box"
+        android:gravity="center_vertical|left"
+        android:orientation="vertical" >
+
+        <include layout="@layout/list_item_double_line_with_separator" />
+    </LinearLayout>
+
+</RelativeLayout>

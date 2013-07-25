@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- Layout parameters are set programmatically. -->
+<view
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/contact_tile_frequent_phone"
+    class="com.android.contacts.list.ContactTilePhoneFrequentView"
+    android:focusable="true"
+    android:background="?android:attr/selectableItemBackground"
+    android:nextFocusLeft="@+id/contact_tile_quick">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.android.contacts.widget.LayoutSuppressingQuickContactBadge
+            android:id="@id/contact_tile_quick"
+            android:layout_width="64dip"
+            android:layout_height="64dip"
+            android:layout_alignParentLeft="true"
+            android:nextFocusRight="@id/contact_tile_frequent_phone"
+            android:scaleType="centerCrop"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/contact_tile_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dip"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_marginTop="8dip"
+            android:layout_toRightOf="@id/contact_tile_quick"
+            android:singleLine="true"
+            android:fadingEdge="horizontal"
+            android:fadingEdgeLength="3dip"
+            android:ellipsize="marquee" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/contact_tile_name"
+            android:layout_toRightOf="@id/contact_tile_quick"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/contact_tile_phone_number"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="?attr/list_item_data_width_weight"
+                android:textSize="14sp"
+                android:ellipsize="marquee"
+                android:textColor="@color/dialtacts_secondary_text_color"
+                android:layout_marginLeft="8dip"
+                android:singleLine="true"
+                android:layout_gravity="bottom" />
+
+            <TextView
+                android:id="@+id/contact_tile_phone_type"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="?attr/list_item_label_width_weight"
+                android:textSize="12sp"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:textAllCaps="true"
+                android:textColor="@color/dialtacts_secondary_text_color"
+                android:layout_marginLeft="8dip"
+                android:gravity="right"
+                android:layout_gravity="bottom" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/contact_tile_horizontal_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="?android:attr/listDivider"
+            android:layout_below="@id/contact_tile_quick" />
+
+    </RelativeLayout>
+
+</view>

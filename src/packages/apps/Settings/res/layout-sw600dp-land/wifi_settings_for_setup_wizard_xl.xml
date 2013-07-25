@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+  -->
+
+<RelativeLayout
+    android:id="@+id/layout_root"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingTop="60dip"
+    android:paddingStart="@dimen/screen_margin_sides"
+    android:paddingEnd="@dimen/screen_margin_sides"
+    android:paddingBottom="0dip" >
+
+    <FrameLayout
+        android:id="@+id/top_padding_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+        <!-- Set to gone when software keyboard appears -->
+        <View
+             android:id="@+id/top_padding"
+             android:layout_width="match_parent"
+             android:layout_height="94dip" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/wifi_setup_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="48dip"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="16dip"
+        android:layout_below="@id/top_padding_layout"
+        android:textSize="32dip"
+        android:textColor="@color/title_color"
+        android:text="@string/wifi_setup_title"
+        android:gravity="bottom"/>
+
+    <!-- Divider -->
+    <FrameLayout
+        android:id="@+id/top_divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/wifi_setup_title">
+        <ProgressBar
+            android:id="@+id/scanning_progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="?android:attr/progressBarStyleHorizontal" />
+        <View
+            android:id="@+id/top_divider_no_progress"
+            android:layout_width="match_parent"
+            android:layout_height="3dip"
+            android:layout_marginTop="6dip"
+            android:layout_marginBottom="0dip"
+            android:background="@color/divider_color"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <!-- Dummy view to have the left edge of following Views.
+         @id/content needs to have layout_width="match_parent" to accommodate
+         every views inside @id/wifi_config_ui while sometimes config ui becomes
+         very wide. -->
+    <View
+        android:id="@+id/dummy_for_left_edge"
+        android:layout_width="716dip"
+        android:layout_height="0dip"
+        android:layout_below="@id/top_divider"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top_divider"
+        android:layout_alignStart="@id/dummy_for_left_edge"
+        android:layout_centerHorizontal="true">
+
+        <!-- Padding for @id/content shown when keyboard isn't available -->
+        <View
+            android:id="@+id/content_padding"
+            android:layout_width="match_parent"
+            android:layout_height="370dip"
+            android:visibility="gone" />
+
+        <FrameLayout
+            android:id="@+id/wifi_settings_fragment_layout"
+            android:layout_width="716dip"
+            android:layout_height="370dip">
+            <fragment
+                class="com.android.settings.wifi.WifiSettings"
+                android:id="@+id/wifi_setup_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/wifi_config_ui"
+            android:layout_width="wrap_content"
+            android:minWidth="406dip"
+            android:layout_height="wrap_content"
+            android:minHeight="160dip"
+            android:layout_marginTop="10dip"
+            android:layout_alignParentStart="true"
+            android:visibility="gone" />
+        <LinearLayout
+            android:id="@+id/connecting_status_layout"
+            android:layout_width="716dip"
+            android:layout_height="360dip"
+            android:layout_marginTop="10dip"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/connecting_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="10dip"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- Shown when @id/top_divider is using View instead of ProgressBar.
+         We need this padding to place @id/bottom_divider at the same position
+         regardless of @id/top_divider state.
+
+         Detail:
+         When ProgressBar is used in @id/top_divider, we have 7dip implicit
+         padding inside the ProgressBar object, while we don't have the
+         padding when View is used. As a result, all the objects below it
+         including @id/bottom_divider moves up/down in 7dip between those
+         two states. It is WAI for @id/content, but not for the others.
+
+         Note that we cannot let bottom dividers/buttons align with parent's
+         bottom edge using layout_alignParentBottom="true", since we'd like
+         to control bottom margin between @id/bottom_buttons and the edge
+         depending on software keyboard is shown/hidden.
+
+         We need to enclose @id/bottom_padding with @id/bottom_padding_layout
+         to let @id/bottom_divider use android:layout_below.
+         android:visibility="gone" really let the object go away,
+         causing @id/bottom_divider to lose the target for android:layout_below.
+      -->
+    <FrameLayout
+        android:id="@+id/bottom_padding_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/content">
+        <View
+             android:id="@+id/bottom_padding"
+             android:layout_width="match_parent"
+             android:layout_height="7dip"
+             android:visibility="gone" />
+    </FrameLayout>
+
+    <!-- Divider -->
+    <View
+        android:id="@+id/bottom_divider"
+        android:layout_width="match_parent"
+        android:layout_height="3dip"
+        android:layout_marginBottom="16dip"
+        android:layout_below="@id/bottom_padding_layout"
+        android:layout_alignStart="@id/content"
+        android:background="@color/divider_color" />  <!-- TODO: fix this -->
+
+    <RelativeLayout
+        android:id="@+id/bottom_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bottom_divider"
+        android:layout_alignStart="@id/bottom_divider"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/wifi_setup_add_network"
+            style="@style/setup_wizard_button"
+            android:layout_alignParentStart="true"
+            android:text="@string/wifi_setup_add_network"
+            android:enabled="false" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:orientation="horizontal">
+
+            <!-- This misleading name is for keeping consistency between non-XL
+                 layouts -->
+            <Button android:id="@+id/wifi_setup_cancel"
+                    style="@style/setup_wizard_button"
+                    android:text="@string/wifi_setup_back"
+                    android:visibility="gone" />
+
+            <Button android:id="@+id/wifi_setup_connect"
+                    style="@style/setup_wizard_button"
+                    android:layout_marginStart="16dip"
+                    android:text="@string/wifi_setup_connect"
+                    android:enabled="false"
+                    android:visibility="gone" />
+
+            <Button android:id="@+id/wifi_setup_refresh_list"
+                    style="@style/setup_wizard_button"
+                    android:layout_marginStart="16dip"
+                    android:text="@string/wifi_setup_refresh_list"
+                    android:enabled="false" />
+
+            <Button android:id="@+id/wifi_setup_skip_or_next"
+                    style="@style/setup_wizard_button"
+                    android:layout_marginStart="16dip"
+                    android:text="@string/wifi_setup_skip" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

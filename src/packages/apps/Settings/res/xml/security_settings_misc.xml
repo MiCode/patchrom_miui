@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:key="sim_lock"
+            android:title="@string/sim_lock_settings_title"
+            android:persistent="false">
+
+        <Preference android:title="@string/sim_lock_settings_category"
+                android:persistent="false">
+            <intent android:action="android.intent.action.MAIN"
+                     android:targetPackage="com.android.settings"
+                     android:targetClass="com.android.settings.IccLockSettings"/>
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/security_passwords_title"
+            android:persistent="false">
+
+        <CheckBoxPreference android:key="show_password"
+                android:title="@string/show_password"
+                android:persistent="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="device_admin_category"
+            android:title="@string/device_admin_title"
+            android:persistent="false">
+
+        <Preference android:title="@string/manage_device_admin"
+                android:summary="@string/manage_device_admin_summary"
+                android:persistent="false"
+                android:fragment="com.android.settings.DeviceAdminSettings"/>
+
+        <CheckBoxPreference
+                android:key="toggle_install_applications"
+                android:title="@string/install_applications"
+                android:summaryOff="@string/install_unknown_applications"
+                android:summaryOn="@string/install_unknown_applications"
+                android:persistent="false" />
+
+        <CheckBoxPreference
+                android:key="toggle_verify_applications"
+                android:title="@string/verify_applications"
+                android:summaryOff="@string/verify_applications_summary"
+                android:summaryOn="@string/verify_applications_summary"
+                android:persistent="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="credentials_management"
+            android:title="@string/credentials_title"
+            android:persistent="false">
+        <Preference android:title="@string/trusted_credentials"
+                android:summary="@string/trusted_credentials_summary"
+                android:persistent="false"
+                android:fragment="com.android.settings.TrustedCredentialsSettings"/>
+
+        <Preference android:title="@string/credentials_install"
+                android:summary="@string/credentials_install_summary"
+                android:persistent="false">
+            <intent android:action="android.credentials.INSTALL"
+                    android:targetPackage="com.android.certinstaller"
+                    android:targetClass="com.android.certinstaller.CertInstallerMain"/>
+        </Preference>
+
+        <Preference android:key="reset_credentials"
+                android:title="@string/credentials_reset"
+                android:summary="@string/credentials_reset_summary"
+                android:persistent="false">
+            <intent android:action="com.android.credentials.RESET"
+                    android:targetPackage="com.android.settings"
+                    android:targetClass="com.android.settings.CredentialStorage"/>
+        </Preference>
+    </PreferenceCategory>
+</PreferenceScreen>

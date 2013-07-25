@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:phone="http://schemas.android.com/apk/res/com.android.phone"
+        android:title="@string/others">
+
+    <PreferenceScreen
+        android:key="button_fdn_key"
+        android:title="@string/fdn"
+        android:summary="@string/sum_fdn"
+        android:persistent="false">
+
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.phone"
+            android:targetClass="com.mediatek.settings.FdnSetting2" />
+    </PreferenceScreen>
+    
+     <CheckBoxPreference 
+        android:key="minute_reminder_key"
+        android:title="@string/minutereminder_title"
+        android:defaultValue="false"
+        android:summaryOn="@string/minutereminder_turnoff"
+        android:summaryOff="@string/minutereminder_turnon"/>
+        
+     <CheckBoxPreference 
+        android:key="dual_mic_key"
+        android:title="@string/dual_mic_title"
+        android:defaultValue="true"
+        android:summaryOn="@string/dual_mic_turnoff"
+        android:summaryOff="@string/dual_mic_turnon"/>
+
+    <PreferenceScreen
+        android:key="button_respond_via_sms_key"
+        android:title="@string/respond_via_sms_setting_title"
+        android:summary="@string/respond_via_sms_setting_summary"
+        android:persistent="false">
+
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.phone"
+            android:targetClass="com.android.phone.RespondViaSmsManager$Settings" />
+    </PreferenceScreen>
+
+    <PreferenceScreen
+        android:key="call_reject"
+        android:title="@string/call_reject_title"
+        android:summary="@string/call_reject_sum"
+        android:persistent="false">
+
+       <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.phone"
+            android:targetClass="com.mediatek.settings.CallRejectSetting" />
+    </PreferenceScreen>
+
+    
+    <ListPreference
+        android:key="button_tty_mode_key"
+        android:title="@string/tty_mode_option_title"
+        android:summary="@string/tty_mode_option_summary"
+        android:persistent="false"
+        android:entries="@array/tty_mode_entries"
+        android:entryValues="@array/tty_mode_values"/>
+
+    <CheckBoxPreference 
+        android:key="international_dialing_key"
+        android:title="@string/international_dialing_title"
+        android:persistent="false"/>
+
+    <CheckBoxPreference
+        android:key="turn_slient_key"
+        android:title="@string/call_silent_title"
+        android:summary="@string/call_silent_summary"
+        android:defaultValue="false"
+        android:persistent="true"/>
+
+    <CheckBoxPreference
+        android:key="ring_step_up_key"
+        android:title="@string/call_ring_stepup_title"
+        android:summary="@string/call_ring_stepup_summary"
+        android:defaultValue="false"
+        android:persistent="true"/>
+
+</PreferenceScreen>

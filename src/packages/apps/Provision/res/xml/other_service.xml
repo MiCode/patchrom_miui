@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:key="button_location_service_category_key">
+        <CheckBoxPreference
+            android:key="button_location_service_key"
+            android:title="@string/other_service_location"
+            android:summary="@string/other_service_location_summary"
+            android:defaultValue="true" />
+         <CheckBoxPreference
+            android:key="button_location_user_for_service_key"
+            android:title="@string/other_service_google_location_use"
+            android:summary="@string/other_service_google_location_use_summary"
+            android:defaultValue="true" />
+         <Preference
+            style="?android:attr/preferenceInformationStyle"
+            android:key="button_location_user_for_service_help_key"
+            android:summary="@string/other_service_google_location_use_help"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="button_permission_manager_use_category_key">
+         <CheckBoxPreference
+            android:key="button_permission_manager_use_key"
+            android:title="@string/other_service_permission_manager"
+            android:summary="@string/other_service_permission_manager_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory>
+        <com.android.provision.PrivacyCheckboxPreference
+            android:key="button_user_experience_key"
+            android:title="@string/other_service_user_experience"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

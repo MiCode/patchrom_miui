@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ListItemStyle">
+
+    <ImageView
+        android:id="@+id/file_image"
+        style="@style/FileIconStyle" />
+    <LinearLayout
+        android:id="@+id/file_info_layout"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="5dip">
+
+        <TextView
+            android:id="@+id/file_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            style="@miui:style/V5.TextAppearance.List.Primary" />
+
+        <TextView
+            android:id="@+id/file_path"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:ellipsize="end"
+            style="@miui:style/V5.TextAppearance.List.Secondary" />
+
+    </LinearLayout>
+</LinearLayout>

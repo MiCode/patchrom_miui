@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/resource_info_bg"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/resource_title"
+        android:textAppearance="@miui:style/V5.TextAppearance.Small"
+        android:paddingTop="20dip"
+        android:paddingBottom="15dip" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:fadingEdge="vertical"
+        android:paddingBottom="15dip"
+        android:paddingLeft="15dip"
+        android:paddingRight="15dip"
+        android:scrollbars="vertical" >
+
+        <LinearLayout
+            android:id="@+id/tableRow1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="5dip" >
+
+                <TextView
+                    style="@style/ResourceBrowser.ResourceProperty.Title"
+                    android:text="@string/description_designer" />
+
+                <TextView
+                    android:id="@+id/resourcedesigner"
+                    style="@style/ResourceBrowser.ResourceProperty.Content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tableRow2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="5dip" >
+
+                <TextView
+                    style="@style/ResourceBrowser.ResourceProperty.Title"
+                    android:text="@string/description_author" />
+
+                <TextView
+                    android:id="@+id/resourceauthor"
+                    style="@style/ResourceBrowser.ResourceProperty.Content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tableRow3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="5dip" >
+
+                <TextView
+                    style="@style/ResourceBrowser.ResourceProperty.Title"
+                    android:text="@string/description_size" />
+
+                <TextView
+                    android:id="@+id/resourcesize"
+                    style="@style/ResourceBrowser.ResourceProperty.Content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tableRow4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="5dip" >
+
+                <TextView
+                    style="@style/ResourceBrowser.ResourceProperty.Title"
+                    android:text="@string/description_version" />
+
+                <TextView
+                    android:id="@+id/resourceversion"
+                    style="@style/ResourceBrowser.ResourceProperty.Content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tableRow5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="5dip" >
+
+                <TextView
+                    android:id="@+id/mark"
+                    style="@style/ResourceBrowser.ResourceProperty.Title"
+                    android:text="@string/description_uploadtime" />
+
+                <TextView
+                    android:id="@+id/resourcemodifiedtime"
+                    style="@style/ResourceBrowser.ResourceProperty.Content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tableRow6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="5dip" >
+
+                <TextView
+                    style="@style/ResourceBrowser.ResourceProperty.Title"
+                    android:text="@string/description_download" />
+
+                <TextView
+                    android:id="@+id/resourcedownload"
+                    style="@style/ResourceBrowser.ResourceProperty.Content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="5dip" >
+
+                <TextView
+                    style="@style/ResourceBrowser.ResourceProperty.Title"
+                    android:text="@string/description_summary" />
+
+                <TextView style="@style/ResourceBrowser.ResourceProperty.Content" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/resourcesummary"
+                style="@style/ResourceBrowser.ResourceProperty.Content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dip"
+                android:singleLine="false" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <style name="CryptKeeperBlankTheme" parent="@android:style/Theme.Holo.Light.NoActionBar">
+        <item name="android:background">#ff000000</item>
+    </style>
+
+    <style name="SecurityPreferenceButtonContainer" parent="@android:style/Holo.Light.SegmentedButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:weightSum">2</item>
+        <item name="android:dividerPadding">8dip</item>
+    </style>
+
+    <style name="wifi_item">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dip</item>
+        <item name="android:layout_marginLeft">16dip</item>
+        <item name="android:layout_marginRight">16dip</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="input_item_horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">15dip</item>
+        <item name="android:layout_marginRight">15dip</item>
+        <item name="android:background">@miui:drawable/v5_group_middle_item_bg_light</item>
+    </style>
+
+    <style name="input_item_label">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.List.Secondary</item>
+        <item name="android:background">@drawable/input_item_middle</item>
+    </style>
+
+    <style name="input_item_content">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginLeft">10dip</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.PreferenceList</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="input_category" parent="@miui:style/V5.TextAppearance.PreferenceCategory">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@miui:dimen/v5_preference_item_padding_side</item>
+        <item name="android:paddingRight">@miui:dimen/v5_preference_item_padding_side</item>
+        <item name="android:background">@miui:drawable/v5_preference_category_background</item>
+        <item name="android:gravity">bottom</item>
+    </style>
+
+    <style name="wifi_spinner_item_label" parent="@style/input_category">
+        <item name="android:paddingLeft">@miui:dimen/v5_preference_category_item_padding_side</item>
+        <item name="android:paddingRight">@miui:dimen/v5_preference_category_item_padding_side</item>
+    </style>
+
+    <style name="wifi_spinner_item" parent="@style/wifi_item">
+        <item name="android:layout_marginLeft">0dip</item>
+        <item name="android:layout_marginRight">0dip</item>
+        <item name="android:layout_marginStart">0dip</item>
+        <item name="android:layout_marginEnd">0dip</item>
+    </style>
+    <style name="wifi_spinner_item_content" parent="@style/wifi_item_content">
+        <item name="android:layout_marginLeft">16dip</item>
+        <item name="android:layout_marginRight">16dip</item>
+    </style>
+
+    <style name="wifi_item_label">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+
+    <style name="wifi_item_content">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+
+    <style name="vpn_label">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.PreferenceList</item>
+    </style>
+
+    <style name="vpn_value">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.PreferenceList</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_marginLeft">16dip</item>
+        <item name="android:layout_marginRight">16dip</item>
+    </style>
+
+    <style name="vpn_input_category" parent="@style/input_category">
+        <item name="android:paddingLeft">@miui:dimen/v5_preference_category_item_padding_side</item>
+        <item name="android:paddingRight">@miui:dimen/v5_preference_category_item_padding_side</item>
+    </style>
+
+    <style name="Miui" />
+
+    <style name="Miui.InformationTextStyle" parent="@miui:style/V5.TextAppearance.List.Secondary">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Miui.InformationItemTitleStyle" parent="@miui:style/V5.TextAppearance.PreferenceList">
+        <item name="android:gravity">right</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingLeft">16dip</item>
+        <item name="android:paddingRight">10dip</item>
+    </style>
+
+    <style name="SecurityPreferenceButton" parent="@android:style/Widget.Holo.Light.Button">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="SecurityLockPatternView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="miui:btnDefaultBackgroundBmp">@drawable/lock_pattern_code_lock_background</item>
+        <item name="miui:btnDefaultBmp">@drawable/lock_pattern_code_lock_default_holo</item>
+        <item name="miui:btnTouchedBmp">@drawable/lock_pattern_code_lock_touched_holo</item>
+        <item name="miui:circleDefaultBmp">@drawable/lock_pattern_indicator_code_lock_point_area_default_holo</item>
+        <item name="miui:circleGreenBmp">@drawable/lock_pattern_indicator_code_lock_point_area_green_holo</item>
+        <item name="miui:circleRedBmp">@drawable/lock_pattern_indicator_code_lock_point_area_red_holo</item>
+        <item name="miui:arrowGreenUpBmp">@drawable/lock_pattern_indicator_code_lock_drag_direction_green_up</item>
+        <item name="miui:arrowRedUpBmp">@drawable/lock_pattern_indicator_code_lock_drag_direction_red_up</item>
+        <item name="miui:pathStrokeAlpha">64</item>
+        <item name="miui:diameterFactor">0.2</item>
+    </style>
+
+    <style name="Theme.CreateShortCut" parent="@miui:style/V5.Theme.Light">
+    </style>
+
+    <style name="ActionBar.Show.NoTitle" parent="@miui:V5.Widget.ActionBar">
+         <item name="android:displayOptions">@null</item>
+    </style>
+
+    <style name="Theme.Light.Show.NoTitle" parent="@miui:V5.Theme.Light">
+        <item name="android:actionBarStyle">@style/ActionBar.Show.NoTitle</item>
+        <item name="miui:v5_action_bar_tab">true</item>
+    </style>
+
+    <!-- For seekbars of equalizer -->
+    <style name="DolbyEQSeekBar">
+        <item name="android:thumb">@drawable/dolby_eq_thumb</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:progressDrawable">@android:color/transparent</item>
+        <item name="android:background">@drawable/dolby_eq_progress_bg</item>
+    </style>
+
+    <style name="TextAppearance.Title.Big" parent="@miui:V5.TextAppearance.Title">
+        <item name="android:textSize">35sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/title_big_text_color</item>
+    </style>
+
+    <style name="TextAppearance.Title.Medium" parent="@miui:V5.TextAppearance.Title">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.Title.Small" parent="@miui:style/V5.TextAppearance.Title.Medium.Secondary">
+        <item name="android:textColor">@color/title_small_text_color</item>
+    </style>
+
+    <style name="TextAppearance.AppInfo.Medium" parent="@miui:V5.TextAppearance.Medium">
+        <item name="android:textColorHighlight">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="TextAppearance.AppInfo.Small" parent="@miui:V5.TextAppearance.Small">
+        <item name="android:textColorHighlight">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="ListView.WithDivider" parent="@miui:style/V5.Widget.ListView">
+        <item name="android:divider">@android:drawable/divider_horizontal_dark</item>
+    </style>
+
+    <!-- subtitle of custom action bar -->
+    <style name="TextAppearance.SubTitle">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/action_bar_subtitle</item>
+    </style>
+
+    <!-- app installer lead content -->
+    <style name="TextAppearance.Primary">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/transparent_80_balck</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TextAppearance.Secondary">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/shadow</item>
+    </style>
+    <style name="Shadow.TextAppearance" parent="@miui:V5.TextAppearance.Medium">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:shadowColor">@color/shadow</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">7</item>
+        <item name="android:shadowRadius">7</item>
+    </style>
+    <style name="Shadow.TextAppearance.Small">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- MiuiDeviceInfo -->
+    <style name="ActionBar.Scrollable" parent="@miui:V5.Widget.ActionBar.Large">
+        <item name="android:displayOptions">showCustom</item>
+    </style>
+    <style name="ActionBar.MovableLayout" parent="@miui:V5.Widget.ActionBarMovableLayout">
+        <item name="miui:v5_scroll_range">@dimen/scroll_actionbar_range</item>
+        <item name="miui:v5_over_scroll_range">@dimen/scroll_actionbar_over_distance</item>
+    </style>
+</resources>

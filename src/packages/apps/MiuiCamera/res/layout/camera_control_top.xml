@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/control_panel_top"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/camera_control_top_height"
+    android:layout_alignParentTop="true"
+    android:paddingLeft="@dimen/camera_control_top_paddingLeft"
+    android:paddingRight="@dimen/camera_control_top_paddingRight">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.android.camera.ui.FlashButton
+            android:id="@+id/flash_mode_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/btn_flash_button_bg_16_9">
+
+            <com.android.camera.ui.RotateImageView
+                android:id="@+id/flash_mode_image"
+                style="@style/RotateImageViewStyle"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_flash_auto_selector_16_9" >
+            </com.android.camera.ui.RotateImageView>
+        </com.android.camera.ui.FlashButton>
+
+        <com.android.camera.ui.SkinBeautifyButton
+            android:id="@+id/skin_beatify_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            android:background="@drawable/btn_flash_button_bg_16_9">
+            <com.android.camera.ui.RotateImageView
+                android:id="@+id/skin_beatify_image"
+                style="@style/RotateImageViewStyle"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_camera_skin_beatify_close" >
+            </com.android.camera.ui.RotateImageView>
+        </com.android.camera.ui.SkinBeautifyButton>
+
+        <include layout="@layout/camera_scroll_button" />
+
+        <com.android.camera.ui.CameraPickerButton
+            android:id="@+id/camera_picker_button"
+            style="@style/RotateImageViewStyle"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_camera_picker_bg_16_9" >
+
+            <com.android.camera.ui.RotateImageView
+                android:id="@+id/camera_picker_button_image"
+                style="@style/RotateImageViewStyle"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/accessibility_camera_picker"
+                android:src="@drawable/ic_switch_photo_facing_holo_light_16_9_0" >
+            </com.android.camera.ui.RotateImageView>
+        </com.android.camera.ui.CameraPickerButton>
+
+        <com.android.camera.ui.RotateImageView
+            android:id="@+id/capture_button"
+            style="@style/RotateImageViewStyle"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:background="@drawable/btn_camera_picker_bg_16_9"
+            android:src="@drawable/ic_capture_video_picture_16_9"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</RelativeLayout>

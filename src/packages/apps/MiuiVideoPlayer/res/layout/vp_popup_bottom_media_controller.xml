@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        layout="@layout/vp_horizontal_line_stroke" />l
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/popup_bottom_controller_first_group_margin_top"
+        layout="@layout/vp_progress_bar_group" />
+
+    <RelativeLayout
+        android:id="@+id/bottom_controller_buttons_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/popup_bottom_controller_two_group_vertical_space" >
+
+        <ImageView
+            android:id="@+id/control_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/popup_bottom_controller_controllist_imageview_margin_left"
+            android:src="@drawable/vp_control_list_imageview" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true">
+
+            <ImageView
+                android:id="@+id/prev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/vp_control_previous_imageview" />
+
+            <ImageView
+                android:id="@+id/pause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/popup_bottom_controller_center_imageview_margin_left"
+                android:src="@drawable/vp_control_pause_imageview" />
+
+            <ImageView
+                android:id="@+id/next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/popup_bottom_controller_center_imageview_margin_left"
+                android:src="@drawable/vp_control_next_imageview" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/air_kan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/popup_bottom_controller_controllist_imageview_margin_left"
+            android:layout_toRightOf="@id/bottom_controller_buttons_group"
+            android:src="@drawable/vp_control_push_imageview" />
+    </RelativeLayout>
+
+</LinearLayout>

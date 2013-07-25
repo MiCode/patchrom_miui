@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@android:color/transparent">
+
+    <ListView android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@miui:dimen/android_preference_fragment_padding_bottom"
+        android:paddingLeft="@miui:dimen/android_preference_fragment_padding_side"
+        android:paddingRight="@miui:dimen/android_preference_fragment_padding_side"
+        android:clipToPadding="false"
+        android:drawSelectorOnTop="false"
+        android:cacheColorHint="@android:color/transparent"
+        android:scrollbarAlwaysDrawVerticalTrack="true" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center" >
+        <TextView
+            android:id="@android:id/empty"
+            android:padding="@miui:dimen/android_preference_fragment_padding_side"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:focusable="true"
+            android:visibility="gone"
+            android:drawableTop="?miui:attr/v5_content_empty_icon" />
+     </FrameLayout>
+</LinearLayout>

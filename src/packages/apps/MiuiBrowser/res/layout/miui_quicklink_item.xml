@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/wrapper"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <FrameLayout
+        android:id="@+id/panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <ImageView
+        android:id="@+id/logoIv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:scaleType="center" />
+    </FrameLayout>
+
+    <View
+        android:id="@+id/nightModeMaskContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/thumbnail_night_mode_mask_content"
+        android:scaleType="center"
+        android:visibility="gone" />
+
+    <ImageButton
+        android:id="@+id/closeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|top"
+        android:layout_marginRight="-10dip"
+        android:layout_marginTop="-10dip"
+        android:background="@null"
+        android:src="@drawable/v5_btn_inline_delete_light" />
+</FrameLayout>

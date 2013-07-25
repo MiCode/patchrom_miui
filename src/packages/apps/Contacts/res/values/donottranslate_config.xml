@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+** Copyright 2009, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+
+<resources>
+    <!-- Flag indicating whether Contacts app is allowed to import contacts from SDCard -->
+    <bool name="config_allow_import_from_sdcard">true</bool>
+    <!-- If true, all vcard files are imported from SDCard without asking a user.
+    If not, dialog shows to let the user to select whether all vcard files are imported or not.
+    If the user selects "not", then the application ask the user to select a file.-->
+    <bool name="config_import_all_vcard_from_sdcard_automatically">false</bool>
+    <!-- If true, vcard importer shows a dialog which asks the user whether the user wants
+    to import all vcard files in SDCard or select one vcard file. If false, the dialog is
+    skipped and the importer asks the user to choose one vcard file.
+    If config_import_all_vcard_from_sdcard_automatically is set true, this configuration
+    is ignored. -->
+    <bool name="config_allow_users_select_all_vcard_import">true</bool>
+
+    <!-- Flag indicating whether Contacts app is allowed to export contacts to SDCard -->
+    <bool name="config_allow_export_to_sdcard">true</bool>
+
+    <!-- Flag indicating whether Contacts app is allowed to share contacts with devices outside -->
+    <bool name="config_allow_share_visible_contacts">true</bool>
+
+    <!-- If true, enable vibration (haptic feedback) for dialer key presses.
+         The pattern is set on a per-platform basis using config_virtualKeyVibePattern.
+         TODO: If enough users are annoyed by this, we might eventually
+         need to make it a user preference rather than a per-platform
+         resource. -->
+    <bool name="config_enable_dialer_key_vibration">true</bool>
+
+    <!-- Flag indicating whether to show images in browse list -->
+    <bool name="config_browse_list_show_images">true</bool>
+
+    <!-- The type of vcard for improt. If the vcard importer cannot guess the exact type
+    of a vCard type, the improter uses this type. -->
+    <string name="config_import_vcard_type" translatable="false">default</string>
+
+    <!-- The type of VCard for export. If you want to let the app emit vCard which is
+    specific to some vendor (like DoCoMo), specify this type (e.g. "docomo") -->
+    <string name="config_export_vcard_type" translatable="false">default</string>
+
+    <!-- Directory in which exported VCard file is stored -->
+    <string name="config_export_dir" translatable="false">/mnt/sdcard</string>
+
+    <!-- Prefix of exported VCard file -->
+    <string name="config_export_file_prefix" translatable="false"></string>
+
+    <!-- Suffix of exported VCard file. Attached before an extension -->
+    <string name="config_export_file_suffix" translatable="false"></string>
+
+    <!-- Extension for exported VCard files -->
+    <string name="config_export_file_extension" translatable="false">vcf</string>
+
+    <!-- Minimum number of exported VCard file index -->
+    <integer name="config_export_file_min_index">1</integer>
+
+    <!-- Maximum number of exported VCard file index -->
+    <integer name="config_export_file_max_index">99999</integer>
+
+    <!-- The list (separated by ',') of extensions should be checked in addition to
+     config_export_extension. e.g. If "aaa" is added to here and 00001.vcf and 00002.aaa
+     exist in a target directory, 00003.vcf becomes a next file name candidate.
+     Without this configuration, 00002.vcf becomes the candidate.-->
+    <string name="config_export_extensions_to_consider" translatable="false"></string>
+
+    <!-- If true, show an onscreen "Dial" button in the dialer.
+         In practice this is used on all platforms even the ones with hard SEND/END
+         keys, but for maximum flexibility it's controlled by a flag here
+         (which can be overridden on a per-product basis.) -->
+    <bool name="config_show_onscreen_dial_button">true</bool>
+
+    <!-- If true, an option is shown in Display Options UI to choose a sort order -->
+    <bool name="config_sort_order_user_changeable">true</bool>
+
+    <!-- If true, the default sort order is primary (i.e. by given name) -->
+    <bool name="config_default_sort_order_primary">true</bool>
+
+    <!-- If true, an option is shown in Display Options UI to choose a name display order -->
+    <bool name="config_display_order_user_changeable">true</bool>
+
+    <!-- If true, the default sort order is primary (i.e. by given name) -->
+    <bool name="config_default_display_order_primary">true</bool>
+
+    <!-- If true, the order of name fields in the editor is primary (i.e. given name first) -->
+    <bool name="config_editor_field_order_primary">true</bool>
+
+    <!-- If true, phonetic name is included in the contact editor by default -->
+    <bool name="config_editor_include_phonetic_name">false</bool>
+
+    <!-- If true, Contacts uses two panes: List and Detail. If false, Details are
+         shown in their own screens. This flag must be in sync with the layout definitions. -->
+    <bool name="config_use_two_panes">false</bool>
+
+    <!--  If true, Contacts uses two panes in the favorites view, one for starred and one for
+          frequently contacted.  If false, only one list is shown with starred on top and frequently
+          contacted listed below. Note: This should not be true if config_use_two_panes is
+          false. -->
+    <bool name="config_use_two_panes_in_favorites">false</bool>
+
+    <!-- If true, the "home" icon on the action bar will be shown. -->
+    <bool name="show_home_icon">false</bool>
+
+    <!--
+      If true, the "view updates from group" button in the action bar will be
+      shown. Otherwise it will be part of the content on the group detail page.
+    -->
+    <bool name="config_show_group_action_in_action_bar">false</bool>
+
+    <!-- Width of a tab in the tab carousel as a percentage of the current screen width on the
+         contact detail page -->
+    <item name="tab_width_screen_width_percentage" type="fraction">75%</item>
+
+    <!-- Height of the tab carousel as a percentage of the current screen width on the
+         contact detail page -->
+    <item name="tab_height_screen_width_percentage" type="fraction">50%</item>
+
+    <!-- Regular expression for prohibiting certain phone numbers in dialpad.
+         Ignored if empty. -->
+    <string name="config_prohibited_phone_number_regexp"></string>
+
+    <!-- If true, enable the "import contacts from SIM" feature if the device
+         has an appropriate SIM or ICC card.
+         Setting this flag to false in a resource overlay allows you to
+         entirely disable SIM import on a per-product basis. -->
+    <bool name="config_allow_sim_import">true</bool>
+
+
+    <!-- Help URL pointing to main TOC for People. This is intentionally empty because
+         the overlay will fill this in during build time. -->
+    <string name="help_url_people_main"></string>
+
+    <!-- Help URL pointing to adding contacts in People. This is intentionally empty because
+         the overlay will fill this in during build time. -->
+    <string name="help_url_people_add"></string>
+
+    <!-- Help URL pointing to editing contacts in People. This is intentionally empty because
+         the overlay will fill this in during build time. -->
+    <string name="help_url_people_edit"></string>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ViewPager for swiping between tabs. We put
+    FrequentlyFragment, SettingsFragment
+    at runtime. (Adding them directly as
+    the children of this view is not recommended. ViewPager should
+    be treated like a ListView, which doesn't expect children to be
+    added from the layout.)
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <miui.v5.view.ViewPager
+        android:id="@miui:id/view_pager"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" />
+    <!--we use PreferenceActivity as the activity with fragment, so need a listview, just hide it-->
+    <ListView
+        android:id="@android:id/list"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:visibility="gone"/>
+</FrameLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/icon_panel_width"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@drawable/icon_title_yellow">
+
+        <RelativeLayout
+            android:id="@+id/time_container"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dip"
+            android:paddingRight="@dimen/notes_edit_header_padding_size">
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textAppearance="@style/TextAppearance.Title.Large" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/date"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textAppearance="@style/TextAppearance.Title.Small" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/alert"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/notes_edit_header_padding_size"
+            android:paddingRight="@dimen/notes_edit_header_padding_size"
+            android:drawableLeft="@drawable/ic_header_alert"
+            android:gravity="center_vertical"
+            android:textAppearance="@style/TextAppearance.Header" />
+
+        <ImageView
+            android:id="@+id/color"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/notes_edit_header_padding_size"
+            android:paddingRight="@dimen/notes_edit_header_padding_size"
+            android:src="@drawable/ic_header_color" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/sv_note_edit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/icon_panel_edit_height"
+        android:background="@drawable/icon_yellow">
+
+        <view
+            class="com.miui.notes.editor.RichEditor"
+            android:id="@+id/rich_editor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:overScrollMode="never"
+            android:fadingEdgeLength="0dip" />
+
+    </FrameLayout>
+
+</LinearLayout>

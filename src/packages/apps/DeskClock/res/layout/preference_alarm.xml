@@ -1,0 +1,58 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingRight="?android:attr/scrollbarSize">
+
+    <FrameLayout android:id="@+id/image_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp">
+        <ImageView
+            android:id="@+id/bottom_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+         <ImageView
+            android:id="@+id/top_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView android:id="@+android:id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_gravity="center_vertical"
+                android:textColor="@*miui:color/v5_primary_text_color_light"
+                android:textSize="18sp"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal" />
+
+            <TextView android:id="@+android:id/summary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@*miui:color/v5_secondary_text_color_light"
+                android:textSize="13sp"
+                android:maxLines="4" />
+        </LinearLayout>
+
+        <ImageView
+            android:src="@miui:drawable/arrow_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</LinearLayout>
+

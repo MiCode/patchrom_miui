@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal|top"
+    >
+
+    <view
+        class="miui.widget.SpectrumVisualizer"
+        android:id="@+id/spectrum_visualizer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="center"
+        xmlns:miui="http://schemas.android.com/apk/res/miui"
+        miui:sliding_panel="@drawable/sliding_panel_visualization_bg"
+        miui:sliding_dot_bar="@drawable/sliding_panel_visualization_dot_bar"
+        miui:symmetry="false"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/spectrum_visualizer"
+        android:scaleType="center"
+        android:src="@drawable/icon_panel_album_foreground_top"
+        />
+
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spectrum_visualizer"
+        android:layout_centerHorizontal="true"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_panel_album_mask"
+            android:scaleType="center"
+            android:layout_centerHorizontal="true"
+            />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            >
+            <include layout="@layout/album_background"/>
+        </FrameLayout>
+
+        <view
+            class="miui.widget.MarqueeTextView"
+            android:id="@+id/primary"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:singleLine="true"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:maxWidth="200dp"
+            android:shadowColor="@android:color/black"
+            android:shadowDx="0"
+            android:shadowDy="1"
+            android:shadowRadius="5"/>
+
+        <TextView
+            android:id="@+id/secondary"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/primary"
+            android:singleLine="true"
+            android:textSize="11sp"
+            android:textColor="@android:color/white"
+            android:maxWidth="200dp"
+            android:shadowColor="@android:color/black"
+            android:shadowDx="0"
+            android:shadowDy="1"
+            android:shadowRadius="5"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/icon_panel_footer_bg">
+
+        <view
+            class="miui.widget.CircleProgressBar"
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:indeterminate="false"
+            android:background="@drawable/icon_panel_progress_bg"/>
+
+        <ImageView
+            android:id="@+id/togglepause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/icon_panel_pause" />
+
+        <ImageView
+            android:id="@+id/prev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@id/progress"
+            android:src="@drawable/icon_panel_prev" />
+
+        <ImageView
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@id/progress"
+            android:src="@drawable/icon_panel_next" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/album_foreground"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@id/control"
+        android:layout_below="@id/spectrum_visualizer"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_panel_album_foreground" />
+
+</RelativeLayout>

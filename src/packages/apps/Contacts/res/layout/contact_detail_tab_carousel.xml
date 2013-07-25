@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<view
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    class="com.android.contacts.detail.ContactDetailTabCarousel"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none"
+    android:fadingEdge="none">
+
+    <LinearLayout
+        android:id="@+id/tab_and_shadow_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/tab_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+
+            <!-- "About" tab -->
+            <include
+                android:id="@+id/tab_about"
+                layout="@layout/carousel_about_tab" />
+
+            <!-- Vertical divider -->
+            <View
+                android:id="@+id/tab_divider"
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"/>
+
+            <!-- "Updates" tab -->
+            <include
+                android:id="@+id/tab_update"
+                layout="@layout/carousel_updates_tab" />
+
+        </LinearLayout>
+
+        <!--
+          Shadow below the carousel. The ContactDetailTabCarousel increases its height to
+          account for this shadow, and the class assumes the height of this shadow to be
+          @dimen/detail_contact_photo_shadow_height.
+        -->
+        <View
+            android:id="@+id/shadow"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/detail_contact_photo_shadow_height"
+            android:background="?android:attr/windowContentOverlay"/>
+
+    </LinearLayout>
+
+</view>

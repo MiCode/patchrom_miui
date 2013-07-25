@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="20dip"
+    android:paddingRight="20dip"
+    android:paddingBottom="10dip"
+    >
+    <RatingBar
+        android:id="@+id/resource_comment_ratingbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/resource_comment_common_padding"
+        android:layout_marginBottom="@dimen/resource_comment_common_padding"
+        style="@style/Resource.Comment.RatingBar.Edit" />
+    <EditText
+        android:id="@+id/resource_comment_edit"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:maxLength="800"
+        android:gravity="left"
+        android:singleLine="false"
+        android:hint="@string/resource_comment_edit_text_default" />
+</LinearLayout>

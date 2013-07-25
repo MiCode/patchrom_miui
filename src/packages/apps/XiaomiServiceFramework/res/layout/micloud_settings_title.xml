@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/title_bar"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:layout_marginLeft="@dimen/content_horizontal_margin"
+              android:layout_marginRight="@dimen/content_horizontal_margin"
+              android:gravity="center_vertical"
+              android:clickable="true"
+    >
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/content_horizontal_margin"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/xiaomi_cloud_service"
+            style="@style/TitleStyle"
+            />
+        <com.xiaomi.xmsf.account.ui.MiuiAdaptiveTextView
+            android:id="@+id/user_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/user_name_arrow_bg"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:scrollHorizontally="true"
+            android:gravity="center_vertical"
+            style="@style/UserNameStyle"
+            />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:title="@string/server_control_advanced_settings">
+    <CheckBoxPreference
+            android:key="stayAwake"
+            android:title="@string/stay_awake_title"
+            android:summary="@string/stay_awake_summary"
+            android:defaultValue="true"/>
+
+    <miui.preference.RadioButtonPreferenceCategory
+            android:key="pref_charset"
+            android:title="@string/server_control_charset">
+        <miui.preference.RadioButtonPreference
+                android:key="pref_charset_utf8"
+                android:title="@string/utf8_title"
+                android:summary="@string/utf8_summary"
+                android:persistent="false"/>
+        <miui.preference.RadioButtonPreference
+                android:key="pref_charset_gbk"
+                android:title="@string/gbk_title"
+                android:summary="@string/gbk_summary"
+                android:persistent="false"/>
+        <miui.preference.RadioButtonPreference
+                android:key="pref_charset_big5"
+                android:title="@string/big5_title"
+                android:summary="@string/big5_summary"
+                android:persistent="false"/>
+    </miui.preference.RadioButtonPreferenceCategory>
+
+    <PreferenceCategory
+            android:title="@string/ftp_transfer_secure">
+        <EditTextPreference
+                android:key="portNum"
+                android:title="@string/ftp_port_number"
+                android:inputType="number"
+                android:selectAllOnFocus="true"/>
+        <CheckBoxPreference
+                android:key="anonymous_login"
+                android:title="@string/ftp_anonymous_login"
+                android:defaultValue="true"
+                android:disableDependentsState="true"/>
+        <com.android.fileexplorer.view.AccountPreference
+                android:key="pref_ftp_account"
+                android:title="@string/ftp_username_and_passworld"
+                android:dependency="anonymous_login">
+        </com.android.fileexplorer.view.AccountPreference>
+    </PreferenceCategory>
+
+</PreferenceScreen>

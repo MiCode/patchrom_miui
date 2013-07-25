@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.internal.view.menu.ListMenuItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="16dip"
+    android:paddingRight="16dip"
+    android:itemBackground="@miui:drawable/v5_dialog_list_item_bg_light" >
+
+    <!-- Icon will be inserted here. -->
+
+    <!-- The title and summary have some gap between them, and this 'group' should be centered vertically. -->
+    <RelativeLayout
+        android:layout_width="0dip"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="16dip"
+        android:duplicateParentState="true">
+
+        <TextView
+            android:id="@android:id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:textAppearance="@miui:style/V5.TextAppearance.MenuList"
+            android:singleLine="true"
+            android:duplicateParentState="true"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal" />
+
+        <TextView
+            android:id="@miui:id/android_shortcut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@android:id/title"
+            android:layout_alignParentLeft="true"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"
+            android:singleLine="true"
+            android:duplicateParentState="true" />
+
+    </RelativeLayout>
+
+    <!-- Checkbox, and/or radio button will be inserted here. -->
+
+</com.android.internal.view.menu.ListMenuItemView>

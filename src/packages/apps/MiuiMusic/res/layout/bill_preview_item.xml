@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/online_song_item_preview"
+    android:layout_height="@dimen/bill_preview_item_height"
+    android:layout_width="fill_parent"
+    >
+
+    <ImageView android:id="@+id/track_number"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:scaleType="center"
+    />
+    <TextView
+        style="@miui:style/V5.TextAppearance.List.Secondary"
+        android:id="@+id/artist_name"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:maxWidth="150dip"
+        android:singleLine="true"
+        android:textSize="@dimen/bill_preview_item_text_size"
+         />
+    <TextView
+        style="@miui:style/V5.TextAppearance.List.Secondary"
+        android:id="@+id/track_name"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/track_number"
+        android:layout_toLeftOf="@id/artist_name"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="13dp"
+        android:gravity="center_vertical"
+        android:maxWidth="200dip"
+        android:singleLine="true"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/bill_preview_item_text_size"
+    />
+
+</RelativeLayout>

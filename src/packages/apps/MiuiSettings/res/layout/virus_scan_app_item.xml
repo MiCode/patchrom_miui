@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@miui:style/V5.Widget.ListView.Item.DoubleLine"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="16dip"
+    android:paddingRight="16dip"
+    android:paddingTop="10dip"
+    android:paddingBottom="10dip"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+       <TextView
+            android:id="@+android:id/virus_scan_app_item_name"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="0dip"
+            android:layout_weight="3"/>
+       <TextView
+            android:id="@+id/virus_scan_app_item_info"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="2"
+            android:layout_gravity="left"/>
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/virus_scan_app_item_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:focusable="false"
+        android:clickable="false"
+        android:visibility="gone"/>
+
+    <ImageView android:id="@+id/scan_app_item_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        android:gravity="center_vertical"
+        android:visibility="gone"/>
+
+</LinearLayout>
+

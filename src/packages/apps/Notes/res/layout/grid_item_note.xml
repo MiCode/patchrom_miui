@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<view
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    class="com.miui.notes.ui.GridNoteItem"
+    android:layout_width="@dimen/grid_item_width"
+    android:layout_height="@dimen/grid_item_height"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginBottom="5dip"
+    android:background="@drawable/grid_yellow">
+
+    <FrameLayout
+        android:id="@+id/note_image_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/grid_note_image_layout_margin_top"
+        android:layout_alignParentTop="true">
+
+        <!-- Extra margin top for textview when image is hidden -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/grid_note_content_extra_margin_top" />
+
+        <ImageView
+            android:id="@+id/note_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/grid_note_image_margin_left"
+            android:layout_marginTop="@dimen/grid_note_image_margin_top"
+            android:layout_marginBottom="@dimen/grid_note_image_margin_bottom" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/note_indicators"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/grid_indicator_layout_height"
+        android:layout_alignParentBottom="true"
+        android:paddingRight="@dimen/grid_indicator_padding_right"
+        android:paddingBottom="@dimen/grid_indicator_padding_bottom"
+        android:gravity="right|center_vertical"
+        android:orientation="horizontal">
+
+        <include layout="@layout/note_item_indicators" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/note_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_below="@id/note_image_layout"
+        android:layout_above="@id/note_indicators"
+        android:layout_marginTop="@dimen/grid_note_content_margin_top"
+        android:layout_marginBottom="-8dip"
+        android:maxLines="@integer/grid_note_text_max_lines"
+        android:textAppearance="@style/TextAppearance.Grid"
+        style="@style/Widget.GridText" />
+
+    <FrameLayout
+        android:id="@+id/stick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        android:background="@drawable/ic_grid_stick" />
+
+</view>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" 
+    android:fillViewport="true"
+    android:layout_height="wrap_content" 
+    android:layout_centerVertical="true">
+    <ScrollView android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout android:layout_width="fill_parent"
+            android:layout_height="fill_parent" 
+            android:padding="5dip"
+            android:orientation="vertical">
+            
+            <TextView android:text="@string/plmn_mcc_mnc" 
+                android:id="@+id/TextView02"
+                android:layout_width="fill_parent" 
+                android:layout_height="wrap_content"
+                android:textSize="16dip" 
+                android:textAppearance="?android:attr/textAppearanceLarge">
+            </TextView>
+            <EditText android:numeric="integer" 
+                android:id="@+id/mccmnc"
+                android:layout_width="fill_parent" 
+                android:layout_height="wrap_content"
+                android:maxLength="8" android:singleLine="true">
+            </EditText>
+            
+            <TextView android:text="@string/dialog_network_priority_title" 
+                android:layout_width="fill_parent" 
+                android:layout_height="wrap_content"
+                android:textSize="16dip" 
+                android:textAppearance="?android:attr/textAppearanceLarge">
+            </TextView>
+            <Spinner
+            android:id="@+id/sp_priority"
+            android:prompt="@string/dialog_network_priority_title"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:gravity="left|center"
+            android:singleLine="true"
+         />
+            
+            <TextView android:text="@string/dialog_network_mode_title" 
+                android:layout_width="fill_parent" 
+                android:layout_height="wrap_content"
+                android:textSize="16dip" 
+                android:textAppearance="?android:attr/textAppearanceLarge">
+            </TextView>
+            <Spinner
+            android:id="@+id/sp_service"
+            android:prompt="@string/dialog_network_mode_title"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:gravity="left|center"
+            android:singleLine="true"
+         />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

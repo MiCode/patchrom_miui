@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miui="http://schemas.android.com/apk/res/com.miui.player"
+    android:title="@string/music_settings" >
+
+    <PreferenceCategory
+         android:title="@string/mobile_connect_settings"
+         android:key="mobile_connect_settings" >
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="other_connect_album"
+            android:summary="@string/download_album_summary"
+            android:title="@string/download_album_settings" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="other_connect_lyric"
+            android:summary="@string/download_lyric_summary"
+            android:title="@string/download_lyric_settings" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="other_connect_listen"
+            android:summary="@string/listen_to_online_summary"
+            android:title="@string/listen_to_music_online_settings" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="correct_id3_settings"
+            android:summary="@string/correct_id3_summary"
+            android:title="@string/correct_id3_settings" />
+    </PreferenceCategory>
+
+      <PreferenceCategory android:title="@string/player_display_settings" >
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="display_lyric"
+            android:summary="@string/lyric_display_summary"
+            android:title="@string/lyric_display_settings" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="display_album"
+            android:summary="@string/album_display_summary"
+            android:title="@string/album_display_settings" />
+
+    </PreferenceCategory>
+
+      <PreferenceCategory android:title="@string/lyric_and_album" >
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="android_album"
+            android:summary="@string/android_album_summary"
+            android:title="@string/android_album_settings" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="auto_correct_id3"
+            android:summary="@string/auto_correct_id3_summary"
+            android:title="@string/auto_correct_id3_settings" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="music_filter"
+        android:title="@string/music_filter" >
+
+        <!-- minValue="0K" maxValue="2M" defaultValue="800K"-->
+        <com.miui.player.ui.view.ComboPreference
+            android:key="filter_by_size"
+            miui:progressKey="filter_by_size_progress"
+            miui:title="@string/filter_by_size"
+            miui:minValue="@integer/filter_by_size_min"
+            miui:minName="@string/filter_by_size_min"
+            miui:maxValue="@integer/filter_by_size_max"
+            miui:maxName="@string/filter_by_size_max"
+            miui:progressUnit="@integer/filter_by_size_unit"
+            miui:summaryOn="@string/filter_by_size_summary"
+            miui:summaryOff="@string/filter_by_size_summary"
+            miui:convertType="size"
+            miui:currentPrefix="@string/filter_by_size_prefix" />
+
+        <!-- minValue="10s" maxValue="5m" defaultValue="30s"-->
+        <com.miui.player.ui.view.ComboPreference
+            android:key="filter_by_duration"
+            miui:progressKey="filter_by_duration_progress"
+            miui:title="@string/filter_by_duration"
+            miui:minValue="@integer/filter_by_duration_min"
+            miui:minName="@string/filter_by_duration_min"
+            miui:maxValue="@integer/filter_by_duration_max"
+            miui:maxName="@string/filter_by_duration_max"
+            miui:progressUnit="@integer/filter_by_duration_unit"
+            miui:summaryOn="@string/filter_by_duration_summary"
+            miui:summaryOff="@string/filter_by_duration_summary"
+            miui:convertType="duration"
+            miui:currentPrefix="@string/filter_by_duration_prefix" />
+
+        <com.miui.player.ui.FolderSelectDialog
+            android:key="filter_music_folder"
+            android:title="@string/filter_by_folder"
+            xmlns:miui="http://schemas.android.com/apk/res/com.miui.player"
+            miui:summaryOn="@string/filter_by_folder_summary_on"
+            miui:summaryOff="@string/filter_by_folder_summary_off"
+            />
+    </PreferenceCategory>
+
+     <PreferenceCategory android:title="@string/shake_and_skip" >
+
+        <!-- minValue="5" maxValue="20" defaultValue="10" 值越大感应越迟钝 -->
+        <com.miui.player.ui.view.ComboPreference
+            android:key="shake"
+            miui:progressKey="shake_degree"
+            miui:title="@string/shake_settings"
+            miui:minValue="@integer/shake_degree_min"
+            miui:minName="@string/shake_degree_low"
+            miui:maxValue="@integer/shake_degree_max"
+            miui:maxName="@string/shake_degree_high"
+            miui:summaryOn="@string/shake_summary"
+            miui:summaryOff="@string/shake_summary"
+            miui:convertType="constant"
+            miui:currentPrefix="@string/shake_degree_desc" />
+
+          <CheckBoxPreference
+            android:dependency="shake"
+            android:defaultValue="false"
+            android:key="shake_while_screen_on"
+            android:title="@string/shake_while_screen_on_title"
+            android:summary="@string/shake_while_screen_on_title_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="other_settings"
+        android:title="@string/other_settings" >
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="play_and_download"
+            android:summary="@string/play_and_download_summary"
+            android:title="@string/play_and_download" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="screen_bright_wake"
+            android:summary="@string/screen_bright_wake_summary"
+            android:title="@string/screen_bright_wake" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="keep_quit_location"
+            android:summary="@string/keep_quit_position_summary"
+            android:title="@string/keep_quit_position_settings" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="fade_effect_active"
+            android:summary="@string/fade_effect_summary"
+            android:title="@string/fade_effect_settings" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- tablet -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="64dip"
+    android:orientation="horizontal"
+    android:background="@drawable/attachment_bg_holo"
+    >
+    <FrameLayout
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:orientation="vertical"
+        android:background="#e5e5e5"
+        >
+        <ImageView
+            android:id="@+id/attachment_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_attachment_holo_light"
+            android:scaleType="center"
+            />
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="0dip"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:max="100"
+            android:visibility="invisible"
+            />
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:divider="?android:attr/dividerVertical"
+        android:showDividers="middle"
+        android:dividerPadding="16dip"
+        >
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="32dip"
+            android:layout_marginRight="16dip"
+            >
+            <TextView
+                android:id="@+id/attachment_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:textSize="18dip"
+                android:textColor="#333333"
+                android:singleLine="true"
+                android:ellipsize="middle"
+                />
+            <TextView
+                android:id="@+id/attachment_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/attachment_name"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary_color"
+                android:singleLine="true"
+                />
+        </RelativeLayout>
+
+        <!-- Buttons -->
+        <LinearLayout
+            android:layout_width="224dip"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:orientation="horizontal"
+            android:divider="?android:attr/dividerVertical"
+            android:showDividers="middle"
+            >
+            <Button
+                android:id="@+id/load"
+                style="@style/Attachment.Button"
+                android:text="@string/message_view_attachment_load_action"
+                android:visibility="gone"
+                />
+            <Button
+                android:id="@+id/cancel"
+                style="@style/Attachment.Button"
+                android:text="@string/message_view_attachment_cancel_action"
+                android:visibility="gone"
+                />
+            <Button
+                android:id="@+id/info"
+                style="@style/Attachment.Button"
+                android:text="@string/message_view_attachment_info_action"
+                android:visibility="gone"
+                />
+            <Button
+                android:id="@+id/open"
+                style="@style/Attachment.Button"
+                android:text="@string/message_view_attachment_view_action"
+                android:visibility="gone"
+                />
+            <Button
+                android:id="@+id/save"
+                style="@style/Attachment.Button"
+                android:text="@string/message_view_attachment_save_action"
+                android:visibility="gone"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="SketchContainer">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/sketch_container_padding_top</item>
+        <item name="android:paddingBottom">@dimen/sketch_container_padding_bottom</item>
+    </style>
+    <style name="PaintingContainer">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/painting_container_padding_top</item>
+        <item name="android:paddingBottom">@dimen/painting_container_padding_bottom</item>
+        <item name="android:paddingLeft">@dimen/painting_container_padding_left</item>
+        <item name="android:paddingRight">@dimen/painting_container_padding_right</item>
+    </style>
+    <style name="SketchIcon">
+        <item name="android:layout_width">@dimen/sketch_icon_width</item>
+        <item name="android:layout_height">@dimen/sketch_icon_height</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:background">@null</item>
+        <item name="android:layout_marginLeft">@dimen/sketch_icon_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/sketch_icon_margin_right</item>
+    </style>
+    <style name="PaintingIcon">
+        <item name="android:layout_width">@dimen/painting_icon_size</item>
+        <item name="android:layout_height">@dimen/painting_icon_size</item>
+        <item name="android:layout_marginLeft">@dimen/painting_icon_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/painting_icon_margin_right</item>
+        <item name="android:background">@drawable/painting_icon_select</item>
+    </style>
+    <style name="SketchText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/effect_text_size</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowRadius">2.0</item>
+    </style>
+    <style name="PaintingText" parent="@style/SketchText">
+        <item name="android:layout_marginTop">@dimen/painting_text_margin_top</item>
+    </style>
+    <style name="Effect">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="EffectsBar">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="ActionBarInner">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/action_bar_height</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/action_bar_background</item>
+    </style>
+    <style name="MenuBarInner">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">?android:attr/actionBarSize</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/action_bar_background</item>
+    </style>
+    <style name="ActionBarOuter">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="ActionBarContainer">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/action_container_background</item>
+        <item name="android:paddingRight">@dimen/action_container_padding_right</item>
+    </style>
+    <style name="ActionBarImageView">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+    <style name="ActionBarArrow">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:paddingLeft">@dimen/action_bar_arrow_padding</item>
+        <item name="android:paddingRight">@dimen/action_bar_arrow_padding</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+    <style name="ActionBarIcon" parent="@style/ActionBarImageView">
+        <item name="android:paddingTop">@dimen/action_bar_icon_padding_vertical</item>
+        <item name="android:paddingBottom">@dimen/action_bar_icon_padding_vertical</item>
+        <item name="android:paddingLeft">@dimen/action_bar_icon_padding_left</item>
+        <item name="android:paddingRight">@dimen/action_bar_icon_padding_right</item>
+        <item name="android:src">@mipmap/ic_launcher_gallery</item>
+    </style>
+    <style name="ActionBarTitle" parent="android:TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="ImageActionButton">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:background">@drawable/photoeditor_toggle_button_background</item>
+    </style>
+    <style name="MenuContainer">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/menu_container_background</item>
+    </style>
+    <style name="MenuItem">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:background">@drawable/photoeditor_toggle_button_background</item>
+    </style>
+    <style name="FullscreenToolView">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+</resources>

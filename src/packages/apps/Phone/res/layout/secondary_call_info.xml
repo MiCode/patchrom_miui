@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- XML resource file for secondary call info, which will be used by CallCard.
+     See also call_card.xml.
+
+     This should look similar to primary call info (primary_call_info.xml), but
+     to optimize the view usage, the structure is different. -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/incoming_call_2_info_padding"
+    android:paddingRight="@dimen/incoming_call_2_info_padding"
+    android:background="@drawable/incall_shadow_right">
+
+    <!-- Name (or the phone number, if we don't have a name to display). -->
+    <TextView android:id="@+id/secondaryCallName"
+        style="@style/SecondaryCallInfoSecondaryCallName"
+        android:layout_alignParentTop="true"
+        android:layout_width="@dimen/incoming_call_2_width"
+        android:layout_height="@dimen/call_state_label_height"
+        android:paddingLeft="@dimen/incoming_call_2_banner_side_padding"
+        android:paddingRight="@dimen/incoming_call_2_banner_side_padding"
+        android:maxWidth="@dimen/incoming_call_2_width"
+        android:gravity="left"
+        android:ellipsize="end"
+        android:textAllCaps="false"
+        android:textSize="@dimen/call_banner_text_size"
+        android:textColor="@color/incall_call_banner_text_color"
+        android:singleLine="true" 
+        android:background="@color/incall_call_banner_background"/>
+
+    <!-- signal talk second call info -->
+    <ImageView android:id="@+id/secondaryCallPhoto"
+        android:layout_below="@id/secondaryCallName"
+        android:layout_width="@dimen/incoming_call_2_width"
+        android:layout_height="@dimen/incoming_call_2_photo_height"
+        android:gravity="left"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/onHold" />
+
+    <!-- Overlaps secondary photo when the secondary call is in HOLD state.
+
+    TODO: We could do better. See equivalent in primary xml. -->
+    <View android:id="@+id/dim_effect_for_secondary_photo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="@dimen/incoming_call_2_width"
+        android:layout_height="@dimen/incoming_call_2_photo_height"
+        android:background="@drawable/clickable_dim_effect"
+        android:visibility="gone" />
+
+    <!-- signal talk second call info -->
+    <LinearLayout android:id="@+id/secondary_call_banner"
+        android:layout_below="@id/secondaryCallName"
+        android:layout_width="@dimen/incoming_call_2_width"
+        android:layout_height="@dimen/incoming_call_2_state__label_height"
+        android:orientation="horizontal"
+        android:background="@android:color/transparent"
+        >
+        <ImageView
+            android:id="@+id/secondary_hold_btn"
+            android:layout_width="@dimen/secondary_hold_btn_with"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_hold_pause_holo_dark"
+        />
+        <!-- Call status of the background call, usually the string "On hold". -->
+        <TextView android:id="@+id/secondaryCallStatus"
+            style="@style/SecondaryCallInfoSecondaryCallStatus"
+            android:layout_below="@id/secondaryCallName"
+            android:layout_width="@dimen/secondary_hold_state_with"
+            android:layout_height="match_parent"
+            android:gravity="left"
+            android:text="@string/onHold"
+            android:textSize="@dimen/incoming_call_2_state_text_size"
+            android:textColor="@color/incall_call_banner_text_color"
+            android:textAllCaps="true"
+            android:maxWidth="@dimen/secondary_hold_state_with"
+            android:ellipsize="end"
+            android:singleLine="true" />
+    </LinearLayout>
+
+</RelativeLayout>

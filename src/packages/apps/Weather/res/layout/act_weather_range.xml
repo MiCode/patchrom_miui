@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+>
+    <LinearLayout
+        android:id="@+id/title_container"
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:background="@drawable/list_medium_top_item_background_normal"
+    >
+        <TextView
+            android:id="@+id/act_weather_range_title"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:textSize="16sp"
+            android:textColor="#FF000000"
+            android:cursorVisible="false"
+            android:text="@string/act_weather_range_title"
+        />
+        <ImageView
+            android:id="@+id/arrow_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="8dip"
+            android:src="@drawable/arrow_down"
+        />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    >
+        <com.miui.weather2.view.ViewWeatherRange
+            android:id="@+id/act_weather_range"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+        />
+        <ProgressBar
+            android:id="@+id/act_weather_parent_pbar_load"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:layout_marginRight="10dip"
+            android:layout_marginBottom="10dip"
+            android:layout_gravity="right|bottom"
+            style="@style/circle_progressbar"
+            android:indeterminate="true"
+        />
+    </FrameLayout>
+</LinearLayout>

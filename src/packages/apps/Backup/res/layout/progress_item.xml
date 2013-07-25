@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miui="http://schemas.android.com/apk/res/miui"
+    android:gravity="center_vertical"
+    android:paddingLeft="14dip"
+    android:paddingRight="14dip"
+    android:layout_width="match_parent"
+    style="@miui:style/V5.Widget.ListView.Item.DoubleLine">
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+       <TextView
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary"
+            android:id="@+android:id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="0dip"
+            android:layout_weight="3"/>
+       <TextView
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"
+            android:id="@+id/task_item_status_info"
+            android:layout_height="0dip"
+            android:layout_width="match_parent"
+            android:layout_weight="2"
+            android:layout_gravity="left"/>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/task_item_status_image"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:paddingLeft="10dip"
+        android:src="@drawable/progress_succeed"
+        android:scaleType="centerInside"
+        android:visibility="gone"
+        android:gravity="center"/>
+
+    <miui.v5.widget.CircleProgressView
+        android:id="@+id/task_item_progress"
+        android:gravity="center"
+        android:scaleType="centerInside"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:background="@miui:drawable/v5_circle_progress_background"
+    />
+</LinearLayout>

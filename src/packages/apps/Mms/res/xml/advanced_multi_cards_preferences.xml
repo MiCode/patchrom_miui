@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/pref_mms_settings_title"
+        android:key="pref_key_mms_settings">
+        <Preference
+            android:key="pref_key_mms_read_reports"
+            android:summary="@string/pref_summary_mms_read_reports"
+            android:title="@string/pref_title_mms_read_reports"/>
+        <Preference
+            android:key="pref_key_mms_auto_retrieval"
+            android:title="@string/pref_title_mms_auto_retrieval"
+            android:summary="@string/pref_summary_mms_auto_retrieval"/>
+        <Preference
+            android:layout="?android:attr/preferenceLayoutChild"
+            android:key="pref_key_mms_retrieval_during_roaming"
+            android:dependency="pref_key_mms_auto_retrieval"
+            android:title="@string/pref_title_mms_retrieval_during_roaming"
+            android:summary="@string/pref_summary_mms_retrieval_during_roaming"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="pref_key_forward_settings"
+        android:title="@string/pref_forward_title">
+        <CheckBoxPreference
+            android:key="pref_key_fwd_sender_info"
+            android:title="@string/pref_title_fwd_sender_info"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <miui.preference.RadioButtonPreferenceCategory
+        android:key="pref_key_card_format"
+        android:title="@string/pref_title_card_format">
+        <miui.preference.RadioButtonPreference
+            android:key="pref_key_card_format_miui"
+            android:defaultValue="true"
+            android:title="@string/pref_title_miui_card"/>
+        <miui.preference.RadioButtonPreference
+            android:key="pref_key_card_format_vcard"
+            android:defaultValue="false"
+            android:title="@string/pref_title_vcard"/>
+    </miui.preference.RadioButtonPreferenceCategory>
+
+    <PreferenceCategory
+        android:key="pref_key_other_settings"
+        android:title="@string/pref_system_title">
+        <CheckBoxPreference
+            android:key="pref_key_system_mms_priority"
+            android:title="@string/pref_title_system_mms_priority"
+            android:summaryOn="@string/pref_summary_on_system_mms_priority"
+            android:summaryOff="@string/pref_summary_off_system_mms_priority"
+            android:defaultValue="true" />
+        <CheckBoxPreference android:key="pref_key_allow_si_sl_push"
+            android:title="@string/pref_title_allow_si_sl_push"
+            android:summary="@string/pref_summary_allow_si_sl_push"
+            android:defaultValue="true"/>
+        <CheckBoxPreference
+            android:key="pref_key_hide_festival"
+            android:title="@string/pref_title_hide_festival"
+            android:summary="@string/pref_summary_hide_festival"
+            android:defaultValue="true" />
+        <Preference
+            android:key="pref_key_edit_sim_smsc_address"
+            android:title="@string/pref_edit_smsc_address" />
+        <Preference
+            android:key="pref_key_manage_sim_messages"
+            android:title="@string/pref_title_manage_sim_messages" />
+    </PreferenceCategory>
+</PreferenceScreen>

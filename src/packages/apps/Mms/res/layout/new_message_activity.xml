@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.android.mms.ui.SizeAwareLinearLayout
+        android:id="@+id/msg_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <FrameLayout
+            android:id="@+id/history"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:foregroundGravity="left|bottom"
+            android:foreground="@drawable/message_list_bottom_foreground">
+            <ListView
+                android:id="@+id/suggestion_list"
+                android:cacheColorHint="@null"
+                android:divider="@null"
+                android:background="@drawable/recipient_suggestion_bg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <LinearLayout
+                android:id="@+id/recent_contact_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/recent_contact_list_bg"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:gravity="center_horizontal">
+                <com.android.mms.ui.StaticGridView
+                    android:id="@+id/recent_contact_grid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <ViewStub
+            android:id="@+id/message_edit_bottom_panel_stub"
+            android:layout="@layout/message_edit_bottom_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <ViewStub
+            android:id="@+id/message_edit_bottom_panel_msim_stub"
+            android:layout="@layout/message_edit_bottom_panel_msim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <include
+            layout="@layout/message_edit_attachment_panel" />
+    </com.android.mms.ui.SizeAwareLinearLayout>
+    <include
+        layout="@layout/new_message_contact_panel" />
+</FrameLayout>

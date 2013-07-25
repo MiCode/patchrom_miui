@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/file_browse_frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/login_reg_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@drawable/secondary_title_background"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_height="0dip"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:drawableTop="@drawable/icon_logo"
+                android:drawablePadding="@dimen/kuaipan_introduce_drawable_padding"
+                android:text="@string/login_reg_content0"
+                style="@style/KuaipanIntroduceMessageStyle" />
+            <TextView
+                android:text="@string/login_reg_content"
+                android:padding="@dimen/kuaipan_introduce_second_message_padding"
+                style="@style/KuaipanIntroduceMessageSecondaryStyle" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/forward_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@miui:drawable/v5_btn_bg_positive_warn_light"
+            android:layout_marginBottom="@dimen/kuaipan_login_button_marginBottom"
+            android:layout_marginLeft="@dimen/kuaipan_login_button_marginLeft"
+            android:layout_marginRight="@dimen/kuaipan_login_button_marginRight">
+            <ProgressBar android:id="@+id/login_progress"
+                 style="@style/PathRefreshProgressBar"
+                 android:layout_gravity="center_vertical"
+                 android:layout_height="wrap_content"
+                 android:layout_width="wrap_content"
+                 android:visibility="gone"
+                 android:layout_marginLeft="@dimen/kuaipan_login_button_progressbar_marginLeft" />
+            <TextView
+                android:text="@string/start_use_xiaomi_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@miui:style/V5.TextAppearance.Button.Warn"
+                android:layout_gravity="center" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/navigation_bar"
+        style="@style/NavigationBarStyle">
+        <include layout="@layout/path_gallery"/>
+        <ProgressBar
+                android:id="@+id/refresh_progress"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                style="@style/PathRefreshProgressBar"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/network_not_available"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/networkView_notConnected"
+        android:visibility="gone" />
+
+    <TextView android:id="@+id/upload_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@drawable/secondary_title_background"
+        android:text="@string/ui_bar_txt_upload_progress"
+        style="@miui:style/V5.TextAppearance.List.Secondary"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout_listView"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:visibility="gone" >
+
+        <com.android.fileexplorer.view.EditableListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </com.android.fileexplorer.view.EditableListView>
+
+        <LinearLayout
+            android:id="@+id/empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/empty_icon" />
+
+            <TextView
+                android:id="@+id/empty_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="@string/no_file"
+                android:textSize="18dip" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sd_not_available_page"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dip"
+                android:src="@drawable/sd_not_available" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/enable_sd_card"
+                android:textSize="14dip" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

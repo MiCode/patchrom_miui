@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/flatshow_list_top_bg"/>
+    <LinearLayout
+        android:id="@+id/flatshow_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingRight="8dip"
+        android:background="@drawable/flatshow_list_bg">
+        <Button
+           android:id="@+id/slide_up_btn"
+           android:background="@drawable/flatshow_list_title_up"
+           android:layout_gravity="center_vertical|left"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|left"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/slide_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.FlatshowTitle"
+                android:singleLine="true"
+                android:ellipsize="end" />
+            <TextView
+                android:id="@+id/slide_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.FlatshowSubTitle"
+                android:singleLine="true"
+                android:ellipsize="end" />
+        </LinearLayout>
+    </LinearLayout>
+    <ListView
+        android:id="@+id/slide_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:paddingRight="5dip"
+        android:background="@drawable/flatshow_list_bg"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/flatshow_list_bottom_bg" />
+</LinearLayout>

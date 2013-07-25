@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+     <TextView
+            android:id="@+id/time_current"
+            style="@style/popup_bottom_controller_textview_style"
+            android:layout_width="@dimen/popup_bottom_controller_position_duration_textview_width"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/popup_bottom_controller_seekbar_line_margin_left"
+            android:gravity="center" />
+		
+        <com.miui.videoplayer.framework.views.DuoKanSeekbar
+            android:id="@+id/mediacontroller_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/time_current"
+            android:layout_toLeftOf="@+id/time"
+            android:maxHeight="@dimen/popup_bottom_seekbar_height"
+            android:minHeight="@dimen/popup_bottom_seekbar_height"
+            android:paddingLeft="@dimen/horizontal_seekbar_padding_left"
+            android:paddingRight="@dimen/horizontal_seekbar_padding_right"
+            android:progressDrawable="@drawable/vp_progressbar"
+            android:thumbOffset="@dimen/vertical_seekbar_thumb_offset"
+            android:thumb="@drawable/vp_seekbar_thumb" />
+
+        <TextView
+            android:id="@+id/time"
+            style="@style/popup_bottom_controller_textview_style"
+            android:layout_width="@dimen/popup_bottom_controller_position_duration_textview_width"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/popup_bottom_controller_seekbar_line_margin_left"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:gravity="center" />
+
+</RelativeLayout>

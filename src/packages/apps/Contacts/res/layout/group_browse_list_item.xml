@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!--
+    Note: Because this item layout contains the header too, we don't want to highlight the entire
+    thing when pressed or set the activated background to it.  So we disable the default hilighting
+    by setting transparent to android:listSelector for the list view in
+    group_browse_list_fragment.xml, and make the body part "duplicateParentState", and then set the
+    state list drawable to its background, which has the "activated" background (the drawable with
+    the triangular thing on the right side).  Because of this structure, the item view can't have
+    paddingRight, as the body part should touch the right edge.  Instead we make each child have
+    either marginRight or paddingRight.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="0dip" >
+
+    <include
+        android:id="@+id/group_list_header"
+        layout="@layout/group_browse_list_account_header"
+        android:visibility="gone" />
+
+    <LinearLayout
+        style="@miui:style/V5.Widget.ListView.Item.DoubleLine"
+        android:padding="0dip"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/group_photos_container"
+            android:layout_width="@dimen/group_list_photo_size"
+            android:layout_height="@dimen/group_list_photo_size"
+            android:layout_marginLeft="?attr/list_item_photo_left_margin"
+            android:background="@drawable/group_photos_container_bg" >
+
+            <LinearLayout
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginRight="1px"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/photo0"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_marginBottom="1px"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/photo2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_marginTop="1px"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="1px"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/photo1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_marginBottom="1px"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/photo3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_marginTop="1px"
+                    android:layout_weight="1" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/label"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="?attr/list_item_gap_between_image_and_text"
+            android:layout_marginRight="15dip"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary" />
+
+        <TextView
+            android:id="@+id/count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/group_arrow_margin_right"
+            android:src="@*miui:drawable/v5_arrow_right" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miui="http://schemas.android.com/apk/res/miui"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <miui.v5.widget.CooperativeViewPager
+        android:id="@miui:id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top|left" />
+
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left" >
+
+        <miui.v5.widget.TabContainerLayout
+            android:id="@miui:id/tab_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true" />
+
+        <ImageView
+            android:id="@miui:id/v5_tab_indicator_shadow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@miui:id/tab_container"
+            android:background="?miui:attr/v5_tab_indicator_shadow" />
+
+    </RelativeLayout>
+
+</FrameLayout>

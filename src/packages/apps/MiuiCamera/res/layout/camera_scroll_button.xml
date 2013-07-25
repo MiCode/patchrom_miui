@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.camera.ui.ScrollButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/camera_scroll_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:background="@color/scroll_button_color"
+    android:visibility="gone" >
+
+    <ImageView
+        android:id="@+id/scroll_button_frame"
+        android:background="@drawable/sliding_btn_frame_16_9"
+        style="@style/ScrollButtonImageView">
+    </ImageView>
+
+    <RelativeLayout
+       style="@style/ScrollButtonImageView" >
+        <com.android.camera.ui.RotateImageView
+            android:id="@+id/camera_icon"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_switch_camera_16_9"
+            style="@style/RotateImageViewStyle"/>
+
+        <com.android.camera.ui.RotateImageView
+            android:id="@+id/video_icon"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_switch_video_16_9"
+            style="@style/RotateImageViewStyle"/>
+    </RelativeLayout>
+
+    <com.android.camera.ui.RotateImageView
+        android:id="@+id/scroll_button_slider"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/sliding_btn_slider_16_9"
+        style="@style/RotateImageViewStyle">
+    </com.android.camera.ui.RotateImageView>
+
+</com.android.camera.ui.ScrollButton>

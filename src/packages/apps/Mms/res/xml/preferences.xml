@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:key="pref_key_mx_msg"
+        android:title="@string/mx_msg">
+        <CheckBoxPreference
+                android:key="pref_key_enable_mx_switch"
+                android:title="@string/mx_enable"
+                android:defaultValue="false"
+                android:persistent="false"/>
+        <CheckBoxPreference
+            android:key="pref_key_enable_mx1_switch"
+            android:title="@string/mx_enable"
+            android:defaultValue="false"
+            android:persistent="false"/>
+        <CheckBoxPreference
+            android:key="pref_key_enable_mx2_switch"
+            android:title="@string/mx_enable"
+            android:defaultValue="false"
+            android:persistent="false"/>
+        <PreferenceScreen
+            android:key="pref_key_mx_status"
+            android:title="@string/mx_current_status">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.mms"
+                android:targetClass="com.android.mms.ui.MxPreferenceActivity" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pref_notification_settings_title">
+        <CheckBoxPreference
+            android:key="pref_key_enable_notification_body"
+            android:title="@string/pref_title_notification_body_enabled"
+            android:summary="@string/pref_summary_notification_body_enabled"
+            android:defaultValue="true"
+            android:persistent="false"/>
+        <CheckBoxPreference
+            android:key="pref_key_enable_new_message_popup"
+            android:title="@string/pref_title_new_message_popup"
+            android:summary="@string/pref_summary_new_message_popup"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="pref_key_enable_wake_up_screen"
+            android:title="@string/pref_title_wake_up_screen"
+            android:summary="@string/pref_summary_wake_up_screen"
+            android:defaultValue="true"
+            android:persistent="false" />
+        <com.android.mms.ui.ValueListPreference
+            android:key="pref_key_ringtone_repeat"
+            android:title="@string/pref_title_ringtone_repeat"
+            android:entries="@array/prefEntries_ringtone_repeat"
+            android:entryValues="@array/prefValues_ringtone_repeat"
+            android:defaultValue="@string/prefDefault_ringtone_repeat" />
+        <CheckBoxPreference
+            android:key="pref_key_delivery_reports"
+            android:title="@string/pref_title_delivery_reports"
+            android:summary="@string/pref_summary_delivery_reports"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pref_sms_theme_title">
+        <CheckBoxPreference
+            android:key="pref_key_show_recent_contacts"
+            android:title="@string/pref_title_show_recent_contacts"
+            android:summary="@string/pref_summary_show_recent_contacts"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="pref_key_time_style_auto_group"
+            android:title="@string/pref_time_auto_group_title"
+            android:summary="@string/pref_time_auto_group_summary"
+            android:defaultValue="true" />
+        <com.android.mms.ui.ValueListPreference
+            android:key="pref_key_date_type"
+            android:title="@string/title_date_type"
+            android:entries="@array/entries_date_type"
+            android:entryValues="@array/entryvalues_date_type"
+            android:defaultValue="0"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="pref_other_settings"
+        android:title="@string/pref_other_title">
+        <PreferenceScreen
+            android:key="pref_advanced_settings"
+            android:title="@string/pref_advanced_settings_title">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.mms"
+                android:targetClass="com.android.mms.ui.MessagingAdvancedPreferenceActivity" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+</PreferenceScreen>

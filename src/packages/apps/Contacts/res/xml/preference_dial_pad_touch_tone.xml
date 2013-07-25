@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/preference_dial_pad_touch_tone_title">
+    <CheckBoxPreference
+        android:key="pref_key_dial_pad_touch_tone"
+        android:title="@string/preference_dial_pad_touch_tone_switch"
+        android:defaultValue="true"
+        android:persistent="false" />
+    <ListPreference
+        android:key="pref_key_tone"
+        android:title="@string/preference_tone_title"
+        android:defaultValue="-1"
+        android:entries="@array/preference_dial_pad_touch_tone_entries"
+        android:entryValues="@array/preference_dial_pad_touch_tone_entry_values"
+        android:dialogTitle="@string/preference_tone_title"
+        android:dependency="pref_key_dial_pad_touch_tone"
+        android:persistent="false" />
+</PreferenceScreen>

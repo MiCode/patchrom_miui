@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<view
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    class="com.miui.notes.view.TitleBarView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_title_bar_root_bg">
+
+    <LinearLayout
+        android:id="@+id/title_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:background="@drawable/grid_title_bar_root_cover">
+
+        <ImageView
+            android:id="@+id/title_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:src="@drawable/list_title_back" />
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            android:textAppearance="@style/TextAppearance.Title.Medium" />
+
+    </LinearLayout>
+
+    <include layout="@miui:layout/v5_search_view_layout" />
+
+</view>

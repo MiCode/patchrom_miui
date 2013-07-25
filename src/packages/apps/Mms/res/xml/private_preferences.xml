@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+            android:title="@string/private_protect">
+        <CheckBoxPreference
+                android:key="pref_key_private_new_notification"
+                android:title="@string/private_new_notification"
+                android:defaultValue="false"
+                android:persistent="false"/>
+        <CheckBoxPreference
+                android:key="pref_key_private_protect_usage"
+                android:title="@string/enable_password_protect"
+                android:defaultValue="false"/>
+        <CheckBoxPreference
+                android:key="pref_key_private_protect_visible"
+                android:title="@string/enable_visible_pattern_title"
+                android:dependency="pref_key_private_protect_usage"
+                android:defaultValue="false"
+                android:persistent="false"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="pref_key_private_contact_list"
+        android:title="@string/prvate_contact">
+    </PreferenceCategory>
+</PreferenceScreen>

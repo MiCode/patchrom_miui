@@ -1,0 +1,53 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/folder_header"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/folder_header_padding_left"
+    android:paddingRight="@dimen/folder_header_padding_right"
+    android:paddingBottom="@dimen/folder_header_padding_bottom"
+    android:gravity="center_vertical" >
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:minWidth="50dip"
+        android:textSize="21sp"
+        android:textColor="@color/folder_title_text"
+        android:singleLine="true"
+        android:shadowColor="@color/folder_title_text_shadow"
+        android:shadowRadius="1.0"
+        android:shadowDy="-1" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" >
+        <EditText
+            android:id="@+id/rename_edit"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_weight="1"
+            android:scrollHorizontally="true"
+            android:autoText="false"
+            android:textSize="19sp"
+            android:textColor="@color/folder_setting_remane_text"
+            android:singleLine="true"
+            android:capitalize="none"
+            android:maxLength="30"
+            android:background="@drawable/folder_setting_rename_bg"
+            android:visibility="invisible" />
+        <Button
+            android:id="@+id/confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right|center_vertical"
+            android:text="@string/confirm_btn_label"
+            android:textColor="@color/folder_title_text"
+            android:background="@drawable/folder_setting_confirm_btn"
+            android:visibility="invisible" />
+    </LinearLayout>
+</FrameLayout>
+

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/wireless_networks_settings_title">
+
+    <CheckBoxPreference
+        android:key="toggle_airplane"
+        android:title="@string/airplane_mode"
+        android:persistent="false"
+        android:disableDependentsState="true" />
+
+    <PreferenceScreen
+        android:fragment="com.android.settings.vpn2.VpnSettings"
+        android:key="vpn_settings"
+        android:title="@string/vpn_settings_title" />
+
+    <PreferenceScreen
+        android:fragment="com.android.settings.TetherSettings"
+        android:key="tether_settings"
+        android:title="@string/tether_settings_title_all" />
+
+    <PreferenceScreen
+        android:key="wimax_settings"
+        android:title="@string/wimax_settings"
+        android:summary="@string/wimax_settings_summary" >
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.settings.wimax"
+            android:targetClass="com.android.settings.wimax.WimaxSettings" />
+    </PreferenceScreen>
+
+    <CheckBoxPreference
+        android:key="toggle_nfc"
+        android:title="@string/nfc_quick_toggle_title"
+        android:summary="@string/nfc_quick_toggle_summary"
+        android:persistent="false" />
+
+    <PreferenceScreen
+        android:fragment="com.android.settings.nfc.AndroidBeam"
+        android:key="android_beam_settings"
+        android:title="@string/android_beam_settings_title" />
+
+    <PreferenceScreen
+        android:key="mobile_network_settings"
+        android:title="@string/network_settings_title"
+        android:dependency="toggle_airplane">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.phone"
+            android:targetClass="com.android.phone.MobileNetworkSettings" />
+    </PreferenceScreen>
+
+    <CheckBoxPreference
+        android:key="toggle_nsd"
+        android:title="@string/nsd_quick_toggle_title"
+        android:summary="@string/nsd_quick_toggle_summary"
+        android:persistent="false" />
+
+    <PreferenceScreen
+        android:fragment="com.android.settings.ProxySelector"
+        android:key="proxy_settings"
+        android:title="@string/proxy_settings_title" />
+
+    <PreferenceScreen
+        android:key="cell_broadcast_settings"
+        android:title="@string/cell_broadcast_settings"
+        android:summary="@string/cell_broadcast_settings_summary" >
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.cellbroadcastreceiver"
+            android:targetClass="com.android.cellbroadcastreceiver.CellBroadcastSettings" />
+    </PreferenceScreen>
+
+</PreferenceScreen>

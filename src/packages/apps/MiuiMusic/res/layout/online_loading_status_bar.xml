@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/online_loading_status_bar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="bottom"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <ProgressBar
+        android:id="@+id/online_status_progressbar"
+        style="@miui:style/V5.Widget.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp" />
+
+    <ImageView
+        android:id="@+id/no_content_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?miui:attr/v5_content_empty_icon" />
+
+    <TextView
+        android:id="@+id/online_status_text"
+        style="@miui:style/V5.TextAppearance.ProgressDialogMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black_50_transparent"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/btn_retry"
+        android:layout_width="@dimen/retry_button_width"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@miui:drawable/v5_btn_bg_light"
+        android:gravity="center"
+        android:text="@string/retry"
+        android:textColor="@color/black_80_transparent"
+        android:textSize="13sp" />
+
+</LinearLayout>

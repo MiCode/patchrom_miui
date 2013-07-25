@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <CheckBox
+        android:id="@+id/batch_selection_check"
+        style="@style/BatchSelectionCheckBoxStyle"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/spacing_picker_item"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/download_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/batch_selection_check"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/play_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/download_status"
+        android:scaleType="center"
+        android:src="@drawable/indicator_playing" />
+
+    <ImageView
+        android:id="@+id/favorite_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/play_indicator"
+        android:scaleType="center"
+        android:src="@drawable/indicator_favorite"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/text_wrap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/favorite_indicator"
+        android:layout_toRightOf="@+id/adjust_button"
+        android:orientation="vertical" >
+
+        <include layout="@layout/list_item_double_line_with_separator" />
+    </LinearLayout>
+
+</merge>

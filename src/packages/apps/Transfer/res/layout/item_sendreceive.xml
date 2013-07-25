@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffffff"
+    android:orientation="horizontal"
+    android:paddingLeft="12dip"
+    android:paddingRight="14dip" >
+
+    <ImageView
+        android:id="@+id/iv_thumb"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_gravity="center_vertical"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="14dip"
+        android:layout_marginTop="5dip"
+        android:layout_weight="1.0"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:lines="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/tv_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dip"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:singleLine="true"
+                android:visibility="gone"
+                android:textColor="@color/red" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
