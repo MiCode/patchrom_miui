@@ -116,6 +116,19 @@
             android:entries="@array/haptic_feedback_level_entries"
             android:entryValues="@array/haptic_feedback_level_values" />
 
+    <CheckBoxPreference
+            android:key="media_feedback"
+            android:title="@string/media_feedback_enable_title"
+            android:persistent="false" />
+
+    <ListPreference
+            android:key="media_feedback_level"
+            android:dependency="media_feedback"
+            android:title="@string/haptic_feedback_level"
+            android:persistent="false"
+            android:entries="@array/haptic_feedback_level_entries"
+            android:entryValues="@array/media_feedback_level_values" />
+
     <ListPreference
             android:key="emergency_tone"
             android:title="@string/emergency_tone_title"
