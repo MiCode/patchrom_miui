@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="13dip"
+        android:paddingLeft="15dip"
+        android:paddingRight="15dip"
+        android:paddingTop="15dip" >
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bank_info_bg" >
+            <TableRow android:gravity="center_vertical" >
+                <TextView
+                    android:gravity="right|center_vertical"
+                    android:text="@string/bankcall_merchant"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/text_size_medium" />
+                <TextView
+                    android:gravity="left|center_vertical"
+                    android:text="@string/bankcall_xiaomi_company"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/text_size_medium" />
+            </TableRow>
+            <TableRow android:gravity="center_vertical" >
+                <TextView
+                    android:gravity="right|center_vertical"
+                    android:text="@string/bankcall_denom"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/text_size_medium" />
+                <TextView
+                    android:id="@+id/denom"
+                    android:gravity="left|center_vertical"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/text_size_medium" />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/card_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:layout_marginBottom="20dip"
+            android:layout_marginLeft="5dip"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_color_black"
+            android:textSize="@dimen/text_size_large" />
+
+        <TextView
+            android:id="@+id/province"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:gravity="center_vertical"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/text_size_medium"
+            android:text="@string/bankcall_province"
+            style="@style/Spinner" />
+
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:gravity="center_vertical"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/text_size_medium"
+            android:text="@string/bankcall_city"
+            style="@style/Spinner" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@miui:drawable/v5_group_first_item_bg_light"
+                android:gravity="center_vertical" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/input_item_first"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="@string/bankcall_name"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/text_size_medium" />
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:hint="@string/bankcall_name_hint"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/text_size_medium" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@miui:drawable/v5_group_middle_item_bg_light"
+                android:gravity="center_vertical" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/input_item_middle"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="@string/bankcall_id_card"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/text_size_medium" />
+                <EditText
+                    android:id="@+id/id_card"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:digits="0123456789xX "
+                    android:gravity="center_vertical"
+                    android:maxLength="21"
+                    android:singleLine="true"
+                    android:hint="@string/bankcall_id_card_hint"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/text_size_medium" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@miui:drawable/v5_group_last_item_bg_light"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/input_item_last"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="@string/bankcall_phone"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/text_size_medium" />
+
+                <EditText
+                    android:id="@+id/phone_num"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:inputType="phone"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/text_size_medium" />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip"
+            android:layout_gravity="center"
+            android:gravity="left|center_vertical"
+            android:text="@string/bankcall_hint"
+            android:textColor="@color/text_color_gray"
+            android:textSize="@dimen/text_size_small"
+            android:drawableLeft="@drawable/yinlian" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1" />
+        <Button
+            android:id="@+id/button_recharge"
+            style="@style/ButtonNotice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip"
+            android:text="@string/btn_recharge_large" />
+
+        <Button
+            android:id="@+id/button_prev"
+            style="@style/ButtonNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dip"
+            android:text="@string/btn_prev" />
+    </LinearLayout>
+
+</ScrollView>

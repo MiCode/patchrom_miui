@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/operation_view"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/tab_operation_view_height"
+    android:layout_marginTop="@dimen/toolbar_height"
+    android:visibility="gone" >
+    <FrameLayout
+        android:id="@+id/bookmark_wrap"
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+        <ImageView
+            android:id="@+id/ic_bookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+        <TextView
+            android:id="@+id/bookmark_text"
+            android:text="@string/save_bookmark"
+            style="@style/TabOperationViewTextStyle" />
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/send_to_desktop_wrap"
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_horizontal" >
+        <ImageView
+            android:id="@+id/ic_send_to_desktop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+        <TextView
+            android:id="@+id/send_to_desktop_text"
+            android:text="@string/send_to_desktop"
+            style="@style/TabOperationViewTextStyle" />
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/copy_link_wrap"
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_horizontal" >
+        <ImageView
+            android:id="@+id/ic_copy_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+        <TextView
+            android:id="@+id/copy_link_text"
+            android:text="@string/copy_link"
+            style="@style/TabOperationViewTextStyle" />
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/share_link_page"
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_horizontal" >
+        <ImageView
+            android:id="@+id/ic_share_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+        <TextView
+            android:id="@+id/share_page_text"
+            android:text="@string/share_page"
+            style="@style/TabOperationViewTextStyle" />
+    </FrameLayout>
+</LinearLayout>

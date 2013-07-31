@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.xiaomi.market.ui.LocalAppItem
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/list_item_height"
-    style="@style/ListViewItem" >
+    style="@style/Widget.ListView.Item.TrebleLine" >
     <ImageSwitcher
         android:id="@+id/icon"
-        android:layout_height="@dimen/icon_size"
-        android:layout_width="@dimen/icon_size"
-        android:layout_marginRight="@dimen/common_padding"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true" />
+        style="@style/Widget.Icon" />
     <FrameLayout
         android:id="@+id/edit_area"
         android:layout_width="wrap_content"
@@ -20,7 +14,7 @@
         android:gravity="center" >
         <com.xiaomi.market.ui.ActionButton
             android:id="@+id/action"
-            style="@style/Button.Action" />
+            style="@style/Widget.Button.Action" />
         <CheckBox
             android:id="@android:id/checkbox"
             android:layout_width="wrap_content"
@@ -40,7 +34,7 @@
         android:gravity="center_vertical"
         android:singleLine="true"
         android:ellipsize="end"
-        android:textAppearance="@style/TextAppearance.Primary" />
+        android:textAppearance="@style/TextAppearance.Title" />
     <TextView
         android:id="@+id/developer"
         android:layout_width="wrap_content"
@@ -51,7 +45,7 @@
         android:gravity="center_vertical"
         android:singleLine="true"
         android:ellipsize="end"
-        android:textAppearance="@style/TextAppearance.Secondary" />
+        android:textAppearance="@style/TextAppearance.Title.Secondary" />
     <TextView
         android:id="@+id/publish_info"
         android:layout_width="wrap_content"
@@ -62,5 +56,5 @@
         android:singleLine="true"
         android:ellipsize="end"
         android:gravity="center_vertical"
-        android:textAppearance="@style/TextAppearance.Secondary" />
+        android:textAppearance="@style/TextAppearance.Title.Secondary" />
 </com.xiaomi.market.ui.LocalAppItem>

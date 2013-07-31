@@ -158,18 +158,50 @@
                         style="@style/wifi_item_label"
                         android:text="@string/wifi_password" />
 
-                <EditText android:id="@+id/password"
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <EditText android:id="@+id/password"
                         style="@style/wifi_item_content"
                         android:singleLine="true"
                         android:password="true"
-                        android:inputType="textNoSuggestions" />
+                        android:inputType="textNoSuggestions"
+                        android:hint="@string/wifi_password"
+                        android:textColorHint="@color/transparent_40_balck"
+                        android:textSize="15sp"/>
+                    <ImageView android:id="@+id/show_password_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical" />
+                 </FrameLayout>
             </LinearLayout>
 
             <LinearLayout
-                    style="@style/wifi_item" >
+                    android:id="@+id/wifi_share"
+                    style="@style/wifi_item"
+                    android:orientation="horizontal" >
+
+                <CheckBox android:id="@+id/wifi_share_login"
+                    style="@style/wifi_spinner_item_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginRight="2dip"
+                    android:layout_marginLeft="0dip"
+                    android:textSize="15sp"
+                    android:textColor="@color/transparent_60_balck"
+                    android:text="@string/wifi_share_login" />
+                <ImageView android:id="@+id/wifi_share_help"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/wifi_share_connect_help" />
+            </LinearLayout>
+
+            <LinearLayout
+                    style="@style/wifi_item">
 
                 <CheckBox android:id="@+id/show_password"
                     style="@style/wifi_spinner_item_content"
+                    android:layout_marginLeft="0dip"
                     android:textSize="14sp"
                     android:text="@string/wifi_show_password" />
                 <!-- CERTIFICATE -->

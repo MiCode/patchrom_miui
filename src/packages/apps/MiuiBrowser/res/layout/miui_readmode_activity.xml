@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent" android:orientation="vertical">
+
+    <com.android.browser.readmode.MiuiReadModeTitleBar
+      android:id="@+id/readmode_title_bar" android:layout_width="match_parent"
+      android:layout_height="wrap_content" android:background="#ffffff"
+      android:paddingBottom="10dip" android:paddingLeft="20dip"
+      android:paddingRight="20dip" android:paddingTop="10dip" />
+
+    <FrameLayout android:id="@+id/readmode_content"
+      android:layout_width="match_parent" android:layout_height="match_parent"
+      android:layout_weight="1.0" android:gravity="center">
+      <LinearLayout android:id="@+id/loading_message"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:gravity="center">
+        <ProgressBar android:id="@+id/loading_progress"
+          android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:paddingTop="20dip" android:layout_width="wrap_content"
+          android:layout_height="wrap_content" android:text="@string/readmode_page_loading" />
+      </LinearLayout>
+    </FrameLayout>
+  </LinearLayout>
+
+  <com.android.browser.readmode.MiuiReadModeBottomBar
+    android:id="@+id/readmode_bottombar" android:layout_width="match_parent"
+    android:layout_height="wrap_content" android:layout_gravity="bottom" />
+
+</merge>
