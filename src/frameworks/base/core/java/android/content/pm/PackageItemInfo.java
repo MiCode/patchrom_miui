@@ -137,12 +137,19 @@ public class PackageItemInfo {
      * item does not have an icon, the item's default icon is returned
      * such as the default activity icon.
      */
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public Drawable loadIcon(PackageManager pm) {
-        Drawable dr = android.app.MiuiThemeHelper.getDrawable(pm, packageName, icon, getApplicationInfo(), name); // miui modify
+        // MIUI MOD: START
+        // if (icon != 0) {
+        //     Drawable dr = pm.getDrawable(packageName, icon, getApplicationInfo());
+        //     if (dr != null) {
+        //         return dr;
+        //     }
+        // }
+        Drawable dr = android.app.MiuiThemeHelper.getDrawable(pm, packageName, name, icon, getApplicationInfo());
         if (dr != null) {
             return dr;
         }
+        // END
         return loadDefaultIcon(pm);
     }
     

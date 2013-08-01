@@ -13,21 +13,21 @@
         android:layout_height="wrap_content">
         <TextView
             style="@miui:style/V5.Widget.SecondaryTab"
-            android:id="@+id/call_button"
-            android:layout_width="0dip"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="@string/call_log_tab_title" />
-        <TextView
-            style="@miui:style/V5.Widget.SecondaryTab"
             android:id="@+id/sms_button"
             android:layout_width="0dip"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="@string/mms_log_tab_title" />
+            android:text="@string/tab_sms" />
+        <TextView
+            style="@miui:style/V5.Widget.SecondaryTab"
+            android:id="@+id/call_button"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/tab_call" />
     </LinearLayout>
 
-    <ListView
+    <miui.v5.widget.EditableListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="0dip"
@@ -35,5 +35,7 @@
         android:fastScrollEnabled="true"
         />
     <include
+        android:id="@android:id/empty"
+        android:visibility="gone"
         layout="@layout/fw_log_list_empty" />
 </LinearLayout>

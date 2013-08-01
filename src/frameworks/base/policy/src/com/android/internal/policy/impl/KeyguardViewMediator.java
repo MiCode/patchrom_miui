@@ -24,6 +24,7 @@ import com.android.internal.widget.LockPatternUtils;
 
 import miui.app.ExtraStatusBarManager;
 import miui.net.FirewallManager;
+import miui.security.MiuiLockPatternUtils;
 
 import android.annotation.MiuiHook;
 import android.annotation.MiuiHook.MiuiHookType;
@@ -327,7 +328,9 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
 
         mUpdateMonitor.registerSimStateCallback(this);
 
-        mLockPatternUtils = new LockPatternUtils(mContext);
+        // MIUI MOD:
+        // mLockPatternUtils = new LockPatternUtils(mContext);
+        mLockPatternUtils = new MiuiLockPatternUtils(mContext);
         mKeyguardViewProperties
                 = new MiuiLockPatternKeyguardViewProperties(mLockPatternUtils, mUpdateMonitor); // miui modify
 

@@ -22,12 +22,17 @@ import android.content.res.Resources;
 import android.database.sqlite.SQLiteClosable;
 import android.database.sqlite.SQLiteException;
 import android.os.Binder;
+import android.os.FileUtils;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.Process;
 import android.util.Log;
 import android.util.SparseIntArray;
 
+import miui.os.Build;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.Locale;
 
 /**
@@ -46,6 +51,8 @@ public class CursorWindow extends SQLiteClosable implements Parcelable {
      * @hide
      */
     public static class Injector {
+        final static String TAG = "CursorWindow";
+
         final static int CURSOR_QUOTA = 100;
 
         final static String EXCEPTION_MESSAGE_FORMAT =
@@ -74,7 +81,12 @@ public class CursorWindow extends SQLiteClosable implements Parcelable {
                     sPidCounts.put(pid, count);
                     if (count >= CURSOR_QUOTA) {
                         String msg = String.format(Locale.US, EXCEPTION_MESSAGE_FORMAT, pid, count);
-                        throw new IllegalStateException(msg);
+                        if (Build.IS_ALPHA_BUILD || Process.SYSTEM_UID != Binder.getCallingUid()) {
+                            throw new IllegalStateException(msg);
+                        } else {
+                            Log.e(TAG, "Too many cursors opened by system process",
+                                    new IllegalStateException(msg));
+                        }
                     }
                 } else {
                     --count;
@@ -93,6 +105,21 @@ public class CursorWindow extends SQLiteClosable implements Parcelable {
             } else {
                 return false;
             }
+        }
+
+        static void appendPackageName(StringBuilder builder, int pid) {
+            String packageName = getPackageNameByPid(pid);
+            builder.append(packageName).append(", ");
+        }
+
+        static String getPackageNameByPid(int pid) {
+            try {
+                File file = new File("/proc/" + pid + "/cmdline");
+                return FileUtils.readTextFile(file, 100, "...");
+            } catch (IOException e) {
+                Log.e(TAG, "Fail to read cmdline file", e);
+            }
+            return null;
         }
     }
 

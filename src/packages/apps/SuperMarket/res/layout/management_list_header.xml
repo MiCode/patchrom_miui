@@ -6,9 +6,7 @@
     android:orientation="vertical" >
     <RelativeLayout
         android:id="@+id/show_all_header"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/list_item_height"
-        style="@style/ListViewItem" >
+        style="@style/Widget.ListView.Item.TrebleLine" >
         <ImageView
             android:id="@+id/arrow"
             android:layout_width="wrap_content"
@@ -27,16 +25,15 @@
             android:layout_marginLeft="@dimen/common_padding"
             android:duplicateParentState="true"
             android:text="@string/show_all_local_app"
-            android:textAppearance="@style/TextAppearance.Primary"
+            android:textAppearance="@style/TextAppearance.Title"
             android:singleLine="true" />
     </RelativeLayout>
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/list_item_height"
-        style="@style/ListViewItem" >
+        style="@style/Widget.ListView.Item.TrebleLine" >
         <Button
             android:id="@+id/update_all"
-            style="@style/Button.Action"
+            android:focusable="true"
+            style="@style/Widget.Button.Action"
             android:minWidth="@dimen/action_button_width_large"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
@@ -50,6 +47,6 @@
             android:layout_toLeftOf="@id/update_all"
             android:layout_marginLeft="@dimen/common_padding"
             android:singleLine="true"
-            android:textAppearance="@style/TextAppearance.Primary" />
+            android:textAppearance="@style/TextAppearance.Title" />
     </RelativeLayout>
 </LinearLayout>

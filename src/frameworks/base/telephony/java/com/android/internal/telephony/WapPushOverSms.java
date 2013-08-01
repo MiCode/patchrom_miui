@@ -53,22 +53,6 @@ public class WapPushOverSms {
         return dispatchWapPdu(pdu);
     }
 
-    @MiuiHook(MiuiHookType.NEW_CLASS)
-    static class Injector {
-        static boolean checkFirewallForWapPush(WapPushOverSms wap, byte[] intentData) {
-            /**
-             * 对于push_co类型的信息不拦截
-             * CO, cache operation，这是一种使得用户终端缓存中的内容过期的技术，
-             * 当这些内容下次被访问时，强制进行重载操作
-             */
-            if (ExtraTelephony.checkFirewallForWapPush(wap.getContext(), intentData)) {
-                wap.getSmsDispatcher().acknowledgeLastIncomingSms(true, Activity.RESULT_OK, null);
-                return true;
-            }
-            return false;
-        }
-    }
-
     private static final String LOG_TAG = "WAP PUSH";
 
     private final Context mContext;
@@ -167,7 +151,6 @@ public class WapPushOverSms {
      *         {@link Activity#RESULT_OK} if the message has been broadcast
      *         to applications
      */
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public int dispatchWapPdu(byte[] pdu) {
 
         if (false) Log.d(LOG_TAG, "Rx: " + IccUtils.bytesToHexString(pdu));
@@ -232,8 +215,6 @@ public class WapPushOverSms {
             int dataIndex = headerStartIndex + headerLength;
             intentData = new byte[pdu.length - dataIndex];
             System.arraycopy(pdu, dataIndex, intentData, 0, intentData.length);
-
-            if (Injector.checkFirewallForWapPush(this, intentData)) return Activity.RESULT_OK; // miui add
         }
 
         /**

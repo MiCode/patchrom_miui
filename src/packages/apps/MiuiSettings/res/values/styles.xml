@@ -153,8 +153,13 @@
          <item name="android:displayOptions">@null</item>
     </style>
 
+    <style name="ActionBar.TabText" parent="miui:V5.Widget.ActionBar.TabText">
+        <item name="android:textSize">@dimen/action_bar_tab_text_size</item>
+    </style>
+
     <style name="Theme.Light.Show.NoTitle" parent="@miui:V5.Theme.Light">
         <item name="android:actionBarStyle">@style/ActionBar.Show.NoTitle</item>
+        <item name="android:actionBarTabTextStyle">@style/ActionBar.TabText</item>
         <item name="miui:v5_action_bar_tab">true</item>
     </style>
 
@@ -227,5 +232,13 @@
     <style name="ActionBar.MovableLayout" parent="@miui:V5.Widget.ActionBarMovableLayout">
         <item name="miui:v5_scroll_range">@dimen/scroll_actionbar_range</item>
         <item name="miui:v5_over_scroll_range">@dimen/scroll_actionbar_over_distance</item>
+    </style>
+
+    <!-- wifi share -->
+    <style name="ActionBar.WifiShare" parent="@miui:V5.Widget.ActionBar">
+        <item name="android:background">@drawable/wifi_share_actionbar_bg</item>
+    </style>
+    <style name="Theme.WifiShare" parent="@miui:V5.Theme.Light">
+        <item name="android:actionBarStyle">@style/ActionBar.WifiShare</item>
     </style>
 </resources>

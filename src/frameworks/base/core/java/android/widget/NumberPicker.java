@@ -2710,4 +2710,12 @@ public class NumberPicker extends LinearLayout {
     protected void adjustScrollWheel() {
         ensureScrollWheelAdjusted();
     }
+
+    /**
+     * MIUI ADD:
+     * @hide
+     */
+    public void refreshWheel() {
+        initializeSelectorWheelIndices();
+    }
 }

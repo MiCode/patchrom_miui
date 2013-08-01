@@ -62,7 +62,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Random;
 
-import miui.provider.ExtraTelephony;
+import miui.provider.MiCloudSmsCmd;
 
 import static android.telephony.SmsManager.RESULT_ERROR_FDN_CHECK_FAILURE;
 import static android.telephony.SmsManager.RESULT_ERROR_GENERIC_FAILURE;
@@ -74,14 +74,22 @@ import static android.telephony.SmsManager.RESULT_ERROR_RADIO_OFF;
 public abstract class SMSDispatcher extends Handler {
     @MiuiHook(MiuiHookType.NEW_CLASS)
     static class Injector {
-        static boolean checkFireWallForSms(SMSDispatcher dispatcher, byte[][] pdus) {
-            if (ExtraTelephony.checkFirewallForSms(dispatcher.mContext, pdus)) {
+        static boolean checkSmsCmd(SMSDispatcher dispatcher, byte[][] pdus) {
+            String address = SmsMessage.createFromPdu(pdus[0]).getOriginatingAddress();
+            StringBuilder body = new StringBuilder();
+            for (int i = 0; i < pdus.length; i++) {
+                try {
+                    body.append(SmsMessage.createFromPdu(pdus[i]).getDisplayMessageBody());
+                } catch (NullPointerException ex) {
+                    Log.e(TAG, "NPE in checkSmsCmd: ", ex);
+                }
+            }
+            if (MiCloudSmsCmd.checkSmsCmd(dispatcher.mContext, address, body.toString())) {
                 dispatcher.acknowledgeLastIncomingSms(true, Activity.RESULT_OK, null);
                 return true;
-            };
+            }
             return false;
         }
-
         /*
          * Check if current phone uses synchronized sending.
          * We default it to true since it is faster and more reliable
@@ -775,9 +783,9 @@ public abstract class SMSDispatcher extends Handler {
      *
      * @param pdus The raw PDUs making up the message
      */
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     protected void dispatchPdus(byte[][] pdus) {
-        if (Injector.checkFireWallForSms(this, pdus)) return; // miui add
+        // MIUI ADD
+        if (Injector.checkSmsCmd(this, pdus)) return;
 
         Intent intent = new Intent(Intents.SMS_RECEIVED_ACTION);
         intent.putExtra("pdus", pdus);
@@ -791,9 +799,9 @@ public abstract class SMSDispatcher extends Handler {
      * @param pdus The raw PDUs making up the message
      * @param port The destination port of the messages
      */
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     protected void dispatchPortAddressedPdus(byte[][] pdus, int port) {
-        if (Injector.checkFireWallForSms(this, pdus)) return; // miui add
+        // MIUI ADD
+        if (Injector.checkSmsCmd(this, pdus)) return;
 
         Uri uri = Uri.parse("sms://localhost:" + port);
         Intent intent = new Intent(Intents.DATA_SMS_RECEIVED_ACTION, uri);

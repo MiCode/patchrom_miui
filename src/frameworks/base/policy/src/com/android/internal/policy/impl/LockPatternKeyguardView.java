@@ -451,8 +451,11 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
             final int failedAttemptsBeforeWipe = mLockPatternUtils.getDevicePolicyManager()
                     .getMaximumFailedPasswordsForWipe(null);
 
+            // MIUI MOD:
+            // final int failedAttemptWarning = LockPatternUtils.FAILED_ATTEMPTS_BEFORE_RESET
+            //        - LockPatternUtils.FAILED_ATTEMPTS_BEFORE_TIMEOUT;
             final int failedAttemptWarning = LockPatternUtils.FAILED_ATTEMPTS_BEFORE_RESET
-                    - LockPatternUtils.FAILED_ATTEMPTS_BEFORE_TIMEOUT;
+                        - 1;
 
             final int remainingBeforeWipe = failedAttemptsBeforeWipe > 0 ?
                     (failedAttemptsBeforeWipe - failedAttempts)
@@ -1205,7 +1208,8 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
         return currentMode;
     }
 
-    private void showDialog(String title, String message) {
+    // MIUI CHANGE ACCESS
+    protected void showDialog(String title, String message) {
         mHasDialog = true;
         final AlertDialog dialog = new AlertDialog.Builder(mContext)
             .setTitle(title)
@@ -1234,7 +1238,8 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
         showDialog(null, message);
     }
 
-    private void showAlmostAtAccountLoginDialog() {
+    // MIUI CHANGE ACCESS
+    protected void showAlmostAtAccountLoginDialog() {
         final int timeoutInSeconds = (int) LockPatternUtils.FAILED_ATTEMPT_TIMEOUT_MS / 1000;
         final int count = LockPatternUtils.FAILED_ATTEMPTS_BEFORE_RESET
                 - LockPatternUtils.FAILED_ATTEMPTS_BEFORE_TIMEOUT;

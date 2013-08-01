@@ -380,18 +380,10 @@ class BrowserFrame extends Handler {
         mCallbackProxy.onReceivedError(errorCode, description, failingUrl);
     }
 
-    public String getNetErrorInfo(int errorCode, String failingUrl) {
-        ConnectivityManager cm = (ConnectivityManager)appContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+    private String getNetErrorInfo(int errorCode, String failingUrl) {
         int errorType = 0;
         int recommendAction = 0;
         errorType = errorCode;
-        int wifiState = 0;
-        State state = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState();
-        if (State.CONNECTED == state) {
-            wifiState = 1;
-        } else if (State.CONNECTED != state) {
-            wifiState = 2;
-        }
         InetAddress address=null;
         String ipAddress = "";
         try {
@@ -400,10 +392,23 @@ class BrowserFrame extends Handler {
         } catch (Exception e) {
             ipAddress = "";
         }
+        String apn = getCurrentApnInUse(appContext);
+        if (!mContext.getPackageName().equals("com.android.browser")) {
+            String ret = errorType + "&var1=" + recommendAction + "&var2=" + ipAddress + "&var3=" + 0 + "&var4=" + apn + "&var5=" + "";
+            return ret;
+        }
+        ConnectivityManager cm = (ConnectivityManager)appContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        int wifiState = 0;
+        State state = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState();
+        if (State.CONNECTED == state) {
+            wifiState = 1;
+        } else if (State.CONNECTED != state) {
+            wifiState = 2;
+        }
+
         WifiManager wifi_service = (WifiManager) appContext.getSystemService(Context.WIFI_SERVICE);
         DhcpInfo dhcpInfo = wifi_service.getDhcpInfo();
         String gateway = Formatter.formatIpAddress(dhcpInfo.gateway);
-        String apn = getCurrentApnInUse(appContext);
         String ret = errorType + "&var1=" + recommendAction + "&var2=" + ipAddress + "&var3=" + wifiState + "&var4=" + apn + "&var5=" + gateway;
         return ret;
     }

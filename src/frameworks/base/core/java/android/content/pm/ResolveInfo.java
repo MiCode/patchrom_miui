@@ -25,6 +25,8 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.Printer;
 
+import miui.content.res.IconCustomizer;
+
 import java.text.Collator;
 import java.util.Comparator;
 
@@ -37,11 +39,6 @@ import java.util.Comparator;
 public class ResolveInfo implements Parcelable {
     @MiuiHook(MiuiHookType.NEW_CLASS)
     static class Injector {
-        static Drawable getDrawable(ResolveInfo ri, PackageManager pm, String packageName, int icon, ApplicationInfo ai) {
-            ComponentInfo ci = ri.activityInfo != null ? ri.activityInfo : ri.serviceInfo;
-            return android.app.MiuiThemeHelper.getDrawable(pm, packageName, icon, ai, ci, android.app.MiuiThemeHelper.isCustomizedIcon(ri.filter));
-        }
-
         static int compare(Collator collator, ResolveInfo a, CharSequence sa,
                 ResolveInfo b, CharSequence sb) {
             if (a.system == b.system) {
@@ -190,7 +187,10 @@ public class ResolveInfo implements Parcelable {
     public Drawable loadIcon(PackageManager pm) {
         Drawable dr;
         if (resolvePackageName != null && icon != 0) {
-            dr = Injector.getDrawable(this, pm, resolvePackageName, icon, null); // miui modify
+            dr = pm.getDrawable(resolvePackageName, icon, null);
+            // MIUI ADD:
+            // modify the drawable to icon style
+            dr = IconCustomizer.generateIconStyleDrawable(dr);
             if (dr != null) {
                 return dr;
             }
@@ -198,7 +198,10 @@ public class ResolveInfo implements Parcelable {
         ComponentInfo ci = activityInfo != null ? activityInfo : serviceInfo;
         ApplicationInfo ai = ci.applicationInfo;
         if (icon != 0) {
-            dr = Injector.getDrawable(this, pm, ci.packageName, icon, ai); // miui modify
+            // MIUI MOD:
+            // go through theme manager
+            // dr = pm.getDrawable(ci.packageName, icon, ai);
+            dr = android.app.MiuiThemeHelper.getDrawable(pm, ci.packageName, ci.name, icon, ai);
             if (dr != null) {
                 return dr;
             }

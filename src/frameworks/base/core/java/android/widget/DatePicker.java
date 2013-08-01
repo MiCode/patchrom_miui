@@ -103,6 +103,39 @@ public class DatePicker extends FrameLayout {
         notifyDateChanged();
     }
 
+    /**
+     * MIUI ADD:
+     */
+    private static class Injector {
+        static void updateSpinners(Calendar curDate, Calendar minDate, Calendar maxDate,
+                NumberPicker monSpinner, NumberPicker daySpinner) {
+            if (curDate.get(Calendar.YEAR) == minDate.get(Calendar.YEAR)) {
+                monSpinner.setMinValue(minDate.get(Calendar.MONTH));
+                monSpinner.setWrapSelectorWheel(false);
+                monSpinner.refreshWheel();
+
+                if (curDate.get(Calendar.MONTH) == minDate.get(Calendar.MONTH)) {
+                    daySpinner.setMinValue(minDate.get(Calendar.DAY_OF_MONTH));
+                    daySpinner.setWrapSelectorWheel(false);
+                    daySpinner.refreshWheel();
+                }
+            }
+
+            if (curDate.get(Calendar.YEAR) == maxDate.get(Calendar.YEAR)) {
+                monSpinner.setMaxValue(maxDate.get(Calendar.MONTH));
+                monSpinner.setWrapSelectorWheel(false);
+                monSpinner.setDisplayedValues(null);
+                monSpinner.refreshWheel();
+
+                if (curDate.get(Calendar.MONTH) == maxDate.get(Calendar.MONTH)) {
+                    daySpinner.setMaxValue(maxDate.get(Calendar.DAY_OF_MONTH));
+                    daySpinner.setWrapSelectorWheel(false);
+                    daySpinner.refreshWheel();
+                }
+            }
+        }
+    }
+
     private static final String LOG_TAG = DatePicker.class.getSimpleName();
 
     private static final String DATE_FORMAT = "MM/dd/yyyy";
@@ -715,6 +748,9 @@ public class DatePicker extends FrameLayout {
             mMonthSpinner.setMaxValue(11);
             mMonthSpinner.setWrapSelectorWheel(true);
         }
+        // MIUI ADD:
+        Injector.updateSpinners(mCurrentDate, mMinDate, mMaxDate, mMonthSpinner, mDaySpinner);
+        //END
 
         // make sure the month names are a zero based array
         // with the months in the month spinner

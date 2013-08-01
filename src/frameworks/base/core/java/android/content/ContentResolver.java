@@ -72,8 +72,12 @@ public abstract class ContentResolver {
     static class Injector {
         static final String TRACK_EVENT_ID = "cursor_leak";
 
-        static Cursor checkCursorLeakException(Context context, IllegalStateException e) {
+        static Cursor checkCursorLeakException(Context context, IllegalStateException e, Uri uri,
+                String[] projection, String selection, String[] selectionArgs, String sortOrder) {
             if (CursorWindow.Injector.causeByCursorLeak(e.getMessage())) {
+                Log.e(TAG, "Cursor leak detected, query params: uri=" + uri + ", projection="
+                        + projection + ", selection=" + selection + ", selectionArgs="
+                        + selectionArgs + ", sortOrder=" + sortOrder);
                 reportCursorLeak(context);
                 // 为了保证进程一定能退出，直接调用了进程退出的函数，而没有简单的抛出异常
                 try {
@@ -432,7 +436,8 @@ public abstract class ContentResolver {
             return wrapper;
         // MIUI ADD: START
         } catch (IllegalStateException e) {
-            return Injector.checkCursorLeakException(mContext, e);
+            return Injector.checkCursorLeakException(mContext, e, uri, projection,
+                    selection, selectionArgs, sortOrder);
         // END
         } catch (RemoteException e) {
             // Arbitrary and not worth documenting, as Activity

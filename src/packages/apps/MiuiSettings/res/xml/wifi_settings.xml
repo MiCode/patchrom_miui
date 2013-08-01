@@ -20,9 +20,13 @@
             android:key="wifi_enable"
             android:order ="1"
             android:title="@string/wifi_enable"/>
+   <miui.preference.ValuePreference
+            android:key="wifi_share"
+            android:order ="2"
+            android:title="@string/wifi_share"/>
     <PreferenceCategory
          android:key="wifi_settings"
-         android:order="3"
+         android:order="4"
          android:title="@string/wifi_settings_category">
          <CheckBoxPreference
             android:key="notify_open_networks"
@@ -36,16 +40,6 @@
                android:targetPackage="com.android.settings"
                android:targetClass="com.android.settings.Settings$AdvancedWifiSettingsActivity"/>
          </Preference>
-    </PreferenceCategory>
-
-    <PreferenceCategory
-         android:key="wifi_add_network"
-         android:order="4"
-         android:title="@string/wifi_add_network">
-         <Preference
-            android:key="manually_add_network"
-            android:title="@string/manually_add_network"
-            android:persistent="false"/>
     </PreferenceCategory>
 
 </PreferenceScreen>

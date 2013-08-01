@@ -738,6 +738,11 @@ public class KeyguardUpdateMonitor {
         return mFailedAttempts;
     }
 
+    // MIUI ADD:
+    public void setFailedAttempts(int failedAttempts) {
+        mFailedAttempts = failedAttempts;
+    }
+
     public void clearFailedAttempts() {
         mFailedAttempts = 0;
         mFailedBiometricUnlockAttempts = 0;

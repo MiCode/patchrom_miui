@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <com.xiaomi.market.ui.AppCommentsItem xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/ListViewItem"
-    android:layout_width="match_parent"
+    style="@style/Widget.ListView.Item.TrebleLine"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingBottom="@dimen/common_padding"
@@ -14,24 +13,23 @@
 
         <TextView
             android:id="@+id/expandable_textview"
-            style="@style/TextAppearance.Primary"
+            style="@style/TextAppearance.Title.Comment.Item"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/text_font_size_medium" />
+            android:layout_height="wrap_content" />
 
-        <TextView
+        <Button
             android:id="@+id/expand_button"
-            style="@style/TextAppearance.Primary"
+            style="@style/TextAppearance.Title.Comment.Item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/common_padding_small"
-            android:text="@string/expand_full_text_comment"
-            android:textSize="@dimen/text_font_size_medium" />
+            android:background="@null"
+            android:text="@string/expand_full_text_comment" />
     </com.xiaomi.market.ui.ExpandableTextView>
 
     <RatingBar
             android:id="@+id/ratingbar"
-            style="@style/RatingBar.ReadOnly"
+            style="@style/Widget.RatingBar.ReadOnly"
             android:paddingTop="@dimen/comment_padding_list_item_ratingbar_top"
             android:paddingBottom="@dimen/comment_padding_list_item_ratingbar_bottom"
             android:layout_width="wrap_content"
@@ -45,26 +43,23 @@
 
         <TextView
             android:id="@+id/username"
-            style="@style/TextAppearance.Secondary"
+            style="@style/TextAppearance.Title.Comment.Item.Secondary"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/text_font_size_small" />
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/date"
-            style="@style/TextAppearance.Secondary"
+            style="@style/TextAppearance.Title.Comment.Item.Secondary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/comment_padding_horizontal"
-            android:textSize="@dimen/text_font_size_small" />
+            android:paddingLeft="@dimen/comment_padding_horizontal" />
 
         <TextView
             android:id="@+id/version"
-            style="@style/TextAppearance.Secondary"
+            style="@style/TextAppearance.Title.Comment.Item.Secondary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/comment_padding_horizontal"
-            android:textSize="@dimen/text_font_size_small" />
+            android:paddingLeft="@dimen/comment_padding_horizontal" />
     </LinearLayout>
 
 </com.xiaomi.market.ui.AppCommentsItem>

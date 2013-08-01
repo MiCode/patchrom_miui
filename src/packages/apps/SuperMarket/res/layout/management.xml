@@ -6,9 +6,7 @@
     android:orientation="vertical">
     <RelativeLayout
         android:id="@+id/show_all"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/list_item_height"
-        style="@style/ListViewItem">
+        style="@style/Widget.ListView.Item.TrebleLine">
         <ImageView
             android:id="@+id/arrow"
             android:layout_height="wrap_content"
@@ -26,7 +24,7 @@
             android:layout_toLeftOf="@id/arrow"
             android:layout_marginLeft="@dimen/common_padding"
             android:text="@string/show_all_local_app"
-            android:textAppearance="@style/TextAppearance.Primary"
+            android:textAppearance="@style/TextAppearance.Title"
             android:duplicateParentState="true"
             android:singleLine="true" />
     </RelativeLayout>
@@ -37,7 +35,7 @@
             android:id="@android:id/list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            style="@style/ListView" />
+            style="@style/Widget.ListView" />
         <com.xiaomi.market.ui.EmptyLoadingView
             android:id="@+id/loading"
             android:layout_width="match_parent"

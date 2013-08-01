@@ -84,7 +84,9 @@ public class LockPatternUtils {
      * The number of incorrect attempts before which we fall back on an alternative
      * method of verifying the user, and resetting their lock pattern.
      */
-    public static final int FAILED_ATTEMPTS_BEFORE_RESET = 20;
+    // MIUI MOD:
+    // public static final int FAILED_ATTEMPTS_BEFORE_RESET = 20;
+    public static final int FAILED_ATTEMPTS_BEFORE_RESET = 9;
 
     /**
      * How long the user is prevented from trying again after entering the
@@ -931,6 +933,12 @@ public class LockPatternUtils {
         return deadline;
     }
 
+    // MIUI ADD
+    // Add this method here only for pass build, the actual implementation residents in MiuiLockPatternUtils.
+    public long setKeyguardLockoutAttemptDeadline(int failedAttempts) {
+        return -1;
+    }
+
     /**
      * @return The elapsed time in millis in the future when the user is allowed to
      *   attempt to enter his/her lock pattern, or 0 if the user is welcome to
@@ -943,6 +951,12 @@ public class LockPatternUtils {
             return 0L;
         }
         return deadline;
+    }
+
+    // MIUI ADD
+    // Add this method here only for pass build, the actual implementation residents in MiuiLockPatternUtils.
+    public long getKeyguardLockoutAttemptDeadline(int failedAttempts) {
+        return -1;
     }
 
     /**
@@ -1012,7 +1026,8 @@ public class LockPatternUtils {
         }
     }
 
-    private long getLong(String secureSettingKey, long defaultValue) {
+    // MIUI CHANGE ACCESS:
+    protected long getLong(String secureSettingKey, long defaultValue) {
         try {
             return getLockSettings().getLong(secureSettingKey, defaultValue,
                     getCurrentOrCallingUserId());

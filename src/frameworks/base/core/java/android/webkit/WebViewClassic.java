@@ -1630,6 +1630,18 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
         WebViewCore.sendStaticMessage(EventHub.PROXY_CHANGED, proxyProperties);
     }
 
+    /**
+     * @hide
+     */
+    public void setProxy(String host, int port) {
+        if (host == null || port == 0) {
+            WebViewCore.sendStaticMessage(EventHub.PROXY_CHANGED, null);
+        } else {
+            ProxyProperties pp = new ProxyProperties(host, port, null);
+            WebViewCore.sendStaticMessage(EventHub.PROXY_CHANGED, pp);
+        }
+    }
+
     /*
      * A variable to track if there is a receiver added for ACTION_PACKAGE_ADDED
      * or ACTION_PACKAGE_REMOVED.
