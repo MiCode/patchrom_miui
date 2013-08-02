@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- width 是 album, 在LandAlbumAdapter.newView中设置-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_gravity="center"
+    >
+
+    <ImageView
+        android:id="@+id/album"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="center"
+        />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_height="3dp"
+        android:layout_width="wrap_content"
+        android:layout_alignLeft="@id/album"
+        android:background="@android:color/black"
+        android:layout_below="@id/album"
+        />
+
+    <view
+        class="com.miui.player.ui.view.InvertImageView"
+        android:id="@+id/album_invert"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignLeft="@id/album"
+        android:layout_below="@id/divider"
+        />
+
+    <ImageView
+        android:id="@+id/left_shadow_black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="-1dp"
+        android:src="@drawable/land_album_left_black_shadow"
+        android:scaleType="center"
+        />
+
+    <ImageView
+        android:id="@+id/left_shadow_alpha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/left_shadow_black"
+        android:layout_alignTop="@id/left_shadow_black"
+        android:layout_marginLeft="-1dp"
+        android:src="@drawable/land_album_left_alpha_shadow"
+        android:scaleType="center"
+        />
+    <ImageView
+        android:id="@+id/left_bottom_shadow_alpha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/left_shadow_black"
+        android:layout_below="@id/divider"
+        android:layout_marginLeft="-1dp"
+        android:src="@drawable/land_album_left_bottom_alpha_shadow"
+        android:scaleType="center"
+        />
+
+</RelativeLayout>

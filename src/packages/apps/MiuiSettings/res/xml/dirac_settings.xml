@@ -7,13 +7,24 @@
             android:persistent="false"
             android:title="@string/dirac_mode_off" />
         <miui.preference.RadioButtonPreference
-            android:key="mode_earphones"
-            android:persistent="false"
-            android:title="@string/dirac_mode_earphones" />
-        <miui.preference.RadioButtonPreference
             android:key="mode_earbuds"
             android:persistent="false"
             android:title="@string/dirac_mode_earbuds" />
+        <miui.preference.RadioButtonPreference
+            android:key="mode_in_ear"
+            android:persistent="false"
+            android:title="@string/dirac_mode_in_ear" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="equalizer_category">
+        <Preference
+            android:key="dirac_equalizer"
+            android:title="@string/equalizer"
+            >
+            <intent android:action="com.android.settings.DIRAC_EQUALIZER"
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.dirac.DiracEqualizer" />
+        </Preference>
+    </PreferenceCategory>
 </PreferenceScreen>

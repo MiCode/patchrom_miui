@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.phone.OldmanIncallControlsWidget xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <!-- speaker -->
+    <ToggleButton 
+        android:id="@+id/oldman_speaker_button"
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="45dp"
+        android:layout_marginRight="26dp"
+        android:textOff="@string/oldman_speaker_button_text"
+        android:textOn="@string/oldman_speaker_button_text" 
+        android:textColor="@color/oldman_toggle_text_color"
+        android:textSize="@dimen/oldman_common_button_text_size"
+        android:background="@drawable/oldman_speaker_button_bg" />
+
+    <!-- dialer area -->
+    <LinearLayout
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:orientation="vertical" 
+        android:layout_above="@+id/oldman_main_buttons_box" >
+
+        <ViewStub android:id="@+id/oldman_dtmf_twelve_key_dialer_view_stub"
+            android:layout="@layout/oldman_dtmf_twelve_key_dialer_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <!-- mainButtons box -->
+    <LinearLayout 
+        android:id="@+id/oldman_main_buttons_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:orientation="vertical" 
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom|center_horizontal" >
+
+        <ToggleButton 
+            android:id="@+id/oldman_dialpad_button"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:textOff="@string/oldman_dialpad_button_text"
+            android:textOn="@string/oldman_dialpad_button_text"
+            android:textColor="@color/oldman_toggle_text_color"
+            android:textSize="@dimen/oldman_common_button_text_size"
+            android:background="@drawable/oldman_dialpad_button_bg" />
+        
+        <Button 
+            android:id="@+id/oldman_end_call_button"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="@string/oldman_end_call_button_text" 
+            android:textColor="@color/oldman_common_text_color"
+            android:textSize="@dimen/oldman_common_button_text_size"
+            android:background="@drawable/oldman_end_call_button_bg" />
+   
+    </LinearLayout>
+
+</com.android.phone.OldmanIncallControlsWidget>

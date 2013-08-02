@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.phone.OldmanCallCardWidget xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@drawable/oldman_call_card_bg" >
+
+    <!-- contact photo box -->
+    <FrameLayout
+        android:id="@+id/oldman_contact_photo_box"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        android:visibility="gone" >
+
+        <ImageView 
+            android:id="@+id/oldman_contact_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitStart" />
+
+        <!-- if using View, it's height will match_parent, and unknown reason! so using ImageView -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@drawable/oldman_contact_photo_mask_top" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/oldman_contact_photo_mask_bottom" />
+
+    </FrameLayout>
+
+    <!-- answer echo box -->
+    <LinearLayout
+        android:id="@+id/oldman_answer_echo_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:orientation="vertical" 
+        android:gravity="center_horizontal" 
+        android:visibility="gone" >
+
+        <TextView 
+            android:id="@+id/oldman_contact_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_marginTop="31dp"
+            android:singleLine="true"
+            android:textColor="@color/oldman_common_text_color"
+            android:textSize="@dimen/oldman_contact_name_text_size" />
+
+        <TextView 
+            android:id="@+id/oldman_contact_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_marginTop="13dp"
+            android:singleLine="true"
+            android:textColor="@color/oldman_common_text_color"
+            android:textSize="@dimen/oldman_contact_number_text_size" />
+
+        <TextView 
+            android:id="@+id/oldman_contact_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_marginTop="10dp"
+            android:singleLine="true"
+            android:textColor="@color/oldman_common_text_color"
+            android:textSize="@dimen/oldman_contact_location_text_size" />
+
+    </LinearLayout>
+
+    <!-- incall echo box -->
+    <LinearLayout
+        android:id="@+id/oldman_incall_echo_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:orientation="vertical" 
+        android:gravity="left" 
+        android:visibility="gone" >
+
+        <TextView 
+            android:id="@+id/oldman_contact_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_marginTop="26dp"
+            android:layout_marginLeft="22dp"
+            android:paddingRight="95dp"
+            android:singleLine="true"
+            android:textColor="@color/oldman_common_text_color"
+            android:textSize="@dimen/oldman_contact_name_text_size" />
+
+        <TextView 
+            android:id="@+id/oldman_contact_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="26dp"
+            android:singleLine="true"
+            android:textColor="@color/oldman_common_text_color"
+            android:textSize="@dimen/oldman_contact_number_text_size" />
+
+        <TextView 
+            android:id="@+id/oldman_call_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="26dp"
+            android:singleLine="true"
+            android:textColor="@color/oldman_common_text_color"
+            android:textSize="@dimen/oldman_call_status_text_size" />
+
+        <TextView 
+            android:id="@+id/oldman_call_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="26dp"
+            android:singleLine="true"
+            android:textColor="@color/oldman_common_text_color"
+            android:textSize="@dimen/oldman_call_time_text_size" />
+
+    </LinearLayout>
+
+</com.android.phone.OldmanCallCardWidget>
+
