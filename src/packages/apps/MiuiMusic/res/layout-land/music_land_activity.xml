@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/music_land_bg" >
+
+    <view
+        class="com.miui.player.ui.view.CascadingView"
+        android:id="@+id/albums_wrapper"
+        android:layout_width="@dimen/music_land_activity_cascading_view_width"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/music_land_activity_cascading_view_padding_top"
+        />
+
+    <RelativeLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/music_land_activity_title_bar_height"
+        android:layout_toRightOf="@id/albums_wrapper"
+        android:layout_alignParentRight="true"
+        android:paddingTop="@dimen/music_land_activity_title_bar_padding" >
+
+        <ImageView
+            android:id="@+id/music_land_divider"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/music_land_divider_margin_top"
+            android:layout_marginRight="@dimen/music_land_activity_margin_right"
+            android:background="@drawable/music_land_divider" />
+
+        <ImageView
+            android:id="@+id/play_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true" />
+
+        <TextView
+            android:id="@+id/track_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_toLeftOf="@id/play_button"
+            android:singleLine="true"
+            android:textColor="@android:color/white"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/artist_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_below="@id/track_name"
+            android:layout_toLeftOf="@id/play_button"
+            android:singleLine="true"
+            android:textColor="@color/white_60_transparent"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/music_land_activity_fragment_height"
+        android:layout_alignLeft="@id/title_bar"
+        android:layout_below="@id/title_bar"
+        android:layout_marginRight="@dimen/music_land_activity_margin_right" >
+
+        <fragment
+            android:id="@+id/track_list_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="com.miui.player.ui.fragment.TrackListFragment" >
+        </fragment>
+
+        <fragment
+            android:id="@+id/lyric_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="com.miui.player.ui.fragment.LyricFragment" >
+        </fragment>
+    </FrameLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/land_foreground_bottom"
+        android:scaleType="center"
+        android:layout_alignParentBottom="true"
+        />
+</RelativeLayout>

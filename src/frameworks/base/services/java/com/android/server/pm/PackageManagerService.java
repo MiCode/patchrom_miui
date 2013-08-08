@@ -272,9 +272,12 @@ public class PackageManagerService extends IPackageManager.Stub {
                     if (uri != null) {
                         String host = uri.getHost();
                         String path = uri.getPath();
-                        if (host != null && host.indexOf("zhuti.xiaomi.com") >=0
-                                && path != null && path.startsWith("/detail/")) {
-                            intent.setClassName("com.android.thememanager", "com.android.thememanager.activity.ThemeDetailActivity");
+                        if (host != null && path != null) {
+                            if (host.indexOf("zhuti.xiaomi.com") >= 0 && path.startsWith("/detail/")) {
+                                intent.setClassName("com.android.thememanager", "com.android.thememanager.activity.ThemeDetailActivity");
+                            } else if (host.indexOf("app.xiaomi.com") >= 0 && path.startsWith("/detail/")) {
+                                intent.setClassName("com.xiaomi.market", "com.xiaomi.market.ui.AppDetailActivity");
+                            }
                         }
                     }
                 }

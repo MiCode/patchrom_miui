@@ -54,7 +54,6 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.ParcelFileDescriptor;
 import android.os.PowerManager;
-import android.os.Process;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.os.SystemProperties;
@@ -64,6 +63,7 @@ import android.util.Log;
 import android.util.Slog;
 import android.view.WindowManagerPolicy;
 
+import miui.content.ExtraIntent;
 import miui.net.FirewallManager;
 
 import java.io.IOException;
@@ -82,14 +82,28 @@ final class ActivityStack {
             return record.finishing || "always-finish".equals(reason) && "com.miui.home".equals(record.packageName);
         }
 
-        static boolean checkAccessControl(Context context, String packageName) {
-            Intent checkIntent = FirewallManager.getCheckIntent(context, packageName);
-            if (checkIntent == null) {
-                return false;
-            } else {
-                context.startActivity(checkIntent);
-                return true;
+        /**
+         * 验证是否需要隐私保护，如果需要，会返回用于启动保护界面的Intent，否则返回原来的Intent
+         */
+        static Intent checkAccessControl(Context context, ActivityInfo aInfo, Intent intent) {
+            if (aInfo != null) {
+                Intent checkIntent = FirewallManager.getCheckIntent(context, aInfo.packageName, intent);
+                // 如果返回非null，说明需要启动返回界面，狸猫换太子，返回启动隐私保护界面的Intent
+                if (checkIntent != null) {
+                    intent = checkIntent;
+                }
             }
+            return intent;
+        }
+
+        static ActivityInfo resolveCheckIntent(ActivityInfo aInfo, Intent intent,
+                ActivityStack stack, String profileFile, ParcelFileDescriptor profileFd, int userId) {
+            // 如果判断是checkIntent，需要重新resolve
+            if (intent != null && intent.getComponent() == null
+                    && ExtraIntent.ACTION_CHECK_ACCESS_CONTROL.equals(intent.getAction())) {
+                aInfo = stack.resolveActivity(intent, null, 0, profileFile, profileFd, userId);
+            }
+            return aInfo;
         }
     }
 
@@ -1431,11 +1445,6 @@ final class ActivityStack {
                 ActivityOptions.abort(options);
                 return mService.startHomeActivityLocked(0);
             }
-        }
-
-        // MIUI ADD
-        if (Injector.checkAccessControl(mContext, next.packageName)) {
-            return false;
         }
 
         next.delayedResume = false;
@@ -3110,6 +3119,10 @@ final class ActivityStack {
         // Collect information about the target of the Intent.
         ActivityInfo aInfo = resolveActivity(intent, resolvedType, startFlags,
                 profileFile, profileFd, userId);
+        // MIUI ADD: START
+        intent = Injector.checkAccessControl(mContext, aInfo, intent);
+        aInfo = Injector.resolveCheckIntent(aInfo, intent, this, profileFile, profileFd, userId);
+        // END
         if (aInfo != null && mService.isSingleton(aInfo.processName, aInfo.applicationInfo)) {
             userId = 0;
         }

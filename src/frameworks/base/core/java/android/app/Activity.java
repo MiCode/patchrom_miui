@@ -654,8 +654,12 @@ public class Activity extends ContextThemeWrapper
     @MiuiHook(MiuiHookType.NEW_CLASS)
     static class Injector {
         static void checkAccessControl(Activity activity) {
-            FirewallManager.checkAccessControl(activity.mParent, activity.getContentResolver(), activity.getPackageName(), activity.getPackageManager(),
-                    activity.mMainThread.getApplicationThread(), activity.getToken(), activity.mEmbeddedID);
+            if (activity.getParent() == null) {
+                Intent checkIntent = FirewallManager.getCheckIntent(activity, activity.getPackageName(), null);
+                if (checkIntent != null) {
+                    activity.startActivity(checkIntent);
+                }
+            }
         }
 
         static void setActivityGravity(Activity activity) {
@@ -1146,7 +1150,8 @@ public class Activity extends ContextThemeWrapper
         if (DEBUG_LIFECYCLE) Slog.v(TAG, "onResume " + this);
         getApplication().dispatchActivityResumed(this);
         mCalled = true;
-        Injector.checkAccessControl(this); // miui add
+        // MIUI ADD:
+        Injector.checkAccessControl(this);
     }
 
     /**

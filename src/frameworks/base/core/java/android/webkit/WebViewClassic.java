@@ -4666,7 +4666,7 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
             List<Rect> rect = new ArrayList<Rect>();
 
             while (iter.next(r)) {
-                // MIUI MOD: 
+                // MIUI MOD:
                 // canvas.drawRect(r, mTouchHightlightPaint);
                 addGoodRect(r, rect);
             }
@@ -8154,7 +8154,9 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
         if (mFindIsUp) return false;
         boolean result = false;
         result = mWebViewPrivate.super_requestFocus(direction, previouslyFocusedRect);
-        if (mWebViewCore.getSettings().getNeedInitialFocus()
+        // MIUI MOD:
+//        if (mWebViewCore.getSettings().getNeedInitialFocus()
+        if (mWebViewCore != null && mWebViewCore.getSettings().getNeedInitialFocus()
                 && !mWebView.isInTouchMode()) {
             // For cases such as GMail, where we gain focus from a direction,
             // we want to move to the first available link.
@@ -9564,8 +9566,14 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
             mListBoxDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
                 @Override
                 public void onCancel(DialogInterface dialog) {
-                    mWebViewCore.sendMessage(
+                    // MIUI MOD START:
+//                    mWebViewCore.sendMessage(
+//                            EventHub.SINGLE_LISTBOX_CHOICE, -2, 0);
+                    if (mWebViewCore != null) {
+                        mWebViewCore.sendMessage(
                                 EventHub.SINGLE_LISTBOX_CHOICE, -2, 0);
+                    }
+                    // END
                     mListBoxDialog = null;
                 }
             });
