@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/channelItem_wrapcontent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+   <FrameLayout
+        android:id="@+id/more"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/channel_item_height"
+        android:layout_marginTop="@dimen/channel_item_margin_top"
+        android:layout_marginBottom="@dimen/channel_item_margin_bottom"
+        android:clickable="false">
+
+        <TextView
+            android:id="@+id/channel_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/channel_item_name_margin_top"
+            android:layout_gravity="left"
+            android:layout_marginLeft="@dimen/channel_item_name_margin"
+            android:includeFontPadding="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_36"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/channel_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="@dimen/category_more_margin_right"
+            android:background="@drawable/channel_more"
+            android:gravity="center_vertical"
+            android:text="@string/channel_more"
+            android:textColor="@color/p_50_white"
+            android:textSize="@dimen/text_size_26"
+            android:textStyle="bold" />
+
+    </FrameLayout>
+    
+   <FrameLayout android:layout_width="match_parent"
+	       android:layout_height="wrap_content" >
+	    <ViewStub
+	   	   android:id="@+id/media_stub"
+	   	   android:inflatedId="@+id/mediaPosters"
+	   	   android:layout="@layout/row_of_posters"
+	       android:layout_width="match_parent"
+	       android:layout_height="wrap_content" />
+	   	<ViewStub
+	   	   android:id="@+id/tv_stub"
+	   	   android:inflatedId="@+id/tvPosters"
+	   	   android:layout="@layout/row_of_tv_posters"
+	       android:layout_width="match_parent"
+	       android:layout_height="wrap_content" />
+   </FrameLayout>
+
+</LinearLayout>

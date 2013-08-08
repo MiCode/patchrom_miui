@@ -13,22 +13,20 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/empty"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:layout_weight="1"
->
-      <TextView android:id="@+id/dialer_list_empty_text"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="@string/dialer_empty_text_no_call_log"
-          style="@style/TextStyleSmartDialer"
-          android:singleLine="true"
-          android:paddingLeft="15dip"
-          android:paddingRight="15dip"
-          android:paddingTop="15dip"
-      />
-</ScrollView>
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/dialer_list_empty_text"
+        android:layout_width="match_parent"
+        android:layout_height="@miui:dimen/v5_list_view_double_line_height"
+        android:paddingLeft="@miui:dimen/v5_list_view_padding_horizontal"
+        android:paddingRight="@miui:dimen/v5_list_view_padding_horizontal"
+        android:gravity="center_vertical"
+        android:text="@string/dialer_empty_text_no_call_log"
+        android:singleLine="true"
+        android:background="@miui:drawable/v5_list_view_last_item_bg_normal_light"
+        style="@style/TextStyleSmartDialer"/>
+</LinearLayout>

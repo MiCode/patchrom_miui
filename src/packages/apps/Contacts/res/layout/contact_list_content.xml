@@ -57,11 +57,14 @@
             <TextView
                 android:id="@+id/search_empty"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="10dip"
+                android:layout_height="@miui:dimen/v5_list_view_double_line_height"
+                android:paddingLeft="@miui:dimen/v5_list_view_padding_horizontal"
+                android:paddingRight="@miui:dimen/v5_list_view_padding_horizontal"
+                android:gravity="center_vertical"
                 android:text="@string/listFoundAllContactsZero"
                 android:visibility="gone"
-                style="@miui:style/V5.TextAppearance.List.Secondary" />
+                android:background="@miui:drawable/v5_list_view_last_item_bg_normal_light"
+                style="@style/TextStyleSmartDialer" />
 
             <ProgressBar
                 android:id="@+id/search_progress"

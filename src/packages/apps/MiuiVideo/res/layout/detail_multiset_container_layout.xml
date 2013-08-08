@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/multiset_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">	
+     
+    <LinearLayout 
+    	android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:orientation="vertical">
+    	<FrameLayout
+    	    android:layout_width="match_parent"
+    	    android:layout_height="wrap_content">
+	    	 <View 
+	    	 android:id="@+id/multiset_shadow_left"
+	         android:layout_width="match_parent"
+	         android:layout_height="@dimen/detail_series_shadow_height"
+	         android:layout_gravity="top"
+	         android:layout_marginLeft="@dimen/detail_series_shadow_margin_horizontal"
+	         android:background="@drawable/detail_top_shadow"
+	         />
+		     <View 
+		       android:id="@+id/multiset_shadow_right"
+		       android:layout_width="match_parent"
+		       android:layout_height="@dimen/detail_series_shadow_height"
+		       android:layout_gravity="top"
+		       android:layout_marginRight="@dimen/detail_series_shadow_margin_horizontal"
+		       android:background="@drawable/detail_top_shadow"
+		       android:rotationY="180"/> 
+		     <View 
+		       android:id="@+id/multiset_shadow_middle"
+		       android:layout_width="match_parent"
+		       android:layout_height="@dimen/detail_series_shadow_height"
+		       android:layout_gravity="top"
+		       android:background="@drawable/detial_top_shadow_middle"
+		       android:visibility="invisible"/>
+    	</FrameLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/detial_series_bg_height"
+            android:background="@drawable/detail_scroll_bg_short"/>
+    </LinearLayout>
+    
+    <com.duokan.tv.video.widget.ShadowFrameLayout 
+         android:id="@+id/shadowContainer"
+	     android:layout_width="match_parent"
+	     android:layout_height="match_parent"
+	     android:layout_marginTop="@dimen/detial_series_content_margin_top"> 
+	     
+	     <include layout="@layout/series_detail_panel"/>
+	     
+	 	 <com.duokan.tv.video.widget.ShadowView
+	      android:layout_width="match_parent"
+	      android:layout_height="@dimen/shadow_mask_height"
+	      android:layout_marginTop="@dimen/detial_series_shadow_mask_margin_top"
+	      android:layout_gravity="top"
+	      android:background="@drawable/shadow_mask">   
+	 	 </com.duokan.tv.video.widget.ShadowView>
+	 	
+ 	</com.duokan.tv.video.widget.ShadowFrameLayout> 
+</FrameLayout>

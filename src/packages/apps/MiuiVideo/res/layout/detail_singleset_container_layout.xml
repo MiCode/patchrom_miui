@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/single_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/detail_scroll_bg">
+  
+  <com.duokan.tv.video.widget.ShadowFrameLayout 
+     android:id="@+id/shadowContainer"
+     android:layout_width="match_parent"
+     android:layout_height="@dimen/detail_content_height"
+     android:layout_marginTop="@dimen/detail_content_margin_top">
+     
+     <include layout="@layout/detail_item_layout" />
+     
+     <com.duokan.tv.video.widget.ShadowView
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/shadow_mask_height"
+      android:layout_gravity="top"
+      android:background="@drawable/shadow_mask">   
+	  </com.duokan.tv.video.widget.ShadowView>
+ 	
+ </com.duokan.tv.video.widget.ShadowFrameLayout> 
+    
+</FrameLayout>

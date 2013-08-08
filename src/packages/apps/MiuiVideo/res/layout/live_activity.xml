@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+      
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/viewpager_bg_height"
+        android:layout_marginTop="@dimen/viewpager_bg_margin_top"
+        android:background="@drawable/channel_bottom_bg">   
+    </View>
+   
+	<com.duokan.tv.video.widget.ShadowFrameLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"> 	      
+	    
+	   	<com.duokan.tv.video.widget.PagerView
+		   android:id="@+id/live_pager_view"
+		   android:layout_width="match_parent"
+		   android:layout_height="match_parent"/> 
+	    <com.duokan.tv.video.widget.ShadowView
+	      android:layout_width="match_parent"
+	      android:layout_height="@dimen/shadow_mask_height"
+	      android:layout_gravity="top"
+	      android:layout_marginTop="@dimen/shadow_mask_magrin_top"
+	      android:background="@drawable/shadow_mask">   
+		 </com.duokan.tv.video.widget.ShadowView>
+	</com.duokan.tv.video.widget.ShadowFrameLayout>
+	<!--  
+	<com.duokan.tv.video.widget.SelectView
+	    android:id="@+id/live_smooth_select_view"
+	    android:layout_width="@dimen/live_smooth_select_view_width"
+	    android:layout_height="match_parent"
+	    android:layout_alignParentRight="true"
+	    android:layout_marginTop="@dimen/live_smooth_select_view_margin_top" />
+   --> 
+</RelativeLayout>

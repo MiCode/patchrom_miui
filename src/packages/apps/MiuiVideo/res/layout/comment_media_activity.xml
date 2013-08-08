@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginBottom="@dimen/comment_bottom_margin_vertical"
+      android:orientation="vertical" >
+      
+        <com.duokan.tv.video.widget.ScoringView
+            android:id="@+id/sv_mediascore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <EditText
+            android:id="@+id/et_mediacomment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/comment_edittext_margin_vertical"
+            android:layout_marginLeft="@dimen/comment_edittext_margin_horizontal"
+            android:layout_marginRight="@dimen/comment_edittext_margin_horizontal"
+            android:layout_marginTop="@dimen/comment_edittext_margin_vertical"
+            android:layout_weight="1"
+            android:background="@drawable/comment_edittext_border"
+            android:ems="10"
+            android:gravity="left"
+            android:hint="@string/comment_hint"
+            android:inputType="textMultiLine"
+            android:maxLength="300"
+            android:textColor="@color/white"
+            android:textColorHint="@color/p_40_white"
+            android:textSize="@dimen/text_size_32" >
+
+        </EditText>
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/comment_hint_tip"
+            android:textColor="@color/p_40_white"
+            android:textSize="@dimen/text_size_26" />
+
+    </LinearLayout>
+
+</merge>

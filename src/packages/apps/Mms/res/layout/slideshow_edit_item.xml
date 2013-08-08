@@ -25,12 +25,23 @@
     android:orientation="horizontal"
     style="@style/ListItem">
 
-    <ImageView
-        android:id="@+id/image_preview"
+    <RelativeLayout
         android:layout_width="40dip"
-        android:layout_height="40dip"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_attach_slide_show_n" />
+        android:layout_height="40dip">
+        <ImageView
+            android:id="@+id/image_preview"
+            android:scaleType="fitCenter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_attach_slide_show_n" />
+        <ImageView
+            android:id="@+id/play_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:src="@android:drawable/ic_media_play" />
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

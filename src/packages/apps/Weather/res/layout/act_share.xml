@@ -16,7 +16,8 @@
         android:gravity="center_vertical|left"
         android:textSize="15sp"
         android:textColor="@android:color/black"
-        android:background="@drawable/share_text_bg"/>
+        android:background="@drawable/share_text_bg"
+        android:duplicateParentState="true" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -36,40 +37,6 @@
         android:paddingTop="20dip"
         android:paddingBottom="20dip" >
         <LinearLayout
-            android:id="@+id/install_sina"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginBottom="7dip"
-            android:background="@drawable/btn_share">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:textSize="15sp"
-                android:textColor="@android:color/black"
-                android:text="@string/install_sina"
-                android:drawablePadding="5dip"
-                android:drawableLeft="@drawable/sina" />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/install_qq"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_below="@id/install_sina"
-            android:background="@drawable/btn_share" >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:textSize="15sp"
-                android:textColor="@android:color/black"
-                android:text="@string/install_tencent"
-                android:drawablePadding="5dip"
-                android:drawableLeft="@drawable/tencent" />
-        </LinearLayout>
-        <LinearLayout
             android:id="@+id/share_sina"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -81,10 +48,31 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:textSize="15sp"
-                android:textColor="@android:color/black"
+                android:textColor="@color/share_btn_text"
                 android:drawablePadding="5dip"
                 android:text="@string/share_sina"
+                android:duplicateParentState="true"
                 android:drawableLeft="@drawable/sina" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/install_qq"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_below="@id/share_sina"
+            android:layout_marginBottom="7dip"
+            android:background="@drawable/btn_share"
+            android:visibility="gone" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textSize="15sp"
+                android:textColor="@color/share_btn_text"
+                android:text="@string/install_tencent"
+                android:duplicateParentState="true"
+                android:drawablePadding="5dip"
+                android:drawableLeft="@drawable/tencent" />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/share_qq"
@@ -92,15 +80,17 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_below="@id/share_sina"
-            android:background="@drawable/btn_share">
+            android:background="@drawable/btn_share"
+            android:visibility="gone">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:textSize="15sp"
-                android:textColor="@android:color/black"
+                android:textColor="@color/share_btn_text"
                 android:drawablePadding="5dip"
                 android:text="@string/share_qq"
+                android:duplicateParentState="true"
                 android:drawableLeft="@drawable/tencent" />
         </LinearLayout>
     </RelativeLayout>

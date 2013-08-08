@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/series_button_height"
+    android:paddingLeft="@dimen/detial_series_padding"
+    android:paddingRight="@dimen/detial_series_padding"
+    android:orientation="vertical">
+    
+    <LinearLayout
+        android:id="@+id/row_content"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:baselineAligned="false"
+	    android:orientation="horizontal">
+	    
+        <View 
+            android:id="@+id/separator_line_first"
+	        android:layout_height="match_parent"
+	        android:layout_width="@dimen/detial_series_separator_line_width"
+	        android:background="@drawable/separator_line">
+	    </View>
+
+	    <FrameLayout
+	        android:id="@+id/series_left"
+	        android:layout_width="0dp"
+	        android:layout_height="match_parent"
+	        android:layout_marginTop="@dimen/series_margin_vetical"
+	        android:layout_marginBottom="@dimen/series_margin_vetical"
+	        android:layout_weight="1"
+	        android:background="@drawable/series_button_middle_bg"
+	        android:clickable="true" >
+
+	        <TextView
+	            android:id="@+id/left_text"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center"
+	            android:singleLine="true"
+	            android:textSize="@dimen/text_size_26" 
+	            android:textColor="@color/p_80_white"/>
+	
+	
+	        <ProgressBar
+	            android:id="@+id/left_loading"
+	            style="@miui:style/V5.Widget.ProgressBar.Small"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center" />
+	
+	    </FrameLayout>
+    
+	    <View 
+	        android:layout_height="match_parent"
+	        android:layout_width="@dimen/detial_series_separator_line_width"
+	        android:background="@drawable/separator_line">
+	    </View>
+
+	    <FrameLayout
+	        android:id="@+id/series_middle"
+	        android:layout_width="0dp"
+	        android:layout_height="match_parent"
+	        android:layout_marginTop="@dimen/series_margin_vetical"
+	        android:layout_marginBottom="@dimen/series_margin_vetical"
+	        android:layout_weight="1"
+	        android:background="@drawable/series_button_middle_bg"
+	        android:clickable="true" >
+		
+	        <TextView
+	            android:id="@+id/middle_text"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center"
+	            android:singleLine="true"
+	            android:textSize="@dimen/text_size_26" 
+	            android:textColor="@color/p_80_white"/>
+		
+	        <ProgressBar
+	            android:id="@+id/middle_loading"
+	            style="@miui:style/V5.Widget.ProgressBar.Small"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center" />
+	
+	    </FrameLayout>
+    
+	    <View 
+	        android:layout_height="match_parent"
+	        android:layout_width="@dimen/detial_series_separator_line_width"
+	        android:background="@drawable/separator_line">  
+	    </View>
+
+	    <FrameLayout
+	        android:id="@+id/series_right"
+	        android:layout_width="0dp"
+	        android:layout_height="match_parent"
+	        android:layout_marginTop="@dimen/series_margin_vetical"
+	        android:layout_marginBottom="@dimen/series_margin_vetical"
+	        android:layout_weight="1"
+	        android:background="@drawable/series_button_middle_bg"
+	        android:clickable="true" >
+		
+	        <TextView
+	            android:id="@+id/right_text"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center"
+	            android:singleLine="true"
+	            android:textSize="@dimen/text_size_26"
+	            android:textColor="@color/p_80_white" />
+	
+	        <ProgressBar
+	            android:id="@+id/right_loading"
+	            style="@miui:style/V5.Widget.ProgressBar.Small"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center" />
+	
+	    </FrameLayout>
+	    
+	    <View 
+	        android:id="@+id/separator_line_last"
+	        android:layout_height="match_parent"
+	        android:layout_width="@dimen/detial_series_separator_line_width"
+	        android:background="@drawable/separator_line">
+	    </View>
+
+	</LinearLayout>
+	
+    <View 
+        android:id="@+id/row_of_series_divider"
+	    android:layout_height="@dimen/detial_series_separator_line_height"
+	    android:layout_width="match_parent"
+	    android:layout_gravity="bottom"
+	    android:background="@drawable/separator_line">  
+	</View>
+    
+</FrameLayout>
+

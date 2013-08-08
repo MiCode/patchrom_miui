@@ -264,9 +264,11 @@
 
                 <TextView
                     android:id="@+id/tv_device_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="@string/device_default_name"
+                    android:singleLine="true"
                     android:textColor="#77000000"
                     android:textSize="15sp" />
 
@@ -318,6 +320,7 @@
         android:id="@+id/layout_records"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#FFE6ECEF"
         android:inAnimation="@anim/push_left_in"
         android:orientation="vertical"
         android:outAnimation="@anim/push_right_out"
@@ -344,14 +347,8 @@
                 android:text="@string/trasfer_list" />
         </LinearLayout>
 
-        <fragment
-            android:id="@+id/fragment_records"
-            android:name="com.miui.transfer.components.records.RecordFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/layout_titlebar" />
-
         <FrameLayout
+            android:id="@+id/layout_records_operation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -384,6 +381,15 @@
                     android:text="@string/cancel" />
             </LinearLayout>
         </FrameLayout>
+
+        <fragment
+            android:id="@+id/fragment_records"
+            android:name="com.miui.transfer.components.records.RecordFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/layout_titlebar"
+            android:layout_above="@id/layout_records_operation" />
+
     </RelativeLayout>
 
     <!-- progress end -->
