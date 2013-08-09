@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="300.0sp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:padding="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:id="@id/wps_mode_filed" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="@string/wifi_ap_wps_mode_title" style="?android:attr/textAppearanceSmall" />
+            <Spinner android:entries="@array/wifi_ap_wps_mode_entries" android:id="@id/wps_mode" android:layout_width="fill_parent" android:layout_height="wrap_content" android:prompt="@string/wifi_ap_wps_mode_title" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/type_pin_field" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="@string/wifi_ap_wps_pin_title" style="?android:attr/textAppearanceSmall" />
+            <EditText android:id="@id/pin_edit" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:maxLength="9" android:inputType="textNoSuggestions" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

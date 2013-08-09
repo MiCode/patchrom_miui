@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/app_detail" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@miui:dimen/android_preference_item_padding_side" android:layout_marginRight="@miui:dimen/android_preference_item_padding_side">
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginRight="@miui:dimen/android_preference_item_padding_inner" android:layout_weight="1.0">
+            <ImageView android:id="@id/app_icon" android:layout_width="48.0dip" android:layout_height="48.0dip" android:scaleType="centerInside" />
+            <LinearLayout android:orientation="vertical" android:id="@id/app_titles" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" />
+            <TextView android:textColor="#ffd88d3a" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="@string/data_usage_label_foreground" />
+            <TextView android:textColor="#ffd88d3a" android:id="@id/app_foreground" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="@string/data_usage_label_background" />
+            <TextView android:id="@id/app_background" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        </LinearLayout>
+        <com.android.settings.widget.PieChartView android:id="@id/app_pie_chart" android:layout_width="160.0dip" android:layout_height="160.0dip" />
+    </LinearLayout>
+    <Button android:id="@id/app_settings" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@miui:dimen/android_preference_item_padding_side" android:layout_marginTop="16.0dip" android:layout_marginRight="@miui:dimen/android_preference_item_padding_side" android:layout_marginBottom="16.0dip" android:text="@string/data_usage_app_settings" />
+    <LinearLayout android:orientation="vertical" android:id="@id/app_switches" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</LinearLayout>

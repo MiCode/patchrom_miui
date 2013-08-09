@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient android:orientation="vertical" android:id="@id/topLayout" android:layout_width="wrap_content" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:miui="http://schemas.android.com/apk/res/miui">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <TextView android:textSize="18.0sp" android:gravity="center" android:id="@id/headerText" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <View android:background="@miui:drawable/android_code_lock_top" android:layout_width="fill_parent" android:layout_height="2.0dip" />
+        <miui.widget.LockPatternView android:id="@id/lockPattern" android:layout_marginLeft="18.0dip" android:layout_marginTop="70.0dip" android:layout_marginRight="18.0dip" style="@style/SecurityLockPatternView" />
+        <TextView android:textSize="14.0sp" android:gravity="center" android:id="@id/footerText" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    </LinearLayout>
+    <include layout="@layout/choose_lock_pattern_button" />
+</com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient>

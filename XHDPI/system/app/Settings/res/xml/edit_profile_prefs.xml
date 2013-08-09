@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:persistent="false" android:orderingFromXml="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/sound_category_sound_title" android:key="general" />
+    <com.mediatek.audioprofile.RingerVolumePreference android:persistent="false" android:title="@string/all_volume_title" android:key="ring_volume" android:dialogTitle="@string/all_volume_title" />
+    <CheckBoxPreference android:title="@string/vibrate_title" android:key="phone_vibrate" android:summary="@string/Phone_vibrate_summary" />
+    <PreferenceCategory android:title="@string/sound_category_calls_title" android:key="ringtone">
+        <com.mediatek.audioprofile.DefaultRingtonePreference android:persistent="false" android:title="@string/voice_call_title" android:key="phone_ringtone" android:summary="@string/voice_call_summary" />
+        <com.mediatek.audioprofile.DefaultRingtonePreference android:persistent="false" android:title="@string/video_call_title" android:key="video_call_ringtone" android:summary="@string/video_call_summary" />
+        <com.mediatek.audioprofile.DefaultRingtonePreference android:persistent="false" android:title="@string/notification_sound_title" android:key="notifications_ringtone" />
+        <com.mediatek.audioprofile.DefaultRingtonePreference android:title="@string/sms_received_sound_title" android:key="sms_received_sound" android:dialogTitle="@string/sms_received_sound_dialog_title" android:ringtoneType="notification" />
+        <com.mediatek.audioprofile.DefaultRingtonePreference android:title="@string/sms_delivered_sound_title" android:key="sms_delivered_sound" android:dialogTitle="@string/sms_delivered_sound_dialog_title" android:ringtoneType="notification" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/sound_category_feedback_title" android:key="feedback" />
+    <CheckBoxPreference android:title="@string/dtmf_tone_enable_title" android:key="audible_touch_tones" />
+    <CheckBoxPreference android:title="@string/sound_effects_enable_title" android:key="audible_selection" />
+    <CheckBoxPreference android:title="@string/lock_sounds_enable_title" android:key="screen_lock_sounds" />
+    <CheckBoxPreference android:title="@string/haptic_feedback_enable_title" android:key="haptic_feedback" />
+</PreferenceScreen>

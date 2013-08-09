@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_gravity="center" android:padding="64.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/encroid" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/encroid_waiting" android:layout_alignParentBottom="true" android:contentDescription="@null" android:paddingEnd="65.0dip" android:layout_alignParentEnd="true" />
+        <TextView android:textSize="30.0dip" android:textColor="@color/title_color" android:gravity="bottom" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="48.0dip" android:text="@string/crypt_keeper_setup_title" android:layout_alignParentTop="true" android:layout_marginStart="16.0dip" android:layout_marginEnd="16.0dip" android:layout_alignParentStart="true" />
+        <RelativeLayout android:id="@id/top_divider" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/title">
+            <ProgressBar android:id="@id/progress_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?android:attr/progressBarStyleHorizontal" />
+        </RelativeLayout>
+        <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/status" android:paddingTop="21.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/top_divider" android:layout_marginStart="16.0dip" android:layout_marginEnd="16.0dip" />
+        <RelativeLayout android:id="@id/bottom_divider" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/factory_reset">
+            <ProgressBar android:layout_width="fill_parent" android:layout_height="wrap_content" style="?android:attr/progressBarStyleHorizontal" />
+        </RelativeLayout>
+        <Button android:id="@id/factory_reset" android:visibility="gone" android:layout_width="208.0dip" android:layout_height="48.0dip" android:layout_marginBottom="80.0dip" android:text="@string/master_clear_button_text" android:layout_alignParentBottom="true" android:layout_marginEnd="16.0dip" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+</FrameLayout>

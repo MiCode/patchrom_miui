@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:focusable="false" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeight" style="@miui:style/V5.Widget.ListView.Item.DoubleLine"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/app_icon" android:layout_width="@*android:dimen/app_icon_size" android:layout_height="@*android:dimen/app_icon_size" android:layout_marginRight="11.0dip" android:scaleType="fitCenter" />
+    <LinearLayout android:orientation="vertical" android:layout_width="0.0px" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:textAppearance="@miui:style/V5.TextAppearance.List.Primary" android:textStyle="bold" android:ellipsize="marquee" android:id="@id/app_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="2.0dip" android:singleLine="true" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAlignedChildIndex="0">
+            <TextView android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" android:layout_gravity="left|center" android:id="@id/app_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" />
+            <TextView android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" android:layout_gravity="right|center" android:id="@id/app_disabled" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-4.0dip" android:text="@string/disabled" android:layout_weight="0.0" />
+        </LinearLayout>
+    </LinearLayout>
+    <CheckBox android:layout_gravity="center_vertical" android:id="@id/app_on_sdcard" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" />
+</LinearLayout>

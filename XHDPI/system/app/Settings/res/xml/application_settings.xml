@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/applications_settings_header" android:key="applications_settings" android:summary="@string/applications_settings_summary"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceScreen android:title="@string/manageapplications_settings_title" android:summary="@string/manageapplications_settings_summary" android:fragment="com.android.settings.applications.ManageApplications" />
+    <PreferenceScreen android:title="@string/runningservices_settings_title" android:summary="@string/runningservices_settings_summary" android:fragment="com.android.settings.applications.ManageApplications">
+        <extra android:name="classname" android:value="com.android.settings.Settings$RunningServicesActivity" />
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/storageuse_settings_title" android:summary="@string/storageuse_settings_summary" android:fragment="com.android.settings.applications.ManageApplications">
+        <extra android:name="classname" android:value="com.android.settings.Settings$StorageUseActivity" />
+    </PreferenceScreen>
+    <CheckBoxPreference android:persistent="false" android:title="@string/advanced_settings" android:key="toggle_advanced_settings" android:summaryOn="@string/advanced_settings_summary" android:summaryOff="@string/advanced_settings_summary" />
+    <ListPreference android:persistent="false" android:entries="@array/app_install_location_entries" android:title="@string/app_install_location_title" android:key="app_install_location" android:summary="@string/app_install_location_summary" android:entryValues="@array/app_install_location_values" />
+</PreferenceScreen>

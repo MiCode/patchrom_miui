@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:orientation="vertical" android:id="@id/eap_not_supported" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="360.0dip">
+        <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="20.0sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wifi_setup_eap_not_supported" android:lineSpacingExtra="12.0dip" />
+    </FrameLayout>
+    <FrameLayout android:orientation="vertical" android:id="@id/eap_not_supported_for_add_network" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="20.0sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wifi_setup_eap_not_supported" android:lineSpacingExtra="12.0dip" />
+    </FrameLayout>
+    <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="16.0dip">
+        <TableRow android:id="@id/type_ssid" android:visibility="gone" android:minHeight="56.0dip">
+            <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="20.0sp" android:gravity="start|center" android:id="@id/ssid_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="128.0dip" android:minHeight="56.0dip" android:text="@string/wifi_ssid" android:paddingEnd="16.0dip" android:layout_alignParentStart="true" />
+            <FrameLayout android:id="@id/ssid_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignBottom="@id/ssid_text" android:layout_toEndOf="@id/ssid_text">
+                <EditText android:textAppearance="?android:textAppearanceMedium" android:textSize="20.0sp" android:id="@id/ssid" android:layout_width="368.0dip" android:layout_height="wrap_content" android:singleLine="true" android:inputType="textNoSuggestions" />
+            </FrameLayout>
+        </TableRow>
+        <TableRow android:id="@id/security_fields" android:visibility="gone" android:minHeight="56.0dip">
+            <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="20.0sp" android:gravity="start|center" android:id="@id/password_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="128.0dip" android:minHeight="56.0dip" android:text="@string/wifi_password" />
+            <LinearLayout android:gravity="bottom" android:id="@id/password_layout" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <EditText android:textAppearance="?android:textAppearanceMedium" android:textSize="20.0sp" android:id="@id/password" android:layout_width="368.0dip" android:layout_height="wrap_content" android:minHeight="56.0dip" android:password="true" android:singleLine="true" />
+            </LinearLayout>
+            <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <CheckBox android:textAppearance="?android:textAppearanceMedium" android:textSize="20.0sp" android:id="@id/show_password" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="56.0dip" android:text="@string/wifi_show_password" />
+            </FrameLayout>
+        </TableRow>
+        <TableRow android:id="@id/type_security" android:visibility="gone" android:minHeight="56.0dip">
+            <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="20.0sp" android:gravity="bottom" android:id="@id/security_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="128.0dip" android:minHeight="56.0dip" android:text="@string/wifi_security" />
+            <FrameLayout android:gravity="bottom" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <Spinner android:id="@id/security" android:layout_width="368.0dip" android:layout_height="wrap_content" android:minHeight="56.0dip" android:paddingStart="4.0dip" />
+            </FrameLayout>
+        </TableRow>
+    </TableLayout>
+    <LinearLayout android:orientation="vertical" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:id="@id/info" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <LinearLayout android:orientation="vertical" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:id="@id/eap" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wifi_eap_method" />
+                <Spinner android:entries="@array/wifi_eap_method" android:id="@id/method" android:layout_width="fill_parent" android:layout_height="wrap_content" android:prompt="@string/wifi_eap_method" />
+                <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/please_select_phase2" />
+                <Spinner android:entries="@array/wifi_phase2_entries" android:id="@id/phase2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:prompt="@string/please_select_phase2" />
+                <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wifi_eap_ca_cert" />
+                <Spinner android:id="@id/ca_cert" android:layout_width="fill_parent" android:layout_height="wrap_content" android:prompt="@string/wifi_eap_ca_cert" />
+                <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wifi_eap_user_cert" />
+                <Spinner android:id="@id/user_cert" android:layout_width="fill_parent" android:layout_height="wrap_content" android:prompt="@string/wifi_eap_user_cert" />
+                <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wifi_eap_identity" />
+                <EditText android:id="@id/identity" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:inputType="textNoSuggestions" />
+                <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wifi_eap_anonymous" />
+                <EditText android:id="@id/anonymous" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:inputType="textNoSuggestions" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/proxy_settings_fields" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:id="@id/proxy_settings_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/proxy_settings_title" />
+            <Spinner android:entries="@array/wifi_proxy_settings" android:id="@id/proxy_settings" android:layout_width="fill_parent" android:layout_height="wrap_content" android:prompt="@string/proxy_settings_title" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/proxy_warning_limited_support" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/proxy_warning_limited_support" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/proxy_fields" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/proxy_hostname_label" />
+            <EditText android:id="@id/proxy_hostname" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:inputType="textNoSuggestions" />
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/proxy_port_label" />
+            <EditText android:id="@id/proxy_port" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:inputType="textNoSuggestions" />
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/proxy_exclusionlist_label" />
+            <EditText android:id="@id/proxy_exclusionlist" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:inputType="textNoSuggestions" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/ip_fields" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wifi_ip_settings" />
+            <Spinner android:entries="@array/wifi_ip_settings" android:id="@id/ip_settings" android:layout_width="fill_parent" android:layout_height="wrap_content" android:prompt="@string/wifi_ip_settings" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/staticip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wifi_ip_address" />
+            <EditText android:id="@id/ipaddress" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:inputType="textNoSuggestions" />
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wifi_gateway" />
+            <EditText android:id="@id/gateway" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:inputType="textNoSuggestions" />
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wifi_network_prefix_length" />
+            <EditText android:id="@id/network_prefix_length" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:inputType="textNoSuggestions" />
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wifi_dns1" />
+            <EditText android:id="@id/dns1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:inputType="textNoSuggestions" />
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wifi_dns2" />
+            <EditText android:id="@id/dns2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:inputType="textNoSuggestions" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

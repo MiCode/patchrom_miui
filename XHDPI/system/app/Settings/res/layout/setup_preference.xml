@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view android:layout_width="fill_parent" android:layout_height="fill_parent" class="com.android.settings.wifi.WifiSettings$ProportionalOuterFrame"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="bottom" android:id="@id/title_area" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true">
+        <LinearLayout android:gravity="bottom" android:orientation="horizontal" android:id="@id/title_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignBottom="@id/title">
+            <TextView android:gravity="bottom" android:id="@id/title" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/wifi_setup_wizard_title" android:layout_weight="1.0" style="@style/SetupTitle" />
+            <ImageButton android:id="@id/more" android:background="?android:actionBarItemBackground" android:layout_width="@dimen/setup_button_size" android:layout_height="@dimen/setup_button_size" android:layout_marginBottom="8.0dip" android:src="@*android:drawable/ic_menu_moreoverflow_holo_dark" android:contentDescription="@string/wifi_menu_more_options" android:layout_marginStart="8.0dip" android:layout_marginEnd="8.0dip" />
+        </LinearLayout>
+        <View android:id="@id/top_divider" android:layout_below="@id/title_bar" style="@style/TopDivider" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:background="@*android:color/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/title_area"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/wifi_required_info" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="6.0dip" android:text="@string/wifi_required_info_text" />
+        <ListView android:scrollbarAlwaysDrawVerticalTrack="true" android:id="@*android:id/list" android:paddingTop="0.0dip" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="0.0px" android:drawSelectorOnTop="false" android:cacheColorHint="@*android:color/transparent" android:layout_weight="1.0" />
+        <TextView android:gravity="center" android:id="@*android:id/empty" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="0.0px" android:layout_weight="1.0" />
+        <ImageView android:id="@id/divider" android:background="@*android:drawable/list_divider_holo_dark" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/setup_item_margin" />
+        <LinearLayout android:gravity="center_vertical" android:id="@id/other_network" android:background="?android:selectableItemBackground" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/setup_item_margin" android:minHeight="?android:listPreferredItemHeight" android:paddingEnd="?android:scrollbarSize">
+            <ImageView android:layout_gravity="center" android:id="@id/add_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_menu_add" />
+            <TextView android:textAppearance="?android:textAppearanceMedium" android:ellipsize="marquee" android:id="@id/other" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dip" android:layout_marginBottom="6.0dip" android:text="@string/wifi_other_network" android:singleLine="true" android:layout_weight="1.0" android:layout_marginStart="15.0dip" android:layout_marginEnd="6.0dip" />
+        </LinearLayout>
+        <RelativeLayout android:id="@id/button_bar" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="0.0">
+            <Button android:id="@id/back_button" android:layout_width="150.0dip" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:text="@string/wifi_setup_back" android:layout_alignParentStart="true" />
+            <Button android:id="@id/custom_button" android:layout_width="150.0dip" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:text="@string/wifi_setup_skip" android:layout_alignParentEnd="true" />
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true">
+                <Button android:id="@id/skip_button" android:visibility="gone" android:layout_width="150.0dip" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:text="@string/wifi_setup_skip" />
+                <Button android:id="@id/next_button" android:visibility="gone" android:layout_width="150.0dip" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:text="@string/wifi_setup_next" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</view>

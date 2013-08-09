@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient android:orientation="horizontal" android:id="@id/topLayout" android:background="@drawable/lock_pattern_background" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center" android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <com.android.internal.widget.LockPatternView android:id="@id/lockPattern" android:layout_width="354.0dip" android:layout_height="354.0dip" aspect="square" />
+    </RelativeLayout>
+    <RelativeLayout android:gravity="center_horizontal" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <LinearLayout android:orientation="horizontal" android:id="@id/buttonContainer" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" style="@style/SecurityPreferenceButtonContainer">
+            <Button android:id="@id/skip_button" android:text="@string/lockpattern_tutorial_cancel_label" style="@style/SecurityPreferenceButton" />
+            <Button android:id="@id/next_button" android:text="@string/lockpattern_tutorial_continue_label" style="@style/SecurityPreferenceButton" />
+        </LinearLayout>
+        <ScrollView android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="20.0dip" android:layout_above="@id/buttonContainer" android:layout_alignParentTop="true">
+            <TextView android:textAppearance="?android:textAppearanceLarge" android:id="@id/headerText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/lock_intro_message" />
+        </ScrollView>
+    </RelativeLayout>>
+</com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient>

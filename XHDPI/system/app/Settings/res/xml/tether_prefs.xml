@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.mediatek.wifi.hotspot.HotspotSwitchPreference android:title="@string/wifi_tethering_title" android:key="wifi_tether_settings" android:fragment="com.mediatek.wifi.hotspot.TetherWifiSettings" />
+    <CheckBoxPreference android:persistent="false" android:title="@string/usb_tethering_button_text" android:key="usb_tether_settings" />
+    <ListPreference android:persistent="false" android:entries="@array/usb_tether_type_entries" android:title="@string/usb_tether_type_title" android:key="usb_tethering_type" android:entryValues="@array/usb_tether_type_values" />
+    <CheckBoxPreference android:persistent="false" android:title="@string/bluetooth_tether_checkbox_text" android:key="enable_bluetooth_tethering" />
+    <Preference android:title="@string/tethering_apn_settings_title" android:key="tether_apn_settings" android:summary="@string/tethering_apn_settings_summary" />
+    <ListPreference android:persistent="false" android:entries="@array/tethered_ipv6_entries" android:title="@string/tethered_ipv6_title" android:key="tethered_ipv6" android:entryValues="@array/tethered_ipv6_values" />
+</PreferenceScreen>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/privacy_settings_title"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/backup_section_title" android:key="backup_category">
+        <CheckBoxPreference android:persistent="false" android:title="@string/backup_data_title" android:key="backup_data" android:summary="@string/backup_data_summary" />
+        <PreferenceScreen android:persistent="false" android:title="@string/backup_configure_account_title" android:key="configure_account" android:summary="@string/backup_configure_account_default_summary">
+            <intent android:action="dummy" />
+        </PreferenceScreen>
+        <CheckBoxPreference android:persistent="false" android:title="@string/auto_restore_title" android:key="auto_restore" android:summary="@string/auto_restore_summary" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/personal_data_section_title" />
+    <PreferenceScreen android:title="@string/master_clear_title" android:summary="@string/master_clear_summary" android:fragment="com.android.settings.MiuiMasterClear" />
+</PreferenceScreen>

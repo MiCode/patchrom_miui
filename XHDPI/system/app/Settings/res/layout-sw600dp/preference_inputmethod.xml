@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeight"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:id="@id/inputmethod_pref" android:background="?android:selectableItemBackground" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <LinearLayout android:gravity="center" android:id="@*android:id/widget_frame" android:layout_width="wrap_content" android:layout_height="fill_parent" android:minWidth="@*android:dimen/preference_icon_minWidth" android:layout_marginEnd="@*android:dimen/preference_item_padding_inner" />
+        <RelativeLayout android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="6.0dip" android:layout_marginBottom="6.0dip" android:layout_weight="1.0" android:layout_marginEnd="6.0dip">
+            <TextView android:textAppearance="?android:textAppearanceMedium" android:ellipsize="marquee" android:id="@*android:id/title" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+            <TextView android:textAppearance="?android:textAppearanceSmall" android:textSize="13.0sp" android:textColor="?android:textColorSecondary" android:id="@*android:id/summary" android:paddingBottom="3.0dip" android:focusable="false" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="4" android:layout_below="@*android:id/title" android:layout_alignStart="@*android:id/title" />
+        </RelativeLayout>
+    </LinearLayout>
+    <View android:background="@*android:drawable/divider_horizontal_dark" android:layout_width="2.0dip" android:layout_height="fill_parent" android:layout_marginTop="5.0dip" android:layout_marginBottom="5.0dip" />
+    <ImageView android:layout_gravity="center" android:id="@id/inputmethod_settings" android:background="?android:selectableItemBackground" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/ic_sysbar_quicksettings" android:contentDescription="@string/input_method_settings_button" android:paddingStart="15.0dip" android:paddingEnd="?android:scrollbarSize" />
+</LinearLayout>

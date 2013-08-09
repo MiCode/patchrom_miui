@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="20.0dip" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:gravity="center_vertical" android:background="@miui:drawable/v5_preference_single_item_bg_normal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" android:gravity="left|center" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side" android:text="@string/show_owner_info_on_lockscreen_label" android:layout_weight="1.0" />
+                <miui.widget.SlidingButton android:id="@id/show_owner_info_on_lockscreen_checkbox" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side" />
+            </LinearLayout>
+            <EditText android:gravity="top" android:id="@id/owner_info_edit_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginTop="15.0dip" android:layout_marginRight="15.0dip" android:hint="@string/owner_info_settings_edit_text_hint" android:maxLines="7" android:lines="7" android:inputType="textMultiLine|textNoSuggestions" />
+            <View android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+            <LinearLayout android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="15.0dip">
+                <Button android:id="@id/cancel" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/lockpassword_cancel_label" android:layout_weight="1.0" />
+                <Button android:id="@id/save" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/lockpassword_ok_label" android:layout_weight="1.0" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

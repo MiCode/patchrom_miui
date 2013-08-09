@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:id="@id/editor" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:text="@string/vpn_name" style="@style/vpn_label" />
+            <EditText android:id="@id/name" android:inputType="textCapWords" style="@style/vpn_value" />
+            <TextView android:text="@string/vpn_type" style="@style/vpn_input_category" />
+            <Spinner android:entries="@array/vpn_types" android:id="@id/type" android:prompt="@string/vpn_type" style="@style/vpn_value" />
+            <LinearLayout android:background="@miui:drawable/v5_group_single_item_bg_light" android:layout_marginTop="10.0dip" style="@style/input_item_horizontal">
+                <TextView android:background="@drawable/input_item_single" android:text="@string/vpn_server" style="@style/input_item_label" />
+                <EditText android:id="@id/server" style="@style/input_item_content" />
+            </LinearLayout>
+            <CheckBox android:id="@id/mppe" android:visibility="gone" android:layout_marginTop="10.0dip" android:text="@string/vpn_mppe" android:singleLine="false" style="@style/vpn_value" />
+            <View android:id="@id/padding" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="10.0dip" />
+            <LinearLayout android:id="@id/l2tp" android:visibility="gone" style="@style/input_item_horizontal">
+                <TextView android:id="@id/l2tp_secret_label" android:text="@string/vpn_l2tp_secret" style="@style/input_item_label" />
+                <EditText android:id="@id/l2tp_secret" android:hint="@string/vpn_not_used" android:password="true" style="@style/input_item_content" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/ipsec_psk" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout android:id="@id/ipsec_identifier_bg" style="@style/input_item_horizontal">
+                    <TextView android:id="@id/ipsec_identifier_label" android:text="@string/vpn_ipsec_identifier" style="@style/input_item_label" />
+                    <EditText android:id="@id/ipsec_identifier" android:hint="@string/vpn_not_used" style="@style/input_item_content" />
+                </LinearLayout>
+                <LinearLayout android:id="@id/ipsec_secret_bg" style="@style/input_item_horizontal">
+                    <TextView android:id="@id/ipsec_secret_label" android:text="@string/vpn_ipsec_secret" style="@style/input_item_label" />
+                    <EditText android:id="@id/ipsec_secret" android:password="true" style="@style/input_item_content" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/ipsec_user" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:text="@string/vpn_ipsec_user_cert" style="@style/vpn_input_category" />
+                <Spinner android:id="@id/ipsec_user_cert" android:prompt="@string/vpn_ipsec_user_cert" style="@style/vpn_value" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/ipsec_peer" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:text="@string/vpn_ipsec_ca_cert" style="@style/vpn_input_category" />
+                <Spinner android:id="@id/ipsec_ca_cert" android:prompt="@string/vpn_ipsec_ca_cert" style="@style/vpn_value" />
+                <TextView android:text="@string/vpn_ipsec_server_cert" style="@style/vpn_input_category" />
+                <Spinner android:id="@id/ipsec_server_cert" android:prompt="@string/vpn_ipsec_server_cert" style="@style/vpn_value" />
+            </LinearLayout>
+            <CheckBox android:id="@id/show_options" android:layout_marginTop="10.0dip" android:text="@string/vpn_show_options" android:singleLine="false" style="@style/vpn_value" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/options" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+            <LinearLayout android:background="@miui:drawable/v5_group_first_item_bg_light" style="@style/input_item_horizontal">
+                <TextView android:background="@drawable/input_item_first" android:text="@string/vpn_search_domains" style="@style/input_item_label" />
+                <EditText android:id="@id/search_domains" android:hint="@string/vpn_not_used" style="@style/input_item_content" />
+            </LinearLayout>
+            <LinearLayout style="@style/input_item_horizontal">
+                <TextView android:text="@string/vpn_dns_servers" style="@style/input_item_label" />
+                <EditText android:id="@id/dns_servers" android:hint="@string/vpn_dns_servers_hint" style="@style/input_item_content" />
+            </LinearLayout>
+            <LinearLayout android:background="@miui:drawable/v5_group_last_item_bg_light" style="@style/input_item_horizontal">
+                <TextView android:background="@drawable/input_item_last" android:text="@string/vpn_routes" style="@style/input_item_label" />
+                <EditText android:id="@id/routes" android:hint="@string/vpn_routes_hint" style="@style/input_item_content" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/login" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:layout_marginLeft="15.0dip" android:text="@string/vpn_username" style="@style/vpn_label" />
+            <EditText android:id="@id/username" style="@style/vpn_value" />
+            <TextView android:layout_marginLeft="15.0dip" android:layout_marginTop="10.0dip" android:text="@string/vpn_password" style="@style/vpn_label" />
+            <EditText android:id="@id/password" android:password="true" style="@style/vpn_value" />
+            <CheckBox android:id="@id/save_login" android:layout_marginTop="10.0dip" android:text="@string/vpn_save_login" android:singleLine="false" style="@style/vpn_value" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

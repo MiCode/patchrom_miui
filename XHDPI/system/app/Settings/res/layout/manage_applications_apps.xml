@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/list_container" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <FrameLayout android:layout_width="fill_parent" android:layout_height="0.0px" android:layout_weight="1.0">
+            <ListView android:scrollbarStyle="@*android:integer/preference_fragment_scrollbarStyle" android:id="@*android:id/list" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:drawSelectorOnTop="false" />
+            <TextView android:textAppearance="?android:textAppearanceLarge" android:gravity="center" android:id="@*android:id/empty" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/no_applications" />
+        </FrameLayout>
+        <view android:orientation="horizontal" android:id="@id/storage_color_bar" android:paddingTop="30.0dip" android:paddingBottom="1.0dip" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="-5.0dip" android:paddingStart="4.0dip" android:paddingEnd="4.0dip" android:layout_marginStart="@*android:dimen/preference_fragment_padding_side" android:layout_marginEnd="@*android:dimen/preference_fragment_padding_side" class="com.android.settings.applications.LinearColorBar">
+            <TextView android:textAppearance="?android:textAppearanceSmallInverse" android:textColor="#ff000000" android:id="@id/usedStorageText" android:layout_width="0.0px" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" />
+            <TextView android:textAppearance="?android:textAppearanceSmallInverse" android:textStyle="bold" android:textColor="#ffcccccc" android:id="@id/storageChartLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-20.0dip" android:text="@string/internal_storage" android:singleLine="true" android:shadowColor="#ff000000" android:shadowRadius="5.0" android:layout_weight="0.0" />
+            <TextView android:textAppearance="?android:textAppearanceSmallInverse" android:textColor="#ff000000" android:gravity="end" android:layout_gravity="end|center" android:id="@id/freeStorageText" android:layout_width="0.0px" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" />
+        </view>
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/loading_container" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginStart="@*android:dimen/preference_fragment_padding_side" android:layout_marginEnd="@*android:dimen/preference_fragment_padding_side">
+        <ProgressBar android:layout_width="wrap_content" android:layout_height="wrap_content" style="?android:attr/progressBarStyleLarge" />
+        <TextView android:textAppearance="?android:textAppearanceSmall" android:paddingTop="4.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/settings_safetylegal_activity_loading" android:singleLine="true" />
+    </LinearLayout>
+</FrameLayout>

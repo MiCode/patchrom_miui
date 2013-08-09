@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/topLayout" android:background="@drawable/lock_pattern_background" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="96.0dip">
+        <TextView android:textAppearance="?android:textAppearanceLarge" android:id="@id/headerText" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </ScrollView>
+    <TextView android:textAppearance="?android:textAppearanceLarge" android:id="@id/footerText" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16.0dip" />
+    <com.android.internal.widget.LockPatternView android:id="@id/lockPattern" android:layout_width="354.0dip" android:layout_height="354.0dip" android:layout_marginTop="80.0dip" aspect="square" />
+    <View android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:layout_alignParentRight="true" style="@style/SecurityPreferenceButtonContainer">
+            <Button android:id="@id/footerLeftButton" android:text="@string/lockpattern_restart_button_text" style="@style/SecurityPreferenceButton" />
+            <Button android:id="@id/footerRightButton" android:text="@string/lockpattern_confirm_button_text" style="@style/SecurityPreferenceButton" />
+        </LinearLayout>
+    </RelativeLayout>
+</com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient>

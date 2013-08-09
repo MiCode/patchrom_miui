@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:padding="16.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/prompt1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/current_backup_pw_prompt" />
+    <EditText android:id="@id/current_backup_pw" android:layout_width="fill_parent" android:layout_height="wrap_content" android:password="true" android:singleLine="true" android:layout_below="@id/prompt1" />
+    <TextView android:id="@id/prompt2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/new_backup_pw_prompt" android:layout_below="@id/current_backup_pw" />
+    <EditText android:id="@id/new_backup_pw" android:layout_width="fill_parent" android:layout_height="wrap_content" android:password="true" android:singleLine="true" android:layout_below="@id/prompt2" />
+    <TextView android:id="@id/prompt3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/confirm_new_backup_pw_prompt" android:layout_below="@id/new_backup_pw" />
+    <EditText android:id="@id/confirm_new_backup_pw" android:layout_width="fill_parent" android:layout_height="wrap_content" android:password="true" android:singleLine="true" android:layout_below="@id/prompt3" />
+    <Button android:id="@id/backup_pw_cancel_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/backup_pw_cancel_button_text" android:layout_below="@id/confirm_new_backup_pw" />
+    <Button android:id="@id/backup_pw_set_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/backup_pw_set_button_text" android:layout_below="@id/confirm_new_backup_pw" android:layout_toEndOf="@id/backup_pw_cancel_button" />
+</RelativeLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListView android:id="@*android:id/list" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <TextView android:textAppearance="?android:textAppearanceLarge" android:gravity="center" android:id="@*android:id/empty" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/no_applications" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/loading_container" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="@*android:dimen/preference_fragment_padding_side" android:layout_marginRight="@*android:dimen/preference_fragment_padding_side">
+        <ProgressBar android:layout_width="wrap_content" android:layout_height="wrap_content" style="?android:attr/progressBarStyleLarge" />
+        <TextView android:textAppearance="?android:textAppearanceSmall" android:paddingTop="4.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/settings_safetylegal_activity_loading" android:singleLine="true" />
+    </LinearLayout>
+</LinearLayout>

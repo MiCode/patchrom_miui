@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/wireless_networks_settings_title"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceScreen android:title="@string/vpn_settings_title" android:key="vpn_settings" android:fragment="com.android.settings.vpn2.MiuiVpnSettings" />
+    <PreferenceScreen android:title="@string/tether_settings_title_all" android:key="tether_settings" android:fragment="com.android.settings.TetherSettings" />
+    <PreferenceScreen android:title="@string/wimax_settings" android:key="wimax_settings" android:summary="@string/wimax_settings_summary">
+        <intent android:targetPackage="com.android.settings.wimax" android:action="android.intent.action.MAIN" android:targetClass="com.android.settings.wimax.WimaxSettings" />
+    </PreferenceScreen>
+    <CheckBoxPreference android:persistent="false" android:title="@string/nfc_quick_toggle_title" android:key="toggle_nfc" android:summary="@string/nfc_quick_toggle_summary" />
+    <PreferenceScreen android:title="@string/android_beam_settings_title" android:key="android_beam_settings" android:fragment="com.android.settings.nfc.MiuiAndroidBeam" />
+    <CheckBoxPreference android:persistent="false" android:title="@string/nsd_quick_toggle_title" android:key="toggle_nsd" android:summary="@string/nsd_quick_toggle_summary" />
+    <PreferenceScreen android:title="@string/proxy_settings_title" android:key="proxy_settings" android:fragment="com.android.settings.ProxySelector" />
+    <PreferenceScreen android:title="@string/cell_broadcast_settings" android:key="cell_broadcast_settings" android:summary="@string/cell_broadcast_settings_summary">
+        <intent android:targetPackage="com.android.cellbroadcastreceiver" android:action="android.intent.action.MAIN" android:targetClass="com.android.cellbroadcastreceiver.CellBroadcastSettings" />
+    </PreferenceScreen>
+</PreferenceScreen>

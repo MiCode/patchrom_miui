@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/wifi_settings_category"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:title="@string/wifi_enable" android:key="wifi_enable" android:order="1" />
+    <miui.preference.ValuePreference android:title="@string/wifi_share" android:key="wifi_share" android:order="2" />
+    <PreferenceCategory android:title="@string/wifi_settings_category" android:key="wifi_settings" android:order="4">
+        <CheckBoxPreference android:persistent="false" android:title="@string/wifi_notify_open_networks" android:key="notify_open_networks" android:summary="@string/wifi_notify_open_networks_summary" />
+        <Preference android:persistent="false" android:title="@string/advanced_settings">
+            <intent android:targetPackage="com.android.settings" android:targetClass="com.android.settings.Settings$AdvancedWifiSettingsActivity" />
+        </Preference>
+    </PreferenceCategory>
+</PreferenceScreen>

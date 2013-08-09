@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:id="@id/pref_all" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:id="@id/pref_left_button" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <RadioButton android:id="@id/pref_radio" android:focusable="false" android:clickable="false" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="fill_parent" />
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" android:ellipsize="marquee" android:id="@*android:id/title" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" />
+            <TextView android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" android:textSize="13.0sp" android:id="@*android:id/summary" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="4" android:layout_below="@*android:id/title" android:layout_alignLeft="@*android:id/title" />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:id="@id/pref_right_button1" android:layout_width="wrap_content" android:layout_height="fill_parent" android:contentDescription="@string/spellchecker_quick_settings">
+        <ImageView android:layout_gravity="center" android:paddingLeft="5.0dip" android:paddingRight="5.0dip" android:layout_width="40.0dip" android:layout_height="fill_parent" android:src="@drawable/ic_sysbar_quicksettings" android:contentDescription="@string/spellchecker_quick_settings" />
+    </LinearLayout>
+    <ImageView android:layout_gravity="right" android:id="@id/pref_right_button2" android:paddingLeft="5.0dip" android:paddingRight="5.0dip" android:layout_width="40.0dip" android:layout_height="fill_parent" android:src="@drawable/ic_menu_3d_globe" android:contentDescription="@string/spellchecker_language" />
+</LinearLayout>

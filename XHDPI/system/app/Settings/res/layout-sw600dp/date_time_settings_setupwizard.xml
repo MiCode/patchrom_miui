@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/layout_root" android:paddingTop="96.0dip" android:paddingBottom="96.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="40.0dip" android:paddingEnd="40.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/timezone_dropdown_anchor" android:layout_width="fill_parent" android:layout_height="0.0px" android:layout_marginStart="40.0dip" android:layout_marginEnd="40.0dip" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0px" android:layout_weight="1.0">
+        <fragment android:id="@id/date_time_settings_fragment" android:layout_width="fill_parent" android:layout_height="fill_parent" class="com.android.settings.DateTimeSettings" />
+    </LinearLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="0.0">
+        <View android:id="@id/bottom_divider" android:background="@color/divider_color" android:layout_width="fill_parent" android:layout_height="3.0dip" android:layout_marginTop="0.0dip" android:layout_marginBottom="16.0dip" android:layout_above="@id/next_button" />
+        <Button android:id="@id/next_button" android:layout_width="wrap_content" android:layout_height="48.0dip" android:layout_marginTop="10.0dip" android:minWidth="208.0dip" android:text="@string/next_label" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+</LinearLayout>

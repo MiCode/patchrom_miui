@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mediatek.widget.ChartBandwidthUsageView android:id="@id/chart" android:paddingLeft="24.0dip" android:paddingTop="10.0dip" android:paddingRight="24.0dip" android:paddingBottom="24.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/data_usage_chart_height" android:layout_marginLeft="-16.0dip" android:layout_marginRight="-16.0dip" android:layout_marginBottom="-32.0dip" settings:optimalWidth="@dimen/data_usage_chart_optimalWidth" settings:optimalWidthWeight="0.4"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.mediatek.widget.ChartBandwidthGridView android:layout_gravity="bottom|left|center" android:id="@id/grid" android:focusableInTouchMode="false" android:layout_width="fill_parent" android:layout_height="fill_parent" settings:primaryDrawable="@drawable/data_grid_secondary" />
+    <com.mediatek.widget.ChartBandwidthNetworkSeriesView android:layout_gravity="bottom|left|center" android:id="@id/series" android:layout_width="fill_parent" android:layout_height="fill_parent" settings:strokeColor="@*android:color/holo_green_light" />
+    <com.mediatek.widget.ChartSweepView android:id="@id/sweep_limit" android:nextFocusUp="@null" android:nextFocusDown="@null" android:layout_width="fill_parent" android:layout_height="wrap_content" settings:sweepDrawable="@drawable/data_sweep_limit" settings:followAxis="vertical" settings:neighborMargin="1.0dip" settings:labelSize="63.0dip" settings:labelTemplate="@string/data_usage_sweep_limit" settings:labelColor="#ffc01a2c" />
+</com.mediatek.widget.ChartBandwidthUsageView>

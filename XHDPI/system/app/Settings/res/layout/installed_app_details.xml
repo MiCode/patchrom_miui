@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:scrollbarStyle="@*android:integer/preference_fragment_scrollbarStyle" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/all_details" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd">
+            <include android:id="@id/app_snippet" layout="@layout/manage_applications_item" />
+            <include android:id="@id/control_buttons_panel" layout="@layout/two_buttons_panel" />
+            <include android:id="@id/more_control_buttons_panel" layout="@layout/two_buttons_panel" />
+            <CheckBox android:layout_gravity="start" android:id="@id/notification_switch" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:text="@string/app_notifications_switch_label" />
+        </LinearLayout>
+        <TextView android:layout_marginTop="8.0dip" android:text="@string/storage_label" style="?android:attr/listSeparatorTextViewStyle" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd">
+            <LinearLayout android:orientation="horizontal" android:paddingTop="-1.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="true">
+                <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/total_size_prefix" android:paddingTop="6.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/total_size_label" android:maxLines="1" />
+                <ImageView android:layout_gravity="bottom" android:id="@id/info_size_dots" android:layout_width="0.0dip" android:layout_height="1.0px" android:layout_marginBottom="4.0dip" android:src="@drawable/dotted_line_480px" android:scaleType="center" android:layout_weight="1.0" android:contentDescription="@null" android:layout_marginStart="1.0dip" android:layout_marginEnd="1.0dip" />
+                <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/total_size_text" android:paddingTop="6.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:paddingTop="-1.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="true">
+                <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/application_size_prefix" android:paddingTop="6.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/application_size_label" android:maxLines="1" />
+                <ImageView android:layout_gravity="bottom" android:id="@id/info_size_dots" android:layout_width="0.0dip" android:layout_height="1.0px" android:layout_marginBottom="4.0dip" android:src="@drawable/dotted_line_480px" android:scaleType="center" android:layout_weight="1.0" android:contentDescription="@null" android:layout_marginStart="1.0dip" android:layout_marginEnd="1.0dip" />
+                <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/application_size_text" android:paddingTop="6.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:paddingTop="-1.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="true">
+                <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/external_code_size_prefix" android:paddingTop="6.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/external_code_size_label" android:maxLines="1" />
+                <ImageView android:layout_gravity="bottom" android:id="@id/info_size_dots" android:layout_width="0.0dip" android:layout_height="1.0px" android:layout_marginBottom="4.0dip" android:src="@drawable/dotted_line_480px" android:scaleType="center" android:layout_weight="1.0" android:contentDescription="@null" android:layout_marginStart="1.0dip" android:layout_marginEnd="1.0dip" />
+                <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/external_code_size_text" android:paddingTop="6.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:id="@id/info_size" android:paddingTop="-1.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="true">
+                <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/data_size_prefix" android:paddingTop="6.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/data_size_label" android:maxLines="1" />
+                <ImageView android:layout_gravity="bottom" android:id="@id/info_size_dots" android:layout_width="0.0dip" android:layout_height="1.0px" android:layout_marginBottom="4.0dip" android:src="@drawable/dotted_line_480px" android:scaleType="center" android:layout_weight="1.0" android:contentDescription="@null" android:layout_marginStart="1.0dip" android:layout_marginEnd="1.0dip" />
+                <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/data_size_text" android:paddingTop="6.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:paddingTop="-1.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="true">
+                <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/external_data_size_prefix" android:paddingTop="6.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/external_data_size_label" android:maxLines="1" />
+                <ImageView android:layout_gravity="bottom" android:id="@id/info_size_dots" android:layout_width="0.0dip" android:layout_height="1.0px" android:layout_marginBottom="4.0dip" android:src="@drawable/dotted_line_480px" android:scaleType="center" android:layout_weight="1.0" android:contentDescription="@null" android:layout_marginStart="1.0dip" android:layout_marginEnd="1.0dip" />
+                <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/external_data_size_text" android:paddingTop="6.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+            </LinearLayout>
+            <include android:id="@id/data_buttons_panel" layout="@layout/two_buttons_panel" />
+        </LinearLayout>
+        <RelativeLayout android:id="@id/cache_panel" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:id="@id/cache_header" android:layout_marginTop="8.0dip" android:text="@string/cache_header_label" style="?android:attr/listSeparatorTextViewStyle" />
+            <LinearLayout android:orientation="horizontal" android:id="@id/cache_size" android:paddingTop="-1.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="true" android:layout_below="@id/cache_header" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd">
+                <TextView android:textAppearance="?android:textAppearanceMedium" android:gravity="center_vertical" android:paddingTop="6.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cache_size_label" android:maxLines="1" />
+                <ImageView android:layout_gravity="bottom" android:layout_width="0.0dip" android:layout_height="1.0px" android:layout_marginBottom="4.0dip" android:src="@drawable/dotted_line_480px" android:scaleType="center" android:layout_weight="1.0" android:contentDescription="@null" android:layout_marginStart="1.0dip" android:layout_marginEnd="1.0dip" />
+                <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/cache_size_text" android:paddingTop="6.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:paddingTop="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/cache_size" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd">
+                <View android:layout_width="120.0dip" android:layout_height="0.0dip" android:layout_weight="0.4" />
+                <View android:visibility="invisible" android:layout_width="0.0dip" android:layout_height="0.0dip" android:layout_weight="0.2" />
+                <Button android:id="@id/clear_cache_button" android:layout_width="120.0dip" android:layout_height="wrap_content" android:text="@string/clear_cache_btn_text" android:layout_weight="0.4" />
+            </LinearLayout>
+        </RelativeLayout>
+        <TextView android:id="@id/auto_launch_title" android:layout_marginTop="8.0dip" android:text="@string/auto_launch_label" style="?android:attr/listSeparatorTextViewStyle" />
+        <RelativeLayout android:layout_gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd">
+            <TextView android:textAppearance="?android:textAppearanceSmall" android:id="@id/auto_launch" android:paddingTop="6.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentStart="true" />
+            <LinearLayout android:orientation="horizontal" android:paddingTop="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/auto_launch">
+                <View android:layout_width="120.0dip" android:layout_height="0.0dip" android:layout_weight="0.4" />
+                <View android:visibility="invisible" android:layout_width="0.0dip" android:layout_height="0.0dip" android:layout_weight="0.2" />
+                <Button android:id="@id/clear_activities_button" android:layout_width="120.0dip" android:layout_height="wrap_content" android:text="@string/clear_activities" android:layout_weight="0.4" />
+            </LinearLayout>
+        </RelativeLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/screen_compatibility_section" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:layout_marginTop="8.0dip" android:text="@string/screen_compatibility_label" style="?android:attr/listSeparatorTextViewStyle" />
+            <TextView android:textAppearance="?android:textAppearanceSmall" android:paddingTop="6.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/screen_compatibility_text" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd" android:layout_alignParentStart="true" />
+            <CheckBox android:layout_gravity="start" android:id="@id/ask_compatibility_cb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ask_compatibility" android:layout_marginStart="12.0dip" />
+            <CheckBox android:layout_gravity="start" android:id="@id/enable_compatibility_cb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/enable_compatibility" android:layout_marginStart="12.0dip" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/permissions_section" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:layout_marginTop="8.0dip" android:text="@string/permissions_label" style="?android:attr/listSeparatorTextViewStyle" />
+            <TextView android:textAppearance="?android:textAppearanceSmall" android:textColor="#ffffb060" android:id="@id/security_settings_billing_desc" android:paddingTop="6.0dip" android:paddingBottom="6.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/security_settings_billing_desc" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd" />
+            <LinearLayout android:orientation="vertical" android:id="@id/security_settings_billing_list" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/security_settings_premium_sms_desc" />
+                <Spinner android:id="@id/security_settings_premium_sms_list" android:layout_width="fill_parent" android:layout_height="wrap_content" android:spinnerMode="dropdown" />
+            </LinearLayout>
+            <TextView android:textAppearance="?android:textAppearanceSmall" android:id="@id/security_settings_desc" android:paddingTop="6.0dip" android:paddingBottom="6.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/security_settings_desc" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd" />
+            <LinearLayout android:orientation="vertical" android:id="@id/security_settings_list" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

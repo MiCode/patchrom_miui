@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/location_settings_title"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:persistent="false" android:title="@string/enable_gps" android:key="enable_gps" />
+    <PreferenceCategory />
+    <CheckBoxPreference android:persistent="false" android:title="@string/epo_enable_title" android:key="epo_enabler" android:summary="@string/epo_enable_summary" />
+    <Preference android:title="@string/epo_entrance_title" android:key="epo_settings" android:summary="@string/epo_entrance_summary" android:dependency="epo_enabler" />
+    <CheckBoxPreference android:title="@string/agps_settings_enable" android:key="agps_enabler" android:summaryOn="@string/agps_settings_enable_on" android:summaryOff="@string/agps_settings_enable_off" />
+    <Preference android:title="@string/agps_settings_eng_enable" android:key="agps_settings" android:summary="@string/agps_settings_eng_summary" android:dependency="agps_enabler" />
+</PreferenceScreen>

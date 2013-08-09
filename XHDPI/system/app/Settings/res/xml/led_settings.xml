@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/trackball_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <CheckBoxPreference android:persistent="false" android:title="@string/notification_pulse_title" android:key="notification_pulse" android:summary="@string/led_pulse_summary" />
+    <ListPreference android:persistent="false" android:entries="@array/led_color_entries" android:title="@string/breathing_light_color_title" android:key="breathing_light_color" android:dependency="notification_pulse" android:dialogTitle="@string/breathing_light_color_title" android:entryValues="@array/led_color_values" />
+    <ListPreference android:persistent="false" android:entries="@array/led_freq_entries" android:title="@string/breathing_light_freq_title" android:key="breathing_light_freq" android:dependency="notification_pulse" android:dialogTitle="@string/breathing_light_freq_title" android:entryValues="@array/led_freq_values" />
+    <ListPreference android:persistent="false" android:entries="@array/led_color_entries" android:title="@string/breathing_light_color_title" android:key="call_breathing_light_color" android:dependency="notification_pulse" android:dialogTitle="@string/breathing_light_color_title" android:entryValues="@array/led_color_values" />
+    <ListPreference android:persistent="false" android:entries="@array/led_freq_entries" android:title="@string/breathing_light_freq_title" android:key="call_breathing_light_freq" android:dependency="notification_pulse" android:dialogTitle="@string/breathing_light_freq_title" android:entryValues="@array/led_freq_values" />
+    <ListPreference android:persistent="false" android:entries="@array/led_color_entries" android:title="@string/breathing_light_color_title" android:key="mms_breathing_light_color" android:dependency="notification_pulse" android:dialogTitle="@string/breathing_light_color_title" android:entryValues="@array/led_color_values" />
+    <ListPreference android:persistent="false" android:entries="@array/led_freq_entries" android:title="@string/breathing_light_freq_title" android:key="mms_breathing_light_freq" android:dependency="notification_pulse" android:dialogTitle="@string/breathing_light_freq_title" android:entryValues="@array/led_freq_values" />
+</PreferenceScreen>

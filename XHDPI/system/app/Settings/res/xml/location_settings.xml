@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/location_settings_title"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:persistent="true" android:title="@string/location_access_title" android:key="location_toggle" android:summary="@string/location_access_summary" />
+    <PreferenceCategory android:title="@string/location_sources_heading" android:key="location_sources" />
+    <CheckBoxPreference android:persistent="false" android:title="@string/location_gps" android:key="location_gps" android:summary="@string/location_street_level" android:dependency="location_toggle" />
+    <com.android.settings.WrappingCheckBoxPreference android:persistent="false" android:title="@string/location_network_based" android:key="location_network" android:summary="@string/location_neighborhood_level" android:dependency="location_toggle" />
+</PreferenceScreen>

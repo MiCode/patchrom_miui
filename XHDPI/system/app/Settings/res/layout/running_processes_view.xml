@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="0.0px" android:layout_weight="1.0">
+        <ListView android:scrollbarStyle="outsideOverlay" android:id="@*android:id/list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:drawSelectorOnTop="false" android:fastScrollEnabled="true" android:paddingStart="@*android:dimen/preference_fragment_padding_side" android:paddingEnd="@*android:dimen/preference_fragment_padding_side" />
+        <TextView android:textAppearance="?android:textAppearanceLarge" android:gravity="center" android:id="@*android:id/empty" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/no_running_services" />
+    </FrameLayout>
+    <view android:orientation="horizontal" android:id="@id/color_bar" android:paddingTop="30.0dip" android:paddingBottom="1.0dip" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="-5.0dip" android:paddingStart="4.0dip" android:paddingEnd="4.0dip" android:layout_marginStart="@*android:dimen/preference_fragment_padding_side" android:layout_marginEnd="@*android:dimen/preference_fragment_padding_side" class="com.android.settings.applications.LinearColorBar">
+        <TextView android:textAppearance="?android:textAppearanceSmallInverse" android:textColor="#ff000000" android:gravity="start|bottom|center" android:id="@id/foregroundText" android:focusable="true" android:layout_width="0.0px" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" />
+        <TextView android:textAppearance="?android:textAppearanceSmallInverse" android:textStyle="bold" android:textColor="#ffcccccc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-20.0dip" android:text="@string/memory" android:singleLine="true" android:shadowColor="#ff000000" android:shadowRadius="5.0" android:layout_weight="0.0" />
+        <TextView android:textAppearance="?android:textAppearanceSmallInverse" android:textColor="#ff000000" android:gravity="end|bottom|center" android:layout_gravity="end|center" android:id="@id/backgroundText" android:focusable="true" android:layout_width="0.0px" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" />
+    </view>
+</LinearLayout>

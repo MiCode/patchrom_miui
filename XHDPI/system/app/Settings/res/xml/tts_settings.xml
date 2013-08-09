@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/tts_settings_title"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/tts_engine_preference_section_title" android:key="tts_engine_preference_section" />
+    <PreferenceCategory android:title="@string/tts_general_section_title" android:key="tts_general_section">
+        <ListPreference android:persistent="false" android:entries="@array/tts_rate_entries" android:title="@string/tts_default_rate_title" android:key="tts_default_rate" android:summary="@string/tts_default_rate_summary" android:entryValues="@array/tts_rate_values" />
+        <Preference android:persistent="false" android:title="@string/tts_play_example_title" android:key="tts_play_example" android:summary="@string/tts_play_example_summary" />
+    </PreferenceCategory>
+</PreferenceScreen>

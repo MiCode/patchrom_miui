@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:persistent="true" android:title="@string/agps_disable_on_reboot" android:key="disable_agps_on_reboot" android:summaryOn="@string/agps_disable_on_reboot_summary" android:summaryOff="@string/agps_disable_on_reboot_summary" />
+    <CheckBoxPreference android:persistent="true" android:title="@string/Network_Initiate" android:key="Network_Initiate" android:summaryOn="@string/Network_Initiate_Summary_on" android:summaryOff="@string/Network_Initiate_Summary_off" />
+    <ListPreference android:persistent="true" android:entries="@array/network_use_entry" android:title="@string/Network_Used" android:key="Network_Used" android:dialogTitle="@string/Network_Used" android:entryValues="@array/network_use_entry" />
+    <ListPreference android:persistent="true" android:title="@string/agps_profile_select" android:key="select_profile" android:summary="@string/agps_profile_select" />
+    <EditTextPreference android:persistent="false" android:singleLine="true" android:title="@string/agps_profile_SLP_address_editbox_title" android:key="slp_address" android:defaultValue="127.0.0.1" />
+    <EditTextPreference android:persistent="false" android:singleLine="true" android:title="@string/port_title" android:key="port" android:defaultValue="8086" />
+    <CheckBoxPreference android:persistent="false" android:title="@string/tls_title" android:key="tls" android:defaultValue="false" android:summaryOn="@string/tls_summary_on" android:summaryOff="@string/tls_summary_off" />
+    <PreferenceCategory android:title="@string/MobileNetwork_Category">
+        <Preference android:key="mobile_dataConn" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/AgpsHelp_Category">
+        <Preference android:title="@string/about_agps_title" android:key="about_agps" />
+    </PreferenceCategory>
+</PreferenceScreen>
