@@ -126,7 +126,7 @@
             android:dependency="media_feedback"
             android:title="@string/haptic_feedback_level"
             android:persistent="false"
-            android:entries="@array/haptic_feedback_level_entries"
+            android:entries="@array/media_feedback_level_entries"
             android:entryValues="@array/media_feedback_level_values" />
 
     <ListPreference
@@ -147,7 +147,7 @@
             android:title="@string/dirac_control"
             android:summary="@string/dirac_mode_off" />
 
-        <!-- Dock -->
+    <!-- Dock -->
     <PreferenceCategory
         android:key="dock_category"
         android:title="@string/dock_settings"/>
@@ -168,4 +168,14 @@
         android:title="@string/dock_sounds_enable_title"
         android:defaultValue="false" />
 
+    <PreferenceCategory
+        android:key="noise_suppression"
+        android:title="@string/noise_suppression" />
+
+    <ListPreference
+        android:key="phone_call_noise_suppression"
+        android:title="@string/phone_call_noise_suppression"
+        android:persistent="false"
+        android:entries="@array/phone_call_noise_suppression_title"
+        android:entryValues="@array/phone_call_noise_suppression_values"/>
 </PreferenceScreen>

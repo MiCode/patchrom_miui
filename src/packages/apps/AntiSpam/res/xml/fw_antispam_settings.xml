@@ -2,10 +2,10 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- 黑名单设置 -->
-    <PreferenceCategory android:title="@string/st_bl_setting_group" >
+    <PreferenceCategory android:title="@string/st_block_setting_group" >
         <PreferenceScreen
             android:key="key_blacklist_block_settting"
-            android:title="@string/st_bl_block_setting_title"
+            android:title="@string/st_block_setting_title"
             android:persistent="false" >
             <intent
                 android:targetPackage="com.miui.antispam"
@@ -35,8 +35,22 @@
         </PreferenceScreen>
     </PreferenceCategory>
 
+    <!-- 高级拦截设置 -->
+    <PreferenceCategory android:title="@string/st_advanced_setting_group" >
+        <CheckBoxPreference
+            android:key="key_block_unknown_call"
+            android:title="@string/st_block_unknown_call"
+            android:persistent="false" >
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:key="key_block_unknown_sms"
+            android:title="@string/st_block_unknown_sms"
+            android:persistent="false" >
+        </CheckBoxPreference>
+    </PreferenceCategory>
+
     <!-- 其他设置 -->
-    <PreferenceCategory android:title="@string/st_other_settings_group" >
+    <PreferenceCategory android:title="@string/st_other_setting_group" >
         <CheckBoxPreference
             android:key="key_show_block_notification"
             android:title="@string/st_show_block_notification"

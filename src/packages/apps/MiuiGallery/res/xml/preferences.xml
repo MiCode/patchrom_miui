@@ -32,6 +32,24 @@
             android:title="@string/slideshow_repeat_mode" />
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/screensaver_category" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="screensaver_activate_mode"
+            android:title="@string/screensaver_activate_mode" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="screensaver_activate_only_charging"
+            android:title="@string/screensaver_activate_only_charging" />
+        <ListPreference
+            android:key="slideshow_time"
+            android:title="@string/slideshow_time_title"
+            android:dialogTitle="@string/slideshow_time_select_title"
+            android:entries="@array/slideshow_time_entries"
+            android:entryValues="@array/slideshow_time_entryValues"
+            android:defaultValue="1800" />
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:title="@string/other_category"
         android:key="other_settings" >

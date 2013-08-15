@@ -29,15 +29,35 @@
             android:targetClass="com.android.settings.display.BrightnessActivity" />
     </Preference>
 
-    <Preference
-        android:key="screen_color"
-        android:title="@string/screen_color_temperature_adjust"
-        android:persistent="false" />
+    <CheckBoxPreference
+        android:key="3d_display_enable"
+        android:title="@string/hdmi_3d_display_enable_title"
+        android:summary="@string/hdmi_3d_display_enable_summary"
+        android:persistent="false"/>
 
     <Preference
-        android:key="screen_saturation"
-        android:title="@string/screen_saturation_adjust"
-        android:persistent="false"/>
+        android:key="screen_color"
+        android:title="@string/screen_color_temperature_and_saturation_adjust"
+        android:persistent="false" >
+        <intent
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.display.ScreenColorActivity" />
+    </Preference>
+
+     <PreferenceCategory
+        android:title="@string/touch_title"/>
+
+      <CheckBoxPreference
+        android:key="touch_sensitive"
+        android:title="@string/touch_sensitive_title"
+        android:summary="@string/touch_sensitive_summary"
+        android:persistent="false" />
+
+     <CheckBoxPreference
+        android:key="screen_on_proximity_sensor"
+        android:title="@string/screen_on_proximity_sensor_title"
+        android:summary="@string/screen_on_proximity_sensor_summary"
+        android:persistent="false" />
 
     <PreferenceCategory
         android:title="@string/system"/>
@@ -85,12 +105,6 @@
             android:key="notification_pulse"
             android:title="@string/notification_pulse_title"
             android:persistent="false" />
-
-    <CheckBoxPreference
-        android:key="screen_on_proximity_sensor"
-        android:title="@string/screen_on_proximity_sensor_title"
-        android:summary="@string/screen_on_proximity_sensor_summary"
-        android:persistent="false" />
 
     <PreferenceScreen
         android:key="screensaver"

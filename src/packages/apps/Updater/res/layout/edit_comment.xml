@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingRight="@dimen/main_padding"
+    android:paddingLeft="@dimen/main_padding" >
+    <RatingBar
+        android:id="@+id/ratingbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/common_padding"
+        android:layout_marginBottom="@dimen/common_padding"
+        style="@style/Widget.RatingBar.Edit" />
+    <EditText
+        android:id="@+id/comment_edit"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:maxLength="200"
+        android:gravity="left"
+        android:singleLine="false"
+        android:hint="@string/edit_text_default" />
+    <TextView
+        android:id="@+id/comment_upload_hint"
+        android:text="@string/comment_upload_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/common_padding_medium"
+        android:layout_marginBottom="@dimen/main_padding">
+    </TextView>
+</LinearLayout>
