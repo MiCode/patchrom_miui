@@ -64,7 +64,7 @@ public class CursorWindow extends SQLiteClosable implements Parcelable {
 
         static void delQuota(SparseIntArray windowToPid, int window) {
             int pid = windowToPid.get(window);
-            if (pid != 0) {
+            if (pid != 0 || windowToPid.indexOfKey(window) >= 0) {
                 checkQuota(pid, false);
             }
         }

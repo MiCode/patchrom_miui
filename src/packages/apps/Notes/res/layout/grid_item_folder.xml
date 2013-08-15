@@ -9,22 +9,28 @@
     android:layout_marginBottom="5dip"
     android:background="@drawable/grid_folder_yellow">
 
-    <FrameLayout
+    <TextView
+        android:id="@+id/note_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/grid_folder_title_margin_top"
+        android:layout_marginLeft="@dimen/grid_note_content_padding_left"
+        android:layout_marginRight="@dimen/grid_note_content_padding_right"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textAppearance="@style/TextAppearance.Grid.Folder" />
 
-        <TextView
-            android:id="@+id/note_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center_horizontal"
-            android:singleLine="true"
-            android:ellipsize="end"
-            android:drawableTop="@drawable/ic_grid_folder"
-            android:textAppearance="@style/TextAppearance.Grid" />
-
-    </FrameLayout>
+    <miui.widget.ImageTextView
+        android:id="@+id/note_count"
+        android:entries="@array/count_entries"
+        android:entryValues="@array/count_values"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/note_title"
+        android:layout_marginTop="@dimen/grid_folder_count_margin_top"
+        android:layout_marginLeft="@dimen/grid_note_content_padding_left"
+        android:layout_marginRight="@dimen/grid_note_content_padding_right" />
 
     <LinearLayout
         android:id="@+id/note_indicators"

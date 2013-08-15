@@ -95,6 +95,9 @@ import java.util.List;
 public class GSMPhone extends PhoneBase {
     @MiuiHook(MiuiHookType.NEW_CLASS)
     static class Injector {
+        private static int MAX_RETRY_IMEI_COUNT = 3;
+        private static int RETRY_IMEI_INTERVAL = 500;
+        private static int sRetryImeiCount = 0;
         static String checkEmptyImei(GSMPhone phone, String imei) {
             Context context = phone.getContext();
             if (TextUtils.isEmpty(imei)
@@ -107,6 +110,22 @@ public class GSMPhone extends PhoneBase {
                 }
             }
             return imei;
+        }
+
+        static void checkAndNotifyDeviceId(String imei, final GSMPhone phone, final CommandsInterface cm) {
+            if (TextUtils.isEmpty(imei)) {
+                if (sRetryImeiCount < MAX_RETRY_IMEI_COUNT) {
+                    phone.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            cm.getIMEI(phone.obtainMessage(EVENT_GET_IMEI_DONE));
+                        }
+                    }, RETRY_IMEI_INTERVAL);
+                    ++sRetryImeiCount;
+                }
+            }
+            phone.sendDeviceIdReadyBroadcast();
+            phone.setDeviceIdSystemProperty();
         }
     }
 
@@ -1228,8 +1247,7 @@ public class GSMPhone extends PhoneBase {
 
                 mImei = (String)ar.result;
                 // MIUI ADD: START
-                sendDeviceIdReadyBroadcast();
-                setDeviceIdSystemProperty();
+                Injector.checkAndNotifyDeviceId(mImei, this, mCM);
                 // END
             break;
 

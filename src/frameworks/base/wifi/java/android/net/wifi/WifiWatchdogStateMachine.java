@@ -53,6 +53,8 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.URL;
 
+import miui.content.ExtraIntent;
+
 /**
  * WifiWatchdogStateMachine monitors the connection to a Wi-Fi
  * network. After the framework notifies that it has connected to an
@@ -87,7 +89,13 @@ import java.net.URL;
  * @hide
  */
 public class WifiWatchdogStateMachine extends StateMachine {
-
+    static class Injector {
+        static void showLogin(Context context, Intent intent) {
+            intent.setAction(ExtraIntent.ACTION_OPEN_WIFI_LOGIN);
+            intent.setPackage("com.android.settings");
+            context.startActivity(intent);
+        }
+    }
     /* STOPSHIP: Keep this configurable for debugging until ship */
     private static boolean DBG = false;
     private static final String TAG = "WifiWatchdogStateMachine";
@@ -468,7 +476,9 @@ public class WifiWatchdogStateMachine extends StateMachine {
             notification.tickerText = title;
             notification.setLatestEventInfo(mContext, title, details, notification.contentIntent);
 
-            notificationManager.notify(WALLED_GARDEN_NOTIFICATION_ID, 1, notification);
+            // MIUI MOD:
+            // notificationManager.notify(WALLED_GARDEN_NOTIFICATION_ID, 1, notification);
+            Injector.showLogin(mContext, intent);
         } else {
             notificationManager.cancel(WALLED_GARDEN_NOTIFICATION_ID, 1);
         }

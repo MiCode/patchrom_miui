@@ -136,4 +136,15 @@
             android:key="dirac_control"
             android:title="@string/dirac_control"
             android:summary="@string/dirac_mode_off" />
+
+    <PreferenceCategory
+        android:key="noise_suppression"
+        android:title="@string/noise_suppression">
+        <ListPreference
+            android:key="phone_call_noise_suppression"
+            android:title="@string/phone_call_noise_suppression"
+            android:persistent="false"
+            android:entries="@array/phone_call_noise_suppression_title"
+            android:entryValues="@array/phone_call_noise_suppression__values"/>
+    </PreferenceCategory>
 </PreferenceScreen>

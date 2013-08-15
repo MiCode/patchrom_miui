@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout android:id="@+id/auto_connect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/group_title_bg">
+         <TextView
+             android:layout_width="0dip"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:singleLine="true"
+             android:layout_gravity="center_vertical"
+             android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList"
+             android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+             android:text="@string/wifi_auto_connect" />
+         <miui.widget.SlidingButton android:id="@+id/auto_connect_slidingButton"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center_vertical"
+             android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side" />
+    </LinearLayout>
+    <WebView
+         android:id="@+id/login_site"
+         android:layout_width="match_parent"
+         android:layout_height="0dip"
+         android:layout_weight="1"/>
+</LinearLayout>

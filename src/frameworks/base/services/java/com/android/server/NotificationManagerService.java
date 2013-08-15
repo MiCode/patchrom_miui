@@ -277,6 +277,14 @@ public class NotificationManagerService extends INotificationManager.Stub
         return areNotificationsEnabledForPackageInt(pkg);
     }
 
+    /**
+     * MIUI ADD:
+     * 不检查调用权限，第三方可以调用
+     */
+    public boolean areNotificationsEnabled(String pkg) {
+        return areNotificationsEnabledForPackageInt(pkg);
+    }
+
     // Unchecked. Not exposed via Binder, but can be called in the course of enqueue*().
     private boolean areNotificationsEnabledForPackageInt(String pkg) {
         final boolean enabled = !mBlockedPackages.contains(pkg);
