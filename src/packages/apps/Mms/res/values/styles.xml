@@ -34,6 +34,15 @@
     <style name="Theme.Light.Translucent.NoTitle"
            parent="@miui:style/V5.Theme.Light.Translucent.NoTitle" />
 
+    <style name="Theme.Light.Picker.ActionBar" parent="@miui:style/V5.Widget.ActionBar">
+        <item name="android:displayOptions">showCustom</item>
+    </style>
+
+    <style name="Theme.Light.Picker" parent="@miui:style/V5.Theme.Light">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:actionBarStyle">@style/Theme.Light.Picker.ActionBar</item>
+    </style>
+
     <style name="ListItem">
         <item name="android:paddingTop">@dimen/list_item_padding_outer_v</item>
         <item name="android:paddingBottom">@dimen/list_item_padding_outer_v</item>
