@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.zxing.ui.QRCodeFragmentLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/qrcode_viewfinder_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.android.zxing.ui.ViewFinderView
+        android:id="@+id/qrcode_viewfinder_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+
+    <RelativeLayout
+        android:id="@+id/qrcode_viewfinder_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="120dp"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/qrcode_viewfinder_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/qrcode_viewfinder_button"
+            android:layout_centerHorizontal="true"
+            android:clickable="false"
+            android:gravity="center"
+            android:shadowDx="0"
+            android:shadowDy="2"
+            android:shadowRadius="3"
+            android:shadowColor="#f0000000"
+            android:textColor="@android:color/white"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/qrcode_viewfinder_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:paddingLeft="22dp"
+            android:paddingRight="22dp"
+            android:background="@drawable/btn_find_qrcode"
+            android:text="@string/see_qrcode_detals"
+            android:clickable="true"
+            android:textSize="15dp"
+            android:textColor="@android:color/white"/>
+    </RelativeLayout>
+
+</com.android.zxing.ui.QRCodeFragmentLayout>

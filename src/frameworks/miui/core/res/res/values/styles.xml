@@ -303,11 +303,13 @@
         <item name="android:background">?v5_edit_text_bg</item>
         <item name="android:textAppearance">@miui:style/V5.TextAppearance.EditText</item>
         <item name="android:gravity">left|center_vertical</item>
+        <item name="android:textCursorDrawable">@miui:drawable/v5_text_cursor_holo</item>
     </style>
     <style name="V5.Widget.EditText.Search">
         <item name="android:drawableRight">?v5_edit_text_search_clear_btn</item>
         <item name="android:background">?v5_edit_text_search_bg</item>
         <item name="android:imeOptions">actionSearch</item>
+        <item name="android:textCursorDrawable">@miui:drawable/v5_text_cursor_holo</item>
     </style>
 
     <style name="V5.Widget.BottomBar">
@@ -594,7 +596,9 @@
         <item name="android:spinnerMode">dropdown</item>
     </style>
 
-    <style name="V5.Widget.TextView" parent="android:Widget.TextView" />
+    <style name="V5.Widget.TextView" parent="android:Widget.TextView" >
+        <item name="android:textCursorDrawable">@miui:drawable/v5_text_cursor_holo</item>
+    </style>
     <style name="V5.Widget.TextView.SpinnerItem" parent="android:Widget.TextView.SpinnerItem">
         <item name="android:textSize">@miui:dimen/v5_text_font_size_primary</item>
         <item name="android:textColor">?v5_button_text_color</item>
@@ -629,7 +633,7 @@
     </style>
 
     <style name="V5.Widget.ActionBar.Solid.Settings" parent="android:Widget.Holo.Light.ActionBar.Solid">
-        <item name="android:displayOptions">homeAsUp|useLogo|showHome|showTitle</item>
+        <item name="android:displayOptions">homeAsUp|showTitle</item>
         <item name="android:titleTextStyle">@style/V5.TextAppearance.Title</item>
         <item name="android:background">@drawable/v5_title_bar_bg_light</item>
     </style>
@@ -821,7 +825,7 @@
         <item name="android:background">?v5_title_bar_bg</item>
         <item name="android:backgroundStacked">@null</item>
         <item name="android:backgroundSplit">@null</item>
-        <item name="android:displayOptions">homeAsUp|useLogo|showHome|showTitle</item>
+        <item name="android:displayOptions">homeAsUp|showTitle</item>
         <item name="android:divider">@null</item>
         <item name="android:height">?android:attr/actionBarSize</item>
         <item name="android:paddingLeft">0dip</item>
