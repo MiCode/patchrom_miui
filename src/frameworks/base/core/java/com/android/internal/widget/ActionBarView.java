@@ -44,7 +44,6 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.CollapsibleActionView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -72,44 +71,6 @@ import android.widget.TextView;
 public class ActionBarView extends AbsActionBarView {
     @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_CLASS)
     static class Injector {
-        static void setIcon(HomeView homeView) {
-            ImageView iconView = homeView.getIconView();
-            if (homeView.mCompactMode && (homeView.getUpView().getVisibility() == VISIBLE)) {
-                iconView.setImageDrawable(null);
-            } else {
-                iconView.setImageDrawable(homeView.mIconDrawable);
-            }
-        }
-
-        static void setIcon(HomeView homeView, Drawable icon) {
-            homeView.mIconDrawable = icon;
-            setIcon(homeView);
-        }
-
-        static void switchToCompactMode(HomeView homeView) {
-            // We have two different modes:
-            // 1. Normal mode, the same as standard Android 4.0
-            // 2. Compact mode, show up view only when it's visible
-            // Switch to compact mode when the up view is wider than 20dip
-            View upView = homeView.getUpView();
-            if (upView instanceof ImageView) {
-                Drawable d = ((ImageView) upView).getDrawable();
-                if (d != null) {
-                    homeView.mCompactMode = d.getMinimumWidth() > TypedValue.applyDimension(
-                            TypedValue.COMPLEX_UNIT_DIP, 20, homeView.getResources().getDisplayMetrics());
-                } else {
-                    homeView.mCompactMode = false;
-                }
-            }
-        }
-
-        static int getUpViewVisibility(HomeView homeView, View upView) {
-            if (! homeView.mCompactMode && (upView.getVisibility() == GONE)) {
-                return GONE;
-            }
-            return VISIBLE;
-        }
-
         static ActionMenuPresenter createActionMenuPresenter(Context context) {
             if (UiUtils.isV5Ui(context)) {
                 return new com.miui.internal.v5.view.menu.ActionMenuPresenter(context,
@@ -1316,22 +1277,6 @@ public class ActionBarView extends AbsActionBarView {
     }
 
     private static class HomeView extends FrameLayout {
-        @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_FIELD)
-        Drawable mIconDrawable;
-
-        @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_FIELD)
-        boolean mCompactMode;
-
-        @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
-        View getUpView() {
-            return mUpView;
-        }
-
-        @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
-        ImageView getIconView() {
-            return mIconView;
-        }
-
         private View mUpView;
         private ImageView mIconView;
         private int mUpWidth;
@@ -1344,15 +1289,12 @@ public class ActionBarView extends AbsActionBarView {
             super(context, attrs);
         }
 
-        @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
         public void setUp(boolean isUp) {
             mUpView.setVisibility(isUp ? VISIBLE : GONE);
-            Injector.setIcon(this); // miui add
         }
 
         public void setIcon(Drawable icon) {
             mIconView.setImageDrawable(icon);
-            Injector.setIcon(this, icon); // miui add
         }
 
         @Override
@@ -1377,16 +1319,13 @@ public class ActionBarView extends AbsActionBarView {
         }
 
         @Override
-        @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
         protected void onFinishInflate() {
             mUpView = findViewById(com.android.internal.R.id.up);
             mIconView = (ImageView) findViewById(com.android.internal.R.id.home);
-            Injector.switchToCompactMode(this); // miui add
         }
 
-        @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
         public int getLeftOffset() {
-            return Injector.getUpViewVisibility(this, mUpView) == GONE ? mUpWidth : 0; // miui modify
+            return mUpView.getVisibility() == GONE ? mUpWidth : 0;
         }
 
         @Override

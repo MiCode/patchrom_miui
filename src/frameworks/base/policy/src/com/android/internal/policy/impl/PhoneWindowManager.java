@@ -211,6 +211,14 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             }
         }
 
+        static boolean isInCallScreenShowing(Context context) {
+            ActivityManager activityManager = (ActivityManager) context
+                    .getSystemService(Context.ACTIVITY_SERVICE);
+            String runningActivity = activityManager.getRunningTasks(1).get(0).topActivity
+                    .getClassName();
+            return "com.android.phone.MiuiInCallScreen".equals(runningActivity);
+        }
+
         /**
          * Adds Miui view layer translator.
          * @param type The type of this window
@@ -1942,6 +1950,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                         } catch (RemoteException ex) {
                             Log.w(TAG, "RemoteException from getPhoneInterface()", ex);
                         }
+
+                        // MIUI ADD:
+                        incomingRinging = incomingRinging && Injector.isInCallScreenShowing(mContext);
 
                         if (incomingRinging) {
                             Log.i(TAG, "Ignoring HOME; there's a ringing incoming call.");

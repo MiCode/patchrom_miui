@@ -288,6 +288,13 @@ public class WebViewClient {
     }
 
     /**
+     * MIUI ADD:
+     * @hide
+     */
+    public void onPrereadUrlReady(String prereadUrl) {
+    }
+
+    /**
      * Notify the host application that a key was not handled by the WebView.
      * Except system keys, WebView always consumes the keys in the normal flow
      * or if shouldOverrideKeyEvent returns true. This is called asynchronously

@@ -1449,4 +1449,26 @@ class BrowserFrame extends Handler {
     }
 
     private native boolean nativeGetShouldStartScrolledRight(int nativeBrowserFrame);
+
+    // MIUI ADD:
+    int getCurrentHistoryItem() {
+        return nativeGetCurrentHistoryItem();
+    }
+
+    // MIUI ADD:
+    boolean addPrereadItemToBackForwardList(int item, boolean canGoForward) {
+        return nativeAddPrereadItemToBackForwardList(item, canGoForward);
+    }
+
+    // MIUI ADD:
+    boolean setPrereadNodeAttributeAndColor() {
+        return nativeSetPrereadNodeAttributeAndColor();
+    }
+
+    // MIUI ADD:
+    private native int nativeGetCurrentHistoryItem();
+    // MIUI ADD:
+    private native boolean nativeAddPrereadItemToBackForwardList(int item, boolean canGoForward);
+    // MIUI ADD:
+    private native boolean nativeSetPrereadNodeAttributeAndColor();
 }

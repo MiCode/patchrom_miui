@@ -210,12 +210,20 @@ public class PackageManagerService extends IPackageManager.Stub {
             }
         }
         static boolean setMiuiExtendFlags(PackageManagerService service, String packageName, int newState, int flags){
+            if (newState != PackageManager.COMPONENT_ENABLED_STATE_ACCESS_CONTROL &&
+                    newState != PackageManager.COMPONENT_ENABLED_STATE_DISABLE_AUTOSTART &&
+                    newState != PackageManager.COMPONENT_ENABLED_STATE_SHOW_FLOATING_WINDOW ) return false;
+
+            final int permission = service.mContext.checkCallingPermission(
+                    android.Manifest.permission.CHANGE_COMPONENT_ENABLED_STATE);
+            final boolean allowedByPermission = (permission == PackageManager.PERMISSION_GRANTED);
+            if (!allowedByPermission){
+                return true;
+            }
+
             HashMap<String, PackageParser.Package> packages = service.mPackages;
             Settings settings = service.mSettings;
             synchronized (packages) {
-                if (newState != PackageManager.COMPONENT_ENABLED_STATE_ACCESS_CONTROL &&
-                    newState != PackageManager.COMPONENT_ENABLED_STATE_DISABLE_AUTOSTART &&
-                    newState != PackageManager.COMPONENT_ENABLED_STATE_SHOW_FLOATING_WINDOW) return false;
                 PackageParser.Package pkg = packages.get(packageName);
                 PackageSetting pkgSetting = settings.mPackages.get(packageName);
                 if ((pkg != null) && (pkgSetting != null)) {

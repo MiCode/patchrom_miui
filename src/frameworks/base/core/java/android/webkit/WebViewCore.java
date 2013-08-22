@@ -706,6 +706,12 @@ public final class WebViewCore {
     // MIUI ADD:
     private native void nativeSetJavaScriptWhenSelecting(int nativeClass, boolean javaScriptEnabled);
 
+    // MIUI ADD:
+    private native String nativeGetPrereadUrl(int nativeClass);
+
+    // MIUI ADD:
+    private native boolean nativeUpdateSelectionRect(int nativeClass, int baseX, int baseY, int extentX, int extentY);
+
     private native void nativeDumpDomTree(int nativeClass, boolean useFile);
 
     private native void nativeDumpRenderTree(int nativeClass, boolean useFile);
@@ -1242,6 +1248,12 @@ public final class WebViewCore {
         // MIUI ADD:
         static final int SET_JAVASCRIPT_WHEN_SELECTING = 5040;
 
+        // MIUI ADD:
+        static final int CHECK_PREREAD = 5050;
+
+        // MIUI ADD:
+        static final int UPDATE_SELECTION_RECT = 5060;
+
         // Private handler for WebCore messages.
         private Handler mHandler;
         // Message queue for containing messages before the WebCore thread is
@@ -1655,6 +1667,25 @@ public final class WebViewCore {
                         case SET_JAVASCRIPT_WHEN_SELECTING:
                             nativeSetJavaScriptWhenSelecting(mNativeClass, msg.arg1 == 1);
                             break;
+                        // END
+
+                        // MIUI ADD:
+                        case CHECK_PREREAD:
+                            String prereadUrl = nativeGetPrereadUrl(mNativeClass);
+                            if (prereadUrl != null && ! prereadUrl.startsWith("javascript")) {
+                                mWebViewClassic.mPrivateHandler.obtainMessage(
+                                        WebViewClassic.SEND_PREREAD_URL, prereadUrl).sendToTarget();
+                            }
+                            break;
+                        // END
+
+                        // MIUI ADD:
+                        case UPDATE_SELECTION_RECT: {
+                            int[] handles = (int[]) msg.obj;
+                            nativeUpdateSelectionRect(mNativeClass,
+                                    handles[0], handles[1], handles[2], handles[3]);
+                            break;
+                        }
                         // END
 
                         case DUMP_DOMTREE:

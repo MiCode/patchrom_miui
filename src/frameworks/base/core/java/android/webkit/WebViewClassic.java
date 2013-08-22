@@ -1070,6 +1070,8 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
     static final int UPDATE_MAGNIFIER_CARET             = 5002;
     // MIUI ADD:
     static final int UPDATE_CARET_RECT                  = 5003;
+    // MIUI ADD:
+    static final int SEND_PREREAD_URL                   = 5004;
 
     private static final int FIRST_PACKAGE_MSG_ID = SCROLL_TO_MSG_ID;
     private static final int LAST_PACKAGE_MSG_ID = HIT_TEST_RESULT;
@@ -1311,6 +1313,91 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
     public void checkIfReadModeAvailable(boolean inSession) {
         mWebViewCore.sendMessage(EventHub.CHECK_READ_MODE, inSession ? 1 : 0);
     }
+
+    /**
+     * MIUI ADD:
+     * Get the nextUrl if Preread available
+     *
+     * @hide
+     */
+    public void checkIfPrereadAvailable() {
+        mWebViewCore.sendMessage(EventHub.CHECK_PREREAD);
+    }
+
+    /**
+     * MIUI ADD:
+     * @hide
+     */
+    public int getCurrentHistoryItem() {
+        if ((mWebViewCore == null) || (mWebViewCore.getBrowserFrame() == null)) {
+            return 0;
+        }
+         return mWebViewCore.getBrowserFrame().getCurrentHistoryItem();
+    }
+
+    /**
+     * MIUI ADD:
+     * @hide
+     */
+    public boolean currentHistoryItemNeedsPreread() {
+        if ((getBackForwardList() == null) || (getBackForwardList().getCurrentItem() == null)) {
+            return false;
+        }
+        return !getBackForwardList().getCurrentItem().isPreread();
+    }
+
+    /**
+     * MIUI ADD:
+     * @hide
+     */
+    public boolean addPrereadItemToBackForwardList(int item, boolean canGoForward) {
+        if ((mWebViewCore == null) || (mWebViewCore.getBrowserFrame() == null)) {
+            return false;
+        }
+        return mWebViewCore.getBrowserFrame().addPrereadItemToBackForwardList(item, canGoForward);
+    }
+
+    /**
+     * MIUI ADD:
+     * @hide
+     */
+    public WebBackForwardList getBackForwardList() {
+        return mCallbackProxy.getBackForwardList();
+    }
+
+    /**
+     * MIUI ADD:
+     * @hide
+     */
+    public BrowserFrame getBrowserFrame() {
+        if (mWebViewCore == null) {
+            return null;
+        }
+        return mWebViewCore.getBrowserFrame();
+    }
+
+    /**
+     * MIUI ADD:
+     * @hide
+     */
+    public void setCurrentIndex(int newIndex) {
+        if (getBackForwardList() == null) {
+            return ;
+        }
+        getBackForwardList().setCurrentIndex(newIndex);
+    }
+    /**
+     * MIUI ADD:
+     * @hide
+    */
+    public boolean setPrereadNodeAttributeAndColor() {
+        if ((mWebViewCore == null) || (mWebViewCore.getBrowserFrame() == null)) {
+            return false;
+        }
+        return mWebViewCore.getBrowserFrame().setPrereadNodeAttributeAndColor();
+    }
+
+
 
     // WebViewProvider bindings
 
@@ -3341,13 +3428,20 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
             data.mScale = mZoomManager.getScale();
             data.mIgnoreHeight = mZoomManager.isFixedLengthAnimationInProgress()
                     && !mHeightCanMeasure;
-            data.mAnchorX = mZoomManager.getDocumentAnchorX();
+            if (mFocusedNode != null && mFocusedNode.mImageUrl != null) {
+                data.mAnchorX = mZoomManager.getDocumentAnchorX();
+            } else {
+                data.mAnchorX = mZoomManager.getDocumentAnchorX() - 2 * getScrollX();
+            }
             data.mAnchorY = mZoomManager.getDocumentAnchorY();
             mWebViewCore.sendMessage(EventHub.VIEW_SIZE_CHANGED, data);
             mLastWidthSent = newWidth;
             mLastHeightSent = newHeight;
             mLastActualHeightSent = actualViewHeight;
             mZoomManager.clearDocumentAnchor();
+            if (mWebView.canZoomIn() || mWebView.canZoomOut()) {
+                mWebView.setInitialScale((int) mZoomManager.getScale() * 100);
+            }
             return true;
         }
         return false;
@@ -4836,7 +4930,9 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
     private void onZoomAnimationStart() {
     }
 
+    private boolean mZoomAnimationEnd = false;
     private void onZoomAnimationEnd() {
+        mZoomAnimationEnd = true;
         mPrivateHandler.sendEmptyMessage(RELOCATE_AUTO_COMPLETE_POPUP);
     }
 
@@ -4963,63 +5059,179 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
 
     private void ensureSelectionHandles() {
         if (mSelectHandleCenter == null) {
+            // MIUI MOD:
+            // mSelectHandleCenter = mContext.getResources().getDrawable(
+            //         com.android.internal.R.drawable.text_select_handle_middle);
+            // mSelectHandleLeft = mContext.getResources().getDrawable(
+            //         com.android.internal.R.drawable.text_select_handle_left);
+            // mSelectHandleRight = mContext.getResources().getDrawable(
+            //         com.android.internal.R.drawable.text_select_handle_right);
+            // // All handles have the same height, so we can save effort with
+            // // this assumption.
+            // mSelectOffset = new Point(0,
+            //        -mSelectHandleLeft.getIntrinsicHeight());
             mSelectHandleCenter = mContext.getResources().getDrawable(
-                    com.android.internal.R.drawable.text_select_handle_middle);
+                    miui.R.drawable.text_select_handle_middle);
             mSelectHandleLeft = mContext.getResources().getDrawable(
-                    com.android.internal.R.drawable.text_select_handle_left);
+                    miui.R.drawable.text_select_handle_left);
             mSelectHandleRight = mContext.getResources().getDrawable(
-                    com.android.internal.R.drawable.text_select_handle_right);
-            // All handles have the same height, so we can save effort with
-            // this assumption.
+                    miui.R.drawable.text_select_handle_right);
+            mTextSelectMark = mContext.getResources().getDrawable(
+                    miui.R.drawable.text_select_mark);
+            mTextSelectHandleNoShadowHeight = mContext.getResources().getDimensionPixelSize(
+                    miui.R.dimen.text_select_handle_no_shadow_height);
+            mTextSelectHandleNoShadowMinHeight = mContext.getResources().getDimensionPixelSize(
+                    miui.R.dimen.text_select_handle_no_shadow_min_height);
+            mTextSelectMarkHeightMatchHandleHeight = mContext.getResources().getDimensionPixelSize(
+                    miui.R.dimen.text_select_mark_match_handle_height);
             mSelectOffset = new Point(0,
-                    -mSelectHandleLeft.getIntrinsicHeight());
+                    - mTextSelectHandleNoShadowMinHeight);
+            mMinHandleRatio = (float) mTextSelectHandleNoShadowMinHeight / mTextSelectHandleNoShadowHeight;
+            // END
         }
     }
 
     private void drawHandle(Point point, int handleId, Rect bounds,
             int alpha, Canvas canvas) {
-        int offset;
+        // MIUI MOD:
+        // int offset;
+        // int width;
+        // int height;
+        // Drawable drawable;
+        // boolean isLeft = nativeIsHandleLeft(mNativeClass, handleId);
+        // if (isLeft) {
+        //     drawable = mSelectHandleLeft;
+        //     width = mSelectHandleLeft.getIntrinsicWidth();
+        //     height = mSelectHandleLeft.getIntrinsicHeight();
+        //     // Magic formula copied from TextView
+        //     offset = (width * 3) / 4;
+        // } else {
+        //     drawable = mSelectHandleRight;
+        //     width = mSelectHandleRight.getIntrinsicWidth();
+        //     height = mSelectHandleRight.getIntrinsicHeight();
+        //     // Magic formula copied from TextView
+        //     offset = width / 4;
+        // }
+        // int x = contentToViewDimension(point.x);
+        // int y = contentToViewDimension(point.y);
+        // bounds.set(x - offset, y, x - offset + width, y + height);
+        // drawable.setBounds(bounds);
+        // drawable.setAlpha(alpha);
+        // drawable.draw(canvas);
+        int xOffset;
+        int yOffset;
         int width;
         int height;
         Drawable drawable;
         boolean isLeft = nativeIsHandleLeft(mNativeClass, handleId);
+
+        // 计算光标的实际应该显示的高度，根据当前选中字的高度来确定光标的高度
+        int markHeight = mTextSelectMarkHeightMatchHandleHeight;
+        if (mSelectCursorBaseTextQuad != null && mSelectCursorExtentTextQuad != null) {
+            if (handleId == HANDLE_ID_BASE) {
+                markHeight = Math.min(contentToViewDimension(
+                        (int)(mSelectCursorBaseTextQuad.p4.y - mSelectCursorBaseTextQuad.p1.y))
+                        , markHeight);
+            }
+            else {
+                markHeight = Math.min(contentToViewDimension(
+                        (int)(mSelectCursorExtentTextQuad.p4.y - mSelectCursorExtentTextQuad.p1.y))
+                        , markHeight);
+            }
+        }
+
         if (isLeft) {
             drawable = mSelectHandleLeft;
             width = mSelectHandleLeft.getIntrinsicWidth();
             height = mSelectHandleLeft.getIntrinsicHeight();
             // Magic formula copied from TextView
-            offset = (width * 3) / 4;
+            xOffset = width / 2;
+            yOffset = mTextSelectHandleNoShadowHeight;
         } else {
             drawable = mSelectHandleRight;
             width = mSelectHandleRight.getIntrinsicWidth();
             height = mSelectHandleRight.getIntrinsicHeight();
             // Magic formula copied from TextView
-            offset = width / 4;
+            xOffset =width / 2;
+            yOffset = 0;
         }
+
         int x = contentToViewDimension(point.x);
         int y = contentToViewDimension(point.y);
-        bounds.set(x - offset, y, x - offset + width, y + height);
+
+        int halfMarkWidth = mTextSelectMark.getIntrinsicWidth() / 2;
+        Rect markBound = new Rect(x - halfMarkWidth, y - markHeight , x + halfMarkWidth, y);
+        mTextSelectMark.setBounds(markBound);
+        mTextSelectMark.setAlpha(alpha);
+        mTextSelectMark.draw(canvas);
+
+        float ratio = Math.min(1, Math.max(mMinHandleRatio, (float) markHeight / mTextSelectMarkHeightMatchHandleHeight));
+        height = (int) (height * ratio);
+        width = (int) (width * ratio);
+        xOffset = width / 2;
+        yOffset = isLeft ? (int) (markHeight + yOffset * ratio) : 0;
+
+        bounds.set(x - xOffset, y - yOffset, x - xOffset + width, y - yOffset + height);
         drawable.setBounds(bounds);
         drawable.setAlpha(alpha);
         drawable.draw(canvas);
+        // END
     }
 
     /**
      * MIUI ADD:
      */
-    private void keepCaretHandleInEditTextContentBounds() {
+    private void drawCaretSelectionHandleAndMark(Point point, Canvas canvas) {
+        if (mSelectCursorBaseTextQuad == null) return;
+
+        // 实际应该显示mark的高度
+        int markHeight = Math.min(contentToViewDimension(
+                (int)(mSelectCursorBaseTextQuad.p4.y - mSelectCursorBaseTextQuad.p1.y))
+                , mTextSelectMarkHeightMatchHandleHeight);
+
+        int handleWidth = mSelectHandleCenter.getIntrinsicWidth();
+        int handleHeight = mSelectHandleCenter.getIntrinsicHeight();
+
+        float ratio = Math.max(mMinHandleRatio, (float) markHeight / mTextSelectMarkHeightMatchHandleHeight);
+        handleWidth = (int) (ratio * handleWidth);
+        handleHeight = (int) (ratio * handleHeight);
+
+        int x = contentToViewDimension(mSelectCursorBase.x);
+        int y = contentToViewDimension(mSelectCursorBase.y);
+
+        mSelectHandleBaseBounds.set(x - handleWidth / 2, y,
+              x + handleWidth / 2,
+              y + handleHeight);
+
+        keepCaretHandleInEditTextContentBounds(ratio);
+        mSelectHandleCenter.setBounds(mSelectHandleBaseBounds);
+        mSelectHandleCenter.setAlpha(mBaseAlpha.getAlpha());
+        mSelectHandleCenter.draw(canvas);
+
+        int halfMarkWidth = mTextSelectMark.getIntrinsicWidth() / 2;
+        Rect markBound = new Rect(x - halfMarkWidth, y - markHeight , x + halfMarkWidth, y);
+        mTextSelectMark.setBounds(markBound);
+        mTextSelectMark.setAlpha(mBaseAlpha.getAlpha());
+        mTextSelectMark.draw(canvas);
+    }
+
+
+    /**
+     * MIUI ADD:
+     */
+    private void keepCaretHandleInEditTextContentBounds(float ratio) {
         int left = contentToViewDimension(mEditTextContentBounds.left)
-                - mSelectHandleCenter.getIntrinsicWidth() / 2;
+                - (int) (ratio * mSelectHandleCenter.getIntrinsicWidth() / 2);
         int right = contentToViewDimension(mEditTextContentBounds.right)
-                - mSelectHandleCenter.getIntrinsicWidth() / 2;
+                - (int) (ratio * mSelectHandleCenter.getIntrinsicWidth() / 2);
         if (mSelectHandleBaseBounds.left < left) {
             mSelectHandleBaseBounds.set(left, mSelectHandleBaseBounds.top,
-                    left + mSelectHandleCenter.getIntrinsicWidth(),
-                    mSelectHandleBaseBounds.top + mSelectHandleCenter.getIntrinsicHeight());
+                    left + (int) (ratio * mSelectHandleCenter.getIntrinsicWidth()),
+                    mSelectHandleBaseBounds.top + (int)(ratio * mSelectHandleCenter.getIntrinsicHeight()));
         } else if (mSelectHandleBaseBounds.left > right) {
             mSelectHandleBaseBounds.set(right, mSelectHandleBaseBounds.top,
-                    right + mSelectHandleCenter.getIntrinsicWidth(),
-                    mSelectHandleBaseBounds.top + mSelectHandleCenter.getIntrinsicHeight());
+                    right + (int) (ratio * mSelectHandleCenter.getIntrinsicWidth()),
+                    mSelectHandleBaseBounds.top + (int) (ratio * mSelectHandleCenter.getIntrinsicHeight()));
         }
     }
 
@@ -5032,17 +5244,20 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
         ensureSelectionHandles();
         if (mIsCaretSelection) {
             // Caret handle is centered
-            int x = contentToViewDimension(mSelectCursorBase.x) -
-                    (mSelectHandleCenter.getIntrinsicWidth() / 2);
-            int y = contentToViewDimension(mSelectCursorBase.y);
-            mSelectHandleBaseBounds.set(x, y,
-                    x + mSelectHandleCenter.getIntrinsicWidth(),
-                    y + mSelectHandleCenter.getIntrinsicHeight());
-            // MIUI ADD:
-            keepCaretHandleInEditTextContentBounds();
-            mSelectHandleCenter.setBounds(mSelectHandleBaseBounds);
-            mSelectHandleCenter.setAlpha(mBaseAlpha.getAlpha());
-            mSelectHandleCenter.draw(canvas);
+            // MIUI MOD:
+            // int x = contentToViewDimension(mSelectCursorBase.x) -
+            //         (mSelectHandleCenter.getIntrinsicWidth() / 2);
+            // int y = contentToViewDimension(mSelectCursorBase.y);
+            // mSelectHandleBaseBounds.set(x, y,
+            //         x + mSelectHandleCenter.getIntrinsicWidth(),
+            //         y + mSelectHandleCenter.getIntrinsicHeight());
+            // // MIUI ADD:
+            // keepCaretHandleInEditTextContentBounds();
+            // mSelectHandleCenter.setBounds(mSelectHandleBaseBounds);
+            // mSelectHandleCenter.setAlpha(mBaseAlpha.getAlpha());
+            // mSelectHandleCenter.draw(canvas);
+            drawCaretSelectionHandleAndMark(mSelectCursorBase, canvas);
+            // END
         } else {
             drawHandle(mSelectCursorBase, HANDLE_ID_BASE,
                     mSelectHandleBaseBounds, mBaseAlpha.getAlpha(), canvas);
@@ -5050,6 +5265,22 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
                     mSelectHandleExtentBounds, mExtentAlpha.getAlpha(), canvas);
             // MIUI ADD:
             showMagnifierAndFloatView(canvas);
+        }
+    }
+
+    // MIUI ADD:
+    private void updateSelectionRectIfNeeded() {
+        if (!mZoomAnimationEnd)
+            return;
+
+        if (mBaseAlpha.getAlpha() == 0 && mExtentAlpha.getAlpha() == 0) {
+            return;
+        }
+
+        if (! mHitHandle && mSelectingText && ! mIsCaretSelection) {
+            int[] handles = new int[4];
+            getSelectionHandles(handles);
+            mWebViewCore.sendMessage(EventHub.UPDATE_SELECTION_RECT, handles);
         }
     }
 
@@ -5072,9 +5303,7 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
      * would show at new offset of text when the blingking cursor changes
      */
     private void syncSelectionCursorsBeforeShowSelectHandleCenter() {
-        if (mIsCaretSelection) {
             syncSelectionCursors();
-        }
     }
 
     /**
@@ -5117,6 +5346,16 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
     private Drawable mSelectEndMark;
     // MIUI ADD:
     private boolean mHitHandle = false;
+    // MIUI ADD:
+    private Drawable mTextSelectMark;
+    // MIUI ADD:
+    private int mTextSelectHandleNoShadowHeight = 0;
+    // MIUI ADD:
+    private int mTextSelectHandleNoShadowMinHeight = 0;
+    // MIUI ADD:
+    private int mTextSelectMarkHeightMatchHandleHeight = 0;
+    // MIUI ADD:
+    private float mMinHandleRatio = 0.0f;
 
     /**
      * MIUI ADD:
@@ -5264,14 +5503,15 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
 
             Paint p = new Paint();
             p.setColor(0xfff8ca91);
-            Rect shadow;
-
+            RectF shadow;
+            float magnifierRoundRadius = mContext.getResources().getDimension(miui.R.dimen.magnifier_round_radius);
             if (wasDraggingLeft) {
-                shadow = new Rect(rr.left + BASE_HALF_WIDTH, rr.top+innerTopPadding, rr.right-innerRightPadding, rr.bottom-innerBottomPadding);
+                shadow = new RectF(rr.left + BASE_HALF_WIDTH - magnifierRoundRadius / 2, rr.top+innerTopPadding, rr.right-innerRightPadding, rr.bottom-innerBottomPadding);
             } else {
-                shadow = new Rect(rr.left+innerLeftPadding, rr.top+innerTopPadding, rr.left+BASE_HALF_WIDTH, rr.bottom-innerBottomPadding);
+                shadow = new RectF(rr.left+innerLeftPadding, rr.top+innerTopPadding, rr.left+BASE_HALF_WIDTH + magnifierRoundRadius / 2, rr.bottom-innerBottomPadding);
             }
-            canvas.drawRect(shadow, p);
+            //canvas.drawRect(shadow, p);
+            canvas.drawRoundRect(new RectF(shadow), magnifierRoundRadius, magnifierRoundRadius, p);
             canvas.clipRect(rr.left + innerLeftPadding, rr.top + innerTopPadding, rr.right - innerRightPadding, rr.bottom - innerBottomPadding);
 
             Paint textPaint = new Paint();
@@ -6527,6 +6767,10 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
      * MIUI ADD:
      */
     private void showCopyFloatView() {
+        if (mZoomAnimationEnd) {
+            return;
+        }
+
         if (mCopyFloatPanel == null) {
             mCopyFloatPanel = SelectionFloatPanel.getInstance(mContext, this);
         }
@@ -6605,7 +6849,7 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
         Rect panelRect = new Rect(mMenuLeft, mMenuTop, mMenuLeft + panelWidth, mMenuTop + panelHeight);
         Rect tempPanelRect =  new Rect(panelRect);
         if (tempPanelRect.intersect(leftHandleRect)) {
-            mMenuTop = start_y - delta;
+            mMenuTop = leftHandleRect.top - delta;
         }
 
         int expandSX = start_x;
@@ -6661,9 +6905,9 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
         }
 
         if (! mIsEditingText) {
-            mCopyFloatPanel.showAt(mMenuLeft+globalOffset.x, mMenuTop + titleHeight + globalOffset.y, upOrDown);
+            mCopyFloatPanel.showAt(mMenuLeft+globalOffset.x, mMenuTop + titleHeight + globalOffset.y, upOrDown, textRect, getScrollX());
         } else {
-            mWebInputSelectionFloatPanel.showAt(mMenuLeft+globalOffset.x, mMenuTop + titleHeight + globalOffset.y, upOrDown);
+            mWebInputSelectionFloatPanel.showAt(mMenuLeft+globalOffset.x, mMenuTop + titleHeight + globalOffset.y, upOrDown, textRect, getScrollX());
         }
     }
 
@@ -6841,7 +7085,8 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
                 return ;
             }
             if (mSelectingText && ! mIsCaretSelection) {
-               showCopyFloatView();
+                showCopyFloatView();
+                updateSelectionRectIfNeeded();
             }
         } else {
             mIsActionUp = false;
@@ -6850,18 +7095,22 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
                     mIsActionUp = true;
                     mHitHandle = false;
                     showCopyFloatView();
+                    updateSelectionRectIfNeeded();
                 } else {
                     hideCopyFloatView();
                 }
             }
-            if (ev.getAction() == MotionEvent.ACTION_DOWN && !mShowingInsertionPanel) {
-                int shiftedX = mLastTouchX + getScrollX();
-                int shiftedY = mLastTouchY - getTitleHeight() + getScrollY();
-                if (mWebInputInsertionFloatPanel != null && mWebInputInsertionFloatPanel.getVisibility() == View.VISIBLE
-                        && hitCenterHandle(shiftedX, shiftedY)) {
-                    mShowingInsertionPanel = true;
+            if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+                mZoomAnimationEnd = false;
+                if ( ! mShowingInsertionPanel) {
+                    int shiftedX = mLastTouchX + getScrollX();
+                    int shiftedY = mLastTouchY - getTitleHeight() + getScrollY();
+                    if (mWebInputInsertionFloatPanel != null && mWebInputInsertionFloatPanel.getVisibility() == View.VISIBLE
+                            && hitCenterHandle(shiftedX, shiftedY)) {
+                        mShowingInsertionPanel = true;
+                    }
+                    hideInsertionFloatView();
                 }
-                hideInsertionFloatView();
             }
         }
     }
@@ -7018,6 +7267,40 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
                                 viewToContentDimension(mSelectOffset.x);
                         int handleY = contentY +
                                 viewToContentDimension(mSelectOffset.y);
+                        // MIUI ADD:
+                        if (! mIsCaretSelection) {
+                            boolean isDragBaseCursor = mSelectDraggingCursor == mSelectCursorBase;
+                            boolean isLeft = nativeIsHandleLeft(mNativeClass, isDragBaseCursor ? HANDLE_ID_BASE : HANDLE_ID_EXTENT);
+                            boolean baseIsBeforeExtent = baseIsBeforeExtent();
+                            int leftX = baseIsBeforeExtent ? (int)mSelectCursorBaseTextQuad.p1.x : (int)mSelectCursorExtentTextQuad.p2.x;
+                            int rightX = baseIsBeforeExtent ? (int)mSelectCursorExtentTextQuad.p2.x : (int)mSelectCursorBaseTextQuad.p1.x;
+                            int rightTextTop = baseIsBeforeExtent ? (int)mSelectCursorExtentTextQuad.p1.y : (int)mSelectCursorBaseTextQuad.p1.y;
+                            int rightTextBottom =  baseIsBeforeExtent ? (int)mSelectCursorExtentTextQuad.p4.y : (int)mSelectCursorBaseTextQuad.p4.y;
+
+                            int leftTextTop = baseIsBeforeExtent ? (int)mSelectCursorBaseTextQuad.p1.y : (int)mSelectCursorExtentTextQuad.p1.y;
+                            int leftTextBottom = baseIsBeforeExtent ? (int)mSelectCursorBaseTextQuad.p4.y : (int)mSelectCursorExtentTextQuad.p4.y;
+                            if (isLeft) {
+                                handleY = contentY - viewToContentDimension(mSelectOffset.y);
+                                if (leftTextTop == rightTextTop && handleY >= leftTextBottom) {
+                                    handleY = leftTextBottom - 1;
+                                    if (handleX >= rightX)
+                                        handleX = leftX;
+                                }
+                                if (leftTextTop < rightTextTop && handleY > rightTextTop) {
+                                    handleY = rightTextBottom -1;
+                                }
+                            } else {
+                                if (leftTextTop == rightTextTop && handleY <= rightTextTop) {
+                                    handleY = rightTextTop + 1;
+                                    if (handleX <= leftX)
+                                        handleX = rightX;
+                                }
+                                if (leftTextTop < rightTextTop && handleY <= leftTextBottom) {
+                                    handleY = leftTextTop + 1;
+                                }
+                            }
+                        }
+                        // END
                         mSelectDraggingCursor.set(handleX, handleY);
                         boolean inCursorText =
                                 mSelectDraggingTextQuad.containsPoint(handleX, handleY);
@@ -7259,6 +7542,18 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
         handleTouchEventForSelectText(event);
     }
 
+    /**
+     * MIUI ADD:
+     */
+    private boolean baseIsBeforeExtent() {
+        if (mSelectCursorBaseTextQuad.p1.y < mSelectCursorExtentTextQuad.p1.y)
+            return true;
+        if (mSelectCursorBaseTextQuad.p1.y == mSelectCursorExtentTextQuad.p1.y) {
+            if (mSelectCursorBaseTextQuad.p1.x <= mSelectCursorExtentTextQuad.p1.x)
+                return true;
+        }
+        return false;
+    }
     /**
      * MIUI ADD:
      */
@@ -8403,6 +8698,16 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
                     break;
                 }
                 // MiuiHook read mode end
+                // MIUI ADD:
+                // PreReading start
+                case SEND_PREREAD_URL: {
+                    String prereadUrl = (String) msg.obj;
+                    if (prereadUrl != null) {
+                        getWebViewClient().onPrereadUrlReady(prereadUrl);
+                    }
+                    break;
+                }
+                // END
                 case REMEMBER_PASSWORD: {
                     mDatabase.setUsernamePassword(
                             msg.getData().getString("host"),

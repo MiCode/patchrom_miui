@@ -153,6 +153,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
+import miui.util.UiUtils;
+
 /** {@hide} */
 public class WindowManagerService extends IWindowManager.Stub
         implements Watchdog.Monitor, WindowManagerPolicy.WindowManagerFuncs {
@@ -202,14 +204,17 @@ public class WindowManagerService extends IWindowManager.Stub
                 isAllowed = true;
             } else {
                 com.android.server.pm.PackageManagerService pms =
-                        (com.android.server.pm.PackageManagerService) ServiceManager.getService("package");
+                        (com.android.server.pm.PackageManagerService) ServiceManager
+                                .getService("package");
                 String[] packages = pms.getPackagesForUid(uid);
                 if (packages != null && packages.length > 0) {
-                    android.content.pm.ApplicationInfo ai = pms.getApplicationInfo(packages[0], 0, 0);
+                    android.content.pm.ApplicationInfo ai = pms.getApplicationInfo(packages[0], 0,
+                            0);
                     if (ai != null) {
                         isAllowed = (ai.flags & ApplicationInfo.FLAG_SYSTEM) == ApplicationInfo.FLAG_SYSTEM
-                                    || (ai.flags & ApplicationInfo.FLAG_SHOW_FLOATING_WINDOW)
-                                     == ApplicationInfo.FLAG_SHOW_FLOATING_WINDOW;
+                                || (ai.flags & ApplicationInfo.FLAG_SHOW_FLOATING_WINDOW)
+                                    == ApplicationInfo.FLAG_SHOW_FLOATING_WINDOW
+                                || (UiUtils.isFloatingWindowAllowed(ai.packageName));
                     }
                 }
             }
