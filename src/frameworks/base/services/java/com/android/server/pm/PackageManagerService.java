@@ -299,7 +299,7 @@ public class PackageManagerService extends IPackageManager.Stub {
         static void addAvailableFeatures(final HashMap<String, FeatureInfo> features) {
             final String HARDWARE_TELEPHONY = "android.hardware.telephony";
             final String HARDWARE_TELEPHONY_CDMA = "android.hardware.telephony.cdma";
-            if (miui.os.Build.IS_XIAOMI_CDMA) {
+            if (miui.os.Build.IS_CDMA) {
                 if (!features.containsKey(HARDWARE_TELEPHONY)) {
                     FeatureInfo fi = new FeatureInfo();
                     fi.name = HARDWARE_TELEPHONY;

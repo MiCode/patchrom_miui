@@ -15,8 +15,17 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <CheckBoxPreference
-         android:key="sync_enable"
-         android:order ="-1"
-         android:title="@string/sync_enable" />
+    <PreferenceCategory>
+        <CheckBoxPreference
+            android:key="sync_enable"
+            android:order="-1"
+            android:title="@string/sync_enable"/>
+        <CheckBoxPreference
+            android:key="wifi_only"
+            android:order="1"
+            android:persistent="false"
+            android:title="@string/sync_wifi_only"
+            android:dependency="sync_enable"
+            />
+    </PreferenceCategory>
 </PreferenceScreen>
