@@ -213,6 +213,15 @@ public class AudioService extends IAudioService.Stub implements OnFinished {
 
             return null;
         }
+
+        /**
+         * 原生系统在振动和静音的时候，不会把mLastAudibleIndex的index置成0，
+         * 但是，在判断写入SettingsProvider的时候，需要比较mLastAudibleIndex和mIndex的index。
+         * 所以需要在从震动到最低音量的时候， 强制把音量值写入数据库
+         */
+        public static boolean isRingerModeChanged(AudioService audioService, int ringerMode) {
+            return audioService.getRingerMode() != ringerMode;
+        }
     }
 
     private static final String TAG = "AudioService";
@@ -938,6 +947,8 @@ public class AudioService extends IAudioService.Stub implements OnFinished {
 
         index = rescaleIndex(index * 10, streamType, mStreamVolumeAlias[streamType]);
 
+        // MIUI ADD:
+        boolean forcePersist = false;
         // setting volume on master stream type also controls silent mode
         if (((flags & AudioManager.FLAG_ALLOW_RINGER_MODES) != 0) ||
                 (mStreamVolumeAlias[streamType] == getMasterStreamType())) {
@@ -952,11 +963,14 @@ public class AudioService extends IAudioService.Stub implements OnFinished {
                                    true);
             } else {
                 newRingerMode = AudioManager.RINGER_MODE_NORMAL;
+                // MIUI ADD:
+                forcePersist = Injector.isRingerModeChanged(this, newRingerMode);
             }
             setRingerMode(newRingerMode);
         }
-
-        setStreamVolumeInt(mStreamVolumeAlias[streamType], index, device, false, true);
+        // MIUI MOD:
+        // setStreamVolumeInt(mStreamVolumeAlias[streamType], index, device, false, true);
+        setStreamVolumeInt(mStreamVolumeAlias[streamType], index, device, forcePersist, true);
         // get last audible index if stream is muted, current index otherwise
         index = mStreamStates[streamType].getIndex(device,
                                  (mStreamStates[streamType].muteCount() != 0) /* lastAudible */);

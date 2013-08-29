@@ -16,8 +16,13 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory
-        android:title="@string/pref_content_preload_title">
+    <PreferenceCategory android:key="pref_bandwidth_setting" >
+
+        <CheckBoxPreference
+          android:key="is_use_save_bandwidth_mode"
+          android:title="@string/pref_save_bandwidth_mode_title"
+          android:summary="@string/pref_save_bandwidth_mode_summary"
+          android:defaultValue="false" />
 
         <ListPreference
             android:key="preload_when"
@@ -42,11 +47,6 @@
             android:entries="@array/pref_video_preload_choices"
             android:entryValues="@array/pref_video_preload_values"
             android:dialogTitle="@string/pref_video_preload_dialogtitle" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/pref_image_display_control">
 
         <ListPreference
             android:key="pref_preload_images"

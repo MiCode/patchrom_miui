@@ -1495,6 +1495,13 @@ public class Notification implements Parcelable
                     contentView.setLong(R.id.time, "setTime", mWhen);
                 }
             }
+            // MIUI ADD : START
+            // use 4.2 code fix bug
+            else {
+                contentView.setViewVisibility(R.id.time, View.GONE);
+            }
+            //END
+
             contentView.setViewVisibility(R.id.line3, showLine3 ? View.VISIBLE : View.GONE);
             contentView.setViewVisibility(R.id.overflow_divider, showLine3 ? View.VISIBLE : View.GONE);
             return contentView;

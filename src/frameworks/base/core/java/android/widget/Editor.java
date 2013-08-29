@@ -415,7 +415,7 @@ public class Editor {
                     || windowParams.type > WindowManager.LayoutParams.LAST_SUB_WINDOW;
         }
 
-        boolean enabled = windowSupportsHandles && mTextView.getLayout() != null;
+        boolean enabled = windowSupportsHandles && mTextView.getLayout() != null && ! mTextView.isPasswordInputType(mTextView.getInputType());
         mInsertionControllerEnabled = enabled && isCursorVisible();
         mSelectionControllerEnabled = enabled && mTextView.textCanBeSelected();
 

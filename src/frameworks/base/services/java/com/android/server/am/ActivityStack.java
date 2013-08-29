@@ -85,9 +85,11 @@ final class ActivityStack {
         /**
          * 验证是否需要隐私保护，如果需要，会返回用于启动保护界面的Intent，否则返回原来的Intent
          */
-        static Intent checkAccessControl(Context context, ActivityInfo aInfo, Intent intent) {
+        static Intent checkAccessControl(Context context, ActivityInfo aInfo, Intent intent,
+                IBinder resultTo, int requestCode) {
             if (aInfo != null) {
-                Intent checkIntent = FirewallManager.getCheckIntent(context, aInfo.packageName, intent);
+                Intent checkIntent = FirewallManager.getCheckIntent(
+                        context, aInfo.packageName, intent, resultTo != null, requestCode);
                 // 如果返回非null，说明需要启动返回界面，狸猫换太子，返回启动隐私保护界面的Intent
                 if (checkIntent != null) {
                     intent = checkIntent;
@@ -3120,7 +3122,7 @@ final class ActivityStack {
         ActivityInfo aInfo = resolveActivity(intent, resolvedType, startFlags,
                 profileFile, profileFd, userId);
         // MIUI ADD: START
-        intent = Injector.checkAccessControl(mContext, aInfo, intent);
+        intent = Injector.checkAccessControl(mContext, aInfo, intent, resultTo, requestCode);
         aInfo = Injector.resolveCheckIntent(aInfo, intent, this, profileFile, profileFd, userId);
         // END
         if (aInfo != null && mService.isSingleton(aInfo.processName, aInfo.applicationInfo)) {
