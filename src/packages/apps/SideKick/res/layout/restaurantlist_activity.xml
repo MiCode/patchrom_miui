@@ -4,29 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <!--
-         <TextView android:id="@+id/tv_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/restaurant_more"
-        android:textColor="@color/bright_foreground_light"
-       	android:textSize="18sp"
-       	android:paddingTop="3dp"
-       	android:paddingBottom="10dp"
-       	android:layout_marginLeft="3dp"
-       	android:background="@drawable/card_selector" />
-    -->
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginTop="10dp"
-        android:src="@color/dark_foreground_light" />
-
     <ListView
         android:id="@+id/lv_restaurant"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:cacheColorHint="#00000000"
@@ -34,4 +16,10 @@
         android:dividerHeight="1px"
         android:listSelector="#00000000" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:padding="15dp"
+        android:src="@drawable/dianping_logo" />
 </LinearLayout>
