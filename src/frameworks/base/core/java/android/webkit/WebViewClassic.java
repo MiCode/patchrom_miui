@@ -3428,20 +3428,13 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
             data.mScale = mZoomManager.getScale();
             data.mIgnoreHeight = mZoomManager.isFixedLengthAnimationInProgress()
                     && !mHeightCanMeasure;
-            if (mFocusedNode != null && mFocusedNode.mImageUrl != null) {
-                data.mAnchorX = mZoomManager.getDocumentAnchorX();
-            } else {
-                data.mAnchorX = mZoomManager.getDocumentAnchorX() - 2 * getScrollX();
-            }
+            data.mAnchorX = mZoomManager.getDocumentAnchorX();
             data.mAnchorY = mZoomManager.getDocumentAnchorY();
             mWebViewCore.sendMessage(EventHub.VIEW_SIZE_CHANGED, data);
             mLastWidthSent = newWidth;
             mLastHeightSent = newHeight;
             mLastActualHeightSent = actualViewHeight;
             mZoomManager.clearDocumentAnchor();
-            if (mWebView.canZoomIn() || mWebView.canZoomOut()) {
-                mWebView.setInitialScale((int) mZoomManager.getScale() * 100);
-            }
             return true;
         }
         return false;

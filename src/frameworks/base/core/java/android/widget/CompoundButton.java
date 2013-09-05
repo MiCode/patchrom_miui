@@ -214,6 +214,14 @@ public abstract class CompoundButton extends Button implements Checkable {
 
     @Override
     public void onInitializeAccessibilityEvent(AccessibilityEvent event) {
+        // MIUI ADD: START
+        if (UiUtils.isV5Ui(getContext())) {
+            event.setChecked(mChecked);
+            super.onInitializeAccessibilityEvent(event);
+            event.setClassName(CompoundButton.class.getName());
+            return;
+        }
+        // END
         super.onInitializeAccessibilityEvent(event);
         event.setClassName(CompoundButton.class.getName());
         event.setChecked(mChecked);
@@ -221,6 +229,15 @@ public abstract class CompoundButton extends Button implements Checkable {
 
     @Override
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
+        // MIUI ADD: START
+        if (UiUtils.isV5Ui(getContext())) {
+            info.setCheckable(true);
+            info.setChecked(mChecked);
+            super.onInitializeAccessibilityNodeInfo(info);
+            info.setClassName(CompoundButton.class.getName());
+            return;
+        }
+        // END
         super.onInitializeAccessibilityNodeInfo(info);
         info.setClassName(CompoundButton.class.getName());
         info.setCheckable(true);

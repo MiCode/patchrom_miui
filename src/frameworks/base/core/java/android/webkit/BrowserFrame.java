@@ -119,6 +119,9 @@ class BrowserFrame extends Handler {
     // a message posted when the user decides the policy
     static final int POLICY_FUNCTION = 1003;
 
+    // MIUI ADD:
+    static final int SET_PREREAD_ATTRIBUTE_AND_COLOR = 5001;
+
     // Note: need to keep these in sync with FrameLoaderTypes.h in native
     static final int FRAME_LOADTYPE_STANDARD = 0;
     static final int FRAME_LOADTYPE_BACK = 1;
@@ -597,6 +600,12 @@ class BrowserFrame extends Handler {
 
             case POLICY_FUNCTION: {
                 nativeCallPolicyFunction(msg.arg1, msg.arg2);
+                break;
+            }
+
+            // MIUI ADD:
+            case SET_PREREAD_ATTRIBUTE_AND_COLOR: {
+                nativeSetPrereadNodeAttributeAndColor();
                 break;
             }
 
@@ -1462,7 +1471,8 @@ class BrowserFrame extends Handler {
 
     // MIUI ADD:
     boolean setPrereadNodeAttributeAndColor() {
-        return nativeSetPrereadNodeAttributeAndColor();
+        sendMessage(obtainMessage(SET_PREREAD_ATTRIBUTE_AND_COLOR));
+        return true;
     }
 
     // MIUI ADD:

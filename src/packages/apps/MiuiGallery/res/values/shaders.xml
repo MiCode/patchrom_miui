@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dummy_vs">
+        <![CDATA[
+        uniform mat4 mg_ModelView, mg_Projection;
+        attribute vec2 mg_TexCoord0, mg_TexCoord1;
+        attribute vec3 mg_Vertex;
+        varying vec2 mg_UV0, mg_UV1;
+
+        void main() {
+           gl_Position = mg_Projection * mg_ModelView * vec4(mg_Vertex, 1);
+           mg_UV0 = mg_TexCoord0;
+           mg_UV1 = mg_TexCoord1;
+        }
+        ]]>
+    </string>
+    <string name="dummy_fs">
+        <![CDATA[
+        precision mediump float;
+
+        uniform mat4 mg_TextureMatrix;
+        uniform sampler2D mg_Texture0, mg_Texture1;
+        uniform vec4 mg_Color;
+        uniform float mg_Texture0_Weight, mg_Texture1_Weight, mg_Color_Weight;
+        uniform vec4 mg_Texture0_Modulate, mg_Texture1_Modulate;
+        varying vec2 mg_UV0, mg_UV1;
+
+        vec2 transform_uv(vec2 uv) {
+            vec4 v = vec4(uv, 0, 1);
+            v = mg_TextureMatrix * v;
+            return v.xy;
+        }
+
+        void main() {
+            vec4 col = vec4(0, 0, 0, 0);
+
+            if(mg_Texture0_Weight > 0.05) {
+                col += mg_Texture0_Modulate * texture2D(mg_Texture0, transform_uv(mg_UV0)) * mg_Texture0_Weight;
+            }
+
+            if(mg_Texture1_Weight > 0.05) {
+                col += mg_Texture1_Modulate * texture2D(mg_Texture1, transform_uv(mg_UV1)) * mg_Texture1_Weight;
+            }
+
+            if(mg_Color_Weight > 0.05) {
+                col += mg_Color * mg_Color_Weight;
+            }
+
+            gl_FragColor = col;
+        }
+        ]]>
+    </string>
+</resources>

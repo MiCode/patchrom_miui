@@ -31,13 +31,12 @@
 
     <Preference
         android:key="screen_color"
-        android:title="@string/screen_color_temperature_adjust"
-        android:persistent="false" />
-
-    <Preference
-        android:key="screen_saturation"
-        android:title="@string/screen_saturation_adjust"
-        android:persistent="false"/>
+        android:title="@string/screen_color_temperature_and_saturation"
+        android:persistent="false" >
+        <intent
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.display.ScreenColorActivity" />
+    </Preference>
 
     <PreferenceCategory
         android:title="@string/system"/>
