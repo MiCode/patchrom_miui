@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.yellowpage.ui.YellowPageDownloadAppListModuleItem xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/yellowpage_download_app_background" >
+
+        <LinearLayout
+            android:id="@+id/primary_action_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/yellow_page_detail_list_item_padding_vertical"
+            android:paddingLeft="@dimen/yellow_page_download_app_detail_list_item_padding_left"
+            android:paddingRight="@dimen/yellow_page_detail_list_item_padding_horizontal"
+            android:paddingTop="@dimen/yellow_page_detail_list_item_padding_vertical" >
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/YellowPageListItemTextAppearancePrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/sub_title"
+                style="@style/YellowPageListItemTextAppearanceSecondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/type_icon"
+            android:layout_width="@dimen/yellow_page_module_type_icon_size"
+            android:layout_height="@dimen/yellow_page_module_type_icon_size"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="@dimen/yellow_page_download_app_detail_type_icon_left_margin"
+            android:layout_marginTop="@dimen/yellow_page_download_app_detail_type_icon_top_margin" />
+
+        <ImageView
+            android:id="@+id/download_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="@dimen/yellow_page_download_app_detail_action_icon_right_margin"
+            android:background="@drawable/download_button"
+            android:duplicateParentState="false"
+            android:scaleType="centerInside" />
+    </FrameLayout>
+
+</com.miui.yellowpage.ui.YellowPageDownloadAppListModuleItem>

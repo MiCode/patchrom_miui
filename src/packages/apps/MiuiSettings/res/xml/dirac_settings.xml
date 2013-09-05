@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <PreferenceCategory>
-        <miui.preference.RadioButtonPreference
-            android:key="mode_off"
-            android:persistent="false"
-            android:title="@string/dirac_mode_off" />
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="mi_effect_control"
+        android:summary="@string/dirac_switch_summary"
+        android:title="@string/dirac_switch_title" />
+
+    <PreferenceCategory
+        android:key="mode_category" >
         <miui.preference.RadioButtonPreference
             android:key="mode_earbuds"
             android:persistent="false"

@@ -32,10 +32,9 @@
             android:layout_height="1px"/>
     <!-- Container in which we are going to add and remove views, to demonstrate
 how the layout adjusts based on size. -->
-    <LinearLayout android:id="@+id/inner_content"
+    <RelativeLayout android:id="@+id/inner_content"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  android:orientation="vertical"
                   android:paddingTop="17dp"
                   android:paddingBottom="17dp"
                   android:paddingLeft="@dimen/dialog_margin_h"
@@ -43,23 +42,36 @@ how the layout adjusts based on size. -->
             >
         <TextView
                 android:id="@+id/account_name"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
                 style="?android:attr/textAppearanceMedium"
+                />
+        <TextView
+                android:id="@+id/forget_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="@string/forget_password"
+                android:layout_alignParentRight="true"
+                android:layout_alignBottom="@+id/account_name"
+                style="@style/HyperLinkStyle"
                 />
         <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_below="@+id/account_name"
                 android:minHeight="@dimen/editor_height"
                 android:hint="@string/input_password_hint"
                 android:singleLine="true"
                 android:password="true"
                 style="?android:attr/textAppearance"
                 />
-    </LinearLayout>
+    </RelativeLayout>
     <View
             style="@style/Divider"
             android:layout_width="match_parent"

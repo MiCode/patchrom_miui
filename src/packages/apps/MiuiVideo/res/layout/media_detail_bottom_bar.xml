@@ -11,33 +11,41 @@
 	    android:paddingTop="@dimen/media_bottom_bar_padding_vertical"
 	    android:paddingBottom="@dimen/media_bottom_bar_padding_vertical"
 	    android:layout_gravity="bottom"  
+	    android:orientation="horizontal"
 	    android:background="@drawable/detail_bottombar">
 		
+	    <FrameLayout 
+	        android:layout_width="@dimen/detail_bottom_button_width_edge"
+	        android:layout_height="match_parent">
 	        <Button
 	            android:id="@+id/btn_myfavorite"
-	            android:layout_width="@dimen/detail_bottom_button_width"
+	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:layout_gravity="center_vertical"
-	            android:layout_weight="1"
-	            android:background="@drawable/btn_detail_left"
-	            android:text="@string/favorite"
-	            android:textSize="@dimen/text_size_30" 
-	            android:textColor="@color/p_80_white" />
-	
+	            android:layout_gravity="center"
+	            android:background="@drawable/btn_detail_left_select_source" />
+	    </FrameLayout>
+	    
+	    <FrameLayout 
+	        android:layout_width="@dimen/detail_bottom_button_width_center"
+	        android:layout_height="match_parent">
 	        <Button
 	            android:id="@+id/btn_play"
-	            android:layout_width="@dimen/detail_bottom_button_width"
+	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:layout_gravity="center_vertical"
-	            android:layout_marginTop="@dimen/media_bottom_bar_right_btn_margin_top"
-	            android:layout_marginBottom="@dimen/media_bottom_bar_right_btn_margin_bottom"
-	            android:layout_weight="1"
-	            android:background="@drawable/btn_detail_right"
-	            android:text="@string/play"
-	            android:textSize="@dimen/text_size_30" 
-	            android:textColor="@color/p_80_white" />
-	                  
-	
+	            android:layout_gravity="center"
+	            android:background="@drawable/btn_detail_center_select_source" />
+	    </FrameLayout>
+	    
+	    <FrameLayout 
+	        android:layout_width="@dimen/detail_bottom_button_width_edge"
+	        android:layout_height="match_parent">
+	        <Button
+	            android:id="@+id/btn_select_source"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center"
+	            android:background="@drawable/select_source_item_default" />
+	    </FrameLayout>
 	</LinearLayout>
 
 </FrameLayout>
