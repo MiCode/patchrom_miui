@@ -195,6 +195,8 @@ public class QuickContactBadge extends ImageView implements OnClickListener {
      * until this view is clicked.
      */
     public void assignContactFromEmail(String emailAddress, boolean lazyLookup) {
+        // MIUI ADD:
+        mContactPhone = null;
         mContactEmail = emailAddress;
         if (!lazyLookup) {
             mQueryHandler.startQuery(TOKEN_EMAIL_LOOKUP, null,
@@ -216,6 +218,8 @@ public class QuickContactBadge extends ImageView implements OnClickListener {
      * until this view is clicked.
      */
     public void assignContactFromPhone(String phoneNumber, boolean lazyLookup) {
+        // MIUI ADD:
+        mContactEmail = null;
         mContactPhone = phoneNumber;
         if (!lazyLookup) {
             mQueryHandler.startQuery(TOKEN_PHONE_LOOKUP, null,

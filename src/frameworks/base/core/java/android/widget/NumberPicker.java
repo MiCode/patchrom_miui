@@ -156,6 +156,17 @@ public class NumberPicker extends LinearLayout {
     @MiuiHook(MiuiHookType.NEW_FIELD)
     private boolean mNeedSoftInput = true;
 
+    // MIUI ADD
+    private static class Injector {
+        static int getNumberCount(Formatter formatter, int maxvalue, int count) {
+            if (formatter != null) {
+                count = formatter.format(maxvalue).length();
+            }
+            return count;
+        }
+    }
+    // END
+
     /**
      * Use a custom NumberPicker formatting callback to use two-digit minutes
      * strings like "01". Keeping a static formatter etc. is the most efficient
@@ -1185,6 +1196,9 @@ public class NumberPicker extends LinearLayout {
                 numberOfDigits++;
                 current = current / 10;
             }
+            // MIUI ADD
+            numberOfDigits = Injector.getNumberCount(mFormatter, mMaxValue, numberOfDigits);
+            // END
             maxTextWidth = (int) (numberOfDigits * maxDigitWidth);
         } else {
             final int valueCount = mDisplayedValues.length;

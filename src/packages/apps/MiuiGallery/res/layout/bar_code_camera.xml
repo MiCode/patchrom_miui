@@ -14,4 +14,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <RelativeLayout
+        android:id="@+id/scanBarcodeTips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/scanBarcodeToJoin"
+            style="@style/ScanBarcodeTipsStyle"
+            android:textColor="@android:color/white"
+            android:text="@string/scan_barcode_to_join" />
+
+        <TextView
+            android:id="@+id/whereIsBarcode"
+            style="@style/ScanBarcodeTipsStyle"
+            android:textColor="#4385fe"
+            android:layout_below="@id/scanBarcodeToJoin"
+            android:paddingTop="10dp"
+            android:text="@string/where_is_barcode" />
+
+    </RelativeLayout>
+
 </FrameLayout>

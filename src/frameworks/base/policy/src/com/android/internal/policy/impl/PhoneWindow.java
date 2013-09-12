@@ -3043,8 +3043,12 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
 
     private Drawable loadImageURI(Uri uri) {
         try {
-            return Drawable.createFromStream(
-                    getContext().getContentResolver().openInputStream(uri), null);
+            // MIUI MOD: START
+            // return Drawable.createFromStream(
+            //         getContext().getContentResolver().openInputStream(uri), null);
+            return Drawable.createFromResourceStreamAndCloseStream(null, null,
+                    getContext().getContentResolver().openInputStream(uri), null, null);
+            // END
         } catch (Exception e) {
             Log.w(TAG, "Unable to open content: " + uri);
         }

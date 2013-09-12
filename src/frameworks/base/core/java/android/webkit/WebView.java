@@ -28,6 +28,7 @@ import android.graphics.Picture;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.net.http.SslCertificate;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import android.os.Message;
@@ -1518,6 +1519,9 @@ public class WebView extends AbsoluteLayout
     public void addJavascriptInterface(Object object, String name) {
         checkThread();
         mProvider.addJavascriptInterface(object, name);
+        // TODO in a separate CL provide logic to enable annotations for API level JB_MR1 and above. Don't forget to
+        // update the doc, set a link to annotation and unhide the annotation.
+        // also describe that fields of java objects are not accessible from JS.
     }
 
     /**

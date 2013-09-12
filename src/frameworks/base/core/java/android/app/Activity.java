@@ -16,6 +16,7 @@
 
 package android.app;
 
+import miui.content.ExtraIntent;
 import miui.net.FirewallManager;
 import miui.util.UiUtils;
 
@@ -657,6 +658,7 @@ public class Activity extends ContextThemeWrapper
             if (activity.getParent() == null) {
                 Intent checkIntent = FirewallManager.getCheckIntent(activity, activity.getPackageName(), null);
                 if (checkIntent != null) {
+                    checkIntent.putExtra(ExtraIntent.EXTRA_PROTECTED_APP_TOKEN, activity.getToken());
                     activity.startActivity(checkIntent);
                 }
             }

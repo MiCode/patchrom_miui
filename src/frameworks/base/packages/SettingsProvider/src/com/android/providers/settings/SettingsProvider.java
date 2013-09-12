@@ -52,8 +52,8 @@ public class SettingsProvider extends ContentProvider {
     static class Injector {
         static Uri checkUriForExtraCases(Uri soundUri, int ringtoneType) {
             String authority = soundUri.getAuthority();
-            boolean isDrmAuthority = authority.equals(DrmStore.AUTHORITY);
-            if (isDrmAuthority || authority.equals(MediaStore.AUTHORITY) || android.media.ExtraRingtoneManager.isExtraCases(soundUri)) {
+            boolean isDrmAuthority = DrmStore.AUTHORITY.equals(authority);
+            if (isDrmAuthority || MediaStore.AUTHORITY.equals(authority) || android.media.ExtraRingtoneManager.isExtraCases(soundUri)) {
                 if (isDrmAuthority) {
                     return soundUri;
                 } else {
@@ -65,6 +65,9 @@ public class SettingsProvider extends ContentProvider {
 
         static String getAuthority(Uri soundUri) {
             String authority = soundUri.getAuthority();
+            if (authority == null) {
+                authority = "";
+            }
             boolean isDrmAuthority = authority.equals(DrmStore.AUTHORITY);
             if (isDrmAuthority) {
                 return authority;

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Layout used for PreferenceCategory in a PreferenceActivity. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miui="http://schemas.android.com/apk/res/miui"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@miui:drawable/v5_preference_category_background">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@miui:dimen/v5_preference_category_item_padding_side"
+        android:paddingRight="@miui:dimen/v5_preference_category_item_padding_side"
+        android:layout_gravity="bottom"
+        >
+        <TextView
+            style="@miui:style/V5.TextAppearance.PreferenceCategory"
+            android:id="@android:id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:textAllCaps="true"/>
+
+        <TextView android:id="@android:id/summary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@android:id/title"
+            android:layout_alignBottom="@android:id/title"
+            android:layout_marginLeft="@miui:dimen/v5_preference_category_item_padding_side"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary.Preference"
+            android:singleLine="true"
+            android:gravity="right"/>
+    </RelativeLayout>
+</FrameLayout>

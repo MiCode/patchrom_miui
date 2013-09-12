@@ -755,6 +755,26 @@ public abstract class Drawable {
     }
 
     /**
+     * MIUI ADD:
+     * Create a drawable from an inputstream, using the given resources and
+     * value to determine density information, and close the stream finally
+     * @hide
+     */
+    public static Drawable createFromResourceStreamAndCloseStream(Resources res, TypedValue value,
+            InputStream is, String srcName, BitmapFactory.Options opts) {
+        try {
+            return createFromResourceStream(res, value, is, srcName, opts);
+        } finally {
+            try {
+                if (is != null) {
+                    is.close();
+                }
+            } catch (Exception e) {
+            }
+        }
+    }
+
+    /**
      * Create a drawable from an inputstream
      */
     public static Drawable createFromStream(InputStream is, String srcName) {

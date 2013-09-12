@@ -18,17 +18,30 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginLeft="16dip"
-    android:layout_marginRight="16dip"
-    android:divider="?android:attr/dividerHorizontal"
-    android:showDividers="middle">
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/alert_title"
+        style="@miui:style/V5.TextAppearance.DialogTitle"
+        android:layout_height="@miui:dimen/v5_alert_dialog_title_height"
+        android:layout_width="match_parent"
+        android:gravity="center"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@miui:drawable/v5_bottom_bar_top_line_light" />
 
     <ListView
         android:id="@+id/alert_container"
         android:layout_width="match_parent"
+        android:divider="@miui:drawable/v5_bottom_bar_top_line_light"
         android:layout_height="0dip"
         android:layout_weight="1" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@miui:drawable/v5_bottom_bar_top_line_light" />
 
     <LinearLayout
         android:orientation="horizontal"
