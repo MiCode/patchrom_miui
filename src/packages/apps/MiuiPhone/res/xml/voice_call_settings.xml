@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:phone="http://schemas.android.com/apk/res/com.android.phone"
+        android:title="@string/call_settings">
+    <PreferenceScreen
+        android:key="button_voicemail_key"
+        android:title="@string/voice_mail"
+        android:summary="@string/sum_voice_mail"
+        android:persistent="false">
+
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.phone"
+            android:targetClass="com.mediatek.settings.VoiceMailSetting"/>
+    </PreferenceScreen>
+</PreferenceScreen>

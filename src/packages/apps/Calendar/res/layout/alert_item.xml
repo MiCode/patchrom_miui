@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2008 The Android Open Source Project
+<!--
+     Copyright (C) 2008 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,71 +15,66 @@
      limitations under the License.
 -->
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="16dip"
-    android:paddingBottom="16dip"
     android:gravity="center_vertical"
-    android:minHeight="?android:attr/listPreferredItemHeight">
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:orientation="horizontal" >
+
+    <View
+        android:id="@+id/color_square"
+        android:layout_width="@dimen/calendar_color_width"
+        android:layout_height="match_parent" />
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <View
-            android:id="@+id/color_square"
-            android:layout_width="12dip"
-            android:layout_height="12dip"
-            android:layout_gravity="top|left"
-            android:layout_marginTop="6dip"
-            android:layout_marginLeft="16dip"
-            android:layout_marginRight="16dip" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/event_content_margin"
+        android:layout_marginTop="@dimen/event_content_margin"
+        android:layout_marginBottom="@dimen/event_content_margin"
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/event_title"
+            style="@miui:style/V5.TextAppearance.List.Primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:maxLines="2"
-            android:textSize="18sp" />
-    </LinearLayout>
+            android:maxLines="2"/>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="44dip">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/when"
+                style="@miui:style/V5.TextAppearance.List.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:ellipsize="end"
+                android:maxLines="1"/>
+
+            <ImageView
+                android:id="@+id/repeat_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/repeat_icon_margin_left"
+                android:clickable="false"
+                android:focusable="false"
+                android:src="@drawable/ic_repeat_dark" />
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/when"
+            android:id="@+id/where"
+            style="@miui:style/V5.TextAppearance.List.Secondary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:ellipsize="end"
-            android:maxLines="1"
-            android:textSize="14sp" />
-
-        <ImageView
-            android:id="@+id/repeat_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="5dip"
-            android:src="@drawable/ic_repeat_dark"
-            android:focusable="false"
-            android:clickable="false" />
+            android:maxLines="1"/>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/where"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="44dip"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:textSize="14sp" />
 </LinearLayout>
