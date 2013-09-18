@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/share_album">
+
+    <PreferenceCategory
+            android:key="sharers">
+        <com.miui.gallery.ui.GridPreference
+            android:key="sharer_grid"
+            android:persistent="false" />
+        <com.miui.gallery.ui.QRPreference
+            android:key="qr_code"
+            android:persistent="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="public_share">
+
+        <CheckBoxPreference
+            android:key="open_public_share"
+            android:title="@string/open_public_title"
+            android:summary="@string/open_public_message"
+            android:persistent="false" />
+        <PreferenceScreen
+            android:key="send_public_url"
+            android:title="@string/send_public_url"
+            android:persistent="false" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

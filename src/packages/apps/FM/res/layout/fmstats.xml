@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2011, 2012, Code Aurora Forum. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *    * Redistributions of source code must retain the above copyright
+ *      notice, this list of conditions and the following disclaimer.
+ *    * Redistributions in binary form must reproduce the above copyright
+ *      notice, this list of conditions and the following disclaimer in the
+ *      documentation and/or other materials provided with the distribution.
+ *    * Neither the name of Code Aurora nor
+ *      the names of its contributors may be used to endorse or promote
+ *      products derived from this software without specific prior written
+ *      permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NON-INFRINGEMENT ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:scrollbars="vertical"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+       <Spinner
+           android:id="@+id/spinner"
+           android:layout_width="fill_parent"
+           android:layout_height="75dp"
+           android:prompt="@string/test_prompt"
+           android:textSize="25sp"/>
+
+       <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+           android:layout_width="fill_parent"
+           android:layout_height="100dp">
+
+           <Button
+               android:id= "@+id/Runbutton"
+               android:text="@string/test_run"
+               android:layout_width="wrap_content"
+               android:layout_height="100dp"
+               android:textSize="25sp"
+               android:visibility="gone"/>
+
+           <ProgressBar android:id="@+id/progressbar"
+               android:layout_width="100dp"
+               android:layout_height="100dp"
+               android:layout_toRightOf="@id/Runbutton"
+               android:visibility="gone"/>
+
+           <TextView
+               android:id="@+id/label"
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:textSize="30sp"
+               android:text="@string/enter_rssi"
+               android:visibility="gone"/>
+
+           <EditText
+               android:id="@+id/txtbox1"
+               android:layout_width="100dp"
+               android:layout_height="50dp"
+               android:text="@string/type_rd"
+               android:textSize="15sp"
+               android:layout_alignParentRight="true"
+               android:visibility="gone"/>
+
+           <Button
+               android:id= "@+id/Setbutton"
+               android:text="@string/set_rmmsi_delta"
+               android:layout_width="wrap_content"
+               android:layout_height="100dp"
+               android:layout_below="@id/txtbox1"
+               android:textSize="25sp"
+               android:visibility="gone"/>
+
+       </RelativeLayout>
+
+       <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+           android:id="@+id/maintable"
+           android:layout_width="fill_parent"
+           android:layout_height="fill_parent"
+           android:scrollbars="vertical">
+
+           <TableRow
+               android:id="@+id/mainrow">
+           </TableRow>
+
+       </TableLayout>
+
+    </LinearLayout>
+
+</ScrollView>

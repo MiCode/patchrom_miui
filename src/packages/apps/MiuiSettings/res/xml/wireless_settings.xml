@@ -17,36 +17,48 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/wireless_networks_settings_title">
 
-    <PreferenceScreen
-        android:fragment="com.android.settings.vpn2.MiuiVpnSettings"
-        android:key="vpn_settings"
-        android:title="@string/vpn_settings_title" />
+    <PreferenceCategory android:key="general_category">
+        <PreferenceScreen
+            android:fragment="com.android.settings.vpn2.MiuiVpnSettings"
+            android:key="vpn_settings"
+            android:title="@string/vpn_settings_title" />
 
-    <PreferenceScreen
-        android:fragment="com.android.settings.TetherSettings"
-        android:key="tether_settings"
-        android:title="@string/tether_settings_title_all" />
+        <PreferenceScreen
+            android:fragment="com.android.settings.TetherSettings"
+            android:key="tether_settings"
+            android:title="@string/tether_settings_title_all" />
 
-    <PreferenceScreen
-        android:key="wimax_settings"
-        android:title="@string/wimax_settings"
-        android:summary="@string/wimax_settings_summary" >
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.android.settings.wimax"
-            android:targetClass="com.android.settings.wimax.WimaxSettings" />
-    </PreferenceScreen>
+        <PreferenceScreen
+            android:key="wimax_settings"
+            android:title="@string/wimax_settings"
+            android:summary="@string/wimax_settings_summary" >
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.settings.wimax"
+                android:targetClass="com.android.settings.wimax.WimaxSettings" />
+        </PreferenceScreen>
 
-    <CheckBoxPreference
-        android:key="toggle_nfc"
-        android:title="@string/nfc_quick_toggle_title"
-        android:summary="@string/nfc_quick_toggle_summary"
-        android:persistent="false" />
+        <PreferenceScreen
+            android:fragment="com.android.settings.miracast.MiracastSettings"
+            android:key="wfd_settings"
+            android:title="@string/wfd_settings_title"
+            android:summary="@string/wfd_settings_description" />
+    </PreferenceCategory>
 
-    <PreferenceScreen
-        android:fragment="com.android.settings.nfc.MiuiAndroidBeam"
-        android:key="android_beam_settings"
-        android:title="@string/android_beam_settings_title" />
+    <PreferenceCategory
+        android:key="nfc_category"
+        android:title="@string/nfc_category_title">
+        <CheckBoxPreference
+            android:key="toggle_nfc"
+            android:title="@string/nfc_quick_toggle_title"
+            android:summary="@string/nfc_quick_toggle_summary"
+            android:persistent="false" />
+
+        <PreferenceScreen
+            android:fragment="com.android.settings.nfc.MiuiAndroidBeam"
+            android:key="android_beam_settings"
+            android:title="@string/android_beam_settings_title" />
+    </PreferenceCategory>
 
     <CheckBoxPreference
         android:key="toggle_nsd"

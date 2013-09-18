@@ -40,6 +40,8 @@
     <string name="action_fail_unknown_error">操作失敗，未知錯誤。</string>
     <string name="add_to_cloud_fail_too_many_items">操作失敗，可能選擇了太多項目。</string>
 
+    <string name="comfirm_delete_current_album">確認要刪除本相冊嗎？</string>
+
     <!-- 確定要刪除2個相簿（包含4張圖片）嗎？ -->
     <string name="confirm_delete_album">確定要刪除<xliff:g id="ALBUM">%s</xliff:g>個相簿（包含<xliff:g id="ITEM">%s</xliff:g>張圖片）嗎？</string>
 
@@ -55,7 +57,7 @@
 
     <string name="cancel" msgid="3637516880917356226">"取消"</string>
     <string name="select_all" msgid="3403283025220282175">"全選"</string>
-    <string name="slideshow" msgid="4355906903247112975">"播放幻燈片"</string>
+    <string name="slideshow" msgid="4355906903247112975">"播放投影片"</string>
     <string name="details" msgid="8415120088556445230">"詳細資訊"</string>
     <string name="details_title" msgid="2611396603977441273">"第 %1$d 項（共 %2$d 項）："</string>
     <string name="close" msgid="5585646033158453043">"關閉"</string>
@@ -91,7 +93,6 @@
     <string name="appwidget_title" msgid="6410561146863700411">"相簿"</string>
     <string name="appwidget_empty_text" msgid="1228925628357366957">"無照片。"</string>
     <string name="no_albums_alert" msgid="4111744447491690896">"沒有可用的相簿。"</string>
-    <string name="empty_album" msgid="4542880442593595494">"沒有可用的圖片/影片。"</string>
     <string name="local_albums">"手機圖片"</string>
     <string name="cloud_albums">雲相簿</string>
     <string name="home_my_captured_items">張相機照片</string>
@@ -99,6 +100,8 @@
     <string name="title" msgid="7622928349908052569">"標題"</string>
     <string name="description" msgid="3016729318096557520">"描述"</string>
     <string name="time" msgid="1367953006052876956">"時間"</string>
+    <string name="details_sharer">"來自"</string>
+    <string name="me">"我"</string>
     <string name="location" msgid="3432705876921618314">"地點"</string>
     <string name="path" msgid="4725740395885105824">"路徑"</string>
     <string name="width" msgid="9215847239714321097">"寬度"</string>
@@ -136,7 +139,7 @@
     <string name="widget_type_shuffle" msgid="8594622705019763768">"隨機顯示所有圖片"</string>
     <string name="widget_type_photo" msgid="6267065337367795355">"選擇圖片"</string>
     <string name="widget_type" msgid="1364653978966343448">"選擇圖片"</string>
-    <string name="slideshow_dream_name" msgid="6915963319933437083">"幻燈片"</string>
+    <string name="slideshow_dream_name" msgid="6915963319933437083">"投影片"</string>
     <string name="albums" msgid="7320787705180057947">"相簿"</string>
     <string name="times" msgid="2023033894889499219">"時間"</string>
     <string name="locations" msgid="6649297994083130305">"地點"</string>
@@ -157,6 +160,7 @@
     <string name="tab_all_text">同時設定</string>
 
     <string name="cloud_gallery_space_full">雲相簿空間已滿，請刪除雲相簿中不需要的照片。</string>
+    <string name="share_album_space_full">該相簿空間已滿，請刪除雲相簿中不需要的照片。</string>
     <string name="cloud_gallery_recyclebin_full">回收站已滿，請去i.xiaomi.com清理回收站。</string>
     <string name="sync_history_power_on">僅在充電時同步歷史圖片</string>
     <string name="sync_only_in_wifi">僅在Wi-Fi下上傳</string>
@@ -176,24 +180,42 @@
     <string name="add_to_cloud_album">加到相冊</string>
     <string name="move_to_cloud_album">移動到</string>
     <string name="send_to_cloud_failed_message">不支援該內容傳送到雲相簿</string>
-    <string name="add_to_cloud_failed_message_with_count">%s項無法新增到雲相簿</string>
-    <string name="cant_delete_system_album"><xliff:g id="ITEM"> %s</xliff:g>相簿是系統相簿，不允許被刪除。</string>
+    <string name="add_to_cloud_successfully_message">添加成功</string>
+    <string name="add_to_cloud_file_exist_message">照片已存在於目標相冊中</string>
+    <string name="add_to_cloud_space_full_message">空間不足</string>
+    <string name="add_to_cloud_exceeded_the_size_message">大小超出</string>
+    <string name="add_to_cloud_type_not_support_message">格式不支持</string>
+    <string name="add_to_cloud_file_not_exist_message">文件不存在</string>
+    <string name="add_to_cloud_failed_message_with_count">因<xliff:g id="REASON">%1$s</xliff:g>，<xliff:g id="COUNT">%2$s</xliff:g>項添加失敗</string>
+    <string name="add_to_cloud_reasons">等原因</string>
+    <string name="add_to_cloud_unknow_reasons">未知原因</string>
+    <string name="cant_delete_cloud_album"><xliff:g id="ITEM"> %s</xliff:g>相簿是系統相簿或者其他人的共享相簿，不允許被刪除。</string>
+    <string name="cannot_delete_sharer_photo">無法刪除其他用戶上傳的%d個項目。</string>
     <string name="initial_cloud_text">隨時隨地&#032;&#183;&#032;整理和檢視您的照片</string>
     <string name="initial_cloud_button_text">開始使用雲相簿</string>
-
     <string name="share_album">相簿分享</string>
     <string name="share_album_qr_code">二維碼</string>
     <string name="share_album_owner">共用人</string>
-    <string name="share_album_share_to">分享給</string>
-    <string name="scan_qr_code">讓朋友掃描下方二維碼，就能獲得本相簿的分享</string>
-    <string name="add_sharer">新增共用人</string>
+    <string name="scan_qr_code_top_text">成員能查看、添加照片</string>
+    <string name="scan_qr_code_buttom_text">掃描二維碼可以快速加入本相冊</string>
+    <string name="request_qr_code">"正在請求二維碼，請稍候..."</string>
+    <string name="request_qr_code_failed">"獲取二維碼失敗"</string>
+    <string name="retry_to_request_qr_code">"點擊重試"</string>
+    <string name="album_member">相冊成員%s</string>
+    <string name="add_sharer">新增成員</string>
     <string name="album_name">相簿名稱</string>
     <string name="can_modified">允許朋友新增照片</string>
-    <string name="sharer_status_waitting">等待中</string>
-    <string name="sharer_status_accepted">已接受</string>
-    <string name="sharer_status_refused">已拒絕</string>
+    <string name="fail_to_sync_album">同步相冊到服務端失敗，請檢查網絡</string>
+    <string name="sync_album_in_proecess">正在向服務端同步相冊，請稍候...</string>
+    <string name="retry_to_create_album">重試</string>
 
-    <string name="click_to_enter_camera">沒有照片或影片</string>
+    <string name="cloud_share_guide_title">雲相冊照片可以分享啦！</string>
+    <string name="cloud_share_guide_message">妳可以把雲相冊分享給好友，大家共同\r\n欣賞和添加照片，趕緊試試吧！</string>
+    <string name="cloud_be_shared_guide_title">這是壹個別人分享給妳的相冊</string>
+    <string name="cloud_be_shared_guide_message">妳不僅能查看對方的照片，還能往裏面添加照片，讓大家都看到。</string>
+    <string name="cloud_owner_album_share_guide">妳可以把相冊分享給朋友</string>
+
+    <string name="no_picture_or_video">沒有照片或影片</string>
     <string name="camera_view_none_message">您可以使用相機拍攝照片和影片</string>
     <string name="none_picture">相簿中沒有圖片</string>
     <string name="show_hidden_albums">顯示隱藏相簿</string>
@@ -216,12 +238,16 @@
     <string name="more">更多</string>
     <string name="saving_image">正在儲存圖片...</string>
     <string name="deleting_files">正在刪除檔...</string>
-    <string name="bigscrren_slide_exit">退出幻燈片大屏播放</string>
+    <string name="bigscrren_slide_exit">退出投影片大屏播放</string>
     <string name="defalt_local_mobile">本機手機</string>
     <string name="add_to_cloud_folder">新增到雲相簿</string>
     <string name="create_new_cloud_folder">新建雲相簿</string>
     <string name="input_cloudfolder_name">輸入相簿名稱</string>
     <string name="cloudfolder_already_exists">該雲相簿已存在</string>
+    <string name="cloudfolder_name_reserved">該相冊名爲系統所保留</string>
+    <string name="cloudfolder_contain_invalidate_char">雲相冊名不能包含\'%s\'</string>
+    <string name="cloudfolder_cannot_start_with">雲相冊名不能以\'%s\'開頭</string>
+    <string name="cloudfolder_name_cannot_empty">雲相冊名不能爲空</string>
     <plurals name="number_of_cloudimages">
         <item quantity="zero">%1$d張圖片</item>
         <item quantity="one" >%1$d張圖片</item>
@@ -233,11 +259,10 @@
     <string name="show_hidden_album">顯示隱藏相簿</string>
     <string name="auto_create_recent_album">自動產生收藏相簿</string>
     <string name="photo_page_always_rotate">看圖始終自動旋轉</string>
-    <string name="landscape_mode">允許橫螢幕模式</string>
     <string name="auto_create_recent_album_over_ten_times">訪問相簿超過十次後產生為收藏相簿</string>
     <string name="not_auto_create_recent_album">關閉"自動產生收藏相簿"</string>
     <string name="auto_create_recent_album_confirm">關閉該功能後，系統自動產生的收藏相簿資料將會被清除。您手動設定的收藏相簿不會受到影響。您也可以長按相簿手動設定。</string>
-    <string name="slideshow_category">幻燈片顯示</string>
+    <string name="slideshow_category">投影片顯示</string>
     <string name="slideshow_interval">播放間隔</string>
     <string name="slideshow_interval_dialog_title">請輸入播放間隔</string>
     <string name="slideshow_interval_invalid">播放間隔無效，應為1～3600之間的數字。將恢復到默認設定。</string>
@@ -247,16 +272,17 @@
     <string name="clear_thumbnail_cache_confirm">您相簿中的所有縮圖將被清空，後續瀏覽時需要重新掃描產生縮圖，影響瀏覽速度。</string>
     <string name="cleaning_cache">正在清除緩存...</string>
     <string name="seconds">秒</string>
-    <string name="screensaver_category">屏保</string>
-    <string name="screensaver_activate_mode">屏保幻燈片</string>
-    <string name="screensaver_activate_only_charging">僅在充電時開啟屏保</string>
-    <string name="screensaver_path">屏保相冊：</string>
-    <string name="screensaver_path_not_set">未設置</string>
-    <string name="set_screensaver_path_title">屏保幻燈片</string>
-    <string name="set_screensaver_path_message">屏幕關閉5秒鍾後，本相冊中的圖片將會作爲屏保幻燈片循環播放。以後不再顯示本信息。</string>
-    <string name="screensaver_no_data">相冊中沒有圖片。</string>
-    <string name="slideshow_time_select_title">選擇屏保幻燈片播放時間</string>
-    <string name="slideshow_time_title">屏保幻燈片播放時間</string>
+    <string name="screensaver_category">熒幕保護</string>
+    <string name="screensaver_activate_mode">熒幕保護投影片</string>
+    <string name="screensaver_activate_only_charging">僅在充電時開啟熒幕保護</string>
+    <string name="screensaver_path">"熒幕保護相簿 - "</string>
+    <string name="screensaver_path_not_set">未設定</string>
+    <string name="set_screensaver_path_title">熒幕保護投影片</string>
+    <string name="set_screensaver_path_message">熒幕關閉5秒鍾後，本相簿中的圖片將會作爲熒幕保護投影片循環播放。以後不再顯示本信息。</string>
+    <string name="set_screensaver_path_message_if_only_charging">手機在充電的情況下，熒幕关闭5秒钟后，本相冊中的圖片將會作爲熒幕保護投影片循環播放。以後不再顯示本信息。</string>
+    <string name="screensaver_no_data">相簿中沒有圖片。</string>
+    <string name="slideshow_time_select_title">選擇熒幕保護投影片播放時間</string>
+    <string name="slideshow_time_title">熒幕保護投影片播放時間</string>
 
     <string name="rename_failed">重命名失敗</string>
     <string name="rename_failed_duplicated_name">存在同名檔，重命名失敗</string>
@@ -280,9 +306,10 @@
     <string name="menu_item_sort_date_asc">時間（昇冪）</string>
     <string name="menu_item_sort_date_desc">時間（降冪）</string>
     <string name="operation_rename">重命名</string>
+    <string name="operation_share">分享</string>
     <string name="operation_refresh">重新整理</string>
-    <string name="operation_set_as_screensaver">設置為屏保</string>
-    <string name="operation_unset_as_screensaver">取消屏保</string>
+    <string name="operation_set_as_screensaver">設定為熒幕保護</string>
+    <string name="operation_unset_as_screensaver">取消熒幕保護</string>
     <string name="how_many_videos">%d個影片</string>
     <string name="how_many_sub_folders">%d個子資料夾</string>
     <string name="how_many_pics">%d張照片</string>
@@ -305,7 +332,7 @@
 
     <string name="settings_i_xiaomi_com">登入i.xiaomi.com，隨時檢視你的雲相簿</string>
     <string name="cloud_album_more_settings">雲相簿和自動上傳</string>
-    <string name="browse_category">查看</string>
+    <string name="browse_category">檢視</string>
     <string name="photo_page_save_image">儲存</string>
     <string name="photo_page_save_uri_image_ok">圖片已經儲存到相機照片目錄</string>
     <string name="photo_page_save_uri_image_fail">儲存圖片失敗。</string>
@@ -314,6 +341,8 @@
     <string name="cloud_tab_albums">相簿</string>
     <string name="cloud_tab_locations">地點</string>
     <string name="cloud_album_set_create">新建相簿</string>
+    <string name="cloud_album_set_scan_qr_code">掃描二維碼</string>
+    <string name="scan_qr_code_failure">掃描二維碼失敗，請重試。</string>
 
     <string name="big_screen_alertdialog_title">設備列表</string>
 
@@ -321,8 +350,8 @@
     <string name="quotation">“<xliff:g id="ITEM">%s</xliff:g>”</string>
 
     <!-- Strings for share user picker -->
-    <string name="by_sms">"短訊"</string>
-    <string name="by_email">"電子郵件"</string>
+    <string name="by_sms">"短訊邀請"</string>
+    <string name="by_email">"電子郵件邀請"</string>
     <string name="enter_email_hint">"請輸入對方Email "</string>
     <string name="messagelist_sender_self">"我"</string>
     <string name="adding_recipients">"正在新增收件人..."</string>
@@ -360,20 +389,38 @@
     <string name="kick_sharer_successfully">"移除共享人成功"</string>
     <string name="kick_sharer_failed">"移除共享人失敗"</string>
     <string name="share_user_name">"稱呼"</string>
-    <string name="accept_or_deny">"<xliff:g id="NAME">%1$s</xliff:g>共享了相冊<xliff:g id="ALBUM">%2$s</xliff:g>給你，是否接受？"</string>
+    <string name="accept_or_deny">"<xliff:g id="NAME">%1$s</xliff:g>邀請你加入相冊<xliff:g id="ALBUM">%2$s</xliff:g>，是否接受？"</string>
     <string name="accept">"接受"</string>
-    <string name="deny">"忽略"</string>
+    <string name="deny">"拒絕"</string>
+    <string name="enable_cloud_for_sharing">查看分享的照片需要开启您的云相册。</string>
     <string name="operation_in_process">"操作進行中，請稍候..."</string>
     <string name="operation_failed">"操作失敗"</string>
     <string name="operation_successful">"操作成功"</string>
     <string name="apply_successfully">"成功加入相冊"</string>
     <string name="fail_to_apply">"加入相冊失敗"</string>
     <string name="invalid_invition_url">"非法的邀請信息"</string>
-    <string name="user_alias_creator">"創建者"</string>
     <string name="user_alias_self">"我"</string>
-    <string name="kick_owner_user_title">"移除分享人"</string>
-    <string name="kick_owner_user_msg">"將已選擇的分享人從該相冊中移除，是否繼續？"</string>
+    <string name="kick_owner_user_title">"是否刪除這名相冊成員？"</string>
+    <string name="kick_owner_user_positive_button_text">刪除</string>
     <string name="initializing_cloud">正在初始化雲相冊...</string>
+    <string name="open_public_title">公開分享</string>
+    <string name="open_public_message">生成相冊地址，發給大家看</string>
+    <string name="publishing">正在發布...</string>
+    <string name="publish_succeeded">發布成功</string>
+    <string name="publish_failed">發布失敗</string>
+    <string name="unpublish_succeeded">取消發布成功</string>
+    <string name="unpublish_failed">取消發布失敗</string>
+    <string name="send_public_url">發送相冊地址</string>
+    <string name="public_url_descript">任何人都可以在下麵地址查看本相冊</string>
+    <string name="share_public_url_text">我分享了相冊<xliff:g id="ALBUM_NAME">%1$s</xliff:g>，點擊查看：<xliff:g id="URL">%2$s</xliff:g></string>
+    <string name="already_apply_album">"已經加入共享相冊<xliff:g id="ALBUM">%1$s</xliff:g>, 是否立即查看？"</string>
+    <string name="share_current_album">分享相冊</string>
+    <string name="view_sharers">查看成員</string>
+    <string name="unpublishing">正在取消發布...</string>
+    <string name="operation_too_often">您的操作過於頻繁，請於一分鐘後再試。</string>
+    <string name="cannot_remove_creator">無法刪除創建者</string>
+    <string name="exit">退出</string>
+    <string name="album_share_exit_confirm">是否退出這個相冊？</string>
 
     <string name="album_share_stat_content">您有新的相冊共享邀請</string>
     <string name="album_share_kicked">您已被從相冊<xliff:g id="ALBUM">%1$s</xliff:g>中移除</string>
@@ -383,16 +430,21 @@
     <string name="album_share_subtitle_invited">來自<xliff:g id="USER_NAME">%1$s</xliff:g>的共享，請確認接受或忽略</string>
     <string name="album_share_subtitle_normal">來自<xliff:g id="USER_NAME">%1$s</xliff:g></string>
     <string name="album_share_subtitle_accepting">正在接受來自<xliff:g id="USER_NAME">%1$s</xliff:g>的共享...</string>
-    <string name="album_share_subtitle_denying">正在忽略來自<xliff:g id="USER_NAME">%1$s</xliff:g>的共享...</string>
+    <string name="album_share_subtitle_denying">正在拒絕來自<xliff:g id="USER_NAME">%1$s</xliff:g>的共享...</string>
     <string name="album_share_subtitle_quitting">正在退出來自<xliff:g id="USER_NAME">%1$s</xliff:g>的共享...</string>
+    <string name="system_album">系統相簿</string>
+    <string name="owner_album_subtitle">分享给<xliff:g id="MEMBER_COUNT">%1$s</xliff:g>个成員</string>
 
     <string name="album_quota_fulfiled">無法創建相冊，相冊個數已經達到了限額。</string>
     <string name="image_quota_fulfiled">無法創建圖片，該相冊的圖片個數已經達到了限額。</string>
     <string name="sharer_quota_fulfiled">無法添加分享人，該相冊的分享人個數已經達到了限額。</string>
 
     <string name="error_repeat_apply">"您已經加入過該相冊"</string>
-    <string name="error_invalid_link">"鏈接已過期，請分享者重新生成鏈接"</string>
+    <string name="error_invalid_link">"無效的鏈接，請分享者重新生成鏈接"</string>
+    <string name="error_album_not_exist">"相冊不存在"</string>
     <string name="error_socket_timeout">"網絡超時，請稍後重試"</string>
+    <string name="error_cloud_not_active">雲相冊未啓用</string>
+    <string name="error_unknown_host">系統未檢測到網路</string>
     <string name="gallery_setting">設定</string>
 
     <!-- white list begins -->
@@ -434,4 +486,12 @@
     <string name="baidu_bdmobile_downloads">掌上百度</string>
     <string name="tieba">百度貼吧</string>
     <!-- white list ends -->
+
+    <!-- 扫描二维码提示文字 -->
+    <string name="scan_barcode_to_join">掃描朋友的相冊二維碼，即可加入對方相冊</string>
+    <string name="where_is_barcode">二維碼在哪裏？</string>
+    <string name="scan_barcode">掃描二維碼</string>
+    <string name="scan_barcode_guide">在我創建的雲相冊中點擊右上角圖標，\r\n即可看到相冊二維碼</string>
+    <string name="confirm">我知道啦</string>
+
 </resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+        >
+    <ImageView
+            android:id="@+id/recent_contact_divider_bottom"
+            android:background="@drawable/recent_contact_divider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:visibility="gone"
+            />
+    <ImageView
+            android:id="@+id/recent_contact_divider_right"
+            android:background="@drawable/recent_contact_divider"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_above="@id/recent_contact_divider_bottom"
+            />
+    <TextView
+        style="?android:attr/textAppearanceMedium"
+        android:id="@+id/recent_contact_name"
+        android:background="@drawable/recent_contact_item_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/recent_contact_divider_right"
+        android:layout_above="@id/recent_contact_divider_bottom"
+        android:textColor="@color/recent_contact_text_color"
+        android:gravity="center"
+        android:singleLine="true"
+        android:ellipsize="marquee" />
+</RelativeLayout>
