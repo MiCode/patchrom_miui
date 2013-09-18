@@ -164,6 +164,12 @@ public class NumberPicker extends LinearLayout {
             }
             return count;
         }
+
+        static void invalidateVirtualButton(View v, boolean need, int l, int t, int r, int b) {
+            if (need) {
+                v.invalidate(l, t, r, b);
+            }
+        }
     }
     // END
 
@@ -1996,6 +2002,10 @@ public class NumberPicker extends LinearLayout {
                 mIncrementVirtualButtonPressed = false;
                 invalidate(0, mBottomSelectionDividerBottom, mRight, mBottom);
             }
+            // MIUI ADD
+            Injector.invalidateVirtualButton(NumberPicker.this, mDecrementVirtualButtonPressed, 0,
+                    0, mRight, mTopSelectionDividerTop);
+            // END
             mDecrementVirtualButtonPressed = false;
             if (mDecrementVirtualButtonPressed) {
                 invalidate(0, 0, mRight, mTopSelectionDividerTop);

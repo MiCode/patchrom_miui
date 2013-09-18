@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scrollbarStyle="outsideOverlay"
+        >
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:paddingLeft="@dimen/settings_content_padding_horizontal"
+            android:paddingRight="@dimen/settings_content_padding_horizontal"
+            android:paddingTop="@dimen/settings_content_padding_top"
+            android:paddingBottom="@dimen/settings_content_padding_bottom"
+            >
+        <com.miui.gallery.settings.ExpandedListView
+                android:id="@android:id/list"
+                android:layout_width="fill_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                />
+         <TextView
+                style="@style/SettingPrimaryButton"
+                android:id="@+id/exit_share"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/exit_share"
+                />
+    </LinearLayout>
+</ScrollView>

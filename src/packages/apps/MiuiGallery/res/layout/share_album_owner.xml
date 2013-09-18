@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarStyle="outsideOverlay"
+        >
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/settings_content_padding_horizontal"
+                android:paddingRight="@dimen/settings_content_padding_horizontal"
+                android:paddingTop="@dimen/settings_content_padding_top"
+                android:paddingBottom="@dimen/settings_content_padding_bottom"
+                >
+                <com.miui.gallery.settings.ExpandedListView
+                    android:id="@android:id/list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+            </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/status_wrapper"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+        <TextView
+            android:id="@+id/loading_text"
+            style="@miui:style/V5.TextAppearance.ProgressDialogMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_50_transparent"
+            android:textSize="13sp"
+            android:gravity="center"
+            />
+
+        <ProgressBar
+            android:id="@+id/loading_bar"
+            style="@miui:style/V5.Widget.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            />
+
+        <TextView
+            android:id="@+id/retry_button"
+            android:layout_width="100sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@miui:drawable/v5_btn_bg_light"
+            android:gravity="center"
+            android:text="@string/retry_to_create_album"
+            android:textColor="@color/black_80_transparent"
+            android:textSize="13sp"
+            />
+    </LinearLayout>
+</FrameLayout>

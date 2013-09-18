@@ -29,6 +29,7 @@ import com.android.server.Watchdog;
 import com.android.server.am.ActivityStack.ActivityState;
 import com.android.server.wm.WindowManagerService;
 
+import miui.content.ExtraIntent;
 import miui.provider.ExtraSettings;
 
 import dalvik.system.Zygote;
@@ -208,6 +209,34 @@ public final class ActivityManagerService extends ActivityManagerNative
                 }
             }
             return null;
+        }
+
+        /**
+         * 如果打开短信列表，从下拉状态栏开启访客模式，短信列表还是onResume状态，不会刷新。
+         * 通过注册 ExtraIntent.ACTION_PRIVACY_MODE_CHANGED，如果访客模式开启或者关闭，让短信，
+         * 备份，便签强制接受configuration change，重新创建Activity
+         */
+        static final HashSet<String> sMonitorPrivacyPackage = new HashSet<String>();
+        static {
+            sMonitorPrivacyPackage.add("com.miui.backup");
+            sMonitorPrivacyPackage.add("com.miui.notes");
+            sMonitorPrivacyPackage.add("com.android.mms");
+        }
+
+        static void monitorPrivacyModeChange(final ActivityManagerService service) {
+            IntentFilter privacyModeFilter = new IntentFilter();
+            privacyModeFilter.addAction(ExtraIntent.ACTION_PRIVACY_MODE_CHANGED);
+            service.mContext.registerReceiver(new BroadcastReceiver() {
+                @Override
+                public void onReceive(Context context, Intent intent) {
+                    // only update configuration for resume activity
+                    ActivityRecord r = service.mMainStack.topRunningActivityLocked(null);
+                    if (!r.finishing && sMonitorPrivacyPackage.contains(r.packageName)) {
+                         r.forceNewConfig = true;
+                         service.updateConfigurationLocked(service.mConfiguration, r, false, false);
+                    }
+                }
+            }, privacyModeFilter);
         }
     }
 
@@ -4325,6 +4354,7 @@ public final class ActivityManagerService extends ActivityManagerNative
         // miui add start
         if (mFactoryTest != SystemServer.FACTORY_TEST_LOW_LEVEL) {
             ExtraActivityManagerService.finishBooting(mContext);
+            Injector.monitorPrivacyModeChange(this);
         }
         // miui add end
     }
