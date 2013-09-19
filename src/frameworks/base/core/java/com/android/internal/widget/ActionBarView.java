@@ -81,6 +81,21 @@ public class ActionBarView extends AbsActionBarView {
                 return new ActionMenuPresenter(context);
             }
         }
+
+        /**
+         * 在V5主题中避免HomeView 为UpIndicator预留空间
+         * @param context
+         * @param upView
+         * @param upWidth upView 的宽度
+         */
+        static int getLeftOffset(Context context, View upView, int upWidth) {
+            final boolean isUpViewGone = upView.getVisibility() == View.GONE;
+            if (UiUtils.isV5Ui(context) && isUpViewGone) {
+                return 0;
+            } else {
+                return isUpViewGone ? upWidth : 0;
+            }
+        }
     }
 
     @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
@@ -1325,7 +1340,10 @@ public class ActionBarView extends AbsActionBarView {
         }
 
         public int getLeftOffset() {
-            return mUpView.getVisibility() == GONE ? mUpWidth : 0;
+            //MIUI MOD:
+            //在V5主题中避免为UpView预留空间
+            //return mUpView.getVisibility() == GONE ? mUpWidth : 0;
+            return Injector.getLeftOffset(getContext(), mUpView, mUpWidth);
         }
 
         @Override
