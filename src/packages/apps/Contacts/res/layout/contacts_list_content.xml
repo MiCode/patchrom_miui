@@ -32,6 +32,8 @@
         layout="@layout/search_view"
         android:visibility="gone"/>
 
+    <include layout="@layout/list_empty_view" />
+
     <!-- Shown only when an Account filter is set.
          - paddingTop should be here to show "shade" effect correctly. -->
     <include
@@ -52,6 +54,8 @@
             android:layout_marginRight="?attr/contact_browser_list_padding_right"
             android:fastScrollEnabled="true"
             android:fadingEdge="none" />
+
+        <include layout="@layout/search_empty_view" />
 
         <view
             class="miui.widget.AlphabetFastIndexer"
