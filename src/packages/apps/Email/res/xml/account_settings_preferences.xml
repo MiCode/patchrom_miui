@@ -107,16 +107,11 @@
             android:ringtoneType="notification"
             android:defaultValue="content://settings/system/notification_sound" />
 
-        <ListPreference
-            android:key="account_settings_vibrate_when"
-            android:layout="?android:attr/preferenceLayoutChild"
+        <CheckBoxPreference
+            android:key="account_settings_vibrate"
             android:dependency="account_notify"
-            android:defaultValue="never"
-            android:title="@string/account_settings_vibrate_when_label"
-            android:summary="@string/account_settings_vibrate_when_summary"
-            android:entries="@array/account_settings_vibrate_when_entries"
-            android:entryValues="@array/account_settings_vibrate_when_values"
-            android:dialogTitle="@string/account_settings_vibrate_when_dlg_title" />
+            android:defaultValue="false"
+            android:title="@string/account_settings_vibrate_when_label" />
 
     </PreferenceCategory>
 
