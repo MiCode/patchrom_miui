@@ -45,6 +45,13 @@ public class AdnRecord implements Parcelable {
         }
     }
 
+    /**
+     * MIUI ADD:
+     */
+    static boolean callStringCompareNullEqualsEmpty(String s1, String s2) {
+        return stringCompareNullEqualsEmpty(s1, s2);
+    }
+
     static final String LOG_TAG = "GSM";
 
     //***** Instance Variables

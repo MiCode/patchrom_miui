@@ -14,12 +14,12 @@
             android:layout_width="match_parent"
             android:gravity="center"
             android:visibility="gone">
-            <miui.widget.ImageTextView
+            <com.android.deskclock.ClockTextView
                 android:id="@+id/time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:entries="@array/duration_entries"
-                android:entryValues="@array/duration_org_entryValues" />
+                android:textSize="@dimen/clock_text_org"
+                android:textColor="@color/number_color_yellow" />
         </com.android.deskclock.StopwatchChronometer>
         <FrameLayout
             android:id="@+id/timer_analog_clock"
@@ -48,25 +48,23 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center">
-                        <miui.widget.ImageTextView
+                        <com.android.deskclock.ClockTextView
                             android:id="@+id/time_hour"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:entries="@array/duration_entries"
-                            android:entryValues="@array/duration_small_entryValues" />
+                            android:textColor="@color/number_color_dark_second" />
                         <TextView
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
                             android:text="@string/hour_unit"
                             style="@style/TimeUnitTextStyle" />
                     </LinearLayout>
-                    <miui.widget.ImageTextView
+                    <com.android.deskclock.ClockTextView
                         android:id="@+id/time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingTop="@dimen/timer_minute_text_paddingtop"
-                        android:entries="@array/duration_entries"
-                        android:entryValues="@array/duration_middle_entryValues" />
+                        android:textSize="@dimen/clock_text_stopwatch_large"
+                        android:textColor="@color/number_color_dark" />
                 </com.android.deskclock.StopwatchChronometer>
             </FrameLayout>
 

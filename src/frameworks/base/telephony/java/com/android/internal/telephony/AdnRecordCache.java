@@ -33,7 +33,9 @@ import java.util.Iterator;
 /**
  * {@hide}
  */
-public final class AdnRecordCache extends Handler implements IccConstants {
+// MIUI MOD:
+// public final class AdnRecordCache extends Handler implements IccConstants {
+public class AdnRecordCache extends Handler implements IccConstants {
     //***** Instance Variables
 
     private IccFileHandler mFh;
@@ -57,14 +59,10 @@ public final class AdnRecordCache extends Handler implements IccConstants {
 
     //***** Constructor
 
-    @MiuiHook(MiuiHookType.NEW_FIELD)
-    private AdnCacheManager mAdnCacheManager;
-
     @MiuiHook(MiuiHookType.CHANGE_CODE)
     public AdnRecordCache(IccFileHandler fh) {
         mFh = fh;
         mUsimPhoneBookManager = new UsimPhoneBookManager(mFh, this);
-        mAdnCacheManager = new AdnCacheManager(this);
     }
 
     //***** Called from SIMRecords
@@ -79,7 +77,6 @@ public final class AdnRecordCache extends Handler implements IccConstants {
 
         clearWaiters();
         clearUserWriters();
-        mAdnCacheManager.reset();
     }
 
     private void clearWaiters() {
@@ -218,7 +215,6 @@ public final class AdnRecordCache extends Handler implements IccConstants {
 
         if (index == -1) {
             sendErrorResponse(response, "Adn record don't exist for " + oldAdn);
-            mAdnCacheManager.handleNonExistentAdnRecord(efid);
             return;
         }
 
@@ -233,7 +229,6 @@ public final class AdnRecordCache extends Handler implements IccConstants {
             newAdn.recordNumber = index;
         }
 
-        mAdnCacheManager.handleUpdateAdnRecord(efid, oldAdn, newAdn);
         Message pendingResponse = userWriteResponse.get(efid);
 
         if (pendingResponse != null) {
@@ -268,7 +263,6 @@ public final class AdnRecordCache extends Handler implements IccConstants {
         // Have we already loaded this efid?
         if (result != null) {
             if (response != null) {
-                mAdnCacheManager.handleAllAdnLikeLoaded(efid, result);
                 AsyncResult.forMessage(response).result = result;
                 response.sendToTarget();
             }
@@ -347,7 +341,7 @@ public final class AdnRecordCache extends Handler implements IccConstants {
                 adnLikeWaiters.delete(efid);
 
                 if (ar.exception == null) {
-                    mAdnCacheManager.handleLoadAllAdnLike(efid, ar);
+                    adnLikeFiles.put(efid, (ArrayList<AdnRecord>) ar.result);
                 }
                 notifyWaiters(waiters, ar);
                 break;
@@ -370,15 +364,5 @@ public final class AdnRecordCache extends Handler implements IccConstants {
                 break;
         }
 
-    }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    public int getFreeAdn(){
-        return mAdnCacheManager.getFreeAdn();
-    }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    public int getAdnCapacity() {
-        return mAdnCacheManager.getAdnCapacity();
     }
 }

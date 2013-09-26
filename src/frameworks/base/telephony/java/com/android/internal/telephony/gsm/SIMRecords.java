@@ -41,6 +41,7 @@ import com.android.internal.telephony.IccUtils;
 import com.android.internal.telephony.IccVmFixedException;
 import com.android.internal.telephony.IccVmNotSupportedException;
 import com.android.internal.telephony.MccTable;
+import com.android.internal.telephony.MiuiAdnRecordCache;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneBase;
 import com.android.internal.telephony.SmsMessageBase;
@@ -204,7 +205,9 @@ public class SIMRecords extends IccRecords {
     public SIMRecords(IccCard card, Context c, CommandsInterface ci) {
         super(card, c, ci);
 
-        adnCache = new AdnRecordCache(mFh);
+        // MIUI MOD:
+        // adnCache = new AdnRecordCache(mFh);
+        adnCache = new MiuiAdnRecordCache(mFh);
 
         mVmConfig = new VoiceMailConstants();
         mSpnOverride = new MiuiSpnOverrideImpl(); // miui modify

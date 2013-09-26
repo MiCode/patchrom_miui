@@ -1102,6 +1102,15 @@ public abstract class PackageManager {
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
+     * {@link #hasSystemFeature}: The device supports Wi-Fi Display.
+     *
+     * @hide
+     *
+    */
+    public static final String FEATURE_WIFI_DISPLAY = "com.qualcomm.wifi_display";
+
+    /**
+     * Feature for {@link #getSystemAvailableFeatures} and
      * {@link #hasSystemFeature}: This is a device dedicated to showing UI
      * on a television.  Television here is defined to be a typical living
      * room television experience: displayed on a big screen, where the user

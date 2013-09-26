@@ -97,14 +97,4 @@ interface IIccPhoneBook {
      *            recordSizes[2]  is the number of records in the EF file
      */
     int[] getAdnRecordsSize(int efid);
-
-    /**
-     * Get the free adn count
-     */
-    int getFreeAdn();
-
-    /**
-     * Get the adn capacity on card
-     */
-    int getAdnCapacity();
 }

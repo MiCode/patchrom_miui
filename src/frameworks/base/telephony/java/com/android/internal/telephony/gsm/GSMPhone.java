@@ -155,7 +155,9 @@ public class GSMPhone extends PhoneBase {
     GsmCallTracker mCT;
     GsmServiceStateTracker mSST;
     ArrayList <GsmMmiCode> mPendingMMIs = new ArrayList<GsmMmiCode>();
-    SimPhoneBookInterfaceManager mSimPhoneBookIntManager;
+    // MIUI MOD:
+    // SimPhoneBookInterfaceManager mSimPhoneBookIntManager;
+    IccPhoneBookInterfaceManager mSimPhoneBookIntManager;
     SimSmsInterfaceManager mSimSmsIntManager;
     PhoneSubInfo mSubInfo;
 
@@ -196,7 +198,9 @@ public class GSMPhone extends PhoneBase {
         mSMS = new GsmSMSDispatcher(this, mSmsStorageMonitor, mSmsUsageMonitor);
         mDataConnectionTracker = new GsmDataConnectionTracker (this);
         if (!unitTestMode) {
-            mSimPhoneBookIntManager = new SimPhoneBookInterfaceManager(this);
+            // MIUI MOD:
+            // mSimPhoneBookIntManager = new SimPhoneBookInterfaceManager(this);
+            mSimPhoneBookIntManager = new MiuiSimPhoneBookInterfaceManager(this);
             mSimSmsIntManager = new SimSmsInterfaceManager(this, mSMS);
             mSubInfo = new PhoneSubInfo(this);
         }

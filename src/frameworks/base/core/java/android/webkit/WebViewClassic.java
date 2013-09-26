@@ -4627,13 +4627,28 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
      * draw focus highlight rectangular and outline
      */
     private void drawFocus(Canvas canvas, Rect r, List<Rect> rect) {
-        final int radius = 10;
-        final int strokeWidth = 3;
+        final int radius = 8;
+        final int strokeWidth = 2;
+        final float alphaRatio = 0.6f;
         Paint paint = new Paint();
         paint.setAntiAlias(true);
-        paint.setARGB(0xff, 0xff, 0x72, 0);
+        paint.setARGB(0xff, 0xff, 0x83, 0x19);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(strokeWidth);
+        // 如果mTouchHightlightPaint的color为默认的颜色，则边框采用默认的颜色值
+        // 如果不是，则边框的颜色值与mTouchHightlightPaint颜色一样，然后改变
+        // mTouchHightlightPaint的透明度
+        if (mTouchHightlightPaint.getColor() == WebViewClassic.HIGHLIGHT_COLOR) {
+            if (getSettings() != null && getSettings().getNightReadModeEnabled()) {
+                paint.setARGB(0x99, 0xff, 0xff, 0xff);
+                mTouchHightlightPaint.setARGB(0x40, 0xff, 0xff, 0xff);
+            } else {
+                paint.setARGB(0xff, 0xff, 0x72, 0);
+            }
+        } else {
+            paint.setColor(mTouchHightlightPaint.getColor());
+            mTouchHightlightPaint.setAlpha((int)(mTouchHightlightPaint.getAlpha()*alphaRatio));
+        }
 
         if (mTouchHighlightRegion.isRect()) {
             canvas.drawRect(new RectF(r), mTouchHightlightPaint);
@@ -5129,6 +5144,9 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
         int height;
         Drawable drawable;
         boolean isLeft = nativeIsHandleLeft(mNativeClass, handleId);
+        if (! mSelectingText) {
+            alpha = 0;
+        }
 
         // 计算光标的实际应该显示的高度，根据当前选中字的高度来确定光标的高度
         int markHeight = mTextSelectMarkHeightMatchHandleHeight;
@@ -5210,13 +5228,21 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
 
         keepCaretHandleInEditTextContentBounds(ratio);
         mSelectHandleCenter.setBounds(mSelectHandleBaseBounds);
-        mSelectHandleCenter.setAlpha(mBaseAlpha.getAlpha());
+        if (!mSelectingText) {
+            mSelectHandleCenter.setAlpha(0);
+        } else {
+            mSelectHandleCenter.setAlpha(mBaseAlpha.getAlpha());
+        }
         mSelectHandleCenter.draw(canvas);
 
         int halfMarkWidth = mTextSelectMark.getIntrinsicWidth() / 2;
         Rect markBound = new Rect(x - halfMarkWidth, y - markHeight , x + halfMarkWidth, y);
         mTextSelectMark.setBounds(markBound);
-        mTextSelectMark.setAlpha(mBaseAlpha.getAlpha());
+        if (!mSelectingText) {
+            mTextSelectMark.setAlpha(0);
+        } else {
+            mTextSelectMark.setAlpha(mBaseAlpha.getAlpha());
+        }
         mTextSelectMark.draw(canvas);
     }
 

@@ -102,7 +102,9 @@ public class CDMAPhone extends PhoneBase {
     CdmaServiceStateTracker mSST;
     CdmaSubscriptionSourceManager mCdmaSSM;
     ArrayList <CdmaMmiCode> mPendingMmis = new ArrayList<CdmaMmiCode>();
-    RuimPhoneBookInterfaceManager mRuimPhoneBookInterfaceManager;
+    // MIUI MOD:
+    // RuimPhoneBookInterfaceManager mRuimPhoneBookInterfaceManager;
+    IccPhoneBookInterfaceManager mRuimPhoneBookInterfaceManager;
     RuimSmsInterfaceManager mRuimSmsInterfaceManager;
     int mCdmaSubscriptionSource = CdmaSubscriptionSourceManager.SUBSCRIPTION_SOURCE_UNKNOWN;
     PhoneSubInfo mSubInfo;
@@ -168,7 +170,9 @@ public class CDMAPhone extends PhoneBase {
                 EVENT_CDMA_SUBSCRIPTION_SOURCE_CHANGED, null);
         mSMS = new CdmaSMSDispatcher(this, mSmsStorageMonitor, mSmsUsageMonitor);
         mDataConnectionTracker = new CdmaDataConnectionTracker (this);
-        mRuimPhoneBookInterfaceManager = new RuimPhoneBookInterfaceManager(this);
+        // MIUI MOD:
+        // mRuimPhoneBookInterfaceManager = new RuimPhoneBookInterfaceManager(this);
+        mRuimPhoneBookInterfaceManager = new MiuiRuimPhoneBookInterfaceManager(this);
         mRuimSmsInterfaceManager = new RuimSmsInterfaceManager(this, mSMS);
         mSubInfo = new PhoneSubInfo(this);
         mEriManager = new EriManager(this, context, EriManager.ERI_FROM_XML);

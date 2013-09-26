@@ -18,8 +18,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="6dip"
-    android:layout_marginBottom="6dip"
+    android:layout_marginTop="@dimen/widget_margin_top"
+    android:layout_marginLeft="@dimen/widget_margin_left"
+    android:layout_marginRight="@dimen/widget_margin_right"
+    android:layout_marginBottom="@dimen/widget_margin_bottom"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
@@ -74,7 +76,8 @@
             android:id="@+id/widget_compose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_menu_compose_normal_holo_light" />
+            android:src="@drawable/ic_menu_compose_normal_holo_light"
+            android:contentDescription="@string/compose_action" />
     </LinearLayout>
     <ListView
         android:id="@+id/message_list"

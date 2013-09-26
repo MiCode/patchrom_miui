@@ -154,9 +154,10 @@ class FindActionModeCallback implements ActionMode.Callback, TextWatcher,
             mActiveMatchIndex = matchIndex;
             updateMatchesString();
         } else {
-            // MIUI ADD:
-            mMatches.setText(com.android.internal.R.string.no_matches);
-            mMatches.setVisibility(View.INVISIBLE);
+            // MIUI MOD:
+            // When looking character was empty, click find_prev or find_next will occur flicker
+            // mMatches.setVisibility(View.INVISIBLE);
+            mMatches.setVisibility(View.GONE);
             mNumberOfMatches = 0;
         }
     }
