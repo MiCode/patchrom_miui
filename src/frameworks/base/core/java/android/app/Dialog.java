@@ -106,6 +106,12 @@ public class Dialog implements DialogInterface, Window.Callback,
                 ((com.miui.internal.v5.app.ActionBarImpl) actionBar).onWindowHide();
             }
         }
+
+        static void removeView(Dialog dialog, WindowManager windowManager, View decor) {
+            if (decor.getParent() != null) {
+                windowManager.removeView(decor);
+            }
+        }
     }
 
     private static final String TAG = "Dialog";
@@ -352,7 +358,9 @@ public class Dialog implements DialogInterface, Window.Callback,
         }
 
         try {
-            mWindowManager.removeView(mDecor);
+            // MIUI MOD:
+            // mWindowManager.removeView(mDecor);
+            Injector.removeView(this, mWindowManager, mDecor);
 
             Injector.onWindowHide(this); // Miui Hook
         } finally {
