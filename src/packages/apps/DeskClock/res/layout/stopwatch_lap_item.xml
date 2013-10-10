@@ -5,12 +5,12 @@
     android:background="@drawable/list_item_bg"
     android:paddingLeft="@dimen/stopwatch_lap_item_padding_left"
     android:paddingRight="@dimen/stopwatch_lap_item_padding_right">
-    <miui.widget.ImageTextView
+    <com.android.deskclock.ClockTextView
         android:id="@+id/indexTime"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:entries="@array/duration_entries"
-        android:entryValues="@array/duration_entryValues" />
+        android:textSize="@dimen/clock_text_stopwatch_normal"
+        android:textColor="@color/number_color_dark" />
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -22,27 +22,23 @@
         android:layout_weight="1"
         android:layout_height="wrap_content"
         android:gravity="center">
-        <miui.widget.ImageTextView
+        <com.android.deskclock.ClockTextView
             android:id="@+id/elapsedTime"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:entries="@array/duration_entries"
-            android:entryValues="@array/duration_entryValues"/>
+            android:textSize="@dimen/clock_text_stopwatch_normal"
+            android:textColor="@color/number_color_dark" />
     </LinearLayout>
     <LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:background="@drawable/lap_bg"
         android:gravity="center">
-        <ImageView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:src="@drawable/plus_small" />
-        <miui.widget.ImageTextView
+        <com.android.deskclock.ClockTextView
             android:id="@+id/lapElapsedTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:entries="@array/duration_entries"
-            android:entryValues="@array/duration_small_entryValues" />
+            android:textSize="@dimen/clock_text_stopwatch_small"
+            android:textColor="@color/number_color_dark_second" />
     </LinearLayout>
 </LinearLayout>

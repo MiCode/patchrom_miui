@@ -13,20 +13,20 @@
         android:background="@drawable/timer_bg"
         android:gravity="center"
         android:orientation="vertical">
-        <miui.widget.ImageTextView
+        <com.android.deskclock.ClockTextView
             android:id="@+id/timeDisplay"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:visibility="gone"
-            android:entries="@array/duration_entries"
-            android:entryValues="@array/duration_large_entryValues"/>
-        <miui.widget.ImageTextView
+            android:textSize="@dimen/clock_text_timer"
+            android:textColor="@color/number_color_dark" />
+        <com.android.deskclock.ClockTextView
             android:id="@+id/timeDisplayWithHour"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:visibility="gone"
-            android:entries="@array/duration_entries"
-            android:entryValues="@array/duration_large_entryValues_with_hour"/>
+            android:textSize="@dimen/clock_text_timer_with_hour"
+            android:textColor="@color/number_color_dark" />
         <TimePicker
             android:id="@+id/timer_picker"
             android:layout_height="wrap_content"

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="mi_effect_control"
+        android:summary="@string/mi_effect_summary"
+        android:title="@string/mi_effect_title" />
+
+    <PreferenceCategory
+        android:key="mode_category"
+        android:title="@string/headphone_settings" >
+        <miui.preference.RadioButtonPreference
+            android:key="mode_earbuds"
+            android:persistent="false"
+            android:title="@string/dirac_mode_earbuds" />
+        <miui.preference.RadioButtonPreference
+            android:key="mode_in_ear"
+            android:persistent="false"
+            android:title="@string/dirac_mode_in_ear" />
+        <miui.preference.RadioButtonPreference
+            android:key="mode_piston_100"
+            android:persistent="false"
+            android:title="@string/dirac_mode_piston_100" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="equalizer_category" >
+        <Preference android:title="@string/equalizer" >
+            <intent
+                android:action="com.miui.player.DIRAC_EQUALIZER"
+                android:targetClass="com.miui.player.effect.dirac.DiracEqualizer"
+                android:targetPackage="com.miui.player" />
+        </Preference>
+    </PreferenceCategory>
+
+</PreferenceScreen>

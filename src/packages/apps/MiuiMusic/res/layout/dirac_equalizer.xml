@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/dirac_eq_bg"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/title_view"
+        layout="@layout/equalizer_title_bar" />
+
+    <TextView
+        android:id="@+id/effect_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-8dp"
+        android:background="@drawable/eq_config_bg"
+        android:ellipsize="end"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="25dp"
+        android:paddingRight="50dp"
+        android:singleLine="true"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <!-- 均衡器设置曲线显示 -->
+
+    <view
+        xmlns:miui="http://schemas.android.com/apk/res/com.miui.player"
+        android:id="@+id/surface"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        class="com.miui.player.effect.EqualizerView"
+        android:background="@drawable/eq_curve_bg"
+        android:paddingBottom="5dp"
+        android:paddingTop="15dp"
+        miui:curve_color="@color/dirac_equalizer_curve"
+        miui:curve_shadow_color="@color/dirac_equalizer_curve_shadow"
+        miui:curve_shadow_radius="8" />
+
+    <!-- 均衡器设置区域 -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right|center_vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <view
+            android:id="@+id/progress_eq0"
+            style="@style/EQSeekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            class="com.miui.player.effect.VerticalSeekBar" />
+
+        <view
+            android:id="@+id/progress_eq1"
+            style="@style/EQSeekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            class="com.miui.player.effect.VerticalSeekBar" />
+
+        <view
+            android:id="@+id/progress_eq2"
+            style="@style/EQSeekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            class="com.miui.player.effect.VerticalSeekBar" />
+
+        <view
+            android:id="@+id/progress_eq3"
+            style="@style/EQSeekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            class="com.miui.player.effect.VerticalSeekBar" />
+
+        <view
+            android:id="@+id/progress_eq4"
+            style="@style/EQSeekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            class="com.miui.player.effect.VerticalSeekBar" />
+
+        <view
+            android:id="@+id/progress_eq5"
+            style="@style/EQSeekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            class="com.miui.player.effect.VerticalSeekBar" />
+
+        <view
+            android:id="@+id/progress_eq6"
+            style="@style/EQSeekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            class="com.miui.player.effect.VerticalSeekBar" />
+    </LinearLayout>
+
+</LinearLayout>

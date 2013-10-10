@@ -142,10 +142,14 @@
             android:summary="@string/dolby_mode_off" />
 
     <Preference
-            android:fragment="com.android.settings.dirac.DiracSettings"
-            android:key="dirac_control"
-            android:title="@string/dirac_control"
-            android:summary="@string/dirac_mode_off" />
+        android:key="dirac_control"
+        android:summary="@string/dirac_mode_off"
+        android:title="@string/dirac_control" >
+        <intent
+            android:action="com.miui.player.DIRAC_SETTINGS"
+            android:targetClass="com.miui.player.effect.dirac.DiracSettings"
+            android:targetPackage="com.miui.player" />
+    </Preference>
 
     <!-- Dock -->
     <PreferenceCategory

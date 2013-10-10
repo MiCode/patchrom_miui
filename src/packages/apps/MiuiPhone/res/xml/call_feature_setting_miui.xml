@@ -18,6 +18,12 @@
         android:title="@string/call_settings_miui">
 
     <PreferenceCategory android:title="@string/dial_related_setting_catory_miui">
+        <ListPreference
+            android:key="button_t9_index_method_settings"
+            android:title="@string/t9_indexing_method_title_miui"
+            android:persistent="true"
+            android:entries="@array/t9_indexing_method_entries_miui"
+            android:entryValues="@array/t9_indexing_method_entry_values_miui"/>
         <CheckBoxPreference
             android:key="button_auto_redial"
             android:title="@string/auto_redial_pref_title_miui"
@@ -33,6 +39,22 @@
             android:entryValues="@array/answer_widget_entry_values_miui"
             android:dialogTitle="@string/answer_widget_dialog_title_miui"
             android:defaultValue="1" />
+        <PreferenceScreen
+            android:key="button_auto_answer_screen"
+            android:title="@string/auto_answer_pref_title_miui">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.phone"
+                android:targetClass="com.android.phone.MiuiAutoAnswerSetting" />
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:key="button_respond_via_sms_key"
+            android:title="@string/reject_via_sms_miui"
+            android:summary="@string/reject_via_sms_summary_miui"
+            android:persistent="false">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.phone"
+                android:targetClass="com.android.phone.MiuiRespondViaSmsManagerSettings" />
+        </PreferenceScreen>
         <PreferenceScreen
             android:key="button_answer_state_setting"
             android:title="@string/answer_state_setting_title"
