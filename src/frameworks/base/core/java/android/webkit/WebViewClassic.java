@@ -4436,7 +4436,10 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
 
         // decide which adornments to draw
         int extras = DRAW_EXTRAS_NONE;
-        if (!mFindIsUp && mShowTextSelectionExtra) {
+        // MIUI MOD:
+        // if (!mFindIsUp && mShowTextSelectionExtra) {
+        if (mShowTextSelectionExtra) {
+        // END
             extras = DRAW_EXTRAS_SELECTION;
         }
 
@@ -6258,9 +6261,11 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
                     , com.android.internal.R.string.text_copied
                     , Toast.LENGTH_SHORT).show();
             copiedSomething = true;
-            ClipboardManager cm = (ClipboardManager)mContext
-                    .getSystemService(Context.CLIPBOARD_SERVICE);
-            cm.setText(selection);
+            // MIUI DEL:
+            // ClipboardManager cm = (ClipboardManager)mContext
+            //         .getSystemService(Context.CLIPBOARD_SERVICE);
+            // cm.setText(selection);
+            // END
             int[] handles = new int[4];
             getSelectionHandles(handles);
             mWebViewCore.sendMessage(EventHub.COPY_TEXT, handles);
