@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaomi.market.ui.UpdateHistoryItem xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Widget.ListView.Item.TrebleLine"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/main_padding"
+        android:layout_marginBottom="@dimen/common_padding"
+        android:orientation="horizontal" >
+
+        <ImageSwitcher
+            android:id="@+id/icon"
+            style="@style/Widget.Icon" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/developer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:textAppearance="@style/TextAppearance.Title.Secondary" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:textAppearance="@style/TextAppearance.Title" />
+
+            <TextView
+                android:id="@+id/version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:textAppearance="@style/TextAppearance.Title.Secondary" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/common_padding_medium"
+        android:text="@string/update_log_hint"
+        android:textAppearance="@style/TextAppearance.Title.Secondary" >
+    </TextView>
+
+    <com.xiaomi.market.ui.ExpandableTextView
+        android:id="@+id/update_log"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/main_padding" >
+
+        <TextView
+            android:id="@+id/expandable_textview"
+            style="@style/TextAppearance.Content"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/expand_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:src="@drawable/update_history_expand" >
+        </ImageView>
+    </com.xiaomi.market.ui.ExpandableTextView>
+
+</com.xiaomi.market.ui.UpdateHistoryItem>

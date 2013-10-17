@@ -69,8 +69,20 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"/>
        </com.android.browser.MiuiNavScreenContainer>
-       <FrameLayout android:id="@+id/quicklinks_edit_mode_container" android:layout_width="match_parent"
-            android:layout_height="match_parent" android:visibility="invisible" android:paddingTop="@dimen/quick_link_edit_mode_container_top_padding"
+
+       <FrameLayout android:id="@+id/quicklinks_edit_mode_top_mask"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/quick_link_edit_mode_top_mask_height"
+            android:visibility="invisible"
+            android:layout_gravity="top"
+            android:background="@drawable/quicklinks_panel_edit_mode_bg">
+       </FrameLayout>
+
+       <FrameLayout android:id="@+id/quicklinks_edit_mode_container"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/quicklinks_edit_mode_container_height"
+            android:visibility="invisible"
+            android:layout_gravity="bottom"
             android:background="@drawable/quicklinks_panel_edit_mode_bg">
            <ImageButton
               android:id="@+id/add_quicklink_btn"

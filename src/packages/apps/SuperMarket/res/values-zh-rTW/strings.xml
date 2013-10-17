@@ -17,6 +17,7 @@
     <string name="menu_download_manager">下載隊列</string>
     <string name="menu_refresh">重新整理</string>
     <string name="menu_clear_search_history">清除搜尋記錄</string>
+    <string name="menu_clear_update_history">清除升級記錄</string>
     <string name="menu_sort">排序</string>
     <string name="menu_sort_by_name">名稱</string>
     <string name="menu_sort_by_time">時間</string>
@@ -38,34 +39,33 @@
     <string name="login_active">立即激活</string>
 
     <!-- preferences -->
-    <string name="pref_title_auto_update_setting">自動更新設定</string>
-    <string name="pref_title_auto_update_via_wifi">自動升級應用</string>
+    <string name="pref_category_title_notification">通知欄提示</string>
+    <string name="pref_category_title_other">其他功能</string>
+    <string name="pref_category_title_version">版本信息</string>
+    <string name="pref_title_auto_update_via_wifi">自動升級</string>
     <string name="pref_title_auto_update_via_wifi_checkbox">Wi-Fi自動升級</string>
-    <string name="pref_title_update_onlyby_wifi">僅使用Wi-Fi自動更新</string>
-    <string name="pref_title_data_save_mode">省流量模式</string>
+    <string name="pref_title_data_save">省流量模式</string>
     <string name="pref_title_clear_search_record">清除搜尋記錄</string>
-    <string name="pref_title_update_notify_mode">程式升級通知</string>
-    <string name="pref_list_auto_update">自動更新</string>
-    <string name="pref_list_remind_me_after_download">下載後提醒我</string>
-    <string name="pref_list_disable">關閉</string>
-    <string name="pref_list_per_week">每週通知</string>
-    <string name="pref_list_per_day">每天通知</string>
-    <string name="pref_list_data_save_mode_always">總是啟用</string>
-    <string name="pref_list_data_save_mode_network">僅數據網路</string>
-    <string name="pref_list_data_save_mode_never">關閉</string>
+    <string name="pref_title_update_notification">升級通知</string>
     <string name="pref_list_use_online_server">使用線上伺服器</string>
     <string name="pref_list_use_staging_server">使用staging伺服器</string>
     <string name="pref_list_use_dev_staging_server">使用dev-staging伺服器</string>
     <string name="pref_title_use_staging">使用staging伺服器</string>
+    <string name="pref_title_silent_install">靜默安裝</string>
+    <string name="pref_title_hotsubjects_notification">專題訂閱</string>
+    <string name="pref_title_network_diagnostics">網路診斷</string>
+    <string name="pref_title_clear_cache">清除商店緩存</string>
     <string name="clear_search_record_message">是否清除歷史搜尋記錄?</string>
     <string name="result_of_clear_history">歷史記錄已清除</string>
-    <string name="pref_title_silent_install">靜默安裝</string>
-    <string name="pref_summary_auto_update_via_wifi">在Wi-Fi網絡下，鎖屏時自動升級</string>
-    <string name="pref_title_hotsubjects_notification">有新專題時通知我</string>
+    <string name="pref_summary_auto_update_via_wifi">在Wi-Fi網路下，鎖屏時自動升級</string>
+    <string name="pref_summary_data_save">2G/3G網路下，不加載圖片</string>
+    <string name="clear_cache_message">是否清除緩存內容（圖片等）？</string>
+    <string name="clear_cache_succeed">緩存內容已清除</string>
+    <string name="clear_cache_failed">緩存內容清除失敗，請稍後重試</string>
 
     <!-- comments -->
     <string name="no_comment">無評論資訊</string>
-    <string name="comment_sending">正在發送評論...</string>
+    <string name="comment_sending">正在發送評論&#8230;</string>
     <string name="comment_upload_failed">評論發送失敗了</string>
     <string name="comment_upload_success">成功提交！稍候審核通過就會展示出來 :) </string>
     <string name="comment_upload_hint">您的評論會在通過審核後展示出來</string>
@@ -162,7 +162,7 @@
     <string name="size_more_than_one_hundred">100M以上</string>
     <string name="size_interval"><xliff:g id="from_num">%1$d</xliff:g>~<xliff:g id="to_num">%2$d</xliff:g>M</string>
     <string name="package_size">大小: <xliff:g id="size">%1$s</xliff:g>M</string>
-    <string name="package_size_calculating">大小: 計算中...</string>
+    <string name="package_size_calculating">大小: 計算中&#8230;</string>
     <!-- error handling -->
     <string name="connect_fail">下載未完成，請檢查網路連線</string>
     <string name="connect_no_fit_fail">下載未完成，沒有適合您手機的安裝包</string>
@@ -190,14 +190,16 @@
     <string name="no_description">無應用程式介紹</string>
     <string name="no_change_log">無應用程式更新資訊</string>
     <string name="no_search">沒有找到應用程式</string>
-    <string name="loading_app_list">正在載入應用清單...</string>
-    <string name="loading_collection_list">正在載入專題清單...</string>
-    <string name="loading_app_detail">正在載入應用詳細資訊...</string>
-    <string name="loading_installed_list">正在載入已安裝清單...</string>
-    <string name="loading_update_list">正在載入更新清單...</string>
-    <string name="loading_category_list">正在載入分類清單...</string>
-    <string name="loading_comment_list">正在加載評論清單...</string>
-    <string name="loading_search_result">正在載入搜尋結果...</string>
+    <string name="no_update_records">還沒有升級記錄</string>
+    <string name="loading_app_list">正在載入應用清單&#8230;</string>
+    <string name="loading_collection_list">正在載入專題清單&#8230;</string>
+    <string name="loading_app_detail">正在載入應用詳細資訊&#8230;</string>
+    <string name="loading_installed_list">正在載入已安裝清單&#8230;</string>
+    <string name="loading_update_list">正在載入更新清單&#8230;</string>
+    <string name="loading_category_list">正在載入分類清單&#8230;</string>
+    <string name="loading_search_result">正在載入搜尋結果&#8230;</string>
+    <string name="loading_recommend_list">正在加載推薦列表&#8230;</string>
+    <string name="loading_update_history_list">正在加載升級記錄&#8230;</string>
 
     <string name="expand_full_text">展開全文</string>
     <string name="expand_full_text_comment">展開全文▼</string>
@@ -247,10 +249,39 @@
     <string name="delete_confirm">確定要刪除所選的<xliff:g id="app_count">%1$s</xliff:g>個應用嗎？</string>
     <string name="delete_confirm_system_app">准備刪除<xliff:g id="app_count">%1$s</xliff:g>個選中應用，其中<xliff:g id="app_list">%2$s</xliff:g>在系統分區中，是否確認刪除。</string>
 
-    <!-- download manager -->
+    <!-- update history -->
+    <string name="update_history_title">升級記錄</string>
+    <string name="update_log_hint">新版特性：</string>
+    <string name="update_time"><xliff:g id="month">%1$s</xliff:g>月<xliff:g id="date">%2$s</xliff:g>日</string>
+    <string name="update_history_cleared">升级记录已清除</string>
 
     <!-- first recommend -->
     <string name="first_recommend_download">全部安裝</string>
     <string name="first_recommend_enter">進入商店</string>
 
+    <!-- search recommend -->
+    <string name="search_recommend_source">根據<xliff:g id="app_name">%1$s</xliff:g>推薦</string>
+    <string name="search_recommend_source_default">装机必备</string>
+    <string name="search_recommend_ingore">沒興趣</string>
+    <string name="search_recommend_ingored_text">以後不再提醒</string>
+    <string name="search_recommend_hint">你可能喜歡這些應用</string>
+    <string name="search_recommend_no_net">啊哦，當前好像沒有網路哦</string>
+    <string name="search_recommend_no_data">暫時沒有應用推薦</string>
+
+    <!-- network diagnostics -->
+    <string name="diagnostics_title">網路診斷</string>
+    <string name="diagnostics_desc">網路診斷可以检測小米網路服務狀態，並生成、上報日誌，帮助開髮團隊解決問題，日誌中不包含隱私信息。</string>
+    <string name="diagnostics_content_hint">診斷內容：</string>
+    <string name="diagnostics_local_ip">1.獲取本機IP</string>
+    <string name="diagnostics_dns_ip">2.獲取DNS解析IP地址</string>
+    <string name="diagnostics_gateway_ip">3.獲取出口IP等網路信息</string>
+    <string name="diagnostics_cdn_ip">4.獲取CDN解析IP</string>
+    <string name="diagnostics_test_download">5.測試下載速度</string>
+    <string name="diagnostics_data_cost_hint">網路診斷會消耗100KB左右流量</string>
+    <string name="diagnostics_btn_start">開始診斷</string>
+    <string name="diagnostics_btn_processing">正在診斷...</string>
+    <string name="diagnostics_btn_upload">上報結果</string>
+    <string name="diagnostics_data_sending">正在上報結果...</string>
+    <string name="diagnostics_data_upload_success">上報成功</string>
+    <string name="diagnostics_data_upload_failed">上報失敗,請重試</string>
 </resources>
