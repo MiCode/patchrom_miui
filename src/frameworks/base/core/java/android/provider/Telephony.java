@@ -176,6 +176,13 @@ public final class Telephony {
          * <P>Type: TEXT</P>
          */
         public static final String META_DATA = "meta_data";
+
+        // MIUI ADD:
+        /**
+         * Sim id for multi cards phone
+         * <P> Type:INTEGER</P>
+         */
+        public static final String SIM_ID = "sim_id";
 }
 
     /**
@@ -1158,6 +1165,13 @@ public final class Telephony {
          * <P>Type: TEXT</P>
          */
         public static final String META_DATA = "meta_data";
+
+        // MIUI ADD:
+        /**
+         * Sim id for multi cards phone
+         * <P> Type:INTEGER</P>
+         */
+        public static final String SIM_ID = "sim_id";
     }
 
     /**

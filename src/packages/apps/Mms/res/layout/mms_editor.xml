@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/editor_container"
+    android:addStatesFromChildren="true"
+    android:layout_weight="1"
+    android:layout_width="0dip"
+    android:layout_height="wrap_content"
+    android:background="@drawable/compose_msg_editor_bg"
+    >
+    <ScrollView
+        android:id="@+id/editor_scroller"
+        android:addStatesFromChildren="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="none"
+        android:scrollbars="none"
+        android:overScrollMode="never">
+        <LinearLayout
+            android:addStatesFromChildren="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/message_content_panel"
+                android:addStatesFromChildren="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+                <Button
+                    android:id="@+id/timed_message_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/timing_button"
+                    android:visibility="gone" />
+                <EditText
+                    android:id="@+id/subject"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:capitalize="sentences"
+                    android:autoText="true"
+                    android:maxLength="40"
+                    android:hint="@string/subject_hint"
+                    android:background="@null"
+                    android:visibility="gone"
+                    style="@style/TextAppearance.EditText" />
+                <View
+                    android:id="@+id/subject_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dip"
+                    android:layout_marginBottom="4dip"
+                    android:visibility="gone"
+                    android:background="@android:drawable/divider_horizontal_textfield" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.android.mms.ui.AttachmentView
+                        android:id="@+id/attachment_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dip"
+                        android:layout_marginBottom="2dip"
+                        android:visibility="gone">
+                        <ImageView
+                            android:id="@+id/attachment_image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:duplicateParentState="true" />
+                        <ImageView
+                            android:id="@+id/attachment_play_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@android:drawable/ic_media_play"
+                            android:duplicateParentState="true"
+                            android:visibility="gone" />
+                    </com.android.mms.ui.AttachmentView>
+                    <View
+                        android:id="@+id/text_focuser"
+                        android:layout_width="0dip"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+                <com.android.mms.ui.MmsTextEditor
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/embedded_text_editor"
+                    android:autoText="true"
+                    android:capitalize="sentences"
+                    android:nextFocusRight="@+id/send_button"
+                    android:imeOptions="actionSend|flagNoEnterAction"
+                    android:maxLength="2000"
+                    style="@style/TextAppearance.EditText"
+                    android:singleLine="false"
+                    android:background="@null" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

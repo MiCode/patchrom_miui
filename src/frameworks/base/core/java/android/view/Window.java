@@ -733,7 +733,15 @@ public abstract class Window {
     public void addFlags(int flags) {
         setFlags(flags, flags);
     }
-    
+
+    /**
+     * MIUI ADD:
+     * @hide
+     */
+    public void addExtraFlags(int flags) {
+        setExtraFlags(flags, flags);
+    }
+
     /**
      * Convenience function to clear the flag bits as specified in flags, as
      * per {@link #setFlags}.
@@ -742,6 +750,14 @@ public abstract class Window {
      */
     public void clearFlags(int flags) {
         setFlags(0, flags);
+    }
+
+    /**
+     * MIUI ADD:
+     * @hide
+     */
+    public void clearExtraFlags(int flags) {
+        setExtraFlags(0, flags);
     }
 
     /**
@@ -768,6 +784,19 @@ public abstract class Window {
             attrs.privateFlags |= WindowManager.LayoutParams.PRIVATE_FLAG_SET_NEEDS_MENU_KEY;
         }
         mForcedWindowFlags |= mask;
+        if (mCallback != null) {
+            mCallback.onWindowAttributesChanged(attrs);
+        }
+    }
+
+    /**
+     * MIUI ADD:
+     * @hide
+     */
+    public void setExtraFlags(int flags, int mask) {
+        final WindowManager.LayoutParams attrs = getAttributes();
+        attrs.extraFlags = (attrs.extraFlags&~mask) | (flags&mask);
+
         if (mCallback != null) {
             mCallback.onWindowAttributesChanged(attrs);
         }

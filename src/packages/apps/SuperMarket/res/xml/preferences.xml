@@ -1,63 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/menu_preferences">
-    <ListPreference
-        android:key="pref_key_auto_update_setting"
-        android:title="@string/pref_title_auto_update_setting"
-        android:entries="@array/pref_entries_update"
-        android:entryValues="@array/pref_values_update"
-        android:defaultValue="1">
-    </ListPreference>
-    <CheckBoxPreference
-        android:key="pref_key_auto_update_onlyby_wifi"
-        android:title="@string/pref_title_update_onlyby_wifi"
-        android:defaultValue="true">
-    </CheckBoxPreference>
-    <ListPreference
-        android:key="pref_key_update_notify_mode"
-        android:title="@string/pref_title_update_notify_mode"
-        android:entries="@array/pref_entries_update_notify_mode"
-        android:entryValues="@array/pref_values_update_notify_mode"
-        android:defaultValue="1">
-    </ListPreference>
-    <CheckBoxPreference
-        android:key="pref_key_auto_update_via_wifi"
-        android:title="@string/pref_title_auto_update_via_wifi"
-        android:summary="@string/pref_summary_auto_update_via_wifi"
-        android:defaultValue="false">
-    </CheckBoxPreference>
-    <ListPreference
-        android:key="pref_key_data_save_mode"
-        android:title="@string/pref_title_data_save_mode"
-        android:entries="@array/pref_entries_data_save_mode"
-        android:entryValues="@array/pref_values_data_save_mode"
-        android:defaultValue="2">
-    </ListPreference>
-    <Preference
-        android:key="pref_key_clear_search_record"
-        android:title="@string/pref_title_clear_search_record">
-    </Preference>
-    <ListPreference
-            android:key="pref_key_staging_mode"
-            android:title="@string/pref_title_use_staging"
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/menu_preferences" >
+
+    <PreferenceCategory android:title="@string/pref_category_title_notification"
+            android:key="category_key_notification" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_key_update_notification"
+            android:title="@string/pref_title_update_notification" >
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_key_hotsubjects_notification"
+            android:title="@string/pref_title_hotsubjects_notification" >
+        </CheckBoxPreference>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_category_title_other"
+            android:key="category_key_other" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_key_auto_update_via_wifi"
+            android:summary="@string/pref_summary_auto_update_via_wifi"
+            android:title="@string/pref_title_auto_update_via_wifi" >
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_key_silent_install"
+            android:title="@string/pref_title_silent_install" >
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_key_data_save"
+            android:title="@string/pref_title_data_save" >
+        </CheckBoxPreference>
+
+        <Preference
+            android:key="pref_key_network_diagnostics"
+            android:title="@string/pref_title_network_diagnostics" >
+        </Preference>
+        <Preference
+            android:key="pref_key_clear_search_record"
+            android:title="@string/pref_title_clear_search_record" >
+        </Preference>
+        <Preference
+            android:key="pref_key_clear_cache"
+            android:title="@string/pref_title_clear_cache" >
+        </Preference>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_category_title_version"
+            android:key="category_key_version" >
+        <Preference
+            style="?android:attr/preferenceInformationStyle"
+            android:key="pref_key_about"
+            android:title="@string/app_name" >
+        </Preference>
+
+        <ListPreference
+            android:defaultValue="0"
             android:entries="@array/pref_entries_staging_mode"
             android:entryValues="@array/pref_values_staging_mode"
-            android:defaultValue="0">
-    </ListPreference>
-    <CheckBoxPreference
-            android:key="pref_key_hotsubjects_notification"
-            android:title="@string/pref_title_hotsubjects_notification"
-            android:defaultValue="false">
-    </CheckBoxPreference>
-    <CheckBoxPreference
-        android:key="pref_key_silent_install"
-        android:title="@string/pref_title_silent_install"
-        android:defaultValue="true">
-    </CheckBoxPreference>
-    <Preference
-        style="?android:attr/preferenceInformationStyle"
-        android:key="pref_key_about"
-        android:title="@string/app_name" >
-    </Preference>
+            android:key="pref_key_staging_mode"
+            android:title="@string/pref_title_use_staging" >
+        </ListPreference>
+    </PreferenceCategory>
+
 </PreferenceScreen>

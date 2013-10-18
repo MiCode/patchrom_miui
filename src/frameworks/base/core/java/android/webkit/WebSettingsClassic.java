@@ -59,6 +59,9 @@ public class WebSettingsClassic extends WebSettings {
     private int             mTextSize = 100;
     @MiuiHook(MiuiHookType.NEW_FIELD)
     private boolean         mNightReadMode = false;
+    // MIUI ADD:
+    private boolean         mIsWebapp = false;
+    // END
     private String          mStandardFontFamily = "sans-serif";
     private String          mFixedFontFamily = "monospace";
     private String          mSansSerifFontFamily = "sans-serif";
@@ -684,6 +687,23 @@ public class WebSettingsClassic extends WebSettings {
     @MiuiHook(MiuiHookType.NEW_METHOD)
     public synchronized boolean getNightReadModeEnabled() {
         return mNightReadMode;
+    }
+
+    /**
+     * @hide
+     */
+    // MIUI ADD:
+    public synchronized void setIsWebapp(boolean isWebapp) {
+        mIsWebapp = isWebapp;
+        postSync();
+    }
+
+    /**
+     * @hide
+     */
+    // MIUI ADD:
+    public synchronized boolean getIsWebapp() {
+        return mIsWebapp;
     }
 
     /**

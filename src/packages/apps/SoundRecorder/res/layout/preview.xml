@@ -5,6 +5,25 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/preview_title_bg" >
+        <ViewStub
+            android:id="@+id/edit_mode_title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout="@miui:layout/v5_edit_mode_title_bar" />
+        <ViewStub
+            android:id="@+id/preview_title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout="@layout/preview_title_bar" />
+    </FrameLayout>
+
     <FrameLayout
         android:layout_weight="1"
         android:layout_width="match_parent"

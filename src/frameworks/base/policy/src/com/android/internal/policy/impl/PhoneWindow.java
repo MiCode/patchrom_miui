@@ -535,8 +535,11 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
                     // according to the new configuration
                     clearMenuViews(st);
 
-                    // Re-open the same menu
-                    reopenMenu(false);
+                    // MIUI MOD:
+                    // modify the reopen menu as close menu, see MIUI-15820.
+                    // // Re-open the same menu
+                    // reopenMenu(false);
+                    closePanel(st, false);
 
                     // Restore state
                     if (st.iconMenuPresenter != null) {

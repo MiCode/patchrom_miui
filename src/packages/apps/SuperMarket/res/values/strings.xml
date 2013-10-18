@@ -16,6 +16,7 @@
     <string name="menu_download_manager">Downloads</string>
     <string name="menu_refresh">Refresh</string>
     <string name="menu_clear_search_history">Clear search history</string>
+    <string name="menu_clear_update_history">Clear update records</string>
     <string name="menu_sort">Sort by</string>
     <string name="menu_sort_by_name">Name</string>
     <string name="menu_sort_by_time">Date</string>
@@ -35,30 +36,29 @@
     <string name="login_active">Active</string>
 
     <!-- preferences -->
-    <string name="pref_title_auto_update_setting">Auto-update settings</string>
+    <string name="pref_category_title_notification">Notification</string>
+    <string name="pref_category_title_other">Other</string>
+    <string name="pref_category_title_version">Version</string>
     <string name="pref_title_auto_update_via_wifi">Auto-update via Wi-Fi</string>
     <string name="pref_title_auto_update_via_wifi_checkbox">Auto-update</string>
-    <string name="pref_title_update_onlyby_wifi">Update via Wi-Fi only</string>
-    <string name="pref_title_data_save_mode">Show pictures</string>
+    <string name="pref_title_data_save">Show pictures</string>
     <string name="pref_title_clear_search_record">Clear search history</string>
-    <string name="pref_title_update_notify_mode">Update notifications</string>
-    <string name="pref_list_auto_update">Auto-update</string>
-    <string name="pref_list_remind_me_after_download">Notify me after download completes</string>
-    <string name="pref_list_disable">Never</string>
-    <string name="pref_list_per_week">Weekly</string>
-    <string name="pref_list_per_day">Daily</string>
-    <string name="pref_list_data_save_mode_always">Never</string>
-    <string name="pref_list_data_save_mode_network">Only over Wi-Fi</string>
-    <string name="pref_list_data_save_mode_never">Always</string>
+    <string name="pref_title_update_notification">Updates</string>
     <string name="pref_list_use_online_server">Use product server</string>
     <string name="pref_list_use_staging_server">Use staging server</string>
     <string name="pref_list_use_dev_staging_server">Use dev-staging server</string>
     <string name="pref_title_use_staging">Use staging server</string>
+    <string name="pref_title_silent_install">Quiet install</string>
+    <string name="pref_title_hotsubjects_notification">Collections</string>
+    <string name="pref_title_network_diagnostics">Network Diagnostic</string>
+    <string name="pref_title_clear_cache">Clear cache</string>
     <string name="clear_search_record_message">Clear search history?</string>
     <string name="result_of_clear_history">Your search history has been cleared.</string>
-    <string name="pref_title_silent_install">Quiet install</string>
     <string name="pref_summary_auto_update_via_wifi">Auto-upgrade via Wi-Fi when screen is locked.</string>
-    <string name="pref_title_hotsubjects_notification">Notify me of latest subject</string>
+    <string name="pref_summary_data_save">Won\'t show pictures over data network</string>
+    <string name="clear_cache_message">Clear cache?</string>
+    <string name="clear_cache_succeed">Cache cleared</string>
+    <string name="clear_cache_failed">Clear cache failed, please try later.</string>
 
     <!-- comments -->
     <string name="no_comment">No comment</string>
@@ -183,6 +183,7 @@
     <string name="no_description">No details</string>
     <string name="no_change_log">No update details</string>
     <string name="no_search">App could not be found</string>
+    <string name="no_update_records">No update records</string>
     <string name="loading_app_list">Loading list&#8230;</string>
     <string name="loading_collection_list">Loading list&#8230;</string>
     <string name="loading_app_detail">Loading&#8230;</string>
@@ -190,6 +191,9 @@
     <string name="loading_update_list">Loading update list&#8230;</string>
     <string name="loading_category_list">Loading category list&#8230;</string>
     <string name="loading_search_result">Searching&#8230;</string>
+    <string name="loading_recommend_list">Loading recommend list&#8230;</string>
+    <string name="loading_update_history_list">Loading update records&#8230;</string>
+
     <string name="expand_full_text">Expand</string>
     <string name="expand_full_text_comment">Expand▼</string>
     <string name="button_refresh">Refresh</string>
@@ -213,7 +217,7 @@
     <string name="share_subject">Share app: <xliff:g id="app_name">%1$s</xliff:g></string>
     <string name="share_text">Here\'s an app I thought you might like: <xliff:g id="app_name">%1$s</xliff:g>, check it out! Link: <xliff:g id="app_url">%2$s</xliff:g></string>
     <string name="already_bottom">that\'s all</string>
-    
+
     <!-- install check dialog -->
     <string name="install_title">Install</string>
     <string name="install_no_network_description">No networks detected.</string>
@@ -236,10 +240,40 @@
     <string name="delete_confirm">Are you sure you want to delete the selected <xliff:g id="app_count">%1$s</xliff:g> app(s)?</string>
     <string name="delete_confirm_system_app">Are you sure you want to delete <xliff:g id="app_count">%1$s</xliff:g> app(s)? <xliff:g id="app_list">%2$s</xliff:g> in system partition.</string>
 
-    <!-- download manager -->
+    <!-- update history -->
+    <string name="update_history_title">Update history</string>
+    <string name="update_log_hint">Updates:</string>
+    <string name="update_time"><xliff:g id="month">%1$s</xliff:g>-<xliff:g id="date">%2$s</xliff:g></string>
+    <string name="update_history_cleared">Your update history has been cleared.</string>
 
     <!-- first recommend -->
     <string name="first_recommend_download">Install all</string>
     <string name="first_recommend_enter">Start App Market</string>
+
+    <!-- search recommend -->
+    <string name="search_recommend_source">Based on <xliff:g id="app_name">%1$s</xliff:g></string>
+    <string name="search_recommend_source_default">Most popular</string>
+    <string name="search_recommend_ingore">Ignore</string>
+    <string name="search_recommend_hint">You may like these</string>
+    <string name="search_recommend_ingored_text">Do not recommend</string>
+    <string name="search_recommend_no_net">Network unavailable, please try later</string>
+    <string name="search_recommend_no_data">No applications recommended</string>
+
+    <!-- network diagnostics -->
+    <string name="diagnostics_title">Network Diagnostic</string>
+    <string name="diagnostics_desc">Diagnostic application will help you resolving network connecting problems. A private-free log file will be generated and uploaded for debugging use</string>
+    <string name="diagnostics_content_hint">Diagnostic:</string>
+    <string name="diagnostics_local_ip">1.local IP address</string>
+    <string name="diagnostics_dns_ip">2.The IP address resolved by DNS</string>
+    <string name="diagnostics_gateway_ip">3.The IP address of Gateway</string>
+    <string name="diagnostics_cdn_ip">4.The IP address of CDN</string>
+    <string name="diagnostics_test_download">5.Measure download speed</string>
+    <string name="diagnostics_data_cost_hint">Diagnostic will use about 100KB of cellular data</string>
+    <string name="diagnostics_btn_start">Diagnose</string>
+    <string name="diagnostics_btn_processing">Diagnosing&#8230;</string>
+    <string name="diagnostics_btn_upload">Upload log</string>
+    <string name="diagnostics_data_sending">Sending log&#8230;</string>
+    <string name="diagnostics_data_upload_success">Upload succeed</string>
+    <string name="diagnostics_data_upload_failed">Upload failed, please try again</string>
 
 </resources>

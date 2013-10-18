@@ -90,9 +90,10 @@ import miui.content.ExtraIntent;
  */
 public class WifiWatchdogStateMachine extends StateMachine {
     static class Injector {
-        static void showLogin(Context context, Intent intent) {
+        static void showLogin(Context context, Intent intent, String ssid) {
             intent.setAction(ExtraIntent.ACTION_OPEN_WIFI_LOGIN);
             intent.setPackage("com.android.settings");
+            intent.putExtra(ExtraIntent.EXTRA_OPEN_WIFI_SSID, ssid);
             context.startActivity(intent);
         }
     }
@@ -478,7 +479,7 @@ public class WifiWatchdogStateMachine extends StateMachine {
 
             // MIUI MOD:
             // notificationManager.notify(WALLED_GARDEN_NOTIFICATION_ID, 1, notification);
-            Injector.showLogin(mContext, intent);
+            Injector.showLogin(mContext, intent, mWifiInfo.getSSID());
         } else {
             notificationManager.cancel(WALLED_GARDEN_NOTIFICATION_ID, 1);
         }

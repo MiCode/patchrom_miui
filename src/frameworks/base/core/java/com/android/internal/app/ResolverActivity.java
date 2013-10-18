@@ -188,6 +188,24 @@ public class ResolverActivity extends AlertActivity implements AdapterView.OnIte
                 }
             }
         }
+
+        static void removeDuplicatedResolves(List<DisplayResolveInfo> list) {
+            if (list == null || list.size() <= 1) {
+                return;
+            }
+
+            HashSet<String> duplicate = new HashSet<String>();
+            for (int i = list.size() - 1; i >= 0; --i) {
+                DisplayResolveInfo info = list.get(i);
+                String key = info.ri.activityInfo.packageName + info.ri.activityInfo.name
+                        + info.displayLabel;
+                if (duplicate.contains(key)) {
+                    list.remove(i);
+                } else {
+                    duplicate.add(key);
+                }
+            }
+        }
     }
 
     @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
@@ -676,6 +694,9 @@ public class ResolverActivity extends AlertActivity implements AdapterView.OnIte
                 // Process last group
                 processGroup(mCurrentResolveList, start, (N-1), r0, r0Label);
             }
+            // MIUI ADD:
+            Injector.removeDuplicatedResolves(mList);
+            // END
         }
 
         private void processGroup(List<ResolveInfo> rList, int start, int end, ResolveInfo ro,

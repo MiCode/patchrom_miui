@@ -391,6 +391,7 @@ class BrowserFrame extends Handler {
         mCallbackProxy.onReceivedError(errorCode, description, failingUrl);
     }
 
+    // MIUI ADD
     private String getNetErrorInfo(int errorCode, String failingUrl) {
         int errorType = 0;
         int recommendAction = 0;
@@ -398,8 +399,13 @@ class BrowserFrame extends Handler {
         InetAddress address=null;
         String ipAddress = "";
         try {
-            address = InetAddress.getByName(new URL(failingUrl).getHost());
-            ipAddress = address.getHostAddress();
+            if (detectNetworkAvailable()) {
+                address = InetAddress.getByName(new URL(failingUrl).getHost());
+                ipAddress = address.getHostAddress();
+                if (!isIpAddress(ipAddress)) {
+                    ipAddress = "";
+                }
+            }
         } catch (Exception e) {
             ipAddress = "";
         }
@@ -422,6 +428,44 @@ class BrowserFrame extends Handler {
         String gateway = Formatter.formatIpAddress(dhcpInfo.gateway);
         String ret = errorType + "&var1=" + recommendAction + "&var2=" + ipAddress + "&var3=" + wifiState + "&var4=" + apn + "&var5=" + gateway;
         return ret;
+    }
+
+    private boolean detectNetworkAvailable() {
+        if (mContext == null) {
+            return false;
+        }
+        ConnectivityManager manager = (ConnectivityManager)mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (manager == null) {
+            return false;
+        }
+        NetworkInfo networkinfo = manager.getActiveNetworkInfo();
+        if (networkinfo == null || !networkinfo.isAvailable()) {
+            return false;
+        }
+        return true;
+     }
+
+    private boolean isIpAddress(String value) {
+        int start = 0;
+        int end = value.indexOf('.');
+        int numBlocks = 0;
+        while (start < value.length()) {
+            if (end == -1) {
+                end = value.length();
+            }
+            try {
+                int block = Integer.parseInt(value.substring(start, end));
+                if ((block > 255) || (block < 0)) {
+                    return false;
+                }
+            } catch (NumberFormatException e) {
+                return false;
+            }
+            numBlocks++;
+            start = end + 1;
+            end = value.indexOf('.', start);
+        }
+        return numBlocks == 4;
     }
 
     private String getCurrentApnInUse(Context context) {
@@ -460,6 +504,7 @@ class BrowserFrame extends Handler {
         cursor.close();
         return apnType;
     }
+    // END
 
     private void resetLoadingStates() {
         mCommitted = true;
@@ -1074,6 +1119,9 @@ class BrowserFrame extends Handler {
     private static final int RESET_LABEL = 5;
     private static final int SUBMIT_LABEL = 6;
     private static final int FILE_UPLOAD_NO_FILE_CHOSEN = 7;
+    // MIUI ADD:
+    private static final int WEBAPP = 8;
+    // END
 
     private String getRawResFilename(int id) {
         return getRawResFilename(id, mContext);
@@ -1093,6 +1141,12 @@ class BrowserFrame extends Handler {
                 // use one known resource to find the drawable directory
                 resid = com.android.internal.R.drawable.btn_check_off;
                 break;
+
+            // MIUI ADD:
+            case WEBAPP:
+                resid = com.android.internal.R.raw.webapp;
+                break;
+            // END
 
             case FILE_UPLOAD_LABEL:
                 return context.getResources().getString(

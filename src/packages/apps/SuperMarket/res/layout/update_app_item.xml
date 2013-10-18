@@ -6,31 +6,21 @@
         android:id="@+id/icon"
         style="@style/Widget.Icon" />
 
-    <FrameLayout
-        android:id="@+id/edit_area"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+    <com.xiaomi.market.ui.ActionButton
+        android:id="@+id/action"
+        android:layout_marginLeft="@dimen/common_padding"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:gravity="center" >
-        <com.xiaomi.market.ui.ActionButton
-            android:id="@+id/action"
-            style="@style/Widget.Button.Action" />
-        <CheckBox
-            android:id="@android:id/checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:focusable="false"
-            android:clickable="false"
-            android:scaleType="fitCenter"
-            android:visibility="gone" />
-    </FrameLayout>
+        android:gravity="center"
+        android:focusable="false"
+        style="@style/Widget.Button.Action" />
+
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/action"
         android:layout_toRightOf="@id/icon"
-        android:layout_toLeftOf="@id/edit_area"
         android:layout_centerVertical="true"
         android:gravity="center_vertical"
         android:singleLine="true"
@@ -40,8 +30,8 @@
         android:id="@+id/developer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/action"
         android:layout_toRightOf="@id/icon"
-        android:layout_toLeftOf="@id/edit_area"
         android:layout_above="@id/name"
         android:gravity="center_vertical"
         android:singleLine="true"
@@ -51,8 +41,8 @@
         android:id="@+id/publish_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/action"
         android:layout_toRightOf="@id/icon"
-        android:layout_toLeftOf="@id/edit_area"
         android:layout_below="@id/name"
         android:singleLine="true"
         android:ellipsize="end"

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/diagnostics_desc"
+        style="@style/TextAppearance.Title.Comment.Item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:layout_marginTop="10dip"
+        android:text="@string/diagnostics_desc" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/diagnostics_content_hint"
+        style="@style/TextAppearance.Title.Comment.Item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/diagnostics_desc"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:layout_marginTop="15dip"
+        android:text="@string/diagnostics_content_hint" >
+    </TextView>
+
+    <Button
+        android:id="@+id/diagnostics_button"
+        style="@style/Widget.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:text="@string/diagnostics_btn_start" >
+    </Button>
+
+    <TextView
+        android:id="@+id/diagnostics_data_cost_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/diagnostics_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="3dip"
+        android:gravity="center"
+        android:text="@string/diagnostics_data_cost_hint" >
+    </TextView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/diagnostics_data_cost_hint"
+        android:layout_below="@id/diagnostics_content_hint"
+        android:layout_marginBottom="50dip"
+        android:layout_marginTop="8dip" >
+
+        <TextView
+            android:id="@+id/diagnostics_display"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/diagnostics_display_bkg"
+            android:paddingLeft="25dip"
+            android:paddingRight="25dip"
+            android:paddingTop="3dip"
+            android:scrollbars="vertical"
+            android:textIsSelectable="true"
+            android:visibility="gone" >
+        </TextView>
+
+        <LinearLayout
+            android:id="@+id/diagnostics_content_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/TextAppearance.Title.Diagnostics"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="@drawable/diagnostics_content_first_item_bkg"
+                android:gravity="center_vertical"
+                android:paddingLeft="25dip"
+                android:text="@string/diagnostics_local_ip" />
+
+            <TextView
+                style="@style/TextAppearance.Title.Diagnostics"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="@drawable/diagnostics_content_middle_item_bkg"
+                android:gravity="center_vertical"
+                android:paddingLeft="25dip"
+                android:text="@string/diagnostics_dns_ip" />
+
+            <TextView
+                style="@style/TextAppearance.Title.Diagnostics"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="@drawable/diagnostics_content_middle_item_bkg"
+                android:gravity="center_vertical"
+                android:paddingLeft="25dip"
+                android:text="@string/diagnostics_gateway_ip" />
+
+            <TextView
+                style="@style/TextAppearance.Title.Diagnostics"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="@drawable/diagnostics_content_middle_item_bkg"
+                android:gravity="center_vertical"
+                android:paddingLeft="25dip"
+                android:text="@string/diagnostics_cdn_ip" />
+
+            <TextView
+                style="@style/TextAppearance.Title.Diagnostics"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="@drawable/diagnostics_content_last_item_bkg"
+                android:gravity="center_vertical"
+                android:paddingLeft="25dip"
+                android:text="@string/diagnostics_test_download" />
+        </LinearLayout>
+    </FrameLayout>
+
+</RelativeLayout>

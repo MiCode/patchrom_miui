@@ -2,17 +2,31 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/wrapper"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
     <FrameLayout
         android:id="@+id/panel"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
         <ImageView
         android:id="@+id/logoIv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:scaleType="center" />
+        <TextView android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/quicklink_user_defined_color"
+            android:singleLine="true"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/quicklink_defined_title_spacing_bottommargin"
+            android:textStyle="bold"
+            android:ellipsize="marquee"
+            android:paddingLeft="@dimen/quicklink_defined_title_paddingmargin"
+            android:paddingRight="@dimen/quicklink_defined_title_paddingmargin"
+            android:visibility="gone"
+            android:textSize="12sp" />
     </FrameLayout>
 
     <View
@@ -32,4 +46,15 @@
         android:layout_marginTop="-10dip"
         android:background="@null"
         android:src="@drawable/v5_btn_inline_delete_light" />
+
+    <CheckBox
+        android:id="@+id/quicklink_checkbox"
+        android:visibility="gone"
+        android:focusable="false"
+        android:clickable="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:button="@drawable/quicklink_checkbox"
+       />
 </FrameLayout>

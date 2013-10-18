@@ -10,7 +10,18 @@
         android:orientation="vertical">
 
         <include layout="@layout/message_list" />
-        <include layout="@layout/message_edit_bottom_panel" />
+
+        <ViewStub
+            android:id="@+id/message_edit_bottom_panel_stub"
+            android:layout="@layout/message_edit_bottom_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <ViewStub
+            android:id="@+id/message_edit_bottom_panel_msim_stub"
+            android:layout="@layout/message_edit_bottom_panel_msim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <include layout="@layout/message_edit_attachment_panel" />
     </com.android.mms.ui.SizeAwareLinearLayout>
     <include layout="@layout/multiple_recipients_contact_panel" />

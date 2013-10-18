@@ -16,14 +16,9 @@
 
 package com.android.internal.policy.impl;
 
-import miui.view.ExtraWindowManager;
-
 import com.android.internal.R;
 
-import android.annotation.MiuiHook;
-import android.annotation.MiuiHook.MiuiHookType;
 import android.app.ActivityManager;
-import android.app.ExtraActivityManager;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
@@ -48,40 +43,20 @@ import android.graphics.Color;
  * reported to this class by the current {@link KeyguardViewBase}.
  */
 public class KeyguardViewManager implements KeyguardWindowController {
-    @MiuiHook(MiuiHookType.NEW_METHOD)
+    //MIUI ADD :
     KeyguardViewBase getKeyguardView() { return mKeyguardView; }
 
-    @MiuiHook(MiuiHookType.NEW_METHOD)
+    //MIUI ADD :
     KeyguardViewProperties getKeyguardViewProperties() { return mKeyguardViewProperties; }
 
-    @MiuiHook(MiuiHookType.NEW_METHOD)
+    //MIUI ADD :
     WindowManager.LayoutParams getWindowLayoutParams() { return mWindowLayoutParams; }
 
-    @MiuiHook(MiuiHookType.NEW_CLASS)
-    static class Injector {
-        static void updateDisplayDesktopFlag(KeyguardViewManager manager) {
-            KeyguardViewBase keyguardView = manager.getKeyguardView();
-            WindowManager.LayoutParams params = manager.getWindowLayoutParams();
-            boolean displayDesktop = false;
-            boolean showSysWallpaper = false;
-            if (keyguardView instanceof MiuiLockPatternKeyguardView) {
-                displayDesktop = Boolean.parseBoolean(((MiuiLockPatternKeyguardView) keyguardView).getProperty("displayDesktop"));
-                showSysWallpaper = Boolean.parseBoolean(((MiuiLockPatternKeyguardView) keyguardView)
-                        .getProperty("showSysWallpaper"));
-            }
-            if (displayDesktop && !manager.getKeyguardViewProperties().isSecure()) {
-                params.flags &= ~WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER;
-                params.privateFlags |= ExtraWindowManager.LayoutParams.PRIVATE_FLAG_LOCKSCREEN_DISPALY_DESKTOP;
-            } else {
-                if (showSysWallpaper) {
-                    params.flags |= WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER;
-                } else {
-                    params.flags &= ~WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER;
-                }
-                params.privateFlags &= ~ExtraWindowManager.LayoutParams.PRIVATE_FLAG_LOCKSCREEN_DISPALY_DESKTOP;
-            }
-        }
-    }
+    //MIUI ADD :
+    ViewManager getViewManager() { return mViewManager; }
+
+    //MIUI ADD :
+    FrameLayout getKeyguardHost() { return mKeyguardHost; }
 
     private final static boolean DEBUG = false;
     private static String TAG = "KeyguardViewManager";
@@ -110,11 +85,12 @@ public class KeyguardViewManager implements KeyguardWindowController {
      * @param viewManager Keyguard will be attached to this.
      * @param callback Used to notify of changes.
      */
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public KeyguardViewManager(Context context, ViewManager viewManager,
             KeyguardViewCallback callback, KeyguardViewProperties keyguardViewProperties,
             KeyguardUpdateMonitor updateMonitor) {
-        mContext = new ContextThemeWrapper(context, android.R.style.Theme_Holo); // MiuiHook
+        //MIUI MOD:
+        //mContext = context;
+        mContext = new ContextThemeWrapper(context, android.R.style.Theme_Holo);
         mViewManager = viewManager;
         mCallback = callback;
         mKeyguardViewProperties = keyguardViewProperties;
@@ -144,7 +120,6 @@ public class KeyguardViewManager implements KeyguardWindowController {
      * Show the keyguard.  Will handle creating and attaching to the view manager
      * lazily.
      */
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public synchronized void show() {
         if (DEBUG) Log.d(TAG, "show(); mKeyguardView==" + mKeyguardView);
 
@@ -161,7 +136,6 @@ public class KeyguardViewManager implements KeyguardWindowController {
             int flags = WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN
                     | WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER
                     | WindowManager.LayoutParams.FLAG_SLIPPERY
-                    | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN // miui modify
                     /*| WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
                     | WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR*/ ;
             if (!mNeedsInput) {
@@ -182,8 +156,6 @@ public class KeyguardViewManager implements KeyguardWindowController {
                 lp.privateFlags |=
                         WindowManager.LayoutParams.PRIVATE_FLAG_FORCE_HARDWARE_ACCELERATED;
             }
-
-            lp.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT; // miui add
             lp.privateFlags |= WindowManager.LayoutParams.PRIVATE_FLAG_SET_NEEDS_MENU_KEY;
             lp.setTitle("Keyguard");
             mWindowLayoutParams = lp;
@@ -196,7 +168,7 @@ public class KeyguardViewManager implements KeyguardWindowController {
             mWindowLayoutParams.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR;
         } else {
             if (DEBUG) Log.d(TAG, "Rotation sensor for lock screen Off!");
-            mWindowLayoutParams.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT; //miui modify
+            mWindowLayoutParams.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_NOSENSOR;
         }
 
         mViewManager.updateViewLayout(mKeyguardHost, mWindowLayoutParams);
@@ -231,7 +203,6 @@ public class KeyguardViewManager implements KeyguardWindowController {
         //mKeyguardHost.setSystemUiVisibility(visFlags);
         //END
 
-        Injector.updateDisplayDesktopFlag(this); // miui add
         mViewManager.updateViewLayout(mKeyguardHost, mWindowLayoutParams);
         mKeyguardHost.setVisibility(View.VISIBLE);
         mKeyguardView.requestFocus();
@@ -329,7 +300,6 @@ public class KeyguardViewManager implements KeyguardWindowController {
     /**
      * Hides the keyguard view
      */
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public synchronized void hide() {
         if (DEBUG) Log.d(TAG, "hide()");
 
@@ -347,7 +317,10 @@ public class KeyguardViewManager implements KeyguardWindowController {
                             mKeyguardHost.removeView(lastView);
                         }
                     }
-                }, 0);  //miui-hook change delay time to zero instead of 500, avoid re-entry issue
+                 // MIUI MOD:
+                 // Change delay time to zero instead of 500, avoid re-entry issue.
+                 // }, 500);
+                }, 0);
             }
         }
     }

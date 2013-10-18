@@ -334,7 +334,9 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
         mKeyguardViewProperties
                 = new MiuiLockPatternKeyguardViewProperties(mLockPatternUtils, mUpdateMonitor); // miui modify
 
-        mKeyguardViewManager = new KeyguardViewManager(
+        // MIUI MOD:
+        // mKeyguardViewManager = new KeyguardViewManager(
+        mKeyguardViewManager = new MiuiKeyguardViewManager(
                 context, WindowManagerImpl.getDefault(), this,
                 mKeyguardViewProperties, mUpdateMonitor);
 
