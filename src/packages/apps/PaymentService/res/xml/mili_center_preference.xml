@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory
+        android:key="transaction_history_category"
+        android:title="@string/title_transaction" >
+        <PreferenceScreen
+            android:key="recharge_record"
+            android:title="@string/title_recharge_record" />
+        <PreferenceScreen
+            android:key="pay_record"
+            android:title="@string/title_pay_record" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="giftcard_category"
+        android:title="@string/title_giftcard" >
+        <com.xiaomi.payment.GiftcardPreference
+            android:key="giftcard_record"
+            android:title="@string/giftcard_record" />
+        <PreferenceScreen
+            android:key="discounts"
+            android:title="@string/title_discounts" />
+    </PreferenceCategory>
+</PreferenceScreen>

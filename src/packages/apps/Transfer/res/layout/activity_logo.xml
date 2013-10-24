@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFE6ECEF"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|bottom"
+            android:paddingBottom="50dip" >
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/name"
+                android:layout_marginBottom="@dimen/half_profile_width"
+                android:background="@drawable/bg_main" />
+
+            <cn.kuaipan.mishare.view.ArcImageView
+                android:id="@+id/icon"
+                android:layout_width="@dimen/profile_width"
+                android:layout_height="@dimen/profile_width"
+                android:layout_above="@id/name"
+                android:layout_centerHorizontal="true"
+                android:cropToPadding="true"
+                android:onClick="onClick"
+                android:padding="2dip"
+                android:scaleType="centerCrop"
+                android:src="@drawable/default_profile" />
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right" >
+
+            <ImageView
+                android:id="@+id/btn_history"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:onClick="onClick"
+                android:scaleType="centerInside"
+                android:src="@drawable/history_selector" />
+
+            <ImageView
+                android:id="@+id/receiver_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_margin="7dip"
+                android:gravity="center"
+                android:src="@drawable/bg_count" />
+        </FrameLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/send_file_to_friends_by_net" />
+
+        <Button
+            android:id="@+id/select_file"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dip"
+            android:layout_marginTop="8dip"
+            android:minWidth="@dimen/button_compelete_min_width"
+            android:onClick="onClick"
+            android:text="@string/select_file_to_share" />
+    </LinearLayout>
+
+</LinearLayout>

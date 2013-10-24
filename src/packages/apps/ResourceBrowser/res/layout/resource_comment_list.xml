@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/resource_comment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <miui.resourcebrowser.view.ResourceCommentsHeaderView
+        android:id="@+id/resource_comment_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:paddingLeft="@dimen/resource_comment_padding_common"
+        android:paddingRight="@dimen/resource_comment_padding_common"
+        android:paddingTop="15dip" />
+
+    <RelativeLayout
+        android:id="@+id/resource_comment_body"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/resource_comment_header"
+        android:layout_marginTop="15dip" >
+
+        <LinearLayout
+            android:id="@+id/resource_comment_switcher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/resource_comment_padding_common"
+            android:paddingRight="@dimen/resource_comment_padding_common" >
+
+            <Button
+                android:id="@+id/all_comments"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/resource_comment_all_comment_btn"
+                android:text="@string/resource_comment_all_comments"
+                android:textColor="@miui:color/v5_primary_text_color_light"
+                android:textSize="@miui:dimen/v5_text_font_size_medium" />
+
+            <Button
+                android:id="@+id/good_comments"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/resource_comment_good_comment_btn"
+                android:text="@string/resource_comment_good_comments"
+                android:textColor="@miui:color/v5_primary_text_color_light"
+                android:textSize="@miui:dimen/v5_text_font_size_medium" />
+
+            <Button
+                android:id="@+id/bad_comments"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/resource_comment_bad_comment_btn"
+                android:text="@string/resource_comment_bad_comments"
+                android:textColor="@miui:color/v5_primary_text_color_light"
+                android:textSize="@miui:dimen/v5_text_font_size_medium" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/resource_comment_switcher"
+            android:layout_marginTop="@dimen/resource_comment_padding_common"
+            android:background="@drawable/resource_divider" />
+
+        <FrameLayout
+            android:id="@+id/resource_comment_fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/divider" />
+    </RelativeLayout>
+
+</RelativeLayout>

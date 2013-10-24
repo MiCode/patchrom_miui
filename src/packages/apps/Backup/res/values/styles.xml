@@ -29,11 +29,46 @@
          <item name="android:displayOptions">showCustom</item>
     </style>
 
+    <style name="CloudAppBatchTheme" parent="miui:V5.Theme.Light">
+
+        <item name="android:actionBarStyle">@style/ActionBarStyle</item>
+    </style>
+
+    <style name="CloudAppBatchTheme.Event" >
+        <item name="android:actionBarStyle">@style/CustomActionBarStyle</item>
+    </style>
+
+    <style name="ActionBarStyle" parent="@miui:V5.Widget.ActionBar">
+        <item name="android:background">@drawable/miui_header_panel_bg_normal</item>
+    </style>
+
+    <style name="CustomActionBarStyle" parent="@miui:V5.Widget.ActionBar">
+        <item name="android:displayOptions">showCustom</item>
+    </style>
+
     <style name="EditorActivityTheme" parent="@miui:V5.Theme.Light">
+
         <item name="android:actionBarStyle">@style/ActionBar.Show.Custom</item>
     </style>
 
     <style name="BackupActivityTheme" parent="@miui:style/V5.Theme.Light.ActionBar.NoTitle">
         <item name="android:windowActionBarOverlay">true</item>
+    </style>
+
+    <style name="ButtonRestore">
+        <item name="android:background">@drawable/cloud_restore_btn_bg</item>
+    </style>
+
+    <style name="ButtonRemove">
+        <item name="android:background">@miui:drawable/v5_btn_bg_negative_warn_light</item>
+        <item name="android:textColor">@miui:color/v5_button_text_dark</item>
+    </style>
+
+    <style name="TextPrimary">
+        <item name="android:textColor">@color/text_color_gray</item>
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_primary</item>
+    </style>
+
+    <style name="Divider" parent="@miui:style/V5.Widget.BottomBar.TopLine">
     </style>
 </resources>

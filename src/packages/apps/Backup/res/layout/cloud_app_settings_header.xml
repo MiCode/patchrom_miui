@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="20dip" >
+
+    <LinearLayout
+        android:id="@+id/sync_enable_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        android:background="@miui:drawable/v5_preference_item_bg" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+            android:paddingTop="@miui:dimen/v5_preference_item_padding_top"
+            android:paddingBottom="@miui:dimen/v5_preference_item_padding_bottom"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/cloud_app_backup_title"
+                android:text="@string/cloud_app_backup_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" />
+            <TextView
+                android:text="@string/cloud_app_backup_summary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cloud_app_backup_title"
+                android:layout_alignLeft="@+id/cloud_app_backup_title"
+                android:maxLines="4" 
+                android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+        </RelativeLayout>
+
+        <miui.widget.SlidingButton
+            android:id="@+id/sync_enable_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_gravity="center"
+            android:focusable="false"
+            android:clickable="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/just_this_device_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        android:background="@miui:drawable/v5_preference_item_bg" >
+
+        <TextView
+            android:text="@string/cloud_app_just_show_in_current_device"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+            android:paddingTop="@miui:dimen/v5_preference_item_padding_top"
+            android:paddingBottom="@miui:dimen/v5_preference_item_padding_bottom"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal"
+            android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" />
+
+        <miui.widget.SlidingButton
+            android:id="@+id/just_this_device_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_gravity="center"
+            android:focusable="false"
+            android:clickable="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/my_apps_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@miui:drawable/v5_preference_category_background">
+        <TextView
+            android:text="@string/cloud_app_mine"
+            style="@miui:style/V5.TextAppearance.PreferenceCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:textAllCaps="true"
+            android:paddingLeft="@miui:dimen/v5_preference_category_item_padding_side"
+            android:paddingRight="@miui:dimen/v5_preference_category_item_padding_side"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/function_summary_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@miui:drawable/v5_preference_category_background">
+        <TextView
+            android:text="@string/cloud_app_function_summary"
+            style="@miui:style/V5.TextAppearance.PreferenceCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:textAllCaps="true"
+            android:paddingLeft="@miui:dimen/v5_preference_category_item_padding_side"
+            android:paddingRight="@miui:dimen/v5_preference_category_item_padding_side"/>
+    </LinearLayout>
+</LinearLayout>
+
+

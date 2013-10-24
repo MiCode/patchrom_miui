@@ -28,17 +28,17 @@
                 android:src="@drawable/history_selector" />
 
             <ImageView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:scaleType="fitXY"
+                android:scaleType="center"
                 android:src="@drawable/bluelight" />
 
             <ImageView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:scaleType="fitXY"
+                android:scaleType="center"
                 android:src="@drawable/radio_wave" />
 
             <ImageView
@@ -60,21 +60,23 @@
                 android:orientation="vertical" >
 
                 <TextView
+                    android:id="@+id/tv_status_title"
                     style="@style/white_shadow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:text="@string/receive_files"
+                    android:text="@string/app_name"
                     android:textSize="20sp" />
 
                 <TextView
+                    android:id="@+id/tv_status_desc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="15dp"
                     android:shadowColor="#55000000"
                     android:shadowDy="2"
                     android:shadowRadius="1.5"
-                    android:text="@string/waiting_receive"
+                    android:text="@string/welcome_tip1"
                     android:textColor="#99ffffff"
                     android:textSize="11sp" />
 
@@ -280,14 +282,42 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layout_bt_select"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:minWidth="230dp" >
 
                 <Button
+                    android:id="@+id/bt_wanna_send"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:minWidth="@dimen/button_compelete_min_width"
+                    android:text="@string/about_to_send" />
+
+                <Button
+                    android:id="@+id/bt_wanna_receive"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:minWidth="@dimen/button_compelete_min_width"
+                    android:text="@string/wanna_receive" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/layout_bt_operation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:minWidth="230dp"
+                android:visibility="gone" >
+
+                <Button
                     android:id="@+id/bt_operation"
                     android:layout_width="match_parent"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
                     android:minWidth="@dimen/button_compelete_min_width"
@@ -296,6 +326,7 @@
                 <Button
                     android:id="@+id/bt_continue"
                     android:layout_width="match_parent"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
                     android:minWidth="@dimen/button_compelete_min_width"
@@ -307,7 +338,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"
-                android:padding="15dp"
+                android:paddingBottom="15dp"
                 android:text="@string/support_tip" />
         </LinearLayout>
     </LinearLayout>

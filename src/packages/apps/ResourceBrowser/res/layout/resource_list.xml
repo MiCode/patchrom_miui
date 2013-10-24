@@ -7,30 +7,9 @@
     android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/tablayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:gravity="center"
-        android:visibility="gone">
-        <include
-            android:id="@+id/recommendlist"
-            android:layout_width="0dip"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            layout="@layout/resource_filter" />
-        <ImageView
-            android:id="@+id/seperateline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:src="@drawable/resource_filter_seperate_line"/>
-        <include
-            android:id="@+id/categorylist"
-            android:layout_width="0dip"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            layout="@layout/resource_filter" />
-    </LinearLayout>
+        android:visibility="gone"
+        style="@miui:style/V5.Widget.SecondaryTabIndicator" />
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
@@ -53,6 +32,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
+        <TextView
+            android:id="@+id/noResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/resource_no_result"
+            android:textAppearance="@android:style/TextAppearance.Medium"
+            android:visibility="gone" />
     </FrameLayout>
     <TextView
         android:id="@+id/seeMore"
