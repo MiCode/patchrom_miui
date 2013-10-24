@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/decriptionHeader"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/detail_online_description_header_height"
+        android:orientation="vertical"
+        android:paddingBottom="10dip"
+        android:paddingLeft="@dimen/detail_category_horizontal_padding"
+        android:paddingRight="@dimen/detail_category_horizontal_padding" >
+
+        <TextView
+            android:id="@+id/resourceTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textAppearance="@miui:style/V5.TextAppearance.Large"
+            android:textColor="@color/resource_detail_title_color" />
+
+        <LinearLayout
+            android:id="@+id/resource_ratingbar_container"
+            android:layout_width="wrap_content"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:visibility="gone" >
+
+            <RatingBar
+                android:id="@+id/resource_ratingbar"
+                style="@style/ResourceBrowser.Widget.RatingBar.ReadOnly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/resourceSizeAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:gravity="center_vertical" />
+    </LinearLayout>
+
+    <miui.resourcebrowser.view.ResourceScreenView
+        android:id="@+id/screenview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/detail_online_screenview_height"
+        android:focusableInTouchMode="true" />
+
+    <miui.resourcebrowser.view.ResourceDetailRecommendView
+        android:id="@+id/resource_accessory_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/detail_category_vertical_normal_padding"
+        android:visibility="gone" />
+
+    <miui.resourcebrowser.view.ExpandableTextViewWithTitle
+        android:id="@+id/resource_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <miui.resourcebrowser.view.ExpandableTextViewWithTitle
+        android:id="@+id/resource_update_log"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/detail_category_vertical_normal_padding"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/detail_category_vertical_normal_padding"
+        android:orientation="vertical" >
+
+        <TextView
+            style="@style/Resource.Detail.Category.Title.WithBg"
+            android:text="@string/resource_detail_comment_title" />
+
+        <miui.resourcebrowser.view.ResourceCommentsHeaderView
+            android:id="@+id/resource_comment_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="10dip"
+            android:paddingLeft="@dimen/detail_category_horizontal_padding"
+            android:paddingRight="@dimen/detail_category_horizontal_padding" />
+
+        <Button
+            android:id="@+id/resource_commtent_entry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/detail_category_horizontal_padding"
+            android:layout_marginRight="@dimen/detail_category_horizontal_padding"
+            android:text="@string/resource_comment_entry_tips"
+            android:textAppearance="@miui:style/V5.TextAppearance.Medium" />
+    </LinearLayout>
+
+    <miui.resourcebrowser.view.ResourceDetailRecommendView
+        android:id="@+id/resource_accessory_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/detail_category_vertical_small_padding"
+        android:visibility="gone" />
+
+    <miui.resourcebrowser.view.ResourceDetailRecommendView
+        android:id="@+id/resource_designer_others"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/detail_category_vertical_small_padding"
+        android:visibility="gone" />
+
+    <miui.resourcebrowser.view.ResourceDetailRecommendView
+        android:id="@+id/resource_user_likes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/detail_category_vertical_small_padding"
+        android:text="@string/resource_detail_recommend_other_themes"
+        android:visibility="gone" />
+
+</LinearLayout>

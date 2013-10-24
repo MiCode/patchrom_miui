@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/resource_comment_average_score_bg"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="3dip"
+            android:layout_marginTop="4dip"
+            android:textColor="@miui:color/v5_primary_text_color_light"
+            android:textSize="@miui:dimen/v5_text_font_size_medium"
+            android:text="@string/resource_comment_average_score" />
+
+        <TextView
+            android:id="@+id/average_score"
+            android:textColor="@miui:color/v5_secondary_text_color_light"
+            android:textSize="@dimen/resource_comment_text_font_size_average_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="2dip"
+            android:layout_marginTop="3dip" />
+
+        <TextView
+            android:id="@+id/comment_total_count"
+            android:textColor="@miui:color/v5_tertiary_text_color_light"
+            android:textSize="@miui:dimen/v5_text_font_size_large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="4dip" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rating_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dip"
+        android:layout_toRightOf="@id/container"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/resource_comment_padding_common">
+
+        <include
+            android:id="@+id/resource_comment_5_star"
+            layout="@layout/resource_comment_header_rating_item" />
+
+        <include
+            android:id="@+id/resource_comment_4_star"
+            layout="@layout/resource_comment_header_rating_item" />
+
+        <include
+            android:id="@+id/resource_comment_3_star"
+            layout="@layout/resource_comment_header_rating_item" />
+
+        <include
+            android:id="@+id/resource_comment_2_star"
+            layout="@layout/resource_comment_header_rating_item" />
+
+        <include
+            android:id="@+id/resource_comment_1_star"
+            layout="@layout/resource_comment_header_rating_item" />
+    </LinearLayout>
+
+</RelativeLayout>

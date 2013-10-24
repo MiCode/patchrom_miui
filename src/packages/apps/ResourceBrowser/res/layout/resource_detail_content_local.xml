@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <miui.resourcebrowser.view.ResourceScreenView
+        android:id="@+id/screenview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/detail_local_screenview_height"
+        android:focusableInTouchMode="true" />
+
+    <miui.resourcebrowser.view.ExpandableTextViewWithTitle
+        android:id="@+id/resource_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/detail_category_vertical_normal_padding" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/detail_category_horizontal_padding"
+        android:paddingRight="@dimen/detail_category_horizontal_padding" >
+
+        <LinearLayout
+            android:id="@+id/jumpBtnArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <Button
+                android:id="@+id/jumpToOnlineBtn"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/resource_detail_jump_to_online_title" >
+            </Button>
+
+            <Button
+                android:id="@+id/jumpToSameAuthorBtn"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/resource_detail_jump_to_same_author_title" >
+            </Button>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/delete"
+            style="@miui:style/V5.Widget.Button.NegativeWarn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/detail_category_vertical_small_padding"
+            android:layout_marginBottom="@dimen/detail_category_vertical_small_padding"
+            android:text="@miui:string/delete"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="3dip" />
+
+        <TextView
+            android:id="@+id/versionSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" />
+    </LinearLayout>
+
+</LinearLayout>

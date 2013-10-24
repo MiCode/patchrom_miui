@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.xiaomi.payment.PaymentView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/payment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <ImageView
+        android:id="@+id/watermark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:src="@drawable/watermark"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="8dip"
+        android:paddingBottom="8dip"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+        <TableLayout
+            android:id="@+id/order_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:layout_marginTop="7dip"
+            android:layout_marginBottom="7dip"
+            android:gravity="center_vertical" >
+            <TableRow android:gravity="center_vertical" >
+                <TextView
+                    android:id="@+id/label_order_name"
+                    android:gravity="right|center_vertical"
+                    android:text="@string/label_order_name"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/text_order_name"
+                    android:gravity="left|center_vertical"
+                    android:textColor="@color/text_color_dark_gray"
+                    android:textSize="@dimen/text_size_medium"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow android:gravity="center_vertical" >
+                <TextView
+                    android:id="@+id/label_order_price"
+                    android:gravity="right|center_vertical"
+                    android:text="@string/label_order_price"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/text_order_price"
+                    android:gravity="left|center_vertical"
+                    android:textColor="@color/text_color_orange"
+                    android:textSize="@dimen/text_size_medium"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow android:gravity="center_vertical" >
+                <TextView
+                    android:id="@+id/label_balance"
+                    android:gravity="right|center_vertical"
+                    android:text="@string/label_balance"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/text_balance"
+                    android:gravity="left|center_vertical"
+                    android:textColor="@color/text_color_dark_gray"
+                    android:textSize="@dimen/text_size_medium"
+                    android:textStyle="bold" />
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:id="@+id/info_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:gravity="center"
+            android:orientation="vertical" >
+            <TextView
+                android:id="@+id/error_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dip"
+                android:layout_marginBottom="7dip"
+                android:textColor="@color/text_color_red"
+                android:textSize="@dimen/text_size_large" />
+
+            <LinearLayout
+                android:id="@+id/progress_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dip"
+                android:layout_marginBottom="7dip"
+                android:gravity="center" >
+                <ProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="32dip"
+                    android:layout_height="32dip"
+                    android:layout_marginRight="5dip" />
+                <TextView
+                    android:id="@+id/progress_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/progress_loading"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/text_size_large" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/password_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dip"
+                android:layout_marginBottom="7dip"
+                android:hint="@string/password_hint"
+                android:inputType="textPassword"
+                android:textSize="@dimen/text_size_small" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/button_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dip"
+            android:layout_marginBottom="7dip"
+            android:orientation="vertical" >
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider"
+                android:layout_marginBottom="15dip"
+                android:background="@drawable/divider_bg" />
+            <Button
+                android:id="@+id/button_retry"
+                style="@style/ButtonNormal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:layout_marginBottom="5dip"
+                android:text="@string/button_retry" />
+            <Button
+                android:id="@+id/button_call"
+                style="@style/ButtonNormal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:layout_marginBottom="5dip"
+                android:text="@string/button_call" />
+            <Button
+                android:id="@+id/button_pay"
+                style="@style/ButtonNotice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:layout_marginBottom="5dip"
+                android:text="@string/button_pay" />
+            <Button
+                android:id="@+id/button_recharge"
+                style="@style/ButtonNotice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:layout_marginBottom="5dip"
+                android:text="@string/button_recharge" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dip" />
+            <Button
+                android:id="@+id/button_cancel"
+                style="@style/ButtonNormal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:text="@string/button_cancel" />
+        </LinearLayout>
+    </LinearLayout>
+</com.xiaomi.payment.PaymentView>

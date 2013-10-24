@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
     <string name="resource_app_name">资源浏览</string>
 
     <string name="resource_price_free">免费</string>
     <string name="resource_price_unit">米币</string>
     <string name="resource_price_format">（%1$s）</string>
 
-    <string name="sdcard_status_changed_dialog_title">存储卡状态改变</string>
-    <string name="sdcard_status_changed_dialog_message">即将关闭程序\n请重新打开程序以刷新资源</string>
+    <string name="sdcard_not_mounted_dialog_title">无存储卡</string>
+    <string name="sdcard_not_mounted_dialog_message">即将关闭程序\n</string>
 
     <string name="resource_mute">无</string>
     <string name="resource_default">默认铃声</string>
@@ -15,24 +18,37 @@
     <string name="resource_notification_default">系统通知铃声</string>
     <string name="resource_alarm_default">系统闹钟铃声</string>
 
-    <string name="description_designer">设计师：</string>
-    <string name="description_author">制作者：</string>
-    <string name="description_size">大小：</string>
-    <string name="description_uploadtime">更新时间：</string>
-    <string name="description_download">下载次数：</string>
-    <string name="description_version">版本：</string>
-    <string name="description_summary">资源简介：</string>
+    <string name="description_designer">设计师</string>
+    <string name="description_author">制作者</string>
+    <string name="description_size">大小</string>
+    <string name="description_uploadtime">更新时间</string>
+    <string name="description_download">下载次数</string>
+    <string name="description_version">版本</string>
+    <string name="description_summary">资源简介</string>
+    <string name="description_version_szie">版本: %1$s   大小: %2$s</string>
 
     <string name="resource_local">本地%1$s</string>
     <string name="resource_online">在线%1$s</string>
+    <string name="resource_selected">精品</string>
+    <string name="resource_ranking">排行</string>
+    <string name="resource_ranking_free">免费</string>
+    <string name="resource_ranking_purchase">收费</string>
+    <string name="resource_category">分类</string>
+    <string name="resource_my">我的</string>
+
+    <string name="resource_pack_price_info">原价%1$s</string>
+    <string name="resource_pack_discount_info">立省%1$s！</string>
+    <string name="resource_pack_confirm">您已经购买该主题推荐包中的%1$d个收费主题，购买推荐包仍然比逐个购买优惠，确认继续购买？</string>
+    <string name="resource_pack_warning">注意！您已经购买该主题推荐包中的%1$d个收费主题，此时购买该推荐包可能会导致重复消费，请单个购买！</string>
 
     <string name="resource_title">资源详情</string>
     <string name="resource_download">下载</string>
     <string name="resource_downloading">下载中</string>
     <string name="resource_waiting_download">等待下载</string>
     <string name="resource_import_successful">下载成功</string>
-    <string name="resource_delta_update_successful">更新成功，增量更新节省%1$s流量</string>
+    <string name="resource_delta_update_successful">更新成功</string>
     <string name="resource_delta_update_failed">增量更新失败，即将下载完整资源</string>
+    <string name="resource_delta_update_total">%1$d个增量更新共为您节省%2$s流量</string>
     <string name="resource_apply">应用</string>
     <string name="resource_update">更新</string>
     <string name="resource_select">选择</string>
@@ -47,6 +63,18 @@
     <string name="all_resources">全部</string>
     <string name="resource_default_name">资源</string>
     <string name="resource_detail">详细信息</string>
+    <string name="resource_detail_window_title">%1$s详情</string>
+    <string name="resource_detail_update_log_title">更新日志</string>
+    <string name="resource_detail_comment_title">评论评分</string>
+    <string name="resource_detail_recommend_desiner_other_themes">%1$s的其他主题</string>
+    <string name="resource_detail_recommend_other_themes">使用该主题的用户还喜欢</string>
+    <string name="resource_detail_jump_to_online_title">查看在线页</string>
+    <string name="resource_detail_jump_to_same_author_title">同作者主题</string>
+    <string name="resource_detail_recommend_desiner_themes">%1$s的主题</string>
+
+    <string name="resource_share_title">分享给好友</string>
+    <string name="resource_share_subject">分享一个主题资源: %1$s</string>
+    <string name="resource_share_text">《%1$s》这个主题不错，推荐一下。下载地址: %2$s ，来自 @MIUI_ROM</string>
 
     <string name="resource_delete_all">确认要删除所选的%1$d项资源吗?</string>
 
@@ -64,6 +92,7 @@
     <string name="resource_get_auth_exceed_max_limit_title">授权手机数超出限制</string>
     <string name="resource_get_auth_exceed_max_limit_tips">您的小米账号每年可在10台移动设备上使用主题，当前账号已超出限制。您可以使用其他小米账号重新尝试。</string>
     <string name="resource_server_out_of_service">服务暂时不可用，请稍后重试</string>
+    <string name="resource_server_alert_dialog_title">服务不可用</string>
 
     <string name="resource_switch_account">切换帐号</string>
 
@@ -75,5 +104,47 @@
     <string name="loading_resource_detail_info">正在加载资源详情...</string>
     <string name="loading_resource_detail_fail">加载资源失败!</string>
 
-    <string name="account_abnormal_state">获取帐号信息异常，请尝试重新登录或稍后再试!</string>
+    <string name="account_abnormal_state">获取帐号信息错误，请稍后再试!</string>
+
+    <string name="resource_expand_full_text">展开全文</string>
+
+    <!-- comments -->
+    <string name="resource_comment_all_comments">全部</string>
+    <string name="resource_comment_good_comments">好评</string>
+    <string name="resource_comment_bad_comments">差评</string>
+    <string name="resource_comment_average_score">平均得分</string>
+    <string name="resource_comment_no_average_score">-.-</string>
+    <string name="resource_comment_5_star">五星</string>
+    <string name="resource_comment_4_star">四星</string>
+    <string name="resource_comment_3_star">三星</string>
+    <string name="resource_comment_2_star">二星</string>
+    <string name="resource_comment_1_star">一星</string>
+    <string name="resource_comment_footer">仅评分的评价未做展示</string>
+    <string name="resource_comment_no_comment">无评论信息</string>
+    <string name="resource_comment_current_version">当前版本</string>
+    <string name="resource_comment_upload_hint">您的评论会在通过审核后展示出来</string>
+    <string name="resource_comment_sending">正在发送评论...</string>
+    <string name="resource_comment_upload_failed">评论发送失败</string>
+    <string name="resource_comment_upload_success">成功提交！稍候审核通过就会展示出来 ：）</string>
+    <string name="resource_comment_upload_data_invalid">评论数据审核不通过</string>
+    <string name="resource_comment_upload_not_logined">您还没登录</string>
+    <string name="resource_comment_upload_not_bought">您必须使用过该主题才能评论!</string>
+    <string name="resource_comment_invalid">您还没有评分，请触摸星星评分</string>
+    <string name="resource_comment_expand_full_text">展开全文▼</string>
+    <string name="resource_comment_title">评论: <xliff:g id="app_name">%1$s</xliff:g></string>
+    <string name="resource_comment_edit_title">撰写评论: <xliff:g id="app_name">%1$s</xliff:g></string>
+    <string name="resource_comment_edit_comment">撰写评论</string>
+    <string name="resource_comment_edit_comment_waiting">正在检测您是否使用过该主题</string>
+    <string name="resource_comment_edit_text_default">请输入评论信息</string>
+    <string name="resource_comment_publish">发布</string>
+    <string name="resource_comment_name_default">用户<xliff:g id="user_id">%1$s</xliff:g></string>
+    <string name="resource_comment_account_need_activitied">您的账号尚未激活,是否前往激活?</string>
+
+    <string name="resource_comment_rate">评级:</string>
+    <string name="resource_comment_entry_tips">查看详细评论</string>
+
+    <string name="fail_to_add_account">添加账户失败</string>
+    <string name="menu_refresh">刷新</string>
+
+    <string name="ringtone_volume_mute">您当前为静音状态，请提高音量后试听</string>
 </resources>

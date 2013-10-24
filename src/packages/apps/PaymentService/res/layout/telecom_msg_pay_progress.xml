@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="13dip"
+    android:paddingLeft="15dip"
+    android:paddingRight="15dip"
+    android:paddingTop="15dip" >
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bank_info_bg" >
+
+        <TableRow android:gravity="center_vertical" >
+
+            <TextView
+                android:gravity="right|center_vertical"
+                android:text="@string/msg_telecom_order_goods_label"
+                android:textColor="@color/text_color_black"
+                android:textSize="@dimen/text_size_medium" />
+
+            <TextView
+                android:id="@+id/goods_info"
+                android:gravity="left|center_vertical"
+                android:textColor="@color/text_color_black"
+                android:textSize="@dimen/text_size_medium" />
+        </TableRow>
+
+        <TableRow android:gravity="center_vertical" >
+
+            <TextView
+                android:gravity="right|center_vertical"
+                android:text="@string/msg_telecom_order_denom_label"
+                android:textColor="@color/text_color_black"
+                android:textSize="@dimen/text_size_medium" />
+
+            <TextView
+                android:id="@+id/denom"
+                android:gravity="left|center_vertical"
+                android:textColor="@color/text_color_black"
+                android:textSize="@dimen/text_size_medium" />
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:id="@+id/hint2"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="30dip"
+            android:src="@drawable/wait_message_green" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/msg_telecom_picker_hint_2_1"
+            android:textColor="@color/text_color_green"
+            android:textSize="@dimen/text_size_small" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/msg_telecom_picker_hint_2_2"
+            android:textColor="@color/text_color_green"
+            android:textSize="@dimen/text_size_small" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/progress_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dip"
+        android:gravity="center_horizontal"
+        android:textColor="@color/text_color_red"
+        android:textSize="@dimen/text_size_small"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/button_progress"
+        style="@style/ButtonNormal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

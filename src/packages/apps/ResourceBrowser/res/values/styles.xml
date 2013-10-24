@@ -57,21 +57,38 @@
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
 
-    <style name="ResourceBrowser.ResourceProperty">
-        <item name="android:layout_width">1dip</item>
+    <!-- progressBar style -->
+    <style name="ResourceBrowser.Widget.ProgressBar.ReadOnly" parent="@miui:style/V5.Widget.ProgressBar.Horizontal.Small">
+        <item name="android:background">@null</item>
+        <item name="android:layout_width">0dip</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@miui:dimen/v5_text_font_size_small</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:ellipsize">end</item>
-    </style>
-
-    <style name="ResourceBrowser.ResourceProperty.Title">
         <item name="android:layout_weight">1</item>
-        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:max">100</item>
+        <item name="android:progressDrawable">@drawable/resource_progressbar_readonly</item>
     </style>
 
-    <style name="ResourceBrowser.ResourceProperty.Content">
-        <item name="android:layout_weight">2</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    <!-- ratingBar style -->
+    <style name="ResourceBrowser.Widget.RatingBar.ReadOnly" parent="@miui:style/V5.Widget.RatingBar.Small">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:stepSize">0.5</item>
     </style>
+
+    <style name="ResourceBrowser.Widget.RatingBar.Edit" parent="@miui:style/V5.Widget.RatingBar">
+        <item name="android:numStars">5</item>
+        <item name="android:stepSize">1</item>
+    </style>
+
+    <!-- detail page category title -->
+    <style name="Resource.Detail.Category.Title" parent="@miui:style/V5.Widget.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">@dimen/detail_category_horizontal_padding</item>
+        <item name="android:textColor">@color/resource_detail_category_title_color</item>
+    </style>
+
+    <style name="Resource.Detail.Category.Title.WithBg">
+        <item name="android:background">@drawable/resource_detail_category_title_bg</item>
+    </style>
+
 </resources>

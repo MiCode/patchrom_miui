@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/resource_comment_padding_common"
+    android:paddingRight="@dimen/resource_comment_padding_common" >
+
+    <RatingBar
+        android:id="@+id/ratingbar"
+        style="@style/ResourceBrowser.Widget.RatingBar.Edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/resource_comment_padding_common"
+        android:layout_marginTop="@dimen/resource_comment_padding_common" />
+
+    <EditText
+        android:id="@+id/edit"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="left"
+        android:hint="@string/resource_comment_edit_text_default"
+        android:maxLength="800"
+        android:singleLine="false" />
+
+    <TextView
+        android:id="@+id/upload_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/resource_comment_padding_common"
+        android:layout_marginTop="@dimen/resource_comment_padding_common_medium"
+        android:text="@string/resource_comment_upload_hint" >
+    </TextView>
+
+</LinearLayout>

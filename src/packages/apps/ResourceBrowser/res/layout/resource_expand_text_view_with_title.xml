@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/Resource.Detail.Category.Title" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@drawable/resource_divider"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="8dip" />
+
+    <miui.resourcebrowser.view.ExpandableTextView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/expandable_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/detail_category_horizontal_padding"
+            android:paddingRight="@dimen/detail_category_horizontal_padding"
+            android:textColor="@color/resource_detail_category_content_color" />
+
+        <TextView
+            android:id="@+id/expand_collapse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dip"
+            android:background="@drawable/expand_all_bg"
+            android:gravity="center_horizontal"
+            android:singleLine="true"
+            android:text="@string/resource_expand_full_text"
+            android:textColor="@miui:color/v5_secondary_text_color_light"
+            android:visibility="gone" />
+    </miui.resourcebrowser.view.ExpandableTextView>
+
+</LinearLayout>

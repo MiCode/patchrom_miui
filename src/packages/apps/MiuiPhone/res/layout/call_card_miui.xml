@@ -101,6 +101,35 @@
                         android:gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" >
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/callCardSimId"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="5dip" />
+                            <!-- status means ongoing(using image), holding and end -->
+                            <TextView
+                                android:id="@+id/callCardCallStatus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="5dip"
+                                android:singleLine="true"
+                                android:textAppearance="@style/Miui.TextAppearance.ElapsedTime"
+                                android:visibility="gone" />
+                            <!-- Elapsed time indication for a call in progress. -->
+                            <!-- time means ringing, time(talking, holding and end) -->
+                            <TextView
+                                android:id="@+id/callCardElapsedTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true"
+                                android:textAppearance="@style/Miui.TextAppearance.ElapsedTime"
+                                android:visibility="gone" />
+                        </LinearLayout>
                         <!-- Extra information of this contact or call -->
                         <TextView
                             android:id="@+id/callCardExtraInfo"
@@ -149,43 +178,6 @@
                                 android:layout_marginLeft="2dip"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:visibility="gone" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-                            <ImageView
-                                android:id="@+id/callCardSimIdSep"
-                                android:layout_marginLeft="2dip"
-                                android:layout_marginRight="2dip"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/incall_callcard_mark_sep_miui"
-                                android:visibility="gone" />
-                            <ImageView
-                                android:id="@+id/callCardSimId"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_marginRight="5dip" />
-                            <!-- status means ongoing(using image), holding and end -->
-                            <TextView
-                                android:id="@+id/callCardCallStatus"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="5dip"
-                                android:singleLine="true"
-                                android:textAppearance="@style/Miui.TextAppearance.ElapsedTime"
-                                android:visibility="gone" />
-                            <!-- Elapsed time indication for a call in progress. -->
-                            <!-- time means ringing, time(talking, holding and end) -->
-                            <TextView
-                                android:id="@+id/callCardElapsedTime"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:singleLine="true"
-                                android:textAppearance="@style/Miui.TextAppearance.ElapsedTime"
                                 android:visibility="gone" />
                         </LinearLayout>
                     </LinearLayout>

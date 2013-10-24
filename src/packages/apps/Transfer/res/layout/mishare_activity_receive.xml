@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_main_bottom"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|bottom" >
+
+            <LinearLayout
+                android:id="@+id/info_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="15dip"
+                android:background="@drawable/bg_info_area" >
+
+                <ImageView
+                    android:id="@+id/icon"
+                    android:layout_width="45dip"
+                    android:layout_height="45dip"
+                    android:layout_margin="3dip"
+                    android:src="@drawable/icon_file_folder" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/title"
+                            style="@miui:style/V5.TextAppearance.List.Primary"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:singleLine="true" />
+
+                        <TextView
+                            android:id="@+id/right_size"
+                            style="@miui:style/V5.TextAppearance.List.Secondary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true" />
+                    </LinearLayout>
+
+                    <ProgressBar
+                        android:id="@+id/progressbar_download"
+                        style="@miui:style/V5.Widget.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/bottom_size"
+                        style="@miui:style/V5.TextAppearance.List.Secondary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/receive_introducation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/info_area"
+                android:layout_centerHorizontal="true"
+                android:paddingTop="5dip"
+                android:text="@string/received_share_file" />
+
+            <RelativeLayout
+                android:id="@+id/top_info_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/receive_introducation"
+                android:layout_marginBottom="@dimen/half_profile_width"
+                android:background="@drawable/bg_receive"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <View
+                    android:id="@+id/animation_bg"
+                    android:layout_width="15dip"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/transfer_cursor_receive" />
+
+                <View
+                    android:id="@+id/animation_progress"
+                    android:layout_width="15dip"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/transfer_cursor_receive" />
+
+                <LinearLayout
+                    android:id="@+id/perinfo_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical" >
+
+                    <cn.kuaipan.mishare.view.ArcImageView
+                        android:id="@+id/per_icon"
+                        android:layout_width="@dimen/profile_width"
+                        android:layout_height="@dimen/profile_width"
+                        android:cropToPadding="true"
+                        android:onClick="onClick"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/default_profile" />
+
+                    <TextView
+                        android:id="@+id/per_name"
+                        style="@miui:style/V5.TextAppearance.List.Primary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/mishare_per_name_color" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <cn.kuaipan.mishare.view.ArcImageView
+                android:id="@+id/my_icon"
+                android:layout_width="@dimen/profile_width"
+                android:layout_height="@dimen/profile_width"
+                android:layout_above="@id/receive_introducation"
+                android:layout_centerHorizontal="true"
+                android:cropToPadding="true"
+                android:onClick="onClick"
+                android:scaleType="centerCrop"
+                android:src="@drawable/default_profile" />
+        </RelativeLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:gravity="center"
+        android:padding="10dip" >
+
+        <Button
+            android:id="@+id/bt_left"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="@string/save_to_kuaipan" />
+
+        <Button
+            android:id="@+id/bt_right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="@string/download" />
+    </LinearLayout>
+
+</LinearLayout>

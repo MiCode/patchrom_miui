@@ -48,12 +48,40 @@
             android:title="@string/wifi_suspend_optimizations"
             android:summary="@string/wifi_suspend_optimizations_summary"
             android:persistent="false" />
-    
-    <Preference android:key="mac_address" 
-        style="?android:attr/preferenceInformationStyle" 
+
+    <ListPreference
+            android:key="select_ssid_type"
+            android:title="@string/select_ssid_type_title"
+            android:persistent="false"
+            android:entries="@array/wifi_connect_type_entries"
+            android:entryValues="@array/wifi_connect_type_values" />
+
+    <ListPreference
+            android:key="connect_type"
+            android:title="@string/gsm_to_wifi_connect_type_title"
+            android:persistent="false"
+            android:entries="@array/wifi_connect_type_entries"
+            android:entryValues="@array/wifi_connect_type_values" />
+
+    <CheckBoxPreference
+            android:key="priority_type"
+            android:title="@string/wifi_priority_type_title"
+            android:summary="@string/wifi_priority_type_summary"
+            android:persistent="false" />
+
+    <Preference
+            android:key="priority_settings"
+            android:title="@string/wifi_priority_settings_title"
+            android:summary="@string/wifi_priority_settings_summary"
+            android:dependency="priority_type"
+            android:persistent="false">
+    </Preference>
+
+    <Preference android:key="mac_address"
+        style="?android:attr/preferenceInformationStyle"
         android:title="@string/wifi_advanced_mac_address_title"
         />
-    
+
     <Preference android:key="current_ip_address"
         style="?android:attr/preferenceInformationStyle"
         android:title="@string/wifi_advanced_ip_address_title"
