@@ -1,0 +1,17 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+  android:layout_height="match_parent" tools:context=".MainActivity">
+  <miui.browser.webapps.views.WebAppContainer
+    android:id="@+id/webapp_container" android:layout_width="fill_parent"
+    android:layout_height="fill_parent" />
+  <miui.browser.webapps.views.WebappBottomBar
+    android:id="@+id/webapp_center_bottom" android:layout_width="fill_parent"
+    android:layout_height="wrap_content" android:layout_gravity="bottom" />
+  <ProgressBar android:id="@+id/webapp_loading"
+    android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:layout_gravity="center" android:visibility="invisible" />
+  <miui.browser.webapps.views.SplashView
+    android:id="@+id/webapp_center_splashview" style="@style/WebApp.SplashView.WebAppCenter"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/webapp_splash_bg" />
+</FrameLayout>

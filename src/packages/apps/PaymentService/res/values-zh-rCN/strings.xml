@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">支付服务</string>
+    <string name="format_time">yyyy.MM.dd kk:mm</string>
+    <string name="format_date">yyyy年MM月dd日</string>
 
     <string name="label_order_name">商品：</string>
     <string name="label_order_price">售价：</string>
@@ -14,6 +16,7 @@
     <string name="button_retry">重试</string>
     <string name="button_call">拨打客服</string>
     <string name="button_pay">确认支付</string>
+    <string name="button_recharge_pay">充值并支付</string>
     <string name="button_recharge">充值米币</string>
     <string name="balance_payment"><xliff:g id="value">%1$s</xliff:g>米币</string>
     <string name="balance_giftcard_payment"><xliff:g id="value">%1$s</xliff:g>米币（含<xliff:g id="gift">%2$s</xliff:g>米币礼券）</string>
@@ -52,7 +55,6 @@
     <string name="error_bankcard_verify_summary">银行卡验证错误</string>
 
     <string name="title_recharge">米币充值</string>
-    <string name="title_pay">米币支付</string>
     <string name="recharge_group_favorite">用过的充值方式</string>
     <string name="recharge_group_others">其他充值方式</string>
     <string name="recharge_prepaid_title">手机充值卡</string>
@@ -62,6 +64,7 @@
     <string name="recharge_message_title">手机短信</string>
     <string name="recharge_voucher_title">米币卡</string>
     <string name="recharge_pcpay_title">通过电脑充值</string>
+    <string name="recharge_novalid_method">没有可用的充值方式</string>
 
     <string name="account_detail">小米帐户：<xliff:g id="account_id">%1$s</xliff:g></string>
 
@@ -69,7 +72,6 @@
     <string name="paytool_tenpay">财付通</string>
     <string name="recharge_denomination"><xliff:g id="value">%1$s</xliff:g>元</string>
     <string name="btn_recharge_large">立即充值</string>
-    <string name="btn_pay_large">立即支付</string>
     <string name="recharge_other">选择其他方式</string>
     <string name="btn_recharge_success">充值完成</string>
     <string name="btn_recharge_success_quick">充值完成，继续支付</string>
@@ -88,9 +90,6 @@
     <string name="progress_paytool_creating">正在创建<xliff:g id="tool">%1$s</xliff:g>订单…</string>
     <string name="progress_paytool_installing">正在安装<xliff:g id="tool">%1$s</xliff:g>安全控件…</string>
 
-    <string name="prepaid_china_mobile">移动</string>
-    <string name="prepaid_china_unicom">联通</string>
-    <string name="prepaid_china_telcom">电信</string>
     <string name="prepaid_picker_hint_1_1">1. </string>
     <string name="prepaid_picker_hint_1_2">全部为一次性充值，不支持分次；</string>
     <string name="prepaid_picker_hint_2_1">2. </string>
@@ -111,15 +110,15 @@
     <string name="voucher_input_password_prompt">请输入密码</string>
     <string name="voucher_edit_hint">密码</string>
     <string name="voucher_edit_limit">数字</string>
-    <string name="voucher_error_password_empty">请输入米币卡密码</string>
+    <string name="voucher_error_password">请输入正确的米币卡密码</string>
     <string name="progress_voucher_creating">正在充值米币卡…</string>
 
     <string name="msg_picker_hint_1_1">1. </string>
-    <string name="msg_picker_hint_1_2">由于运营商会收取渠道费用，&lt;font color=red>2元兑换1米币&lt;/font></string>
+    <string name="msg_picker_hint_1_2">由于运营商会收取渠道费用，&lt;font color=red><xliff:g id="rmb">%1$d</xliff:g>元兑换<xliff:g id="mibi">%2$d</xliff:g>米币&lt;/font></string>
     <string name="msg_picker_hint_2_1">2. </string>
     <string name="msg_picker_hint_2_2">每笔短信充值，运营商收取0.1元通讯费</string>
     <string name="msg_picker_hint_3_1">3. </string>
-    <string name="msg_picker_hint_3_2">每个月充值上限为300元</string>
+    <string name="msg_picker_hint_3_2">每个月充值上限为<xliff:g>%1$s</xliff:g>元</string>
     <string name="msg_denomination_type">充值（米币）</string>
     <string name="msg_error">短信消费失败</string>
     <string name="progress_msg_creating">正在创建短信充值订单…</string>
@@ -129,7 +128,7 @@
     <string name="msg_send_no_net_error">短信发送失败，运营商网络暂时无法连接</string>
     <string name="msg_telecom_order_goods_label">商品信息：</string>
     <string name="msg_telecom_order_goods"><xliff:g id="mibi_num">%1s</xliff:g>米币</string>
-    <string name="msg_telecom_order_denom_label">应付金额：</string>
+    <string name="msg_telecom_order_denom_label">充值金额：</string>
     <string name="msg_telecom_order_denom"><xliff:g id="rmb_num">%1s</xliff:g>元（不包含通讯费）</string>
     <string name="msg_telecom_sending">正在向电信运营商发送米币充值短信</string>
     <string name="btn_recharge_confirm">确认充值</string>
@@ -145,11 +144,12 @@
     <string name="giftcard_denom_frozen">米币已冻结</string>
     <string name="giftcard_hint">消费时优先扣除礼券内金额，过期作废</string>
     <string name="giftcard_acitivity_and_denomination"><xliff:g id="activity">%1$s</xliff:g>  获赠<xliff:g id="denomination">%2$s</xliff:g>米币</string>
-    <string name="giftcard_expire"><xliff:g id="year">%1$s</xliff:g>年<xliff:g id="month">%2$s</xliff:g>月<xliff:g id="date">%3$s</xliff:g>日  到期</string>
+    <string name="giftcard_expire"><xliff:g id="date">%1$s</xliff:g>  到期</string>
+
     <string name="giftcard_empty">没有礼券</string>
 
     <string name="bankcall_merchant">收款商户：</string>
-    <string name="bankcall_denom">支付金额：</string>
+    <string name="bankcall_denom">充值金额：</string>
     <string name="bankcall_bank_account">银行卡号：</string>
     <string name="bankcall_xiaomi_company">北京小米移动软件有限公司</string>
     <string name="bankcall_denom_number"><xliff:g id="denom">%1$s</xliff:g>元</string>
@@ -182,7 +182,6 @@
 
     <string name="progress_submit_title">验证中，请求已提交</string>
     <string name="progress_submit_recharge_summary">正在充值：<xliff:g id="value">%1$s</xliff:g>米币</string>
-    <string name="progress_submit_pay_summary">正在支付：<xliff:g id="value">%1$s</xliff:g>米币</string>
     <string name="progress_submit_hint">预计3分钟内到帐</string>
     <string name="btn_count_down_auto"><xliff:g id="count">%1$s</xliff:g>秒自动查询</string>
     <string name="btn_query">立即查询</string>
@@ -190,9 +189,11 @@
     <string name="progress_success_recharge_title"><xliff:g id="value">%1$s</xliff:g>米币充值成功</string>
     <string name="progress_success_pay_title"><xliff:g id="value">%1$s</xliff:g>米币支付成功</string>
     <string name="progress_success_recharge_summary">帐户余额：<xliff:g id="balance">%1$s</xliff:g>米币</string>
-    <string name="progress_success_pay_summary">您的订单支付成功！</string>
+    <string name="progress_success_pay_summary">已成功充值<xliff:g id="rechargeFee">%1$s</xliff:g>米币，成功支付<xliff:g id="payFee">%2$s</xliff:g>米币</string>
     <string name="progress_error_recharge_title">充值失败</string>
+    <string name="progress_error_recharge_summary">充值失败，请稍候重试</string>
     <string name="progress_error_pay_title">支付失败</string>
+    <string name="progress_error_pay_summary">已成功充值<xliff:g id="rechargeFee">%1$s</xliff:g>米币，但支付失败，请稍候重试</string>
     <string name="progress_warning_waiting">还没有到帐，过会儿再试:)</string>
     <string name="progress_warning_contact_server">还没有到帐，请放心款不会丢失：\n1. 联系神舟付客服：<xliff:g id="number">%1$s</xliff:g>\n2. 提供本次充值流水号：<xliff:g id="order">%2$s</xliff:g></string>
     <string name="progress_warning_check">还没有到帐，请放心款不会丢失，\n我们会在两个工作日内为您核实</string>
@@ -224,4 +225,45 @@
     <string name="mibi_license_title">用户确认</string>
     <string name="mibi_license_message">您将使用小米公司的米币服务，点击确定即表示您同意并遵守《<xliff:g id="agreement">%1$s</xliff:g>》。</string>
     <string name="mibi_license_message_span">米币用户协议</string>
+
+    <string name="security_setting">安全设置</string>
+    <string name="lockscreen_forgot_pattern_button_text"><u>忘记手势密码</u></string>
+    <string name="lockpattern_recording_intro_header">绘制解锁图案，请至少连接4个点</string>
+    <string name="lockpattern_settings_help_how_to_record">如何绘制解锁图案</string>
+    <string name="lockpattern_recording_incorrect_too_short">至少连接 <xliff:g id="NUMBER">%d</xliff:g> 个点，请重试：</string>
+    <string name="lockpattern_pattern_entered_header">已记录图案</string>
+    <string name="lockpattern_need_to_confirm">再次绘制图案进行确认</string>
+    <string name="lockpattern_need_to_confirm_wrong">与上一次绘制不一致，请重新绘制</string>
+    <string name="lockpattern_need_to_unlock_wrong">&lt;font color=red>密码错误,还可以再输入<xliff:g id="timesLeft">%d</xliff:g>次&lt;/font></string>
+    <string name="lockpattern_pattern_confirmed_header">您的新解锁图案</string>
+    <string name="lockpattern_recording_inprogress">完成后松开手指</string>
+    <string name="lockpattern_retry_text"><u>重新设置手势</u></string>
+    <string name="forget_password"><u>忘记密码</u></string>
+    <string name="login">登录</string>
+    <string name="cancel">取消</string>
+    <string name="change_security_lock">使用其他密码类型</string>
+    <string name="lockpassword_confirm_your_pattern_header">确认您的图案</string>
+    <string name="lockpassword_input_your_pattern_header">请输入手势密码</string>
+    <string name="lockpassword_choose_your_pattern_header">选择您的图案</string>
+
+    <string name="lockpattern_continue_button_text">下一步</string>
+    <string name="lockpattern_confirm_button_text">确认</string>
+    <string name="lockpattern_tutorial_cancel_label">取消</string>
+    <string name="lockpattern_tutorial_continue_label">下一步</string>
+    <string name="lockpattern_need_to_unlock_wrong_footer" />
+    <string name="lockpattern_too_many_failed_confirmation_attempts_header">&lt;font color=red>已超过最大错误次数!&lt;/font></string>
+    <string name="lockpattern_need_to_unlock_footer" />
+    <string name="lockpattern_too_many_failed_confirmation_attempts_footer"><xliff:g id="NUMBER">%d</xliff:g>秒后重试</string>
+    <string name="title_myaccount">我的帐户：<xliff:g id="account">%s</xliff:g></string>
+    <string name="title_gesture">手势</string>
+    <string name="title_lockpattern">手势锁屏</string>
+    <string name="title_visible_pattern">使图案可见</string>
+    <string name="summary_lockpattern">绘制手势图案限制米币中心访问</string>
+    <string name="title_change_lockpattern">修改手势锁屏</string>
+    <string name="title_password">密码</string>
+    <string name="title_nopassword">小额免输密码支付</string>
+    <string name="title_password_threshold">当日额度≤<xliff:g id="value">%1$s</xliff:g></string>
+    <string name="title_nopassword_dialog">当日免输密码支付额度</string>
+    <string name="onemore_click_exit">再按一次退出程序</string>
+
 </resources>

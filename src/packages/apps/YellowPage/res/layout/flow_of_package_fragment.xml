@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ScrollView
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_height="0dip"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/payment_padding"
+                    android:background="@drawable/flow_of_packages_banner_bg">
+                    <TextView
+                        android:id="@+id/packages_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="false"
+                        android:textSize="25sp"
+                        android:textColor="@color/primary_color_inverse"/>
+
+                    <TextView
+                        android:id="@+id/packages_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="false"
+                        android:paddingTop="@dimen/payment_padding"
+                        android:textSize="@miui:dimen/v5_text_font_size_small"
+                        android:textColor="@color/primary_color_inverse" />
+                </LinearLayout>
+
+                <RadioGroup
+                    android:id="@+id/packages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/pay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/packages_pay"
+                android:background="@miui:drawable/v5_btn_bg_main_action_light"
+                android:textColor="@color/bottom_bar_text"
+                android:layout_marginLeft="@dimen/payment_padding"
+                android:layout_marginRight="@dimen/payment_padding"
+                android:layout_marginTop="@dimen/payment_padding" />
+        </LinearLayout>
+    </ScrollView>
+    <com.miui.yellowpage.widget.LoadingProgressView
+        android:id="@+id/loading_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:gravity="center" />
+</FrameLayout>

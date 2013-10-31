@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="vertical">
+  <TextView android:id="@+id/title" android:text="@string/webapp_dialog_title"
+    style="@style/WebApp.AlertDialog.Title"
+    text="@string/geolocation_permissions_prompt_message" />
+  <LinearLayout android:layout_width="fill_parent"
+    android:layout_height="wrap_content" android:orientation="horizontal"
+    android:gravity="left">
+    <CheckBox android:id="@+id/remember" android:layout_width="wrap_content"
+      android:layout_height="wrap_content" />
+    <TextView android:layout_width="wrap_content"
+      android:layout_height="wrap_content" android:gravity="center"
+      android:text="@string/geolocation_permissions_prompt_remember"/>
+  </LinearLayout>
+  <LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content" android:orientation="horizontal"
+    android:padding="10dip">
+    <Button android:id="@+id/cancel" android:layout_width="wrap_content"
+      android:layout_height="wrap_content" android:layout_weight="1.0"
+      android:text="@string/dialog_geolocation_reject" />
+    <Button android:id="@+id/ok" android:layout_width="wrap_content"
+      android:layout_height="wrap_content" android:layout_weight="1.0"
+      android:text="@string/dialog_geolocation_share" />
+  </LinearLayout>
+
+</LinearLayout>

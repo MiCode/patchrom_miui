@@ -9,10 +9,6 @@
 
     <style name="Theme.Settings" parent="miui:style/V5.Theme.Light.Settings"></style>
 
-    <style name="Theme.SettingsActionBarWithLogo" parent="@style/Theme.Settings">
-        <item name="android:actionBarStyle">@style/ActionBarWithLogo</item>
-    </style>
-
     <style name="Theme.NoTitle" parent="@style/Theme.Main">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -40,8 +36,34 @@
         <item name="android:background">@miui:drawable/v5_spinner_bg_light</item>
     </style>
 
-    <style name="ActionBarWithLogo" parent="@miui:style/V5.Widget.ActionBar">
-        <item name="android:displayOptions">useLogo|showHome|showTitle</item>
-        <item name="android:logo">@drawable/action_bar_logo</item>
+    <style name="SecurityLockPatternView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="miui:circleDefaultBmp">@drawable/lock_pattern_indicator_code_lock_point_area_default_holo</item>
+        <item name="miui:circleGreenBmp">@drawable/lock_pattern_indicator_code_lock_point_area_green_holo</item>
+        <item name="miui:circleRedBmp">@drawable/lock_pattern_indicator_code_lock_point_area_red_holo</item>
+        <item name="miui:arrowRedUpBmp">@drawable/lock_pattern_indicator_code_lock_drag_direction_red_up</item>
+        <item name="miui:pathStrokeAlpha">82</item>
+        <item name="miui:diameterFactor">0.45</item>
+        <item name="miui:paintColor">#0093ff</item>
+        <item name="miui:wrongColor">#ec2612</item>
+    </style>
+
+    <style name="AccountTextShadow" parent="@android:style/TextAppearance">
+        <item name="android:shadowColor">@color/shadow_color_black_alpha_30</item>
+        <item name="android:shadowDy">5</item>
+        <item name="android:shadowRadius">7.5</item>
+    </style>
+
+    <style name="PatternHeaderText" parent="@android:style/TextAppearance">
+        <item name="android:layout_marginTop">@dimen/lockpattern_header_margin_top</item>
+        <item name="android:textColor">@color/lockpattern_header_color</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+    </style>
+
+    <style name="PatternFooterText" parent="@android:style/TextAppearance">
+        <item name="android:layout_marginBottom">@dimen/lockpattern_footer_margin_bottom</item>
+        <item name="android:textColor">@color/lockpattern_footer_color</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
     </style>
 </resources>

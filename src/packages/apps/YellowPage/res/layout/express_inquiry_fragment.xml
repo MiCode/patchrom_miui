@@ -4,65 +4,70 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/express_inquiry_fragment_padding_horizontal"
-    android:paddingRight="@dimen/express_inquiry_fragment_padding_horizontal"
     android:paddingTop="@dimen/express_inquiry_fragment_padding_top" >
 
     <TextView
-        android:id="@+id/indication"
-        style="@style/ExpressInquiryIndicationTextStyle"
+        android:id="@+id/select_logistics"
+        style="@miui:style/V5.TextAppearance.PreferenceList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/express_inquiry_indication" />
+        android:layout_height="@dimen/express_inquiry_field_height"
+        android:layout_marginLeft="@dimen/express_inquiry_fragment_logistics_margin_horizontal"
+        android:layout_marginRight="@dimen/express_inquiry_fragment_logistics_margin_horizontal"
+        android:layout_marginTop="@dimen/express_inquiry_fragment_logistics_margin_vertical"
+        android:background="@drawable/select_logistics_button_bg"
+        android:gravity="center_vertical"
+        android:text="@string/express_inquiry_logistics_indication"
+        android:visibility="gone" />
+
+    <!-- Separator -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/express_inquiry_separator_height" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/express_inquiry_fragment_serial_number_padding_horizontal"
+        android:paddingRight="@dimen/express_inquiry_fragment_serial_number_padding_horizontal" >
 
-        <ClearableEditText
-            android:id="@+id/serial_number"
-            style="@miui:style/V5.Widget.EditText"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:drawableRight="@miui:drawable/v5_edit_text_search_clear_btn_light"
-            android:inputType="text" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/express_inquiry_field_height"
+            android:background="@miui:drawable/v5_group_single_item_bg_light"
+            android:orientation="horizontal" >
+
+            <ClearableEditText
+                android:id="@+id/serial_number"
+                style="@style/ExpressInquirySerialNumberStyle"
+                android:inputType="text" />
+
+            <Button
+                android:id="@+id/scan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="@dimen/express_inquiry_scan_margin_left"
+                android:background="@drawable/scan_bg" />
+        </FrameLayout>
 
         <Button
-            android:id="@+id/scan"
-            android:layout_width="wrap_content"
+            android:id="@+id/button"
+            style="@style/Widget.Button.PositiveWarn"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/express_inquiry_scan_margin_left"
-            android:background="@drawable/scan_bg"
-            android:text="@string/scan" />
+            android:layout_marginTop="@dimen/express_inquiry_button_margin_top"
+            android:enabled="false"
+            android:text="@string/express_inquiry_button_text" />
+
+        <TextView
+            android:id="@+id/source_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/express_inquiry_source_info_margin_top"
+            android:gravity="center"
+            android:textSize="@miui:dimen/v5_text_font_size_small" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/remark"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/express_inquiry_remark_padding_bottom"
-        android:paddingLeft="@dimen/express_inquiry_remark_padding_horizontal"
-        android:paddingRight="@dimen/express_inquiry_remark_padding_horizontal"
-        android:paddingTop="@dimen/express_inquiry_remark_padding_top"
-        android:textSize="@miui:dimen/v5_text_font_size_small" />
-
-    <Button
-        android:id="@+id/button"
-        style="@miui:style/V5.Widget.Button.PositiveWarn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:enabled="false"
-        android:text="@string/express_inquiry_button_text" />
-
-    <TextView
-        android:id="@+id/source_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="@miui:dimen/v5_text_font_size_small" />
 
 </LinearLayout>

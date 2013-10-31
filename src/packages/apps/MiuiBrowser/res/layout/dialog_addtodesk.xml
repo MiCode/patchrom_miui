@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:showDividers="middle"
+    android:divider="@color/webapp_bottom_bar_divider_color">
+    <TextView
+      android:text="@string/webapp_dialog_title"
+      style="@style/WebApp.AlertDialog.Title"
+    />
+    <miui.browser.webapps.views.AppAppDialogInnerView
+        android:id="@+id/popview"
+      android:layout_width="match_parent"
+      android:layout_height="100dip"
+      android:paddingLeft="22dip"
+      android:paddingRight="22dip"
+    />
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:padding="10dip">
+        <Button
+            android:id="@+id/cancel"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="1.0"
+          android:text="@android:string/cancel"
+        />
+        <Button
+            android:id="@+id/ok"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="1.0"
+          android:text="@android:string/ok"
+        />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:layout_gravity="center_vertical"
+    android:gravity="center_vertical" >
+    <ImageView
+        android:id="@+android:id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="6dip"
+        android:layout_marginTop="6dip"
+        android:layout_marginBottom="6dip"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1" >
+        <TextView
+            android:id="@+android:id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" />
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dip"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/text_color_black_alpha_40"
+            android:textSize="@dimen/text_size_content_hint" />
+    </LinearLayout>
+    <!-- Preference should place its actual preference widget here. -->
+    <LinearLayout
+        android:id="@+android:id/widget_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:minWidth="@miui:dimen/v5_preference_widget_width"
+        android:orientation="vertical" />
+    <!-- right arrow -->
+    <ImageView
+        android:id="@+id/right_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|right"
+        android:gravity="center"
+        android:src="@miui:drawable/v5_arrow_right" />
+
+</LinearLayout>

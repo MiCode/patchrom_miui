@@ -55,6 +55,7 @@
         <intent
                 android:action="android.settings.WIFI_SETTINGS" />
     </header>
+
     <!-- Bluetooth -->
     <header
         android:id="@+id/bluetooth_settings"
@@ -63,6 +64,13 @@
         <intent
             android:action="android.settings.BLUETOOTH_SETTINGS" />
     </header>
+
+    <!-- Background data restricted for cmcc build -->
+    <header
+        android:id="@+id/restrict_background_data"
+        android:title="@string/restrict_background_data_title"
+        android:fragment="com.android.settings.WirelessSettings"
+        android:icon="@drawable/ic_application_settings" />
 
     <!-- Operator hook -->
     <header
@@ -153,6 +161,14 @@
             android:icon="@drawable/ic_add_account_settings">
             <intent
                 android:action="android.settings.ADD_ACCOUNT_SETTINGS"/>
+    </header>
+
+    <header
+            android:id="@+id/sync_settings"
+            android:title="@string/sync_settings"
+            android:icon="@drawable/ic_sync_settings">
+            <intent
+                android:action="android.settings.SYNC_SETTINGS"/>
     </header>
 
     <!-- DEVICE -->

@@ -10,6 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
+        android:orientation="vertical"
         android:layout_weight="1">
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,12 +26,20 @@
                 android:textSize="@dimen/text_size_small"
                 android:textStyle="bold" />
         </LinearLayout>
+        <TextView
+            android:id="@+id/contentHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/text_color_orange"
+            android:textSize="@dimen/text_size_content_hint" />
     </LinearLayout>
     <Button
         android:id="@+id/button_recharge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dip"
+        android:text="@string/btn_recharge_success"
         style="@style/ButtonNotice" />
     <Button
         android:id="@+id/button_recharge_other"

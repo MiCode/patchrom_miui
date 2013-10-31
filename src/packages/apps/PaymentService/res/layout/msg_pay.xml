@@ -21,7 +21,7 @@
             android:textColor="@color/text_color_gray"
             android:textSize="@dimen/text_size_small"
             android:textStyle="bold" />
-        <com.xiaomi.payment.DenominationGrid
+        <com.xiaomi.payment.widget.DenominationGrid
             android:id="@+id/denomination"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,8 +43,8 @@
                 android:text="@string/msg_denomination_type"
                 android:textColor="@color/text_color_black"
                 android:textSize="@dimen/text_size_medium" />
-            <com.xiaomi.payment.model.DenominationEditText
-                android:id="@+id/denomination_edit"
+            <com.xiaomi.payment.widget.DenominationEditText
+                android:id="@+id/denomination_mibi_edit"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dip"
@@ -112,9 +112,9 @@
                     android:textColor="@color/text_color_gray"
                     android:textSize="@dimen/text_size_small" />
                 <TextView
+                    android:id="@+id/msg_picker_hint_3_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/msg_picker_hint_3_2"
                     android:textColor="@color/text_color_gray"
                     android:textSize="@dimen/text_size_small" />
             </LinearLayout>
@@ -123,6 +123,13 @@
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1" />
+        <TextView
+            android:id="@+id/contentHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/text_color_orange"
+            android:textSize="@dimen/text_size_content_hint" />
         <Button
             android:id="@+id/button_recharge"
             style="@style/ButtonNotice"
@@ -137,36 +144,5 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dip"
             android:text="@string/recharge_other" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/empty"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone" >
-        <ProgressBar
-            android:id="@+id/progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:indeterminateOnly="true" />
-        <TextView
-            android:id="@+id/progress_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/progress_downloading" />
-        <ImageView
-            android:id="@+id/error_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="?miui:attr/v5_content_empty_icon"
-            android:visibility="gone" />
-        <TextView
-            android:id="@+id/error"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/text_color_gray"
-            android:textSize="@dimen/text_size_small"
-            android:visibility="gone" />
     </LinearLayout>
 </FrameLayout>

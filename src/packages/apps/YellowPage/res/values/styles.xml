@@ -58,12 +58,9 @@
     <style name="Widget.Button" parent="@miui:style/V5.Widget.Button" />
 
     <style name="Widget.Button.Retry">
-        <item name="android:background">@drawable/common_btn</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:minHeight">@dimen/large_button_height</item>
-        <item name="android:paddingLeft">36dip</item>
-        <item name="android:paddingRight">36dip</item>
         <item name="android:layout_marginTop">10dip</item>
         <item name="android:gravity">center</item>
     </style>
@@ -78,10 +75,60 @@
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
     </style>
 
+    <style name="Widget.Button.Text" parent="@miui:style/V5.TextAppearance.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/loading_progress_view_button_text_margin</item>
+    </style>
+
+    <style name="Widget.Button.PositiveWarn">
+        <item name="android:background">@drawable/positive_warn_button_bg</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.Button.Warn</item>
+        <item name="android:textColor">@miui:color/v5_button_text_dark</item>
+    </style>
+
     <style name="ExpressInquiryIndicationTextStyle" parent="@miui:style/V5.TextAppearance.PreferenceCategory">
         <item name="android:textSize">@miui:dimen/v5_text_font_size_medium</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:padding">@dimen/express_inquiry_fragment_indication_text_padding</item>
+        <item name="android:paddingLeft">@dimen/express_inquiry_fragment_indication_text_padding_horizontal</item>
+        <item name="android:paddingRight">@dimen/express_inquiry_fragment_indication_text_padding_horizontal</item>
+        <item name="android:paddingTop">@dimen/express_inquiry_fragment_indication_text_padding_vertical</item>
+        <item name="android:paddingBottom">@dimen/express_inquiry_fragment_indication_text_padding_vertical</item>
     </style>
 
+    <style name="RechargeOrderListPendingItemStyle">
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_height">@miui:dimen/v5_list_view_treble_line_height</item>
+        <item name="android:minHeight">@miui:dimen/v5_list_view_treble_line_height</item>
+        <item name="android:paddingLeft">@miui:dimen/v5_list_view_padding_horizontal</item>
+        <item name="android:paddingRight">@miui:dimen/v5_list_view_padding_horizontal</item>
+    </style>
+
+    <style name="YellowPagePickerSectionHeaderTextStyle" parent="@miui:style/V5.TextAppearance.Label">
+        <item name="android:singleLine">true</item>
+        <item name="android:paddingLeft">@dimen/yellow_page_picker_section_header_text_padding_horizontal</item>
+        <item name="android:paddingRight">@dimen/yellow_page_picker_section_header_text_padding_horizontal</item>
+        <item name="android:paddingTop">@dimen/yellow_page_picker_section_header_text_padding_vertical</item>
+        <item name="android:paddingBottom">@dimen/yellow_page_picker_section_header_text_padding_vertical</item>
+    </style>
+
+    <style name="ExpressInquirySerialNumberStyle" parent="@miui:style/V5.Widget.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginLeft">@dimen/express_inquiry_edit_text_margin_left</item>
+        <item name="android:background">@null</item>
+        <item name="android:drawableRight">@miui:drawable/v5_edit_text_search_clear_btn_light</item>
+        <item name="android:hint">@string/express_inquiry_serial_number_indication</item>
+        <item name="android:paddingRight">@dimen/express_inquiry_edit_text_padding_right</item>
+    </style>
+
+    <style name="BalanceInquiryDialogTitleStyle" parent="@miui:style/V5.TextAppearance.DialogTitle">
+        <item name="android:padding">@dimen/balance_inquiry_dialog_title_padding</item>
+    </style>
+
+    <style name="BalanceInquiryDialogHintStyle" parent="@miui:style/V5.TextAppearance.DialogTitle">
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_margin">@dimen/balance_inquiry_dialog_hint_margin</item>
+    </style>
 </resources>
