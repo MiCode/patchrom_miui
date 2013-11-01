@@ -71,7 +71,70 @@ how the layout adjusts based on size. -->
                 android:password="true"
                 style="?android:attr/textAppearance"
                 />
+        <LinearLayout
+                android:id="@+id/captcha_area"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_below="@+id/password"
+                android:gravity="center"
+                android:background="?miui:attr/v5_edit_text_bg">
+            <EditText
+                    android:id="@+id/captcha_code"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/editor_height"
+                    android:hint="@string/input_captcha_hint"
+                    android:singleLine="true"
+                    android:background="@null"
+                    style="?android:attr/textAppearance"
+                    />
+            <ImageView
+                    android:id="@+id/captcha_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    />
+         </LinearLayout>
     </RelativeLayout>
+    <LinearLayout android:id="@+id/inner_content_step2"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:paddingTop="17dp"
+                  android:paddingBottom="17dp"
+                  android:paddingLeft="@dimen/dialog_margin_h"
+                  android:paddingRight="@dimen/dialog_margin_h"
+            >
+        <TextView
+                android:id="@+id/vcode_prompt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/vcode_prompt_long"
+                android:layout_marginLeft="5dp"
+                style="?android:attr/textAppearanceMedium"
+                />
+        <EditText
+                android:id="@+id/vcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:minHeight="@dimen/editor_height"
+                android:hint="@string/input_vcode_hint"
+                android:inputType="number"
+                android:digits="1234567890"
+                android:singleLine="true"
+                style="?android:attr/textAppearance"
+                />
+        <CheckBox
+                android:id="@+id/trust_device"
+                android:layout_marginTop="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/trust_device"/>
+    </LinearLayout>
     <View
             style="@style/Divider"
             android:layout_width="match_parent"

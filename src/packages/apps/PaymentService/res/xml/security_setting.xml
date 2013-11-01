@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory>
+        <PreferenceScreen
+            android:key="my_account" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/title_gesture">
+        <CheckBoxPreference
+            android:key="enable_pattern"
+            android:title="@string/title_lockpattern"
+            android:summary="@string/summary_lockpattern"
+            android:defaultValue="false"
+            android:persistent="false" />
+
+        <CheckBoxPreference
+            android:key="visible_pattern"
+            android:title="@string/title_visible_pattern"
+            android:dependency="enable_pattern" />
+
+        <PreferenceScreen
+            android:key="modify_pattern"
+            android:title="@string/title_change_lockpattern"
+            android:dependency="enable_pattern" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/title_password"
+        android:key="category_password">
+        <CheckBoxPreference
+            android:key="enable_no_password"
+            android:title="@string/title_nopassword"
+            android:defaultValue="false"
+            android:persistent="false" />
+
+        <ListPreference
+           android:key="password_threshold"
+           android:dependency="enable_no_password"
+           android:entries="@array/nopassword_pay_threshold"
+           android:entryValues="@array/nopassword_pay_threshold_values"
+           android:dialogTitle="@string/title_nopassword_dialog" />
+    </PreferenceCategory>
+</PreferenceScreen>

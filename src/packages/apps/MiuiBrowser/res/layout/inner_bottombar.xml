@@ -1,0 +1,49 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <View android:id="@+id/bottom_shadow" android:layout_width="match_parent"
+    android:layout_height="15dip" android:background="@drawable/webapp_bottom_bar_shadow" />
+
+  <LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content" android:background="@drawable/webapp_bottom_bg"
+    android:orientation="vertical" android:showDividers="middle"
+    android:divider="@color/webapp_bottom_bar_divider_color"
+    android:id="@+id/webapp_bottom_content">
+
+    <LinearLayout android:id="@+id/bottombar_head"
+      android:layout_width="fill_parent" android:layout_height="wrap_content"
+      android:gravity="center" android:orientation="horizontal">
+
+      <ImageView android:id="@+id/back" style="@style/WebApp.BottomBar.Menu"
+        android:src="@drawable/webapp_bottom_back" />
+
+      <ImageView android:id="@+id/forward" style="@style/WebApp.BottomBar.Menu"
+        android:src="@drawable/webapp_bottom_forward" />
+
+      <ImageView android:id="@+id/refresh" style="@style/WebApp.BottomBar.Menu"
+        android:src="@drawable/webapp_bottom_refresh" />
+
+      <ImageView android:id="@+id/more_menus" style="@style/WebApp.BottomBar.Menu"
+        android:src="@drawable/webapp_bottom_more" />
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/menus_group"
+      android:layout_width="fill_parent" android:layout_height="wrap_content"
+      android:orientation="vertical" android:showDividers="middle"
+      android:divider="@color/webapp_bottom_bar_divider_color">
+
+      <TextView android:id="@+id/menu_addtodesk" style="@style/WebApp.BottomBar.Text"
+        android:text="@string/webapp_bottom_bar_addtodesk" />
+
+      <TextView android:id="@+id/menu_fullscreen" style="@style/WebApp.BottomBar.Text"
+        android:text="@string/webapp_bottom_bar_hidebar" />
+
+      <TextView android:id="@+id/menu_openbrowser" style="@style/WebApp.BottomBar.Text"
+        android:text="@string/webapp_bottom_bar_openbrowser" />
+
+      <TextView android:id="@+id/menu_exit" style="@style/WebApp.BottomBar.Text"
+        android:text="@string/webapp_bottom_bar_exit" />
+    </LinearLayout>
+  </LinearLayout>
+
+</merge>

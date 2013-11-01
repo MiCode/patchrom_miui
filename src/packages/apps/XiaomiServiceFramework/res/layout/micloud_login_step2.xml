@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+        >
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:paddingLeft="@dimen/content_horizontal_margin"
+            android:paddingRight="@dimen/content_horizontal_margin"
+            android:paddingTop="@dimen/content_horizontal_margin"
+            android:paddingBottom="@dimen/content_bottom_margin"
+            >
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/login_notice_text_margin_h"
+                android:layout_marginRight="@dimen/login_notice_text_margin_h"
+                android:layout_gravity="center_horizontal"
+                style="@style/TextPrimary"
+                android:text="@string/vcode_prompt_long"
+                />
+
+        <EditText
+                android:id="@+id/et_vcode"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:digits="1234567890"
+                android:singleLine="true"
+                android:background="@drawable/group_single_item_normal_bg"
+                />
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+            <CheckBox
+                android:id="@+id/trust_device"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/trust_device"
+                />
+            <Button
+                android:id="@+id/skip_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/skip_login_u"
+                style="@style/HyperLinkStyle"
+                android:background="@drawable/btn_transparent_bkg"/>
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/login_notice_text_margin_h"
+                android:layout_marginRight="@dimen/login_notice_text_margin_h"
+                android:layout_gravity="center_horizontal"
+                android:visibility="invisible"
+                android:textSize="@dimen/button_text_size"
+                />
+
+        <Button
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/login"
+                style="@style/ButtonLogin"
+                />
+
+        <TextView
+                android:id="@+id/privacy_policy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                style="@style/PrivacyPolicy"
+                />
+    </LinearLayout>
+</ScrollView>

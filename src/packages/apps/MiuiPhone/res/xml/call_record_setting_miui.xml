@@ -15,4 +15,22 @@
     <miui.preference.RadioButtonPreferenceCategory android:title="@string/auto_record_scenario_title_miui"
         android:key="button_auto_record_scenario">
     </miui.preference.RadioButtonPreferenceCategory>
+    <PreferenceCategory android:key="auto_record_custom_category"
+        android:title="@string/auto_record_scenario_enteries_whitelist_miui">
+        <miui.preference.ValuePreference
+            android:key="button_auto_record_whitelist"
+            android:title="@string/auto_record_whitelist_miui" >
+            <intent android:action="android.intent.action.MAIN"
+                android:targetClass="com.android.phone.MiuiAutoRecordWhiteListSetting"
+                android:targetPackage="com.android.phone" />
+        </miui.preference.ValuePreference>
+        <CheckBoxPreference
+            android:key="button_auto_record_unknown"
+            android:title="@string/auto_record_unknown_miui"
+            android:defaultValue="false" />
+        <CheckBoxPreference
+            android:key="button_auto_record_yellowpage"
+            android:title="@string/auto_record_yellowpage_miui"
+            android:defaultValue="false" />
+    </PreferenceCategory>
 </PreferenceScreen>

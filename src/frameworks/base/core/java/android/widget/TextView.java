@@ -129,6 +129,8 @@ import android.widget.RemoteViews.RemoteView;
 import com.android.internal.util.FastMath;
 import com.android.internal.widget.EditableInputConnection;
 
+import miui.util.UiUtils;
+
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
@@ -1240,6 +1242,9 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
             }
 
             setTypeface(tf);
+            // MIUI ADD: since we may replace the typeface, so we need get it after setTypeface()
+            tf = getTypeface();
+
             // now compute what (if any) algorithmic styling is needed
             int typefaceStyle = tf != null ? tf.getStyle() : 0;
             int need = style & ~typefaceStyle;
@@ -2314,6 +2319,9 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
      * @attr ref android.R.styleable#TextView_textStyle
      */
     public void setTypeface(Typeface tf) {
+        // MIUI ADD:
+        tf = UiUtils.replaceTypeface(getContext(), tf);
+
         if (mTextPaint.getTypeface() != tf) {
             mTextPaint.setTypeface(tf);
 

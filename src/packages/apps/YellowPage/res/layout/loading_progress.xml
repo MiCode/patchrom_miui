@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
     <ProgressBar
         android:id="@+id/progress"
         android:layout_width="wrap_content"
@@ -12,17 +13,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:drawableTop="?miui:attr/v5_content_empty_icon"
             android:visibility="gone" />
 
-        <Button
+        <LinearLayout
             android:id="@+id/button"
-            android:visibility="gone"
-            style="@style/Widget.Button.Retry"/>
+            style="@style/Widget.Button.Retry"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/button_text"
+                style="@style/Widget.Button.Text"/>
+        </LinearLayout>
     </LinearLayout>
+
 </merge>

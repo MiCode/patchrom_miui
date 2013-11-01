@@ -803,6 +803,7 @@ public class ActionBarView extends AbsActionBarView {
         // MIUI ADD: START
         if (miuiInitTitle()) {
             addView(mTitleLayout);
+            mTitleUpView = (View) mTitleLayout.findViewById(miui.R.id.v5_up);
             return;
         }
         // END

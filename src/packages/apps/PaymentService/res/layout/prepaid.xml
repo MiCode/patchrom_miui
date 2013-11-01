@@ -6,12 +6,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="15dip"
+        android:orientation="vertical"
+        android:paddingBottom="13dip"
         android:paddingLeft="15dip"
         android:paddingRight="15dip"
-        android:paddingBottom="13dip"
-        android:orientation="vertical" >
-        <com.xiaomi.payment.DenominationSpinner
+        android:paddingTop="15dip" >
+        <com.xiaomi.payment.widget.DenominationSpinner
             android:id="@+id/denomination"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,26 +28,26 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/prepaid_number_edit_hint"
-                    android:textSize="@dimen/text_size_medium"
-                    android:textColor="@color/text_color_black"
                     android:background="@drawable/input_item_first"
+                    android:ellipsize="end"
+                    android:gravity="center"
                     android:singleLine="true"
-                    android:ellipsize="end" />
+                    android:text="@string/prepaid_number_edit_hint"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/text_size_medium" />
                 <EditText
                     android:id="@+id/number_edit"
                     android:layout_width="0dip"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginLeft="10dip"
-                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@null"
                     android:digits="0123456789 "
-                    android:inputType="number"
+                    android:gravity="center_vertical"
                     android:hint="@string/prepaid_edit_limit"
-                    android:textSize="@dimen/text_size_medium"
+                    android:inputType="number"
                     android:textColor="@color/text_color_black"
-                    android:background="@null" />
+                    android:textSize="@dimen/text_size_medium" />
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
@@ -57,91 +57,98 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/prepaid_password_edit_hint"
-                    android:textSize="@dimen/text_size_medium"
-                    android:textColor="@color/text_color_black"
                     android:background="@drawable/input_item_last"
+                    android:ellipsize="end"
+                    android:gravity="center"
                     android:singleLine="true"
-                    android:ellipsize="end" />
+                    android:text="@string/prepaid_password_edit_hint"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/text_size_medium" />
                 <EditText
                     android:id="@+id/password_edit"
                     android:layout_width="0dip"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginLeft="10dip"
-                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@null"
                     android:digits="0123456789 "
-                    android:inputType="number"
+                    android:gravity="center_vertical"
                     android:hint="@string/prepaid_edit_limit"
-                    android:textSize="@dimen/text_size_medium"
+                    android:inputType="number"
                     android:textColor="@color/text_color_black"
-                    android:background="@null" />
+                    android:textSize="@dimen/text_size_medium" />
             </TableRow>
         </TableLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dip"
             android:layout_marginLeft="10dip"
             android:layout_marginRight="10dip"
+            android:layout_marginTop="25dip"
             android:orientation="vertical" >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="2dip"
-                android:text="@string/prepaid_picker_hint_1_1"
-                android:textSize="@dimen/text_size_small"
-                android:textColor="@color/text_color_gray" />
-            <TextView
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="2dip"
+                    android:text="@string/prepaid_picker_hint_1_1"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/text_size_small" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/prepaid_picker_hint_1_2"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/text_size_small" />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/prepaid_picker_hint_1_2"
-                android:textSize="@dimen/text_size_small"
-                android:textColor="@color/text_color_gray"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="2dip"
-                android:text="@string/prepaid_picker_hint_2_1"
-                android:textSize="@dimen/text_size_small"
-                android:textColor="@color/text_color_gray" />
-            <TextView
-                android:id="@+id/prepaid_hint"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/prepaid_picker_hint_2_2_a"
-                android:textSize="@dimen/text_size_small"
-                android:textColor="@color/text_color_gray" />
-        </LinearLayout>
+                android:orientation="horizontal" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="2dip"
+                    android:text="@string/prepaid_picker_hint_2_1"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/text_size_small" />
+                <TextView
+                    android:id="@+id/prepaid_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/prepaid_picker_hint_2_2_a"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/text_size_small" />
+            </LinearLayout>
         </LinearLayout>
         <View
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1" />
+        <TextView
+            android:id="@+id/contentHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/text_color_orange"
+            android:textSize="@dimen/text_size_content_hint" />
         <Button
             android:id="@+id/button_recharge"
+            style="@style/ButtonNotice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dip"
-            android:text="@string/btn_recharge_large"
-            style="@style/ButtonNotice" />
+            android:text="@string/btn_recharge_large" />
         <Button
             android:id="@+id/button_recharge_other"
+            style="@style/ButtonNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dip"
-            android:text="@string/recharge_other"
-            style="@style/ButtonNormal" />
+            android:text="@string/recharge_other" />
     </LinearLayout>
+
 </ScrollView>

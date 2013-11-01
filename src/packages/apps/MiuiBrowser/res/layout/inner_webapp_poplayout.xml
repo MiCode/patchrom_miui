@@ -1,0 +1,31 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <miui.browser.webapps.views.AsyncImageView
+    android:id="@+id/appicon" style="@style/WebApp.Icon.Small" />
+
+  <LinearLayout android:id="@+id/appinfo"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical" android:paddingLeft="15dip"
+    android:paddingRight="15dip">
+
+
+    <LinearLayout android:layout_width="wrap_content"
+      android:layout_height="wrap_content" android:orientation="horizontal"
+      android:gravity="center_vertical">
+      <TextView android:id="@+id/appname" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" style="@style/WebApp.AddToDeskPopLayout.AppName" />
+      <TextView android:id="@+id/appaddnumber"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        style="@style/WebApp.AddToDeskPopLayout.AddNumberText" />
+      <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/WebApp.AddToDeskPopLayout.AddNumberAppend" />
+    </LinearLayout>
+
+    <TextView android:id="@+id/appdescription"
+      android:layout_width="match_parent" android:layout_height="wrap_content"
+      style="@style/WebApp.AddToDeskPopLayout.AppDescription" />
+  </LinearLayout>
+  <Button android:id="@+id/app_add_to_desktop_btn" style="@style/WebApp.AddToDeskPopLayout.Button" />
+</merge>

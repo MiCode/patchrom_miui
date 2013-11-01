@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.miui.yellowpage.ui.RechargeOrderListPendingItem xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/RechargeOrderListPendingItemStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    android:background="@miui:drawable/v5_list_view_item_bg_light" >
 
     <LinearLayout
-        style="@miui:style/V5.Widget.ListView.Item.TrebleLine"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/pay_button_container"
         android:orientation="vertical" >
 
         <LinearLayout
@@ -19,14 +22,16 @@
                 android:id="@+id/original_price"
                 style="@miui:style/V5.TextAppearance.List.Primary"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:singleLine="true" />
 
             <TextView
                 android:id="@+id/phone_number"
                 style="@miui:style/V5.TextAppearance.List.Primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/recharge_order_phone_number_padding_left" />
+                android:paddingLeft="@dimen/recharge_order_phone_number_padding_left"
+                android:singleLine="true" />
         </LinearLayout>
 
         <LinearLayout
@@ -44,6 +49,7 @@
                     style="@miui:style/V5.TextAppearance.List.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:singleLine="true"
                     android:text="@string/recharge_actual_price"
                     android:textColor="@miui:color/v5_list_text_color_light" />
 
@@ -52,6 +58,7 @@
                     style="@miui:style/V5.TextAppearance.List.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:singleLine="true"
                     android:textColor="@color/yellow_page_highlight_text_color" />
             </LinearLayout>
 
@@ -66,6 +73,7 @@
                     style="@miui:style/V5.TextAppearance.List.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:singleLine="true"
                     android:text="@string/recharge_status_description"
                     android:textColor="@miui:color/v5_list_text_color_light" />
 
@@ -74,6 +82,7 @@
                     style="@miui:style/V5.TextAppearance.List.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:singleLine="true"
                     android:textColor="@color/yellow_page_highlight_text_color" />
             </LinearLayout>
         </LinearLayout>
@@ -88,33 +97,30 @@
                 style="@miui:style/V5.TextAppearance.List.Secondary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:singleLine="true"
                 android:text="@string/recharge_order_id" />
 
             <TextView
                 android:id="@+id/order_id"
                 style="@miui:style/V5.TextAppearance.List.Secondary"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:singleLine="true" />
         </LinearLayout>
     </LinearLayout>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:src="@miui:drawable/v5_bottom_bar_top_line_light" />
-
     <LinearLayout
+        android:id="@+id/pay_button_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right|center_vertical"
-        android:paddingRight="@dimen/recharge_order_list_pending_item_padding_right" >
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true" >
 
         <Button
             android:id="@+id/pay_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/scan_bg"
+            android:background="@drawable/checkout_button_bg"
             android:text="@string/recharge_order_pay" >
         </Button>
     </LinearLayout>

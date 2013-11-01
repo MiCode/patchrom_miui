@@ -11,6 +11,8 @@
     <string name="prev">上一步</string>
     <string name="forget_password"><u>忘記密碼</u></string>
     <string name="password">密碼</string>
+    <string name="captcha">圖片驗證碼</string>
+    <string name="vcode">驗證碼</string>
     <string name="bad_authentication">用戶名密碼不匹配</string>
     <string name="int_phone_user_notice">使用中國大陸以外的手機號碼登入時，請輸入區域前綴，如+886xxxxxxxxx</string>
     <string name="micloud_welcome_skip_login"><u>跳過此步驟</u></string>
@@ -20,6 +22,8 @@
     <string name="micloud_error_empty_username">用戶名不能為空</string>
     <string name="micloud_error_empty_pwd">密碼不能為空</string>
     <string name="micloud_error_illegal_pwd">密碼格式錯誤</string>
+    <string name="micloud_error_empty_captcha_code">圖片驗證碼不能為空</string>
+    <string name="micloud_error_empty_vcode">驗證碼不能為空</string>
     <string name="micloud_email">請輸入您的信箱地址</string>
     <string name="reg_type_phone">用本手機號碼註冊（推薦）</string>
     <string name="reg_type_email">用信箱註冊</string>
@@ -79,16 +83,20 @@
     <string name="error_sim_not_ready">SIM卡未就緒</string>
     <string name="error_unknown">未知錯誤</string>
     <string name="error_invalid_dev_id">無效的設備號</string>
+    <string name="error_user_name">用戶名不存在</string>
     <string name="quick_login_title">系統需要驗證您的小米帳號，\n請輸入您的帳號密碼</string>
+    <string name="quick_login_step2_title">小米登入保護</string>
     <string name="account_name">帳號:
         <xliff:g id="account">
             %1$s
         </xliff:g>
     </string>
     <string name="input_password_hint">請輸入帳號密碼</string>
+    <string name="input_captcha_hint">請輸入圖片驗證碼</string>
+    <string name="input_vcode_hint">請輸入驗證碼</string>
     <string name="confirm">確定</string>
     <string name="alert_title_remove_account">註銷帳號</string>
-    <string name="remove_account_notice">帳號刪除後，您要如何處理手機上的簡訊和聯絡人？</string>
+    <string name="remove_account_notice">帳號刪除後，您要如何處理手機上的簡訊、聯絡人和便簽？</string>
     <string name="data_keep_in_phone">保留在我的手機上</string>
     <string name="data_wipe_from_phone">從手機上刪除</string>
     <string name="login_notice">登入中...</string>
@@ -151,6 +159,7 @@
     <string name="find_password_on_web_msg">請瀏覽 account.xiaomi.com 找回密碼</string>
     <string name="relogin">重新登入</string>
     <string name="skip_login">跳過登入</string>
+    <string name="skip_login_u"><u>跳過登入</u></string>
     <string name="removing_account">正在註銷帳號...</string>
     <string name="checking_account">正在驗證...</string>
 
@@ -196,4 +205,68 @@
 
     <string name="micloud_proceed">繼續</string>
     <string name="disable_micloud"><u>不啟用雲服務</u></string>
+
+    <string name="master_alert_notif_title">您有%s天沒有同步數據了</string>
+    <string name="sub_alert_notif_title">您有關鍵同步服務未啟用</string>
+    <string name="alert_notif_title_dspt">建議恢復同步，保證數據安全</string>
+    <string name="noRemind">暫不提醒</string>
+    <string name="restoreSync">恢復同步</string>
+    <string name="enableAll">一鍵啟用</string>
+    <string name="master_alert_notif_dspt" formatted="false">"在此期間手機新增了%s名聯絡人、%s條簡訊、%s張照片、%s條便籤等數據。 \n\n如果您的手機遺失或被擦除，這些數據就會永久丟失。建議您恢復同步，保證數據安全"</string>
+    <string name="sub_alert_notif_dspt" formatted="false">"您手機本地有%s名聯絡人、%s條簡訊、%s張照片、%s條便籤等數據還未同步。 \n\n如果您的手機遺失或被擦除，這些數據將會永久丟失。建議您啟動同步，保證數據安全"</string>
+
+    <string name="wipe_data_dialog_title">存在未同步的數據</string>
+    <string name="wipe_data_dialog_msg">您手機有%s還未同步，繼續的話這些數據就可能會丟失，確定刪除？</string>
+    <string name="dirty_contacts_count">%d名聯絡人</string>
+    <string name="dirty_mms_count">%d條簡訊</string>
+    <string name="dirty_note_count">%d個便簽</string>
+    <string name="wipe_data_dialog_msg_separator">、</string>
+
+    <string name="wrong_captcha">圖片驗證碼錯誤</string>
+    <string name="wrong_vcode">驗證碼錯誤</string>
+    <string name="input_vcode_prompt">請輸入驗證碼</string>
+    <string name="trust_device">我信任該設備</string>
+    <string name="vcode_prompt_long">請輸入小米安全令牌生成的驗證碼</string>
+    <string name="vcode_notification_title">您的登入驗證未完成</string>
+
+    <string name="activate_phone_failed_notif_title_msim">為SIM卡%s開啟小米雲服務失敗</string>
+    <string name="activate_status_title_activating">正在開啟小米雲服務</string>
+    <string name="activate_status_title_activating_msim">正在為SIM卡%s開啟小米雲服務</string>
+    <string name="activate_status_desc_getting_device_info">獲取設備信息</string>
+    <string name="activate_status_desc_failed_getting_device_info">獲取設備信息失敗</string>
+    <string name="activate_status_desc_getting_sim_info">獲取SIM卡信息</string>
+    <string name="activate_status_desc_failed_getting_sim_info">獲取SIM卡信息失敗</string>
+    <string name="activate_status_desc_getting_gateway">獲取網關信息</string>
+    <string name="activate_status_desc_failed_getting_gateway">獲取網關信息失敗</string>
+    <string name="activate_status_desc_prepare_sending_sms">準備發送激活短信</string>
+    <string name="activate_status_desc_sending_sms">正在發送激活短信</string>
+    <string name="activate_status_desc_sms_sent">激活短信發送成功</string>
+    <string name="activate_status_desc_sim_absent">SIM卡被拔出</string>
+
+    <string name="activate_status_desc_acquire_phone_number">正在從服務器獲取本機號碼</string>
+    <string name="activate_status_desc_acquire_phone_number_server_error_wait">服務器錯誤，無法獲取本機號碼，等待重試……</string>
+    <string name="activate_status_desc_acquire_phone_number_server_io_error_wait">服務器IO錯誤，無法獲取本機號碼，等待重試……</string>
+    <string name="activate_status_desc_acquire_phone_number_server_no_info_wait">暫時無法從服務器獲得本機號碼，等待重試……</string>
+    <string name="activate_status_desc_acquire_phone_number_server_error">服務器錯誤，無法獲取本機號碼</string>
+    <string name="activate_status_desc_acquire_phone_number_server_io_error">服務器IO錯誤，無法獲取本機號碼</string>
+    <string name="activate_status_desc_acquire_phone_number_server_no_info">暫時無法從服務器獲得本機號碼.</string>
+
+    <string name="activate_status_desc_acquire_sim_user_id">正在從服務器獲取註冊信息</string>
+    <string name="activate_status_desc_acquire_sim_user_id_server_error_wait">服務器錯誤，無法獲取註冊信息，等待重試……</string>
+    <string name="activate_status_desc_acquire_sim_user_id_server_io_error_wait">服務器IO錯誤，無法獲取註冊信息，等待重試……</string>
+    <string name="activate_status_desc_acquire_sim_user_id_server_no_info_wait">暫時無法從服務器獲得註冊信息，等待重試……</string>
+    <string name="activate_status_desc_acquire_sim_user_id_server_error">服務器錯誤，無法獲取註冊信息</string>
+    <string name="activate_status_desc_acquire_sim_user_id_server_io_error">服務器IO錯誤，無法獲取註冊信息</string>
+    <string name="activate_status_desc_acquire_sim_user_id_server_no_info">暫時無法從服務器獲得註冊信息</string>
+
+    <string name="activate_status_desc_acquire_sim_pass_token">正在從服務器獲取安全信息</string>
+    <string name="activate_status_desc_acquire_sim_pass_token_server_error_wait">服務器錯誤，無法獲取安全信息，等待重試……</string>
+    <string name="activate_status_desc_acquire_sim_pass_token_server_io_error_wait">服務器IO錯誤，無法獲取安全信息，等待重試……</string>
+    <string name="activate_status_desc_acquire_sim_pass_token_server_no_info_wait">暫時無法從服務器獲得安全信息，等待重試……</string>
+    <string name="activate_status_desc_acquire_sim_pass_token_server_error">服務器錯誤，無法獲取安全信息</string>
+    <string name="activate_status_desc_acquire_sim_pass_token_server_io_error">服務器IO錯誤，無法獲取安全信息</string>
+    <string name="activate_status_desc_acquire_sim_pass_token_server_no_info">暫時無法從服務器獲得安全信息</string>
+    <string name="activate_status_desc_acquire_sim_pass_token_password_error">安全信息錯誤，激活失敗</string>
+
+    <string name="checking_input">正在檢查輸入</string>
 </resources>

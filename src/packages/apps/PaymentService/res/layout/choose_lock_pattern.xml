@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miui="http://schemas.android.com/apk/res/miui"
+    android:id="@+id/topLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/account"
+            style="@style/AccountTextShadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/lockpattern_logo"
+            android:gravity="bottom|center_horizontal"
+            android:paddingBottom="20dip"
+            android:textColor="@color/text_color_white"
+            android:textSize="@dimen/text_size_large"/>
+
+        <TextView
+            android:id="@+id/header_text"
+            style="@style/PatternHeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <miui.widget.LockPatternView
+            android:id="@+id/lock_pattern"
+            style="@style/SecurityLockPatternView"
+            android:layout_marginLeft="18dip"
+            android:layout_marginRight="18dip"
+            android:layout_marginTop="5dip" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/footer_text"
+            style="@style/PatternFooterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal" />
+    </LinearLayout>
+
+</com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient>

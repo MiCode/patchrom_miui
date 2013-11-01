@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Payment service</string>
+    <string name="format_time">MMM dd, yyyy hh:mmaa</string>
+    <string name="format_date">MMM. dd, yyyy</string>
 
     <string name="label_order_name">Product:</string>
     <string name="label_order_price">Price:</string>
@@ -14,6 +16,7 @@
     <string name="button_retry">Retry</string>
     <string name="button_call">Call</string>
     <string name="button_pay">Confirm</string>
+    <string name="button_recharge_pay">Confirm</string>
     <string name="button_recharge">Top up</string>
     <string name="balance_payment"><xliff:g id="value">%1$s</xliff:g> MiCredits</string>
     <string name="balance_giftcard_payment"><xliff:g id="value">%1$s</xliff:g> MiCredits（<xliff:g id="gift">%2$s</xliff:g>-MiCredit gift card）</string>
@@ -52,7 +55,6 @@
     <string name="error_bankcard_verify_summary">Failed to verify card no.</string>
 
     <string name="title_recharge">Top up MiCredit</string>
-    <string name="title_pay">Pay with MiCredits</string>
     <string name="recharge_group_favorite">Use previous top-up method</string>
     <string name="recharge_group_others">Other top-up methods</string>
     <string name="recharge_prepaid_title">Prepaid card</string>
@@ -62,6 +64,7 @@
     <string name="recharge_message_title">Text message</string>
     <string name="recharge_voucher_title">MiCredit card</string>
     <string name="recharge_pcpay_title">Computer </string>
+    <string name="recharge_novalid_method">No valid top-up method.</string>
 
     <string name="account_detail">Xiaomi account:\n<xliff:g id="account_id">%1$s</xliff:g></string>
 
@@ -69,7 +72,6 @@
     <string name="paytool_tenpay">Tenpay</string>
     <string name="recharge_denomination">￥<xliff:g id="value">%1$s</xliff:g></string>
     <string name="btn_recharge_large">Top up</string>
-    <string name="btn_pay_large">Pay</string>
     <string name="recharge_other">View other methods</string>
     <string name="btn_recharge_success">Top up complete</string>
     <string name="btn_recharge_success_quick">Top up complete</string>
@@ -88,9 +90,6 @@
     <string name="progress_paytool_creating">Generating <xliff:g id="tool">%1$s</xliff:g> order\u2026</string>
     <string name="progress_paytool_installing">Installing <xliff:g id="tool">%1$s</xliff:g> mobile security plugin\u2026</string>
 
-    <string name="prepaid_china_mobile">China Mobile</string>
-    <string name="prepaid_china_unicom">China Unicom</string>
-    <string name="prepaid_china_telcom">China Telecom</string>
     <string name="prepaid_picker_hint_1_1">1. </string>
     <string name="prepaid_picker_hint_1_2">Only supports one-time charge; </string>
     <string name="prepaid_picker_hint_2_1">2. </string>
@@ -111,15 +110,15 @@
     <string name="voucher_input_password_prompt">Enter code</string>
     <string name="voucher_edit_hint">Code</string>
     <string name="voucher_edit_limit">digits</string>
-    <string name="voucher_error_password_empty">Code empty.</string>
+    <string name="voucher_error_password">Code invalid.</string>
     <string name="progress_voucher_creating">Topping up MiCredit card\u2026</string>
 
     <string name="msg_picker_hint_1_1">1. </string>
-    <string name="msg_picker_hint_1_2">Topping up via text maybe more expensive: &lt;font color=red>￥2 = 1 MiCredit&lt;/font></string>
+    <string name="msg_picker_hint_1_2">Topping up via text maybe more expensive: &lt;font color=red>￥<xliff:g id="rmb">%1$d</xliff:g> = <xliff:g id="mibi">%2$d</xliff:g> MiCredit&lt;/font></string>
     <string name="msg_picker_hint_2_1">2. </string>
     <string name="msg_picker_hint_2_2">Carriers charge a ￥0.1 service fee per top-up</string>
     <string name="msg_picker_hint_3_1">3. </string>
-    <string name="msg_picker_hint_3_2">Maximum monthly top-up: ￥300</string>
+    <string name="msg_picker_hint_3_2">Maximum monthly top-up: ￥<xliff:g id="value">%1$s</xliff:g></string>
     <string name="msg_denomination_type">MiCredit</string>
     <string name="msg_error">Top-up failed</string>
     <string name="progress_msg_creating">Generating top-up order\u2026</string>
@@ -145,11 +144,11 @@
     <string name="giftcard_denom_frozen">MiCredit frozen</string>
     <string name="giftcard_hint">MiCredits added via gift card will be spent first automatically.</string>
     <string name="giftcard_acitivity_and_denomination"><xliff:g id="denomination">%2$s</xliff:g>-MiCredit gift card from <xliff:g id="activity">%1$s</xliff:g></string>
-    <string name="giftcard_expire"><xliff:g id="year">%1$s</xliff:g>-<xliff:g id="month">%2$s</xliff:g>-<xliff:g id="date">%3$s</xliff:g> expired</string>
+    <string name="giftcard_expire"><xliff:g id="date">%1$s</xliff:g> expired</string>
     <string name="giftcard_empty">No gift cards.</string>
 
     <string name="bankcall_merchant">Receiver:</string>
-    <string name="bankcall_denom">Payment:</string>
+    <string name="bankcall_denom">Amount:</string>
     <string name="bankcall_bank_account">Bank card: </string>
     <string name="bankcall_xiaomi_company">Xiaomi Corporation (Beijing)</string>
     <string name="bankcall_denom_number">￥<xliff:g id="denom">%1$s</xliff:g></string>
@@ -182,7 +181,6 @@
 
     <string name="progress_submit_title">Request submitted</string>
     <string name="progress_submit_recharge_summary">Topping up: <xliff:g id="value">%1$s</xliff:g> MiCredits.</string>
-    <string name="progress_submit_pay_summary">Paying <xliff:g id="value">%1$s</xliff:g> MiCredits.</string>
     <string name="progress_submit_hint">Top-up will be reflected in you account balance within 3 minutes.</string>
     <string name="btn_count_down_auto">Inquire after <xliff:g id="count">%1$s</xliff:g> seconds</string>
     <string name="btn_query">Inquire</string>
@@ -190,9 +188,11 @@
     <string name="progress_success_recharge_title"><xliff:g id="value">%1$s</xliff:g> MiCredit top-up complete</string>
     <string name="progress_success_pay_title"><xliff:g id="value">%1$s</xliff:g> MiCredit payment complete</string>
     <string name="progress_success_recharge_summary">Account balance: <xliff:g id="balance">%1$s</xliff:g> MiCredits.</string>
-    <string name="progress_success_pay_summary">Payment complete! :)</string>
+    <string name="progress_success_pay_summary"><xliff:g id="rechargeFee">%1$s</xliff:g> MiCredits recharged，<xliff:g id="payFee">%2$s</xliff:g> MiCredits paied</string>
     <string name="progress_error_recharge_title">Top-up failed</string>
+    <string name="progress_error_recharge_summary">Top-up failed, please retry later.</string>
     <string name="progress_error_pay_title">Payment failed</string>
+    <string name="progress_error_pay_summary"><xliff:g id="rechargeFee">%1$s</xliff:g> MiCredits recharged, but payment failed, please retry later.</string>
     <string name="progress_warning_waiting">Payment hasn\'t reached your account yet.</string>
     <string name="progress_warning_contact_server">Payment still hasn\'t reached your account. \n1. Please contact our Shenzhou customer service center：<xliff:g id="number">%1$s</xliff:g> \n2. When prompted, provide the serial number: <xliff:g id="order">%2$s</xliff:g>.</string>
     <string name="progress_warning_check">Payment hasn\'t reached your account yet. \nWe will check again within two working days.</string>
@@ -224,4 +224,45 @@
     <string name="mibi_license_title">User agreement</string>
     <string name="mibi_license_message">Touch OK if you agree to the terms and conditions described in the "<xliff:g id="agreement">%1$s</xliff:g>".</string>
     <string name="mibi_license_message_span">MiCredit User Agreement</string>
+
+    <string name="security_setting">Security settings</string>
+    <string name="lockscreen_forgot_pattern_button_text"><u>Forgot pattern password</u></string>
+    <string name="lockpattern_recording_intro_header">Draw an unlock pattern:</string>
+    <string name="lockpattern_settings_help_how_to_record">How to draw an unlock pattern</string>
+    <string name="lockpattern_recording_incorrect_too_short">Connect at least <xliff:g id="number">%d</xliff:g> dots. Try again:</string>
+    <string name="lockpattern_pattern_entered_header">Pattern recorded.</string>
+    <string name="lockpattern_need_to_confirm">Draw pattern again to confirm:</string>
+    <string name="lockpattern_need_to_confirm_wrong">Inconsistent with the previous entry, please re-enter:</string>
+    <string name="lockpattern_need_to_unlock_wrong">&lt;font color=red>Password wrong,you can enter <xliff:g id="timesLeft">%d</xliff:g> times more&lt;/font></string>
+    <string name="lockpattern_pattern_confirmed_header">Your new unlock pattern:</string>
+    <string name="lockpattern_recording_inprogress">Release finger when done.</string>
+    <string name="lockpattern_retry_text"><u>Reset pattern password</u></string>
+    <string name="forget_password"><u>Forgot password</u></string>
+    <string name="login">Login</string>
+    <string name="cancel">Cancel</string>
+    <string name="change_security_lock">More screen locks</string>
+    <string name="lockpassword_confirm_your_pattern_header">Confirm your pattern</string>
+    <string name="lockpassword_input_your_pattern_header">Confirm your pattern</string>
+    <string name="lockpassword_choose_your_pattern_header">Choose your pattern</string>
+
+    <string name="lockpattern_continue_button_text">Continue</string>
+    <string name="lockpattern_confirm_button_text">Confirm</string>
+    <string name="lockpattern_tutorial_cancel_label">Cancel</string>
+    <string name="lockpattern_tutorial_continue_label">Next</string>
+    <string name="lockpattern_need_to_unlock_wrong_footer" />
+    <string name="lockpattern_too_many_failed_confirmation_attempts_header">&lt;font color=red>Too many incorrect attempts!&lt;/font></string>
+    <string name="lockpattern_need_to_unlock_footer" />
+    <string name="lockpattern_too_many_failed_confirmation_attempts_footer">Try again in <xliff:g id="number">%d</xliff:g> seconds.</string>
+    <string name="title_myaccount">My account: <xliff:g id="account">%s</xliff:g></string>
+    <string name="title_gesture">Pattern lock</string>
+    <string name="title_lockpattern">Require pattern lock</string>
+    <string name="title_visible_pattern">Make pattern visible</string>
+    <string name="summary_lockpattern">Require a unique pattern lock for MiCredit</string>
+    <string name="title_change_lockpattern">Configure pattern lock</string>
+    <string name="title_password">Password</string>
+    <string name="title_nopassword">Don\'t require for small payments</string>
+    <string name="title_password_threshold">Daily limit = ￥<xliff:g id="value">%1$s</xliff:g></string>
+    <string name="title_nopassword_dialog">Daily limit</string>
+    <string name="onemore_click_exit">One more click to exit</string>
+
 </resources>
