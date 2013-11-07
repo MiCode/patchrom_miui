@@ -7,19 +7,32 @@
     android:layout_height="@dimen/grid_item_height"
     android:layout_gravity="center_horizontal"
     android:layout_marginBottom="5dip"
+    android:paddingTop="@dimen/grid_note_image_layout_margin_top"
     android:background="@drawable/grid_yellow">
+
+    <TextView
+        android:id="@+id/note_title"
+        android:drawableLeft="@drawable/ic_call_note"
+        android:drawablePadding="3dip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/grid_note_content_extra_margin_top"
+        android:layout_alignParentTop="true"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:visibility="gone"
+        android:textAppearance="@style/TextAppearance.Grid.Primary"
+        android:lineSpacingMultiplier="1.0"
+        style="@style/Widget.GridText" />
 
     <FrameLayout
         android:id="@+id/note_image_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/grid_note_image_layout_margin_top"
-        android:layout_alignParentTop="true">
-
-        <!-- Extra margin top for textview when image is hidden -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/grid_note_content_extra_margin_top" />
+        android:layout_below="@id/note_title"
+        android:layout_marginBottom="@dimen/grid_note_content_margin_top"
+        android:minHeight="@dimen/grid_note_content_extra_margin_top"
+        android:layout_alignWithParentIfMissing="true">
 
         <ImageView
             android:id="@+id/note_image"
@@ -51,10 +64,9 @@
         android:layout_height="0dip"
         android:layout_below="@id/note_image_layout"
         android:layout_above="@id/note_indicators"
-        android:layout_marginTop="@dimen/grid_note_content_margin_top"
         android:layout_marginBottom="-8dip"
         android:maxLines="@integer/grid_note_text_max_lines"
-        android:textAppearance="@style/TextAppearance.Grid"
+        android:textAppearance="@style/TextAppearance.Grid.Secondary"
         style="@style/Widget.GridText" />
 
     <FrameLayout

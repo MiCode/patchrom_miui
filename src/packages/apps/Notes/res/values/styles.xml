@@ -69,14 +69,21 @@
 
     <!-- text appearence for grid item -->
 
-    <style name="TextAppearance.Grid">
-        <item name="android:textSize">@dimen/text_default_size</item>
+    <style name="TextAppearance.Grid" parent="@miui:style/V5.TextAppearance.List.Primary" />
+
+    <style name="TextAppearance.Grid.Primary">
+        <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/snippet_text</item>
+    </style>
+
+    <style name="TextAppearance.Grid.Secondary" parent="@miui:style/V5.TextAppearance.List.Secondary">
+        <item name="android:textSize">@dimen/text_default_size</item>
+        <item name="android:textColor">@color/info_text</item>
     </style>
 
     <style name="TextAppearance.Grid.Folder">
         <item name="android:textSize">@dimen/text_font_size_normal</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/snippet_text</item>
     </style>
 
     <!-- text appearence for highlight -->
