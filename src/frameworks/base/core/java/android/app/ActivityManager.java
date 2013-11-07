@@ -142,6 +142,14 @@ public class ActivityManager {
      */
     public static final int START_SWITCHES_CANCELED = 4;
 
+    // miui add
+    /**
+     * Result for IActivityManager.startActivity: an error where the
+     * start incompatible with MIUI system.
+     * @hide
+     */
+    public static final int START_INCOMPATIBLE = 5;
+
     /**
      * Flag for IActivityManaqer.startActivity: do special start mode where
      * a new activity is launched only if it is needed.

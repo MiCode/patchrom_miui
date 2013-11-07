@@ -570,6 +570,24 @@ public abstract class PackageManager {
      */
     public static final int INSTALL_FAILED_UID_CHANGED = -24;
 
+    // miui add
+    /**
+     * Installation return code: this is passed to the {@link IPackageInstallObserver} by
+     * {@link #installPackage(android.net.Uri, IPackageInstallObserver, int)} if
+     * the package contains virus.
+     * @hide
+     */
+    public static final int INSTALL_FAILED_CONTAIN_VIRUS = -25;
+
+    // miui add
+    /**
+     * Installation return code: this is passed to the {@link IPackageInstallObserver} by
+     * {@link #installPackage(android.net.Uri, IPackageInstallObserver, int)} if
+     * the new package incompatible with MIUI system.
+     * @hide
+     */
+    public static final int INSTALL_FAILED_SYSTEM_INCOMPATIBLE = -26;
+
     /**
      * Installation parse return code: this is passed to the {@link IPackageInstallObserver} by
      * {@link #installPackage(android.net.Uri, IPackageInstallObserver, int)}

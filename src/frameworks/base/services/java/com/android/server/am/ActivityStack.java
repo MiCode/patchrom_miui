@@ -3124,6 +3124,11 @@ final class ActivityStack {
         // MIUI ADD: START
         intent = Injector.checkAccessControl(mContext, aInfo, intent, resultTo, requestCode);
         aInfo = Injector.resolveCheckIntent(aInfo, intent, this, profileFile, profileFd, userId);
+        if (mService.mSystemReady
+                && !ExtraActivityManagerService.checkRunningCompatibility(mContext,
+                        aInfo != null ? aInfo.applicationInfo : null)) {
+            return ActivityManager.START_INCOMPATIBLE;
+        }
         // END
         if (aInfo != null && mService.isSingleton(aInfo.processName, aInfo.applicationInfo)) {
             userId = 0;

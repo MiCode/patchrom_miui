@@ -4,9 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/title"
@@ -21,7 +22,6 @@
 
         <TextView
             android:id="@+id/textTips"
-            android:layout_below="@id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -30,13 +30,13 @@
             android:alpha="0.7"
             android:layout_marginTop="15dp" />
 
-        <ImageView
+        <LinearLayout
             android:id="@+id/imageTips"
-            android:layout_below="@id/textTips"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true" />
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </ScrollView>

@@ -163,12 +163,13 @@ public class PackageManagerService extends IPackageManager.Stub {
     static class Injector {
         static boolean checkApk(PackageManagerService service, Message msg) {
             HandlerParams params = (HandlerParams)msg.obj;
-            if (params instanceof InstallParams) {
+            if (params instanceof InstallParams && service.mSystemReady) {
                 InstallParams insallParams = (InstallParams)params;
-                if (!ExtraGuard.checkApk(service.mContext, insallParams.getPackageUri())) {
+                int status = ExtraGuard.checkApk(service.mContext, insallParams.getPackageUri(), insallParams.flags);
+                if (status != PackageManager.INSTALL_SUCCEEDED) {
                     if (insallParams.observer != null) {
                         try {
-                            insallParams.observer.packageInstalled(null, PackageManager.INSTALL_FAILED_VERIFICATION_FAILURE);
+                            insallParams.observer.packageInstalled(null, status);
                         } catch (RemoteException e) {
                         }
                     }
@@ -4189,7 +4190,7 @@ public class PackageManagerService extends IPackageManager.Stub {
                 }
             }
 
-            ExtraPackageManagerServices.blockAutoStartedApp(pkg.applicationInfo, mSettings);  // miui add
+            ExtraPackageManagerServices.blockAutoStartedApp(mContext, pkg.applicationInfo, mSettings);  // miui add
 
             int N = pkg.providers.size();
             StringBuilder r = null;
@@ -7133,7 +7134,7 @@ public class PackageManagerService extends IPackageManager.Stub {
                 res.returnCode = PackageManager.INSTALL_FAILED_INVALID_APK;
             }
         } else {
-            ExtraPackageManagerServices.postProcessNewInstall(pkg.applicationInfo, mSettings); // miui add
+            ExtraPackageManagerServices.postProcessNewInstall(mContext, pkg.applicationInfo, mSettings); // miui add
             updateSettingsLI(newPackage,
                     installerPackageName,
                     res);
@@ -8588,6 +8589,7 @@ public class PackageManagerService extends IPackageManager.Stub {
                 mContext.getContentResolver(),
                 android.provider.Settings.System.COMPATIBILITY_MODE, 1) == 1;
         PackageParser.setCompatibilityModeEnabled(compatibilityModeEnabled);
+        ExtraGuard.init(mContext); // miui add
         if (DEBUG_SETTINGS) {
             Log.d(TAG, "compatibility mode:" + compatibilityModeEnabled);
         }

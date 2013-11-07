@@ -168,6 +168,9 @@ class AlarmManagerService extends IAlarmManager.Stub {
             Slog.w(TAG, "set/setRepeating ignored because there is no intent");
             return;
         }
+        long[] alignedAlarm = ExtraAlarmManagerService.alignAlarm(mContext, type, triggerAtTime, interval); // miui add
+        triggerAtTime = alignedAlarm[0]; // miui add
+        interval = alignedAlarm[1]; // miui add
         synchronized (mLock) {
             Alarm alarm = new Alarm();
             alarm.type = type;

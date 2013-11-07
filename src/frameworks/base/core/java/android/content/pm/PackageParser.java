@@ -231,9 +231,16 @@ public class PackageParser {
         public final String packageName;
         public final int installLocation;
         public final VerifierInfo[] verifiers;
+        public final int versionCode;
 
         public PackageLite(String packageName, int installLocation, List<VerifierInfo> verifiers) {
+            this(packageName, 0, installLocation, verifiers);
+        }
+
+        public PackageLite(String packageName, int versionCode,
+                int installLocation, List<VerifierInfo> verifiers) {
             this.packageName = packageName;
+            this.versionCode = versionCode;
             this.installLocation = installLocation;
             this.verifiers = verifiers.toArray(new VerifierInfo[verifiers.size()]);
         }
@@ -872,11 +879,19 @@ public class PackageParser {
             return null;
         }
         int installLocation = PARSE_DEFAULT_INSTALL_LOCATION;
+        int versionCode = 0;
+        int numFound = 0;
         for (int i = 0; i < attrs.getAttributeCount(); i++) {
             String attr = attrs.getAttributeName(i);
             if (attr.equals("installLocation")) {
                 installLocation = attrs.getAttributeIntValue(i,
                         PARSE_DEFAULT_INSTALL_LOCATION);
+                numFound++;
+            } else if (attr.equals("versionCode")) {
+                versionCode = attrs.getAttributeIntValue(i, 0);
+                numFound++;
+            }
+            if (numFound >= 2) {
                 break;
             }
         }
@@ -899,7 +914,7 @@ public class PackageParser {
             }
         }
 
-        return new PackageLite(pkgName.intern(), installLocation, verifiers);
+        return new PackageLite(pkgName.intern(), versionCode, installLocation, verifiers);
     }
 
     /**

@@ -2071,7 +2071,7 @@ public final class ActivityManagerService extends ActivityManagerNative
     boolean isAllowedWhileBooting(ApplicationInfo ai) {
         return (ai.flags&ApplicationInfo.FLAG_PERSISTENT) != 0;
     }
-    
+
     private final void startProcessLocked(ProcessRecord app,
             String hostingType, String hostingNameStr) {
         if (app.pid > 0 && app.pid != MY_PID) {
@@ -11230,6 +11230,7 @@ public final class ActivityManagerService extends ActivityManagerNative
         }
     }
 
+    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private ServiceLookupResult retrieveServiceLocked(Intent service,
             String resolvedType, int callingPid, int callingUid, int userId) {
         ServiceRecord r = null;
@@ -11865,6 +11866,14 @@ public final class ActivityManagerService extends ActivityManagerNative
             throw new IllegalArgumentException("File descriptors passed in Intent");
         }
 
+        // MIUI ADD: START
+        if (mSystemReady
+                && !ExtraActivityManagerService.checkRunningCompatibility(mContext, service,
+                        resolvedType, UserId.getUserId(Binder.getCallingUid()))) {
+            return null;
+        }
+        // END
+
         if (DEBUG_SERVICE)
             Slog.v(TAG, "startService: " + service + " type=" + resolvedType);
         synchronized(this) {
@@ -12103,6 +12112,14 @@ public final class ActivityManagerService extends ActivityManagerNative
         }
 
         checkValidCaller(Binder.getCallingUid(), userId);
+
+        // MIUI ADD: START
+        if (mSystemReady
+                && !ExtraActivityManagerService.checkRunningCompatibility(mContext, service,
+                        resolvedType, userId)) {
+            return -1;
+        }
+        // END
 
         synchronized(this) {
             if (DEBUG_SERVICE) Slog.v(TAG, "bindService: " + service
