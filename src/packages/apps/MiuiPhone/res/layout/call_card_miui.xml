@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<LinearLayout 
+<LinearLayout
     android:id="@+id/oldman_std_call_card_wrapper"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -106,6 +106,12 @@
                             android:gravity="center_vertical"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
+                            <TextView
+                                android:id="@+id/callCardAntispamProvider"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="@style/Miui.TextAppearance.ElapsedTime"
+                                android:visibility="gone"/>
                             <ImageView
                                 android:id="@+id/callCardSimId"
                                 android:layout_width="wrap_content"
@@ -203,7 +209,7 @@
 </LinearLayout>
 
     <!-- oldman -->
-    <ViewStub 
+    <ViewStub
         android:id="@+id/oldman_call_card_widget_stub"
         android:inflatedId="@+id/oldman_call_card_widget"
         android:layout="@layout/oldman_call_card_widget"
