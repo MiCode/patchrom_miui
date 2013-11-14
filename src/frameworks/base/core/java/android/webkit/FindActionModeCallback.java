@@ -134,8 +134,6 @@ class FindActionModeCallback implements ActionMode.Callback, TextWatcher,
             mWebView.findAll(null);
         } else {
             mMatchesFound = true;
-            // MIUI ADD:
-            mMatches.setText(com.android.internal.R.string.no_matches);
             mMatches.setVisibility(View.INVISIBLE);
             mNumberOfMatches = 0;
             mWebView.findAllAsync(find.toString());

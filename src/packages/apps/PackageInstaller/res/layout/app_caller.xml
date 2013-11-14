@@ -1,20 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/caller"
+    style="@style/Item"
     android:layout_width="match_parent"
-    style="@style/Item">
-    <TextView
-        android:id="@+id/caller_app"
-        android:layout_width="0dip"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textAppearance="@miui:style/V5.TextAppearance.List"/>
-    <ImageView
-        android:id="@+id/caller_app_detail"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/caller_app"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="@miui:style/V5.TextAppearance.List" />
+
+        <ImageView
+            android:id="@+id/caller_app_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@miui:drawable/v5_arrow_right"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/transparent_40_black"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/apk_install_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:src="@miui:drawable/v5_arrow_right"
-        android:visibility="gone"/>
+        android:layout_marginTop="10dp"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10dp"
+            android:textColor="@color/transparent_80_black"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/install"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/info"
+            android:layout_below="@id/info"
+            android:layout_marginTop="15dp"
+            android:clickable="true"
+            android:text="@string/virus_scan_install"
+            android:textSize="13sp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
 </LinearLayout>

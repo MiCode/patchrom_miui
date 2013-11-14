@@ -651,6 +651,12 @@ class ZoomManager {
             return;
         }
 
+        // MIUI ADD:
+        if (!isViewportScalable()) {
+            return;
+        }
+        // END
+
         setZoomCenter(lastTouchX, lastTouchY);
         mAnchorX = mWebView.viewToContentX((int) lastTouchX + mWebView.getScrollX());
         mAnchorY = mWebView.viewToContentY((int) lastTouchY + mWebView.getScrollY());
@@ -907,6 +913,12 @@ class ZoomManager {
         }
 
         public boolean onScale(ScaleGestureDetector detector) {
+            // MIUI ADD:
+            if (!isViewportScalable()) {
+                return false;
+            }
+            // END
+
             if (isPanningOnly(detector) || handleScale(detector)) {
                 mFocusMovementQueue.clear();
                 return true;
@@ -1273,5 +1285,12 @@ class ZoomManager {
     /* package*/ void onPageFinished(String url) {
         // Turn off initial zoom overview flag when a page is fully loaded.
         mInitialZoomOverview = false;
+    }
+
+    // MIUI ADD:
+    private boolean isViewportScalable() {
+        return mWebView != null
+                && mWebView.getWebViewCore() != null
+                && mWebView.getWebViewCore().isViewportScalable();
     }
 }

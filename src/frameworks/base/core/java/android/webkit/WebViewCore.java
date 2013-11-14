@@ -331,6 +331,14 @@ public final class WebViewCore {
         mReadModeTemplateVector = readModeTemplate;
     }
 
+    /**
+    * MIUI ADD:
+    * @hide
+    */
+    public boolean isViewportScalable() {
+        return mViewportUserScalable;
+    }
+
     /*
      * Given mimeType, check whether it's supported in Android media framework.
      * mimeType could be such as "audio/ogg" and "video/mp4".

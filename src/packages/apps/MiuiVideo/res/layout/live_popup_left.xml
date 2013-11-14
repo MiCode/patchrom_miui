@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/live_popup_left"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent" >
+    
+    <com.duokan.tv.video.widget.LoadingListView
+        android:id="@+id/popup_left_list"
+        android:background="@color/black"
+        android:layout_width="@dimen/live_left_popup_item_width"
+		android:layout_height="match_parent" />
+    <RadioGroup 
+	    android:id="@+id/popup_select_forecast"
+	    android:background="@drawable/backgroud_choice_forecast"
+   		android:layout_marginLeft="@dimen/live_left_popup_item_width"
+   		android:paddingLeft="@dimen/player_radiogroup_button"
+   		android:layout_centerVertical="true"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="vertical" >
+		<RadioButton 
+			android:id="@+id/btn_select"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/player_radiobutton_marginTop_1"
+			android:drawablePadding="@dimen/player_drawablePadding"
+			android:layout_weight="1"
+			android:gravity="center"
+			android:button="@null"
+			android:drawableTop="@drawable/player_btn_select"
+			android:text="@string/btnplayerselect"
+			android:textSize="@dimen/text_size_20"
+			android:textColor="@drawable/player_btn_color"/>
+		<RadioButton 
+			android:id="@+id/btn_forecast"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/player_radiobutton_marginTop_2"
+			android:drawablePadding="@dimen/player_drawablePadding"
+			android:layout_weight="1"
+			android:gravity="center"
+			android:button="@null"
+			android:drawableTop="@drawable/player_btn_forecast"
+			android:text="@string/btnplayerforecast"
+			android:textSize="@dimen/text_size_20"
+			android:textColor="@drawable/player_btn_color"/>
+	</RadioGroup>
+</RelativeLayout>

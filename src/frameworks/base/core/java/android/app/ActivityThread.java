@@ -4453,6 +4453,7 @@ public final class ActivityThread {
                     iter.remove();
                 }
             }
+            prc.removePending = false;
         }
 
         try {

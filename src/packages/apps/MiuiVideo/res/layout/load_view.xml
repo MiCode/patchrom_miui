@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/load_view_root"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:visibility="gone" >
+        
+    <ProgressBar android:id="@+id/progress"
+        style="@miui:style/V5.Widget.ProgressBar"
+        android:indeterminateBehavior="repeat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+    
+    <TextView
+        android:id="@+id/hint_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/loading_text_margin_left"
+        android:gravity="center_vertical"
+        android:text="@string/loading"
+        android:textColor="@color/p_80_white"
+        android:textSize="@dimen/text_size_30"
+        android:textStyle="bold" />
+
+</LinearLayout>

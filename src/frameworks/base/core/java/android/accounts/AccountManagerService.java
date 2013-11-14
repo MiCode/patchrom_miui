@@ -74,6 +74,8 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
+import miui.accounts.MiuiGrantCredentialsPermissionActivity;
+
 /**
  * A system service that provides  account, password, and authtoken management for all
  * accounts on the device. Some of these calls are implemented with the help of the corresponding
@@ -1212,6 +1214,8 @@ public class AccountManagerService
             AccountAuthenticatorResponse response, String authTokenType, String authTokenLabel) {
 
         Intent intent = new Intent(mContext, GrantCredentialsPermissionActivity.class);
+        // MIUI ADD:
+        intent.setClassName("miui", "miui.accounts.MiuiGrantCredentialsPermissionActivity");
         // See FLAG_ACTIVITY_NEW_TASK docs for limitations and benefits of the flag.
         // Since it was set in Eclair+ we can't change it without breaking apps using
         // the intent from a non-Activity context.
@@ -2099,7 +2103,9 @@ public class AccountManagerService
             }
 
             if (intent.getComponent() != null &&
-                    GrantCredentialsPermissionActivity.class.getName().equals(
+                    // MIUI MOD:
+                    // GrantCredentialsPermissionActivity.class.getName().equals(
+                    MiuiGrantCredentialsPermissionActivity.class.getName().equals(
                             intent.getComponent().getClassName())) {
                 createNoCredentialsPermissionNotification(account, intent);
             } else {

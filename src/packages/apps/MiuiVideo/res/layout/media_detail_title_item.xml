@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/title_container"
+    android:layout_width="@dimen/detail_title_width"
+    android:layout_height="match_parent">
+    
+    <!-- android:layout_height="wrap_content" -->
+  
+    <ImageView
+        android:id="@miui:id/v5_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/app_name"
+        android:src="?miui:attr/v5_title_bar_back_button_large"/>
+    
+    <TextView
+        android:id="@miui:id/v5_action_bar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/detial_title_margin_top"
+        android:layout_toRightOf="@miui:id/v5_up"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:shadowColor="@color/p_20_black"
+        android:shadowDx="@integer/detail_title_shadow_dx"
+        android:shadowDy="@integer/detail_title_shadow_dy"
+        android:shadowRadius="@integer/detail_title_shadow_radius"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_50" />
+
+    <TextView
+        android:id="@miui:id/v5_action_bar_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@miui:id/v5_up"
+        android:layout_below="@miui:id/v5_action_bar_title"
+        android:ellipsize="end"
+        android:singleLine="true" 
+        android:textSize="@dimen/text_size_28"
+        android:textColor="@color/white"
+        android:shadowDx="@integer/detail_title_shadow_dx"
+        android:shadowDy="@integer/detail_title_shadow_dy"
+        android:shadowRadius="@integer/detail_title_shadow_radius"
+        android:shadowColor="@color/p_20_black"/>
+
+    
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/detail_mediasummary_margin_top" >
+
+        <include layout="@layout/media_summary" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

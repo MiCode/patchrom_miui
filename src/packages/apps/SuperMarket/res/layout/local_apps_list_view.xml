@@ -1,21 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <miui.v5.widget.EditableListView
-        android:id="@android:id/list"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/search_view"
+        layout="@layout/search_view" />
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        style="@style/Widget.ListView"/>
-    <com.xiaomi.market.ui.EmptyLoadingView
-        android:id="@+id/loading"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="bottom"
-        android:visibility="gone"
-        android:gravity="center"/>
-    <miui.widget.AlphabetFastIndexer
-        android:id="@+id/fast_indexer"
-        style="@style/Widget.AlphabetFastIndexer"/>
-</FrameLayout>
+        android:layout_height="match_parent" >
+
+        <miui.v5.widget.EditableListView
+            android:id="@android:id/list"
+            style="@style/Widget.ListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.xiaomi.market.ui.EmptyLoadingView
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:visibility="gone" />
+
+        <miui.widget.AlphabetFastIndexer
+            android:id="@+id/fast_indexer"
+            style="@style/Widget.AlphabetFastIndexer" />
+    </FrameLayout>
+
+</LinearLayout>

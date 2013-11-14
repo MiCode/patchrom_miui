@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="YellowPageActionBarStyle" parent="@miui:style/V5.Widget.ActionBar.Large">
         <item name="android:background">@null</item>
         <item name="android:displayOptions">showTitle</item>
@@ -16,15 +17,13 @@
         <item name="android:singleLine">true</item>
     </style>
 
-    <style name="YellowPageListItemTextAppearancePrimary" parent="@style/CallLogListItemTextAppearancePrimary">
-    </style>
+    <style name="YellowPageListItemTextAppearancePrimary" parent="@style/CallLogListItemTextAppearancePrimary"></style>
 
     <style name="CallLogListItemTextAppearanceSecondary" parent="@miui:style/V5.TextAppearance.List.Secondary">
         <item name="android:singleLine">true</item>
     </style>
 
-    <style name="YellowPageListItemTextAppearanceSecondary" parent="@style/CallLogListItemTextAppearanceSecondary">
-    </style>
+    <style name="YellowPageListItemTextAppearanceSecondary" parent="@style/CallLogListItemTextAppearanceSecondary"></style>
 
     <style name="CallLogListItemMissedCallTextAppearance" parent="@style/CallLogListItemTextAppearancePrimary">
         <item name="android:textColor">@color/missed_call_text</item>
@@ -44,11 +43,11 @@
 
     <style name="PaymentLabel" parent="@miui:style/V5.TextAppearance.List.Secondary">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/payment_label_height</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">@dimen/payment_label_height</item>
         <item name="android:layout_marginLeft">@dimen/payment_label_margin</item>
         <item name="android:layout_marginRight">@dimen/payment_label_margin</item>
         <item name="android:paddingBottom">@dimen/payment_vertical_margin</item>
-        <item name="android:singleLine">true</item>
         <item name="android:gravity">bottom</item>
     </style>
 
@@ -131,4 +130,13 @@
         <item name="android:textStyle">normal</item>
         <item name="android:layout_margin">@dimen/balance_inquiry_dialog_hint_margin</item>
     </style>
+
+    <style name="InquiryHistoryListItemStyle" parent="@miui:style/V5.Widget.ListView">
+        <item name="android:background">@miui:drawable/v5_list_view_item_bg_light</item>
+        <item name="android:paddingLeft">@miui:dimen/v5_list_view_padding_horizontal</item>
+        <item name="android:paddingRight">@miui:dimen/v5_list_view_padding_horizontal</item>
+        <item name="android:layout_height">@miui:dimen/v5_list_view_double_line_height</item>
+        <item name="android:minHeight">@miui:dimen/v5_list_view_double_line_height</item>
+    </style>
+
 </resources>
