@@ -53,24 +53,23 @@
                 android:textIsSelectable="true" />
         </LinearLayout>
 
-        <FrameLayout
+        <ListView
+            android:id="@+id/progress_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <ListView
-                android:id="@+id/progress_list"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/express_progress_background" />
-
-            <TextView
-                android:id="@+id/progress_err_result"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:visibility="invisible" />
-        </FrameLayout>
+            android:layout_height="match_parent"
+            android:background="@drawable/express_progress_background" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/progress_err_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:drawableTop="?miui:attr/v5_content_empty_icon"
+        android:gravity="center"
+        android:paddingLeft="@dimen/express_inquiry_error_text_padding_horizontal"
+        android:paddingRight="@dimen/express_inquiry_error_text_padding_horizontal"
+        android:visibility="invisible" />
 
     <com.miui.yellowpage.widget.LoadingProgressView
         android:id="@+id/loading_view"

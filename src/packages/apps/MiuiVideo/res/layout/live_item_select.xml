@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+	<View
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/home_myvideo_line_divider"/> 
+    
+
+   <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/live_item_select_forcast_height"
+		android:layout_marginLeft="@dimen/live_item_select_forcast_marginleft"
+        android:baselineAligned="false"
+		android:orientation="horizontal">                   
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical" >
+   
+            <com.duokan.tv.video.widget.MediaThumbView
+                android:id="@+id/live_media_thumb"
+                android:layout_width="@dimen/live_item_mediathumbview_length"
+                android:layout_height="@dimen/live_item_mediathumbview_length"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/live_videothumb_bg"/>
+
+            <ImageView
+                android:id="@+id/live_thumbtype"
+                android:layout_width="@dimen/live_item_mediathumbview_length"
+                android:layout_height="@dimen/live_item_mediathumbview_length"
+                android:layout_gravity="center"
+                android:src="@null" 
+                android:contentDescription="@string/app_name"/>
+
+        </FrameLayout> 
+        <TextView
+            android:id="@+id/live_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:paddingBottom="0dp"
+            android:paddingTop="@dimen/live_item_textview_margintop"
+            android:paddingLeft="@dimen/live_item_select_forcast_marginleft"
+            android:singleLine="true"
+            android:textColor="@color/p_60_white"
+            android:textSize="@dimen/live_text_size_28"
+            android:textStyle="bold" />
+            
+        <TextView
+            android:id="@+id/live_videoname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:paddingBottom="0dp"
+            android:paddingTop="@dimen/live_item_textview_margintop"
+            android:singleLine="true"
+            android:textColor="@color/p_60_white"
+            android:textSize="@dimen/live_text_size_28" 
+			android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>

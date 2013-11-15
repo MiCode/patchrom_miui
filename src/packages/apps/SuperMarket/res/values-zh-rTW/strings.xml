@@ -29,6 +29,7 @@
     <string name="more_app">酷應用</string>
     <string name="hot_subject">熱門專題</string>
     <string name="more_subject">更多專題</string>
+    <string name="ad_indicator">推廣</string>
 
     <!-- login -->
     <string name="login_first_install_title">登錄小米帳號，享受小米完整服務</string>
@@ -37,6 +38,7 @@
     <string name="login_skip">跳過</string>
     <string name="login_ok">立即登錄</string>
     <string name="login_active">立即激活</string>
+    <string name="account_not_activated">您的帳號未激活，請先激活帳號</string>
 
     <!-- preferences -->
     <string name="pref_category_title_notification">通知欄提示</string>
@@ -55,6 +57,7 @@
     <string name="pref_title_hotsubjects_notification">專題訂閱</string>
     <string name="pref_title_network_diagnostics">網路診斷</string>
     <string name="pref_title_clear_cache">清除商店緩存</string>
+    <string name="pref_title_clear_session">清除 Session</string>
     <string name="clear_search_record_message">是否清除歷史搜尋記錄?</string>
     <string name="result_of_clear_history">歷史記錄已清除</string>
     <string name="pref_summary_auto_update_via_wifi">在Wi-Fi網路下，鎖屏時自動升級</string>
@@ -62,6 +65,9 @@
     <string name="clear_cache_message">是否清除緩存內容（圖片等）？</string>
     <string name="clear_cache_succeed">緩存內容已清除</string>
     <string name="clear_cache_failed">緩存內容清除失敗，請稍後重試</string>
+    <string name="clear_session_message">清除 session?</string>
+    <string name="show_report_data">顯示上報數據</string>
+    <string name="temporarily_invalid_report_data">糟糕！上報信息暫時不可用！</string>
 
     <!-- comments -->
     <string name="no_comment">無評論資訊</string>
@@ -105,6 +111,7 @@
 
     <string name="rating_button"><xliff:g id="rating_count">%1$s</xliff:g>人評分</string>
     <string name="developer_button">同開發者應用</string>
+    <string name="permission_button">權限詳情(<xliff:g id="permission_count">%1$s</xliff:g>)</string>
     <string name="update_date_label">更新日期: </string>
     <string name="update_date"><xliff:g id="year">%1$s</xliff:g>年<xliff:g id="month">%2$s</xliff:g>月<xliff:g id="date">%3$s</xliff:g>日</string>
     <string name="version_label">版本號: </string>
@@ -179,7 +186,7 @@
     <string name="install_patch_fail">增量升級失敗，請重新下載完整包</string>
     <string name="install_fail">安裝出錯，請稍候重試</string>
     <string name="system_app_sign_not_match_fail">系統應用簽名不同無法升級</string>
-    <string name="remove_package_timeout_fail">安裝未完成，請手動卸載後重試</string>
+    <string name="remove_package_fail">安裝未完成，請手動卸載後重試</string>
 
     <!-- loading view message -->
     <string name="no_network">無網路，請聯網再重新整理一下試試 :)</string>
@@ -211,15 +218,18 @@
     <!-- notifications -->
     <string name="notif_title_update"><xliff:g id="update_count">%1$s</xliff:g>款應用程式有更新！</string>
     <string name="notif_installing">正在安裝「<xliff:g id="app">%1$s</xliff:g>」…</string>
-    <string name="notif_install_successful"><xliff:g id="app">%1$s</xliff:g>安裝成功，點此啟動</string>
-    <string name="notif_install_successful_default"><xliff:g id="app">%1$s</xliff:g>安裝成功</string>
-    <string name="notif_delta_update_successful">增量升級節省<xliff:g id="save_size">%1$s</xliff:g>流量，點此啟動</string>
-    <string name="notif_install_failed"><xliff:g id="app">%1$s</xliff:g>安裝失敗</string>
+    <string name="notif_install_successful">安裝成功，點此啟動</string>
+    <string name="notif_install_successful_default">安裝成功</string>
+    <string name="notif_update_successful">升級成功，點此查看詳情</string>
+    <string name="notif_update_successful_default">升級成功，點此查看詳情</string>
+    <string name="notif_delta_update_successful">增量升級節省<xliff:g id="save_size">%1$s</xliff:g>流量，點此查看詳情</string>
+    <string name="notif_delta_update_successful_default">增量升級節省<xliff:g id="save_size">%1$s</xliff:g>流量，點此查看詳情</string>
+    <string name="notif_install_failed"><xliff:g id="app">%1$s</xliff:g>安裝失敗，點此重試</string>
 
     <string name="notif_auto_update_via_wifi">自動升級: "<xliff:g id="app">%1$s</xliff:g>"</string>
     <string name="notif_auto_update_successfull"><xliff:g id="app">%1$s</xliff:g>自動升級完畢</string>
     <string name="notif_auto_update_failed">部分應用不能自動升級</string>
-    <string name="notif_summary_auto_update_successful">已自動升級<xliff:g id="app_count">%1$s</xliff:g>個應用</string>
+    <string name="notif_summary_auto_update_successful">已自動升級<xliff:g id="app_count">%1$s</xliff:g>個應用，點此查看詳情</string>
     <string name="notif_summary_auto_update_failed">點此手動處理</string>
     <string name="notif_description_from_market">從小米應用商店下載</string>
     <string name="share_subject">分享一個應用程式: <xliff:g id="app_name">%1$s</xliff:g></string>
@@ -261,7 +271,7 @@
 
     <!-- search recommend -->
     <string name="search_recommend_source">根據<xliff:g id="app_name">%1$s</xliff:g>推薦</string>
-    <string name="search_recommend_source_default">装机必备</string>
+    <string name="search_recommend_source_default">近期熱門</string>
     <string name="search_recommend_ingore">沒興趣</string>
     <string name="search_recommend_ingored_text">以後不再提醒</string>
     <string name="search_recommend_hint">你可能喜歡這些應用</string>
@@ -284,4 +294,22 @@
     <string name="diagnostics_data_sending">正在上報結果...</string>
     <string name="diagnostics_data_upload_success">上報成功</string>
     <string name="diagnostics_data_upload_failed">上報失敗,請重試</string>
+    <!-- app collection and my apps activity-->
+    <string name="tab_local_apps">本地應用</string>
+    <string name="tab_favorites">收藏</string>
+    <string name="favorite_success">收藏成功</string>
+    <string name="favorite_fail">收藏失敗</string>
+    <string name="favorite_fail_other_market">暫不支持來自其他商店的應用</string>
+    <string name="favorite_delete_success">取消收藏成功</string>
+    <string name="favorite_delete_fail">取消收藏失敗</string>
+    <string name="favorite_account_need_activitied">您的帳號尚未激活，是否前往激活?</string>
+    <string name="favorite_account_need_login">登錄小米帳號即可收藏應用，立即登錄？</string>
+    <string name="favorite_cancel_acount_need_login">登錄小米帳號即可取消應用收藏，立即登錄？</string>
+    <string name="favorite_no_network">無網絡鏈接，收藏失敗</string>
+    <string name="favorite_cancel_no_network">無網絡鏈接，無法取消收藏</string>
+    <string name="favorite_login_hint">登陸小米賬戶查看收藏記錄</string>
+    <string name="login_now">立即登陸</string>
+    <string name="activate_now">立即激活</string>
+    <string name="my_app">我的應用</string>
+    <string name="no_favorites">您還沒有收藏任何應用</string>
 </resources>

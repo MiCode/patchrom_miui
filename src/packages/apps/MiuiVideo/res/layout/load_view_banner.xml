@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/load_view_new_id"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    
+    android:orientation="vertical"
+    android:visibility="visible" >
+    
+	<FrameLayout 
+		android:id="@+id/banner_wrapcontent"
+		android:layout_marginLeft="@dimen/banner_margin"
+		android:layout_marginTop="@dimen/banner_margin"
+		android:layout_marginRight="@dimen/banner_margin"
+		android:layout_marginBottom="@dimen/banner_margin"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<miui.v5.android.support.view.ViewPager
+			android:id="@+id/banner"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/banner_height"
+		/>
+		
+		<com.duokan.tv.video.widget.BannerIndicator
+			android:id="@+id/bannerIndicator"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="bottom|center_horizontal"
+			android:layout_marginBottom="@dimen/banner_indicator_margin_bottom" 
+			/>
+			
+	</FrameLayout>
+	
+	
+
+</LinearLayout>
