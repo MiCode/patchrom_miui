@@ -3786,7 +3786,7 @@ public class Editor {
     // Helper functions used by MiuiCursorController
     @MiuiHook(MiuiHook.MiuiHookType.NEW_METHOD)
     boolean selectAllWrap() {
-        return mTextView.selectAllText();
+        return mTextView.selectAllText() && mTextView.hasSelection();
     }
 
     @MiuiHook(MiuiHook.MiuiHookType.NEW_METHOD)
