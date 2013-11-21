@@ -116,6 +116,18 @@ public class NotificationManagerService extends INotificationManager.Stub
             ledNotification.notification.ledOnMS = offOn[1];
             ledNotification.notification.ledOffMS = offOn[0];
         }
+
+        static void cancelCurrentToast(NotificationManagerService service, int index) {
+            if (index != 0) {
+                service.callScheduleTimeoutLocked(service.mToastQueue.get(0), true);
+            }
+        }
+    }
+
+    // MIUI ADD:
+    // call ScheduleTimeoutLocked from injector
+    void callScheduleTimeoutLocked(ToastRecord r, boolean immediate) {
+        scheduleTimeoutLocked(r, immediate);
     }
 
     private static final String TAG = "NotificationService";
@@ -731,6 +743,9 @@ public class NotificationManagerService extends INotificationManager.Stub
                     mToastQueue.add(record);
                     index = mToastQueue.size() - 1;
                     keepProcessAliveLocked(callingPid);
+                    // MIUI ADD:
+                    // Cancel current toast if exist
+                    Injector.cancelCurrentToast(this, index);
                 }
                 // If it's at index 0, it's the current toast.  It doesn't matter if it's
                 // new or just been updated.  Call back and tell it to show itself.

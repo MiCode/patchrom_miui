@@ -86,7 +86,7 @@
     <!-- No V5 default style -->
     <style name="Widget.GridView">
         <item name="android:padding">@dimen/recommend_grid_padding</item>
-        <item name="android:numColumns">2</item>
+        <item name="android:numColumns">@integer/num_grid_columns</item>
         <item name="android:horizontalSpacing">@dimen/recommend_grid_gap</item>
         <item name="android:verticalSpacing">@dimen/recommend_grid_gap</item>
         <item name="android:stretchMode">columnWidth</item>
@@ -135,6 +135,17 @@
         <item name="android:layout_weight">1</item>
         <item name="android:max">100</item>
         <item name="android:progressDrawable">@drawable/progressbar_readonly</item>
+        <item name="miui:progressBar">@drawable/progressbar_readonly</item>
+    </style>
+
+    <style name="Widget.ProgressBar.Detail" parent="@miui:style/V5.Widget.ProgressBar.Horizontal.Small">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">0dip</item>
+        <item name="android:max">100</item>
+        <item name="android:progressDrawable">@drawable/progressbar_detail_bkg</item>
+        <item name="miui:progressBar">@drawable/progressbar_detail_progress</item>
+        <item name="miui:progressBarMask">@null</item>
     </style>
 
     <!-- Icon style -->

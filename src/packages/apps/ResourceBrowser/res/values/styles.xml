@@ -30,7 +30,7 @@
         <item name="android:gravity">left|center_vertical</item>
         <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
-        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>
     </style>
 
@@ -46,6 +46,8 @@
     </style>
 
     <style name="ResourceBrowser.ResourceDescription.Font">
+        <item name="android:singleLine">false</item>   <!-- set center_horizontal will cause a bug when singleLine is true -->
+        <item name="android:maxLines">1</item>
         <item name="android:paddingBottom">30dip</item>
         <item name="android:gravity">center_horizontal|bottom</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
@@ -64,6 +66,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
         <item name="android:max">100</item>
+        <item name="miui:progressBar">@drawable/resource_progressbar</item>
         <item name="android:progressDrawable">@drawable/resource_progressbar_readonly</item>
     </style>
 

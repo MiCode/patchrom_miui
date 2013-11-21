@@ -42,11 +42,6 @@ import java.util.ArrayList;
  */
 public class ActionMenuPresenter extends BaseMenuPresenter
         implements ActionProvider.SubUiVisibilityListener {
-    @MiuiHook(MiuiHookType.NEW_CLASS)
-    static class Injector {
-        static boolean showsOverflowMenuButton(ActionBarPolicy abp) { return false; }
-    }
-
     private static final String TAG = "ActionMenuPresenter";
 
     private View mOverflowButton;
@@ -81,7 +76,6 @@ public class ActionMenuPresenter extends BaseMenuPresenter
     }
 
     @Override
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public void initForMenu(Context context, MenuBuilder menu) {
         super.initForMenu(context, menu);
 
@@ -89,7 +83,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter
 
         final ActionBarPolicy abp = ActionBarPolicy.get(context);
         if (!mReserveOverflowSet) {
-            mReserveOverflow = Injector.showsOverflowMenuButton(abp); // miui modify
+            mReserveOverflow = abp.showsOverflowMenuButton();
         }
 
         if (!mWidthLimitSet) {

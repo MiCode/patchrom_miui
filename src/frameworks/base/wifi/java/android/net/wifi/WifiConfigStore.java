@@ -111,6 +111,7 @@ class WifiConfigStore {
     static class Injector {
         static HashSet<String> sDisableSsidSet;
         static WifiConfigStore sWifiConfigStore;
+        static Handler sHandler;
 
         static boolean isDisableByUser(String ssid) {
              return sDisableSsidSet.contains(ssid);
@@ -121,8 +122,12 @@ class WifiConfigStore {
             registerDisableWifiAutoConnectChangedObserver(sWifiConfigStore.mContext);
         }
 
+        static void setHandler(Handler handler) {
+            sHandler = handler;
+        }
+
         static void registerDisableWifiAutoConnectChangedObserver(Context context) {
-            ContentObserver observer = new ContentObserver(new Handler()) {
+            ContentObserver observer = new ContentObserver(sHandler) {
                 @Override
                 public void onChange(boolean selfChange) {
                     sDisableSsidSet = ExtraSettings.System.getDisableWifiAutoConnectSsid(sWifiConfigStore.mContext);

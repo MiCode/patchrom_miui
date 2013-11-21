@@ -566,6 +566,8 @@ public class WifiStateMachine extends StateMachine {
                 PackageManager.FEATURE_WIFI_DIRECT);
 
         mWifiNative = new WifiNative(mInterfaceName);
+        // MIUI ADD:
+        WifiConfigStore.Injector.setHandler(getHandler());
         mWifiConfigStore = new WifiConfigStore(context, mWifiNative);
         mWifiMonitor = new WifiMonitor(this, mWifiNative);
         mDhcpInfoInternal = new DhcpInfoInternal();
