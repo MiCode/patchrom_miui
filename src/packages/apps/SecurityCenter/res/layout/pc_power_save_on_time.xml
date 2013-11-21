@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal" >
+
+    <!-- CheckBoxPreference -->
+    <LinearLayout
+        android:id="@+id/sliding_button_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@miui:drawable/v5_preference_item_bg"
+        android:orientation="horizontal"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+            android:text="@string/power_save_on_time_auto_save_title"
+            android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList"/>
+
+        <SlidingButton
+            android:id="@+id/sliding_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side" />
+
+    </LinearLayout>
+
+    <!-- two time button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/button1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/pc_time_button_bg"
+            android:gravity="center"
+            android:selectable="true" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/power_save_on_time_default_time"
+                    android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList"/>
+
+                <TextView
+                    android:id="@+id/summary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/power_save_on_time_start_time_summary"
+                    android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/button2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/pc_time_button_bg"
+            android:gravity="center"
+            android:selectable="false" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/power_save_on_time_default_time"
+                    android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" />
+
+                <TextView
+                    android:id="@+id/summary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/power_save_on_time_end_time_summary"
+                    android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- TimePicker -->
+    <TimePicker
+        android:id="@+id/time_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_gravity="center_horizontal" />
+
+    <!-- option preference -->
+    <LinearLayout
+        android:id="@+id/option_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@miui:drawable/v5_preference_item_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/option_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:text="@string/power_save_on_time_option_title"
+            android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" />
+
+        <TextView
+            android:id="@+id/option_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
+            android:drawableRight="@miui:drawable/v5_arrow_right"
+            android:singleLine="true"
+            android:text="@string/power_save_choose_mode"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/option_summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@miui:drawable/v5_preference_item_bg" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
+            android:text="@string/power_save_on_time_option_summary"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -2,27 +2,46 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <!-- 增加外层layout应对作为headerView时即使设为gone但listView仍然预留空位的bug -->
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="5dip">
+    <LinearLayout
+        android:id="@+id/account_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:gravity="center"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:background="@drawable/theme_oper_info_bar_bg">
+        <TextView
+            android:id="@+id/account_text"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical|left"
+            android:text="@string/account_info"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="?android:attr/textColorPrimary" />
+        <TextView
+            android:id="@+id/account_info"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical|right"
+            android:text="@string/account_info"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="?android:attr/textColorSecondary"
+            android:drawableRight="@miui:drawable/v5_arrow_right" />
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/info_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/theme_oper_info_bar_bg"
+        android:layout_height="50dip"
         android:gravity="center"
         android:visibility="gone"
-        android:paddingLeft="10dip">
-        <ImageView
-            android:id="@+id/info_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_batch_import_info" />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/info_loading"
-            android:src="@drawable/batch_import_loading"
-            android:visibility="gone" />
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:background="@drawable/theme_oper_info_bar_bg">
         <TextView
             android:id="@+id/info_text"
             android:layout_width="0dip"
@@ -31,11 +50,6 @@
             android:gravity="center_vertical|left"
             android:textSize="@dimen/batch_udpate_info_text_size"
             android:textColor="@miui:color/v5_primary_text_color_light" />
-        <ImageView
-            android:id="@+id/info_oper_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/batch_import_arrow" />
         <Button
             android:id="@+id/info_oper_btn"
             android:layout_width="wrap_content"
@@ -44,7 +58,6 @@
             android:minWidth="@dimen/batch_update_btn_min_width"
             android:text="@string/theme_batch_update_all"
             android:textSize="@dimen/batch_udpate_btn_text_size"
-            android:textColor="@color/batch_update_btn_text_color"
-            android:visibility="gone" />
+            android:textColor="@color/batch_update_btn_text_color" />
     </LinearLayout>
 </LinearLayout>

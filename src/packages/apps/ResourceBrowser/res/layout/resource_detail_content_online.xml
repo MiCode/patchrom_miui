@@ -49,7 +49,7 @@
         android:id="@+id/screenview"
         android:layout_width="match_parent"
         android:layout_height="@dimen/detail_online_screenview_height"
-        android:focusableInTouchMode="true" />
+        android:clickable="true" />
 
     <miui.resourcebrowser.view.ResourceDetailRecommendView
         android:id="@+id/resource_accessory_top"
@@ -120,5 +120,17 @@
         android:layout_marginTop="@dimen/detail_category_vertical_small_padding"
         android:text="@string/resource_detail_recommend_other_themes"
         android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/exchangeAndAccountArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/detail_category_vertical_small_padding"
+        android:paddingLeft="@dimen/detail_category_horizontal_padding"
+        android:paddingRight="@dimen/detail_category_horizontal_padding"
+        android:visibility="gone" >
+
+        <include layout="@layout/resource_exchange_account" />
+    </LinearLayout>
 
 </LinearLayout>

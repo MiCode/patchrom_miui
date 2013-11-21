@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <ListView
+    <miui.resourcebrowser.comment.ResourceCommentsListView
         android:id="@android:id/list"
         style="@miui:style/V5.Widget.ListView"
         android:layout_width="match_parent"
@@ -13,31 +13,15 @@
 
     <TextView
         android:id="@+id/resource_comment_empty_view"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:gravity="center"
-        android:text="@string/resource_comment_no_comment"
-        android:visibility="gone" >
-    </TextView>
-
-    <LinearLayout
-        android:id="@+id/resource_comment_loadingprogressbar_next_pape"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@drawable/loading_view_bg"
-        android:gravity="center"
-        android:visibility="gone" >
-
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+        android:layout_gravity="center"
+        android:text="@string/resource_comment_no_comment" />
 
     <LinearLayout
         android:id="@+id/resource_comment_loadingprogressbar_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone" >
@@ -49,7 +33,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/loading_resource_detail_info" />
+            android:text="@string/resource_comment_loading_list" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/resource_comment_loadingprogressbar_next_pape"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/loading_view_bg"
+        android:gravity="center"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 </FrameLayout>
