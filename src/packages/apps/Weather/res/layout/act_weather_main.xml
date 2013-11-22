@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+            <View
+               android:id="@+id/weather_cycle_default_bg"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:background="@drawable/bg" />
+            <FrameLayout
+               android:id="@+id/weather_next_style"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent" />
+            <FrameLayout
+               android:id="@+id/weather_cur_style"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent" />
+        </FrameLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/weather_main_root_view_height"
+            android:background="@drawable/details_bg" />
+    </LinearLayout>
+
+    <com.miui.weather2.view.ViewGallery
+        android:id="@+id/act_weather_cycle_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/weather_main_title_height_offset_bottom" >
+        <TextView
+            android:id="@+id/act_weather_cycle_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFFFF"
+            android:singleLine="true"
+            android:cursorVisible="false"
+            style="@style/text_shadow" />
+        <ImageView
+            android:id="@+id/act_weather_cycle_gps_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="3dip"
+            android:layout_marginLeft="0dip"
+            android:layout_toRightOf="@id/act_weather_cycle_title"
+            android:layout_centerVertical="true"
+            android:background="#00000000"
+            android:src="@drawable/i_gps" />
+        <TextView
+            android:id="@+id/act_weather_gps_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textSize="12sp"
+            android:textColor="#FFFFFFFF"
+            android:singleLine="true"
+            android:cursorVisible="false"
+            style="@style/text_shadow"
+            android:visibility="gone" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dip"
+        android:layout_marginRight="10dip"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/weather_main_view_page_bar_offset_bottom" >
+        <com.miui.weather2.view.ViewPageBar
+            android:id="@+id/act_weather_cycle_page_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/error_tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="76dip"
+        android:paddingLeft="30dip"
+        android:textSize="16sp"
+        android:textColor="#FFFFFFFF"
+        android:text="@string/act_weather_main_data_null"
+        android:visibility="gone" />
+    <LinearLayout
+        android:id="@+id/root_down"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/weather_main_root_view_height"
+        android:orientation="vertical"
+        android:background="@drawable/details_bg"
+        android:gravity="center_vertical"
+        android:layout_gravity="left|bottom" />
+    <!-- 五天预报 -->
+    <FrameLayout
+        android:id="@+id/act_weather_next_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" >
+        <LinearLayout
+            android:id="@+id/weather_cycle_next_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/weather_main_down_view_height"
+            android:layout_gravity="left|bottom"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:background="@drawable/details_bg" />
+    </FrameLayout>
+    <!-- 天气详情 -->
+    <FrameLayout
+        android:id="@+id/act_weather_main_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" >
+        <FrameLayout
+            android:id="@+id/act_weather_main_layout_main"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/weather_main_down_view_height"
+            android:layout_gravity="bottom" >
+            <ListView
+                android:id="@+id/act_weather_main_other"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="top|center_horizontal"
+                android:listSelector="@android:color/transparent"
+                android:scrollbars="none"
+                android:background="@drawable/details_bg" />
+            <LinearLayout
+                android:id="@+id/act_weather_main_other_empty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="50dip"
+                android:gravity="center"
+                android:background="@drawable/app_main_data_null_bg" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dip"
+                    android:textSize="16sp"
+                    android:textColor="#FFFFFFFF"
+                    android:text="@string/act_weather_main_data_null" />
+            </LinearLayout>
+        </FrameLayout>
+    </FrameLayout>
+    <!-- 天气趋势 -->
+    <FrameLayout
+        android:id="@+id/act_weather_trend_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" >
+        <FrameLayout
+            android:id="@+id/act_weather_main_layout_trend"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/weather_main_down_view_height"
+            android:background="@drawable/details_bg"
+            android:layout_gravity="bottom" >
+            <LinearLayout
+                android:id="@+id/weather_trend_background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/weather_trend_cover_light_bg"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/weather_trend_cover_dark_bg" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/weather_trend_cover_light_bg" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/weather_trend_cover_dark_bg" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/weather_trend_cover_light_bg" />
+            </LinearLayout>
+            <com.miui.weather2.view.ViewTrend
+                android:id="@+id/act_weather_cycle_trend_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+    </FrameLayout>
+    <View
+        android:id="@+id/bottom_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_gravity="bottom"
+        android:background="@color/miui_separator_color" />
+</FrameLayout>

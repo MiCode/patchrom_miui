@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:clickable="false"
+    android:focusable="false"
+    style="@miui:style/V5.Widget.ListView.Item.DoubleLine"
+    android:gravity="center_vertical" >
+
+    <ImageView android:id="@+id/app_icon"
+        android:layout_width="@android:dimen/app_icon_size"
+        android:layout_height="@android:dimen/app_icon_size"
+        android:layout_marginRight="11dip"
+        android:layout_gravity="center_vertical"
+        android:scaleType="fitCenter"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <TextView android:id="@+id/app_name"
+            android:layout_weight="1"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary"
+            android:textStyle="bold"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            />
+        <TextView android:id="@+id/app_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"
+            />
+    </LinearLayout>
+</LinearLayout>

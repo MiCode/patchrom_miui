@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 Google Inc.
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/action_import"
+            android:title="@string/Import"
+            android:icon="@drawable/ic_menu_ptp_holo_light"
+            android:showAsAction="always|withText"
+            android:visible="false" />
+    <!-- Ideally, showAsAction for share_panorama and share should be reversed.
+         But, if share_panorama is set to never, it doesn't seem to get promoted
+         to the action bar and stays on the overflow menu. -->
+    <item android:id="@+id/action_share_panorama"
+            android:icon="@drawable/ic_menu_share_holo_light"
+            android:title="@string/share_panorama"
+            android:visible="false"
+            android:actionProviderClass="android.widget.ShareActionProvider"
+            android:showAsAction="ifRoom">
+    </item>
+    <item android:id="@+id/action_share"
+            android:icon="@drawable/ic_menu_share_holo_light"
+            android:title="@string/share"
+            android:visible="false"
+            android:actionProviderClass="android.widget.ShareActionProvider"
+            android:showAsAction="never">
+    </item>
+    <item android:id="@+id/action_delete"
+            android:icon="@drawable/ic_menu_trash_holo_light"
+            android:title="@string/delete"
+            android:visible="false"
+            android:showAsAction="ifRoom" />
+    <item android:id="@+id/action_edit"
+            android:title="@string/edit"
+            android:showAsAction="never"
+            android:visible="false" />
+    <item android:id="@+id/action_rotate_ccw"
+            android:showAsAction="never"
+            android:visible="false"
+            android:title="@string/rotate_left" />
+    <item android:id="@+id/action_rotate_cw"
+            android:showAsAction="never"
+            android:visible="false"
+            android:title="@string/rotate_right" />
+    <item android:id="@+id/action_crop"
+            android:title="@string/crop_action"
+            android:showAsAction="never"
+            android:visible="false" />
+    <item android:id="@+id/action_setas"
+            android:title="@string/set_image"
+            android:showAsAction="never"
+            android:visible="false" />
+    <item android:id="@+id/action_details"
+            android:icon="@drawable/ic_menu_info_details"
+            android:title="@string/details"
+            android:visible="false"
+            android:showAsAction="never" />
+    <item android:id="@+id/action_show_on_map"
+            android:title="@string/show_on_map"
+            android:showAsAction="never"
+            android:visible="false" />
+</menu>

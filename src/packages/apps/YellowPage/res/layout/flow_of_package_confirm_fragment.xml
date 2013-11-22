@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+    <LinearLayout
+        android:layout_height="0dip"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/packages_info"
+            android:singleLine="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/payment_padding"
+            android:paddingTop="@dimen/payment_padding"
+            android:paddingBottom="@dimen/payment_padding"
+            android:paddingLeft="36dip"
+            android:paddingRight="36dip"
+            android:background="@miui:drawable/v5_preference_item_bg" />
+
+        <TextView
+            android:id="@+id/packages_description"
+            android:singleLine="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/payment_padding" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/payment_padding"
+        android:paddingRight="@dimen/payment_padding">
+
+        <TextView
+            android:id="@+id/pay_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/packages_pay_hint"
+            android:layout_marginBottom="@dimen/payment_vertical_margin" />
+
+        <Button
+            android:id="@+id/pay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/packages_pay_confirm"
+            android:background="@miui:drawable/v5_btn_bg_main_action_light"
+            android:textColor="@color/bottom_bar_text" />
+    </LinearLayout>
+</LinearLayout>

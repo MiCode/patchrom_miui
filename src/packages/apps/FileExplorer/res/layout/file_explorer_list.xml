@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/file_browse_frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+            android:id="@+id/navigation_bar"
+            style="@style/NavigationBarStyle">
+        <ImageView
+                android:id="@+id/volume_switch"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/volume_switch"
+                android:visibility="gone"/>
+        <include layout="@layout/path_gallery"/>
+        <ProgressBar
+                android:id="@+id/refresh_progress"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                style="@style/PathRefreshProgressBar"/>
+    </LinearLayout>
+
+    <TextView android:id="@+id/download_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@drawable/secondary_title_background"
+        android:text="@string/ui_bar_txt_download_progress"
+        style="@miui:style/V5.TextAppearance.List.Secondary"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1">
+        <com.android.fileexplorer.view.EditableListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </com.android.fileexplorer.view.EditableListView>
+
+        <LinearLayout
+            android:id="@+id/empty_view"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="gone">
+            <ImageView
+                android:src="@drawable/empty_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/empty_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_file"
+                android:textSize="18dip"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sd_not_available_page"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="gone">
+            <ImageView
+                android:src="@drawable/sd_not_available"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dip" />
+
+            <TextView
+                android:text="@string/enable_sd_card"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="14dip"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/volumes_list"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:background="@drawable/dropdown_panel_bg">
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

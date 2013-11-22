@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/hot_subjects_header_bg" >
+
+        <!-- Weird behavior! Do not set android:text for SlidingButton! -->
+        <miui.widget.SlidingButton
+                android:id="@+id/hotsubjects_notification_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/common_padding_alignment"
+                android:checked="false" />
+
+        <TextView
+                android:text="@string/pref_title_hotsubjects_notification"
+                style="@style/TextAppearance.Button.Checkbox"
+                android:layout_alignParentLeft="true"
+                android:paddingTop="@dimen/slidingbutton_title_padding_vertical"
+                android:paddingBottom="@dimen/slidingbutton_title_padding_vertical"
+                android:layout_marginLeft="@dimen/common_padding_alignment"
+                android:layout_toRightOf="@id/hotsubjects_notification_checkbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <fragment
+            android:id="@+id/container"
+            android:name="com.xiaomi.market.ui.HotCollectionFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+</LinearLayout>

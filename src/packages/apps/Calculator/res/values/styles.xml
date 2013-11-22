@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <dimen name="btn_digit_text_size">20sp</dimen>
+    <dimen name="btn_scientific_text_size">16sp</dimen>
+
+    <style name="main_activity" parent="@miui:style/V5.Theme.Light.NoTitle">
+        <item name="android:windowBackground">@drawable/calculator_background</item>
+    </style>
+
+    <style name="button_style">
+       <item name="android:hapticFeedbackEnabled">true</item>
+       <item name="android:textSize">@dimen/btn_digit_text_size</item>
+       <item name="android:layout_width">wrap_content</item>
+       <item name="android:layout_height">match_parent</item>
+       <item name="android:layout_weight">1</item>
+       <item name="android:focusable">true</item>
+       <item name="android:textColor">#df58626c</item>
+       <item name="android:shadowRadius">2</item>
+       <item name="android:shadowColor">#dfffffff</item>
+       <item name="android:layout_marginLeft">5dip</item>
+    </style>
+
+    <style name="out_screen_button_style" parent="button_style">
+       <item name="android:background">@drawable/btn_scientific_pad_fun_key</item>
+    </style>
+
+    <style name="button_scientific_pad_digit_key_style" parent="button_style">
+        <item name="android:textSize">@dimen/btn_scientific_text_size</item>
+        <item name="android:background">@drawable/btn_scientific_pad_digit_key</item>
+    </style>
+
+    <style name="button_scientific_pad_fun_key_style" parent="button_style">
+        <item name="android:textSize">@dimen/btn_scientific_text_size</item>
+        <item name="android:background">@drawable/btn_scientific_pad_fun_key</item>
+    </style>
+
+    <style name="button_scientific_pad_equal_key_style" parent="button_style">
+        <item name="android:textSize">@dimen/btn_digit_text_size</item>
+        <item name="android:background">@drawable/btn_scientific_pad_equal_key</item>
+    </style>
+
+    <style name="button_simple_digit_key_style" parent="button_style">
+        <item name="android:layout_marginLeft">6dip</item>
+        <item name="android:background">@drawable/btn_simple_digit_key</item>
+    </style>
+
+    <style name="button_simple_fun_key_style" parent="button_style">
+        <item name="android:layout_marginLeft">6dip</item>
+        <item name="android:background">@drawable/btn_simple_pad_fun_key</item>
+    </style>
+
+    <style name="simple_pad_button_equal_style" parent="button_style">
+        <item name="android:layout_marginLeft">6dip</item>
+        <item name="android:background">@drawable/btn_simple_pad_equal_key</item>
+    </style>
+
+    <style name="simple_pad_button_digit0_style" parent="button_style">
+        <item name="android:layout_marginLeft">6dip</item>
+        <item name="android:background">@drawable/btn_simple_pad_digit0_key</item>
+    </style>
+    <style name="button_simple_equal_style" parent="button_style">
+        <item name="android:background">@drawable/btn_simple_pad_equal_key</item>
+        <item name="android:layout_marginLeft">6dip</item>
+    </style>
+
+    <style name="display_style">
+       <item name="android:textSize">@dimen/display_text_size</item>
+       <item name="android:cursorVisible">false</item>
+       <item name="android:gravity">right|bottom</item>
+       <item name="android:typeface">monospace</item>
+       <item name="android:textColor">@color/show_screen_text_color</item>
+       <item name="android:maxLines">1</item>
+       <item name="android:scrollbars">none</item>
+       <item name="android:scrollHorizontally">true</item>
+       <item name="android:layout_width">match_parent</item>
+       <item name="android:layout_height">wrap_content</item>
+       <item name="android:background">@null</item>
+       <item name="android:paddingLeft">10dip</item>
+       <item name="android:paddingRight">10dip</item>
+       <item name="android:paddingTop">@dimen/display_textview_padding_horizontal</item>
+       <item name="android:paddingBottom">@dimen/display_textview_padding_horizontal</item>
+    </style>
+
+    <style name="btn_row_style">
+       <item name="android:layout_width">match_parent</item>
+       <item name="android:layout_height">0dip</item>
+       <item name="android:layout_weight">1</item>
+       <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="style_text_on_btn">
+        <item name="android:shadowColor">#dfffffff</item>
+        <item name="android:shadowRadius">2</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">bottom|right</item>
+    </style>
+    <style name="equal_simple_style_text_on_btn" parent="style_text_on_btn">
+        <item name="android:textColor">@color/equal_button_text</item>
+        <item name="android:layout_marginRight">18dip</item>
+        <item name="android:layout_marginBottom">19dip</item>
+        <item name="android:textSize">@dimen/simple_btn_text_size</item>
+    </style>
+
+    <style name="digit0_simple_style_text_on_btn" parent="style_text_on_btn">
+        <item name="android:textColor">@color/button_text</item>
+        <item name="android:layout_marginRight">22dip</item>
+        <item name="android:layout_marginBottom">@dimen/digit0_style_text_marginBottom</item>
+        <item name="android:textSize">@dimen/btn_digit_text_size</item>
+    </style>
+    <style name="equal_scientific_style_text_on_btn" parent="style_text_on_btn">
+        <item name="android:textColor">@color/equal_button_text</item>
+        <item name="android:layout_marginRight">14dip</item>
+        <item name="android:layout_marginBottom">8dip</item>
+        <item name="android:textSize">@dimen/scientific_btn_text_size</item>
+    </style>
+
+    <style name="digit0_scientific_style_text_on_btn" parent="style_text_on_btn">
+        <item name="android:textColor">@color/button_text</item>
+        <item name="android:layout_marginRight">16dip</item>
+        <item name="android:layout_marginBottom">@dimen/digit0_style_text_marginBottom</item>
+        <item name="android:textSize">@dimen/btn_scientific_text_size</item>
+    </style>
+    <style name="history_text_style">
+        <item name="android:layout_marginRight">15dip</item>
+        <item name="android:gravity">right|center_vertical</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:paddingTop">30dip</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:scrollbars">none</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:textColor">@color/show_screen_text_color</item>
+        <item name="android:textSize">@dimen/history_text_size</item>
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory>
+        <ListPreference     android:title="@string/pref_screen_transformation_type_title"
+                            android:key="pref_key_transformation_type"
+                            android:entries="@array/transformation_entries"
+                            android:entryValues="@array/transformation_values" />
+        <ListPreference     android:title="@string/pref_wallpaper_scroll_type_title"
+                            android:key="pref_key_wallpaper_scroll_type"
+                            android:entries="@array/wallpaper_scroll_entries"
+                            android:entryValues="@array/wallpaper_scroll_values" />
+    </PreferenceCategory>
+    <PreferenceCategory     android:key="pref_key_cell_layout_group" >
+        <ListPreference     android:title="@string/pref_cell_layout_size"
+                            android:key="pref_key_cell_layout_size"
+                            android:entries="@array/cell_layout_size_entries"
+                            android:entryValues="@array/cell_layout_size_values" />
+        <CheckBoxPreference android:key="pref_key_keep_layout"
+                            android:title="@string/pref_keep_layout_title"
+                            android:summary="@string/pref_keep_layout_summary"
+                            android:defaultValue="true" />
+    </PreferenceCategory>
+    <PreferenceCategory     android:title="@string/preferences_general_title"
+                            android:key="pref_key_checkboxes">
+        <CheckBoxPreference android:key="pref_key_keep_in_memory"
+                            android:title="@string/pref_keep_in_memory_title"
+                            android:summary="@string/pref_keep_in_memory_summary"
+                            android:defaultValue="true" />
+        <CheckBoxPreference android:key="pref_key_icon_shadow"
+                            android:title="@string/pref_icon_shadow_title"
+                            android:summary="@string/pref_icon_shadow_summary"
+                            android:defaultValue="true" />
+        <CheckBoxPreference android:key="pref_key_enable_drawing_cache"
+                            android:title="@string/pref_enable_drawing_cache_title"
+                            android:summary="@string/pref_enable_drawing_cache_summary"
+                            android:defaultValue="true" />
+    </PreferenceCategory>
+</PreferenceScreen>

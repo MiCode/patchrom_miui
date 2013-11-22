@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialpad"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_gravity="bottom"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.android.contacts.dialpad.DialerButtons
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/dialer_background"
+            android:orientation="vertical">
+            <LinearLayout
+                style="@style/DialerButtonRow">
+                <LinearLayout
+                    android:id="@+id/one"
+                    style="@style/DialerButton"
+                    android:contentDescription="@string/description_image_button_one" />
+                <LinearLayout
+                    android:id="@+id/two"
+                    style="@style/DialerButton"
+                    android:contentDescription="@string/description_image_button_two" />
+                <LinearLayout
+                    android:id="@+id/three"
+                    style="@style/DialerButton"
+                    android:contentDescription="@string/description_image_button_three" />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/DialerButtonRow">
+                <LinearLayout
+                    android:id="@+id/four"
+                    style="@style/DialerButton"
+                    android:contentDescription="@string/description_image_button_four" />
+                <LinearLayout
+                    android:id="@+id/five"
+                    style="@style/DialerButton"
+                    android:contentDescription="@string/description_image_button_five" />
+                <LinearLayout
+                    android:id="@+id/six"
+                    style="@style/DialerButton"
+                    android:contentDescription="@string/description_image_button_six" />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/DialerButtonRow">
+                <LinearLayout
+                    android:id="@+id/seven"
+                    style="@style/DialerButton"
+                    android:contentDescription="@string/description_image_button_seven" />
+                <LinearLayout
+                    android:id="@+id/eight"
+                    style="@style/DialerButton"
+                    android:contentDescription="@string/description_image_button_eight" />
+                <LinearLayout
+                    android:id="@+id/nine"
+                    style="@style/DialerButton"
+                    android:contentDescription="@string/description_image_button_nine" />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/DialerButtonRow">
+                <LinearLayout
+                    android:id="@+id/star"
+                    style="@style/DialerButton"
+                    android:contentDescription="@string/description_image_button_star" />
+                <LinearLayout
+                    android:id="@+id/zero"
+                    style="@style/DialerButton"
+                    android:contentDescription="@string/description_image_button_zero" />
+                <LinearLayout
+                    android:id="@+id/pound"
+                    style="@style/DialerButton"
+                    android:contentDescription="@string/description_image_button_pound" />
+            </LinearLayout>
+        </com.android.contacts.dialpad.DialerButtons>
+        <ImageView
+            android:id="@+id/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/dialer_buttons" />
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@drawable/dialer_bottom_bar_bg">
+        <Button
+            android:id="@+id/close_dialpad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_close_dialpad"
+            android:contentDescription="@string/close_dial_pad"
+            android:hapticFeedbackEnabled="true" />
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+            <Button
+                android:id="@+id/call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_call"
+                android:contentDescription="@string/dial"
+                android:hapticFeedbackEnabled="true" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_delete"
+            android:contentDescription="@string/delete_dial_input"
+            android:hapticFeedbackEnabled="true" />
+    </LinearLayout>
+</LinearLayout>

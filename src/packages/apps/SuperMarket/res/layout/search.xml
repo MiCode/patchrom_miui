@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ListView
+        android:id="@+id/search_list"
+        style="@style/Widget.ListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <include layout="@layout/search_recommend_container" />
+
+    <com.xiaomi.market.ui.EmptyLoadingView
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/search_baidu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" >
+
+        <Button
+            android:id="@+id/baidu_search_button"
+            style="@style/Widget.Button.Retry"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="66dip"
+            android:layout_marginRight="66dip"
+            android:text="@string/search_other_market" />
+
+        <TextView
+            android:id="@+id/search_not_found"
+            style="@style/TextAppearance.Content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/baidu_search_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dip"
+            android:singleLine="true" />
+
+        <TextView
+            style="@style/TextAppearance.SearchProviderStatement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dip"
+            android:gravity="center"
+            android:text="@string/result_notice" />
+    </RelativeLayout>
+
+</FrameLayout>

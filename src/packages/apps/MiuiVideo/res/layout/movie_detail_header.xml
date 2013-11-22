@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+    <!-- get focus -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:focusableInTouchMode="true"
+        android:focusable="true"/>
+      
+    <TextView
+        android:id="@+id/brief_intro_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/detail_bar_height"
+        android:background="@drawable/detail_bar"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/detail_info_padding_horizontal"
+        android:paddingRight="@dimen/detail_info_padding_horizontal"
+        android:text="@string/brief_intro"
+        android:textColor="@color/p_50_white"
+        android:textSize="@dimen/text_size_26"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="@dimen/text_line_space"
+            android:paddingLeft="@dimen/detail_info_padding_horizontal"
+            android:paddingRight="@dimen/detail_info_padding_horizontal" 
+            android:paddingTop="@dimen/detail_desc_padding_top"
+        	android:paddingBottom="@dimen/detail_desc_padding_bottom"
+        	android:textColor="@color/p_80_white"
+            android:textSize="@dimen/text_size_26"/>
+        
+    </LinearLayout>
+    
+     <TextView
+        android:id="@+id/movie_commenttitle"
+        android:text="@string/movie_comment"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/detail_bar_height"
+        android:background="@drawable/detail_bar"
+        android:paddingLeft="@dimen/detail_info_padding_horizontal"
+        android:paddingRight="@dimen/detail_info_padding_horizontal"
+        android:gravity="center_vertical"
+        android:textColor="@color/p_50_white" 
+        android:textSize="@dimen/text_size_26"/>   
+
+</LinearLayout>

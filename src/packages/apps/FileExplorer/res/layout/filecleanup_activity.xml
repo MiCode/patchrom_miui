@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:background="@drawable/bg_waiting"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/file_cleanup_header_height">
+        <RelativeLayout
+            android:id="@+id/text_container"
+            android:background="@drawable/bg_b"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:id="@+id/garbage_size_area">
+                <miui.widget.ImageTextView
+                    android:id="@+id/garbage_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/garbage_size_entries"
+                    android:entryValues="@array/garbage_size_entryValues"
+                    android:layout_centerHorizontal="true" />
+                <TextView
+                    style="@style/CleanupIndicationStyle"
+                    android:id="@+id/cleanup_indication"
+                    android:layout_marginTop="@dimen/garbage_size_metric_text_padding_top"
+                    android:layout_below="@id/garbage_size"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+            <ImageView
+                android:id="@+id/garbage_size_metric"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_toRightOf="@id/garbage_size_area"
+                android:layout_alignTop="@id/garbage_size_area"/>
+        </RelativeLayout>
+    </RelativeLayout>
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+    <LinearLayout
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:background="@drawable/bottom_bar_bg_light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@miui:drawable/v5_bottom_bar_top_line_light"/>
+        <Button
+            android:id="@+id/operation_button"
+            android:layout_width="@dimen/file_cleanup_activity_button_width"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/file_cleanup_activity_button_marginTop"
+            android:layout_marginBottom="@dimen/file_cleanup_activity_button_marginBottom"
+            android:enabled="false"
+            android:layout_gravity="center"
+            android:text="@string/start_cleanup" />
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/tts_settings_title">
+
+    <!-- The contents of this category are filled in by the Java code
+         based on the list of available engines. -->
+    <PreferenceCategory android:key="tts_engine_preference_section"
+        android:title="@string/tts_engine_preference_section_title" />
+
+    <PreferenceCategory android:key="tts_general_section"
+         android:title="@string/tts_general_section_title">
+        <ListPreference
+            android:key="tts_default_rate"
+            android:title="@string/tts_default_rate_title"
+            android:summary="@string/tts_default_rate_summary"
+            android:persistent="false"
+            android:entries="@array/tts_rate_entries"
+            android:entryValues="@array/tts_rate_values" />
+    </PreferenceCategory>
+
+    <Preference android:key="tts_play_example"
+         android:persistent="false"
+         android:title="@string/tts_play_example_title"
+         android:summary="@string/tts_play_example_summary" />
+</PreferenceScreen>

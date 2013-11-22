@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    style="@style/ResourceBrowser.ListItem">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/thumbnail"
+            style="@style/ResourceBrowser.ResourceImage" />
+        <include layout="@layout/resource_flag" />
+    </FrameLayout>
+    <TextView
+        android:id="@android:id/title"
+        style="@style/ResourceBrowser.ResourceDescription.Vertical" />
+    <TextView
+        android:id="@+id/price"
+        android:visibility="gone"
+        style="@style/ResourceBrowser.ResourceDescription.SubDescription" />
+</LinearLayout>

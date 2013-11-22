@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <!-- See group_browse_list_item.xml for the reason for the transparent android:listSelector -->
+    <view
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        class="com.android.contacts.widget.AutoScrollListView"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@null"
+        android:listSelector="@android:color/transparent"
+        android:fadingEdge="none" />
+
+    <view
+        android:id="@+id/fast_indexer"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        class="miui.widget.AlphabetFastIndexer" />
+
+</FrameLayout>

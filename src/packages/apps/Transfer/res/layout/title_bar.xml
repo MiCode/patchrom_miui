@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/header_panel"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:paddingRight="15dip"
+    android:gravity="center_vertical"
+    android:background="@drawable/title_bar_bg">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|left"
+        android:src="?android:attr/homeAsUpIndicator" />
+    <TextView
+        android:id="@+id/header_title_container"
+        style="@miui:style/V5.TextAppearance.Title"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:text="@string/editmode_menu_share"
+        android:layout_weight="1" />
+
+    <FrameLayout
+        android:id="@+id/header_expand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/miui_header_expand_open_bg" />
+
+</LinearLayout>

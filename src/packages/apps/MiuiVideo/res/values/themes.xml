@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+ 
+  <style name="DefaultTheme" parent="@miui:style/V5.Theme.Dark">     
+<!--  <item name="android:textViewStyle">@style/TextViewStyle</item>
+      <item name="android:buttonStyle">@style/ButtonStyle</item>
+      <item name="android:gridViewStyle">@style/GridViewStyle</item>
+      <item name="android:progressBarStyle">@style/ProgressBar.Medium</item>
+      <item name="android:progressBarStyleSmall">@style/ProgressBar.Small</item> -->
+      <item name="android:editTextStyle">@style/EditTextStyle</item>
+      <item name="android:listViewStyle">@style/ListViewStyle</item>
+      <item name="v5_editmode_hide_icon">@drawable/v5_editmode_hide_button_selector</item>  
+      <item name="v5_editmode_unhide_icon">@drawable/v5_editmode_unhide_button_selector</item>  
+  </style>
+  
+  <!-- <item name="miui:v5_edit_mode_top_bar_button">@miui:drawable/@miui:drawable/v5_edit_mode_top_bar_button_main_light</item> -->
+  <!-- <item name="miui:v5_action_mode_title_layout">@miui:layout/v5_action_mode_title_item</item> -->
+  <!-- <item name="miui:v5_edit_mode_top_bar_bg">@drawable/home_top_bg</item> -->
+  <!-- <item name="miui:v5_edit_mode_bottom_bar_bg">@null</item> -->   
+  <!-- <item name="android:actionModeStyle">@style/ActionModeStyle.HomeActionModeStyle</item> --> 
+  <!-- <item name="miui:v5_action_mode_title_layout">@layout/edit_mode_title_bar_layout</item> -->
+  <!-- <item name="miui:v5_edit_mode_top_bar_bg">@drawable/home_top_bg</item> -->
+  <!-- <item name="miui:v5_action_bar_tab">true</item> -->
+      
+  <style name="HomeTheme" parent="DefaultTheme">
+      <item name="android:actionBarStyle">@style/ActionBarStyle.HomeActionBarTitle</item>
+      <item name="miui:v5_action_bar_title_layout">@layout/home_action_bar_title_item</item>
+      <item name="android:seekBarStyle">@android:style/Widget.Holo.Light.SeekBar</item>
+  </style>
+  
+  <style name="ChannelTheme" parent="DefaultTheme">
+      <item name="android:actionBarStyle">@style/ActionBarStyle.ChannelActionBarTitle</item>
+  </style>
+  
+  <style name="Theme.ActionBarTitle" parent="DefaultTheme">
+        <item name="android:actionBarStyle">@style/ActionBarStyle.ActionBarTitle</item>
+  </style>
+   
+  <style name="MediaDetailTheme" parent="@miui:style/V5.Theme.Dark.ActionBarMovable">
+        <item name="android:actionBarStyle">@style/ActionBarStyle.MediaDetailActionBarMovableTitle</item>
+        <item name="miui:v5_action_bar_title_layout">@layout/media_detail_title_item</item>
+        <item name="miui:actionBarMovableLayoutStyle">@style/ActionBarMovableLayoutStyle</item>
+  </style>
+  
+  <style name="CommentTheme" parent="DefaultTheme">
+      <item name="android:actionBarStyle">@style/ActionBarStyle.CommentActionBarTitle</item>
+  </style>
+ 
+   <style name="SearchTheme" parent="DefaultTheme">
+       <item name="android:background">@color/transparent</item>
+       <item name="android:windowIsTranslucent">true</item>
+  <!-- <item name="android:windowAnimationStyle">@+android:style/Animation.Translucent</item> -->
+       <item name="android:actionBarStyle">@style/ActionBarStyle.SearchActionBarTitle</item>
+       <item name="miui:v5_action_bar_title_layout">@layout/rewrite_v5_search_title_bar</item>
+       <item name="miui:v5_title_bar_bg_search_mode">@drawable/search_edit_title_bg</item>
+       <item name="miui:v5_title_bar_back_button_search_mode">?android:attr/homeAsUpIndicator</item>
+  </style>
+  
+  <style name="WebTheme" parent="DefaultTheme">
+       <item name="android:windowNoTitle">true</item>
+       <item name="android:scrollbarThumbHorizontal">@miui:drawable/v5_scrollbar_handle_horizontal_light</item>
+       <item name="android:scrollbarThumbVertical">@miui:drawable/v5_scrollbar_handle_vertical_light</item>
+       <item name="miui:v5_bottom_bar_icon_bg">@miui:drawable/v5_bottom_bar_icon_bg_light</item>
+  </style>
+  
+  <style name="LiveTheme" parent="@style/ChannelTheme">
+      <item name="android:seekBarStyle">@android:style/Widget.Holo.Light.SeekBar</item>
+  </style>
+  
+  <style name="VideoViewTheme" parent="LiveTheme">
+      <item name="miui:v5_no_rounded_corners">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+  </style>
+
+</resources>

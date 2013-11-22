@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.contacts.calllog.DialerListCallNormalItem
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center_vertical"
+    style="@style/DialerListItemTrebleLine">
+
+    <FrameLayout
+        android:id="@+id/list_item_item_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <QuickContactBadge
+            android:id="@+id/photo"
+            android:layout_width="@miui:dimen/v5_list_view_treble_line_photo_size"
+            android:layout_height="@miui:dimen/v5_list_view_treble_line_photo_size"
+            android:focusable="false"
+            android:layout_marginLeft="?attr/list_item_photo_left_margin"
+            android:layout_gravity="center_vertical"
+            android:scaleType="centerCrop" />
+    </FrameLayout>
+    <LinearLayout
+        android:id="@+id/list_item_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/dialer_photo_right_margin"
+        android:layout_toRightOf="@+id/list_item_item_left"
+        android:layout_toLeftOf="@+id/list_item_right"
+        android:orientation="vertical"
+        android:focusable="false">
+        <LinearLayout
+            android:id="@+id/top_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textAppearance="@miui:style/V5.TextAppearance.List.Primary" />
+
+            <TextView
+                android:id="@+id/cloud_antispam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+
+            <ImageView
+                android:id="@+id/firewall_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="5dip"
+                android:background="@drawable/dialer_fire_wall"
+                android:visibility="gone" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/middle_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_marginRight="5dip"
+                android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+            <TextView
+                android:id="@+id/telocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/bottom_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dialer_list_call_item_bottom_line_margin_top"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+
+            <ImageView
+                android:id="@+id/type_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip" />
+        </LinearLayout>
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/list_item_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true">
+        <ImageView
+            android:id="@+id/contact_detail_action"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingRight="@dimen/dialer_list_item_detail_padding"
+            android:scaleType="centerInside"
+            android:src="@miui:drawable/v5_btn_next_light"
+            android:contentDescription="@string/accessibility_calllog_detail"
+            android:focusable="false"
+            android:clickable="false" />
+        <CheckBox
+            android:id="@android:id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:focusable="false"
+            android:clickable="false" />
+    </FrameLayout>
+</com.android.contacts.calllog.DialerListCallNormalItem>

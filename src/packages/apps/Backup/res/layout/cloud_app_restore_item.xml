@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:gravity="center_vertical"
+    android:clickable="true"
+    android:scrollbars="vertical"
+    android:background="@miui:drawable/v5_preference_item_bg">
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:paddingLeft="@miui:dimen/v5_preference_child_padding_side"
+        android:paddingRight="@miui:dimen/v5_preference_child_padding_side"
+        android:paddingTop="@miui:dimen/v5_preference_item_padding_top"
+        android:paddingBottom="@miui:dimen/v5_preference_item_padding_bottom">
+        <TextView
+            android:id="@+id/device_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" />
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" />
+        <TextView
+            android:id="@+id/version_size"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:gravity="center_vertical"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/restore"
+        style="@style/ButtonRestore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_restore"
+        android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
+        />
+</LinearLayout>

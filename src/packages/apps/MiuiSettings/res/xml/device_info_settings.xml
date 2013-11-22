@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/about_settings">
+
+    <miui.preference.ValuePreference
+        android:key="device_name"
+        android:title="@string/device_name"
+        android:persistent="false" />
+
+    <PreferenceCategory>
+        <miui.preference.ValuePreference
+             android:key="model_number"
+             android:title="@string/model_number"/>
+        <miui.preference.ValuePreference
+             android:key="firmware_version"
+             android:title="@string/firmware_version"/>
+        <miui.preference.ValuePreference
+             android:key="device_miui_version"
+             android:title="@string/device_miui_version"/>
+        <miui.preference.ValuePreference
+             android:key="device_cpu"
+             android:title="@string/device_cpu"/>
+        <miui.preference.ValuePreference
+             android:key="device_memory"
+             android:title="@string/device_memory"/>
+        <miui.preference.ValuePreference
+             android:key="device_internal_memory"
+             android:title="@string/device_internal_memory"/>
+        <!-- Device Baseband version -->
+        <miui.preference.ValuePreference android:key="baseband_version"
+             android:title="@string/baseband_version"/>
+
+        <!-- Device Kernel version -->
+        <miui.preference.ValuePreference android:key="kernel_version"
+              android:title="@string/kernel_version"/>
+
+        <!-- Device status - launches activity -->
+        <PreferenceScreen android:key="status_info"
+              android:title="@string/device_status"
+              android:summary="@string/device_status_summary">
+               <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.settings"
+                    android:targetClass="com.android.settings.deviceinfo.Status" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+
+    <PreferenceCategory android:key="user">
+         <Preference android:key="user_manual"
+              android:title="@miui:string/miui_user_manual_title"/>
+
+         <PreferenceScreen
+              android:key="container"
+              android:title="@string/legal_information"
+              android:fragment="com.android.settings.Legal"/>
+
+        <PreferenceScreen
+              android:key="safetylegal"
+              android:title="@string/settings_safetylegal_title">
+            <intent android:action="android.settings.SAFETY" />
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+</PreferenceScreen>

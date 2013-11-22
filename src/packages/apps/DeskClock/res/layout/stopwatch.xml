@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@drawable/stopwatch_bg">
+        <com.android.deskclock.StopwatchChronometer
+            android:id="@+id/timer_number_clock"
+            android:layout_height="@dimen/motion_translation_min_y"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:visibility="gone">
+            <com.android.deskclock.ClockTextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/clock_text_org"
+                android:textColor="@color/number_color_yellow" />
+        </com.android.deskclock.StopwatchChronometer>
+        <FrameLayout
+            android:id="@+id/timer_analog_clock"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <FrameLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:paddingTop="@dimen/timer_minute_clock_padding_top"
+                android:paddingLeft="@dimen/timer_minute_clock_padding_left">
+                <com.android.deskclock.CircleProgressClock
+                    android:id="@+id/minute_clock"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content">
+                </com.android.deskclock.CircleProgressClock>
+                <com.android.deskclock.StopwatchChronometer
+                    android:id="@+id/elapsed_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/timer_hour_text_paddingtop">
+                    <LinearLayout
+                        android:id="@+id/timer_hour_panel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+                        <com.android.deskclock.ClockTextView
+                            android:id="@+id/time_hour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/number_color_dark_second" />
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:text="@string/hour_unit"
+                            style="@style/TimeUnitTextStyle" />
+                    </LinearLayout>
+                    <com.android.deskclock.ClockTextView
+                        android:id="@+id/time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/clock_text_stopwatch_large"
+                        android:textColor="@color/number_color_dark" />
+                </com.android.deskclock.StopwatchChronometer>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:paddingTop="@dimen/timer_hour_clock_padding_top"
+                android:paddingLeft="@dimen/timer_hour_clock_padding_left">
+                <com.android.deskclock.CircleProgressClock
+                    android:id="@+id/hour_clock"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content">
+                </com.android.deskclock.CircleProgressClock>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:paddingTop="@dimen/timer_second_clock_padding_top"
+                android:paddingLeft="@dimen/timer_second_clock_padding_left">
+                <com.android.deskclock.CircleProgressClock
+                    android:id="@+id/second_clock"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content">
+                </com.android.deskclock.CircleProgressClock>
+            </FrameLayout>
+
+            <ImageView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/stopwatch_bg_shadow" />
+        </FrameLayout>
+    </FrameLayout>
+
+    <miui.v5.widget.VerticalMotionFrameLayout
+        android:id="@+id/motion_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/list_bg">
+        <ListView android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/empty"
+            style="@style/EmptyViewTextStyle"
+            android:text="@string/stopwatch_lap_empty_text"
+            android:paddingTop="@dimen/empty_text_paddingtop" />
+    </miui.v5.widget.VerticalMotionFrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bottom_button_bar_bg"
+        android:gravity="center"
+        android:paddingLeft="@dimen/timer_button_padding_left"
+        android:paddingRight="@dimen/timer_button_padding_right">
+        <Button
+            android:id="@+id/start_btn"
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:text="@string/start"/>
+        <Button
+            android:id="@+id/pause_btn"
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:text="@string/pause"/>
+        <Button
+            android:id="@+id/reset_btn"
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:text="@string/reset"/>
+        <Button
+            android:id="@+id/lap_btn"
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:text="@string/lap"/>
+    </LinearLayout>
+</FrameLayout>

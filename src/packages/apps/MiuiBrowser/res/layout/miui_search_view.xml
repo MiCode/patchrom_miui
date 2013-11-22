@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/search_view_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <FrameLayout
+        android:id="@+id/search_logo_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/search_logo_container_height" >
+        <ImageView
+            android:id="@+id/search_logo_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:visibility="gone" />
+        <ImageView
+            android:id="@+id/search_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom" />
+        <ImageView
+            android:id="@+id/title_indicatorbar_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone" />
+    </FrameLayout>
+    <LinearLayout
+        android:id="@+id/search_input_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/search_input_leftMargin"
+        android:layout_marginRight="@dimen/search_input_rightMargin"
+        android:layout_marginTop="@dimen/search_input_topMargin"
+        android:background="@drawable/search_input_bg"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical">
+        <FrameLayout
+            android:id="@+id/search_engine_icon_wrap"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical" >
+            <ImageView
+                android:id="@+id/search_icon_none"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+            <ImageView
+                android:id="@+id/search_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_search_engine_baidu" />
+        </FrameLayout>
+        <com.android.browser.MiuiSearchInputView
+            android:id="@+id/search"
+            android:focusable="true"
+            android:layout_width="0dip"
+            android:layout_weight="1.0"
+            android:layout_height="match_parent"
+            android:paddingRight="15dip"
+            android:gravity="center_vertical"
+            android:fadingEdge="horizontal"
+            android:fadingEdgeLength="24dip"
+            android:textSize="@dimen/text_font_size_medium"
+            android:textColor="@color/search_color"
+            android:textColorHint="@color/search_hint_color"
+            android:hint="@string/search_hint"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:lines="1"
+            android:scrollHorizontally="true"
+            android:inputType="text"
+            android:imeOptions="actionGo|flagNoExtractUi|flagNoFullscreen"
+            android:textCursorDrawable="@drawable/search_text_cursor"
+            style="@style/Suggestions"
+            android:background="@null" />
+       <Button
+            android:id="@+id/search_cancle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/search_cancel"
+            android:background="@drawable/search_button_bg"
+            style="@style/SearchButtonTextStyle" />
+    </LinearLayout>
+</LinearLayout>

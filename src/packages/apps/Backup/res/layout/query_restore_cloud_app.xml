@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1" 
+        android:clickable="false"
+        android:orientation="vertical" >
+        <TextView
+            android:text="@string/cloud_app_restore_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:paddingTop="30dip"
+            android:paddingBottom="30dip"
+            style="@style/TextPrimary" />
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
+            style="@style/Divider" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/restore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        android:background="@miui:drawable/v5_preference_item_bg" >
+        <LinearLayout
+            android:id="@+id/restore_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/restore_title"
+                android:text="@string/cloud_app_restore_data"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" />
+            <TextView
+                android:id="@+id/customization"
+                android:text="@string/customization"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="@miui:dimen/v5_preference_item_padding_inner"
+                android:paddingRight="@miui:dimen/v5_preference_item_padding_inner"
+                android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/dont_restore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        android:background="@miui:drawable/v5_preference_item_bg" >
+        <LinearLayout
+            android:id="@+id/dont_restore_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/dont_restore_title"
+            android:text="@string/cloud_app_dont_restore"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal"
+            android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" 
+            android:paddingTop="@miui:dimen/v5_preference_item_padding_top"
+            android:paddingBottom="@miui:dimen/v5_preference_item_padding_bottom"/>
+    </LinearLayout>
+
+    <TextView
+        android:text="@string/cloud_app_restore_wifi_prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:paddingTop="20dip"
+        android:paddingBottom="10dip"
+        android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+
+    <Button android:id="@+id/next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dip"
+        android:layout_marginRight="16dip"
+        android:layout_marginTop="12dip"
+        android:layout_marginBottom="12dip"
+        android:text="@string/button_next"/>
+</LinearLayout>

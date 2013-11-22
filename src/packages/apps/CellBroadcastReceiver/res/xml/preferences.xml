@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ * Copyright (C) 2011 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- General and CMAS emergency alert settings. -->
+    <PreferenceCategory android:title="@string/emergency_alert_settings_title"
+                        android:key="category_alert_settings">
+
+        <!-- Enable CMAS Extreme Threat alerts -->
+        <CheckBoxPreference android:defaultValue="true"
+                            android:key="enable_cmas_extreme_threat_alerts"
+                            android:summary="@string/enable_cmas_extreme_threat_alerts_summary"
+                            android:title="@string/enable_cmas_extreme_threat_alerts_title" />
+
+        <!-- Enable CMAS Severe Threat alerts -->
+        <CheckBoxPreference android:defaultValue="true"
+                            android:key="enable_cmas_severe_threat_alerts"
+                            android:summary="@string/enable_cmas_severe_threat_alerts_summary"
+                            android:title="@string/enable_cmas_severe_threat_alerts_title" />
+
+        <!-- Enable CMAS AMBER alerts -->
+        <CheckBoxPreference android:defaultValue="true"
+                            android:key="enable_cmas_amber_alerts"
+                            android:summary="@string/enable_cmas_amber_alerts_summary"
+                            android:title="@string/enable_cmas_amber_alerts_title" />
+
+        <CheckBoxPreference android:defaultValue="true"
+                            android:key="enable_emergency_alerts"
+                            android:summary="@string/enable_emergency_alerts_summary"
+                            android:title="@string/enable_emergency_alerts_title" />
+
+        <ListPreference android:key="alert_sound_duration"
+                        android:title="@string/alert_sound_duration_title"
+                        android:entries="@array/alert_sound_duration_entries"
+                        android:entryValues="@array/alert_sound_duration_values"
+                        android:defaultValue="4"
+                        android:dialogTitle="@string/alert_sound_duration_title" />
+
+        <CheckBoxPreference android:defaultValue="true"
+                            android:key="enable_alert_vibrate"
+                            android:summary="@string/enable_alert_vibrate_summary"
+                            android:title="@string/enable_alert_vibrate_title" />
+
+        <CheckBoxPreference android:defaultValue="true"
+                            android:key="enable_alert_speech"
+                            android:summary="@string/enable_alert_speech_summary"
+                            android:title="@string/enable_alert_speech_title" />
+
+    </PreferenceCategory>
+
+    <!-- Emergency alert settings for ETWS. -->
+    <PreferenceCategory android:title="@string/category_etws_settings_title"
+                        android:key="category_etws_settings">
+
+        <CheckBoxPreference android:defaultValue="false"
+                            android:key="enable_etws_test_alerts"
+                            android:summary="@string/enable_etws_test_alerts_summary"
+                            android:title="@string/enable_etws_test_alerts_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/category_brazil_settings_title"
+                        android:key="category_brazil_settings">
+
+    <!-- Default value is true for Brazil. This preference is ignored and hidden
+         unless the boolean "show_brazil_settings" is set to true in config.xml. -->
+    <CheckBoxPreference android:defaultValue="true"
+                        android:key="enable_channel_50_alerts"
+                        android:summary="@string/enable_channel_50_alerts_summary"
+                        android:title="@string/enable_channel_50_alerts_title" />
+
+    </PreferenceCategory>
+
+    <!-- Only visible when Developer options toggle is enabled in Settings. -->
+    <PreferenceCategory android:title="@string/category_dev_settings_title"
+                        android:key="category_dev_settings">
+
+        <CheckBoxPreference android:defaultValue="false"
+                            android:key="enable_cmas_test_alerts"
+                            android:summary="@string/enable_cmas_test_alerts_summary"
+                            android:title="@string/enable_cmas_test_alerts_title" />
+
+        <CheckBoxPreference android:defaultValue="true"
+                            android:key="show_cmas_opt_out_dialog"
+                            android:summary="@string/show_cmas_opt_out_summary"
+                            android:title="@string/show_cmas_opt_out_title" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

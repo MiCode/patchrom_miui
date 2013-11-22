@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+  <!-- 上部阴影 -->
+  <ImageView android:id="@+id/bottom_bar_shadow"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:background="@drawable/reading_mode_bottom_shadow" />
+
+  <LinearLayout android:id="@+id/content"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:background="@drawable/bottom_bar_bg" android:gravity="center"
+    android:orientation="vertical" android:showDividers="middle">
+
+    <LinearLayout android:id="@+id/bottom_bar_content"
+      android:layout_width="match_parent" android:layout_height="wrap_content"
+      android:gravity="center" android:orientation="horizontal"
+      android:paddingTop="10dip" android:paddingBottom="10dip"
+      android:paddingLeft="10dip" android:paddingRight="10dip">
+
+      <!-- 亮度调节 -->
+
+      <ImageButton android:id="@+id/action_light_setting"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:background="@null" android:src="@drawable/action_readmode_lightsetting"
+        android:paddingLeft="10dip" android:paddingRight="10dip" />
+
+      <!-- 字体大小调节 -->
+
+      <ImageButton android:id="@+id/action_fontsize_setting"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:background="@null" android:src="@drawable/action_readmode_fontsetting"
+        android:paddingLeft="10dip" android:paddingRight="10dip" />
+
+      <!-- 加入阅读书签 -->
+
+      <ImageButton android:id="@+id/action_readmode_bookmark"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:background="@null" android:src="@drawable/action_readmode_addbookmark"
+        android:paddingLeft="10dip" android:paddingRight="10dip" />
+
+      <!-- 查看更多 -->
+
+      <ImageButton android:id="@+id/action_readmode_more"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:background="@null" android:src="@drawable/action_readmode_moremenus"
+        android:paddingLeft="10dip" android:paddingRight="10dip" />
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/bottom_bar_moremenus"
+      android:layout_width="match_parent" android:layout_height="wrap_content"
+      android:orientation="vertical" android:showDividers="middle">
+
+      <TextView android:id="@+id/menu_theme_setting"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="@string/menu_theme_setting" style="@style/ReadmodeMenuTextView" />
+
+      <TextView android:id="@+id/menu_hv_swap"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="@string/menu_hv_swap" style="@style/ReadmodeMenuTextView" />
+
+      <TextView android:id="@+id/menu_addtodesk"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="@string/menu_addtodesk" style="@style/ReadmodeMenuTextView" />
+    </LinearLayout>
+  </LinearLayout>
+
+</merge>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/media_item_title_menu"
+        android:title="@string/editor_title_menu_header"
+        android:icon="@drawable/ic_menu_add_title_selector"
+        android:showAsAction="always|withText" >
+        <menu>
+            <item android:id="@+id/action_add_overlay"
+                android:title="@string/editor_add_overlay" />
+            <item android:id="@+id/action_remove_overlay"
+                android:title="@string/editor_remove_overlay" />
+        </menu>
+    </item>
+
+    <item android:id="@+id/media_item_effect_menu"
+        android:title="@string/editor_effect_menu_header"
+        android:icon="@drawable/ic_menu_add_effect_selector"
+        android:showAsAction="always|withText" >
+        <menu>
+            <!-- Menu items for adding transitions -->
+            <item android:id="@+id/action_add_begin_transition"
+                android:title="@string/editor_add_begin_transition"
+                android:icon="@drawable/ic_menu_add_trans_start_selector" />
+            <item android:id="@+id/action_add_end_transition"
+                android:title="@string/editor_add_end_transition"
+                android:icon="@drawable/ic_menu_add_trans_end_selector" />
+
+            <!-- Menu items for adding effects -->
+            <group android:checkableBehavior="single">
+                <item android:id="@+id/action_pan_zoom_effect"
+                    android:title="@string/editor_pan_zoom_effect"
+                    android:icon="@drawable/effects_pan_zoom" />
+                <item android:id="@+id/action_gradient_effect"
+                    android:title="@string/editor_gradient_effect"
+                    android:icon="@drawable/effects_gradient" />
+                <item android:id="@+id/action_sepia_effect"
+                    android:title="@string/editor_sepia_effect"
+                    android:icon="@drawable/effects_sepia" />
+                <item android:id="@+id/action_negative_effect"
+                    android:title="@string/editor_negative_effect"
+                    android:icon="@drawable/effects_negative" />
+                <item android:id="@+id/action_no_effect"
+                    android:title="@string/editor_no_effect"
+                    android:icon="@drawable/effects_generic"
+                    android:checked="true" />
+            </group>
+        </menu>
+    </item>
+
+    <!-- The following menu items are always put into the more option. -->
+    <item android:id="@+id/action_rendering_mode"
+        android:title="@string/editor_change_rendering_mode"
+        android:showAsAction="never" />
+    <item android:id="@+id/action_delete_media_item"
+        android:title="@string/remove"
+        android:showAsAction="never" />
+</menu>

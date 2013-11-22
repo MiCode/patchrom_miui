@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <com.android.contacts.detail.ActionsViewContainer
+        android:id="@+id/actions_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/contact_detail_detail_list_item_bg"
+        android:nextFocusRight="@+id/secondary_action_view_container" >
+
+        <LinearLayout
+            android:id="@+id/primary_action_view"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/contact_detail_list_item_padding_vertical"
+            android:paddingTop="@dimen/contact_detail_list_item_padding_vertical" >
+
+            <TextView
+                android:id="@+id/data"
+                style="@style/ContactDetailItemTextAppearancePrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/presence_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dip"
+                    android:layout_marginTop="1dip"
+                    android:scaleType="centerInside" />
+
+                <TextView
+                    android:id="@+id/type"
+                    style="@style/ContactDetailItemTextAppearanceSecondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.android.contacts.detail.ActionsViewContainer>
+
+    <include layout="@layout/contact_detail_list_item_type_icon" />
+
+    <include layout="@layout/contact_detail_list_item_sns_icon" />
+
+    <FrameLayout
+        android:id="@+id/secondary_action_view_container"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:nextFocusLeft="@id/actions_view_container" >
+
+        <ImageView
+            android:id="@+id/secondary_action_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:duplicateParentState="false"
+            android:scaleType="centerInside" />
+    </FrameLayout>
+
+</FrameLayout>

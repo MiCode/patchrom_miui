@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:paddingLeft="@dimen/content_horizontal_margin"
+    android:paddingRight="@dimen/content_horizontal_margin"
+    android:paddingTop="@dimen/content_horizontal_margin"
+    android:paddingBottom="@dimen/content_bottom_margin"
+    android:background="@drawable/user_detail_info_bg">
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/micloud_proceed"/>
+
+    <TextView
+        android:id="@+id/disable_micloud"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btn_next"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="@string/disable_micloud"
+        style="@style/TextPrimary.Reverse"/>
+
+    <TextView
+        android:id="@+id/sync_alert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/disable_micloud"
+        android:gravity="center"
+        android:text="@string/sync_sub_dspt"
+        style="@style/TextPrimary.Reverse"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/micloud_entrance_logo"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/micloud_dspt"
+            android:gravity="center"
+            style="@style/MiCloudDspt"/>
+        <Button
+            android:id="@+id/btn_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/micloud_more"
+            android:background="@drawable/micloud_more_btn"
+            style="@style/ButtonNormal.Reverse"/>
+    </LinearLayout>
+
+</RelativeLayout>

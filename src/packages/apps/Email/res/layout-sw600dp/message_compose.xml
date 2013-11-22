@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+      android:id="@+id/compose_scrollview"
+      android:orientation="vertical"
+      android:layout_width="@dimen/compose_scrollview_width"
+      android:layout_height="match_parent"
+      android:paddingTop="8dip"
+      android:background="@android:color/white"
+      android:layout_gravity="center_horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/compose_area_left_padding">
+
+                <LinearLayout android:id="@+id/content"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!--  For the to, cc, bcc, and subject -->
+                    <LinearLayout android:id="@+id/wrapper"
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+
+                        <include layout="@layout/compose_from"/>
+
+                        <include layout="@layout/compose_area_recipients"/>
+
+                    </LinearLayout>
+
+                    <include layout="@layout/compose_area_buttons"/>
+
+                </LinearLayout>
+
+                <!--  Attachments -->
+                <LinearLayout android:id="@+id/attachment_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dip"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:layout_marginRight="@dimen/compose_area_right_padding"
+                >
+                    <!--
+                        Empty container for storing attachments. We'll stick
+                        instances of message_compose_attachment.xml in here.
+                    -->
+                    <LinearLayout android:id="@+id/attachments"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        />
+                </LinearLayout>
+
+                <!-- Compose Area -->
+                <FrameLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/compose_area_right_padding">
+
+                    <include layout="@layout/compose_body"/>
+
+                </FrameLayout>
+
+                <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/compose_area_right_padding">
+                    <include layout="@layout/quoted_text"/>
+                </RelativeLayout>
+                <FrameLayout
+                  android:id="@+id/composearea_tap_trap_bottom"
+                  android:layout_weight="1"
+                  android:layout_height="0dip"
+                  android:layout_width="match_parent"
+                  android:clickable="true"/>
+
+            </LinearLayout>
+    </LinearLayout>
+</ScrollView>

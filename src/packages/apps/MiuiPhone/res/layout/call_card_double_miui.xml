@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/callCardInfoBar_Double"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/incall_callcard_bg_first_double_miui">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/call_card_content_height_miui"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="@miui:dimen/android_status_bar_height"
+        android:orientation="vertical"
+        android:gravity="center">
+        <LinearLayout
+            android:id="@+id/callCard_First"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <LinearLayout
+                android:orientation ="vertical"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <!-- Name (or the phone number, if we don't have a name to display). -->
+                <com.android.phone.MiuiAdaptiveTextView
+                    android:id="@+id/callCardName_First"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="start"
+                    android:singleLine="true"
+                    android:textAppearance="@style/Miui.TextAppearance.Name.Secondary" />
+                <!-- Telocation and phone number, side by side -->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/callCardPhoneNumber_First"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dip"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:textAppearance="@style/Miui.TextAppearance.PhoneNumber" />
+                    <!-- Tel location -->
+                    <TextView
+                        android:id="@+id/callCardTelocation_First"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:maxWidth="180dip"
+                        android:ellipsize="end"
+                        android:textAppearance="@style/Miui.TextAppearance.Telocation" />
+                    </LinearLayout>
+            </LinearLayout>
+            <Button
+                android:id="@+id/callCardConferenceManageButton_First"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dip"
+                android:background="@drawable/incall_button_conference_manage_miui"
+                android:visibility="gone" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="55dip"
+                android:layout_marginLeft="5dip">
+                <!-- status means ongoing(using image), holding and end -->
+                <TextView
+                    android:id="@+id/callCardCallStatus_First"
+                    android:singleLine="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/Miui.TextAppearance.ElapsedTime"
+                    android:visibility="gone" />
+                <ImageView
+                    android:id="@+id/callCardCallStatusImage_First"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/incall_call_status_ongoing_miui"
+                    android:visibility="gone" />
+                <!-- Elapsed time indication for a call in progress. -->
+                <!-- time means ringing, time(talking, holding and end) -->
+                <TextView
+                    android:id="@+id/callCardElapsedTime_First"
+                    android:singleLine="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/Miui.TextAppearance.ElapsedTime"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/callCard_Second"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <LinearLayout
+                android:orientation ="vertical"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <!-- Name (or the phone number, if we don't have a name to display). -->
+                <com.android.phone.MiuiAdaptiveTextView
+                    android:id="@+id/callCardName_Second"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="start"
+                    android:singleLine="true"
+                    android:textAppearance="@style/Miui.TextAppearance.Name.Secondary" />
+                <!-- Telocation and phone number, side by side -->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/callCardPhoneNumber_Second"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dip"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:textAppearance="@style/Miui.TextAppearance.PhoneNumber" />
+                    <!-- Tel location -->
+                    <TextView
+                        android:id="@+id/callCardTelocation_Second"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:maxWidth="180dip"
+                        android:ellipsize="end"
+                        android:textAppearance="@style/Miui.TextAppearance.Telocation" />
+                    </LinearLayout>
+            </LinearLayout>
+            <Button
+                android:id="@+id/callCardConferenceManageButton_Second"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dip"
+                android:background="@drawable/incall_button_conference_manage_miui"
+                android:visibility="gone" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="55dip"
+                android:layout_marginLeft="5dip">
+                <!-- status means ongoing(using image), holding and end -->
+                <TextView
+                    android:id="@+id/callCardCallStatus_Second"
+                    android:singleLine="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/Miui.TextAppearance.ElapsedTime"
+                    android:visibility="gone" />
+                <ImageView
+                    android:id="@+id/callCardCallStatusImage_Second"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/incall_call_status_ongoing_miui"
+                    android:visibility="gone" />
+                <!-- Elapsed time indication for a call in progress. -->
+                <!-- time means ringing, time(talking, holding and end) -->
+                <TextView
+                    android:id="@+id/callCardElapsedTime_Second"
+                    android:singleLine="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/Miui.TextAppearance.ElapsedTime"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

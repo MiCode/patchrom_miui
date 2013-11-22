@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/about_settings">
+
+    <com.android.settings.applications.AppInfoPreference android:key="applications_info"
+        android:clickable="false"
+        android:persistent="false"/>
+
+    <PreferenceCategory>
+        <miui.preference.ValuePreference
+             android:key="notification_switch"
+             android:persistent="false"
+             android:title="@string/app_notifications_switch_label"/>
+        <CheckBoxPreference android:key="floating_window_switch"
+            android:defaultValue="false"
+            android:title="@string/floating_window_switch_label"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/storage_label">
+        <miui.preference.ValuePreference
+             android:key="total_size"
+             android:clickable="false"
+             android:persistent="false"
+             android:title="@string/total_size_label"/>
+        <miui.preference.ValuePreference
+             android:key="application_size"
+             android:clickable="false"
+             android:persistent="false"
+             android:title="@string/application_size_label"/>
+        <miui.preference.ValuePreference
+             android:key="external_code_size"
+             android:clickable="false"
+             android:title="@string/external_code_size_label"/>
+        <miui.preference.ValuePreference
+             android:key="data_size"
+             android:clickable="false"
+             android:persistent="false"
+             android:title="@string/data_size_label"/>
+        <miui.preference.ValuePreference
+             android:key="external_data_size"
+             android:clickable="false"
+             android:persistent="false"
+             android:title="@string/external_data_size_label"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory>
+        <com.android.settings.applications.ButtonPreference android:key="clear_data"
+            android:persistent="false"
+            />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/cache_header_label">
+        <miui.preference.ValuePreference
+            android:key="cache_size"
+            android:persistent="false"
+            android:title="@string/cache_size_label"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory>
+        <com.android.settings.applications.ButtonPreference android:key="clear_cache"
+            android:persistent="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/auto_launch_label">
+        <Preference android:key="clear_default_settings"
+            android:title="@string/clear_activities"
+            android:summary="@string/clear_activities_summary"
+            android:persistent="false"
+            />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/permissions_label">
+        <Preference android:key="permission_detail_info"
+            android:title="@string/permission_detail_info"
+            android:summary="@string/permission_detail_info_summary"
+            android:persistent="false">
+        </Preference>
+
+        <Preference android:key="permission_manage"
+            android:title="@string/permission_manage"
+            android:summary="@string/permission_manage_summary"
+            android:persistent="false"
+            />
+    </PreferenceCategory>
+
+</PreferenceScreen>

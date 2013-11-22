@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/preference_display"
+        android:key="pref_key_display" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_key_simple_mode"
+            android:persistent="false"
+            android:summary="@string/preference_simple_mode_description"
+            android:title="@string/preference_simple_mode_title" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_key_word_photo"
+            android:persistent="false"
+            android:summary="@string/pref_key_photo_word_summary"
+            android:title="@string/pref_key_photo_word_title" />
+        <PreferenceScreen
+            android:key="pref_key_cloud_antispam"
+            android:title="@string/cloud_antispam_title">
+            <intent android:action="android.intent.action.TURN_ON_SMART_ANTISPAM"
+                android:targetPackage="com.miui.yellowpage"/>
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:key="pref_key_telocation"
+            android:title="@string/preference_telocation_title" >
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.phone"
+                android:targetClass="com.android.phone.MiuiTelocationSetting" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="pref_key_phone_group"
+        android:title="@string/preference_phone" >
+        <PreferenceScreen
+            android:key="pref_key_dial_pad_touch_tone"
+            android:title="@string/preference_dial_pad_touch_tone_title">
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:key="pref_key_call_record_setting"
+            android:title="@string/call_record_setting_miui">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.phone"
+                android:targetClass="com.android.phone.MiuiCallRecordSetting" />
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:key="pref_key_auto_ip"
+            android:title="@string/preference_auto_ip_title"
+            android:summary="@string/preference_auto_ip_summary_disable">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.phone"
+                android:targetClass="com.android.phone.MiuiAutoIpSetting" />
+        </PreferenceScreen>
+        <PreferenceScreen
+             android:key="pref_key_phone_more"
+             android:title="@string/preference_phone_more_title"
+             android:persistent="false">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.phone"
+                android:targetClass="com.android.phone.MiuiCallFeaturesSetting"/>
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/preference_contacts" >
+        <PreferenceScreen
+            android:key="pref_key_import_export"
+            android:title="@string/preference_import_export_title" />
+        <PreferenceScreen
+            android:key="pref_key_contacts_display"
+            android:title="@string/preference_contacts_display" />
+        <PreferenceScreen
+            android:key="pref_key_contacts_more"
+            android:title="@string/preference_contacts_more" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

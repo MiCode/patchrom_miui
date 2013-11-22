@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/app_comments"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <include
+        android:id="@+id/comments_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        layout="@layout/app_comments_header" />
+
+    <RelativeLayout
+        android:id="@+id/comments_body"
+        android:layout_below="@id/comments_header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/comment_padding_summary" >
+
+        <LinearLayout
+                android:id="@+id/comments_switcher"
+                style="@style/Widget.SecondaryTabIndicator">
+
+            <Button
+                    android:id="@+id/all_comments"
+                    style="@style/Widget.SecondaryTab"
+                    android:background="@drawable/all_comment_btn"
+                    android:enabled="false"
+                    android:text="@string/all_comments" />
+
+            <Button
+                    android:id="@+id/good_comments"
+                    style="@style/Widget.SecondaryTab"
+                    android:background="@drawable/good_comment_btn"
+                    android:text="@string/good_comments" />
+
+            <Button
+                    android:id="@+id/bad_comments"
+                    style="@style/Widget.SecondaryTab"
+                    android:background="@drawable/bad_comment_btn"
+                    android:text="@string/bad_comments" />
+        </LinearLayout>
+
+        <View
+                android:id="@+id/divider"
+                android:layout_below="@id/comments_switcher"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider"
+                android:layout_marginTop="@dimen/common_padding"
+                android:background="@drawable/divider_bg" />
+
+        <FrameLayout
+                android:id="@+id/fragment_container"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+    </RelativeLayout>
+
+</RelativeLayout>

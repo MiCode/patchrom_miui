@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+* Copyright (C) 2008 The Android Open Source Project
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*      http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+-->
+
+<resources>
+    <style name="Theme" parent="@miui:style/V5.Theme.Light">
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowShowWallpaper">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowSoftInputMode">stateHidden|adjustPan</item>
+    </style>
+
+    <style name="AnimationPreview">
+        <item name="android:windowEnterAnimation">@anim/fade_in</item>
+        <item name="android:windowExitAnimation">@anim/fade_out</item>
+    </style>
+
+    <style name="FolderSettingButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="FolderIconItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">1dp</item>
+        <item name="android:paddingTop">1dp</item>
+        <item name="android:paddingRight">1dp</item>
+        <item name="android:paddingBottom">1dp</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="WorkspaceIconTitle">
+        <item name="android:paddingLeft">@dimen/icon_title_padding_side</item>
+        <item name="android:paddingRight">@dimen/icon_title_padding_side</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/workspace_icon_text_size</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:shadowColor">@color/icon_title_text_shadow</item>
+        <item name="android:shadowRadius">@dimen/workspace_icon_text_shadow_radius</item>
+        <item name="android:shadowDx">@dimen/workspace_icon_text_shadow_dx</item>
+        <item name="android:shadowDy">@dimen/workspace_icon_text_shadow_dy</item>
+        <item name="android:textColor">@color/icon_title_text</item>
+    </style>
+
+    <style name="WorkspaceIconTitle.folder">
+        <item name="android:textColor">@color/folder_icon_title_text</item>
+        <item name="android:shadowColor">@color/folder_icon_title_text_shadow</item>
+    </style>
+
+    <style name="WorkspaceIconTitle.notification">
+        <item name="android:paddingLeft">0dip</item>
+        <item name="android:paddingRight">0dip</item>
+        <item name="android:shadowRadius">0</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/workspace_icon_text_notification_size</item>
+    </style>
+
+    <style name="SearchButton" parent="@android:style/Widget.Button.Small">
+        <item name="android:paddingTop">7dip</item>
+        <item name="android:paddingBottom">9dip</item>
+        <item name="android:paddingLeft">10dip</item>
+        <item name="android:paddingRight">10dip</item>
+    </style>
+
+    <style name="HotseatButton">
+        <item name="android:layout_marginTop">1dip</item>
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">0</item>
+    </style>
+
+    <style name="UninstallDialog">
+        <item name="android:shadowRadius">2</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="UninstallDialog.Title">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/uninstall_dialog_title_text</item>
+        <item name="android:shadowColor">@color/uninstall_dialog_title_text_shadow</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
+
+    <style name="UninstallDialog.Message">
+        <item name="android:textColor">@color/uninstall_dialog_message_text</item>
+        <item name="android:shadowColor">@color/uninstall_dialog_message_text_shadow</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="UninstallDialog.Button">
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/uninstall_dialog_button_text</item>
+        <item name="android:shadowColor">@color/uninstall_dialog_button_text_shadow</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="MarqueeTextView">
+        <item name="android:singleLine">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+    </style>
+
+    <style name="GadgetPlayerLyricCurrentLineShadowStyle">
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowColor">@color/gadget_player_lyric_shadow_color</item>
+        <item name="android:shadowRadius">10</item>
+    </style>
+
+    <style name="MultiSelectActionButton">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">5dip</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">16dip</item>
+    </style>
+
+    <style name="gadget_weather_text_shadow">
+        <item name="android:shadowColor">#50000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">4</item>
+        <item name="android:shadowRadius">8</item>
+    </style>
+    <style name="gadget_weather_text_shadow_1">
+        <item name="android:shadowColor">#5E000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">3</item>
+        <item name="android:shadowRadius">5</item>
+    </style>
+
+    <style name="free_style_apps_btn" parent="@android:style/TextAppearance.DeviceDefault.Medium">
+        <item name="android:gravity">bottom|center_horizontal</item>
+        <item name="android:clickable">true</item>
+        <item name="android:textColor">#ff3c3c3c</item>
+        <item name="android:textSize">@dimen/free_style_apps_btn_text_size</item>
+        <item name="android:layerType">software</item>
+        <item name="android:shadowColor">#cdffffff</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+
+    <style name="loading_dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@drawable/loading_dialog_bg</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowShowWallpaper">false</item>
+    </style>
+</resources>

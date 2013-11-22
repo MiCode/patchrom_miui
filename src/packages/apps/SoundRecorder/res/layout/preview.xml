@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miui="http://schemas.android.com/apk/res/miui"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/preview_title_bg" >
+        <ViewStub
+            android:id="@+id/edit_mode_title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout="@miui:layout/v5_edit_mode_title_bar" />
+        <ViewStub
+            android:id="@+id/preview_title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout="@layout/preview_title_bar" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <EditableListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/preview_list_bg" />
+
+        <LinearLayout
+            android:id="@+id/empty_view"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:visibility="gone"
+            android:background="@drawable/preview_list_bg">
+            <ImageView
+                android:src="@drawable/empty_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/no_file"
+                android:layout_height="wrap_content"
+                android:textColor="#ff5d5d62"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/preview_fg" />
+    </FrameLayout>
+    <FrameLayout
+        android:layout_weight="0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/preview_bottom">
+        <ImageView
+            android:id="@+id/bottom_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/preview_bottom_point" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/time_padding_horizontal"
+            android:layout_marginRight="@dimen/time_padding_horizontal"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/starttime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="46dip"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#B2FFFFFF" />
+
+            <SeekBar
+                android:id="@+id/play_seek_bar"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:maxHeight="@dimen/seek_bar_height"
+                android:minHeight="@dimen/seek_bar_height"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/play_seek_bar_padding_horizontal"
+                android:paddingRight="@dimen/play_seek_bar_padding_horizontal"
+                android:paddingTop="@dimen/seek_bar_padding_top_preview"
+                android:progressDrawable="@drawable/play_seek_bar_drawable"
+                android:thumb="@drawable/play_seek_bar_thumb"
+                miui:progressBar="@null"
+                miui:progressBarMask="@null" />
+
+            <TextView
+                android:id="@+id/totaltime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#B2FFFFFF" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/page_margin">
+    
+    <Button
+        android:layout_marginTop="@dimen/page_margin"
+        android:id="@+id/all_reviews"
+        android:visibility="invisible"
+        android:text="@string/view_all_reviews"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_all_reviews_height"
+        android:layout_marginLeft="@dimen/detail_info_padding_horizontal"
+        android:layout_marginRight="@dimen/detail_info_padding_horizontal"
+        android:background="@drawable/btn_bg"
+        android:textSize="@dimen/text_size_30"
+        android:textColor="@color/p_80_white"/>
+    
+    <TextView
+        android:id="@+id/recommendation_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/detail_bar_height"
+        android:layout_marginTop="@dimen/page_margin"
+        android:background="@drawable/detail_bar"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/detail_info_padding_horizontal"
+        android:paddingRight="@dimen/detail_info_padding_horizontal"
+        android:text="@string/recommendation"
+        android:textColor="@color/p_50_white"
+        android:textSize="@dimen/text_size_26" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/page_margin"
+        android:layout_marginRight="@dimen/page_margin"
+        android:layout_marginTop="@dimen/detail_recommend_margin_top" >
+
+        <include layout="@layout/row_of_posters" />
+
+    </FrameLayout>
+
+</LinearLayout>

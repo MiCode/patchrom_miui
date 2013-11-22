@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/paytype_panel"
+        android:layout_width="match_parent"
+        android:layout_height="45dip"
+        android:orientation="horizontal"
+        android:paddingLeft = "20dip"
+        android:paddingRight = "20dip"
+        android:gravity="center_vertical" >
+        <TextView
+            android:id="@+id/paytype_panel_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="left|center_vertical"
+            android:layout_weight="1"
+            android:textSize="@dimen/text_size_16sp"
+            android:textColor="@color/text_color_black"
+            android:text="@string/pay_record_typeall" />
+        <ImageView
+            android:id="@+id/paytype_panel_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@miui:drawable/arrow_down"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <include layout="@layout/record"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shadow_divider"/>
+    </FrameLayout>
+
+</LinearLayout>

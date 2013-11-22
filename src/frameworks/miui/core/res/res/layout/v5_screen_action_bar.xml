@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This is an optimized layout for a screen with the Action Bar enabled.
+-->
+
+<com.miui.internal.v5.widget.ActionBarLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+    <FrameLayout android:id="@android:id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="top">
+        <com.miui.internal.v5.widget.ActionBarContainer android:id="@miui:id/android_action_bar_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="?android:attr/actionBarStyle">
+            <com.miui.internal.v5.widget.ActionBarView
+                android:id="@miui:id/android_action_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="?android:attr/actionBarStyle" />
+            <com.miui.internal.v5.widget.ActionBarContextView
+                android:id="@miui:id/android_action_context_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                style="?android:attr/actionModeStyle" />
+        </com.miui.internal.v5.widget.ActionBarContainer>
+        <ImageView android:id="@miui:id/v5_action_bar_shadow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?miui:attr/v5_tab_indicator_shadow"
+            android:visibility="gone" />
+    </LinearLayout>
+    <com.miui.internal.v5.widget.ActionBarContainer android:id="@miui:id/android_split_action_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="?android:attr/actionBarSplitStyle"
+            android:visibility="gone"
+            android:layout_gravity="bottom"
+            android:gravity="center" />
+    <View android:id="@miui:id/v5_icon_menu_bar_dim_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/miro_content_mask"
+        android:clickable="true"
+        android:visibility="gone"/>
+</com.miui.internal.v5.widget.ActionBarLayout>

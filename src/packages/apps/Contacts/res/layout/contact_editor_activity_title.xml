@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.android.contacts.editor.ContactEditorActivityTitleView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/EditorTitleStyle"
+    android:id="@+id/title_view" >
+
+    <!-- TODO: layout margin left & right-->
+    <Button
+        android:layout_marginLeft="@dimen/editor_title_button_margin"
+        android:id="@+id/cancel"
+        style="@miui:style/V5.Widget.EditMode.TopBar.Button"
+        android:layout_weight="0"
+        android:text="@android:string/cancel" />
+
+    <LinearLayout
+        android:id="@+id/title_container"
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/title"
+            style="@miui:style/V5.TextAppearance.EditMode"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <Button
+        android:layout_marginRight="@dimen/editor_title_button_margin"
+        android:id="@+id/ok"
+        style="@miui:style/V5.Widget.EditMode.TopBar.Button.Default"
+        android:layout_weight="0"
+        android:text="@android:string/ok" />
+
+</com.android.contacts.editor.ContactEditorActivityTitleView>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.yellowpage.ui.YellowPageListItem
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/primary_action_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/yellow_page_detail_list_item_padding_vertical"
+        android:paddingTop="@dimen/yellow_page_detail_list_item_padding_vertical"
+        android:paddingRight="@dimen/yellow_page_detail_list_item_padding_horizontal"
+        android:background="@drawable/yellow_page_list_item_bg">
+
+        <TextView
+            android:id="@+id/data"
+            style="@style/YellowPageListItemTextAppearancePrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/type"
+            style="@style/YellowPageListItemTextAppearanceSecondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/type_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginTop="@dimen/yellow_page_detail_type_icon_top_margin"
+        android:layout_marginLeft="@dimen/yellow_page_detail_type_icon_left_margin" />
+
+    <ImageView
+        android:id="@+id/secondary_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/yellow_page_module_action_icon_size"
+        android:layout_gravity="right|center_vertical"
+        android:duplicateParentState="false"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true" />
+</com.miui.yellowpage.ui.YellowPageListItem>

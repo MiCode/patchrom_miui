@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <FrameLayout android:id="@+id/video_frame_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dip"
+        android:layout_centerHorizontal="true"
+        android:padding="4dip"
+        android:background="@drawable/surface_background">
+        <com.android.videoeditor.widgets.ImageViewTouchBase android:id="@+id/ken_burns_image"
+            android:layout_width="720dip"
+            android:layout_height="0px"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="20dip"/>
+    </FrameLayout>
+
+    <ProgressBar android:id="@+id/image_loading"
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:indeterminate="true"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/video_frame_view"
+        android:padding="10dip"
+        android:gravity="center_horizontal">
+        <RadioGroup android:id="@+id/which_rectangle"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton android:id="@+id/start_rectangle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dip"
+                android:text="@string/pan_zoom_start"/>
+            <RadioButton android:id="@+id/end_rectangle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dip"
+                android:text="@string/pan_zoom_end"/>
+        </RadioGroup>
+        <Button android:id="@+id/done"
+            android:onClick="onClickHandler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/done"/>
+    </LinearLayout>
+</RelativeLayout>

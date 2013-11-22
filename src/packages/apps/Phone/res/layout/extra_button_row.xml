@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialpad_background_opaque">
+    <!-- The buttons here have a text label floating off to the side
+         (which is necessary because these buttons are used only in
+         a few rare states, and the meaning of the icon might not be
+         obvious.)  The entire row (button + text) is clickable. -->
+
+    <!-- "Manage conference" -->
+    <!-- This button is used only on GSM devices, during a conference call. -->
+    <LinearLayout android:id="@+id/manageConferenceButton"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/button_cluster_side_padding"
+        android:paddingRight="@dimen/button_cluster_side_padding"
+        android:background="?android:attr/selectableItemBackground">
+        <!-- The entire LinearLayout here is clickable, so we don't
+             care about clicks on the ImageButton itself. -->
+        <ImageButton android:id="@+id/manageConferenceButtonImage"
+            android:clickable="false"
+            style="@style/InCallExtraRowButton"
+            android:src="@drawable/ic_groups_holo_dark"
+            android:contentDescription="@string/onscreenManageConferenceText" />
+        <TextView android:id="@+id/manageConferenceButtonLabel"
+            style="@style/InCallExtraRowButtonLabel"
+            android:text="@string/onscreenManageConferenceText" />
+    </LinearLayout>
+
+    <!-- CDMA-specific "Merge" -->
+    <!-- This button is used only on CDMA devices, where we can't use
+         the Merge button in the main button row (because the "Add Call"
+         button might need to be enabled at the same time.) -->
+    <LinearLayout android:id="@+id/cdmaMergeButton"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/button_cluster_side_padding"
+        android:paddingRight="@dimen/button_cluster_side_padding"
+        android:background="?android:attr/selectableItemBackground">
+        <!-- The entire LinearLayout here is clickable, so we don't
+             care about clicks on the ImageButton itself. -->
+        <ImageButton android:id="@+id/cdmaMergeButtonImage"
+            android:clickable="false"
+            style="@style/InCallExtraRowButton"
+            android:src="@drawable/ic_merge_holo_dark"
+            android:contentDescription="@string/onscreenMergeCallsText" />
+        <TextView android:id="@+id/cdmaMergeButtonLabel"
+            style="@style/InCallExtraRowButtonLabel"
+            android:text="@string/onscreenMergeCallsText" />
+    </LinearLayout>
+
+</FrameLayout>

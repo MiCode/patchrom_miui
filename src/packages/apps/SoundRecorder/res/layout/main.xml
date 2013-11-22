@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miui="http://schemas.android.com/apk/res/miui"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.android.soundrecorder.SoundRecorderBackLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/background_top" >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center" >
+
+                <com.android.soundrecorder.TapeWheel
+                    android:id="@+id/wheel_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|bottom"
+                    android:layout_marginLeft="@dimen/wheel_margin_left"
+                    android:layout_marginBottom="@dimen/wheel_margin_horizontal"
+                    android:src="@drawable/wheel_left" />
+
+                <com.android.soundrecorder.TapeWheel
+                    android:id="@+id/wheel_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|top"
+                    android:layout_marginLeft="@dimen/wheel_margin_left"
+                    android:layout_marginTop="@dimen/wheel_margin_horizontal"
+                    android:src="@drawable/wheel_right" />
+
+                <com.android.soundrecorder.WheelImageView
+                    android:id="@+id/wheel_small_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|bottom"
+                    android:layout_marginBottom="@dimen/wheel_small_margin_horizontal"
+                    android:src="@drawable/wheel_small_left" />
+
+                <com.android.soundrecorder.WheelImageView
+                    android:id="@+id/wheel_small_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|top"
+                    android:layout_marginTop="@dimen/wheel_small_margin_horizontal"
+                    android:src="@drawable/wheel_small_right" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|top"
+                    android:layout_marginLeft="@dimen/file_name_layout_margin_left"
+                    android:layout_marginTop="@dimen/file_name_layout_margin_top"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:layout_width="0px"
+                        android:layout_height="0px"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/line_bg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:background="@drawable/background_line" />
+
+                <ImageView
+                    android:id="@+id/tape_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/tape_fg" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/time_calculator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/calculator_marginleft"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/time_calculator_padding_top" >
+            </LinearLayout>
+        </com.android.soundrecorder.SoundRecorderBackLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/background_mid"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/vumeter_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/icon_vumeter_bg"
+                android:gravity="center"
+                android:orientation="horizontal" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/play_seek_bar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/time_padding_horizontal"
+                android:layout_marginRight="@dimen/time_padding_horizontal"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/starttime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="46dip"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#B2FFFFFF" />
+
+                <SeekBar
+                    android:id="@+id/play_seek_bar"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:maxHeight="@dimen/seek_bar_height"
+                    android:minHeight="@dimen/seek_bar_height"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/play_seek_bar_padding_horizontal"
+                    android:paddingRight="@dimen/play_seek_bar_padding_horizontal"
+                    android:paddingTop="@dimen/seek_bar_padding_top"
+                    android:progressDrawable="@drawable/play_seek_bar_drawable"
+                    android:thumb="@drawable/play_seek_bar_thumb"
+                    miui:progressBar="@null"
+                    miui:progressBarMask="@null" />
+
+                <TextView
+                    android:id="@+id/totaltime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#B2FFFFFF" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/background_bottom"
+            android:orientation="horizontal"
+            android:layout_gravity="bottom|center_horizontal"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/playButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/play_record"
+                    android:background="@drawable/btn_play" />
+
+                <ImageButton
+                    android:id="@+id/stopButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_stop"
+                    android:contentDescription="@string/stop_recording"
+                    android:visibility="gone" />
+
+                <ImageButton
+                    android:id="@+id/pauseButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_pause"
+                    android:contentDescription="@string/pause"
+                    android:visibility="gone" />
+
+                <ImageButton
+                    android:id="@+id/finishButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_finish"
+                    android:visibility="gone" />
+
+                <ImageButton
+                    android:id="@+id/recordButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/start_recording"
+                    android:background="@drawable/btn_record" />
+
+                <LinearLayout
+                    android:id="@+id/loadingLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:background="@drawable/loading_layout_bg">
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        style="@style/ProgressStyle" />
+                    <TextView
+                        android:id="@+id/loadingText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@miui:color/v5_secondary_text_color_dark"/>
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/listButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/view_list_of_recordings"
+                    android:background="@drawable/btn_list" />
+
+                <ImageButton
+                    android:id="@+id/recordPauseButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/pause"
+                    android:background="@drawable/btn_record_pause" />
+
+                <ImageButton
+                    android:id="@+id/deleteButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_delete" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include
+        layout="@miui:layout/android_transient_notification"
+        android:id="@+id/no_sdcard_toast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="@dimen/no_sdcard_toast_margin_bottom"
+        android:visibility="gone" />
+
+</FrameLayout>

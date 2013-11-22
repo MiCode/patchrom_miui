@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:clickable="true"
+    android:background="@miui:drawable/v5_preference_item_bg" >
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="47dip"
+        android:layout_height="47dip"
+        android:layout_marginTop="@miui:dimen/v5_preference_item_padding_inner"
+        android:layout_marginBottom="@miui:dimen/v5_preference_item_padding_inner"
+        android:layout_marginRight="@miui:dimen/v5_preference_item_padding_inner"
+        android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_inner"
+        android:scaleType="fitCenter"
+        android:gravity="center"
+        android:layout_gravity="center" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="@miui:dimen/v5_preference_item_padding_inner"
+        android:paddingTop="@miui:dimen/v5_preference_item_padding_top"
+        android:paddingBottom="@miui:dimen/v5_preference_item_padding_bottom"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal"
+            android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" />
+        <TextView
+            android:id="@+id/summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_alignLeft="@+id/title"
+            android:maxLines="4" 
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+    </RelativeLayout>
+    <CheckBox
+        android:id="@+id/app_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:focusable="false" />
+</LinearLayout>

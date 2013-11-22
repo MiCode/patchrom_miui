@@ -1,0 +1,91 @@
+//
+// Copyright (C) 2011 The Android Open Source Project
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+// Imports ---------------------------------------------------
+@import android.filterpacks.base;
+@import android.filterpacks.ui;
+@import android.filterpacks.videosrc;
+@import android.filterpacks.videoproc;
+@import android.filterpacks.videosink;
+
+@setting autoBranch = "synced";
+
+// Externals -------------------------------------------------
+
+@external textureSourceCallback;
+@external recordingWidth;
+@external recordingHeight;
+@external recordingProfile;
+@external recordingDoneListener;
+
+@external previewSurfaceTexture;
+@external previewWidth;
+@external previewHeight;
+
+@external orientation;
+
+@external learningDoneListener;
+
+// Filters ---------------------------------------------------
+
+// Camera input
+@filter SurfaceTextureSource source {
+  sourceListener = $textureSourceCallback;
+  width = $recordingWidth;
+  height = $recordingHeight;
+  closeOnTimeout = true;
+}
+
+// Background video input
+@filter MediaSource background {
+  sourceUrl = "no_file_specified";
+  waitForNewFrame = false;
+  sourceIsUrl = true;
+  orientation = $orientation;
+}
+
+// Background replacer
+@filter BackDropperFilter replacer {
+  autowbToggle = 1;
+  learningDoneListener = $learningDoneListener;
+  orientation = $orientation;
+}
+
+// Display output
+@filter SurfaceTextureTarget display {
+  surfaceTexture = $previewSurfaceTexture;
+  width = $previewWidth;
+  height = $previewHeight;
+}
+
+// Recording output
+@filter MediaEncoderFilter recorder {
+  recordingProfile = $recordingProfile;
+  recordingDoneListener = $recordingDoneListener;
+  recording = false;
+  width = $recordingWidth;
+  height = $recordingHeight;
+  // outputFile, orientationHint, inputRegion,
+  // audioSource, listeners, captureRate
+  // will be set when recording starts
+}
+
+// Connections -----------------------------------------------
+@connect source[video] => replacer[video];
+@connect background[video] => replacer[background];
+@connect replacer[video] => display[frame];
+@connect replacer[video] => recorder[videoframe];
+

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+	<View
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/home_myvideo_line_divider"/>   
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/myvideo_item_height"
+		android:layout_marginLeft="@dimen/myvideo_iteminfo_margin_left"
+        android:baselineAligned="false"
+		android:orientation="vertical">                   
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/myvideo_iteminfo_margin_top"
+            >
+            
+            <TextView
+                android:id="@+id/live_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/myvideo_itemtitle_margin_bottom"
+                android:ellipsize="end"
+                android:paddingBottom="0dp"
+                android:paddingTop="0dp"
+                android:singleLine="true"
+                android:textColor="@color/p_80_white"
+                android:textSize="@dimen/text_size_34"
+                android:textStyle="bold" />
+            
+            <TextView
+                android:id="@+id/live_videoname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:paddingBottom="0dp"
+                android:paddingTop="0dp"
+                android:singleLine="true"
+                android:textColor="@color/p_80_white"
+                android:textSize="@dimen/text_size_34" 
+				android:textStyle="bold" 
+				android:layout_toRightOf= "@id/live_category" />
+        </RelativeLayout>
+		<RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+			android:layout_marginBottom="@dimen/myvideo_iteminfo_margin_bottom"
+            >
+            
+            <TextView
+                android:id="@+id/live_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/myvideo_itemtitle_margin_bottom"
+                android:ellipsize="end"
+                android:paddingBottom="0dp"
+                android:paddingTop="0dp"
+                android:singleLine="true"
+                android:textColor="@color/p_60_white"
+                android:textSize="@dimen/text_size_24" />
+            
+            <TextView
+                android:id="@+id/live_channelname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:paddingBottom="0dp"
+                android:paddingTop="0dp"
+                android:singleLine="true"
+                android:textColor="@color/p_60_white"
+                android:textSize="@dimen/text_size_24" 
+				android:layout_toRightOf= "@id/live_status" 
+				android:layout_marginLeft = "@dimen/myvideo_iteminfo_margin_left"/>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

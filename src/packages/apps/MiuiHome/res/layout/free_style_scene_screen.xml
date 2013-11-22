@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.home.launcher.upsidescene.SceneScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <include layout="@layout/free_style_edit_bar" />
+    <com.miui.home.launcher.upsidescene.SceneContentView
+        android:id="@+id/sceneContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top">
+        <include android:id="@+id/backgroundScreen" layout="@layout/free_style_fixed_screen" />
+        <com.miui.home.launcher.upsidescene.ScrollableScreen android:id="@+id/scrollableScreen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.miui.home.launcher.upsidescene.FreeLayout android:id="@+id/freeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </com.miui.home.launcher.upsidescene.ScrollableScreen>
+        <include android:id="@+id/dockScreen" layout="@layout/free_style_fixed_screen" />
+        <include android:id="@+id/foregroundScreen" layout="@layout/free_style_fixed_screen" />
+    </com.miui.home.launcher.upsidescene.SceneContentView>
+</com.miui.home.launcher.upsidescene.SceneScreen>

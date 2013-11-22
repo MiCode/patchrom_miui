@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- small -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent" android:layout_width="match_parent"
+    android:orientation="vertical">
+    <ScrollView android:layout_width="match_parent"
+        android:layout_height="0dip" android:layout_weight="1"
+        android:fillViewport="true"
+        android:paddingLeft="16dip"
+        android:paddingRight="16dip">
+        <LinearLayout android:orientation="vertical"
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Not actually editable -->
+                <include layout="@layout/compose_from"/>
+
+                <include layout="@layout/compose_area_recipients"/>
+
+                <!--
+                    Empty container for storing attachments. We'll stick
+                    instances of message_compose_attachment.xml in here.
+                -->
+                <LinearLayout android:id="@+id/attachments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+                <!-- Dummy view to keep it compatible with the xlarge counterpart -->
+                <View
+                    android:id="@+id/attachment_container"
+                    android:layout_width="0dip"
+                    android:layout_height="0dip"
+                    android:visibility="gone"
+                    />
+            </LinearLayout>
+            <include layout="@layout/compose_body"/>
+            <!--  quoted text bar -->
+            <include layout="@layout/quoted_text"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

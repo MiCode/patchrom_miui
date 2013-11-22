@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:phone="http://schemas.android.com/apk/res/com.android.phone"
+     android:title="@string/call_forwarding_settings_miui">
+
+
+    <!-- Note for all com.android.phone.EditPreference objects
+
+         The last several attributes are for use with the EditText field
+         in the dialog.  These attributes are forwarded to that field
+         when the edittext is created.  The attributes include:
+           1. android:singleLine
+           2. android:autoText
+           3. android:background -->
+
+    <com.android.phone.MiuiCdmaCallForwardEditPreference
+        android:key="button_cfu"
+        android:title="@string/cfu_title_miui"
+        android:hint="@string/call_forwarding_number_hint_miui"
+        android:dialogTitle="@string/cfu_title_miui"
+        phone:changeNumButtonText="@string/enable_miui"
+        phone:confirmMode="activation"
+        phone:reason="unconditional"
+        android:singleLine="true"
+        android:autoText="false"/>
+
+    <!-- See note on com.android.phone.EditPreference above -->
+    <com.android.phone.MiuiCdmaCallForwardEditPreference
+        android:key="button_cfb"
+        android:title="@string/cfb_title_miui"
+        android:hint="@string/call_forwarding_number_hint_miui"
+        android:dialogTitle="@string/cfb_title_miui"
+        phone:changeNumButtonText="@string/enable_miui"
+        phone:confirmMode="activation"
+        phone:reason="busy"
+        android:singleLine="true"
+        android:autoText="false"/>
+
+    <!-- See note on com.android.phone.EditPreference above -->
+    <com.android.phone.MiuiCdmaCallForwardEditPreference
+        android:key="button_cfnry"
+        android:title="@string/cfnry_title_miui"
+        android:hint="@string/call_forwarding_number_hint_miui"
+        android:dialogTitle="@string/cfnry_title_miui"
+        phone:changeNumButtonText="@string/enable_miui"
+        phone:confirmMode="activation"
+        phone:reason="no_reply"
+        android:singleLine="true"
+        android:autoText="false"/>
+
+    <!-- See note on com.android.phone.EditPreference above -->
+    <com.android.phone.MiuiCdmaCallForwardEditPreference
+        android:key="button_cfnrc"
+        android:title="@string/cfnrc_title_miui"
+        android:hint="@string/call_forwarding_number_hint_miui"
+        android:dialogTitle="@string/cfnrc_title_miui"
+        phone:changeNumButtonText="@string/enable_miui"
+        phone:confirmMode="activation"
+        phone:reason="not_reachable"
+        android:singleLine="true"
+        android:autoText="false"/>
+
+    <Preference android:title="@string/disable_all_cf_miui">
+        <intent android:action="android.intent.action.CALL"
+            android:data="tel:*730" />
+    </Preference>
+</PreferenceScreen>

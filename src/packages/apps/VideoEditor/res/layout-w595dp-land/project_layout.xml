@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (C) 2009 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<com.android.videoeditor.widgets.EditorRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/editor_project_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Don't show zoom control for small screens. -->
+    <RelativeLayout
+        android:visibility="gone"
+        android:layout_width="230dip"
+        android:layout_height="230dip"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="33dip"
+        android:layout_marginLeft="-50dip">
+        <com.android.videoeditor.widgets.ZoomControl android:id="@+id/editor_zoom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"/>
+    </RelativeLayout>
+
+    <LinearLayout android:id="@+id/playback_buttons"
+        android:layout_width="200dip"
+        android:layout_height="200dip"
+        android:layout_marginLeft="30dip"
+        android:layout_marginTop="115dip">
+         <ImageButton android:id="@+id/editor_prev"
+            android:onClick="onClickHandler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dip"
+            android:src="@drawable/btn_playback_ic_prev"
+            android:background="@drawable/background_selector"/>
+        <ImageButton android:id="@+id/editor_play"
+            android:onClick="onClickHandler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_playback_ic_play"
+            android:background="@drawable/background_selector"/>
+        <ImageButton android:id="@+id/editor_next"
+            android:onClick="onClickHandler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:src="@drawable/btn_playback_ic_next"
+            android:background="@drawable/background_selector"/>
+        <ImageButton android:id="@+id/editor_rewind"
+            android:visibility="gone"
+            android:onClick="onClickHandler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_playback_ic_rev"
+            android:background="@drawable/background_selector"/>
+   </LinearLayout>
+
+    <TextView android:id="@+id/editor_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/playback_buttons"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="280dip"
+        android:layout_marginTop="130dip"
+        android:singleLine="true"
+        android:text="@string/editor_zero_time_stamp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/orange"/>
+
+    <include layout="@layout/timeline_layout"/>
+
+    <FrameLayout android:id="@+id/video_frame_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="174dip"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:padding="1dip"
+        android:background="@drawable/surface_background">
+        <com.android.videoeditor.widgets.PreviewSurfaceView android:id="@+id/video_view"
+            android:layout_width="0dip"
+            android:layout_height="148dip"/>
+        <ImageView android:id="@+id/overlay_layer"
+            android:layout_width="0dip"
+            android:layout_height="148dip"/>
+    </FrameLayout>
+</com.android.videoeditor.widgets.EditorRelativeLayout>

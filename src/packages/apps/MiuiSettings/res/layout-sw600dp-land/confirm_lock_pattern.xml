@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/topLayout"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/lock_pattern_background">
+
+    <!-- left side: lock pattern widget -->
+    <RelativeLayout
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal">
+
+        <com.android.internal.widget.LockPatternView android:id="@+id/lockPattern"
+             android:layout_width="354dip"
+             android:layout_height="354dip"
+             aspect="square"/>
+
+     </RelativeLayout>
+
+    <!-- right side: instructions and buttons -->
+    <RelativeLayout
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_horizontal">
+
+        <!-- confirm / restart buttons -->
+        <LinearLayout android:id="@+id/buttonContainer"
+            style="@style/SecurityPreferenceButtonContainer"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <!-- left / top button: skip, or re-try -->
+            <Button android:id="@+id/footerLeftButton"
+                style="@style/SecurityPreferenceButton"
+                android:text="@string/lockpattern_restart_button_text"/>
+
+            <!-- right / bottom button: confirm or ok -->
+            <Button android:id="@+id/footerRightButton"
+                style="@style/SecurityPreferenceButton"
+                android:text="@string/lockpattern_confirm_button_text"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+            <Button android:id="@+id/emergencyCall"
+                android:layout_height="wrap_content"
+                android:layout_width="144dip"
+                android:layout_marginTop="10dip"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:drawableLeft="@miui:drawable/v5_ic_emergency"
+                android:singleLine="true"
+                android:text="@miui:string/android_lockscreen_emergency_call"
+                android:visibility="gone" />
+
+            <Button android:id="@+id/forgetPattern"
+                android:layout_height="wrap_content"
+                android:layout_width="144dip"
+                android:layout_marginTop="10dip"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@*android:string/lockscreen_forgot_pattern_button_text"
+                android:visibility="gone"
+                />
+        </LinearLayout>
+
+         <!-- footer message -->
+        <TextView android:id="@+id/footerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/buttonContainer"
+            android:layout_marginTop="16dip"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+        <!-- header message -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dip"
+            android:layout_marginLeft="20dip"
+            android:layout_above="@id/footerText"
+            android:gravity="center_vertical|center_horizontal">
+
+            <TextView android:id="@+id/headerText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"/>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient>
+

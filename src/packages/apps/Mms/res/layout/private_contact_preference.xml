@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:layout_width="@dimen/avatar_size_large"
+        android:layout_height="@dimen/avatar_size_large"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@android:id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@miui:drawable/ic_contact_list_picture"
+            android:paddingRight="@miui:dimen/v5_preference_item_padding_inner" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:layout_weight="1"
+        android:paddingRight="@miui:dimen/v5_preference_item_padding_inner"
+        android:paddingTop="@miui:dimen/v5_preference_item_padding_top"
+        android:paddingBottom="@miui:dimen/v5_preference_item_padding_bottom">
+
+        <TextView android:id="@android:id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal" />
+
+        <TextView android:id="@android:id/summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@android:id/title"
+            android:layout_alignLeft="@android:id/title"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"
+            android:maxLines="10" />
+
+    </RelativeLayout>
+
+     <!-- delete btn -->
+    <ImageView android:id="@+id/delete_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@miui:drawable/v5_btn_inline_delete_light"
+        android:layout_gravity="center_vertical|right"
+        android:gravity="center"
+        android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_inner"/>
+
+    <!-- Preference should place its actual preference widget here. -->
+    <LinearLayout android:id="@android:id/widget_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:minWidth="@miui:dimen/v5_preference_widget_width"
+        android:gravity="center"
+        android:orientation="vertical" />
+</LinearLayout>

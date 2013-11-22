@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+      
+   <LinearLayout
+      android:id="@+id/variety_item"
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/variety_item_height"
+      android:orientation="horizontal"
+      android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/variety_text_margin_left" >
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/varitey_name_margin_bottom"
+                android:layout_marginTop="@dimen/varitey_name_margin_top"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:textSize="@dimen/text_size_34" 
+                android:textColor="@color/white"/>
+            
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_24" 
+                android:textColor="@color/half_white"/>
+
+        </LinearLayout>
+
+      <FrameLayout
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent" 
+          android:layout_marginRight="@dimen/varitey_play_icon_margin_right">
+
+          <ImageView
+              android:id="@+id/icon_play"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:contentDescription="@string/app_name"
+              android:src="@drawable/variety_icon_play" />
+
+          <ProgressBar
+              android:id="@+id/loading_play"
+              style="@miui:style/V5.Widget.ProgressBar.Small"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center" />
+
+      </FrameLayout>
+        
+    </LinearLayout>
+    
+    <View
+        android:id="@+id/tv_thumb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/variety_line_divider"/>
+
+</LinearLayout>

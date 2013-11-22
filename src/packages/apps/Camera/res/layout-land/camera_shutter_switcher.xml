@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/camera_shutter_switcher"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <View
+        android:id="@+id/controls"
+        style="@style/CameraControls"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true" />
+
+    <com.android.camera.ShutterButton
+        android:id="@+id/shutter_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/shutter_offset"
+        android:clickable="true"
+        android:contentDescription="@string/accessibility_shutter_button"
+        android:focusable="true"
+        android:scaleType="center"
+        android:src="@drawable/btn_new_shutter" />
+
+    <com.android.camera.ui.CameraSwitcher
+        android:id="@+id/camera_switcher"
+        style="@style/SwitcherButton"
+        android:layout_alignBottom="@id/controls"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="2dip"
+        android:contentDescription="@string/accessibility_mode_picker" />
+
+</RelativeLayout>

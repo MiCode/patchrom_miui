@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pinned_header_list_layout"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/contact_browser_background" >
+
+    <include
+        android:id="@+id/search_view"
+        layout="@layout/search_view"/>
+
+    <include layout="@layout/list_empty_view" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1">
+
+        <view
+            class="com.android.contacts.widget.PinnedHeaderListView"
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="?attr/contact_browser_list_padding_left"
+            android:layout_marginRight="?attr/contact_browser_list_padding_right"
+            android:fastScrollEnabled="true"
+            android:fadingEdge="none" />
+
+        <include layout="@layout/search_empty_view" />
+
+        <view
+            class="miui.widget.AlphabetFastIndexer"
+            style="@miui:style/AlphabetFastIndexerStyleWithStarred"
+            android:id="@+id/fast_indexer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+</LinearLayout>

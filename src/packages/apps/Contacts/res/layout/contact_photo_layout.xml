@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ex="http://schemas.android.com/apk/res/com.android.contacts"
+    class="com.android.contacts.quickcontact.FloatingChildLayout"
+    android:id="@+id/floating_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:descendantFocusability="afterDescendants">
+
+    <RelativeLayout
+        android:id="@android:id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black">
+
+        <ImageView
+            android:id="@+id/photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="center" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="112dip"
+            android:gravity="center_horizontal"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/contact_photo_bg">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="30dip"
+                android:drawableLeft="@drawable/info"
+                android:text="@string/click_close" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</view>

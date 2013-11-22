@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    style="@miui:style/V5.Widget.ListView.Item.DoubleLine"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical" >
+
+    <TextView
+        android:id="@+id/title"
+        style="@miui:style/V5.TextAppearance.List.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="@dimen/list_item_maxwidth"
+        android:ellipsize="end"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/count"
+        style="@miui:style/V5.TextAppearance.List.Secondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/title"
+        android:layout_alignBottom="@id/title"
+        android:paddingLeft="5dip"
+        android:visibility="gone"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/unread_count"
+        android:textAppearance="@style/UnreadCount"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_toRightOf="@id/title"
+        android:layout_marginLeft="5dip"
+        android:layout_marginTop="3dip"
+        android:gravity="center"
+        android:singleLine="true"
+        android:visibility="gone"
+        android:background="@drawable/unread_count_bg" />
+
+    <TextView
+        android:id="@+id/subtitle"
+        style="@miui:style/V5.TextAppearance.List.Secondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/title"
+        android:singleLine="true"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:id="@+id/data1"
+        style="@miui:style/V5.TextAppearance.List.Secondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:singleLine="true" />
+
+</RelativeLayout>

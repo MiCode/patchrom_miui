@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:background="@drawable/incall_manage_conference_list_item_bg_miui">
+
+    <!-- "End" button for this caller -->
+    <Button
+        android:id="@+id/conferenceCallerDisconnect"
+        style="@style/Miui.Button.HangupInConference"
+        android:contentDescription="@string/onscreen_end_call_text_miui" />
+
+    <!-- Caller information -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="1dip"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip">
+
+        <!-- Name or number of this caller -->
+        <TextView
+            android:id="@+id/conferenceCallerName"
+            android:singleLine="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textAppearance="@style/Miui.TextAppearance.Primary"
+            android:textColor="@color/call_card_name_text_color_miui" />
+
+        <!-- Telocation and phone number, side by side -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/conferenceCallerNumber"
+                android:singleLine="true"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:textAppearance="@style/Miui.TextAppearance.Secondary"
+                android:textColor="@color/call_card_info_text_color_miui" />
+            <!-- Tel location -->
+            <TextView
+                android:id="@+id/conferenceCallerNumberTelocation"
+                android:gravity="center_horizontal"
+                android:singleLine="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:maxWidth="180dip"
+                android:ellipsize="end"
+                android:textAppearance="@style/Miui.TextAppearance.Secondary"
+                android:textColor="@color/call_card_info_text_color_miui" />
+            </LinearLayout>
+    </LinearLayout>  <!-- End of caller information -->
+
+    <!-- "Separate" (i.e. "go private") button for this caller -->
+    <Button
+        android:id="@+id/conferenceCallerSeparate"
+        style="@style/Miui.Button.SeparateFromConference"
+        android:text="@string/separate_from_conference_miui"
+        android:contentDescription="@string/go_private_miui"/>
+</LinearLayout>

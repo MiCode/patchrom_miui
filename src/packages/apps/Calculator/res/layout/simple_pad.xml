@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:clipToPadding="false"
+    android:clipChildren="false"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/simplePad"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_alignParentLeft="true"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
+
+            <com.android.calculator2.ColorButton
+                android:id="@+id/clear"
+                style="@style/button_simple_fun_key_style"
+                android:contentDescription="@string/clearDesc"
+                android:text="@string/clear" />
+
+            <com.android.calculator2.ColorButton
+                android:id="@+id/del"
+                style="@style/button_simple_fun_key_style"
+                android:contentDescription="@string/delDesc"
+                android:text="@string/del" />
+
+            <com.android.calculator2.ColorButton
+                android:id="@+id/div"
+                style="@style/button_simple_fun_key_style"
+                android:contentDescription="@string/divDesc"
+                android:text="@string/div" />
+
+            <com.android.calculator2.ColorButton
+                android:id="@+id/mul"
+                style="@style/button_simple_fun_key_style"
+                android:contentDescription="@string/mulDesc"
+                android:text="@string/mul" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:layout_weight="1" >
+
+            <com.android.calculator2.ColorButton
+                android:id="@+id/digit7"
+                style="@style/button_simple_digit_key_style"
+                android:text="@string/digit7" />
+
+            <com.android.calculator2.ColorButton
+                android:id="@+id/digit8"
+                style="@style/button_simple_digit_key_style"
+                android:text="@string/digit8" />
+
+            <com.android.calculator2.ColorButton
+                android:id="@+id/digit9"
+                style="@style/button_simple_digit_key_style"
+                android:text="@string/digit9" />
+
+            <com.android.calculator2.ColorButton
+                android:id="@+id/minus"
+                style="@style/button_simple_fun_key_style"
+                android:contentDescription="@string/minusDesc"
+                android:text="@string/minus" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:layout_weight="1" >
+
+            <com.android.calculator2.ColorButton
+                android:id="@+id/digit4"
+                style="@style/button_simple_digit_key_style"
+                android:text="@string/digit4" />
+
+            <com.android.calculator2.ColorButton
+                android:id="@+id/digit5"
+                style="@style/button_simple_digit_key_style"
+                android:text="@string/digit5" />
+
+            <com.android.calculator2.ColorButton
+                android:id="@+id/digit6"
+                style="@style/button_simple_digit_key_style"
+                android:text="@string/digit6" />
+
+            <com.android.calculator2.ColorButton
+                android:id="@+id/plus"
+                style="@style/button_simple_fun_key_style"
+                android:contentDescription="@string/plusDesc"
+                android:text="@string/plus" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:layout_weight="2"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:clipToPadding="false"
+                android:clipChildren="false"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:clipChildren="false"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+
+                    <com.android.calculator2.ColorButton
+                        android:id="@+id/digit1"
+                        style="@style/button_simple_digit_key_style"
+                        android:text="@string/digit1" />
+
+                    <com.android.calculator2.ColorButton
+                        android:id="@+id/digit2"
+                        style="@style/button_simple_digit_key_style"
+                        android:text="@string/digit2" />
+
+                    <com.android.calculator2.ColorButton
+                        android:id="@+id/digit3"
+                        style="@style/button_simple_digit_key_style"
+                        android:text="@string/digit3" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:clipChildren="false"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+
+                     <FrameLayout
+                         android:layout_width="wrap_content"
+                         android:layout_height="match_parent"
+                         android:layout_weight="2"
+                         android:gravity="center" >
+
+                         <com.android.calculator2.ColorButton
+                             android:id="@+id/digit0"
+                             android:layout_width="match_parent"
+                             style="@style/simple_pad_button_digit0_style"
+                             android:text="@string/digit0" />
+                         <TextView
+                            android:id="@+id/digit0_simple_text"
+                            style="@style/digit0_simple_style_text_on_btn"
+                            android:text="@string/digit0" />
+
+                     </FrameLayout>
+
+                    <com.android.calculator2.ColorButton
+                        android:id="@+id/dot"
+                        style="@style/button_simple_digit_key_style"
+                        android:contentDescription="@string/dotDesc"
+                        android:text="@string/dot" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center" >
+
+                <com.android.calculator2.ColorButton
+                    android:id="@+id/equal"
+                    style="@style/button_simple_equal_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/equalDesc"
+                    android:text="@string/equal" />
+                <TextView
+                    android:id="@+id/equal_simple_text"
+                    style="@style/equal_simple_style_text_on_btn"
+                    android:text="@string/equal" />
+
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/external_pad"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:orientation="vertical"
+        android:visibility="invisible" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/out_screen_pad_linear_margin_left"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:orientation="horizontal" >
+
+            <com.android.calculator2.ColorButton
+                android:clipToPadding="false"
+                android:clipChildren="false"
+                android:id="@+id/factorial"
+                style="@style/out_screen_button_style"
+                android:contentDescription="@string/factorialDesc"
+                android:text="@string/factorial" />
+
+            <com.android.calculator2.ColorButton
+                android:clipToPadding="false"
+                android:clipChildren="false"
+                android:id="@+id/power"
+                style="@style/out_screen_button_style"
+                android:contentDescription="@string/powerDesc"
+                android:text="@string/power" />
+
+            <com.android.calculator2.ColorButton
+                android:clipToPadding="false"
+                android:clipChildren="false"
+                android:id="@+id/sqrt"
+                style="@style/out_screen_button_style"
+                android:contentDescription="@string/sqrtDesc"
+                android:text="@string/sqrt" />
+
+            <com.android.calculator2.ColorButton
+                android:clipToPadding="false"
+                android:clipChildren="false"
+                android:id="@+id/pi"
+                style="@style/out_screen_button_style"
+                android:contentDescription="@string/piDesc"
+                android:text="@string/pi" />
+
+            <Button
+                android:layout_width="1dip"
+                android:layout_height="0dip"
+                android:clipChildren="false"
+                android:clipToPadding="false" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/out_screen_pad_linear_margin_left"
+            android:orientation="horizontal" >
+
+            <com.android.calculator2.ColorButton
+                android:id="@+id/sin"
+                style="@style/out_screen_button_style"
+                android:contentDescription="@string/sinDesc"
+                android:text="@string/sin" />
+
+            <com.android.calculator2.ColorButton
+                android:id="@+id/leftParen"
+                style="@style/out_screen_button_style"
+                android:contentDescription="@string/leftParenDesc"
+                android:text="@string/leftParen" />
+
+            <com.android.calculator2.ColorButton
+                android:id="@+id/rightParen"
+                style="@style/out_screen_button_style"
+                android:contentDescription="@string/rightParenDesc"
+                android:text="@string/rightParen" />
+
+            <com.android.calculator2.ColorButton
+                android:id="@+id/e"
+                style="@style/out_screen_button_style"
+                android:contentDescription="@string/eDesc"
+                android:text="@string/e" />
+
+            <Button
+                android:layout_width="1dip"
+                android:layout_height="0dip"
+                android:clipChildren="false"
+                android:clipToPadding="false" />
+
+        </LinearLayout>
+
+        <com.android.calculator2.ColorButton
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:id="@+id/cos"
+            android:layout_marginLeft="@dimen/out_screen_pad_margin_left"
+            style="@style/out_screen_button_style"
+            android:contentDescription="@string/cosDesc"
+            android:text="@string/cos" />
+
+        <com.android.calculator2.ColorButton
+            android:id="@+id/tan"
+            android:layout_marginLeft="@dimen/out_screen_pad_margin_left"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/out_screen_button_style"
+            android:contentDescription="@string/tanDesc"
+            android:text="@string/tan" />
+
+        <com.android.calculator2.ColorButton
+            android:id="@+id/ln"
+            android:layout_marginLeft="@dimen/out_screen_pad_margin_left"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/out_screen_button_style"
+            android:contentDescription="@string/lnDesc"
+            android:text="@string/ln" />
+
+        <com.android.calculator2.ColorButton
+            android:id="@+id/lg"
+            android:layout_marginLeft="@dimen/out_screen_pad_margin_left"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            style="@style/out_screen_button_style"
+            android:contentDescription="@string/lgDesc"
+            android:text="@string/lg" />
+    </LinearLayout>
+
+</RelativeLayout>

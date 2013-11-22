@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+<!--     <View 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/viewpager_bg_height"
+        android:layout_marginTop="@dimen/viewpager_bg_margin_top"
+        android:background="@drawable/home_bottom_bg">   
+    </View> -->
+    
+    
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="1140px"
+        android:layout_marginTop="0px"
+        android:background="@drawable/home_bottom_bg">   
+    </View>
+    
+	<com.duokan.tv.video.widget.ShadowFrameLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"> 	
+	    
+	    <View
+	         android:layout_width="match_parent"
+	         android:layout_marginTop="0px"
+	         android:layout_height="@dimen/home_top_line_height"
+	         android:background="@drawable/home_top_line">
+	    </View>
+		
+		<FrameLayout 
+			android:id="@+id/home_container"
+			android:layout_marginTop="1px"
+	   		android:layout_width="match_parent"
+	   		android:layout_height="match_parent">
+		</FrameLayout>
+	    
+	    <com.duokan.tv.video.widget.ShadowView
+	      android:layout_width="match_parent"
+	      android:layout_height="@dimen/shadow_mask_height"
+	      android:layout_gravity="top"
+	      android:layout_marginTop="1px"
+	      android:background="@drawable/shadow_mask">   
+		 </com.duokan.tv.video.widget.ShadowView>
+		  
+	</com.duokan.tv.video.widget.ShadowFrameLayout>
+    
+</FrameLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <!--TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="64dip"
+        android:gravity="center"
+        style="?android:attr/windowTitleStyle"/-->
+    <!--View
+        style="@miui:style/V5.Widget.BottomBar.TopLine"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/-->
+    <RadioGroup
+        android:id="@+id/datetimeGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/datetime_group_margin_v"
+        android:layout_marginTop="@dimen/datetime_group_margin_v">
+        <RadioButton
+            android:id="@+id/date_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@miui:drawable/v5_preference_item_bg"
+            android:checked="true"/>
+        <RadioButton
+            android:id="@+id/time_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@miui:drawable/v5_preference_item_bg"/>
+    </RadioGroup>
+    <DatePicker
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/date_picker" />
+    <TimePicker
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/time_picker"
+        android:visibility="gone" />
+    <!--View
+        style="@miui:style/V5.Widget.BottomBar.TopLine"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/-->
+    <!--LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:baselineAligned="false">
+        <Button android:id="@+id/cancel"
+            android:text="@string/no"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="?android:attr/buttonBarButtonStyle" />
+        <Button android:id="@+id/ok"
+            android:text="@string/yes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="?android:attr/buttonBarButtonStyle" />
+    </LinearLayout-->
+</LinearLayout>

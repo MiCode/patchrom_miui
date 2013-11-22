@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaomi.market.ui.UpdateAppItem
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Widget.ListView.Item.TrebleLine">
+    <ImageSwitcher
+        android:id="@+id/icon"
+        style="@style/Widget.Icon" />
+
+    <com.xiaomi.market.ui.ActionButton
+        android:id="@+id/action"
+        android:layout_marginLeft="@dimen/common_padding"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:focusable="false"
+        style="@style/Widget.Button.Action" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/action"
+        android:layout_toRightOf="@id/icon"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textAppearance="@style/TextAppearance.Title" />
+    <TextView
+        android:id="@+id/developer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/action"
+        android:layout_toRightOf="@id/icon"
+        android:layout_above="@id/name"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textAppearance="@style/TextAppearance.Title.Secondary" />
+    <TextView
+        android:id="@+id/publish_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/action"
+        android:layout_toRightOf="@id/icon"
+        android:layout_below="@id/name"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:textAppearance="@style/TextAppearance.Title.Secondary" />
+</com.xiaomi.market.ui.UpdateAppItem>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <ProgressBar
+        android:id="@+id/account_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+    <LinearLayout
+        android:id="@+id/account_container"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/user_avatar"
+            android:layout_width="@dimen/user_avatar_size"
+            android:layout_height="@dimen/user_avatar_size"/>
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="22dp"
+            style="@style/TextAppearance.WeiBo.Primary" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/ContentPadding"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/update_contacts_btn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/WeiBo.ButtonUpdateContacts"
+                android:text="@string/update_contacts"/>
+            <TextView
+                android:id="@+id/update_contacts_description"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="@dimen/notice_text_padding_h"
+                android:layout_marginRight="@dimen/notice_text_padding_h"
+                android:text="@string/update_contacts_description"
+                style="@style/TextAppearance.WeiBo.Description"
+                android:gravity="center_horizontal"/>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

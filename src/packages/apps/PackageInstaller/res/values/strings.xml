@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Package installer</string>
+    <string name="install">Install</string>
+    <string name="done">Done</string>
+    <!-- TODO REMOVE LATER -->
+    <string name="security_settings_desc">Allow this application to:</string>
+    <string name="cancel">Cancel</string>
+    <string name="unknown">Unknown</string>
+    <string name="installing">Installing\u2026</string>
+    <string name="install_done">Application installed</string>
+    <string name="install_confirm_question">Do you want to install this application?</string>
+    <string name="install_failed">Application not installed</string>
+    <!-- Reason displayed when installation fails because the installation package itself is invalid
+        in some way (e.g., corrupt) [CHAR LIMIT=100] -->
+    <string name="install_failed_invalid_apk">The package appears to be corrupt.</string>
+    <!-- Reason displayed when installation fails because the package an existing package is
+        installed with a conflicting package author signature [CHAR LIMIT=100] -->
+    <string name="install_failed_inconsistent_certificates">An existing package by the same name
+        with a conflicting signature is already installed.</string>
+    <!-- Reason displayed when installation fails because the package specifies a minimum compatible
+        OS version that is newer than our current OS version. [CHAR LIMIT=100] -->
+    <string name="install_failed_older_sdk">The package only works on newer versions of
+        Android.</string>
+    <!-- Reason displayed when installation fails because the package specifies it is compatible
+        only with a CPU that the current tablet doesn't have. [CHAR LIMIT=100] -->
+    <string name="install_failed_cpu_abi_incompatible" product="tablet">This application is not
+        compatible with this tablet\'s CPU.</string>
+    <!-- Reason displayed when installation fails because the package specifies it is compatible
+        only with a CPU that the current phone doesn't have. [CHAR LIMIT=100] -->
+    <string name="install_failed_cpu_abi_incompatible" product="default">This application is not
+        compatible with this phone\'s CPU.</string>
+    <!-- Reason displayed when installation fails because the package was deleted during the
+        installation process. [CHAR LIMIT=100] -->
+    <string name="install_failed_file_not_found">The package specified was deleted before
+        installation could be completed.</string>
+    <!-- Reason displayed when installation fails because the package could not be verified
+        because the package verifier rejected it. [CHAR LIMIT=100] -->
+    <string name="install_failed_verify_failed">The package did not pass verification and cannot
+        be installed.</string>
+    <!-- Reason displayed when installation fails because the package could not be verified
+        before the internal system timer expired. [CHAR LIMIT=100] -->
+    <string name="install_failed_verify_timeout">A timeout occurred while trying to verify this
+        package. Please try to install it again later.</string>
+    <!-- Message presented when an application could not be installed on the tablet for some reason. [CHAR LIMIT=100] -->
+    <string name="install_failed_msg" product="tablet"><xliff:g id="app_name">%1$s</xliff:g> could not be installed on this tablet.</string>
+    <!-- Message presented when an application could not be installed on the phone for some reason. [CHAR LIMIT=100] -->
+    <string name="install_failed_msg" product="default"><xliff:g id="app_name">%1$s</xliff:g> could not be installed on this phone.</string>
+    <string name="launch">Open</string>
+    <string name="unknown_apps_dlg_title">Install blocked</string>
+    <!-- Message presented in a dialog box when a package is requested to be installed, but the "Allow unknown applications" checkbox is not enabled. [CHAR LIMIT=100] -->
+    <string name="unknown_apps_dlg_text" product="tablet">"For security reasons, your tablet has been set \
+to forbid installing applications obtained from unofficial channels.\
+To lift the ban you can install applications from any channel,\
+but your phone and personal data may be attacked by applications of unknown sources,\
+and you shall assume full responsibility for the probable consequences.\n
+You may also modify it via "Settings->Security->Unknown sources"."</string>
+    <!-- Message presented in a dialog box when a package is requested to be installed, but the "Allow unknown applications" checkbox is not enabled. [CHAR LIMIT=100] -->
+    <string name="unknown_apps_dlg_text" product="default">"For security reasons, your phone has been set \
+to forbid installing applications obtained from unofficial channels.\
+To lift the ban you can install applications from any channel,\
+but your phone and personal data may be attacked by applications of unknown sources,\
+and you shall assume full responsibility for the probable consequences.\n
+You may also modify it via "Settings->Security->Unknown sources"."</string>
+    <string name="ok">OK</string>
+    <string name="settings">Settings</string>
+    <!-- Title of dialog asking user if they would allow an application to be an install source. -->
+    <string name="allow_source_dlg_title">Allow new source for apps?</string>
+    <!-- Message of dialog asking user if they would allow an application to be an install source. -->
+    <string name="allow_source_dlg_text"><xliff:g id="app_name">%1$s</xliff:g> wants to install other apps.\n\nAllow
+        this now and in the future?</string>
+    <string name="manage_applications">Manage applications</string>
+    <string name="dlg_app_replacement_title">Replace application</string>
+    <string name="dlg_app_replacement_statement">The application you are installing will replace another application.\n\nAll previous user data will be saved.</string>
+    <string name="dlg_app_replacement_statement_with_version"><xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="NEW_VERSION">%2$s</xliff:g>) will replace the currently installed version (<xliff:g id="ORI_VERSION">%3$s</xliff:g>). User’s contents will be retained.\nSure to install?</string>
+    <!-- Dialog attributes when replacing system app -->
+    <string name="dlg_sys_app_replacement_statement">This is a system application. Do you still want to replace it?\n\nAll previous user data will be saved.</string>
+    <string name="lift_ban">Lift ban</string>
+    <string name="out_of_space_dlg_title">Out of space</string>
+    <string name="out_of_space_dlg_text"><xliff:g id="app_name">%1$s</xliff:g> could not be installed. Free up some space and try again.</string>
+    <!-- strings related to uninstall activity -->
+    <string name="dlg_ok">OK</string>
+    <string name="app_not_found_dlg_title">Application not found</string>
+    <string name="app_not_found_dlg_text"> The application was not
+found in the list of installed applications.</string>
+    <string name="uninstall_application_title">Uninstall Application</string>
+    <string name="uninstall_update_title">Uninstall Update</string>
+    <string name="uninstall_activity_text"><xliff:g id="activity_name">%1$s</xliff:g> is part of the following application:</string>
+    <string name="uninstall_confirm_question">Do you want to uninstall the application?</string>
+    <string name="uninstall_application_text">This application will be uninstalled.</string>
+    <string name="uninstall_update_text">The application will be replaced with the factory version.</string>
+    <string name="uninstalling">Uninstalling\u2026</string>
+    <string name="uninstall_done">Uninstall finished</string>
+    <string name="uninstall_failed">Uninstall not successful</string>
+    <!-- String presented to the user when uninstalling a package failed because the target package
+        is a current device administrator [CHAR LIMIT=80] -->
+    <string name="uninstall_failed_device_policy_manager">Cannot uninstall: this package is an
+        active device administrator.</string>
+    <!-- String on a button that leads to the "device administrator" configuration setting where a
+        user will be able to disable the device administrator in order to uninstall
+        it. [CHAR LIMIT=50] -->
+    <string name="manage_device_administrators">Manage device administrators</string>
+    <string name="uninstall_failed_msg"><xliff:g id="app_name">%1$s</xliff:g> could not be uninstalled</string>
+    <string name="uninstall_failed_retained_app_msg">Application customized by the operator could not be uninstalled</string>
+
+    <!-- Dialog attributes to indicate parse errors -->
+    <string name="Parse_error_dlg_title">Parse error</string>
+    <string name="Parse_error_dlg_text">There is a problem parsing the package.</string>
+    <string name="caller_app">Caller: <xliff:g id="APP_NAME">%1$s</xliff:g></string>
+    <string name="safe_guard_support">Technical support provided by <xliff:g id="SUPPORT">%1$s</xliff:g></string>
+
+    <string name="safe_relative">Safe relative permissions</string>
+    <string name="privacy_relative">Private relative permissions</string>
+    <string name="other_relative">Other permissions</string>
+
+    <string name="perm_notice">Alert of Security</string>
+    <string name="trust_switch_dialog_msg">Miui will not ask you for confirmation of any security and privacy related operations from this App. Please make sure that you have got it.\nTrust this App？</string>
+    <string name="auto_startup_dialog_msg">Miui will allow the App starting up automatically without asking. Which maybe lead to consumption of power or data traffic.\nAllow Autostart？</string>
+    <string name="low_risk_perms">Low-risk Permissions</string>
+    <string name="high_risk_perms">High-risk Permissions</string>
+    <string name="perm_privacy_app_finish">Finish</string>
+    <string name="perm_privacy_app_launch">Launch</string>
+    <string name="perm_privacy_app_installed">Installation succeeded!</string>
+    <string name="perm_sysopt_boost_auto_start">Autostart permission</string>
+    <string name="perm_sysopt_boost_auto_start_summary">The app will start up automatically!</string>
+    <string name="perm_privacy_app_trust">I trust this App</string>
+    <string name="perm_privacy_app_trust_summary">MIUI will monitor this App</string>
+    <string name="perm_action_accept">Allow</string>
+    <string name="perm_action_prompt">Ask</string>
+    <string name="perm_action_reject">Deny</string>
+
+    <string name="unknown_installer">Unidentified PC tools</string>
+    <!-- Reason displayed when installation fails because the package incompatible
+        with MIUI system. -->
+    <string name="install_failed_system_incompatible" product="default">This app is not compatible with MIUI system.</string>
+</resources>

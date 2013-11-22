@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 黑名单设置 -->
+    <PreferenceCategory android:title="@string/st_block_setting_group" >
+        <PreferenceScreen
+            android:key="key_blacklist_block_settting"
+            android:title="@string/st_block_setting_title"
+            android:persistent="false" >
+            <intent
+                android:targetPackage="com.miui.antispam"
+                android:targetClass="com.miui.antispam.firewall.BlackListBlockSettings" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+    <!-- 常规拦截设置 -->
+    <PreferenceCategory android:title="@string/st_common_setting_group" >
+        <CheckBoxPreference
+            android:key="key_block_private_call"
+            android:title="@string/st_block_private_call_button"
+            android:persistent="false" >
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:key="key_filter_sms"
+            android:title="@string/st_filter_sms_button"
+            android:persistent="false" >
+        </CheckBoxPreference>
+        <PreferenceScreen
+            android:key="key_filter_keywords_setting"
+            android:title="@string/st_filter_keywords_setting_title"
+            android:persistent="false" >
+            <intent
+                android:targetPackage="com.miui.antispam"
+                android:targetClass="com.miui.antispam.firewall.KeywordListActivity" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+    <!-- 高级拦截设置 -->
+    <PreferenceCategory android:title="@string/st_advanced_setting_group" >
+        <CheckBoxPreference
+            android:key="key_block_unknown_call"
+            android:title="@string/st_block_unknown_call"
+            android:persistent="false" >
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:key="key_block_unknown_sms"
+            android:title="@string/st_block_unknown_sms"
+            android:persistent="false" >
+        </CheckBoxPreference>
+    </PreferenceCategory>
+
+    <!-- 其他设置 -->
+    <PreferenceCategory android:title="@string/st_other_setting_group" >
+        <CheckBoxPreference
+            android:key="key_show_block_notification"
+            android:title="@string/st_show_block_notification"
+            android:defaultValue="true" >
+        </CheckBoxPreference>
+    </PreferenceCategory>
+</PreferenceScreen>

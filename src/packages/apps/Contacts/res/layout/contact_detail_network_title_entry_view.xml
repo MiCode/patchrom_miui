@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/primary_action_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/contact_detail_detail_list_item_bg"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/network_title"
+            style="@style/ContactDetailItemTextAppearancePrimary"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/network_icon"
+            android:layout_width="@dimen/detail_network_icon_size"
+            android:layout_height="@dimen/detail_network_icon_size"
+            android:scaleType="centerInside" />
+    </LinearLayout>
+
+    <include layout="@layout/contact_detail_list_item_type_icon" />
+
+</FrameLayout>

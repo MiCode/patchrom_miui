@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/pano_review_layout"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+    <TextView style="@style/PanoViewHorizontalBar"
+            android:text="@string/pano_review_rendering"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:gravity="center" />
+
+    <ImageView android:id="@+id/pano_reviewarea"
+            android:scaleType="fitCenter"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pano_mosaic_surface_height" />
+
+    <RelativeLayout style="@style/PanoViewHorizontalBar">
+        <com.android.camera.ui.RotateLayout
+                android:id="@+id/pano_saving_progress_bar_layout"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content">
+            <com.android.camera.PanoProgressBar
+                    android:id="@+id/pano_saving_progress_bar"
+                    android:src="@drawable/ic_pan_progression"
+                    android:layout_centerInParent="true"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content" />
+        </com.android.camera.ui.RotateLayout>
+
+        <com.android.camera.ui.RotateImageView android:id="@+id/pano_review_cancel_button"
+                style="@style/ReviewControlIcon"
+                android:contentDescription="@string/accessibility_review_cancel"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="false"
+                android:src="@drawable/ic_menu_cancel_holo_light" />
+    </RelativeLayout>
+</LinearLayout>

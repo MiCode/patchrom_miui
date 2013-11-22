@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingLeft="@dimen/detail_and_edit_section_margin_left"
+    android:paddingRight="@dimen/detail_and_edit_section_margin_right"
+    style="@miui:style/V5.Widget.DropDownItem">
+
+    <CheckBox
+        android:id="@+id/check_box"
+        android:focusable="false"
+        android:clickable="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/contact_card_checkbox_padding_right"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/primary_action_view"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingTop="@dimen/list_item_padding_vertical"
+        android:paddingBottom="@dimen/list_item_padding_vertical"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary" />
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/secondary_action_view_container"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="right" >
+
+        <ImageView
+            android:id="@+id/secondary_action_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:duplicateParentState="false"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_send_sms" />
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@+id/fullscreen_custom_content"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    />
+
+    <include layout="@layout/miui_tab_operation_view" />
+
+    <com.android.browser.view.MiuiCustomScreenLinearLayout
+        android:orientation="vertical"
+        android:id="@+id/vertical_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout android:id="@+id/error_console"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <FrameLayout android:id="@+id/fixed_titlebar_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <FrameLayout android:id="@+id/main_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+            <com.android.browser.TabPager
+                android:id="@+id/tab_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/tab_bg"/>
+        </FrameLayout>
+
+    </com.android.browser.view.MiuiCustomScreenLinearLayout>
+
+    <FrameLayout android:id="@+id/miui_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.android.browser.MiuiNavScreenContainer android:id="@+id/nav_screen_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:background="@drawable/nav_screen_port_bg"
+            android:visibility="invisible">
+            <include
+            layout="@layout/nav_bottom_bar"
+            android:id="@+id/navBottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"/>
+       </com.android.browser.MiuiNavScreenContainer>
+
+       <FrameLayout android:id="@+id/quicklinks_edit_mode_top_mask"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/quick_link_edit_mode_top_mask_height"
+            android:visibility="invisible"
+            android:layout_gravity="top"
+            android:background="@drawable/quicklinks_panel_edit_mode_bg">
+       </FrameLayout>
+
+       <FrameLayout android:id="@+id/quicklinks_edit_mode_container"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/quicklinks_edit_mode_container_height"
+            android:visibility="invisible"
+            android:layout_gravity="bottom"
+            android:background="@drawable/quicklinks_panel_edit_mode_bg">
+           <ImageButton
+              android:id="@+id/add_quicklink_btn"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:background="@null"
+              android:layout_gravity="bottom|center_horizontal"
+              android:src="@drawable/nav_bar_action_newtab"/>
+       </FrameLayout>
+       <FrameLayout
+            android:id="@+id/operation_view_mask"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+       <FrameLayout android:id="@+id/tab_animation_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/tab_scale_animation_value"
+            android:layout_marginRight="@dimen/tab_scale_animation_value"
+            android:background="@drawable/tab_animation_bg_port"
+            android:visibility="invisible" />
+    </FrameLayout>
+</merge>

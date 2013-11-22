@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="@string/auto_startup_application_manage"
+        android:background="@drawable/background_application_manage_bg"
+        style="@miui:style/V5.TextAppearance.Title.Medium"/>
+
+    <TextView
+        android:id="@+id/startup_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:background="@miui:drawable/v5_list_view_section_item_bg_light"
+        style="@android:style/TextAppearance.Small"/>
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:layout_marginTop="11dip"
+        android:layout_marginBottom="11dip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/man_add_application"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@miui:style/V5.TextAppearance.Button"
+            android:layout_gravity="center_horizontal"
+            android:focusable="false"
+            android:text="@string/man_add_application"/>
+    </LinearLayout>
+
+</LinearLayout>

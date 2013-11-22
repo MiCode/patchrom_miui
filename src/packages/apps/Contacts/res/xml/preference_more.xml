@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:key="pref_key_root">
+        <PreferenceScreen
+            android:key="pref_key_remove_duplicate_contact"
+            android:title="@string/preference_remove_duplicate" />
+        <PreferenceScreen
+            android:key="pref_key_batch_delete"
+            android:title="@string/batch_delete" />
+        <PreferenceScreen
+            android:key="pref_key_wipe_data"
+            android:title="@string/wipe_data" />
+        <PreferenceScreen
+            android:key="pref_key_rebuild_t9_index"
+            android:summary="@string/pref_key_rebuild_t9_index_message"
+            android:title="@string/pref_key_rebuild_t9_index_title" />
+        <PreferenceScreen
+            android:key="pref_key_sim_manage"
+            android:title="@string/pref_key_sim_manage" />
+
+        <com.android.contacts.preference.CheckUnsynchronizedPreference
+            android:dialogTitle="@string/check_unsynchronized_accounts"
+            android:key="pref_key_check_unsynchronized_accounts"
+            android:title="@string/check_unsynchronized_accounts" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

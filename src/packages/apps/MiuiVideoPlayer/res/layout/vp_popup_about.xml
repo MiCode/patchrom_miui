@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    >
+
+    <RelativeLayout
+        android:id="@+id/about_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/about_background" >
+
+        <RelativeLayout
+            android:id="@+id/title_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/about_top_background" >
+
+            <RelativeLayout
+                android:id="@+id/title_top_group"
+                android:layout_width="match_parent"
+                android:layout_height="100px" >
+
+                <ImageView
+                    android:id="@+id/about_back_imageview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/about_top_back" >
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/about_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/about_back_imageview"
+                    android:layout_marginLeft="30px"
+                    android:layout_centerVertical="true"
+                    android:text="@string/about_title"
+                    android:textColor="#ffffff"
+                    android:textSize="40px" />
+            </RelativeLayout>
+
+            <TextView 
+                android:id="@+id/about_seperate_line_textview"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#4C000000"
+                android:layout_below="@id/title_top_group"
+                />
+            
+            <TextView
+                android:id="@+id/about_app_name_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="100px"
+                android:textColor="#ccffffff"
+                android:layout_below="@id/about_seperate_line_textview"
+                android:layout_marginTop="140px"
+                android:layout_centerHorizontal="true"
+                android:text="@string/about_app_name"
+                android:textSize="60px"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/version_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_group"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px"
+            android:layout_marginTop="40px"
+            android:background="@drawable/about_content_group" >
+
+            <TextView
+                android:id="@+id/version_label_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30px"
+                android:text="@string/about_version_label"
+                android:textColor="#000000"
+                android:textSize="34px" />
+
+            <TextView
+                android:id="@+id/version_content_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30px"
+                android:text="@string/about_version"
+                android:textSize="26px" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/power_by_imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="40px"
+            android:src="@drawable/about_powered_by" />
+    </RelativeLayout>
+
+</RelativeLayout>

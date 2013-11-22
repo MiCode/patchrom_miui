@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.android.mms.ui.SizeAwareLinearLayout
+        android:id="@+id/msg_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/message_list" />
+
+        <ViewStub
+            android:id="@+id/message_edit_bottom_panel_stub"
+            android:layout="@layout/message_edit_bottom_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <ViewStub
+            android:id="@+id/message_edit_bottom_panel_msim_stub"
+            android:layout="@layout/message_edit_bottom_panel_msim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- For BlockedConversationAcitivity only -->
+        <include
+            layout="@layout/blocked_message_bottom_panel" />
+        <include
+            layout="@layout/message_edit_attachment_panel" />
+    </com.android.mms.ui.SizeAwareLinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <include
+            layout="@layout/single_recipient_contact_panel" />
+        <ViewStub
+            android:id="@+id/mx_recommend_bar_stub"
+            android:layout="@layout/mx_recommend_bar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+</FrameLayout>

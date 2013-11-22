@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+            android:key="dataAndSynchronization"
+            android:title="@string/header_data_and_synchronization"/>
+
+    <PreferenceCategory
+        android:key="internetCommunication"
+        android:title="@string/internet_comm">
+        <com.xiaomi.xmsf.account.ui.TwoLevelSyncStatePreference
+            android:key="pref_cloud_msg"
+            android:title="@string/cloud_messaging"
+            android:persistent="false"
+            />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+            android:key="otherSettings"
+            android:title="@string/other_settings">
+        <miui.widget.SyncStatePreference
+            android:key="pref_find_device"
+            android:title="@string/find_device"
+            android:persistent="false"
+            />
+        <PreferenceScreen
+            android:key="miliCenterSettings"
+            android:title="@string/mili_center" />
+        <com.xiaomi.xmsf.account.ui.TwoLevelSyncStatePreference
+            android:key="pref_sina_weibo"
+            android:title="@string/sina_weibo"
+            android:icon="@drawable/ic_sina_weibo"
+            android:persistent="false">
+        </com.xiaomi.xmsf.account.ui.TwoLevelSyncStatePreference>
+    </PreferenceCategory>
+
+</PreferenceScreen>

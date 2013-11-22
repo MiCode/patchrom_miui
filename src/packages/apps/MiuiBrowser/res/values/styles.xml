@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ *
+ * Copyright 2006,2007,2008 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources>
+<!--    <style name="BrowserTheme" parent="@android:Theme.Holo.Light">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:actionBarStyle">@style/ActionBarStyle</item>
+    </style>-->
+
+    <style name="BrowserTheme" parent="@miui:style/V5.Theme.Light">
+        <item name="android:windowBackground">@drawable/browser_window_bg</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="miui:v5_top_placeholder_enabled">true</item>
+        <item name="miui:v5_top_placeholder">@drawable/title_bar_nav_bg</item>
+        <item name="miui:v5_tab_indicator_shadow">@null</item>
+        <item name="miui:v5_over_scroll_distance">0dip</item>
+        <item name="miui:v5_over_fling_distance">6dip</item>
+    </style>
+    <style name="ActionBarStyle" parent="@miui:style/V5.Widget.ActionBar">
+        <item name="android:background">@miui:drawable/v5_edit_mode_top_bar_no_shadow_bg_light</item>
+        <item name="android:displayOptions">showCustom</item>
+    </style>
+    <style name="DialogWhenLarge" parent="@android:style/Theme.Holo.Light.DialogWhenLarge" >
+        <item name="android:windowActionBar">false</item>
+    </style>
+    <style name="BookmarkTheme" parent="@android:Theme.Holo.Light">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+    <style name="EditorActivityTheme" parent="@miui:style/V5.Theme.Light">
+       <item name="android:windowActionBar">true</item>
+       <item name="android:actionBarStyle">@style/ActionBarStyle</item>
+    </style>
+    <style name="Suggestions" parent="@android:style/Widget.Holo.Light.AutoCompleteTextView">
+        <item name="android:dropDownVerticalOffset">1px</item>
+    </style>
+    <style name="ShortcutTheme" parent="@android:Theme.Holo.Light.DialogWhenLarge">
+    </style>
+    <style name="TabBarItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/text_font_size_medium</item>
+        <item name="android:textColor">@color/tab_text_color</item>
+    </style>
+    <style name="GroupNameTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/text_font_size_medium</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="BookmarkLabelTextView">
+        <item name="android:layout_width">@dimen/bookmark_thumbnail_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/text_font_size_medium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:typeface">sans</item>
+    </style>
+    <style name="ActionBarItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+    <style name="ActionBarItemImage" parent="@style/ActionBarItem">
+        <item name="android:scaleType">center</item>
+    </style>
+    <style name="ActionBarItemText" parent="@style/ActionBarItem">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="AutofillProfileTextView">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">10dip</item>
+        <item name="android:textColor">#a3a3a3</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+    <style name="AutofillProfileSubTextView" parent="@style/AutofillProfileTextView">
+        <item name="android:textColor">#c8c8c8</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+    </style>
+    <style name="AutofillProfileEditText" parent="@style/AutofillProfileTextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:imeOptions">flagNoExtractUi|actionNext</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">#585858</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+   <style name="GroupEditeText" parent="@miui:style/V5.Widget.EditText">
+       <item name="android:layout_height">wrap_content</item>
+       <item name="android:layout_width">match_parent</item>
+       <item name="android:background">@miui:drawable/v5_group_item_bg_light</item>
+       <item name="android:paddingLeft">10dip</item>
+       <item name="android:paddingRight">10dip</item>
+   </style>
+
+    <style name="BookmarkV5PathItemTextStyle">
+        <item name="android:textColor">#ff424242</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowColor">#80ffffff</item>
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">1.0</item>
+    </style>
+
+    <style name="BrowserPreferencesPageTheme" parent="@miui:style/V5.Theme.Light.Settings">
+       <item name="miui:v5_title_bar_bg">@drawable/title_bar_nav_bg</item>
+    </style>
+    <style name="BookmarksManagementActivityTheme" parent="@miui:style/V5.Theme.Light">
+       <item name="miui:v5_title_bar_bg">@drawable/title_bar_nav_bg</item>
+    </style>
+    <style name="HistoryActivityTheme" parent="@miui:style/V5.Theme.Light">
+       <item name="miui:v5_title_bar_bg">@drawable/title_bar_nav_bg</item>
+       <item name="miui:v5_bottom_bar_bg">@drawable/miui_bottom_bar_bg</item>
+    </style>
+
+    <style name="dldialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowActionModeOverlay">false</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+   </style>
+
+    <style name="FilePickerTheme" parent="@miui:style/V5.Theme.Light">
+       <item name="miui:v5_title_bar_bg">@drawable/title_bar_nav_bg</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+     <style name="V5PathItemTextStyle" parent="@miui:style/V5.TextAppearance.List.Secondary">
+        <item name="android:textColor">@color/path_item_text_color</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="FileListItemStyle" parent="@miui:style/V5.Widget.ListView.Item.DoubleLine">
+        <item name="android:paddingLeft">14dip</item>
+        <item name="android:paddingRight">14dip</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="BookmarkLabelTextStyle">
+        <item name="android:textColor">@color/list_title_text_color</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:scrollHorizontally">true</item>
+    </style>
+
+    <style name="BookmarkUrlTextStyle">
+        <item name="android:textColor">@color/list_url_text_color</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:scrollHorizontally">true</item>
+    </style>
+
+    <style name="SearchButtonTextStyle">
+        <item name="android:textColor">@color/search_button_text_color</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:scrollHorizontally">true</item>
+    </style>
+
+    <style name="SearchListItemTextStyle">
+        <item name="android:textColor">@color/list_item_title_text_color</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:scrollHorizontally">true</item>
+    </style>
+
+    <style name="TabOperationViewTextStyle">
+        <item name="android:textColor">@color/operation_view_text_color</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">7dip</item>
+        <item name="android:layout_gravity">center_horizontal|bottom</item>
+    </style>
+
+    <style name="ReadModeActivityTheme" parent="@miui:style/V5.Theme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="ReadmodeTitleTextView">
+        <item name="android:paddingTop">20dip</item>
+        <item name="android:paddingBottom">20dip</item>
+        <item name="android:paddingRight">20dip</item>
+        <item name="android:paddingLeft">20dip</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="ReadmodeContentTextView">
+        <item name="android:paddingRight">20dip</item>
+        <item name="android:paddingLeft">20dip</item>
+        <item name="android:lineSpacingMultiplier">1</item>
+    </style>
+
+    <style name="ReadmodeFooterTextView">
+        <item name="android:layout_height">40dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">#7b7b7b</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="ReadmodeMenuTextView">
+        <item name="android:textColor">#A4000000</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:gravity">left</item>
+        <item name="android:paddingTop">15dip</item>
+        <item name="android:paddingBottom">15dip</item>
+        <item name="android:paddingLeft">15dip</item>
+    </style>
+
+    <style name="ReadmodeButton">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginLeft">15dip</item>
+        <item name="android:layout_marginRight">15dip</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="ThemeSelectItemView">
+        <item name="android:layout_width">50dip</item>
+        <item name="android:layout_height">50dip</item>
+        <item name="android:paddingLeft">10dip</item>
+        <item name="android:paddingRight">10dip</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="roundX">5dip</item>
+        <item name="roundY">5dip</item>
+        <item name="boundWidth">1dip</item>
+        <item name="checkBoundColor">#f76e02</item>
+        <item name="boundColor">#888888</item>
+    </style>
+
+    <style name="NavGridModeInfoBarTitleStyle">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/info_bar_title_color</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="NavGridModeInfoBarUrlStyle">
+        <item name="android:textSize">9sp</item>
+        <item name="android:textColor">@color/info_bar_url_color</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:typeface">sans</item>
+    </style>
+    <style name="NavPaveModeInfoBarTitleStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/info_bar_title_color</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="NavPaveModeInfoBarUrlStyle">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/info_bar_url_color</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:typeface">sans</item>
+    </style>
+    <style name="NavLandscapeModeInfoBarTitleStyle">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/info_bar_title_color</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="NavLandscapeModeInfoBarUrlStyle">
+        <item name="android:textSize">9sp</item>
+        <item name="android:textColor">@color/info_bar_url_color</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:typeface">sans</item>
+    </style>
+    <style name="TabPagerInfoBarTitleStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/info_bar_title_color</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TabPagerInfoBarUrlStyle">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/info_bar_url_color</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:typeface">sans</item>
+    </style>
+
+    <style name="DefaultBrowserDialogTheme" parent="@miui:style/V5.Theme.Light.Dialog.Alert">
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/search_bg">
+    <View
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <ListView android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@null"
+        android:divider="@null"
+        android:fadingEdgeLength="16dip" />
+    <TextView android:id="@+id/empty"
+        style="@style/ListItem"
+        android:text="@string/search_empty"
+        android:layout_width="match_parent"
+        android:layout_height="@miui:dimen/v5_list_view_single_line_height" />
+</FrameLayout>

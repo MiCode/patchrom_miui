@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="20dip" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="@miui:dimen/v5_preference_item_padding_side"
+            android:paddingRight="@miui:dimen/v5_preference_item_padding_side">
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="47dip"
+                android:layout_height="47dip"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="@miui:dimen/v5_preference_item_padding_inner"
+                android:src="@drawable/icon" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical">
+                <TextView
+                    android:id="@+id/label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" />
+                <TextView
+                    android:id="@+id/total_size"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:gravity="center_vertical"
+                    android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/current_device"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@miui:drawable/v5_preference_category_background">
+                <TextView
+                    android:text="@string/cloud_app_current_device"
+                    style="@miui:style/V5.TextAppearance.PreferenceCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:paddingLeft="@miui:dimen/v5_preference_category_item_padding_side"
+                    android:paddingRight="@miui:dimen/v5_preference_category_item_padding_side" />
+            </FrameLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:clickable="true"
+                android:background="@miui:drawable/v5_preference_item_bg">
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@miui:dimen/v5_preference_child_padding_side"
+                    android:paddingRight="@miui:dimen/v5_preference_child_padding_side"
+                    android:paddingTop="@miui:dimen/v5_preference_item_padding_top"
+                    android:paddingBottom="@miui:dimen/v5_preference_item_padding_bottom">
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" />
+                    <TextView
+                        android:id="@+id/version_size"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:gravity="center_vertical"
+                        android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+                </LinearLayout>
+                <Button
+                    android:id="@+id/restore"
+                    style="@style/ButtonRestore"
+                    android:text="@string/restore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/other_devices"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@miui:drawable/v5_preference_category_background">
+                <TextView
+                    android:text="@string/cloud_app_other_devices"
+                    style="@miui:style/V5.TextAppearance.PreferenceCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:paddingLeft="@miui:dimen/v5_preference_category_item_padding_side"
+                    android:paddingRight="@miui:dimen/v5_preference_category_item_padding_side" />
+            </FrameLayout>
+            <ListView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/delete_data"
+        android:text="@string/cloud_app_delete_data"
+        style="@style/ButtonRemove"
+        android:layout_marginLeft="@dimen/content_horizontal_margin"
+        android:layout_marginRight="@dimen/content_horizontal_margin"
+        android:layout_marginTop="@dimen/content_horizontal_margin"
+        android:layout_marginBottom="@dimen/content_bottom_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+ </LinearLayout>

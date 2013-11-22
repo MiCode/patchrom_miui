@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    android:id="@+id/twelve_key_digits"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/dialer_digits_padding"
+    android:background="@miui:drawable/v5_title_bar_bg_light"
+    android:visibility="gone">
+
+    <com.android.contacts.dialpad.DigitsEditText
+        android:id="@+id/digits"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical"
+        android:ellipsize="start"
+        style="@style/TextStyleDialerDigits" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/dialer_digits_padding">
+        <TextView
+            android:id="@+id/digits_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:ellipsize="end"
+            style="@style/TextStyleDialerDigits.Location" />
+
+        <ImageView
+            android:id="@+id/clear_digits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/clear_digits"
+            android:background="@drawable/dialer_digits_clear_btn" />
+    </LinearLayout>
+</LinearLayout>

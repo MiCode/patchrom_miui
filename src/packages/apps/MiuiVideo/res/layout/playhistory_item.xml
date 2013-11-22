@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/myvideo_item_height"
+        android:baselineAligned="false" >
+
+        <FrameLayout
+            android:layout_width="@dimen/thumb_area_width"
+            android:layout_height="@dimen/thumb_area_height"
+            android:layout_gravity="center_vertical" 
+            android:layout_marginBottom="@dimen/myvideo_thumb_margin_vertical"
+            android:layout_marginLeft="@dimen/myvideo_thumb_margin_horizontal"
+            android:layout_marginRight="@dimen/myvideo_thumb_margin_horizontal"
+            android:layout_marginTop="@dimen/myvideo_thumb_margin_vertical">
+
+            <com.duokan.tv.video.widget.MediaThumbView
+                android:id="@+id/video_thumb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/thumb_content_margin"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/default_videothumb" />
+
+            <ImageView
+                android:id="@+id/video_thumbborder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/home_myvideo_thumb_border" />
+            
+             <ImageView
+                android:id="@+id/tv_thumb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/thumb_content_margin"
+                android:layout_gravity="center" 
+                android:contentDescription="@string/app_name" 
+                android:src="@null" />
+               
+            <ImageView
+                android:id="@+id/video_thumbshadow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/home_myvideo_thumb_shadow"
+                android:contentDescription="@string/app_name" 
+                android:visibility="invisible"/>
+                           
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/myvideo_iteminfo_margin_left"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/video_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/myvideo_itemtitle_margin_bottom"
+                android:ellipsize="end"
+                android:paddingBottom="0dp"
+                android:paddingTop="0dp"
+                android:singleLine="true"
+                android:textColor="@color/p_80_white"
+                android:textSize="@dimen/text_size_34"
+                android:textStyle="bold"  />
+
+            <TextView
+                android:id="@+id/video_playdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:paddingBottom="0dp"
+                android:paddingTop="0dp"
+                android:singleLine="true"
+                android:textColor="@color/p_50_white"
+                android:textSize="@dimen/text_size_26"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_myfavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/select_item_right_margin"
+            android:layout_gravity="center"
+            android:src="@drawable/bookmark_checked" 
+            android:contentDescription="@string/app_name"/>
+
+    </LinearLayout>
+       
+     <View
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/localmedia_line_divider_margin_left"
+        android:background="@drawable/home_myvideo_line_divider"/>
+
+</LinearLayout>

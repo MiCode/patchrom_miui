@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:phone="http://schemas.android.com/apk/res/com.android.phone"
+     android:title="@string/call_forwarding_settings">
+
+
+    <!-- Note for all com.android.phone.EditPreference objects
+
+         The last several attributes are for use with the EditText field
+         in the dialog.  These attributes are forwarded to that field
+         when the edittext is created.  The attributes include:
+           1. android:singleLine
+           2. android:autoText
+           3. android:background -->
+
+    <com.android.phone.CallForwardEditPreference
+        android:key="button_cfu_key"
+        android:title="@string/labelCFU"
+        android:persistent="false"
+        android:summaryOn="@string/sum_cfu_enabled"
+        android:summaryOff="@string/sum_cfu_disabled"
+        android:dialogTitle="@string/labelCFU"
+        android:dialogMessage="@string/messageCFU"
+        phone:confirmMode="activation"
+        phone:serviceClass="voice"
+        phone:reason="unconditional"
+        android:singleLine="true"
+        android:autoText="false"
+        android:enabled="false" />
+
+    <!-- See note on com.android.phone.EditPreference above -->
+    <com.android.phone.CallForwardEditPreference
+        android:key="button_cfb_key"
+        android:title="@string/labelCFB"
+        android:persistent="false"
+        android:summaryOn="@string/sum_cfb_enabled"
+        android:summaryOff="@string/sum_cfb_disabled"
+        android:dialogTitle="@string/labelCFB"
+        android:dialogMessage="@string/messageCFB"
+        phone:confirmMode="activation"
+        phone:serviceClass="voice"
+        phone:reason="busy"
+        android:dependency="button_cfu_key"
+        android:singleLine="true"
+        android:autoText="false"
+        android:enabled="false" />
+
+    <!-- See note on com.android.phone.EditPreference above -->
+    <com.android.phone.CallForwardEditPreference
+        android:key="button_cfnry_key"
+        android:title="@string/labelCFNRy"
+        android:persistent="false"
+        android:summaryOn="@string/sum_cfnry_enabled"
+        android:summaryOff="@string/sum_cfnry_disabled"
+        android:dialogTitle="@string/labelCFNRy"
+        android:dialogMessage="@string/messageCFNRy"
+        phone:confirmMode="activation"
+        phone:serviceClass="voice"
+        phone:reason="no_reply"
+        android:dependency="button_cfu_key"
+        android:singleLine="true"
+        android:autoText="false"
+        android:enabled="false" />
+
+    <!-- See note on com.android.phone.EditPreference above -->
+    <com.android.phone.CallForwardEditPreference
+        android:key="button_cfnrc_key"
+        android:title="@string/labelCFNRc"
+        android:persistent="false"
+        android:summaryOn="@string/sum_cfnrc_enabled"
+        android:summaryOff="@string/sum_cfnrc_disabled"
+        android:dialogTitle="@string/labelCFNRc"
+        android:dialogMessage="@string/messageCFNRc"
+        phone:confirmMode="activation"
+        phone:serviceClass="voice"
+        phone:reason="not_reachable"
+        android:dependency="button_cfu_key"
+        android:singleLine="true"
+        android:autoText="false"
+        android:enabled="false" />
+</PreferenceScreen>

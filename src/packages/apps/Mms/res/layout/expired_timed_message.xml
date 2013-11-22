@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.mms.ui.MessageListItem
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/msg_list_item"
+    style="@style/ListItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <CheckBox
+        android:id="@+id/timed_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="8dip"
+        android:clickable="false"
+        android:focusable="false"/>
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/message_recipient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.MessageDesc" />
+        <ViewStub
+            android:id="@+id/message_body_list_stub"
+            android:layout="@layout/message_item_list_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <View
+        android:id="@+id/attachment_padding"
+        android:layout_width="10dip"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+    <ImageView
+        android:id="@+id/attachment_preview"
+        android:layout_width="@dimen/mms_attachment_pic_width"
+        android:layout_height="@dimen/mms_attachment_pic_height"
+        android:layout_gravity="top"
+        android:visibility="gone" />
+</com.android.mms.ui.MessageListItem>

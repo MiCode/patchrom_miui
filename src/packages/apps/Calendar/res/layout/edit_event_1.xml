@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- CALENDARS SELECTOR for new events -->
+    <LinearLayout
+        android:id="@+id/calendar_selector_group"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true" >
+        <Spinner
+            android:id="@+id/calendars_spinner"
+            android:prompt="@string/edit_event_calendar_label"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_gravity="center_vertical"
+            android:paddingBottom="10dip"
+            android:paddingTop="10dip"
+            android:paddingLeft="12dip"
+            android:paddingRight="12dip"
+            android:gravity="center_vertical"
+            android:background="@drawable/miui_calendar_spinner_bg"
+            style="@miui:style/V5.Widget.Spinner" />
+    </LinearLayout>
+
+    <!-- CALENDAR DISPLAY for existing events -->
+    <LinearLayout
+        android:id="@+id/calendar_group"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dip"
+        android:paddingTop="5dip"
+        android:focusable="true">
+        <TextView
+            android:id="@+id/calendar_textview"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textColor="#FFFFFFFF"
+            android:layout_marginLeft="24dip"
+            android:layout_marginRight="24dip"
+            style="@style/TextAppearance" />
+        <TextView
+            android:id="@+id/calendar_textview_secondary"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textColor="#FFFFFFFF"
+            android:layout_marginLeft="24dip"
+            android:layout_marginRight="24dip"
+            android:textSize="14sp"
+            style="@style/TextAppearance" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dip"
+        android:orientation="vertical">
+        <!-- WHAT -->
+        <EditText
+            android:id="@+id/title"
+            style="@style/TextAppearance.EditEvent.Grouped"
+            android:singleLine="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dip"
+            android:minHeight="48dip"
+            android:hint="@string/hint_what"
+            android:capitalize="sentences"
+            android:inputType="textAutoCorrect|textCapSentences"
+            android:focusable="true" />
+
+        <!-- WHERE -->
+        <EditText
+            android:id="@+id/location"
+            android:singleLine="false"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:minHeight="48dip"
+            android:imeOptions="actionDone"
+            style="@style/TextAppearance.EditEvent.Grouped"
+            android:inputType="textAutoCorrect|textCapSentences"
+            android:hint="@string/hint_where" />
+    </LinearLayout>
+
+    <!-- WHEN - Read-only textview version of FROM/TO (below) -->
+    <LinearLayout
+        android:id="@+id/when_row"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dip"
+        android:focusable="true">
+        <TextView
+            android:id="@+id/when_label"
+            android:text="@string/when_label"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginBottom="-8dip"
+            style="@style/TextAppearance.EditEvent_LabelSmall" />
+        <TextView
+            android:id="@+id/when"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="24dip"
+            android:layout_marginRight="24dip"
+            style="@style/TextAppearance" />
+    </LinearLayout>
+
+    <!-- FROM - Read/write version which launches the date/time pickers -->
+    <LinearLayout
+        android:id="@+id/from_row"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="64dip"
+        style="@style/miui_edit_event_container_style" >
+        <TextView
+            android:id="@+id/from_label"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="@string/edit_event_from_label"
+            style="@style/TextAppearance.Container_Label" />
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:animateLayoutChanges="false">
+            <Button
+                android:id="@+id/start_date"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="@integer/edit_event_left_button_weight"
+                android:singleLine="true"
+                android:contentDescription="@string/accessibility_pick_start_date"
+                style="@style/TextAppearance.EditEvent_SpinnerButton" />
+            <Button
+                android:id="@+id/start_time"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="@integer/edit_event_right_button_weight"
+                android:contentDescription="@string/accessibility_pick_start_time"
+                style="@style/TextAppearance.EditEvent_SpinnerButton" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@+id/from_row_home_tz"
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dip"
+        android:layout_marginLeft="24dip"
+        android:layout_marginRight="16dip"
+        android:focusable="true">
+        <TextView android:id="@+id/start_date_home_tz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="@integer/edit_event_left_button_weight"
+            android:gravity="left|center_vertical"
+            style="@style/TextAppearance.EditEvent_homeTime" />
+        <TextView android:id="@+id/start_time_home_tz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="@integer/edit_event_right_button_weight"
+            android:gravity="right|center_vertical"
+            style="@style/TextAppearance.EditEvent_homeTime" />
+    </LinearLayout>
+
+    <!-- TO - Read/write version which launches the date/time pickers -->
+    <LinearLayout
+        android:id="@+id/to_row"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/miui_edit_event_container_style" >
+        <TextView
+            android:id="@+id/to_label"
+            android:text="@string/edit_event_to_label"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            style="@style/TextAppearance.Container_Label" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:animateLayoutChanges="false">
+            <Button
+                android:id="@+id/end_date"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="@integer/edit_event_left_button_weight"
+                android:singleLine="true"
+                android:contentDescription="@string/accessibility_pick_end_date"
+                style="@style/TextAppearance.EditEvent_SpinnerButton" />
+            <Button
+                android:id="@+id/end_time"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="@integer/edit_event_right_button_weight"
+                android:contentDescription="@string/accessibility_pick_end_time"
+                style="@style/TextAppearance.EditEvent_SpinnerButton" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/to_row_home_tz"
+        android:visibility="gone"
+        android:focusable="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dip"
+        android:layout_marginLeft="24dip"
+        android:layout_marginRight="16dip">
+        <TextView android:id="@+id/end_date_home_tz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="@integer/edit_event_left_button_weight"
+            android:gravity="left|center_vertical"
+            style="@style/TextAppearance.EditEvent_homeTime" />
+        <TextView android:id="@+id/end_time_home_tz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="@integer/edit_event_right_button_weight"
+            android:gravity="right|center_vertical"
+            style="@style/TextAppearance.EditEvent_homeTime" />
+    </LinearLayout>
+
+    <!-- ALL DAY -->
+    <LinearLayout
+        android:id="@+id/all_day_row"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/miui_edit_event_container_style" >
+        <CheckBox
+            android:id="@+id/is_all_day"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:contentDescription="@string/accessibility_all_day" />
+        <TextView
+            android:id="@+id/is_all_day_label"
+            android:text="@string/edit_event_all_day_label"
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical|left"
+            android:gravity="center_vertical|left"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+    <!-- TIME ZONE - Read-only textview version -->
+    <LinearLayout
+        android:id="@+id/timezone_textview_row"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        style="@style/miui_edit_event_container_style" >
+        <TextView
+            android:id="@+id/timezone_textView"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            style="@style/TextAppearance" />
+    </LinearLayout>
+
+    <!-- TIME ZONE - Read/write version with button to launch picker -->
+    <LinearLayout
+        android:id="@+id/timezone_button_row"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/miui_edit_event_container_style" >
+        <Button
+            android:id="@+id/timezone_button"
+            android:gravity="left|center_vertical"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:contentDescription="@string/accessibility_pick_time_zone"
+            style="@style/TextAppearance.EditEvent_SpinnerButton" />
+    </LinearLayout>
+
+
+    <View
+        style="@style/EditEventSeparator"/>
+</LinearLayout>

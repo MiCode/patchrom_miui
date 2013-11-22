@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaomi.market.ui.LocalAppItem
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Widget.ListView.Item.TrebleLine" >
+
+    <ImageSwitcher
+        android:id="@+id/icon"
+        style="@style/Widget.Icon" />
+
+    <CheckBox
+        android:id="@android:id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/common_padding_medium"
+        android:clickable="false"
+        android:focusable="false"
+        android:scaleType="fitCenter"
+        android:visibility="gone" />
+
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/icon"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/icon"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:textAppearance="@style/TextAppearance.Title" />
+
+    <TextView
+        android:id="@+id/install_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name"
+        android:layout_toRightOf="@id/icon"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:textAppearance="@style/TextAppearance.Title.Secondary" />
+
+    <TextView
+        android:id="@+id/size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/install_time"
+        android:layout_toRightOf="@id/icon"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:textAppearance="@style/TextAppearance.Title.Secondary" />
+
+</com.xiaomi.market.ui.LocalAppItem>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This is layout for the float panel of text view selection.
+-->
+<android.webkit.WebInputSelectionFloatPanel xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/panel"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:background="@drawable/textview_panel_bg">
+
+        <TextView android:id="@+id/buttonCopy"
+            style="@style/TextViewFloatPanelButton"
+            android:background="@drawable/textview_floatpanel_left_corner_button_bg"
+            android:text="@android:string/copy"
+            />
+        <ImageView android:id="@+id/separator1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/textview_panel_separator"/>
+        <TextView android:id="@+id/buttonCut"
+            style="@style/TextViewFloatPanelButton"
+            android:background="@drawable/textview_floatpanel_middle_no_corner_button_bg"
+            android:text="@android:string/cut"
+            />
+        <ImageView android:id="@+id/separator2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/textview_panel_separator"/>
+        <TextView android:id="@+id/buttonPaste"
+            style="@style/TextViewFloatPanelButton"
+            android:background="@drawable/textview_floatpanel_right_corner_button_bg"
+            android:text="@android:string/paste"
+            />
+    </LinearLayout>
+    <ImageView android:id="@+id/arrow_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/textview_panel_arrow_up"
+        android:visibility="gone" />
+    <ImageView android:id="@+id/arrow_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/textview_panel_arrow_down"
+        android:visibility="gone" />
+</android.webkit.WebInputSelectionFloatPanel>

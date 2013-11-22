@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- Phone app resources that may need to be customized
+     for different hardware or product builds. -->
+<resources>
+    <!-- Flag indicating whether the Phone app should ignore
+         EVENT_SIM_NETWORK_LOCKED events from the Sim.  If true, this will
+         prevent the IccNetworkDepersonalizationPanel from being shown,
+         and effectively disable the "Sim network lock" feature. -->
+    <bool name="ignore_sim_network_locked_events">false</bool>
+
+    <!-- Flag indicating whether the Phone app should provide
+         a "Dismiss" button on the SIM network unlock screen.
+         The default value is true.
+         If set to false, there will be *no way* to dismiss the SIM
+         network unlock screen if you don't enter the correct unlock code.
+         (One important consequence: there will be no way to make an
+         Emergency Call if your SIM is network-locked and you don't know
+         the PIN.) -->
+    <bool name="sim_network_unlock_allow_dismiss">true</bool>
+
+    <!-- OTA configuration values, used when provisioning CDMA devices.
+         Following defaults values of zero means OTA UI is completely disabled.
+         These OTA UI can be enabled by setting config value to one in the product
+         specific overlay file -->
+
+    <!-- Determine whether we want to display the OTA activation screen, which
+         gives the user option to activate or cancel -->
+    <integer name="OtaShowActivationScreen">1</integer>
+    <!-- Determine whether we should show the "listen for instructions" screen after
+         successfully placing the OTA call -->
+    <integer name="OtaShowListeningScreen">0</integer>
+    <!-- The number of times we should show the activation screen/allow the provisioning
+         to fail before just showing an unsuccessful dialog -->
+    <integer name="OtaShowActivateFailTimes">0</integer>
+    <!-- Determine whether or not we should play the success/failure tone -->
+    <integer name="OtaPlaySuccessFailureTone">0</integer>
+
+    <!-- Flag indicating if the phone is a world phone -->
+    <bool name="world_phone">false</bool>
+
+    <!-- If true, enable vibration (haptic feedback) for key presses
+         in the EmergencyDialer activity. The pattern is set on a
+         per-platform basis using config_virtualKeyVibePattern.  To be
+         consistent with the regular Dialer, this value should agree
+         with the corresponding values from config.xml under
+         apps/Contacts. -->
+    <bool name="config_enable_dialer_key_vibration">true</bool>
+
+    <!-- Flag indicating if the tty is enabled -->
+    <bool name="tty_enabled">false</bool>
+
+    <!-- Flag indicating if hac is enabled -->
+    <bool name="hac_enabled">false</bool>
+
+    <!-- Flag indicating if dtmf tone type is enabled -->
+    <bool name="dtmf_type_enabled">false</bool>
+
+    <!-- Flag indicating if auto retry is enabled -->
+    <bool name="auto_retry_enabled">false</bool>
+
+    <!-- Determine whether we want to play local DTMF tones in a call, or
+         just let the radio/BP handle playing of the tones. -->
+    <bool name="allow_local_dtmf_tones">true</bool>
+
+    <!-- If true, show an onscreen "Dial" button in the dialer.
+         In practice this is used on all platforms, even the ones with hard SEND/END
+         keys, but for maximum flexibility it's controlled by a flag here
+         (which can be overridden on a per-product basis.) -->
+    <bool name="config_show_onscreen_dial_button">true</bool>
+
+    <!-- Determine whether calls to mute the microphone in PhoneUtils
+         are routed through the android.media.AudioManager class (true) or through
+         the com.android.internal.telephony.Phone interface (false). -->
+    <bool name="send_mic_mute_to_AudioManager">false</bool>
+
+    <!-- Determines if device implements a noise suppression device for in call audio-->
+    <bool name="has_in_call_noise_suppression">false</bool>
+
+    <!-- Determines if the current device should allow emergency numbers
+         to be logged in the Call Log.
+         (Some carriers require that emergency calls *not* be logged,
+         presumably to avoid the risk of accidental redialing from the
+         call log UI.  This is a good idea, so the default here is false.)
+
+         TODO: on the other hand, it might still be useful to have some
+         record of the emergency calls you've made, or to be able to look
+         up the exact date/time of an emergency call.  So perhaps we
+         *should* log those calls, but instead fix the call log to disable
+         the "call" button for emergency numbers. -->
+    <bool name="allow_emergency_numbers_in_call_log">false</bool>
+
+    <!-- If this is true, the SIM card (through Customer Service Profile EF file) will be
+         able to prevent manual operator selection. If false, this SIM setting will be
+         ignored and manual operator selection will always be available. See
+         CPHS4_2.WW6, CPHS B.4.7.1 for more information -->
+    <bool name="csp_enabled">false</bool>
+
+    <!-- If true, removes the Voice Privacy option from Call Settings -->
+    <bool name="config_voice_privacy_disable">false</bool>
+</resources>

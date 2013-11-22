@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+
+    <ScrollView
+        android:layout_weight="1.0"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:fadingEdge="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@miui:dimen/v5_list_view_padding_horizontal"
+            android:layout_marginRight="@miui:dimen/v5_list_view_padding_horizontal"
+            android:orientation="vertical"
+            android:layout_gravity="top|center_horizontal">
+
+            <EditText
+                android:id="@+id/fdn_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:padding="10dip"
+                android:background="?miui:attr/v5_group_item_bg"
+                android:hint="@string/sim_contact_name_miui"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:scrollHorizontally="true"
+                android:autoText="false"
+                android:capitalize="words" />
+
+            <EditText
+                android:id="@+id/fdn_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dip"
+                android:background="?miui:attr/v5_group_item_bg"
+                android:hint="@string/sim_contact_number_miui"
+                android:inputType="phone"
+                android:singleLine="true"
+                android:scrollHorizontally="true"
+                android:autoText="false"
+                android:capitalize="none" />
+
+            <EditText
+                android:id="@+id/fdn_pin2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dip"
+                android:background="?miui:attr/v5_group_item_bg"
+                android:hint="@string/enter_pin2_text_miui"
+                android:inputType="textPassword"
+                android:layout_marginBottom="5dip"
+                android:singleLine="true"
+                android:scrollHorizontally="true" />
+
+            <Button
+                android:id="@+id/fdn_delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:text="@string/delete_sim_contact_confirm_title_miui"
+                style="@miui:style/V5.Widget.Button.NegativeWarn"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@miui:dimen/v5_list_view_padding_horizontal"
+        android:layout_marginRight="@miui:dimen/v5_list_view_padding_horizontal"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/fdn_ok"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@android:string/ok" />
+        <Button
+            android:id="@+id/fdn_cancel"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@android:string/cancel" />
+    </LinearLayout>
+</LinearLayout>

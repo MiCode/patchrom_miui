@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <miui.widget.SpectrumVisualizer
+        xmlns:miui="http://schemas.android.com/apk/res/miui"
+        android:id="@+id/spectrum_visualizer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:scaleType="center"
+        miui:sliding_dot_bar="@drawable/sliding_panel_visualization_dot_bar"
+        miui:sliding_panel="@drawable/sliding_panel_visualization_bg"
+        miui:symmetry="false" />
+
+    <View
+        android:id="@+id/bottom_placehoder"
+        android:layout_width="match_parent"
+        android:layout_height="22dp"
+        android:layout_alignParentBottom="true"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/default_album"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_placehoder"
+        android:layout_below="@id/spectrum_visualizer"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/gadget_player_default_album" />
+
+    <FrameLayout
+        android:id="@+id/album_wrap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottom_placehoder"
+        android:layout_below="@id/spectrum_visualizer"
+        android:layout_centerHorizontal="true" >
+
+        <ImageView
+            android:id="@+id/album_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY" />
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/lyric_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_placehoder"
+        android:layout_below="@id/spectrum_visualizer"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/gadget_player_lyric_bg" />
+
+    <ImageView
+        android:id="@+id/album_mask"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/player_control"
+        android:layout_below="@id/spectrum_visualizer"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/gadget_player_album_mask" />
+
+    <TextView
+        android:id="@+id/track_name"
+        style="@style/MarqueeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spectrum_visualizer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:maxWidth="260dp"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="1.5"
+        android:textColor="@color/gadget_player_track_text"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/artist_name"
+        style="@style/MarqueeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/track_name"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:maxWidth="260dp"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="1.5"
+        android:textColor="@color/gadget_player_artist_text"
+        android:textSize="12sp" />
+
+    <ScrollView
+        android:id="@+id/lyric_wrap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/player_control"
+        android:layout_below="@id/artist_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:fadingEdge="vertical"
+        android:fadingEdgeLength="18sp"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/lyric"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/lyric_before"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|bottom"
+                android:includeFontPadding="false"
+                android:maxWidth="@dimen/lyric_line_max_width"
+                android:textColor="@color/gadget_player_lyric_text"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/lyric_current"
+                style="@style/GadgetPlayerLyricCurrentLineShadowStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-4dip"
+                android:gravity="center"
+                android:maxWidth="@dimen/lyric_line_max_width"
+                android:textColor="@color/gadget_player_lyric_current_text"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/lyric_after"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|top"
+                android:includeFontPadding="false"
+                android:maxWidth="@dimen/lyric_line_max_width"
+                android:textColor="@color/gadget_player_lyric_text"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/player_control"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/gadget_player_control_panel_bg" >
+
+        <view
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="147.5dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            class="miui.widget.CircleProgressBar"
+            android:background="@drawable/gadget_player_progress_bg"
+            android:indeterminate="false" />
+
+        <ImageView
+            android:id="@+id/control_prev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="-30dp"
+            android:layout_toLeftOf="@id/progress"
+            android:paddingBottom="10dp"
+            android:scaleType="center"
+            android:src="@drawable/gadget_player_prev_button" />
+
+        <ImageView
+            android:id="@+id/control_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:paddingBottom="10dp"
+            android:scaleType="center"
+            android:src="@drawable/gadget_player_play_button" />
+
+        <ImageView
+            android:id="@+id/control_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="-30dp"
+            android:layout_toRightOf="@id/progress"
+            android:paddingBottom="10dp"
+            android:scaleType="center"
+            android:src="@drawable/gadget_player_next_button" />
+    </RelativeLayout>
+
+</RelativeLayout>

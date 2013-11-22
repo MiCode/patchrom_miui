@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/miui_history_list_bg" >
+
+    <ImageView
+        android:layout_width="@dimen/bookmark_icon_width"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/history_padding_left"
+        android:scaleType="fitXY"
+        android:src="@drawable/miui_history_time_line" />
+
+    <LinearLayout
+        android:id="@+id/content_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/history_padding_left"
+        android:orientation="vertical" >
+        <LinearLayout
+            android:id="@+id/label_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <ImageView
+                android:id="@+id/favicon"
+                android:layout_width="@dimen/bookmark_icon_width"
+                android:layout_height="@dimen/bookmark_icon_height"
+                android:scaleType="fitXY"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/bookmark_list_favicon_bg"
+                android:src="@drawable/app_web_browser_sm" />
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dip"
+                android:paddingRight="40dip"
+                style="@style/BookmarkLabelTextStyle" />
+        </LinearLayout>
+
+        <!-- paddingLeft = label.paddingLeft + ImageView.width -->
+        <TextView
+                android:id="@+id/url"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/bookmark_url_padding_left"
+                android:paddingRight="40dip"
+                style="@style/BookmarkUrlTextStyle" />
+    </LinearLayout>
+    <CheckBox
+            android:id="@+id/star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:button="@drawable/btn_checkbox_star"
+            android:focusable="false" />
+    <View
+        android:id="@+id/separator_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_gravity="bottom"
+        android:background="@color/history_list_item_separator_color"
+        android:visibility="gone" />
+</FrameLayout>

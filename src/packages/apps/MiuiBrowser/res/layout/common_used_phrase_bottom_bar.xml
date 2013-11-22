@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+
+
+     This layout provides the structure for a browser tab. A tab contains the
+     WebView and any number of other UI elements specific to that tab.
+     Currently, the only such element is the Geolocation permissions prompt.
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/common_used_phrase_bottom_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:orientation="vertical" >
+
+    <!-- first line -->
+
+    <LinearLayout
+        android:id="@+id/common_use_phrase_first_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/common_use_phrase_bottom_bar_bg1"
+        android:gravity="center"
+        android:visibility="gone" >
+
+        <!-- https:// -->
+
+        <ImageButton
+            android:id="@+id/common_action_https"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/common_use_phrase_bottom_bar"
+            android:src="@drawable/common_use_phrase_bottom_bar_https" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/common_use_bottom_bar_divided" />
+
+        <!-- . -->
+
+        <ImageButton
+            android:id="@+id/common_action_point"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/common_use_phrase_bottom_bar"
+            android:src="@drawable/common_use_phrase_bottom_bar_point" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/common_use_bottom_bar_divided" />
+
+        <!-- / -->
+
+        <ImageButton
+            android:id="@+id/common_action_slash"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/common_use_phrase_bottom_bar"
+            android:src="@drawable/common_use_phrase_bottom_bar_slash" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/common_use_bottom_bar_divided" />
+
+        <!-- .net -->
+
+        <ImageButton
+            android:id="@+id/common_action_net"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/common_use_phrase_bottom_bar"
+             android:src="@drawable/common_use_phrase_bottom_bar_net" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/common_use_bottom_bar_divided" />
+
+        <!-- .org -->
+
+        <ImageButton
+            android:id="@+id/common_action_org"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/common_use_phrase_bottom_bar"
+             android:src="@drawable/common_use_phrase_bottom_bar_org" />
+    </LinearLayout>
+
+    <!-- second line -->
+
+    <LinearLayout
+        android:id="@+id/common_use_phrase_second_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/common_use_phrase_bottom_bar_bg1"
+        android:gravity="center" >
+
+        <!-- www. -->
+
+        <ImageButton
+            android:id="@+id/common_action_www"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/common_use_phrase_bottom_bar"
+            android:src="@drawable/common_use_phrase_bottom_bar_www" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/common_use_bottom_bar_divided" />
+
+        <!-- .com -->
+
+        <ImageButton
+            android:id="@+id/common_action_com"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/common_use_phrase_bottom_bar"
+            android:src="@drawable/common_use_phrase_bottom_bar_com" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/common_use_bottom_bar_divided" />
+
+        <!-- .cn -->
+
+        <Button
+            android:id="@+id/common_action_cn"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingBottom="4dip"
+            android:background="@drawable/common_use_phrase_bottom_bar"
+            android:text="@string/common_use_phrase_bottom_bar_cn_txt"
+            android:textColor="@color/common_use_bottom_bar_paste"
+            android:textSize="@dimen/common_use_bottom_bar_cn_text_size" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/common_use_bottom_bar_divided" />
+
+        <!-- paste -->
+
+        <Button
+            android:id="@+id/common_action_paste"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/common_use_phrase_bottom_bar"
+            android:text="@string/common_use_phrase_bottom_bar_paste_txt"
+            android:textColor="@color/common_use_bottom_bar_paste"
+            android:textSize="@dimen/common_use_bottom_bar_paste_text_size" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_use_bottom_bar_divided" />
+
+        <!-- control -->
+
+        <ImageButton
+            android:id="@+id/common_action_control"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/common_use_phrase_bottom_bar"
+            android:src="@drawable/common_use_phrase_bottom_bar_up" />
+    </LinearLayout>
+
+</LinearLayout>
+
