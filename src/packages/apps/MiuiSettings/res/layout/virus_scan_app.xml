@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miui="http://schemas.android.com/apk/res/miui"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/virus_scan_app_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/virus_scan_app_scanning_bg">
+
+        <miui.v5.widget.NumberProgressView
+            android:id="@+id/virus_scan_app_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/virus_scan_app_status"
+            style="@style/TextAppearance.Title.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dip"
+            android:singleLine="true"
+            android:text="@string/virus_scan_app_safe_scanning"/>
+
+        <TextView
+            android:id="@+id/virus_scan_app_inf"
+            style="@miui:style/V5.TextAppearance.Title.Medium.Secondary"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/virus_scan_app_multi_engines"/>
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/virus_scan_app_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <Button android:id="@+id/virus_scan_app_button_finish"
+            android:text="@string/virus_scan_app_finish"
+            android:layout_width="0dip"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:maxLines="2"
+            android:textSize="14sp"
+            android:visibility="gone"
+            android:textAppearance="@miui:style/V5.TextAppearance.Button"
+            android:layout_height="match_parent"
+            style="?android:attr/buttonBarButtonStyle" />
+        <Button android:id="@+id/virus_scan_app_button_scan"
+            android:text="@string/virus_scan_app_stop_scan"
+            android:layout_width="0dip"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:maxLines="2"
+            android:textSize="14sp"
+            android:textAppearance="@miui:style/V5.TextAppearance.Button"
+            android:layout_height="match_parent"
+            style="?android:attr/buttonBarButtonStyle" />
+     </LinearLayout>
+
+    <ListView
+        android:id="@+id/virus_scan_app_item"
+        android:layout_below="@id/virus_scan_app_title"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/virus_scan_app_buttons"/>
+
+</RelativeLayout>
+
