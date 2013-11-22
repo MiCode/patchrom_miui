@@ -61,9 +61,19 @@
     <string name="editing_tips">編輯或新增小工具</string>
     <string name="cant_remove_system_app">系統內建的關鍵應用程式無法移除</string>
     <string name="cant_remove_retained_app">無法移除電信商定制的應用程式</string>
-    <string name="uninstall_dialog_title_format">移除“%s”</string>
+    <plurals name="uninstall_dialog_title_format">
+        <item quantity="one">移除\"%s\"</item>
+        <item quantity="other">移除\"<xliff:g id="appname">%s</xliff:g>\"等<xliff:g id="count">%d</xliff:g>個應用程式</item>
+    </plurals>
     <string name="uninstall_dialog_message">移除後，其所有資料也將被刪除</string>
-    <string name="uninstall">移除</string>
+    <plurals name="uninstall_result_succeeded">
+        <item quantity="one">成功移除</item>
+        <item quantity="other">成功移除%d個應用程式</item>
+    </plurals>
+    <plurals name="uninstall_result_failed">
+        <item quantity="one">應用程式無法移除</item>
+        <item quantity="other"><xliff:g id="appname">%s</xliff:g>等<xliff:g id="count">%d</xliff:g>个應用程式無法移除</item>
+    </plurals>
     <string name="starting_preset_app">正在啟動</string>
     <string name="install">安裝</string>
     <string name="cant_remove_folder">不能刪除非空資料夾</string>
