@@ -118,16 +118,16 @@ public class NotificationManagerService extends INotificationManager.Stub
         }
 
         static void cancelCurrentToast(NotificationManagerService service, int index) {
-            if (index != 0) {
-                service.callScheduleTimeoutLocked(service.mToastQueue.get(0), true);
-            }
+            service.cancelCurrentToast(index);
         }
     }
 
     // MIUI ADD:
-    // call ScheduleTimeoutLocked from injector
-    void callScheduleTimeoutLocked(ToastRecord r, boolean immediate) {
-        scheduleTimeoutLocked(r, immediate);
+    // call cancel current toast
+    void cancelCurrentToast(int index) {
+        if (index != 0) {
+            scheduleTimeoutLocked(mToastQueue.get(0), true);
+        }
     }
 
     private static final String TAG = "NotificationService";

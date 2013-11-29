@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/miui_screensaver_title"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <PreferenceCategory android:key="miui_screensaver">
+
+        <CheckBoxPreference
+            android:key="screensaver_activate_mode"
+            android:title="@string/activate_miui_screensaver"
+            android:persistent="false" />
+
+        <miui.preference.ValuePreference
+            android:key="picture_source"
+            android:title="@string/picture_source"
+            android:persistent="false" />
+
+        <CheckBoxPreference
+            android:key="screensaver_activate_only_charging"
+            android:title="@string/only_when_charging"
+            android:persistent="false" />
+
+        <com.android.settings.display.SingleLineListPreference
+            android:key="slideshow_time"
+            android:title="@string/miui_screensaver_show_time"
+            android:dialogTitle="@string/miui_screensaver_show_time_select_title"
+            android:entries="@array/slideshow_time_entries"
+            android:entryValues="@array/slideshow_time_entryValues"
+            android:defaultValue="1800"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -49,6 +49,15 @@
              android:targetClass="com.android.thememanager.activity.WallpaperSettings" />
     </PreferenceScreen>
 
+    <miui.preference.ValuePreference
+         android:key="miui_screensaver"
+         android:title="@string/miui_screensaver_title"
+         android:persistent="false" >
+        <intent
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.display.MiuiScreensaverSettings" />
+    </miui.preference.ValuePreference>
+
     <!-- launcher -->
     <PreferenceScreen
         android:key="preferred_launcher"
