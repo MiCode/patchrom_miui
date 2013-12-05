@@ -7135,7 +7135,6 @@ public class PackageManagerService extends IPackageManager.Stub {
                 res.returnCode = PackageManager.INSTALL_FAILED_INVALID_APK;
             }
         } else {
-            ExtraPackageManagerServices.postProcessNewInstall(mContext, pkg.applicationInfo, mSettings); // miui add
             updateSettingsLI(newPackage,
                     installerPackageName,
                     res);

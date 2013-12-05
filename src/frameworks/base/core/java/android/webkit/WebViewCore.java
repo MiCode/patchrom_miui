@@ -1263,6 +1263,9 @@ public final class WebViewCore {
         // MIUI ADD:
         static final int UPDATE_SELECTION_RECT = 5060;
 
+        // MIUI ADD:
+        static final int CHECK_IF_SAVE_IMAGE_FROM_CACHE_AVAILABLE = 5070;
+
         // Private handler for WebCore messages.
         private Handler mHandler;
         // Message queue for containing messages before the WebCore thread is
@@ -1882,6 +1885,16 @@ public final class WebViewCore {
                             boolean success = nativeSaveImageFromCache(mNativeClass, x, y, path);
                             mCallbackProxy.savedImageFromCache(success, path);
                             break;
+                        // MIUI ADD:
+                        case CHECK_IF_SAVE_IMAGE_FROM_CACHE_AVAILABLE: {
+                            String[] strArray = (String[]) msg.obj;
+                            int  successSave = nativeCheckIfImageExistedInCache(mNativeClass,
+                                    strArray[0], strArray[1]) ? 1 : 0;
+                            mWebViewClassic.mPrivateHandler.obtainMessage(
+                                    WebViewClassic.SAVE_IMAGE_TO_PATH, 0, successSave, strArray[1]).sendToTarget();
+                            break;
+                        }
+                        // END
                     }
                 }
 
@@ -3302,6 +3315,8 @@ public final class WebViewCore {
     private native void nativeSelectAll(int nativeClass);
     private native void nativeSetInitialFocus(int nativeClass, int keyDirection);
     private native boolean nativeSaveImageFromCache(int nativeClass, int x, int y, String path);
+    // MIUI ADD:
+    private native boolean nativeCheckIfImageExistedInCache(int nativeClass, String imageUrl, String path);
 
     private static native void nativeCertTrustChanged();
 }

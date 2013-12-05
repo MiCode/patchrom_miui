@@ -1072,6 +1072,8 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
     static final int UPDATE_CARET_RECT                  = 5003;
     // MIUI ADD:
     static final int SEND_PREREAD_URL                   = 5004;
+    // MIUI ADD:
+    static final int SAVE_IMAGE_TO_PATH                 = 5005;
 
     private static final int FIRST_PACKAGE_MSG_ID = SCROLL_TO_MSG_ID;
     private static final int LAST_PACKAGE_MSG_ID = HIT_TEST_RESULT;
@@ -4897,6 +4899,21 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
             return false;
         }
         mWebViewCore.sendMessage(EventHub.SAVE_IMAGE_FROM_CACHE, x, y, path);
+        return true;
+    }
+
+    /**
+     * MIUI ADD:
+     *@hide
+     */
+    public boolean checkIfSaveImageFromCacheAvailable(String imageUrl, String path) {
+        if (mWebViewCore == null) {
+            return false;
+        }
+        String[] strArray = new String[2];
+        strArray[0] = imageUrl;
+        strArray[1] = path;
+        mWebViewCore.sendMessage(EventHub.CHECK_IF_SAVE_IMAGE_FROM_CACHE_AVAILABLE, strArray);
         return true;
     }
 
@@ -8744,6 +8761,14 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
                     break;
                 }
                 // END
+                // MIUI ADD:
+                case SAVE_IMAGE_TO_PATH: {
+                    boolean success = msg.arg2 == 1;
+                    String path = (String) msg.obj;
+                    getWebViewClient().onSaveImageDataReady(success, path);
+                    break;
+                }
+                // END
                 case REMEMBER_PASSWORD: {
                     mDatabase.setUsernamePassword(
                             msg.getData().getString("host"),
@@ -9670,7 +9695,10 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
             public MyArrayListAdapter() {
                 super(WebViewClassic.this.mContext,
                         mMultiple ? com.android.internal.R.layout.select_dialog_multichoice :
-                        com.android.internal.R.layout.webview_select_singlechoice,
+                        // MIUI MOD:
+                        // com.android.internal.R.layout.webview_select_singlechoice,
+                        miui.R.layout.v5_select_dialog_singlechoice,
+                        // END
                         mContainers);
             }
 
@@ -9863,6 +9891,17 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
                         mWebViewCore.sendMessage(
                                 EventHub.SINGLE_LISTBOX_CHOICE, -2, 0);
                 }});
+            // MIUI ADD:
+            } else {
+                b.setNegativeButton(android.R.string.cancel,
+                        new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (mWebViewCore != null) {
+                            mWebViewCore.sendMessage(
+                                    EventHub.SINGLE_LISTBOX_CHOICE, -2, 0);
+                        }        }});
+            // END
             }
             mListBoxDialog = b.create();
             listView.setAdapter(adapter);

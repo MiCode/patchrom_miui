@@ -343,4 +343,11 @@ public class WebViewClient {
     @MiuiHook(MiuiHookType.NEW_METHOD)
     public void onGotImageFromCache(boolean success, String path) {
     }
+
+    /**
+     * MIUI ADD:
+     * @hide
+     */
+    public void onSaveImageDataReady(boolean success, String path) {
+    }
 }
