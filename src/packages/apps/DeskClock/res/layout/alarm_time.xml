@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@miui:style/V5.Widget.ListView.Item.TrebleLine"
+    android:layout_height="@dimen/alarm_item_height">
+
+    <!-- A layout that displays the time.  Shows time, am/pm (if 12-hour),
+         and an optional line below, used for day/days of week -->
+    <com.android.deskclock.DigitalClock android:id="@+id/digitalClock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/alarm_time_layout_padding_left">
+
+        <LinearLayout
+            android:id="@+id/time_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.android.deskclock.ClockTextView
+                android:id="@+id/timeDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:textSize="@dimen/clock_text_alarm"
+                android:textColor="@color/number_color_dark" />
+
+            <TextView android:id="@+id/am_pm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:paddingLeft="@dimen/am_pm_padding_left"
+                android:paddingRight="@dimen/am_pm_padding_right"
+                style="@miui:style/V5.TextAppearance.List.Secondary"
+                android:includeFontPadding="false" />
+
+        </LinearLayout>
+
+        <TextView android:id="@+id/daysOfWeek"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/alarm_item_gap_height"
+            style="@miui:style/V5.TextAppearance.List.Secondary"
+            android:includeFontPadding="false"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/alarm_item_gap_height">
+            <TextView android:id="@+id/label"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:drawableRight="@drawable/item_inner_divider"
+                android:drawablePadding="@dimen/alarm_item_inner_divider_padding"
+                android:paddingRight="@dimen/alarm_item_inner_divider_padding"
+                style="@miui:style/V5.TextAppearance.List.Secondary"
+                android:includeFontPadding="false"/>
+
+            <TextView android:id="@+id/alarmInFurture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_label"
+                style="@miui:style/V5.TextAppearance.List.Secondary"
+                android:includeFontPadding="false"/>
+        </LinearLayout>
+    </com.android.deskclock.DigitalClock>
+
+    <com.android.deskclock.DontPressWithParentLayout
+        android:id="@+id/indicator"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/indicator_padding_horizontal"
+        android:paddingRight="@dimen/indicator_padding_horizontal">
+        <miui.widget.SlidingButton
+            android:id="@+id/clock_onoff"
+            style="@miui:style/V5.Widget.SlidingButton"
+            android:focusable="false"
+            android:clickable="false"
+            android:duplicateParentState="true"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+    </com.android.deskclock.DontPressWithParentLayout>
+
+    <CheckBox
+        android:id="@android:id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:clickable="false"
+        android:visibility="gone" />
+</LinearLayout>

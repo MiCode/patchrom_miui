@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:fadingEdge="none"
+            android:fillViewport="true" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/base_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/main_padding"
+                    android:layout_marginRight="@dimen/main_padding"
+                    android:layout_marginTop="@dimen/common_padding"
+                    android:orientation="horizontal" >
+
+                    <ImageSwitcher
+                        android:id="@+id/icon"
+                        style="@style/Widget.Icon" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/cate_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/common_padding_trivial"
+                            android:gravity="center_vertical"
+                            android:textAppearance="@style/TextAppearance.Title.Secondary"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/common_padding_trivial"
+                            android:gravity="center_vertical"
+                            android:textAppearance="@style/TextAppearance.Title" />
+
+                        <RatingBar
+                            android:id="@+id/ratingbar"
+                            style="@style/Widget.RatingBar.ReadOnly"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/common_padding_small"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/common_padding_trivial"
+                            android:gravity="center_vertical" >
+
+                            <TextView
+                                android:id="@+id/size"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:textAppearance="@style/TextAppearance.Title.Secondary" />
+
+                            <View
+                                android:layout_width="1dip"
+                                android:layout_height="10dip"
+                                android:layout_marginLeft="@dimen/common_padding_small"
+                                android:layout_marginRight="@dimen/common_padding_small"
+                                android:layout_marginTop="1dip"
+                                android:background="@drawable/detail_text_split" >
+                            </View>
+
+                            <TextView
+                                android:id="@+id/developer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:singleLine="true"
+                                android:textAppearance="@style/TextAppearance.Title.Secondary" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/version_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:textAppearance="@style/TextAppearance.Title.Secondary"
+                            android:visibility="gone" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.xiaomi.market.ui.AppDetailView
+                    android:id="@+id/extra_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_padding_large"
+                    android:orientation="vertical" >
+
+                    <com.xiaomi.market.widget.AppScreenView
+                        android:id="@+id/screen_shots"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/main_padding"
+                        android:layout_marginRight="@dimen/main_padding"
+                        android:layout_marginTop="@dimen/common_padding"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/top_info_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:drawableLeft="@drawable/tip_icon"
+                            android:drawablePadding="5dp"
+                            android:textAppearance="@style/TextAppearance.Subject" />
+
+                        <include
+                            android:id="@+id/top_info"
+                            layout="@layout/expandable_textview" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/main_padding"
+                        android:layout_marginRight="@dimen/main_padding"
+                        android:layout_marginTop="@dimen/common_padding"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/bottom_info_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:drawableLeft="@drawable/tip_icon"
+                            android:drawablePadding="5dp"
+                            android:text="@string/description_info"
+                            android:textAppearance="@style/TextAppearance.Subject" />
+
+                        <include
+                            android:id="@+id/bottom_info"
+                            layout="@layout/expandable_textview" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/detail_view_bottom_button_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/main_padding"
+                        android:layout_marginRight="@dimen/main_padding"
+                        android:layout_marginTop="@dimen/common_padding"
+                        android:gravity="center" >
+
+                        <Button
+                            android:id="@+id/rating_button"
+                            style="@style/Widget.Button.Tab"
+                            android:background="@drawable/left_normal_btn"
+                            android:textSize="@dimen/tab_button_text_size" />
+
+                        <Button
+                            android:id="@+id/developer_button"
+                            style="@style/Widget.Button.Tab"
+                            android:background="@drawable/middle_normal_btn"
+                            android:textSize="@dimen/tab_button_text_size" />
+
+                        <Button
+                            android:id="@+id/permission_button"
+                            style="@style/Widget.Button.Tab"
+                            android:background="@drawable/right_normal_btn"
+                            android:textSize="@dimen/tab_button_text_size" />
+                    </LinearLayout>
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/common_padding"
+                        android:layout_marginLeft="@dimen/main_padding"
+                        android:layout_marginRight="@dimen/main_padding"
+                        android:layout_marginTop="@dimen/common_padding_medium" >
+
+                        <TableRow android:gravity="center" >
+
+                            <TextView
+                                android:gravity="right|center_vertical"
+                                android:text="@string/update_date_label"
+                                android:textAppearance="@style/TextAppearance.Title.Secondary" />
+
+                            <TextView
+                                android:id="@+id/update_date"
+                                android:gravity="left|center_vertical"
+                                android:textAppearance="@style/TextAppearance.Title.Secondary" />
+                        </TableRow>
+
+                        <TableRow android:gravity="center" >
+
+                            <TextView
+                                android:id="@+id/version_label"
+                                android:gravity="right|center_vertical"
+                                android:text="@string/version_label"
+                                android:textAppearance="@style/TextAppearance.Title.Secondary" />
+
+                            <TextView
+                                android:id="@+id/version"
+                                android:gravity="left|center_vertical"
+                                android:textAppearance="@style/TextAppearance.Title.Secondary" />
+                        </TableRow>
+                    </TableLayout>
+
+                    <TextView
+                        android:id="@+id/baidu_result_notice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/main_padding"
+                        android:text="@string/result_notice"
+                        android:textAppearance="@style/TextAppearance.Title.Secondary"
+                        android:visibility="gone" >
+                    </TextView>
+                </com.xiaomi.market.ui.AppDetailView>
+
+                <com.xiaomi.market.ui.EmptyLoadingView
+                    android:id="@+id/loading"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1"
+                    android:gravity="center" />
+            </LinearLayout>
+        </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            style="@style/Widget.ProgressBar.Detail"
+            android:visibility="gone" >
+        </ProgressBar>
+    </LinearLayout>
+
+    <com.xiaomi.market.ui.AppDetailBottomBar
+        android:id="@+id/bottom_bar"
+        style="@style/Widget.BottomBar"
+        android:layout_gravity="bottom" >
+    </com.xiaomi.market.ui.AppDetailBottomBar>
+
+</FrameLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <miui.resourcebrowser.view.ResourceScrollView
+        android:id="@+id/childroot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="none"
+        android:fillViewport="true" >
+
+        <LinearLayout
+            android:id="@+id/contentArea"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/detail_content_view_top_padding"
+            android:paddingBottom="@dimen/detail_content_view_bottom_padding" >
+            <!-- see local/online detail fragment -->
+        </LinearLayout>
+    </miui.resourcebrowser.view.ResourceScrollView>
+
+    <miui.resourcebrowser.view.ResourceOperationView
+        android:id="@+id/operationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center_horizontal|bottom" >
+    </miui.resourcebrowser.view.ResourceOperationView>
+
+    <LinearLayout
+        android:id="@+id/loading_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:id="@+id/loading_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/loading_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loading_resource_detail_info" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/coverview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+</FrameLayout>

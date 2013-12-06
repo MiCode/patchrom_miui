@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- android:layout_alignParentLeft="true"  -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+	android:layout_width="match_parent" 
+	android:layout_height="match_parent" 
+	android:orientation="vertical">
+
+	<TextView android:id="@+id/message"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:layout_marginBottom="20dip"
+		android:text="@string/no_service_msg"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+        android:paddingLeft="15dip"
+        android:paddingRight="15dip">
+	</TextView>
+
+    <LinearLayout android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:paddingLeft="15dip"
+                  android:paddingRight="15dip">
+        <CheckBox android:id="@+id/show_always"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:focusable="false">
+        </CheckBox>
+        <TextView android:id="@+id/show_always_title"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/show_always_title"
+                  android:textAppearance="?android:attr/textAppearanceMedium">
+        </TextView>
+    </LinearLayout>
+
+	<ListView android:id="@android:id/list" 
+		android:layout_width="match_parent" 
+		android:layout_height="0dip"
+		android:layout_weight="1">
+	</ListView>
+
+</LinearLayout>

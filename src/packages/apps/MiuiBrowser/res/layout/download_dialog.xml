@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="20dip"
+    android:paddingRight="20dip">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical" >
+        <EditText
+            android:id="@+id/fileNameEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="65dip"
+            android:paddingRight="5dip"
+            android:textSize="14sp"
+            android:textColor="#616161"
+            android:textStyle="bold"
+            android:background="@drawable/file_name_input_bg"
+            android:layout_weight="1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#818181"
+            android:layout_marginLeft="5dip"
+            android:layout_centerVertical="true"
+            android:text="@string/file_name" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dip"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dip"
+            android:text="@string/download_dialog_file_length_hint_txt"
+            android:textColor="#818181"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/fileLengthTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dip"
+            android:text="@string/download_dialog_file_length_nolength_txt"
+            android:textColor="#818181"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dirSelectBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dip"
+        android:gravity="center_vertical"
+        android:background="@drawable/folder_btn_bg"
+        android:paddingLeft="5dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            android:textColor="#818181"
+            android:text="@string/file_dir" />
+
+        <TextView
+            android:id="@+id/dirNameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:ellipsize="start"
+            android:textSize="14sp"
+            android:textColor="#616161"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/download_checkbox_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dip"
+        android:gravity="center_vertical" >
+
+        <CheckBox
+            android:id="@+id/use_default_path_check_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/download_default_path_txt" >
+        </CheckBox>
+    </LinearLayout>
+
+</LinearLayout>

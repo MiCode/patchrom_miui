@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The bottom bar with progress bar and direction indicators -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/on_screen_indicators"
+        android:layout_above="@+id/control_panel_bottom">
+    <com.android.camera.ui.RotateLayout
+        android:id="@+id/pano_progress_area"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         android:visibility="gone">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="10dp" >
+
+                <com.android.camera.PanoProgressBar
+                    android:id="@+id/pano_pan_progress_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/ic_pan_progression"
+                    android:scaleType="fitXY" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/pano_direction_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_pano_direction_left"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/pano_how_to_use_prompt_go_on_moving"
+                    android:textSize="@dimen/pano_review_saving_indication_size" />
+
+                <ImageView
+                    android:id="@+id/pano_direction_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_pano_direction_right"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </RelativeLayout>
+    </com.android.camera.ui.RotateLayout>
+</RelativeLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottom_panel"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:gravity="bottom"
+    android:background="@drawable/message_edit_bottom_panel">
+
+    <Button
+        android:id="@+id/sms_button_show_attachment_panel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/add_attachment"
+        android:background="@drawable/insert_attachment_button_n" />
+
+    <include layout="@layout/mms_editor" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/text_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAppearance="@style/TextAppearance.MessageCounter"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/mms_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAppearance="@style/TextAppearance.MessageCounter"
+            android:visibility="gone"/>
+        <Button
+            android:id="@+id/send_button"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:nextFocusLeft="@+id/embedded_text_editor"
+            android:contentDescription="@string/send_sms"
+            android:background="@drawable/send_btn" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/group_message_failed_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/bubble_text_extra_padding"
+    android:layout_marginRight="@dimen/bubble_text_extra_padding"
+    android:layout_marginTop="@dimen/bubble_text_extra_padding"
+    android:layout_marginBottom="5dip"
+    android:orientation="vertical"
+    android:visibility="gone" >
+    <TextView
+        android:id="@+id/group_message_failed_title"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:singleLine="true"
+        style="@style/TextAppearance.MessageDesc"
+        android:background="@drawable/group_item_bg" />
+    <LinearLayout
+        android:id="@+id/group_message_failed_items"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip" >
+        <Button
+            android:id="@+id/group_btn_resend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/MessageButton.Alert"
+            android:visibility="visible" />
+        <Button
+            android:id="@+id/group_btn_nosend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            style="@style/MessageButton.Alert"
+            android:text="@string/nosend_message"
+            android:visibility="visible" />
+    </LinearLayout>
+</LinearLayout>

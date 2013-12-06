@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/base_layout"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent" >
+
+	    <Button
+	        android:id="@+id/back_btn"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:gravity="center"
+	        android:layout_alignParentBottom="true"
+	        android:text="@string/back_return" />
+
+	    <LinearLayout
+	        android:id="@+id/sensor_button"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_above="@id/back_btn"
+	        android:orientation="horizontal" >
+
+		    <Button
+	            android:id="@+id/succeed_btn"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="@string/test_succeed" />
+
+		    <Button
+	            android:id="@+id/fail_btn"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="@string/test_fail" />
+
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:layout_above="@id/sensor_button"
+	        android:gravity="center"
+	        android:orientation="vertical" >
+
+		    <TextView
+		        android:id="@+id/light_level"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:gravity="center"
+		        android:textSize="20dp" />
+
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:layout_above="@id/light_level"
+	        android:gravity="center"
+	        android:orientation="vertical" >
+
+		    <TextView
+		        android:id="@+id/pass_text"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:gravity="center"
+		        android:textColor="#00FF00"
+		        android:textSize="20dp" />
+
+	    </LinearLayout>
+
+
+	    <TextView
+	        android:id="@+id/light_title"
+	        android:layout_width="match_parent"
+	        android:layout_height="50dp"
+	        android:text="@string/light_title"
+	        android:gravity="center"
+	        android:textSize="20dp" />
+
+	</RelativeLayout>

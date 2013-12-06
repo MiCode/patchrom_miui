@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:fadingEdge="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dip"
+            android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/edit_custom_location_title_miui" />
+                <EditText
+                    android:id="@+id/custom_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dip"
+                    android:padding="10dip"
+                    android:singleLine="true"
+                    android:phoneNumber="true"
+                    android:background="?miui:attr/v5_group_item_bg"
+                    android:hint="@string/custom_location_number_hint_miui" />
+                <EditText
+                    android:id="@+id/custom_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dip"
+                    android:singleLine="true"
+                    android:background="?miui:attr/v5_group_item_bg"
+                    android:hint="@string/custom_location_location_hint_miui" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dip"
+                    android:gravity="center_vertical"
+                    android:text="@string/number_type_miui" />
+            </LinearLayout>
+            <RadioGroup
+                android:id="@+id/type_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/type_tel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@miui:drawable/v5_preference_item_bg"
+                    android:text="@string/number_type_tel_miui" />
+
+                <RadioButton
+                    android:id="@+id/type_mob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@miui:drawable/v5_preference_item_bg"
+                    android:text="@string/number_type_mob_miui" />
+
+                <RadioButton
+                    android:id="@+id/type_jituan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@miui:drawable/v5_preference_item_bg"
+                    android:text="@string/number_type_jituan_miui" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dip"
+                style="@miui:style/V5.Widget.Button.NegativeWarn"
+                android:text="@string/remove_miui"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dip"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="5dip"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_discard"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@android:string/cancel" />
+        <Button
+            android:id="@+id/btn_done"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@android:string/ok" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/clickable_item_bg">
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_dialog_item_height"
+        android:orientation="horizontal">
+        <View 
+            android:id="@+id/common_dialog_list_item_bar"
+            android:layout_width="@dimen/common_dialog_item_bar_width"
+            android:layout_height="match_parent" />
+        <ImageView 
+            android:id="@+id/select_source_item_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/media_detail_select_source_item_left_margin"/>
+        <TextView 
+            android:id="@+id/select_source_item_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:textIsSelectable="false"
+            android:layout_marginLeft="@dimen/media_detail_select_source_item_left_margin"
+            android:textSize="@dimen/text_size_38"
+            android:textColor="@color/p_80_black"/>
+        
+    </LinearLayout>
+    
+    <View 
+        android:layout_width="match_parent"
+    	android:layout_height="@dimen/divider_height"
+    	android:background="@color/list_divider"/>
+    
+</LinearLayout>

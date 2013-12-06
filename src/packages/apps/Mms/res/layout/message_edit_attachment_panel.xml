@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewSwitcher
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/attachment_panel"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:measureAllChildren="false"
+    android:visibility="gone" >
+    <com.android.mms.ui.AttachmentScreenView
+        android:id="@+id/attachment_type_screens"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/attachment_type_screen_height"
+        android:background="@drawable/attachment_screen_bg" />
+    <FrameLayout
+        android:id="@+id/smiley_panel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/attachment_type_screen_height"
+        android:background="@drawable/attachment_screen_bg"
+        android:visibility="gone">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:id="@+id/smiley_screens">
+            <miui.widget.ScreenView
+                android:id="@+id/smiley_screens_image_smiley"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+            <miui.widget.ScreenView
+                android:id="@+id/smiley_screens_image_creature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+            <miui.widget.ScreenView
+                android:id="@+id/smiley_screens_image_lifestyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+            <miui.widget.ScreenView
+                android:id="@+id/smiley_screens_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <miui.widget.ScreenView
+                android:id="@+id/smiley_screens_symbol"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+        </FrameLayout>
+        <LinearLayout
+            android:background="@drawable/smiley_tab_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="center_vertical">
+            <TabWidget android:id="@+id/smiley_tab_widget"
+                android:tabStripEnabled="false"
+                android:divider="@null"
+                android:tabStripLeft="@null"
+                android:tabStripRight="@null"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/smiley_tab_image_smiley" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/smiley_tab_image_creature" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/smiley_tab_image_lifestyle" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/smiley_tab_text" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/smiley_tab_symbol" />
+            </TabWidget>
+            <Space
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+            <ImageView
+                android:id="@+id/smiley_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/smiley_back" />
+        </LinearLayout>
+    </FrameLayout>
+</ViewSwitcher>

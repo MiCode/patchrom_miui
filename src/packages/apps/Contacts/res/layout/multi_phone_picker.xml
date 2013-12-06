@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<view
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    class="com.android.contacts.widget.FullHeightLinearLayout"
+    style="@style/ContactPickerLayout"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@drawable/multi_phone_picker_background">
+
+    <include
+        android:id="@+id/search_view"
+        layout="@layout/search_view"/>
+
+    <!-- will contain an appropriate contacts list -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1" />
+</view>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+
+    <TextView
+    	android:id="@+id/gps_test_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:text="@string/gps_test"
+        android:textSize="20sp" />
+
+    <LinearLayout
+    	android:id="@+id/satellite_num_linear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gps_test_title"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/satellite_num" />
+
+        <TextView
+            android:id="@+id/satellite_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center" />
+    </LinearLayout>
+
+	<ScrollView
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_below="@id/satellite_num_linear"
+	    android:fillViewport="true">
+
+		<TextView
+            android:id="@+id/satellite_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+	</ScrollView>
+
+    <Button
+        android:id="@+id/back_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:text="@string/back_return" />
+
+    <LinearLayout
+    	android:id="@+id/s_f_linearout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_above="@id/back_btn"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/fail_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/test_fail" />
+
+        <Button
+            android:id="@+id/succeed_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/test_succeed" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/gps_open_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_above="@id/s_f_linearout"
+        android:text="@string/gps_enable"
+        android:textSize="20dp" />
+
+</RelativeLayout>

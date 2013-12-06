@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/content_horizontal_margin"
+                android:paddingRight="@dimen/content_horizontal_margin"
+                android:paddingTop="@dimen/content_horizontal_margin"
+                android:paddingBottom="@dimen/content_bottom_margin"
+        >
+
+    <TextView
+            android:id="@+id/info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/notice_text_padding_h"
+            android:layout_marginRight="@dimen/notice_text_padding_h"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="22dp"
+            android:gravity="center"
+            style="@style/TextPrimary"
+            />
+
+    <View
+            android:id="@+id/top_divider"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/info"
+            style="@style/Divider"
+            />
+
+    <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="@string/next"/>
+    <ListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/content_horizontal_margin_neg"
+            android:layout_marginRight="@dimen/content_horizontal_margin_neg"
+            android:layout_above="@id/btn_next"
+            android:layout_marginTop="@dimen/content_horizontal_margin"
+            android:layout_marginBottom="@dimen/content_horizontal_margin"
+            />
+
+    <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/top_divider"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/find_device"/>
+
+</RelativeLayout>

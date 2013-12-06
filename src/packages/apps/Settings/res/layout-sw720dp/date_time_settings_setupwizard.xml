@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+  -->
+<RelativeLayout
+    android:id="@+id/layout_root"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/datetime_margin_top"
+    android:paddingStart="@dimen/screen_margin_sides"
+    android:paddingEnd="@dimen/screen_margin_sides"
+    android:paddingBottom="@dimen/datetime_margin_bottom">
+
+    <!-- Title: Set date & time-->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="48dip"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dip"
+        android:layout_alignParentTop="true"
+        android:textSize="32dip"
+        android:textColor="@color/title_color"
+        android:text="@string/date_and_time_settings_title_setup_wizard"
+        android:gravity="bottom" />
+
+    <!-- Divider -->
+    <View
+        android:id="@+id/top_divider"
+        android:layout_width="match_parent"
+        android:layout_height="3dip"
+        android:layout_below="@id/title"
+        android:layout_marginTop="6dip"
+        android:layout_marginBottom="17dip"
+        android:background="@color/divider_color" />
+
+    <RelativeLayout
+        android:id="@+id/timezone_auto_time"
+        android:layout_width="716dip"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/top_divider">
+        <!-- timezone -->
+        <Button
+            android:id="@+id/time_zone_button"
+            style="?android:attr/dropDownSpinnerStyle"
+            android:layout_width="304dip"
+            android:layout_height="48dip"
+            android:layout_alignParentStart="true"
+            android:layout_alignBottom="@+id/date_time_auto"
+            android:gravity="start|center_vertical"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="20dip" />
+
+        <LinearLayout
+            android:id="@+id/date_time_auto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toEndOf="@id/time_zone_button"
+            android:layout_marginStart="32dip"
+            android:layout_alignParentEnd="true">
+
+            <Switch
+                android:id="@+id/date_time_auto_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="?android:attr/listPreferredItemHeight"
+                android:layout_marginStart="16dip"
+                android:text="@string/date_time_auto"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="20dip" />
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/divider_color" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="624dip"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/timezone_auto_time"
+        android:layout_marginTop="48dip"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="312dip"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/date_picker_title"
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:text="@string/date_picker_title"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="20dip"
+                android:clickable="false"
+                android:longClickable="false"
+                android:gravity="center" />
+            <DatePicker
+                android:id="@+id/date_picker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/date_picker_title" />
+        </LinearLayout>
+
+        <!-- divider -->
+        <View
+            android:id="@+id/center_divider"
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="@color/divider_color" />
+
+        <LinearLayout
+            android:layout_width="312dip"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/time_picker_title"
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:text="@string/time_picker_title"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="20dip"
+                android:gravity="center" />
+
+            <TimePicker
+                android:id="@+id/time_picker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time_picker_title" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/bottom_divider"
+        android:layout_width="match_parent"
+        android:layout_height="3dip"
+        android:layout_alignStart="@id/timezone_auto_time"
+        android:layout_above="@+id/next_button"
+        android:layout_marginBottom="16dip"
+        android:background="@color/divider_color" />
+
+    <Button
+        android:id="@+id/next_button"
+        style="@style/setup_wizard_button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:text="@string/next_label" />
+</RelativeLayout>

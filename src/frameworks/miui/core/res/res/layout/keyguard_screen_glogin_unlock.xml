@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+**
+** Copyright 2008, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License")
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="-15dip">
+
+            <TextView
+                android:id="@+id/topHeader_account"
+                android:layout_width="match_parent"
+                android:layout_height="64dip"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:gravity="center"
+                style="@style/V5.Widget.TextView"
+                android:layout_gravity="center_horizontal"
+                android:drawableLeft="@drawable/android_ic_lock_idle_lock"
+                android:drawablePadding="5dip"/>
+
+            <ImageView
+                android:id="@android:id/icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/find_device_warning"/>
+
+            <TextView
+                android:id="@+id/instructions_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dip"
+                android:gravity="center"
+                style="@style/V5.Widget.TextView"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/android_lockscreen_glogin_instructions"
+                android:textSize="12sp"
+                android:textColor="#a7a6a5"/>
+
+            <Spinner
+                android:id="@+id/login_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dip"
+                android:background="@drawable/miui_account_unlock_screen_spinner_bg"
+                android:popupBackground="@drawable/miui_account_unlock_screen_spinner_popup_bg"
+                android:dropDownVerticalOffset="0dp"
+                android:dropDownHorizontalOffset="0dp"
+                android:dropDownWidth="match_parent"
+                android:dropDownHeight="@miui:dimen/v5_list_view_single_line_height"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/password_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                style="@style/V5.Widget.EditText"
+                android:paddingTop="12dp"
+                android:paddingLeft="12dp"
+                android:paddingBottom="12dp"
+                android:textColor="#ffffff"
+                android:background="@drawable/miui_password_unlock_screen_input_field_bg"
+                android:hint="@string/android_lockscreen_glogin_password_hint"/>
+
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="@string/login_website_in_case_forget_password"/>
+
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="@dimen/miui_account_unlock_screen_button_horizontal_padding"
+                android:layout_marginRight="@dimen/miui_account_unlock_screen_button_horizontal_padding"
+                android:layout_gravity="center">
+                <Button
+                    android:id="@+id/cancel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="@drawable/miui_account_unlock_screen_cancel_btn"
+                    android:textColor="#ffffff"
+                    android:text="@android:string/cancel"/>
+                <Button
+                    android:id="@+id/ok_account"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="@drawable/miui_account_unlock_screen_login_btn"
+                    android:textColor="#ffffff"
+                    android:text="@string/android_lockscreen_glogin_submit_button"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/miui_account_unlock_screen_button_horizontal_padding"
+                android:layout_marginRight="@dimen/miui_account_unlock_screen_button_horizontal_padding"
+                android:layout_marginTop="@dimen/miui_account_unlock_screen_button_top_padding"
+                android:layout_gravity="center">
+                <Button
+                    android:id="@+id/open_wifi_settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/open_wifi_settings"
+                    android:background="@drawable/v5_btn_bg_light"
+                    android:textColor="#ffffff"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/miui_account_unlock_screen_button_horizontal_padding"
+                android:layout_marginRight="@dimen/miui_account_unlock_screen_button_horizontal_padding"
+                android:layout_marginTop="@dimen/miui_account_unlock_screen_button_top_padding"
+                android:layout_gravity="center">
+                <Button
+                    android:id="@+id/airplane_mode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/find_device_turn_off_flight_mode"
+                    android:background="@drawable/v5_btn_bg_light"
+                    android:textColor="#ffffff"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- emergency call button at bottom center -->
+    <Button
+        android:id="@+id/android_emergencyCallButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:drawableLeft="@drawable/android_ic_emergency"
+        android:drawablePadding="4dip"
+        style="@style/V5.Widget.Button"
+        android:textColor="#ffffff"
+        android:text="@string/android_lockscreen_emergency_call"
+        android:background="@drawable/find_device_btn"/>
+
+</LinearLayout>

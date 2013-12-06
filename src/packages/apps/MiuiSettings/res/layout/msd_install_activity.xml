@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dip"
+                android:gravity="center"
+                style="@miui:style/V5.Widget.DialogTitle" />
+            <include
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/msd_install_header" />
+            <RadioGroup
+                android:id="@+id/msd_install_status_grp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/msd_install_undo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/msd_install_status_undo"
+                    android:background="@miui:drawable/v5_preference_item_bg"
+                    android:checked="true"/>
+                <RadioButton
+                    android:id="@+id/msd_install_done"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/msd_install_status_done"
+                    android:background="@miui:drawable/v5_preference_item_bg"/>
+            </RadioGroup>
+            <CheckBox
+                android:id="@+id/msd_install_succeed"
+                style="@android:style/TextAppearance.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="@string/msd_install_succeed" />
+            <TextView
+                android:id="@+id/msd_install_retry"
+                style="@android:style/TextAppearance.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:focusable="false"
+                android:visibility="gone"
+                android:padding="@miui:dimen/v5_preference_child_padding_side"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@miui:dimen/v5_preference_child_padding_side">
+        <Button
+            android:id="@+id/msd_install_cancel"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@android:string/cancel" />
+        <Button
+            android:id="@+id/msd_install_next"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/msd_install_next" />
+    </LinearLayout>
+
+</LinearLayout>

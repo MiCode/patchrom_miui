@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        android="@string/pref_camcorder_settings_category">
+    <PreferenceCategory android:title="@string/pref_settings_mode" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_layout_mode_key"
+            android:persistent="false"
+            android:title="@string/simple_mode_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_grp_advanced_settings">
+        <CheckBoxPreference
+            android:key="pref_camera_recordlocation_key"
+            android:defaultValue="false"
+            android:title="@string/pref_camera_recordlocation_title"
+            android:persistent="false"/>
+        <CheckBoxPreference
+            android:key="pref_video_captrue_ability_key"
+            android:defaultValue="false"
+            android:title="@string/pref_video_captrue_ability_title"
+            android:persistent="false"/>
+         <com.android.camera.ui.PreviewListPreference
+            android:defaultValue="@string/pref_camera_volumekey_function_default"
+            android:entries="@array/pref_camera_volumekey_function_entries"
+            android:entryValues="@array/pref_camera_volumekey_function_entryvalues"
+            android:key="pref_camera_volumekey_function_key"
+            android:persistent="false"
+            android:title="@string/pref_camera_volumekey_function_title" />
+<!--        <com.android.camera.ui.PreviewListPreference
+            android:defaultValue="@string/pref_camera_sound_default"
+            android:entries="@array/pref_camera_sound_entries"
+            android:entryValues="@array/pref_camera_sound_entryvalues"
+            android:key="pref_camera_sound_key"
+            android:persistent="false"
+            android:title="@string/pref_camera_sound_title" />
+        <com.android.camera.ui.PreviewListPreference
+            android:key="pref_camera_video_duration_key"
+            android:defaultValue="@string/pref_camera_video_duration_default"
+            android:title="@string/pref_camera_video_duration_title"
+            android:entries="@array/pref_camera_video_duration_entries"
+            android:entryValues="@array/pref_camera_video_duration_entryvalues"
+            android:persistent="false" />
+        <com.android.camera.ui.PreviewListPreference
+            android:key="pref_camera_videosnapsize_key"
+            android:title="@string/pref_camera_picturesize_title"
+            android:entries="@array/pref_camera_picturesize_entries"
+            android:entryValues="@array/pref_camera_picturesize_entryvalues"
+            android:persistent="false" /> -->
+       <com.android.camera.ui.PreviewListPreference
+            android:defaultValue="@string/pref_video_continuous_focus_entryvalue_default"
+            android:entries="@array/pref_video_continuous_focus_entries"
+            android:entryValues="@array/pref_video_continuous_focus_entryvalues"
+            android:key="pref_camera_continuousaf_key"
+            android:persistent="false"
+            android:title="@string/pref_video_continuous_focus" />
+        <com.android.camera.ui.PreviewListPreference
+            android:persistent="false"
+            android:defaultValue="@string/pref_camera_hfr_default"
+            android:entries="@array/pref_camera_hfr_entries"
+            android:entryValues="@array/pref_camera_hfr_entryvalues"
+            android:key="pref_camera_hfr_key"
+            android:title="@string/pref_camera_hfr_title" />
+        <com.android.camera.ui.PreviewListPreference
+            android:persistent="false"
+            android:defaultValue="@string/pref_video_time_lapse_frame_interval_default"
+            android:entries="@array/pref_video_time_lapse_frame_interval_entries"
+            android:entryValues="@array/pref_video_time_lapse_frame_interval_entryvalues"
+            android:key="pref_video_time_lapse_frame_interval_key"
+            android:title="@string/pref_video_time_lapse_frame_interval_title" />
+        <com.android.camera.ui.PreviewListPreference
+            android:persistent="false"
+            android:key="pref_camera_movie_solid_key"
+            android:defaultValue="@string/pref_camera_movie_solid_default"
+            android:title="@string/pref_camera_movie_solid_title"
+            android:entries="@array/pref_camera_movie_solid_entries"
+            android:entryValues="@array/pref_camera_movie_solid_entryvalues" />
+        <com.android.camera.ui.PreviewListPreference
+            android:persistent="false"
+            android:key="pref_camera_storage_external"
+            android:defaultValue="@string/pref_camera_storage_external_default"
+            android:title="@string/pref_camera_storage_external_title"
+            android:entries="@array/pref_camera_storage_external_entries"
+            android:entryValues="@array/pref_camera_storage_external_entryvalues" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_grp_restore_settings">
+        <Preference
+            android:key="pref_restore"
+            android:persistent="false"
+            android:title="@string/confirm_restore_title"/>
+     </PreferenceCategory>
+</PreferenceScreen>

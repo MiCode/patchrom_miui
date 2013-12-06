@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/vp_background_black" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:id="@+id/play_in_other_device_imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/airkan_background_duokan_imageview_margin_top"
+            android:src="@drawable/vp_airkan_dktv_background" />
+
+        <TextView
+            android:id="@+id/play_in_other_device_textview"
+            style="@style/airkan_background_description_textview_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/play_in_other_device_imageview"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/airkan_video_playing_in"/>
+
+        <TextView
+            style="@style/airkan_background_description_textview_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/play_in_other_device_textview"
+            android:layout_centerHorizontal="true"
+            android:text="@string/airkan_control_device_des"/>
+    </RelativeLayout>
+
+</FrameLayout>

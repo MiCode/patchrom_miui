@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/DeskClockListItemDoubleLineStyle"
+    android:background="@drawable/list_item_bg"
+    android:paddingLeft="@dimen/stopwatch_lap_item_padding_left"
+    android:paddingRight="@dimen/stopwatch_lap_item_padding_right">
+    <com.android.deskclock.ClockTextView
+        android:id="@+id/indexTime"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="@dimen/clock_text_stopwatch_normal"
+        android:textColor="@color/number_color_dark" />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="@string/lap_num"
+        android:paddingLeft="@dimen/timer_lap_num_paddingleft"
+        style="@miui:style/V5.TextAppearance.List.Secondary" />
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <com.android.deskclock.ClockTextView
+            android:id="@+id/elapsedTime"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="@dimen/clock_text_stopwatch_normal"
+            android:textColor="@color/number_color_dark" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:background="@drawable/lap_bg"
+        android:gravity="center">
+        <com.android.deskclock.ClockTextView
+            android:id="@+id/lapElapsedTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/clock_text_stopwatch_small"
+            android:textColor="@color/number_color_dark_second" />
+    </LinearLayout>
+</LinearLayout>

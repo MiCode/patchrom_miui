@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+    "  Call Card layout in landscape  "
+-->
+
+<!-- XML resource file for the CallCard used in the Phone app.
+
+     Note that the CallCard is technically the size of the full screen (since
+     our parent container is full-screen, and the layout_width and layout_height
+     here are both "match_parent"), but we manually adjust its bottom margin
+     in CallCard.updateCallInfoLayout() to make sure it doesn't overlap with
+     the onscreen buttons from incall_touch_ui.xml. -->
+<com.android.phone.CallCard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/call_info_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"> 
+
+    <!-- The main content of the CallCard is either one or two "call info"
+         blocks, depending on whether one or two lines are in use.
+
+         The call_info blocks are stacked vertically inside a CallCard (LinearLayout),
+         each with layout_weight="1".  If only one line is in use (i.e. the
+         common case) then the 2nd call info will be GONE and thus the 1st one
+         will expand to fill the full height of the CallCard.
+
+         We set a bottom margin on this element dynamically (see
+         updateCallInfoLayout()) to make sure it doesn't overlap with either
+         the bottom button cluster or the incoming-call widget. -->
+
+    <!-- Primary "Call info" block, for the foreground call. -->
+    <include android:id="@+id/primary_call_info"
+         layout="@layout/primary_call_info"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_weight="1"/>
+
+    <!-- Secondary "Call info" block , for the background ("on hold") call. -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_weight="1">
+
+        <ViewStub android:id="@+id/secondary_call_info"
+            android:layout="@layout/secondary_call_info"
+            android:layout_width="@dimen/vt_incall_screen_low_video_width"
+            android:layout_height="@dimen/vt_incall_screen_low_video_height"
+            android:layout_marginTop="@dimen/second_call_card_margintop"/>
+
+    </LinearLayout>
+
+    <RelativeLayout android:id="@+id/largeAreaForSharing"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+
+</com.android.phone.CallCard>

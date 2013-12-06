@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/message_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:linksClickable="false"
+        android:lineSpacingMultiplier="@dimen/message_body_line_spacing_multiplier"
+        style="@style/TextAppearance.MessageSubject" />
+    <TextView
+        android:id="@+id/message_body"
+        android:autoLink="all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:linksClickable="false"
+        android:lineSpacingMultiplier="@dimen/message_body_line_spacing_multiplier"
+        style="@style/TextAppearance.MessageBody" />
+    <LinearLayout
+        android:id="@+id/contact_message_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone" />
+    <LinearLayout
+        android:id="@+id/file_share_message_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_margin="@dimen/bubble_text_extra_padding" />
+</LinearLayout>

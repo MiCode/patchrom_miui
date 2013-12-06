@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<com.android.settings.widget.ChartDataUsageView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:id="@+id/chart"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/data_usage_chart_height"
+    android:layout_marginStart="-16dip"
+    android:layout_marginEnd="-16dip"
+    android:layout_marginBottom="-32dip"
+    android:paddingStart="24dip"
+    android:paddingEnd="24dip"
+    android:paddingTop="16dip"
+    android:paddingBottom="48dip"
+    settings:optimalWidth="@dimen/data_usage_chart_optimalWidth"
+    settings:optimalWidthWeight="0.4">
+
+    <com.android.settings.widget.ChartGridView
+        android:id="@+id/grid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start|bottom"
+        settings:primaryDrawable="@drawable/data_grid_primary"
+        settings:secondaryDrawable="@drawable/data_grid_secondary"
+        settings:borderDrawable="@drawable/data_grid_border"
+        settings:labelColor="@android:color/holo_blue_light" />
+
+    <com.android.settings.widget.ChartNetworkSeriesView
+        android:id="@+id/series"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start|bottom"
+        settings:strokeColor="@android:color/holo_blue_light"
+        settings:fillColor="#c033b5e5"
+        settings:fillColorSecondary="#6633b5e5" />
+
+    <com.android.settings.widget.ChartNetworkSeriesView
+        android:id="@+id/detail_series"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start|bottom"
+        settings:strokeColor="#d88d3a"
+        settings:fillColor="#c0ba7f3e"
+        settings:fillColorSecondary="#60ba7f3e" />
+
+    <com.android.settings.widget.ChartSweepView
+        android:id="@+id/sweep_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        settings:sweepDrawable="@drawable/data_sweep_left"
+        settings:followAxis="horizontal"
+        settings:neighborMargin="5dip" />
+
+    <com.android.settings.widget.ChartSweepView
+        android:id="@+id/sweep_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        settings:sweepDrawable="@drawable/data_sweep_right"
+        settings:followAxis="horizontal"
+        settings:neighborMargin="5dip" />
+
+    <com.android.settings.widget.ChartSweepView
+        android:id="@+id/sweep_warning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:nextFocusUp="@+id/sweep_limit"
+        settings:sweepDrawable="@drawable/data_sweep_warning"
+        settings:followAxis="vertical"
+        settings:neighborMargin="5dip"
+        settings:labelSize="60dip"
+        settings:labelTemplate="@string/data_usage_sweep_warning"
+        settings:labelColor="#f7931d" />
+
+    <com.android.settings.widget.ChartSweepView
+        android:id="@+id/sweep_limit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:nextFocusDown="@+id/sweep_warning"
+        settings:sweepDrawable="@drawable/data_sweep_limit"
+        settings:followAxis="vertical"
+        settings:neighborMargin="5dip"
+        settings:labelSize="60dip"
+        settings:labelTemplate="@string/data_usage_sweep_limit"
+        settings:labelColor="#c01a2c" />
+
+</com.android.settings.widget.ChartDataUsageView>

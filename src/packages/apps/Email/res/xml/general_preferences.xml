@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- App-wide preferences -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+            android:key="category_general_preferences"
+            android:title="@string/category_general_preferences">
+
+        <ListPreference
+            android:key="auto_advance"
+            android:title="@string/general_preference_auto_advance_label"
+            android:summary="@string/general_preference_auto_advance_summary"
+            android:entries="@array/general_preference_auto_advance_entries"
+            android:entryValues="@array/general_preference_auto_advance_values"
+            android:dialogTitle="@string/general_preference_auto_advance_dialog_title" />
+
+        <!-- Note, summary is set dynamically in GeneralPreferences.java -->
+        <ListPreference
+            android:key="text_zoom"
+            android:title="@string/general_preference_text_zoom_label"
+            android:entries="@array/general_preference_text_zoom_entries"
+            android:entryValues="@array/general_preference_text_zoom_values"
+            android:dialogTitle="@string/general_preference_text_zoom_dialog_title" />
+
+        <!-- This may be removed in GeneralPreferences.java -->
+        <CheckBoxPreference
+            android:key="reply_all"
+            android:persistent="true"
+            android:defaultValue="false"
+            android:title="@string/general_preference_reply_all_label"
+            android:summary="@string/general_preference_reply_all_summary" />
+
+        <PreferenceScreen
+            android:key="clear_trusted_senders"
+            android:title="@string/general_preferences_clear_trusted_senders_title"
+            android:summary="@string/general_preferences_clear_trusted_senders_summary" />
+
+    </PreferenceCategory>
+</PreferenceScreen>

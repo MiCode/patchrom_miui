@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:background="@miui:drawable/v5_preference_item_bg">
+
+    <ImageView android:id="@+id/mute_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@miui:dimen/v5_preference_item_padding_side" />
+
+    <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingTop="@miui:dimen/v5_preference_item_padding_top"
+            android:paddingBottom="@miui:dimen/v5_preference_item_padding_bottom"
+            android:paddingRight="@miui:dimen/v5_preference_item_padding_side">
+            <TextView
+                    android:id="@+id/description_text"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="16dip" />
+            <SeekBar android:id="@+id/volume_seekbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="16dip" />
+    </LinearLayout>
+
+</LinearLayout>

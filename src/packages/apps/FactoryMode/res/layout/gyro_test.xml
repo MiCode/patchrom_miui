@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:id="@+id/base_layout"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent" >
+
+	    <Button
+	        android:id="@+id/gyro_back"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:gravity="center"
+	        android:layout_alignParentBottom="true"
+	        android:text="@string/back_return" />
+	    
+	    <LinearLayout
+	        android:id="@+id/gyro_button"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_above="@id/gyro_back"
+	        android:orientation="horizontal" >
+	        
+		    <Button
+	            android:id="@+id/gyro_succeed"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="@string/test_succeed" />
+		    
+		    <Button
+	            android:id="@+id/gyro_fail"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="@string/test_fail" />
+		    
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:layout_above="@id/gyro_button"
+	        android:gravity="center"
+	        android:orientation="vertical" >
+	        
+		    <TextView
+		        android:id="@+id/gyro_data_x"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:gravity="center"
+		        android:textSize="20dp" />
+		    
+		    <TextView
+		        android:id="@+id/gyro_data_y"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:gravity="center"
+		        android:textSize="20dp" />
+		    
+		    <TextView
+		        android:id="@+id/gyro_data_z"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:gravity="center"
+		        android:textSize="20dp" />
+		    
+	    </LinearLayout>
+	    
+	    
+	    <TextView
+	        android:id="@+id/gyro_note_1"
+	        android:layout_width="match_parent"
+	        android:layout_height="50dp"
+	        android:text="@string/gyro_title"
+	        android:gravity="center"
+	        android:textSize="20dp" />   
+
+	</RelativeLayout>

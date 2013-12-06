@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaomi.market.ui.BaiduAppItem xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Widget.ListView.Item.TrebleLine" >
+
+    <ImageSwitcher
+        android:id="@+id/icon"
+        style="@style/Widget.Icon" />
+
+    <com.xiaomi.market.ui.ActionButton
+        android:id="@+id/action"
+        style="@style/Widget.Button.Action"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/common_padding"
+        android:focusable="false"
+        android:gravity="center" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/action"
+        android:layout_toRightOf="@id/icon"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/cate_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:textAppearance="@style/TextAppearance.Title.Secondary" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:textAppearance="@style/TextAppearance.Title" />
+
+        <TextView
+            android:id="@+id/version_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:textAppearance="@style/TextAppearance.Title.Secondary" />
+    </LinearLayout>
+
+</com.xiaomi.market.ui.BaiduAppItem>

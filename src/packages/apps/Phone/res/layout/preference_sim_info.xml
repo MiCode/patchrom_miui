@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:paddingRight="?android:attr/scrollbarSize"
+    android:gravity="center_vertical">
+   <LinearLayout
+        android:id="@android:id/widget_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical" />
+   <RelativeLayout 
+		android:layout_width="38dip"
+		android:layout_height="38dip"
+		android:id="@+id/simIcon"
+		android:layout_marginLeft="6sp"
+		android:layout_marginRight="6sp"
+        android:layout_marginTop="6sp"
+        android:layout_marginBottom="6sp"
+    	android:layout_centerVertical="true">
+	
+  			<ImageView
+        		android:id="@+id/simStatus"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:layout_gravity="center"/>
+        
+    		<TextView
+        		android:id="@+id/sim3g"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:layout_alignParentRight="true" 
+        		android:text="@string/gemini_3g_indic"
+        		android:textStyle="bold"
+        		android:textColor="@android:color/white"
+   			    android:layout_alignParentTop="true" 
+        		android:textSize="11sp"
+        		android:includeFontPadding="false"/>
+ 
+    		<TextView 
+    			android:id="@+id/simNum" 
+    			android:layout_width="wrap_content" 
+    			android:layout_height="wrap_content" 
+    			android:layout_marginTop="12dip"
+        		android:layout_alignParentRight="true" 
+        		android:layout_alignParentBottom="true" 
+    			android:textSize="12sp"
+    			android:textColor="@android:color/white"
+    			android:includeFontPadding="false"
+                android:layout_gravity="right|bottom"
+                android:layout_marginBottom="0sp"
+                />
+		</RelativeLayout>
+	
+		<RelativeLayout
+			android:id="@+id/text_layout"
+			android:layout_width="0dip"
+  	      	android:layout_height="wrap_content"
+            android:layout_marginRight="6sp"
+            android:layout_marginTop="6sp"
+            android:layout_marginBottom="6sp"
+        	android:layout_weight="1"
+        	android:layout_centerVertical="true">
+    
+        	<TextView android:id="@+android:id/title"
+            	android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"
+            	android:singleLine="true"
+            	android:ellipsize="middle"  
+            	android:textAppearance="?android:attr/textAppearanceLarge"
+            	android:textColor="?android:attr/textColorPrimary"/>
+            
+        	<TextView android:id="@+android:id/summary"
+            	android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+            	android:layout_below="@android:id/title"
+            	android:ellipsize="middle"  
+            	android:layout_alignLeft="@android:id/title"
+
+            	android:textAppearance="?android:attr/textAppearanceSmall"
+            	android:textColor="?android:attr/textColorSecondary"/>
+
+	</RelativeLayout>
+
+	
+    <CheckBox 
+    	android:layout_width="wrap_content" 
+    	android:id="@+id/Check_Enable"
+    	android:focusable="false" 
+    	android:clickable="false" 
+    	android:layout_height="wrap_content" 
+    	android:gravity="center_vertical|center" 
+    	android:layout_centerVertical="true"/>
+
+</LinearLayout>

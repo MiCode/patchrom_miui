@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+    <TextView
+        android:id="@+id/instruction_pre"
+        android:text="@string/instruction_pre"
+        android:visibility="gone"
+        style="@style/FtpMessageStyle" />
+    <TextView
+        android:id="@+id/instruction"
+        android:text="@string/instruction"
+        style="@style/FtpMessageStyle" />
+
+    <TextView
+        android:id="@+id/ip_address"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:minWidth="100dip"
+        android:background="@drawable/ipaddress_bg"
+        android:textStyle="bold"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:textSize="21dip"
+        android:gravity="center"
+        android:layout_marginTop="6dip"
+        android:layout_marginBottom="25dip"
+        android:paddingTop="3dip"
+        android:paddingBottom="3dip"
+        android:paddingLeft="21dip"
+        android:paddingRight="21dip"
+        android:textColor="@color/ip_address_text_color" />
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dip"
+        android:gravity="center">
+        <LinearLayout
+            android:id="@+id/start_stop_button"
+            android:layout_height="wrap_content"
+            android:layout_width="@dimen/ftp_start_btn_width"
+            android:background="@miui:drawable/v5_btn_bg_light"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/start_stop_button_text"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:drawablePadding="@dimen/ftp_start_btn_drawable_padding"
+                android:textAppearance="@style/V5TextAppearanceYellow"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ftp_setting"
+            android:layout_height="wrap_content"
+            android:layout_width="@dimen/ftp_setting_btn_width"
+            android:background="@miui:drawable/v5_btn_bg_light"
+            android:gravity="center">
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:drawablePadding="@dimen/ftp_setting_btn_drawable_padding"
+                android:textAppearance="@miui:style/V5.TextAppearance.Button"
+                android:text="@string/server_control_settings" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

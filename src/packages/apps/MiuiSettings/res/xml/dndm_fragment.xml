@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!-- 预留出来 -->
+    <PreferenceCategory>
+    </PreferenceCategory>
+
+    <!-- 勿扰模式开关 -->
+    <PreferenceCategory android:title="@string/dndm_summary">
+        <CheckBoxPreference
+            android:key="key_do_not_disturb_mode"
+            android:title="@string/dndm_open"
+            android:persistent="false" />
+    </PreferenceCategory>
+
+    <!-- 定时开关设置 -->
+    <PreferenceCategory android:key="key_auto_setting_group"
+        android:title="@string/dndm_auto_setting_group">
+        <CheckBoxPreference
+            android:key="key_auto_button"
+            android:title="@string/dndm_auto_button_title"
+            android:persistent="false" />
+        <PreferenceScreen
+             android:key="key_auto_time_setting"
+             android:title="@string/dndm_auto_time_setting"
+             android:persistent="false">
+            <intent
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.dndmode.AutoTimeSettings" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+    <!-- 特殊来电设置 -->
+    <PreferenceCategory android:title="@string/dndm_special_call_setting_group">
+        <PreferenceScreen
+             android:key="key_vip_call_setting"
+             android:title="@string/dndm_vip_call_setting_title"
+             android:persistent="false">
+            <intent
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.dndmode.VipCallSettings" />
+        </PreferenceScreen>
+        <CheckBoxPreference
+             android:key="key_repeated_call_button"
+             android:title="@string/dndm_repeated_call_setting_title"
+             android:persistent="false">
+        </CheckBoxPreference>
+    </PreferenceCategory>
+</PreferenceScreen>

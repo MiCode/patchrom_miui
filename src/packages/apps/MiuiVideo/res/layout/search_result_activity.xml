@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/search_result_view_flipper" >
+    
+    <!-- view1 start -->
+    <RelativeLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:id="@+id/search_recommend_view" >
+	    <View 
+	        android:layout_width="match_parent"
+	        android:layout_height="@dimen/viewpager_bg_height"
+	        android:layout_marginTop="@dimen/viewpager_bg_margin_top"
+	        android:background="@drawable/channel_bottom_bg">   
+	    </View>
+		<com.duokan.tv.video.widget.LoadingListView
+		   android:id="@+id/search_recommend_loading_list_view"
+		   android:layout_width="match_parent"
+		   android:layout_height="match_parent"
+		   android:background="@drawable/d_black" /> 
+	</RelativeLayout>
+	<!-- view1 end -->
+    
+    <!-- view2 start -->
+    <RelativeLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:id="@+id/search_result_view" >
+		<RelativeLayout 
+	        android:id="@+id/search_result_title"
+	    	android:layout_width="match_parent"
+	    	android:layout_height="@dimen/search_result_title_height"
+	    	android:background="@drawable/search_result_bg" >
+	        <TextView 
+	            android:id="@+id/search_result_title_tv"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentLeft="true"
+	            android:layout_marginLeft="@dimen/search_result_title_edge_margin"
+	            android:layout_marginTop="@dimen/search_result_title_tv_top_margin"
+	            android:gravity="center_vertical"
+	            android:textColor="@color/p_60_white"
+	            android:textSize="@dimen/text_size_34"
+	            android:text="@string/find_media_searching" />
+	        <Button 
+	            android:id="@+id/search_result_title_btn"
+	            android:layout_width="@dimen/search_result_title_btn_width"
+	            android:layout_height="@dimen/search_result_title_btn_height"
+	            android:layout_alignParentRight="true"
+	            android:layout_marginRight="@dimen/search_result_title_edge_margin"
+	            android:layout_marginTop="@dimen/search_result_title_btn_top_margin"
+	            android:background="@drawable/filter_bg"
+	            android:gravity="center"
+	            android:textColor="@color/p_60_white"
+	            android:textSize="@dimen/text_size_26"
+	            android:text="@string/filter"/>
+    	</RelativeLayout>
+		<com.duokan.tv.video.widget.LoadingListView
+			 android:id="@+id/search_result_loading_list_view"
+			 android:layout_below="@id/search_result_title"
+			 android:layout_width="match_parent"
+			 android:layout_height="match_parent"
+			 android:background="@drawable/search_result_bg" /> 
+	</RelativeLayout>
+	<!-- view2 end -->
+	
+	<!-- view3 start -->
+    <LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical"
+	    android:background="@drawable/search_result_bg"
+	    android:id="@+id/search_result_recommend_view" >
+	    <TextView
+	        android:id="@+id/search_result_recommend_hint" 
+	        android:layout_width="match_parent"
+	        android:layout_height="@dimen/search_result_recommend_hint_height"
+	        android:text="@string/search_result_recommend_hint"
+	        android:textSize="@dimen/text_size_34"
+	        android:textColor="@color/p_80_white"
+	        android:layout_gravity="center"
+	        android:gravity="center" />
+	    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/list_divider" />
+	    <TextView
+	        android:id="@+id/search_result_recommend_title" 
+	        android:layout_width="match_parent"
+	        android:layout_height="@dimen/search_result_recommend_title_height"
+	        android:layout_marginLeft="@dimen/search_result_recommend_title_left_margin"
+	        android:layout_gravity="center_vertical"
+	        android:gravity="center_vertical"
+	        android:textSize="@dimen/text_size_34"
+	        android:textColor="@color/p_80_white"
+	        android:text="@string/search_result_recommend_title" />
+	    <com.duokan.tv.video.widget.LoadingListView
+			   android:id="@+id/search_result_recommend_loading_listview"
+			   android:layout_width="match_parent"
+			   android:layout_height="match_parent" /> 
+	</LinearLayout>
+	<!-- view3 end -->
+</ViewFlipper>

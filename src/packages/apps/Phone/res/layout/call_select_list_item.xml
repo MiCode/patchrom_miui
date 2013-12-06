@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:paddingLeft="@dimen/call_banner_side_padding"
+                android:paddingRight="@dimen/call_banner_side_padding"
+                android:minHeight="?android:attr/listPreferredItemHeight">
+
+        <TextView android:id="@+id/operator"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/call_sim_indicator_height"
+                android:maxWidth="100dip"
+                android:layout_centerVertical="true"
+                android:background="@drawable/sim_dark_blue"
+                android:textSize="@dimen/call_banner_small_text_size"
+                android:textColor="@color/incall_call_banner_text_color"
+                android:singleLine="true"
+                android:ellipsize="middle"/>
+
+    <LinearLayout android:layout_width="wrap_content"
+                  android:layout_height="match_parent"
+                  android:gravity="center_vertical"
+                  android:orientation="vertical"
+                  android:layout_marginLeft="@dimen/call_banner_side_padding"
+                  android:layout_centerVertical="true"
+                  android:layout_alignParentLeft="true">
+
+        <TextView android:id="@+id/displayName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/call_banner_text_size"
+            android:textColor="@android:color/white"/>
+
+        <TextView android:id="@+id/phoneNumber"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:singleLine="true"
+              android:textSize="@dimen/call_banner_call_state_label_text_size"
+              android:maxWidth="130dip"
+              android:ellipsize="end"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+

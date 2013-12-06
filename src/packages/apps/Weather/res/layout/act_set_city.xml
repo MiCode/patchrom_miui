@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/list_medium_top_item_background_normal"
+        >
+        <ImageView
+            android:id="@+id/gps_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="8dip"
+            android:layout_marginRight="0dip"
+            android:visibility="invisible"
+            android:src="@drawable/i_gps"
+        />
+        <TextView
+            android:id="@+id/gps_city"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="4dip"
+            android:gravity="left|center_vertical"
+            android:textSize="@dimen/link_city_listview_item_city_name_font_size"
+            android:text="@string/enable_gps"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:cursorVisible="false"
+        />
+        <TextView
+            android:id="@+id/gps_city_hint"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="4dip"
+            android:paddingTop="2dip"
+            android:gravity="left|center_vertical"
+            android:textSize="14sp"
+            android:text="@string/enable_gps"
+            android:singleLine="true"
+            android:textColor="#FF888888"
+            android:cursorVisible="false"
+        />
+        <miui.widget.SlidingButton
+            android:id="@+id/btn_enable_gps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:layout_marginRight="5dip"
+            android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="vertical"
+    >
+        <SortableListView
+            android:id="@+id/act_set_city_define"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:listSelector="@android:color/transparent"
+            android:fadingEdgeLength="0dip"
+            android:scrollbars="none"
+        />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/logout_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/cloud_backup_hint"
+            android:drawableTop="@drawable/login_guide_img"
+            android:drawablePadding="5dip"
+            android:layout_marginBottom="10dip"/>
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="45dip"
+            android:paddingRight="45dip"
+            android:text="@string/cloud_backup_login"
+         />
+    </LinearLayout>
+    <ExpandableListView style="?android:attr/expandableListViewWhiteStyle"
+        android:id="@+id/data_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:cacheColorHint="@null"/>
+</FrameLayout>

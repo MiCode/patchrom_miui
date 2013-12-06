@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:phone="http://schemas.android.com/apk/res/com.android.phone"
+  android:title="@string/vt_call_settings">
+   	
+  <PreferenceScreen
+  	android:persistent="true" 
+  	android:key="button_vt_replace_expand_key" 
+  	android:title="@string/vt_local_video_rep"
+  	android:summary="@string/vt_pic_replace_local_description"
+  	android:entries="@array/vt_replace_local_video_entries"
+  	android:entryValues="@array/vt_replace_local_video_values"
+  	android:dialogTitle="@string/vt_local_video_rep"
+  	android:defaultValue="0">
+  </PreferenceScreen>
+  
+  <PreferenceScreen
+  	android:key="button_vt_enable_peer_replace_key"
+  	android:title="@string/vt_dis_peer_rep"
+  	android:summary="@string/vt_dis_peer_rep_des"
+  	android:persistent="true"
+  	android:defaultValue="true">
+  </PreferenceScreen>
+  
+  <PreferenceScreen
+  	android:persistent="true" 
+  	android:key="button_vt_replace_peer_expand_key" 
+  	android:title="@string/vt_peer_video_rep"
+  	android:summary="@string/vt_peer_video_rep_des"
+  	android:entries="@array/vt_replace_local_video_entries2"
+  	android:entryValues="@array/vt_replace_local_video_values2"
+  	android:dialogTitle="@string/vt_peer_video_rep"
+  	android:defaultValue="0">
+  </PreferenceScreen>
+  
+  <PreferenceScreen
+  	android:key="button_vt_enable_back_camera_key"
+  	android:title="@string/vt_enable_back_camera"
+  	android:summary="@string/vt_enable_back_camera_description"
+  	android:persistent="true"
+  	android:defaultValue="true">
+  </PreferenceScreen>
+  
+  <PreferenceScreen
+  	android:key="button_vt_peer_bigger_key"
+  	android:title="@string/vt_peer_video_bigger"
+  	android:summary="@string/vt_peer_video_bigger_description"
+  	android:persistent="true"
+  	android:defaultValue="true">
+  </PreferenceScreen>
+  
+  <PreferenceScreen
+  	android:key="button_vt_auto_dropback_key"
+  	android:title="@string/vt_auto_dropback"
+  	android:summary="@string/vt_auto_dropback_des"
+  	android:persistent="true"
+  	android:defaultValue="false">
+  </PreferenceScreen>
+  <CheckBoxPreference
+    android:key="ring_only_once"
+    android:title="@string/ring_only_once_title"
+    android:persistent="true"
+    android:summary="@string/ring_only_once_summary"
+  	android:defaultValue="true">
+  </CheckBoxPreference>
+  <PreferenceCategory
+    android:key="button_vt_local_video_display_key"
+    android:title="@string/vt_local_video_display">
+    
+    <PreferenceScreen
+      android:key="button_vt_mo_local_video_display_key"
+      android:title="@string/vt_outgoing_call"
+      android:summary="@string/vt_outgoing_call_description"
+      android:persistent="true"
+      android:defaultValue="true">
+    </PreferenceScreen>
+  
+    <PreferenceScreen
+      android:key="button_vt_mt_local_video_display_key"
+      android:title="@string/vt_incoming_call"
+      android:summary="@string/vt_incoming_call_description"
+      android:persistent="true"
+      android:entries="@array/vt_mt_local_video_display_entries"
+      android:entryValues="@array/vt_mt_local_video_display_values"
+      android:dialogTitle="@string/vt_incoming_call"
+      android:defaultValue="0">
+    </PreferenceScreen>
+  
+  </PreferenceCategory>
+
+ <PreferenceCategory
+    android:key="button_vt_ss_key"
+    android:title="@string/others">
+    
+    <PreferenceScreen
+        android:key="button_cf_expand_key"
+        android:title="@string/labelCF"
+        android:persistent="false"
+        android:summary="@string/vt_cf_call_description">
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.phone"
+            android:targetClass="com.android.phone.GsmUmtsCallForwardOptions"/>
+    </PreferenceScreen>
+  
+  <PreferenceScreen
+        android:key="button_cb_expand_key"
+        android:title="@string/lable_call_barring" 
+        android:persistent="false"
+        android:summary="@string/vt_cb_call_description">
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.phone"
+            android:targetClass="com.mediatek.settings.CallBarring" />
+    </PreferenceScreen>
+    
+    <PreferenceScreen
+        android:key="button_more_expand_key"
+        android:title="@string/additional_gsm_call_settings"
+        android:persistent="false"
+        android:summary="@string/call_additional_sum">
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.phone"
+            android:targetClass="com.android.phone.GsmUmtsAdditionalCallOptions"/>
+    </PreferenceScreen>
+    
+  </PreferenceCategory>  
+</PreferenceScreen>

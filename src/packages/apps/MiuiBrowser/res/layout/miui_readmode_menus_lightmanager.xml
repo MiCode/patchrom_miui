@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/readmode_light_setting_content" android:layout_width="match_parent"
+  android:layout_height="wrap_content" android:orientation="vertical"
+  android:showDividers="middle">
+  <LinearLayout android:layout_width="match_parent"
+    android:layout_height="55dip" android:gravity="center_vertical"
+    android:orientation="horizontal">
+    <TextView android:id="@+id/readmode_night_mode_text"
+      android:layout_width="match_parent" android:layout_height="wrap_content"
+      android:text="@string/pref_content_night_read_mode" android:gravity="left|center_vertical"
+      android:layout_weight="1.0" android:textColor="#000000"
+      android:textStyle="bold" android:paddingLeft="20dip"
+      android:textSize="16sp" />
+    <miui.widget.SlidingButton android:id="@+id/readmode_nightmode"
+      android:layout_width="wrap_content" android:layout_height="wrap_content"
+      android:focusable="false" android:clickable="false"
+      android:layout_marginRight="20dip" />
+  </LinearLayout>
+
+  <LinearLayout android:layout_width="match_parent"
+    android:layout_height="55dip" android:gravity="center_vertical"
+    android:orientation="horizontal">
+    <TextView android:id="@+id/readmode_autolight_text"
+      android:layout_width="wrap_content" android:layout_height="wrap_content"
+      android:text="@string/pref_content_auto_light_mode" android:gravity="left|center_vertical"
+      android:layout_weight="1.0" android:textColor="#000000"
+      android:textStyle="bold" android:paddingLeft="20dip"
+      android:textSize="16sp" />
+    <miui.widget.SlidingButton android:id="@+id/readmode_autolight"
+      android:layout_width="wrap_content" android:layout_height="wrap_content"
+      android:focusable="false" android:clickable="false"
+      android:layout_marginRight="20dip" />
+
+  </LinearLayout>
+
+
+  <LinearLayout android:layout_width="match_parent"
+    android:layout_height="55dip" android:gravity="center_vertical"
+    android:orientation="horizontal">
+    <ImageView android:id="@+id/readmode_light_sub"
+      android:layout_width="wrap_content" android:layout_height="wrap_content"
+      android:layout_marginLeft="25dip" android:src="@drawable/readmode_light_sub" />
+    <SeekBar android:id="@+id/brightness_seek_bar"
+      android:layout_width="0dip" android:layout_height="wrap_content"
+      android:layout_weight="1.0" android:max="100" android:paddingLeft="10.0dip"
+      android:paddingRight="10.0dip" />
+    <ImageView android:id="@+id/readmode_light_add"
+      android:layout_width="wrap_content" android:layout_height="wrap_content"
+      android:layout_marginRight="25dip" android:src="@drawable/readmode_light_add" />
+  </LinearLayout>
+
+</LinearLayout>

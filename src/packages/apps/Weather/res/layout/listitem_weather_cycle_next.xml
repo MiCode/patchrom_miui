@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_weight="1"
+    android:layout_gravity="center" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="30dip"
+        android:layout_marginLeft="30dip" >
+        <TextView
+            android:id="@+id/listitem_weather_cycle_next_txt_1"
+            style="@style/weather_next_date_text" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" >
+            <TextView
+                android:id="@+id/listitem_weather_cycle_next_txt_2"
+                android:layout_toLeftOf="@+id/listitem_weather_cycle_next_txt_3"
+                android:layout_marginLeft="11dip"
+                android:layout_marginRight="11dip"
+                style="@style/weather_next_weather_text" />
+            <TextView
+                android:id="@+id/listitem_weather_cycle_next_txt_3"
+                android:layout_alignParentRight="true"
+                style="@style/weather_next_temperature_text"  />
+        </RelativeLayout>
+    </LinearLayout>
+    <View
+        android:id="@+id/bottom_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_gravity="top"
+        android:background="@color/miui_separator_color" />
+</FrameLayout>

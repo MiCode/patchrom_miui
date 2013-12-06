@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view
+    class="com.android.fileexplorer.view.GarbageCleanupListItem"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/AppGarbageItemStyle"
+    android:layout_width="match_parent"
+    android:id="@+id/container"
+    android:descendantFocusability= "blocksDescendants">
+
+    <FrameLayout
+        android:id="@+id/cleanup_status_container"
+        android:layout_alignParentRight="true"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content">
+        <FrameLayout
+            android:id="@+id/cleanup_status"
+            android:layout_gravity="center_vertical"
+            style="@style/GarbageCleanupCleanupStatusStyle">
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="@miui:style/V5.Widget.ProgressBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+            <ImageView
+                android:id="@+id/complete_indication"
+                style="@style/GarbageCleanupCompleteIndication"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+            <CheckBox
+                android:id="@+id/check_box"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:clickable="false"
+                android:focusable="false"/>
+        </FrameLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/cleanup_status_container"
+        android:layout_alignParentLeft="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/collapse_container"
+                android:layout_centerVertical="true"
+                style="@style/GarbageCleanupCollapseStyle"
+                android:layout_alignParentLeft="true" >
+                <ImageView
+                    android:id="@+id/collapse"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:scaleType="center"
+                    android:layout_centerInParent="true"/>
+            </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/item_content"
+                android:layout_toRightOf="@id/collapse_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical">
+                    <TextView
+                        android:id="@+id/item_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:text="@string/item_name"
+                        android:singleLine="true"
+                        android:textAppearance="@miui:style/V5.TextAppearance.List.Primary" />
+                    <TextView
+                        android:id="@+id/item_progress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:singleLine="true"
+                        android:ellipsize="middle"
+                        android:text="@string/waiting_for_cleaning"
+                        android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/touch_area"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <ImageView
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@miui:drawable/v5_bottom_bar_top_line_light" />
+</view>

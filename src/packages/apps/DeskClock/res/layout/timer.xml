@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:background="@drawable/timer_bg"
+        android:gravity="center"
+        android:orientation="vertical">
+        <com.android.deskclock.ClockTextView
+            android:id="@+id/timeDisplay"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:textSize="@dimen/clock_text_timer"
+            android:textColor="@color/number_color_dark" />
+        <com.android.deskclock.ClockTextView
+            android:id="@+id/timeDisplayWithHour"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:textSize="@dimen/clock_text_timer_with_hour"
+            android:textColor="@color/number_color_dark" />
+        <TimePicker
+            android:id="@+id/timer_picker"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:paddingLeft="@dimen/time_picker_padding"
+            android:paddingRight="@dimen/time_picker_padding"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/list_bg">
+
+            <LinearLayout
+                android:id="@+id/ringtone"
+                style="@style/DeskClockListItemDoubleLineStyle"
+                android:background="@drawable/list_item_bg"
+                android:paddingLeft="@dimen/timezone_item_layout_padding_horizontal"
+                android:paddingRight="@dimen/timezone_item_layout_padding_horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@miui:style/V5.TextAppearance.List.Primary"
+                        android:text="@string/remind_ringtone" />
+                    <ImageView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/item_inner_divider"
+                        android:paddingLeft="@dimen/item_inner_divider_padding"
+                        android:paddingRight="@dimen/item_inner_divider_padding" />
+                    <TextView
+                        android:id="@+id/txt_ringtone"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        style="@miui:style/V5.TextAppearance.List.Secondary"
+                        android:singleLine="true" />
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_arrow" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/keep_screen"
+                style="@style/DeskClockListItemDoubleLineStyle"
+                android:background="@drawable/list_item_bg"
+                android:paddingLeft="@dimen/timezone_item_layout_padding_horizontal"
+                android:paddingRight="@dimen/timezone_item_layout_padding_horizontal">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    style="@miui:style/V5.TextAppearance.List.Primary"
+                    android:text="@string/keep_screen_on"/>
+                <miui.widget.SlidingButton
+                    android:id="@+id/check_box"
+                    style="@miui:style/V5.Widget.SlidingButton"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content" />
+            </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_button_bar_bg"
+        android:gravity="center"
+        android:paddingLeft="@dimen/timer_button_padding_left"
+        android:paddingRight="@dimen/timer_button_padding_right">
+        <Button
+            android:id="@+id/start_timer"
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:text="@string/start_up"/>
+        <Button
+            android:id="@+id/cancel_timer"
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:text="@string/cancel"/>
+        <Button
+            android:id="@+id/pause_timer"
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:text="@string/pause"/>
+        <Button
+            android:id="@+id/continue_timer"
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:text="@string/timer_continue"/>
+    </LinearLayout>
+</LinearLayout>

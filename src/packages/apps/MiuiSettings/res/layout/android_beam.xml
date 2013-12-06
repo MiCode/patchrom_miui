@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@miui:dimen/v5_preference_screen_padding_top"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@miui:drawable/v5_preference_item_bg"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+                android:text="@string/android_beam_witch_label"
+                style="@miui:style/V5.TextAppearance.List.Primary" />
+            <miui.widget.SlidingButton
+                android:id="@+id/android_beam_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@miui:dimen/v5_preference_item_padding_top"
+            android:paddingBottom="@miui:dimen/v5_preference_item_padding_bottom"
+            android:background="@miui:drawable/v5_preference_item_bg"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/android_beam_explained"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@miui:dimen/v5_preference_item_padding_side"
+                android:paddingRight="@miui:dimen/v5_preference_item_padding_side"
+                android:text="@string/android_beam_explained"
+                style="@miui:style/V5.TextAppearance.List.Secondary" />
+
+            <ImageView
+                android:id="@+id/android_beam_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
+                android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+                android:src="@drawable/android_beam_sample"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:id="@+id/android_beam_tips"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@miui:dimen/v5_preference_item_padding_side"
+                android:paddingRight="@miui:dimen/v5_preference_item_padding_side"
+                android:text="@string/android_beam_tips"
+                style="@miui:style/V5.TextAppearance.List.Secondary" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

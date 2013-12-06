@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/key_settings"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <PreferenceCategory android:title="@string/screen_key_long_press" android:key="screen_key_long_press">
+        <ListPreference
+            android:key="menu_long_press"
+            android:title="@string/menu_key"
+            android:entries="@array/screen_key_long_press_action"
+            android:entryValues="@array/screen_key_long_press_action_value"
+            android:dialogTitle="@string/screen_key_long_press_action" />
+        <ListPreference
+            android:key="home_long_press"
+            android:title="@string/home_key"
+            android:entries="@array/screen_key_long_press_action"
+            android:entryValues="@array/screen_key_long_press_action_value"
+            android:dialogTitle="@string/screen_key_long_press_action" />
+        <ListPreference
+            android:key="back_long_press"
+            android:title="@string/back_key"
+            android:entries="@array/screen_key_long_press_action"
+            android:entryValues="@array/screen_key_long_press_action_value"
+            android:dialogTitle="@string/screen_key_long_press_action" />
+        <ListPreference
+            android:key="screen_key_long_press_timeout"
+            android:title="@string/screen_key_long_press_timeout"
+            android:entries="@array/screen_key_long_press_timeout"
+            android:entryValues="@array/screen_key_long_press_timeout_value"
+            android:dialogTitle="@string/screen_key_long_press_timeout" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/under_keyguard" android:key="under_keyguard">
+        <CheckBoxPreference
+            android:key="enable_snapshot_screenlock"
+            android:title="@string/enable_snapshot_screenlock"
+            android:disableDependentsState="false" />
+        <CheckBoxPreference
+            android:key="disable_power_long_press"
+            android:title="@string/disable_power_key_long_press_under_keyguard" />
+        <CheckBoxPreference
+            android:key="trackball_wake"
+            android:title="@string/trackball_wake_title"/>
+        <CheckBoxPreference
+            android:key="pref_volume_wake"
+            android:title="@string/pref_volume_wake_title"
+            android:summary="@string/pref_volume_wake_summary" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="camera_key_action_category"
+        android:title="@string/camera_key_action_title" >
+        <Preference
+            android:key="camera_key_action"
+            android:title="@string/camera_key_action_setting_title"
+            android:summary="@string/camera_key_action_category_title"
+        >
+            <intent
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.settings.CameraKeySettings" />
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="multi_touch_points_category"
+        android:title="@string/multi_touch_points_category_title" >
+        <CheckBoxPreference
+            android:key="enable_multi_touch_points"
+            android:title="@string/multi_touch_points_preference" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="pref_button_category"
+        android:title="@string/pref_operational_key" >
+        <CheckBoxPreference
+            android:key="pref_button_light"
+            android:title="@string/pref_button_light"
+            android:summary="@string/pref_button_light_summary" />
+       <ListPreference
+            android:key="button_light_timeout"
+            android:title="@string/button_light_timeout"
+            android:entries="@array/button_light_timeout_entries"
+            android:entryValues="@array/button_light_timeout_value"
+            android:dependency="pref_button_light"
+            android:dialogTitle="@string/button_light_timeout"
+            android:persistent="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="screen_button_category"
+        android:title="@string/screen_button_key" >
+        <PreferenceScreen
+            android:key="screen_button_custom"
+            android:title="@string/screen_button_custom">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.screenkey.ScreenKeySettings" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+</PreferenceScreen>

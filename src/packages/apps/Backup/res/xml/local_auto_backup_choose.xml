@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/auto_backup_system_data" />
+    <miui.preference.ValuePreference
+        android:key="auto_backup_sysdata"
+        android:persistent="false"
+        android:title="@string/local_select_sysdata"
+        android:summary="@string/system_backup_info"/>
+    <miui.preference.ValuePreference
+        android:key="auto_backup_account_contact"
+        android:persistent="false"
+        android:title="@string/local_select_account_contact"
+        android:summary="@string/account_contact_backup_info" />
+    <PreferenceCategory
+        android:title="@string/auto_backup_user_data" />
+    <miui.preference.RadioButtonPreference
+        android:key="auto_backup_all_userapp"
+        android:persistent="false"
+        android:defaultValue="false"
+        android:title="@string/auto_backup_all_user_apps"/>
+    <miui.preference.RadioButtonPreference
+        android:key="auto_backup_selected_userapp"
+        android:persistent="false"
+        android:title="@string/auto_backup_selected_user_apps" />
+    <PreferenceCategory/>
+    <miui.preference.ValuePreference
+        android:key="auto_backup_userapp"
+        android:persistent="false"
+        android:title="@string/auto_backup_select_user_apps" />
+</PreferenceScreen>

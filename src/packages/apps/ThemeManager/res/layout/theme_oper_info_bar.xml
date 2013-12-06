@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="5dip">
+    <LinearLayout
+        android:id="@+id/account_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:background="@drawable/theme_oper_info_bar_bg">
+        <TextView
+            android:id="@+id/account_text"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical|left"
+            android:text="@string/account_info"
+            android:textSize="@dimen/operation_info_bar_text_size"
+            android:textColor="?android:attr/textColorPrimary" />
+        <TextView
+            android:id="@+id/account_info"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical|right"
+            android:text="@string/account_info"
+            android:textSize="@dimen/operation_info_bar_text_size"
+            android:textColor="?android:attr/textColorSecondary"
+            android:drawableRight="@miui:drawable/v5_arrow_right" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/info_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:visibility="gone"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:background="@drawable/theme_oper_info_bar_bg">
+        <TextView
+            android:id="@+id/info_text"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical|left"
+            android:textSize="@dimen/operation_info_bar_text_size"
+            android:textColor="@miui:color/v5_primary_text_color_light" />
+        <Button
+            android:id="@+id/info_oper_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/batch_update_btn"
+            android:minWidth="@dimen/batch_update_btn_min_width"
+            android:text="@string/theme_batch_update_all"
+            android:textSize="@dimen/batch_udpate_btn_text_size"
+            android:textColor="@color/batch_update_btn_text_color" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.xiaomi.market.ui.CategoryItem
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Widget.ListView.Item.SingleLine">
+
+    <ImageSwitcher
+        android:id="@+id/icon"
+        style="@style/Widget.Icon"
+        android:layout_height="@dimen/category_icon_size"
+        android:layout_width="@dimen/category_icon_size" />
+    <ImageView
+        android:id="@+id/arrow"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/common_padding"
+        android:layout_centerVertical="true"
+        android:background="@drawable/arrow" />
+    <TextView
+        android:id="@+id/category_title"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_toRightOf="@id/icon"
+        android:layout_toLeftOf="@id/arrow"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textAppearance="@style/TextAppearance.Title" />
+</com.xiaomi.market.ui.CategoryItem>

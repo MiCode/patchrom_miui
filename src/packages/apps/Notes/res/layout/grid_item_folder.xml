@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<view
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    class="com.miui.notes.ui.GridFolderItem"
+    android:layout_width="@dimen/grid_item_width"
+    android:layout_height="@dimen/grid_item_height"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginBottom="5dip"
+    android:background="@drawable/grid_folder_yellow">
+
+    <TextView
+        android:id="@+id/note_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/grid_folder_title_margin_top"
+        android:layout_marginLeft="@dimen/grid_note_content_padding_left"
+        android:layout_marginRight="@dimen/grid_note_content_padding_right"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textAppearance="@style/TextAppearance.Grid.Folder" />
+
+    <miui.widget.ImageTextView
+        android:id="@+id/note_count"
+        android:entries="@array/count_entries"
+        android:entryValues="@array/count_values"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/note_title"
+        android:layout_marginTop="@dimen/grid_folder_count_margin_top"
+        android:layout_marginLeft="@dimen/grid_note_content_padding_left"
+        android:layout_marginRight="@dimen/grid_note_content_padding_right" />
+
+    <LinearLayout
+        android:id="@+id/note_indicators"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/grid_indicator_layout_height"
+        android:layout_alignParentBottom="true"
+        android:paddingRight="@dimen/grid_indicator_padding_right"
+        android:paddingBottom="@dimen/grid_indicator_padding_bottom"
+        android:gravity="right|center_vertical"
+        android:orientation="horizontal">
+
+        <include layout="@layout/note_item_indicators" />
+
+    </LinearLayout>
+
+</view>

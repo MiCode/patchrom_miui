@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <PreferenceCategory
+        android:key="test"
+        android:title="@string/location_notification">
+
+        <PreferenceScreen
+            android:key="enable_notification"
+            android:title="@string/enable_notification"
+            android:enabled="true"
+            android:summary="@string/enable_notification_summary"
+            >
+
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.miui.weather2"
+            android:targetClass="com.miui.weather2.NotificationListActivity" />
+
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/sms_notification">
+
+        <PreferenceScreen
+            android:key="send_sms_notification"
+            android:title="@string/send_sms_notification"
+            android:summary="@string/send_sms_notification_summary">
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.contacts.calllog.DialerListContactSimpleItem
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/DialerListItemDoubleLine"
+    android:gravity="center_vertical">
+
+    <FrameLayout
+        android:id="@+id/dialer_list_item_item_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/list_item_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/dialer_photo_right_margin"
+        android:layout_toRightOf="@+id/dialer_list_item_item_left"
+        android:layout_toLeftOf="@+id/list_item_right"
+        android:orientation="vertical"
+        android:focusable="false">
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary" />
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <TextView
+                android:id="@+id/number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dip"
+                android:singleLine="true"
+                android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+            <TextView
+                android:id="@+id/telocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+        </LinearLayout>
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/list_item_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true">
+        <ImageView
+            android:id="@+id/contact_detail_action"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingRight="@dimen/dialer_list_item_detail_padding"
+            android:scaleType="centerInside"
+            android:src="@miui:drawable/v5_btn_next_light"
+            android:focusable="false"
+            android:clickable="false" />
+        <CheckBox
+            android:id="@android:id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:focusable="false"
+            android:clickable="false" />
+    </FrameLayout>
+</com.android.contacts.calllog.DialerListContactSimpleItem>

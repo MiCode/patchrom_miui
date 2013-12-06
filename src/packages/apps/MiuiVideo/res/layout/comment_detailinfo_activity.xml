@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+	<LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+        	android:paddingLeft="@dimen/comment_padding_horizontal"
+    		android:paddingRight="@dimen/comment_padding_horizontal"
+    		android:paddingTop="@dimen/comment_padding_top"
+		    android:orientation="vertical" >
+
+		    <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content" 
+		        android:layout_marginBottom="@dimen/comment_title_margin_bottom">
+
+		        <TextView
+		            android:id="@+id/tv_userid"
+		            android:layout_width="0dp"
+		            android:layout_height="match_parent"
+		            android:layout_gravity="center_vertical"
+		            android:layout_weight="1"
+		            android:gravity="center_vertical"
+		            android:textColor="@color/p_80_white"
+		            android:textSize="@dimen/text_size_34" />
+
+		        <com.duokan.tv.video.widget.RatingView
+		            android:id="@+id/rv_score"
+		            android:layout_width="wrap_content"
+		            android:layout_height="match_parent"
+		            android:layout_gravity="center_vertical" >
+		        </com.duokan.tv.video.widget.RatingView>
+		    </LinearLayout>
+
+		    <TextView
+		        android:id="@+id/tv_commenttime"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginBottom="@dimen/comment_title_margin_bottom"
+		        android:textColor="@color/p_60_white"
+            	android:textSize="@dimen/text_size_28" />
+
+		    <TextView
+		        android:id="@+id/tv_commentinfo"
+		        android:layout_width="match_parent"
+		        android:layout_height="0dp"
+		        android:layout_weight="1"
+		        android:lineSpacingExtra="@dimen/text_line_space"
+		        android:textColor="@color/p_50_white"
+            	android:textSize="@dimen/text_size_26"/>
+		</LinearLayout>
+
+</merge>

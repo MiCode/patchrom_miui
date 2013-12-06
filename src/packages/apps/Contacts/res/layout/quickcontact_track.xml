@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/track_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/quickcontact_track_background" />
+
+    <HorizontalScrollView
+        android:id="@+id/track_scroller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fadingEdgeLength="0dip"
+        android:scrollbars="none" >
+
+        <!-- NOTE: the layout gravity must be left aligned -->
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|top" >
+
+            <LinearLayout
+                android:id="@+id/track"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/selected_tab_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/track"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/quickcontact_tab_indicator" />
+        </RelativeLayout>
+    </HorizontalScrollView>
+
+</merge>

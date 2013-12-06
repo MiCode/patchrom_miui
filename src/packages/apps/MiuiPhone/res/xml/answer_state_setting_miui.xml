@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:phone="http://schemas.android.com/apk/res/com.android.phone"
+        android:title="@string/answer_state_setting_title_miui">
+
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="button_turnover_mute"
+        android:summary="@string/turnover_mute_summary_miui"
+        android:title="@string/turnover_mute_title_miui" />
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="button_handon_ringer"
+        android:summary="@string/handon_ringer_summary_miui"
+        android:title="@string/handon_ringer_title_miui" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="button_enable_proximity"
+        android:summary="@string/enable_proximity_summary_miui"
+        android:title="@string/enable_proximity_title_miui" />
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:dependency="button_enable_proximity"
+        android:key="button_enforce_proximity_during_ringing"
+        android:summary="@string/enforce_proximity_summary_miui"
+        android:title="@string/enforce_proximity_title_miui" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="button_enable_antispam_strange"
+        android:summary="@string/enable_antispam_strange_summary"
+        android:title="@string/enable_antispam_strange_title" />
+</PreferenceScreen>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="16dip"
+    android:paddingRight="16dip"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:divider="?android:attr/dividerHorizontal"
+    android:showDividers="middle"
+    android:dividerPadding="0dip">
+
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dip"
+            android:paddingBottom="16dip"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"/>
+
+        <EditText
+            android:id="@+id/edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:inputType="number"
+            android:imeOptions="actionDone"
+            android:hint="@string/international_dialing_input_area_code"/>
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dip"
+            android:paddingBottom="16dip"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"/>
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/international_number_prefix_text_text_single_choice_item"
+        android:id="@+id/single1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <include
+        layout="@layout/international_number_prefix_text_text_single_choice_item"
+        android:id="@+id/single2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

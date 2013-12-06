@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/simAbsentPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="40dip"
+            android:layout_marginTop="20dip"
+            android:textAppearance="@style/TextAppearance.Provision.NoSIM"
+            android:text="@string/sim_card_detection_status_absent" />
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/status"
+            android:layout_marginLeft="40dip"
+            android:layout_marginRight="40dip"
+            android:textAppearance="@style/TextAppearance.Provision"
+            android:text="@string/sim_card_detection_info" />
+
+        <ImageView android:id="@+id/seperator"
+            style="@style/Widget.Seperator" />
+
+        <Button
+            android:id="@+id/continues"
+            style="@style/Button.Provision"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/continues" />
+
+        <Button
+            android:id="@+id/shutdown"
+            style="@style/Button.NegativeWarn.Provision"
+            android:layout_above="@id/continues"
+            android:text="@string/shutdown" />
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/seperator"
+            android:layout_above="@id/shutdown"
+            android:scaleType="center"
+            android:src="@drawable/sim_absent"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/detectingPanel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sim_card_detection_dialog_message"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="?android:attr/textColorSecondary" />
+
+    </LinearLayout>
+
+</FrameLayout>

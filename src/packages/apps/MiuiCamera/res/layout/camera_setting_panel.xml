@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/setting_view_popup_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/control_panel_bottom"
+    android:background="@drawable/ic_camera_setting_background_body"
+    android:paddingLeft="@dimen/setting_view_popup_layout_paddingLeft"
+    android:paddingRight="@dimen/setting_view_popup_layout_paddingRight"
+    android:paddingTop="@dimen/setting_view_popup_layout_paddingTop"
+    android:paddingBottom="@dimen/setting_view_popup_layout_paddingBottom"
+    android:orientation="vertical"
+    android:visibility="gone" >
+
+    <FrameLayout
+        android:id="@+id/setting_view_popup_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="false" >
+    </FrameLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <com.android.camera.ui.SettingScreenView
+            android:id="@+id/setting_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:clickable="true"
+            android:measureAllChildren="false" >
+            <com.android.camera.ui.ScreenView
+                android:id="@+id/setting_screens"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" />
+        </com.android.camera.ui.SettingScreenView>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/control_panel_bottom"
+        android:layout_below="@+id/on_screen_indicators">
+    <com.android.camera.ui.RotateLayout
+            android:id="@+id/hdr_exit_area"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:visibility="gone">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+                <TextView android:id="@+id/hdr_exit_button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/btn_pano_exit"
+                    android:text="@string/hdr_exit_button_text"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingLeft="22dp"
+                    android:paddingRight="22dp"
+                    android:clickable="true"
+                    android:textSize="@dimen/pano_review_saving_indication_size"
+                    android:textColor="@android:color/white"/>
+            </LinearLayout>
+    </com.android.camera.ui.RotateLayout>
+</RelativeLayout>

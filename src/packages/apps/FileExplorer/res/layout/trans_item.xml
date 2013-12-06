@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ListItemStyle">
+
+    <cn.kuaipan.android.widget.LayerView
+        android:id="@+id/layer"
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:background="@color/layer_view_color"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/file_image"
+                style="@style/FileIconStyle" />
+
+            <ImageView
+                android:id="@+id/file_tasktype_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|right" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/file_info_layout"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="5dip" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/file_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    style="@miui:style/V5.TextAppearance.List.Primary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/file_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:gravity="left"
+                    android:layout_marginRight="9dip"
+                    style="@miui:style/V5.TextAppearance.List.Secondary" />
+
+                <TextView
+                    android:id="@+id/file_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:layout_gravity="left"
+                    android:gravity="left"
+                    android:layout_marginRight="9dip"
+                    style="@miui:style/V5.TextAppearance.List.Secondary" />
+
+                <TextView
+                    android:id="@+id/trans_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    style="@miui:style/V5.TextAppearance.List.Secondary" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/operate_btn"
+            android:layout_width="37dip"
+            android:layout_height="37dip"
+            android:clickable="true"
+            android:scaleType="centerInside"
+            android:layout_marginLeft="9dip" />
+
+        <CheckBox
+            android:id="@android:id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:clickable="false"
+            android:focusable="false"
+            android:gravity="center"
+            android:scaleType="fitCenter" />
+    </LinearLayout>
+
+</FrameLayout>

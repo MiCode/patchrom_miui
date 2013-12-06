@@ -1,0 +1,100 @@
+<!--
+     Copyright (C) 2012 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <!-- Dream selectable row (icon, caption, radio button) -->
+
+    <RelativeLayout
+        android:id="@android:id/widget_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/divider"
+        android:background="?android:attr/selectableItemBackground" >
+
+        <!-- Dream icon -->
+
+        <ImageView
+            android:id="@android:id/icon"
+            android:layout_width="@android:dimen/app_icon_size"
+            android:layout_height="@android:dimen/app_icon_size"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@null"
+            android:maxHeight="@android:dimen/app_icon_size"
+            android:maxWidth="@android:dimen/app_icon_size"
+            android:scaleType="fitCenter" />
+
+        <!-- Dream caption -->
+
+        <TextView
+            android:id="@android:id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@android:id/button1"
+            android:layout_toEndOf="@android:id/icon"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAlignment="viewStart"
+            android:labelFor="@android:id/button2" />
+
+        <!-- Dream radio button -->
+
+        <RadioButton
+            android:id="@android:id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:duplicateParentState="true"
+            android:clickable="false"
+            android:focusable="false" />
+    </RelativeLayout>
+
+    <!-- Divider -->
+
+    <ImageView
+        android:id="@id/divider"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@android:id/button2"
+        android:contentDescription="@null"
+        android:src="@drawable/nav_divider" />
+
+    <!-- Settings icon -->
+
+    <ImageView
+        android:id="@android:id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@android:id/widget_frame"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@android:id/widget_frame"
+        android:layout_centerVertical="true"
+        android:layout_margin="0dip"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="@string/screensaver_settings_button"
+        android:padding="8dip"
+        android:src="@drawable/ic_bt_config" />
+
+</RelativeLayout>

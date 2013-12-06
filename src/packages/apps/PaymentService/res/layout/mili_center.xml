@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical" >
+       <ListView
+           android:id="@android:id/list"
+           android:layout_width="match_parent"
+           android:layout_height="0dip"
+           android:layout_weight="1"
+           android:layout_marginTop="70dip"
+           android:cacheColorHint="@null"
+           android:scrollbarStyle="outsideOverlay"
+           android:fastScrollEnabled="true"
+           android:divider="@null"
+           android:clipToPadding="false"/>
+
+        <LinearLayout
+           android:id="@+id/progress_layout"
+           android:layout_width="match_parent"
+           android:layout_height="0dip"
+           android:layout_weight="1"
+           android:orientation="vertical"
+           android:gravity="center"
+           android:visibility="gone" >
+           <ProgressBar
+               android:id="@+id/progress"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:indeterminateOnly="true" />
+           <TextView
+               android:id="@+id/progress_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/progress_downloading" />
+        </LinearLayout>
+
+       <LinearLayout
+           android:id="@+id/error_layout"
+           android:layout_width="match_parent"
+           android:layout_height="0dip"
+           android:layout_weight="1"
+           android:orientation="vertical"
+           android:gravity="center"
+           android:visibility="gone" >
+           <ImageView
+               android:id="@+id/warning_icon"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="?miui:attr/v5_content_empty_icon"/>
+           <TextView
+               android:id="@+id/error"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textColor="@color/text_color_gray"
+               android:textSize="@dimen/text_size_small" />
+            <Button
+               android:id="@+id/button_retry"
+               android:layout_width="120dip"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="20dip"
+               style="@style/ButtonNormal"
+               android:text="@string/btn_net_connection_retry" />
+       </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="15dip"
+           android:layout_marginBottom="13dip"
+           android:layout_marginLeft="15dip"
+           android:layout_marginRight="15dip"
+           android:orientation="vertical"
+           android:gravity="center" >
+           <Button
+               android:id="@+id/button_recharge"
+               style="@style/ButtonNotice"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="@string/btn_mili_center_recharge" />
+       </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/mili_center_header" />
+</FrameLayout>

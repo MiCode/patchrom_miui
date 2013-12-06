@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/cell_broadcast">
+    <PreferenceCategory android:title="@string/cell_broadcast">
+        <com.mediatek.settings.CellBroadcastCheckBox
+            android:key="enable_cellBroadcast"
+            android:summaryOn="@string/sum_cell_broadcast_control_off"
+            android:summaryOff="@string/sum_cell_broadcast_control_on"
+            android:persistent="false" 
+            android:title="@string/cell_broadcast" />
+        <Preference android:key="cbsettings" 
+            android:title="@string/cell_broadcast_settings"
+            android:persistent="false" 
+            android:summary="@string/sum_cell_broadcast_setting"
+            android:dependency="enable_cellBroadcast">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.phone"
+                android:targetClass="com.mediatek.settings.CellBroadcastSettings" />
+        </Preference>
+    </PreferenceCategory>
+</PreferenceScreen>
+

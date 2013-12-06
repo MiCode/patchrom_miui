@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/card_selector"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/tv_avg"
+                style="@style/restaurant_text"
+                android:layout_width="match_parent"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp" />
+
+            <include android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                layout="@layout/stars5" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_address"
+            style="@style/restaurant_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+<!--     <TextView -->
+<!--         style="@style/restaurant_text" -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_gravity="center_vertical" -->
+<!--         android:layout_marginLeft="5dp" -->
+<!--         android:layout_marginRight="10dp" -->
+<!--         android:text="@string/arrow" /> -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/enter_indicator" />
+
+</LinearLayout>

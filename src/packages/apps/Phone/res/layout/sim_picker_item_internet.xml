@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:paddingLeft="10dip"
+                android:paddingRight="10dip"
+                android:minHeight="?android:attr/listPreferredItemHeight">
+    
+    <ImageView android:id="@+id/internetIcon"
+               android:layout_width="48dip"
+               android:layout_height="32dip"
+               android:layout_alignParentLeft="true"
+               android:layout_centerVertical="true"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_toRightOf="@id/internetIcon"
+              android:layout_centerVertical="true"
+              android:layout_marginLeft="10dip"
+              android:text="@string/sim_manage_sipcall"
+              android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <RadioButton android:id="@+id/select"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignParentRight="true"
+                 android:layout_centerVertical="true"
+                 android:visibility="invisible"
+                 android:focusable="false"
+                 android:clickable="false"/>
+
+</RelativeLayout>

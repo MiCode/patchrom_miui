@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@drawable/clock_main_bg">
+        <LinearLayout
+            android:id="@+id/number_clock"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/motion_translation_min_y"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+            <com.android.deskclock.DigitalClock
+                android:id="@+id/timezone_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <com.android.deskclock.ClockTextView
+                    android:id="@+id/timeDisplay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/clock_text_org"
+                    android:textColor="@color/number_color_yellow" />
+                <TextView android:id="@+id/am_pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    style="@miui:style/V5.TextAppearance.List.Secondary" />
+                <TextView
+                    android:id="@+id/timezone_name"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    style="@miui:style/V5.TextAppearance.List.Secondary" />
+            </com.android.deskclock.DigitalClock>
+            <TextView
+                android:id="@+id/number_clock_default_city"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/worldclock_empty_text"
+                android:includeFontPadding="false"
+                android:paddingTop="@dimen/number_clock_default_city_paddingtop" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/analog_clock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:visibility="visible"
+            android:background="@drawable/default_clock_panel_shadow">
+            <FrameLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:paddingTop="@dimen/default_clock_padding_top">
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:paddingTop="@dimen/default_clock_shadow_padding_top">
+                    <com.android.deskclock.DefaultTimezoneAnalogClock
+                        android:id="@+id/default_clock_shadow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    </com.android.deskclock.DefaultTimezoneAnalogClock>
+                </LinearLayout>
+                <com.android.deskclock.DefaultTimezoneAnalogClock
+                    android:id="@+id/default_clock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </com.android.deskclock.DefaultTimezoneAnalogClock>
+            </FrameLayout>
+            <TextView
+                android:id="@+id/default_city"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:text="@string/worldclock_empty_text"
+                android:includeFontPadding="false"
+                android:paddingTop="@dimen/analog_clock_default_city_paddingtop" />
+        </LinearLayout>
+    </LinearLayout>
+    <miui.v5.widget.VerticalMotionFrameLayout
+        android:id="@+id/motion_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/list_bg">
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/empty"
+            style="@style/EmptyViewTextStyle"
+            android:text="@string/worldclock_empty_text"
+            android:paddingTop="@dimen/empty_text_paddingtop" />
+    </miui.v5.widget.VerticalMotionFrameLayout>
+</FrameLayout>

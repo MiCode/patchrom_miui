@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory>
+
+        <Preference
+            android:key="turn_off_security_lock"
+            android:title="@string/turn_off_security_lock"
+            android:persistent="false"/>
+
+        <Preference
+            android:key="change_password"
+            android:title="@string/change_password"
+            android:persistent="false"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory>
+
+        <ListPreference
+            android:key="change_security_lock"
+            android:title="@string/change_security_lock"
+            android:entries="@array/change_security_lock_picker"
+            android:entryValues="@array/change_security_lock_picker_key"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

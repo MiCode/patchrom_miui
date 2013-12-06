@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- Common data-entry area of initial account setup screen - email, password, default check -->
+<!-- small screen version -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/setup_item_inset_left"
+    android:paddingRight="@dimen/setup_item_inset_right"
+    >
+    <TextView
+        android:id="@+id/instructions"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:textSize="20sp"
+        android:text="@string/accounts_welcome"
+        android:textAppearance="@style/accountSetupInfoText" />
+    <EditText
+        android:id="@+id/account_email"
+        android:hint="@string/account_setup_basics_email_label"
+        android:contentDescription="@string/account_setup_basics_email_label"
+        android:inputType="textEmailAddress"
+        android:imeOptions="actionNext"
+        android:layout_below="@+id/instructions"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" />
+    <EditText
+        android:id="@+id/account_password"
+        android:hint="@string/account_setup_basics_password_label"
+        android:contentDescription="@string/account_setup_basics_password_label"
+        android:inputType="textPassword"
+        android:imeOptions="actionDone"
+        android:layout_below="@+id/account_email"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:nextFocusDown="@+id/next" />
+    <CheckBox
+        android:id="@+id/account_default"
+        android:layout_below="@+id/account_password"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="@string/account_setup_basics_default_label"
+        android:visibility="gone" />
+</RelativeLayout>

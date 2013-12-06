@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/shadow_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="@drawable/bookmark_shadow_top"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/list_item"
+        android:orientation="horizontal"
+        android:minHeight="@dimen/widgetItemMinHeight"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@miui:style/V5.Widget.ListView.Item">
+
+        <LinearLayout
+            android:id="@+id/label_wrapper"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="16dip"
+            android:gravity="center_vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <ImageView
+                    android:id="@+id/favicon"
+                    android:layout_width="@dimen/bookmark_icon_width"
+                    android:layout_height="@dimen/bookmark_icon_height"
+                    android:background="@drawable/bookmark_list_favicon_bg"
+                    android:src="@drawable/app_web_browser_sm"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="fitXY" />=
+                <TextView
+                    android:id="@+id/label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="10dip"
+                    style="@style/BookmarkLabelTextStyle" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/url"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="@dimen/bookmark_url_padding_left"
+                android:singleLine="true"
+                style="@style/BookmarkUrlTextStyle" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/drag_handle"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/toggle_drag_handle"
+            android:scaleType="fitXY" />
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:visibility="gone"
+            android:focusable="false"
+            android:clickable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginRight="10dip" />
+
+    </LinearLayout>
+
+</FrameLayout>

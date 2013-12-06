@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/comment_padding_summary"
+            android:layout_marginLeft="@dimen/common_padding"
+            android:background="@drawable/average_score_bg"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+        <TextView
+                style="@style/TextAppearance.Title.Comment.AverageScoreText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/comment_padding_summary_title_top"
+                android:layout_marginBottom="@dimen/comment_padding_summary_title_bottom"
+                android:text="@string/comment_average_score" />
+
+        <TextView
+                android:id="@+id/average_score"
+                style="@style/TextAppearance.Title.Comment.AverageScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/comment_padding_summary_score_top"
+                android:layout_marginBottom="@dimen/comment_padding_summary_score_bottom" />
+
+        <RatingBar
+                android:id="@+id/ratingbar"
+                style="@style/Widget.RatingBar.ReadOnly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        <TextView
+                android:id="@+id/comment_total_count"
+                style="@style/TextAppearance.Title.Comment.TotalScoreCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/comment_padding_summary_count_top"
+                android:layout_marginBottom="@dimen/comment_padding_summary_count_bottom" />
+
+    </LinearLayout>
+
+    <include
+            android:id="@+id/rating_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/comment_padding_rating_list"
+            android:layout_toRightOf="@id/container"
+            layout="@layout/app_rating_list" />
+
+</RelativeLayout>

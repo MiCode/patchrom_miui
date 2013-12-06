@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+**
+** Copyright 2008, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License")
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/background_dark"
+    android:gravity="center_horizontal">
+
+    <!-- The emergency button should take the top of the space and be centered vertically -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.22"
+        android:gravity="right"
+        android:orientation="vertical">
+
+        <!-- emergency call button -->
+        <Button
+            android:id="@+id/emergencyCall"
+            android:layout_width="wrap_content"
+            android:maxWidth="200dip"
+            android:layout_height="45dip"
+            android:layout_marginTop="12dip"
+            android:layout_marginRight="8dip"
+            android:background="@drawable/eccbtn"
+            android:drawableLeft = "@drawable/emergencycallicon"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textSize = "22px"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor = "#FFFFFF"
+        />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.33"
+        android:gravity="center"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1.2"
+            android:gravity="left"
+            android:orientation="horizontal">
+        <!-- header text ('Result display') -->
+        <TextView android:id="@+id/unlockResultNotify"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textSize = "24px"
+            android:textColor = "#FFFFFF"
+            android:focusableInTouchMode="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <!-- header text ('Enter Pin Code') -->
+            <TextView android:id="@+id/unlockActionNotify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textSize = "22px"
+                android:textColor = "#FFFFFF"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+         </LinearLayout>
+         
+         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <!-- header text ('For') -->
+            <TextView android:id="@+id/unlockForSIMNotify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:textSize = "22px"
+                android:textColor = "#FFFFFF"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+            <!-- header text ('SIM Card Name') -->
+            <TextView android:id="@+id/unlockSIMNameNotify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="100dip"
+                android:gravity="center|bottom"
+                android:singleLine="true"
+                android:ellipsize="middle"
+                android:textSize = "16px"
+                android:textColor = "#DADBDB"
+                android:layout_marginLeft="10dip"             
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+         </LinearLayout>
+    </LinearLayout>
+         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="0.26"
+            android:gravity="center|top"
+            android:orientation="vertical">
+            <!-- header text ('XXX times left') -->
+            <TextView android:id="@+id/unlockRetriesNotify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:singleLine="true"
+                android:ellipsize="start"
+                android:textSize = "16px"
+                android:textColor = "#59771c"  
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+            <!-- more sim info button-->
+            <Button android:id="@+id/btnMoreInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="42dip"
+                android:gravity="center"
+                android:layout_marginTop="2dip"
+                android:visibility="gone"/>
+    </LinearLayout>
+    <!-- password entry -->
+    <LinearLayout android:id = "@+id/EnterPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btnnokeyboradunclickd"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- displays dots as user enters pin -->
+            <TextView android:id="@+id/pwdDisplay"
+                android:layout_width="0dip"
+                android:layout_weight="0.75"
+                android:layout_height="42dip"
+                android:layout_marginLeft="4dip"
+                android:maxLines="1"
+                android:textAppearance="?android:attr/textAppearanceLargeInverse"
+                android:inputType="textPassword"
+            />
+
+           <ImageButton android:id="@+id/backspace"
+                android:layout_width="0dip"
+                android:layout_weight="0.2"
+                android:layout_height="48dip"
+                android:src="@drawable/btndeletenoarrow"
+                android:layout_marginLeft="2dip"
+                android:layout_marginTop="2dip"
+            />
+        </LinearLayout>
+
+    <include
+        android:id="@+id/keyPad"
+        layout="@layout/simlock_keyboard"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:layout_below="@id/EnterPassword"
+    />
+</LinearLayout>

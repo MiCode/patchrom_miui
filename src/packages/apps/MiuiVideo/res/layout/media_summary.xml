@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:duokan="http://schemas.android.com/apk/res/com.miui.video"
+    android:id="@+id/media_summary"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/media_summary_height">
+    
+    <FrameLayout
+        android:id="@+id/mediaview_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/detail_mediaview_container_padding_top"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true">
+        
+       <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/detail_mediaview_shadow_margin_top"
+            android:layout_marginLeft="@dimen/detail_mediaview_shadow_margin_left"
+            android:layout_gravity="center"
+            android:src="@drawable/detail_poster_shadow" 
+            android:contentDescription="@string/app_name"/>
+                   
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/detail_poster_margin_left"
+            android:layout_marginTop="@dimen/detail_poster_margin_top">
+            
+           <com.duokan.tv.video.widget.MediaView
+            android:id="@+id/media_view"
+            android:layout_width="@dimen/poster_width"
+            android:layout_height="@dimen/poster_height"
+            duokan:showMask="false"
+            duokan:showText="false" />
+
+	       <ImageView
+	           android:id="@+id/ivPlay"
+	           android:layout_width="wrap_content"
+	           android:layout_height="wrap_content"
+	           android:layout_gravity="center"
+	           android:src="@drawable/home_icon_recentplay" 
+	           android:contentDescription="@string/app_name"/>
+            
+        </FrameLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/detial_mediainfo_margin_left"
+        android:gravity="center"
+        android:orientation="vertical" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <com.duokan.tv.video.widget.RatingView
+                android:id="@+id/rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                duokan:ratingStarType="normal"/>
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:textColor="#ff7e00"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/director_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/detial_mediainfo_director_margin_top"
+            android:layout_marginBottom="@dimen/detial_mediainfo_director_margin_bottom"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/director_colon"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_26"
+                android:textStyle="bold"
+        		android:shadowDx="@integer/detail_title_shadow_dx"
+        		android:shadowDy="@integer/detail_title_shadow_dy"
+        		android:shadowRadius="@integer/detail_title_shadow_radius"
+                android:shadowColor="@color/p_30_black"/>
+
+            <TextView
+                android:id="@+id/director"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" 
+                android:singleLine="true"
+                android:textColor="@color/p_80_white"
+                android:textSize="@dimen/text_size_26"
+        		android:shadowDx="@integer/detail_title_shadow_dx"
+        		android:shadowDy="@integer/detail_title_shadow_dy"
+        		android:shadowRadius="@integer/detail_title_shadow_radius"
+                android:shadowColor="@color/p_30_black"/>
+            
+            <!-- android:maxLines="2" -->
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/actors_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/detial_mediainfo_actor_margin_top"
+                android:text="@string/actors_colon" 
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_26"
+                android:textStyle="bold"
+        		android:shadowDx="@integer/detail_title_shadow_dx"
+        		android:shadowDy="@integer/detail_title_shadow_dy"
+        		android:shadowRadius="@integer/detail_title_shadow_radius"
+                android:shadowColor="@color/p_30_black"/>
+
+                <com.duokan.tv.video.widget.ActorsView
+                	android:id="@+id/actors"
+                	android:layout_width="match_parent"
+                	android:layout_height="wrap_content">
+                </com.duokan.tv.video.widget.ActorsView>
+                
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/area_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/detial_mediainfo_area_margin_bottom"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/area_colon" 
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_26"
+                android:textStyle="bold"
+        		android:shadowDx="@integer/detail_title_shadow_dx"
+        		android:shadowDy="@integer/detail_title_shadow_dy"
+        		android:shadowRadius="@integer/detail_title_shadow_radius"
+                android:shadowColor="@color/p_30_black"/>
+
+            <TextView
+                android:id="@+id/area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" 
+                android:textColor="@color/p_80_white"
+                android:textSize="@dimen/text_size_26"
+        		android:shadowDx="@integer/detail_title_shadow_dx"
+        		android:shadowDy="@integer/detail_title_shadow_dy"
+        		android:shadowRadius="@integer/detail_title_shadow_radius"
+                android:shadowColor="@color/p_30_black"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tags_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/detial_mediainfo_tags_margin_bottom"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tags_colon"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_26"
+                android:textStyle="bold"
+        		android:shadowDx="@integer/detail_title_shadow_dx"
+        		android:shadowDy="@integer/detail_title_shadow_dy"
+        		android:shadowRadius="@integer/detail_title_shadow_radius"
+                android:shadowColor="@color/p_30_black" />
+
+            <TextView
+                android:id="@+id/tags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" 
+                android:textColor="@color/p_80_white"
+                android:textSize="@dimen/text_size_26"
+        		android:shadowDx="@integer/detail_title_shadow_dx"
+        		android:shadowDy="@integer/detail_title_shadow_dy"
+        		android:shadowRadius="@integer/detail_title_shadow_radius"
+                android:shadowColor="@color/p_30_black"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/time_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/time_colon" 
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_26"
+                android:textStyle="bold"
+        		android:shadowDx="@integer/detail_title_shadow_dx"
+        		android:shadowDy="@integer/detail_title_shadow_dy"
+        		android:shadowRadius="@integer/detail_title_shadow_radius"
+                android:shadowColor="@color/p_30_black"/>
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/p_80_white"
+                android:textSize="@dimen/text_size_26"
+        		android:shadowDx="@integer/detail_title_shadow_dx"
+        		android:shadowDy="@integer/detail_title_shadow_dy"
+        		android:shadowRadius="@integer/detail_title_shadow_radius"
+                android:shadowColor="@color/p_30_black" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

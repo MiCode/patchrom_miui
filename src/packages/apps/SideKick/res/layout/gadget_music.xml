@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    class="com.miui.voiceassist.gadget.GadgetMusic"
+    android:background="@drawable/music_bg" >
+
+    <ProgressBar
+        android:id="@+id/loading"
+        style="@android:style/Widget.Holo.Light.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|right"
+        android:textColor="@color/bright_foreground_light"
+        android:textSize="@dimen/content_text_size" />
+
+    <LinearLayout
+        android:id="@+id/content_wrap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <include
+            android:id="@+id/music_play"
+            layout="@layout/gadget_music_play"
+            android:visibility="gone" />
+
+        <include
+            android:id="@+id/music_search"
+            layout="@layout/gadget_music_search"
+            android:visibility="gone" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/music_find_more_divider" />
+
+        <TextView
+            android:id="@+id/find_more"
+            style="@style/MusicFindMoreText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:text="@string/music_find_more" />
+    </LinearLayout>
+
+</view>

@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:orientation="horizontal"
+    android:paddingRight="6dip"
+    android:paddingLeft="6dip"
+    android:paddingTop="5dip"
+    android:paddingBottom="5dip"
+    style="@miui:style/V5.Widget.ListView.Item.DoubleLine"
+    android:descendantFocusability="blocksDescendants"
+    android:gravity="center_vertical" >
+
+    <ImageView android:id="@+id/iv_icon"
+        android:layout_width="@android:dimen/app_icon_size"
+        android:layout_height="@android:dimen/app_icon_size"
+        android:layout_marginRight="11dip"
+        android:layout_gravity="center_vertical"
+        android:scaleType="fitCenter"
+        android:contentDescription="@null"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0px"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" >
+        <TextView android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:layout_marginBottom="2dip" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAlignedChildIndex="0" >
+            <TextView android:id="@+id/tv_size"
+                android:layout_gravity="center_vertical|left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            <TextView android:id="@+id/tv_desc"
+                android:layout_gravity="center_vertical|right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:visibility="gone"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <CheckBox android:id="@+id/cb_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="right|center_vertical"
+        android:visibility="gone"
+        android:clickable="false"
+        android:focusable="false" />
+</LinearLayout>

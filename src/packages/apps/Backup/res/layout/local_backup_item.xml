@@ -1,0 +1,43 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/backup_list_item"
+    android:gravity="center_vertical"
+    android:paddingLeft="14dip"
+    android:paddingRight="14dip"
+    style="@miui:style/V5.Widget.ListView.Item.DoubleLine">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+android:id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary"/>
+        <TextView
+            android:id="@+android:id/summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"/>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/targetImage"
+        android:src="@drawable/backup_list_lock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/arrowImage"
+        android:src="@drawable/backup_arrow"
+        android:paddingLeft="2dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <CheckBox
+        android:id="@android:id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:clickable="false"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+</LinearLayout>

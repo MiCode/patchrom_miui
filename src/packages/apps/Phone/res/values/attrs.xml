@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2006 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+    <declare-styleable name="EditPhoneNumberPreference">
+        <!-- The enable button text. -->
+        <attr name="enableButtonText" format="string" />
+        <!-- The disable button text. -->
+        <attr name="disableButtonText" format="string" />
+        <!-- The change / update button text. -->
+        <attr name="changeNumButtonText" format="string" />
+        <!-- The confirm button mode. -->
+        <attr name="confirmMode">
+            <!-- Traditional single action "ok" button. -->
+            <enum name="confirm" value="0" />
+            <!-- Two state "enable/disable" button. -->
+            <enum name="activation" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="CallForwardEditPreference">
+        <attr name="serviceClass">
+            <!-- voice -->
+            <enum name="voice" value="1" />
+            <!-- data -->
+            <enum name="data" value="2" />
+        </attr>
+        <attr name="reason">
+            <!-- unconditional  -->
+            <enum name="unconditional" value="0" />
+            <!-- busy -->
+            <enum name="busy" value="1" />
+            <!-- no_reply -->
+            <enum name="no_reply" value="2" />
+            <!-- not_reachable -->
+            <enum name="not_reachable" value="3" />
+        </attr>
+    </declare-styleable>
+</resources>

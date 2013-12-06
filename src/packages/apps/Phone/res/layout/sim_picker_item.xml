@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:background="@miui:drawable/v5_dialog_list_item_bg_light"
+                android:paddingLeft="10dip"
+                android:paddingRight="10dip"
+                android:minHeight="?android:attr/listPreferredItemHeight">
+    
+    <RelativeLayout android:id="@+id/simIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true">
+        <ImageView android:id="@+id/simStatus"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentLeft="true"
+                   android:visibility="gone"
+                   />
+                   
+        <TextView android:id="@+id/simSignal"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentRight="true"
+                   android:text="@string/sim_manage_indicator_3g"
+                   android:textSize="11sp"
+                   android:textColor="@android:color/white"
+                   android:visibility="gone"/>
+                   
+        <TextView android:id="@+id/shortPhoneNumber"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:includeFontPadding="false"
+                  android:layout_below="@id/simSignal"
+                  android:layout_alignParentBottom="true"
+                  android:layout_alignParentRight="true"
+                  android:textSize="12sp"
+                  android:textColor="@android:color/white"
+                  android:visibility="gone"
+                  />
+    </RelativeLayout>
+    
+    <ImageView android:layout_alignParentRight="true" 
+              android:layout_width="wrap_content" 
+              android:layout_height="wrap_content" 
+              android:id="@+id/suggested"
+              android:layout_centerVertical="true"
+              android:background="@drawable/sim_suggested"
+              />
+
+    <LinearLayout android:layout_width="wrap_content"
+                  android:layout_height="match_parent"
+                  android:gravity="center_vertical"
+                  android:orientation="vertical"
+                  android:layout_marginLeft="10dip"
+                  android:layout_centerVertical="true"
+                  android:layout_toRightOf="@id/simIcon">
+
+        <TextView android:id="@+id/displayName"
+              android:layout_width="135dip"
+              android:layout_height="wrap_content"
+              android:singleLine="true"
+              android:textAppearance="?android:attr/textAppearanceMedium"
+              android:ellipsize="middle"/>
+
+        <TextView android:id="@+id/phoneNumber"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_toRightOf="@id/simIcon"
+              android:singleLine="true"
+              android:textAppearance="?android:attr/textAppearanceSmall"
+              android:maxWidth="135dip"
+              android:ellipsize="end"/>
+    </LinearLayout>
+
+    <RadioButton android:id="@+id/select"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignParentRight="true"
+                 android:layout_centerVertical="true"
+                 android:visibility="invisible"
+                 android:focusable="false"
+                 android:clickable="false"/>
+
+</RelativeLayout>

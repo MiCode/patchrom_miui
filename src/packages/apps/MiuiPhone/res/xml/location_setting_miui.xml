@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:phone="http://schemas.android.com/apk/res/com.android.phone"
+        android:title="@string/telocation_setting_miui">
+    <PreferenceCategory android:title="@string/telocation_show_settings_miui">
+        <CheckBoxPreference
+            android:key="button_enable_telocation"
+            android:title="@string/enable_telocation_title_miui"
+            android:defaultValue="true"
+            android:persistent="false"/>
+        <PreferenceScreen
+            android:title="@string/pref_custom_location_title_miui"
+            android:summary="@string/pref_custom_location_summary_miui">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.phone"
+                android:targetClass="com.android.phone.MiuiCustomLocationActivity" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/call_assistant_miui">
+        <EditTextPreference
+            android:key="button_text_default_contacts_countrycode"
+            android:title="@string/default_contacts_countrycode_miui"
+            android:persistent="false"
+            android:hint="@string/default_contacts_countrycode_hint_miui"
+            android:inputType="phone"/>
+        <CheckBoxPreference
+            android:key="button_auto_country_code"
+            android:title="@string/auto_country_code_miui"
+            android:defaultValue="true"
+            android:summary="@string/auto_country_code_sum_miui"
+            android:persistent="false"/>
+    </PreferenceCategory>
+</PreferenceScreen>

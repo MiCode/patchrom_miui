@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_bg"
+    android:orientation="vertical"
+    android:clickable="false" >
+
+<!--     <LinearLayout > -->     
+<!--     maybe need progressbar in future -->
+<!--     </LinearLayout> -->
+    
+    <com.miui.voiceassist.view.DinnerView
+        android:id="@+id/layout_dinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/transparent"
+        android:clickable="false" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/bright_foreground_light"
+            android:textSize="@dimen/content_text_size"
+            android:text="@string/find_restaurant_nearby" />
+        
+        <ImageView android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@color/dark_foreground_light"
+            android:scaleType="fitXY"
+            android:layout_marginTop="5dp"/>
+
+        <LinearLayout
+            android:id="@+id/layout_shop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_more"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="@string/find_more_restaurant"
+            android:background="@drawable/card_selector" />
+    </com.miui.voiceassist.view.DinnerView>
+
+</LinearLayout>

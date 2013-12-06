@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <LinearLayout
+            android:id="@+id/edittext_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dip"
+            android:paddingRight="15dip"
+            android:orientation="vertical">
+        <EditText
+                android:id="@+id/username"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:hint="@string/ftp_username_hint"
+                android:selectAllOnFocus="true"
+                android:padding="10dip"
+                android:background="?miui:attr/v5_group_item_bg"/>
+        <EditText
+                android:id="@+id/password"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:inputType="textPassword"
+                android:hint="@string/ftp_password_hint"
+                android:selectAllOnFocus="true"
+                android:padding="10dip"
+                android:background="?miui:attr/v5_group_item_bg"/>
+        <TextView
+                android:id="@+id/account_req_notice"
+                style="@miui:style/V5.TextAppearance.List.Secondary"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:text="@string/ftp_account_req_notice"
+                android:padding="5dip"/>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+	    
+    <TextView
+        android:layout_width="wrap_content"
+ 		android:layout_height="wrap_content"
+ 		android:layout_weight="2"
+        android:layout_gravity="center"
+        android:gravity="top"
+        android:text="@string/camera_test"
+        android:textSize="20sp" />    	    
+    
+     <LinearLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:layout_gravity="center" >    
+	        
+	        <Button
+	            android:id="@+id/start_camera_button"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+
+	            android:text="@string/start_camera" />	
+	            	
+	</LinearLayout>
+	    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+		
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    android:gravity="left" >
+		    
+	        <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:text="@string/front_Camera"
+		        android:textSize="18dp" />
+		    <TextView
+				android:id="@+id/front_camera_result"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_weight="5"
+				android:textSize="20dp" />
+		    
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal" >    
+	        
+	        <Button
+	            android:id="@+id/front_pass_button"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:text="@string/test_succeed" />	
+	            
+	        <Button
+	            android:id="@+id/front_fail_button"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:text="@string/test_fail" />	
+	
+	    </LinearLayout>
+        
+    </LinearLayout>
+     
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
+		
+		<LinearLayout
+		    android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:orientation="horizontal" >
+			<TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:text="@string/back_Camera"
+		        android:textSize="18dp" />
+	        
+			<TextView
+				android:id="@+id/back_camera_result"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_weight="5"
+				android:textSize="20dp" />
+		</LinearLayout>
+		
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:gravity="center"
+	        android:orientation="horizontal" >	       
+		                
+			<Button
+		        android:id="@+id/back_pass_button"
+		        android:layout_width="0dp"
+		        android:layout_weight="1"
+		        android:layout_height="wrap_content"
+		        android:text="@string/test_succeed" /> 
+		        
+			<Button
+		        android:id="@+id/back_fail_button"
+		        android:layout_width="0dp"
+		        android:layout_weight="1"
+		        android:layout_height="wrap_content"
+		        android:text="@string/test_fail" />  
+	         
+	    </LinearLayout>
+        
+    </LinearLayout>
+	    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
+		
+		<LinearLayout
+		    android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:orientation="horizontal" >
+			<TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:text="@string/flashlight"
+		        android:textSize="18dp" />
+	        
+			<TextView
+				android:id="@+id/flashlight_result"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_weight="5"
+				android:textSize="20dp" />
+		</LinearLayout>
+		
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:gravity="center"
+	        android:orientation="horizontal" >	       
+		        		        
+			<Button
+		        android:id="@+id/flashlight_open_button"
+		        android:layout_width="0dp"
+		        android:layout_weight="1"
+		        android:layout_height="wrap_content"
+		        android:text="@string/torch_open" /> 
+		        
+			<Button
+		        android:id="@+id/flashlight_close_button"
+		        android:layout_width="0dp"
+		        android:layout_weight="1"
+		        android:layout_height="wrap_content"
+		        android:text="@string/torch_close" />  
+		    <Button
+		        android:id="@+id/flashlight_pass_button"
+		        android:layout_width="0dp"
+		        android:layout_weight="1"
+		        android:layout_height="wrap_content"
+		        android:text="@string/test_succeed" /> 
+		        
+			<Button
+		        android:id="@+id/flashlight_fail_button"
+		        android:layout_width="0dp"
+		        android:layout_weight="1"
+		        android:layout_height="wrap_content"
+		        android:text="@string/test_fail" /> 
+	         
+	    </LinearLayout>
+        
+    </LinearLayout>
+	    	   
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/back_return" />
+        
+</LinearLayout>
+

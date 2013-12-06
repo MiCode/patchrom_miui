@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:layout_height="10dip"
+                android:layout_width="match_parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/autofill_profile_editor_heading" />
+
+            <View
+                android:layout_height="12dip"
+                android:layout_width="match_parent" />
+
+            <TextView
+                style="@style/AutofillProfileTextView"
+                android:text="@string/autofill_profile_editor_name" />
+            <EditText android:id="@+id/autofill_profile_editor_name_edit"
+                style="@style/AutofillProfileEditText"
+                android:inputType="textPersonName|textCapWords" />
+
+            <TextView
+                style="@style/AutofillProfileTextView"
+                android:text="@string/autofill_profile_editor_company_name" />
+            <EditText android:id="@+id/autofill_profile_editor_company_name_edit"
+                style="@style/AutofillProfileEditText"
+                android:inputType="textCapWords" />
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dip"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/autofill_profile_editor_address_line_1" />
+                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/autofill_profile_editor_address_line_1_hint" />
+            </LinearLayout>
+            <EditText android:id="@+id/autofill_profile_editor_address_line_1_edit"
+                style="@style/AutofillProfileEditText"
+                android:inputType="textCapWords" />
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dip"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/autofill_profile_editor_address_line_2" />
+                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/autofill_profile_editor_address_line_2_hint" />
+            </LinearLayout>
+            <EditText android:id="@+id/autofill_profile_editor_address_line_2_edit"
+                style="@style/AutofillProfileEditText"
+                android:inputType="textCapWords" />
+
+            <TextView
+                style="@style/AutofillProfileTextView"
+                android:text="@string/autofill_profile_editor_city" />
+            <EditText android:id="@+id/autofill_profile_editor_city_edit"
+                style="@style/AutofillProfileEditText"
+                android:inputType="textCapWords" />
+
+            <TextView
+                style="@style/AutofillProfileTextView"
+                android:text="@string/autofill_profile_editor_state" />
+            <EditText android:id="@+id/autofill_profile_editor_state_edit"
+                style="@style/AutofillProfileEditText"
+                android:inputType="textCapWords" />
+
+            <TextView
+                style="@style/AutofillProfileTextView"
+                android:text="@string/autofill_profile_editor_zip_code" />
+            <EditText android:id="@+id/autofill_profile_editor_zip_code_edit"
+                style="@style/AutofillProfileEditText"
+                android:inputType="textCapCharacters" />
+
+            <TextView
+                style="@style/AutofillProfileTextView"
+                android:text="@string/autofill_profile_editor_country" />
+            <EditText android:id="@+id/autofill_profile_editor_country_edit"
+                style="@style/AutofillProfileEditText"
+                android:inputType="textCapWords" />
+
+            <TextView
+                style="@style/AutofillProfileTextView"
+                android:text="@string/autofill_profile_editor_phone_number" />
+            <EditText android:id="@+id/autofill_profile_editor_phone_number_edit"
+                style="@style/AutofillProfileEditText"
+                android:phoneNumber="true" />
+
+            <TextView
+                style="@style/AutofillProfileTextView"
+                android:text="@string/autofill_profile_editor_email_address" />
+            <EditText android:id="@+id/autofill_profile_editor_email_address_edit"
+                style="@style/AutofillProfileEditText"
+                android:inputType="textEmailAddress"
+                android:imeOptions="actionDone|flagNoExtractUi" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

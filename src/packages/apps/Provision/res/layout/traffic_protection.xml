@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/info"
+        style="@style/TextView.Info.Provision"
+        android:text="@string/traffic_protection_summary" />
+
+    <ImageView android:id="@+id/seperator"
+        style="@style/Widget.Seperator"/>
+
+    <Button
+        android:id="@+id/next"
+        style="@style/Button.Provision"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:enabled="false"
+        android:text="@string/next" />
+
+    <Button
+        android:id="@+id/unknown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/next"
+        android:layout_centerHorizontal="true"
+        android:text="@string/traffic_protection_unknown"
+        android:textColor="#333333"
+        android:background="@drawable/transparent_bg" />
+
+    <EditText
+        android:id="@+id/traffic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/unknown"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:inputType="number"
+        android:hint="@string/traffic_protection_text_hint"
+        android:drawableRight="@drawable/mega"/>
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/traffic"
+        android:layout_below="@id/seperator"
+        android:scaleType="center"
+        android:src="@drawable/traffic_protection"/>
+
+</RelativeLayout>

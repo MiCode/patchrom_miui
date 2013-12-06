@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/log_tab_indicator"
+        style="@miui:style/V5.Widget.SecondaryTabIndicator"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@miui:style/V5.Widget.SecondaryTab"
+            android:id="@+id/sms_button"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/tab_sms" />
+        <TextView
+            style="@miui:style/V5.Widget.SecondaryTab"
+            android:id="@+id/call_button"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/tab_call" />
+    </LinearLayout>
+
+    <miui.v5.widget.EditableListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:fastScrollEnabled="true"
+        />
+    <include
+        android:id="@android:id/empty"
+        android:visibility="gone"
+        layout="@layout/fw_log_list_empty" />
+</LinearLayout>

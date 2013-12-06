@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- tablet -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/invite_section"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/message_view_info_back_color"
+    android:orientation="vertical"
+    >
+    <View
+        android:layout_width="match_parent"
+        style="@style/message_view_horizontal_divider"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dip"
+        android:orientation="horizontal"
+        >
+        <!-- TODO: The plan is to show a calendar icon here. -->
+        <ImageView
+            android:layout_width="64dip"
+            android:layout_height="64dip"
+            android:layout_weight="0"
+            android:src="@null"
+            android:visibility="gone"
+            />
+        <LinearLayout
+            android:layout_width="200dip"
+            android:layout_weight="1"
+            android:layout_height="64dip"
+            android:orientation="horizontal"
+            android:divider="?android:attr/dividerVertical"
+            android:showDividers="middle"
+            android:dividerPadding="16dip"
+            >
+            <RelativeLayout
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+                <CheckBox
+                    android:id="@+id/accept"
+                    android:layout_width="104dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="16dip"
+                    android:text="@string/message_view_invite_accept"
+                    android:textSize="14dip"
+                    android:textColor="@color/text_primary_color"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    />
+                <CheckBox
+                    android:id="@+id/maybe"
+                    android:layout_width="104dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toRightOf="@id/accept"
+                    android:layout_marginLeft="8dip"
+                    android:text="@string/message_view_invite_maybe"
+                    android:textSize="14dip"
+                    android:textColor="@color/text_primary_color"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    />
+                <CheckBox
+                    android:id="@+id/decline"
+                    android:layout_width="104dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toRightOf="@id/maybe"
+                    android:layout_marginLeft="8dip"
+                    android:text="@string/message_view_invite_decline"
+                    android:textSize="14dip"
+                    android:textColor="@color/text_primary_color"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    />
+
+                <!-- "Going?" -->
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_above="@id/accept"
+                    android:layout_marginLeft="16dip"
+                    android:layout_marginRight="16dip"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:text="@string/message_view_invite_text"
+                    android:textSize="18dip"
+                    android:textColor="@color/text_primary_color"
+                    android:gravity="left|bottom"
+                    />
+
+            </RelativeLayout>
+            <Button
+                android:id="@+id/invite_link"
+                android:layout_width="162dip"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dip"
+                android:layout_marginRight="8dip"
+                style="@android:style/Widget.Holo.Button.Borderless"
+                android:padding="0dip"
+                android:text="@string/message_view_invite_view"
+                android:textSize="14dip"
+                android:textColor="@color/text_primary_color"
+                android:textStyle="bold"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:gravity="center"
+                />
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        style="@style/message_view_horizontal_divider"
+        />
+</LinearLayout>

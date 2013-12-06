@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/device_other_text_margin_horizontal"
+        android:paddingRight="@dimen/device_other_text_margin_horizontal"
+        android:paddingTop="@dimen/device_other_text_margin_vertical"
+        android:paddingBottom="@dimen/device_other_text_margin_vertical"
+        android:text="@string/device_other_guide" />
+
+    <RadioGroup
+        android:id="@+id/radio_group_other_phone"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <RadioButton
+            android:id="@+id/radio_yes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:background="@miui:drawable/v5_preference_item_bg"
+            android:text="@string/my_phone_provider_bluetooth" />
+
+        <RadioButton
+            android:id="@+id/radio_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:background="@miui:drawable/v5_preference_item_bg"
+            android:text="@string/my_phone_not_provider_bluetooth" />
+    </RadioGroup>
+
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_cancel"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@android:string/cancel" />
+
+        <Button
+            android:id="@+id/btn_next"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@android:string/ok" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<view
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    class="com.miui.notes.editor.NotePopupView"
+    android:id="@+id/popup_window"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:id="@+id/popup_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/popup_window_bg" />
+
+    <LinearLayout
+        android:id="@+id/arrow_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:gravity="bottom"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/popup_arrow_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/popup_window_arrow_left" />
+
+        <FrameLayout
+            android:id="@+id/popup_arrow_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/popup_window_arrow_center" />
+
+        <FrameLayout
+            android:id="@+id/popup_arrow_right"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/popup_window_arrow_right" />
+
+    </LinearLayout>
+
+</view>

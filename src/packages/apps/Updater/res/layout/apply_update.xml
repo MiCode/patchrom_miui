@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center">
+        <ScrollView
+            android:id="@+id/logWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/installLog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/deepgrey" />
+        </ScrollView>
+        <WebView
+            android:id="@+id/htmlContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+        <ScrollView
+            android:id="@+id/plainContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadingEdge="none">
+            <TextView
+                android:id="@+id/rom_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="30dip"
+                style="@style/TextAppearance.Content"
+                android:text="@string/apply_upload_info_message" />
+        </ScrollView>
+        <include
+            android:id="@+id/toast"
+            layout="@miui:layout/android_transient_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="15dip"
+            android:visibility="gone" />
+    </FrameLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/transparent_40_black"/>
+    <FrameLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@miui:dimen/v5_list_view_padding_horizontal"
+        android:paddingRight="@miui:dimen/v5_list_view_padding_horizontal"
+        android:background="@drawable/bottom_bar_placeholder"
+        android:gravity="center">
+        <LinearLayout
+            android:id="@+id/download_status"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/ds_downloading_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/downloading_description"
+                        android:ellipsize="marquee"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/deepgrey" />
+                    <TextView
+                        android:id="@+id/ds_remaining_size"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:ellipsize="marquee"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/lightgrey" />
+                </LinearLayout>
+                <ProgressBar
+                    android:id="@+id/ds_progress_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@miui:style/V5.Widget.ProgressBar.Horizontal" />
+            </LinearLayout>
+            <Button
+                android:id="@+id/ds_cancel_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:text="@string/cancel_download_buton_text"
+                style="@miui:style/V5.Widget.Button.Rect" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/opreation_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center">
+            <Button
+                android:id="@+id/apply_later_button"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="marquee"
+                android:text="@string/apply_later_button_text" />
+            <Button
+                android:id="@+id/apply_now_button"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/apply_now_button_text"
+                android:ellipsize="marquee" />
+            <Button
+                android:id="@+id/reboot_to_new_system_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reboot_to_new_system"
+                style="@miui:style/V5.Widget.Button.PositiveWarn"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

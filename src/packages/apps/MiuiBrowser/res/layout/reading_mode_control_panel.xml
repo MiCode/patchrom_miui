@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 阅读模式控制面板，FrameLayout -->
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 上部阴影 -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="@drawable/reading_mode_top_shadow" />
+
+    <!-- 底部：阴影+控制面板 -->
+    <LinearLayout
+        android:id="@+id/bottom_bar_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+
+        <!-- 阴影 -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/reading_mode_bottom_shadow" />
+
+        <!-- 控制面板 -->
+        <LinearLayout
+            android:id="@+id/bottom_bar_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/bottom_bar_bg">
+
+            <!-- 字体变大 -->
+            <ImageButton
+              android:id="@+id/action_textsize_bigger"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:background="@null"
+              android:src="@drawable/action_textsize_bigger"/>
+
+            <!-- 字体变小 -->
+            <ImageButton
+              android:id="@+id/action_textsize_smaller"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:background="@null"
+              android:src="@drawable/action_textsize_smaller"/>
+
+            <!-- 加入阅读书签 -->
+            <ImageButton
+              android:id="@+id/action_readmode_bookmark"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:background="@null"
+              android:src="@drawable/action_readmode_bookmark"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</merge>

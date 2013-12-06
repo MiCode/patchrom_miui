@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/headset_settings"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    >
+
+    <miui.preference.RadioButtonPreference
+        android:key="mode_volume"
+        android:persistent="false"
+        android:title="@string/headset_mode_volume"
+        />
+
+    <miui.preference.RadioButtonPreference
+        android:key="mode_music"
+        android:persistent="false"
+        android:title="@string/headset_mode_music"
+        />
+
+    <PreferenceCategory>
+        <Preference
+            android:key="calibrate"
+            android:title="@string/headset_calibrate"
+            >
+            <intent
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.HeadsetCalibrateActivity" />
+        </Preference>
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+    <FrameLayout
+        android:id="@+id/aqi_index"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <com.miui.weather2.view.ViewAQI
+            android:id="@+id/act_weather_aqi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="125dip"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+            <LinearLayout
+                android:id="@+id/aqi_index_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+                <ImageView
+                    android:id="@+id/aqi_index_value_0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+                <ImageView
+                    android:id="@+id/aqi_index_value_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+                <ImageView
+                    android:id="@+id/aqi_index_value_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/act_aqi_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:textColor="#929292"
+                android:textSize="12sp"
+                style="@style/text_shadow_1" />
+             <TextView
+                android:id="@+id/act_aqi_index"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                style="@style/text_shadow_1" />
+        </LinearLayout>
+    </FrameLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginTop="-50dip"
+        android:gravity="bottom|center_horizontal" >
+        <include layout="@layout/act_weather_aqi_details" />
+    </ScrollView>
+</LinearLayout>

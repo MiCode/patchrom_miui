@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/search_on_action_bar"
+        android:title="@string/menu_search"
+        android:icon="@drawable/ic_dial_action_search"
+        android:showAsAction="ifRoom" />
+
+    <!-- This should come after the other menus in CallLog and Dialpad -->
+    <item
+        android:id="@+id/menu_call_settings"
+        android:title="@string/call_settings"
+        android:showAsAction="withText"
+        android:orderInCategory="2" />
+
+    <item
+        android:id="@+id/filter_option"
+        android:title="@string/menu_contacts_filter"
+        android:showAsAction="withText" />
+
+    <item
+        android:id="@+id/add_contact"
+        android:icon="@drawable/ic_add_contact_holo_dark"
+        android:title="@string/menu_newContact"
+        android:showAsAction="ifRoom" />
+
+    <!-- Ugly hack: empty item never clickable.
+         This is for forcing search icon on left even when there's a single item
+         in the bottom ActionBar.
+         We intentionally don't use android:icon to avoid other issues around item with
+         a null icon.
+
+         TODO: look for better idea. -->
+    <item
+        android:id="@+id/empty_right_menu_item"
+        android:actionLayout="@layout/empty2"
+        android:showAsAction="ifRoom" />
+</menu>
