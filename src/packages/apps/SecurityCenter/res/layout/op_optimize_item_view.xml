@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:duplicateParentState="true" >
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:duplicateParentState="true" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2.5dip"
+        android:ellipsize="marquee"
+        android:paddingBottom="7dip"
+        android:singleLine="true"
+        android:textColor="@color/optimize_item_title_color"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/icon"
+        android:layout_alignRight="@id/icon"
+        android:layout_marginBottom="@dimen/optimizecenter_main_item_tips_margin_bottom"
+        android:layout_marginRight="@dimen/optimizecenter_main_item_tips_margin_right"
+        android:background="@drawable/icon_scan_mark_green"
+        android:gravity="center"
+        android:minHeight="18dip"
+        android:minWidth="18dip"
+        android:textColor="#ffffff"
+        android:textSize="10sp" />
+
+</RelativeLayout>

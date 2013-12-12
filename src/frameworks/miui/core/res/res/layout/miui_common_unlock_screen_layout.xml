@@ -5,7 +5,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="@dimen/miui_common_unlock_screen_top_margin"
     android:gravity="center_horizontal">
 
     <com.miui.internal.policy.impl.MiuiUnlockScreenDigitalClock
@@ -20,6 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/miui_common_unlock_screen_top_margin"
             android:gravity="center" >
 
             <ImageView
@@ -61,24 +61,6 @@
             android:visibility="gone" />
 
     </com.miui.internal.policy.impl.MiuiUnlockScreenDigitalClock>
-
-    <LinearLayout android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:visibility="gone"
-        android:id="@+id/sim_locked_block">
-
-        <ImageView android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/sim_locked_icon"/>
-
-        <TextView android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/v5_text_color_pressed_light"
-            android:text="@string/sim_locked"/>
-
-    </LinearLayout>
 
     <TextView
         android:id="@+id/lock_screen_info"

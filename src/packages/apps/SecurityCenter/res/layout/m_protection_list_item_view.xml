@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.securitycenter.view.ProtectionListItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@miui:style/V5.Widget.ListView.Item.DoubleLine"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:padding="16dip" >
+
+    <Button
+        android:id="@+id/fix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/list_button_selector"
+        android:gravity="center"
+        android:minWidth="75dip"
+        android:text="@string/button_text_fix" />
+
+    <Button
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/list_button_selector"
+        android:gravity="center"
+        android:minWidth="75dip"
+        android:text="@string/button_text_view" />
+
+    <TextView
+        android:id="@+id/hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:minWidth="75dip"
+        android:text="@string/button_text_security"
+        android:textColor="#9bbf7b"
+        android:textSize="16sp"
+        android:visibility="invisible" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dip"
+        android:layout_toLeftOf="@id/fix" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary"
+            android:textColor="#f20000" />
+
+        <TextView
+            android:id="@+id/summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary" />
+    </RelativeLayout>
+
+</com.miui.securitycenter.view.ProtectionListItemView>

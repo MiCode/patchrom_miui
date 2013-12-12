@@ -4,54 +4,78 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:orientation="vertical">
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ListView
-                android:id="@+id/selected_device_pkg_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                 />
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:orientation="vertical">
             <LinearLayout
-                android:id="@+id/loading"
+                android:id="@+id/empty_loading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:background="@drawable/loading_view_bg"
+                android:layout_gravity="center"
                 android:gravity="center">
                 <ProgressBar
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
                     android:gravity="center"
                     android:indeterminateOnly="true"/>
+                <TextView
+                    android:text="@string/cloud_app_load_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" />
             </LinearLayout>
+            <FrameLayout
+                android:id="@+id/pkgs_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ListView
+                    android:id="@+id/selected_device_pkg_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                     />
+                <LinearLayout
+                    android:id="@+id/loading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/loading_view_bg"
+                    android:gravity="center">
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:gravity="center"
+                        android:indeterminateOnly="true"/>
+                </LinearLayout>
+            </FrameLayout>
         </FrameLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@miui:dimen/v5_preference_item_padding_side"
-        android:layout_gravity="bottom"
-        android:gravity="bottom">
-        <Button
-            android:id="@+id/back"
-            android:layout_width="0dip"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/button_return"
-            android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side" />
-        <Button
-            android:id="@+id/restore"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/button_restore"
-            android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side" />
+            android:layout_marginBottom="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_gravity="bottom"
+            android:gravity="bottom">
+            <Button
+                android:id="@+id/back"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/button_return"
+                android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side" />
+            <Button
+                android:id="@+id/restore"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/button_restore"
+                android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
