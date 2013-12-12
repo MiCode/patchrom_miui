@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/titleBar"
+        style="@miui:style/V5.TextAppearance.Title.Medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/background_application_manage_bg"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="@string/auto_startup_application_manage"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/startup_count"
+        style="@android:style/TextAppearance.Small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleBar"
+        android:background="@miui:drawable/v5_list_view_section_item_bg_light"
+        android:gravity="center_vertical"
+        android:singleLine="true" />
+
+    <Button
+        android:id="@+id/man_add_application"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="11dip"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:layout_marginTop="11dip"
+        android:focusable="false"
+        android:text="@string/man_add_application"
+        android:textAppearance="@miui:style/V5.TextAppearance.Button" />
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_above="@+id/man_add_application"
+        android:layout_below="@id/startup_count"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@android:id/empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:drawableTop="@drawable/icon_list_empty"
+        android:text="@string/power_autorun_apps_empty" />
+
+</RelativeLayout>
