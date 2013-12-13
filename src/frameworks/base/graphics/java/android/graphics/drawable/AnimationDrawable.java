@@ -25,8 +25,6 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.SystemClock;
 import android.util.AttributeSet;
-import android.annotation.MiuiHook;
-import android.annotation.MiuiHook.MiuiHookType;
 
 /**
  * 
@@ -81,11 +79,7 @@ import android.annotation.MiuiHook.MiuiHookType;
  * @attr ref android.R.styleable#AnimationDrawableItem_drawable
  */
 public class AnimationDrawable extends DrawableContainer implements Runnable, Animatable {
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    AnimationState getAnimationState() { return mAnimationState; }
-
-    private AnimationState mAnimationState;
-
+    private final AnimationState mAnimationState;
     private int mCurFrame = -1;
     private boolean mMutated;
 
@@ -175,7 +169,15 @@ public class AnimationDrawable extends DrawableContainer implements Runnable, An
     public Drawable getFrame(int index) {
         return mAnimationState.getChildren()[index];
     }
-    
+
+    /**
+     * MIUI ADD:
+     * @hide
+     */
+    public void setFrame(int index, Drawable drawable) {
+        mAnimationState.getChildren()[index] = drawable;
+    }
+
     /**
      * @return The duration in milliseconds of the frame at the 
      * specified index
@@ -183,7 +185,15 @@ public class AnimationDrawable extends DrawableContainer implements Runnable, An
     public int getDuration(int i) {
         return mAnimationState.mDurations[i];
     }
-    
+
+    /**
+     * MIUI ADD:
+     * @hide
+     */
+    public void setDuration(int i, int duration) {
+        mAnimationState.mDurations[i] = duration;
+    }
+
     /**
      * @return True of the animation will play once, false otherwise
      */
@@ -316,17 +326,8 @@ public class AnimationDrawable extends DrawableContainer implements Runnable, An
         return this;
     }
 
-    /**
-     * change to protected to support a-gif image
-     * @hide
-     */
-    @MiuiHook(MiuiHookType.CHANGE_ACCESS)
-    protected final static class AnimationState extends DrawableContainerState {
-        @MiuiHook(MiuiHookType.NEW_METHOD)
-        void setDuration(int frame, int value) { mDurations[frame] = value; }
-
+    private final static class AnimationState extends DrawableContainerState {
         private int[] mDurations;
-
         private boolean mOneShot;
 
         AnimationState(AnimationState orig, AnimationDrawable owner,

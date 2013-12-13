@@ -83,6 +83,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.ViewManager;
 import android.view.ViewParent;
@@ -872,8 +873,13 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
             
             boolean playSoundEffect = false;
             final PanelFeatureState st = getPanelState(featureId, true);
+            // MIUI MOD: START
+            // 修正无法正常显示MENU的问题
+            // if (featureId == FEATURE_OPTIONS_PANEL && mActionBar != null &&
+            // mActionBar.isOverflowReserved()) {
             if (featureId == FEATURE_OPTIONS_PANEL && mActionBar != null &&
-                    mActionBar.isOverflowReserved()) {
+                    mActionBar.isOverflowReserved() && !ViewConfiguration.get(getContext()).hasPermanentMenuKey()) {
+            //END
                 if (mActionBar.getVisibility() == View.VISIBLE) {
                     if (!mActionBar.isOverflowMenuShowing()) {
                         if (!isDestroyed() && preparePanel(st, event)) {

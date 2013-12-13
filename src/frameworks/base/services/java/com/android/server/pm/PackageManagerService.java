@@ -102,6 +102,7 @@ import android.os.ServiceManager;
 import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.os.UserId;
+import android.provider.MediaStore;
 import android.provider.Settings.Secure;
 import android.security.SystemKeyStore;
 import android.util.DisplayMetrics;
@@ -271,9 +272,19 @@ public class PackageManagerService extends IPackageManager.Stub {
             return pi != null ? list.append(pi) : false;
         }
 
-        static ResolveInfo checkMiuiIntent(PackageManagerService pms, Intent intent, String resolvedType,
+        static ResolveInfo getSystemResolveInfo(List<ResolveInfo> riList) {
+            for (ResolveInfo ri : riList) {
+                if (ri.system) {
+                    return ri;
+                }
+            }
+            return null;
+        }
+
+        static ResolveInfo checkMiuiIntent(PackageManagerService pms, List<ResolveInfo> riList, Intent intent, String resolvedType,
                 int flags, int userId, ResolveInfo defaultResolveInfo) {
             if (intent != null) {
+                // launcher
                 if (intent.getCategories() != null && intent.getCategories().contains(Intent.CATEGORY_HOME)) {
                     intent.setClassName("com.miui.home", "com.miui.home.launcher.Launcher");
                 } else if ("http".equals(intent.getScheme()) && Intent.ACTION_VIEW.equals(intent.getAction())) {
@@ -289,6 +300,26 @@ public class PackageManagerService extends IPackageManager.Stub {
                                 intent.setClassName("com.xiaomi.market", "com.xiaomi.market.ui.AppDetailActivity");
                             }
                         }
+                    }
+                    // browser
+                    if (intent.getComponent() == null) {
+                        ResolveInfo ri = getSystemResolveInfo(riList);
+                        if (ri != null) {
+                            return ri;
+                        }
+                    }
+                } else if (PACKAGE_MIME_TYPE.equals(intent.getType()) && Intent.ACTION_VIEW.equals(intent.getAction())) {
+                    intent.setClassName("com.android.packageinstaller", "com.android.packageinstaller.PackageInstallerActivity");
+                } else if (MediaStore.ACTION_IMAGE_CAPTURE.equals(intent.getAction()) ||
+                        (Intent.ACTION_VIEW.equals(intent.getAction()) && intent.getType() != null &&
+                        (intent.getType().contains("image") || intent.getType().contains("audio") || intent.getType().contains("video"))) ||
+                        (Intent.ACTION_VIEW.equals(intent.getAction()) && intent.getScheme() != null &&
+                        (intent.getScheme().contains("tel") || intent.getScheme().contains("mailto") || intent.getScheme().contains("https"))) ||
+                        (Intent.ACTION_SENDTO.equals(intent.getAction()) && intent.getScheme() != null && intent.getScheme().contains("smsto"))) {
+                    // dialer, messaging, camera, gallary, music, video, email
+                    ResolveInfo ri = getSystemResolveInfo(riList);
+                    if (ri != null) {
+                        return ri;
                     }
                 }
                 if (intent.getComponent() != null) {
@@ -2517,12 +2548,11 @@ public class PackageManagerService extends IPackageManager.Stub {
                     return ri;
                 }
 
-                // MIUI MODIFY:
-                // If the intent calling HOME, using com.miui.HOME by default.
-                /** Original
-                 * return mResolveInfo;
-                 */
-                return Injector.checkMiuiIntent(this, intent, resolvedType, flags, userId, mResolveInfo); // Miui Hook
+                // MIUI MOD:START
+                // return mResolveInfo;
+                // return system application for special intent filter by default.
+                return Injector.checkMiuiIntent(this, query, intent, resolvedType, flags, userId, mResolveInfo);
+                // END
             }
         }
         return null;
@@ -7135,6 +7165,7 @@ public class PackageManagerService extends IPackageManager.Stub {
                 res.returnCode = PackageManager.INSTALL_FAILED_INVALID_APK;
             }
         } else {
+            ExtraPackageManagerServices.postProcessNewInstall(mContext, pkg.applicationInfo, mSettings); // miui add
             updateSettingsLI(newPackage,
                     installerPackageName,
                     res);

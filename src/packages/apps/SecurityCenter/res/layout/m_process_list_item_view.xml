@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.securitycenter.view.ProcessListItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@miui:style/V5.Widget.ListView.Item.DoubleLine"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:paddingBottom="10dip"
+    android:paddingLeft="16dip"
+    android:paddingRight="16dip"
+    android:paddingTop="10dip" >
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="43dip"
+        android:layout_height="43dip"
+        android:layout_centerVertical="true" />
+
+    <CheckBox
+        android:id="@+id/check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dip" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:layout_toLeftOf="@id/check"
+        android:layout_toRightOf="@id/icon" >
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary" />
+
+        <TextView
+            android:id="@+id/summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name"
+            android:singleLine="true"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+    </RelativeLayout>
+
+</com.miui.securitycenter.view.ProcessListItemView>

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.securitycenter.common.RecycleRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miui="http://schemas.android.com/apk/res/com.android.settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.miui.securitycenter.common.RecycleImageView
+        android:id="@+id/backgroundView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.miui.securitycenter.common.RecycleImageView
+        android:id="@+id/foregroundView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/security_bg_green" />
+
+    <com.miui.securitycenter.common.RecycleLinearLayout
+        android:id="@+id/menuBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/securitycenter_main_menubar_height"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/security_menubar_bg"
+        android:orientation="vertical"
+        android:paddingBottom="9.5dip"
+        android:paddingLeft="7.5dip"
+        android:paddingRight="7.5dip"
+        android:paddingTop="9.5dip" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <com.miui.securitycenter.view.SecurityMenuItemView
+                android:id="@+id/rubbish_clean"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                miui:menuIcon="@drawable/ic_menu_rubbish_clean"
+                miui:menuTitle="@string/cleaner" />
+
+            <com.miui.securitycenter.view.SecurityMenuItemView
+                android:id="@+id/network_assistant"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                miui:fancyIcon="@string/fancy_icon_network_assistant"
+                miui:menuIcon="@drawable/ic_menu_network_assistant"
+                miui:menuTitle="@string/network_assistant" />
+
+            <com.miui.securitycenter.view.SecurityMenuItemView
+                android:id="@+id/anti_spam"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                miui:menuIcon="@drawable/ic_menu_anti_spam"
+                miui:menuTitle="@string/anti_spam" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <com.miui.securitycenter.view.SecurityMenuItemView
+                android:id="@+id/power_optimize"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                miui:menuIcon="@drawable/ic_menu_power_optimize"
+                miui:menuTitle="@string/power_mgr" />
+
+            <com.miui.securitycenter.view.SecurityMenuItemView
+                android:id="@+id/virus_scan"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                miui:menuIcon="@drawable/ic_menu_virus_scan"
+                miui:menuTitle="@string/virus_scan" />
+
+            <com.miui.securitycenter.view.SecurityMenuItemView
+                android:id="@+id/license_manage"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                miui:menuIcon="@drawable/ic_menu_license_manage"
+                miui:menuTitle="@string/permission_mgr" />
+        </LinearLayout>
+    </com.miui.securitycenter.common.RecycleLinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/handleBar"
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        android:visibility="invisible" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dip"
+            android:layout_marginTop="22dip"
+            android:orientation="horizontal" >
+
+            <com.miui.securitycenter.view.OptimizeItemView
+                android:id="@+id/protection"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dip"
+                android:layout_marginRight="20dip"
+                android:layout_weight="1"
+                android:background="@drawable/optimize_item_bg_selector"
+                miui:itemIcon="@drawable/realtime_protect_disable"
+                miui:itemName="@string/realtime_protection" />
+
+            <View
+                android:layout_width="0.5dip"
+                android:layout_height="52.5dip"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/icon_vertical_divider" />
+
+            <com.miui.securitycenter.view.OptimizeItemView
+                android:id="@+id/process"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dip"
+                android:layout_marginRight="20dip"
+                android:layout_weight="1"
+                android:background="@drawable/optimize_item_bg_selector"
+                miui:itemIcon="@drawable/memory_manage_disable"
+                miui:itemName="@string/free_ram" />
+
+            <View
+                android:layout_width="0.5dip"
+                android:layout_height="52.5dip"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/icon_vertical_divider" />
+
+            <com.miui.securitycenter.view.OptimizeItemView
+                android:id="@+id/cache"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dip"
+                android:layout_marginRight="20dip"
+                android:layout_weight="1"
+                android:background="@drawable/optimize_item_bg_selector"
+                miui:itemIcon="@drawable/cache_manage_disable"
+                miui:itemName="@string/cache_garbage" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_optimize_action"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="22dip"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:text="@string/cancel_scan"
+            android:textColor="@color/optimize_button_text_color"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/linear_main_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/securitycenter_main_menubar_height" >
+
+        <com.miui.securitycenter.view.Dashboard
+            android:id="@+id/dashboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="63.5dip" />
+
+        <com.miui.securitycenter.view.OptimizeButton
+            android:id="@+id/optimize_flash_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/securitycenter_main_op_btn_margin_bottom"
+            android:alpha="0"
+            android:background="@drawable/button_flash"
+            android:text="@string/button_start_optimize"
+            android:textColor="#ffffffff"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/button_optimize_now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/securitycenter_main_op_btn_margin_bottom"
+            android:background="@drawable/optimize_button_selector"
+            android:text="@string/button_start_optimize"
+            android:textColor="#ffffffff"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/score_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/securitycenter_main_score_margin_bottom"
+            android:visibility="gone" >
+
+            <com.miui.securitycenter.view.ScoreTextView
+                android:id="@+id/text_main_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dip" />
+
+            <TextView
+                android:id="@+id/text_main_score_mark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/text_main_score"
+                android:layout_toRightOf="@id/text_main_score"
+                android:text="@string/last_checked_date_mark"
+                android:textColor="#7fffffff"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <com.miui.securitycenter.view.VerticalMarqueeTextView
+            android:id="@+id/text_optimize_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/securitycenter_main_op_text_margin_bottom"
+            android:gravity="center"
+            android:text="@string/last_check_never_checked"
+            android:textColor="#7fffffff"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dip"
+        android:shadowColor="#33000000"
+        android:shadowDy="4"
+        android:shadowRadius="9"
+        android:text="@string/app_name"
+        android:textColor="#ffffffff"
+        android:textSize="23sp"
+        android:textStyle="bold" />
+
+</com.miui.securitycenter.common.RecycleRelativeLayout>

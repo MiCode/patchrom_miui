@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.securitycenter.common.RecycleRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miui="http://schemas.android.com/apk/res/com.android.settings"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/viruscenter_main_toolbar_height"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white" >
+
+        <TextView
+            android:id="@+id/main_divider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/viruscenter_main_toolbar_divider_margin_top"
+            android:background="@drawable/virus_scan_divider" />
+
+        <com.miui.viruscenter.view.VirusScanItemView
+            android:id="@+id/virus_scan_virus"
+            android:layout_width="76dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="63dp"
+            android:layout_marginTop="@dimen/viruscenter_main_toolbar_text_margin_top"
+            android:background="@drawable/optimize_item_bg_selector"
+            miui:itemIcon="@drawable/virus_scan_virus_button"
+            miui:itemName="@string/virus_activity_title"
+            miui:tipsVisibility="gone" />
+
+        <com.miui.viruscenter.view.VirusScanItemView
+            android:id="@+id/virus_scan_risk"
+            android:layout_width="76dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40.5dp"
+            android:layout_marginTop="@dimen/viruscenter_main_toolbar_text_margin_top"
+            android:layout_toRightOf="@id/main_divider"
+            android:background="@drawable/optimize_item_bg_selector"
+            miui:itemIcon="@drawable/virus_scan_risk_button"
+            miui:itemName="@string/virus_scan_risk_button_name"
+            miui:tipsVisibility="gone" />
+
+        <Button
+            android:id="@+id/virus_scan_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:textColor="@color/optimize_button_text_color"
+            android:textSize="13sp" />
+    </RelativeLayout>
+
+    <com.miui.viruscenter.view.AnimationContentView
+        android:id="@+id/animation_content_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/toolbar" >
+
+        <com.miui.securitycenter.common.RecycleImageView
+            android:id="@+id/backgroundView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/virus_scan_bg_scanning" />
+
+        <com.miui.securitycenter.common.RecycleImageView
+            android:id="@+id/foregroundView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/virus_scan_bg_safe" />
+
+        <RelativeLayout
+            android:id="@+id/circle_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/virus_scan_main_bg" >
+
+            <com.miui.securitycenter.common.RecycleImageView
+                android:id="@+id/circle_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/virus_scan_circle_normal" />
+
+            <com.miui.securitycenter.common.RecycleImageView
+                android:id="@+id/arc_flash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/virus_scan_arc_normal" />
+
+            <com.miui.securitycenter.common.RecycleImageView
+                android:id="@+id/icon_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/virus_scan_icon_safe" />
+        </RelativeLayout>
+
+        <!-- todo start -->
+
+        <TextView
+            android:id="@+id/virus_scan_support"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="#88ffffff"
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/virus_scan_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/virus_scan_support"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="8dp"
+            android:singleLine="true"
+            android:textColor="#88ffffff"
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/virus_scan_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/virus_scan_time"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="8dp"
+            android:singleLine="true"
+            android:textColor="#ffffff"
+            android:textSize="19dp"
+            android:textStyle="bold" />
+        <!-- todo end -->
+    </com.miui.viruscenter.view.AnimationContentView>
+
+</com.miui.securitycenter.common.RecycleRelativeLayout>

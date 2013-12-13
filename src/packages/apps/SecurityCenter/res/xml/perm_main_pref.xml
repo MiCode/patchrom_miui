@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <Preference
+        android:key="auto_start"
+        android:summary="@string/auto_start_summary"
+        android:title="@string/auto_start_title" />
+
+    <PreferenceCategory
+        android:key="perm_app_category"
+        android:title="" >
+        <CheckBoxPreference
+            android:key="perm_app_enable"
+            android:summary="@string/perm_app_enable"
+            android:title="@string/perm_app_header" />
+
+        <Preference
+            android:enabled="false"
+            android:key="perm_app_list"
+            android:title="@string/perm_app_title" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="perm_root_category"
+        android:title="" >
+        <CheckBoxPreference
+            android:key="root_enable"
+            android:summary="@string/perm_su_enable_summary"
+            android:title="@string/perm_su_enable_title" />
+
+        <Preference
+            android:enabled="false"
+            android:key="root_manage"
+            android:title="@string/perm_su" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

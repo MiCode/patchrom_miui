@@ -370,17 +370,11 @@ public class ProgressBar extends View {
      * Convert a AnimationDrawable for use as a barberpole animation.
      * Each frame of the animation is wrapped in a ClipDrawable and
      * given a tiling BitmapShader.
-     */
-    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
-    private Drawable tileifyIndeterminate(Drawable drawable) {
-        return tileifyIndeterminateMiui(drawable);
-    }
-
-    /**
      * @hide
      */
-    @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.NEW_METHOD)
-    public Drawable tileifyIndeterminateMiui(Drawable drawable) {
+    // MIUI MOD:
+    // private Drawable tileifyIndeterminate(Drawable drawable) {
+    protected Drawable tileifyIndeterminate(Drawable drawable) {
         if (drawable instanceof AnimationDrawable) {
             AnimationDrawable background = (AnimationDrawable) drawable;
             final int N = background.getNumberOfFrames();

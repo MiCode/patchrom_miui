@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center" >
+
+    <com.miui.securitycenter.common.RecycleImageView
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2.5dip"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:textColor="@color/optimize_item_title_color2"
+        android:textSize="14sp" />
+
+    <com.miui.securitycenter.common.RecycleImageView
+        android:id="@+id/mark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/name"
+        android:layout_alignRight="@id/icon"
+        android:layout_marginRight="-6dip"
+        android:src="@drawable/icon_round_red_mark"
+        android:visibility="gone" />
+
+</RelativeLayout>
