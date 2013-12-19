@@ -17,7 +17,9 @@
 <view
     xmlns:android="http://schemas.android.com/apk/res/android"
     class="com.android.quicksearchbox.ui.DefaultSuggestionView"
-    style="@miui:style/V5.Widget.ListView.Item.SingleLine">
+    style="@miui:style/V5.Widget.ListView.Item.SingleLine"
+    android:paddingRight="0dp"
+    >
 
     <!-- Icons come first in the layout, since their placement doesn't depend on
          the placement of the text views. -->
@@ -56,5 +58,16 @@
         android:layout_toRightOf="@id/icon1"
         android:layout_toLeftOf="@id/icon2"
         android:layout_above="@id/text2" />
+
+    <ImageView android:id="@+id/icon3"
+        style="@style/SuggestionIcon3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:visibility="invisible"
+        android:scaleType="centerInside"
+        android:src="@drawable/app_locate"
+        android:clickable="true"
+    />
 
 </view>

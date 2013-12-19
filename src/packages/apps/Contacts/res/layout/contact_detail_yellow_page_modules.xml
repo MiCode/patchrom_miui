@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/primary_action_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/contact_detail_detail_list_item_bg"
+        android:gravity="center_vertical" >
+
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/ContactDetailItemTextAppearancePrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/subtitle"
+                style="@style/ContactDetailItemTextAppearanceSecondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/action_icon"
+            android:layout_width="@dimen/yellow_page_module_type_icon_size"
+            android:layout_height="@dimen/yellow_page_module_type_icon_size"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY" />
+    </LinearLayout>
+
+    <include layout="@layout/contact_detail_list_item_type_icon" />
+
+</FrameLayout>

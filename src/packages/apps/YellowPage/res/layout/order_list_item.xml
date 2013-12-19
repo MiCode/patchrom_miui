@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.yellowpage.ui.OrderListItem xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@miui:style/V5.Widget.ListView.Item.TrebleLine"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/detail"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/order_title"
+                style="@miui:style/V5.TextAppearance.List.Primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/order_date"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/order_date"
+                style="@miui:style/V5.TextAppearance.List.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:paddingRight="10dip" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/order_short_info"
+            style="@miui:style/V5.TextAppearance.List.Secondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/order_id"
+                style="@miui:style/V5.TextAppearance.List.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:paddingRight="7dip" />
+
+            <TextView
+                android:id="@+id/order_price"
+                style="@miui:style/V5.TextAppearance.List.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/order_id"
+                android:paddingRight="7dip" />
+
+            <TextView
+                android:id="@+id/order_status"
+                style="@miui:style/V5.TextAppearance.List.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/order_price" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@miui:drawable/v5_arrow_right"
+        android:scaleType="fitCenter" />
+
+</com.miui.yellowpage.ui.OrderListItem>
