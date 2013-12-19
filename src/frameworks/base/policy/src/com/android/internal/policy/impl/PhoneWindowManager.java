@@ -467,7 +467,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     int[] mNavigationBarWidthForRotation = new int[4];
 
     WindowState mKeyguard = null;
-    KeyguardViewMediator mKeyguardMediator;
+    // MIUI MOD:
+    // KeyguardViewMediator mKeyguardMediator
+    MiuiKeyguardViewMediator mKeyguardMediator;
     @MiuiHook(MiuiHookType.CHANGE_CODE)
     MiuiGlobalActions mGlobalActions;
     volatile boolean mPowerKeyHandled; // accessed from input reader and handler thread

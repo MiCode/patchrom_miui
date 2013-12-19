@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.xiaomi.payment.camera.CameraPreview
+        android:id="@+id/preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.xiaomi.payment.ui.FocusView
+        android:id="@+id/focus_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="350dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dip"
+        android:gravity="center"
+        android:textColor="@color/text_color_white" />
+
+    <LinearLayout
+        android:id="@+id/buttons_contain"
+        android:layout_width="350dip"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dip"
+        android:layout_gravity="center|bottom"
+        android:orientation="horizontal"
+        android:visibility="invisible" >
+
+        <Button
+            android:id="@+id/retry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_retry"
+            android:textColor="@color/text_color_white" />
+
+        <Button
+            android:id="@+id/confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:layout_weight="1"
+            android:text="@string/button_confirm"
+            android:textColor="@color/text_color_white" />
+    </LinearLayout>
+
+</FrameLayout>

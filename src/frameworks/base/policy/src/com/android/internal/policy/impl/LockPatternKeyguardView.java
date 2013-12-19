@@ -17,16 +17,12 @@
 package com.android.internal.policy.impl;
 
 import com.android.internal.R;
-import com.android.internal.policy.impl.KeyguardUpdateMonitor.InfoCallback;
 import com.android.internal.policy.impl.KeyguardUpdateMonitor.InfoCallbackImpl;
-import com.android.internal.policy.impl.LockPatternKeyguardView.UnlockMode;
 import com.android.internal.telephony.IccCard;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.internal.widget.LockScreenWidgetCallback;
-import com.android.internal.widget.LockScreenWidgetInterface;
 import com.android.internal.widget.TransportControlView;
 
-import miui.provider.ExtraSettings;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -34,8 +30,6 @@ import android.accounts.AccountManagerCallback;
 import android.accounts.AccountManagerFuture;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
-import android.annotation.MiuiHook;
-import android.annotation.MiuiHook.MiuiHookType;
 import android.app.AlertDialog;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
@@ -44,10 +38,8 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.PixelFormat;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -79,69 +71,6 @@ import java.io.IOException;
  * via its {@link com.android.internal.policy.impl.KeyguardViewCallback}, as appropriate.
  */
 public class LockPatternKeyguardView extends KeyguardViewBase {
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    Configuration getConfiguration() { return mConfiguration; }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    LockPatternUtils getLockPatternUtils() { return mLockPatternUtils; }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    KeyguardUpdateMonitor getUpdateMonitor() { return mUpdateMonitor; }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    View getLockScreen() { return mLockScreen; }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    Mode getMode() { return mMode; };
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    void setMode(Mode value) { mMode = value; }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    boolean getShowLockBeforeUnlock() { return mShowLockBeforeUnlock; }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    void setShowLockBeforeUnlock(boolean value) { mShowLockBeforeUnlock = value; }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    boolean getScreenOn() { return mScreenOn; }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    void setScreenOn(boolean value) { mScreenOn = value; }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    boolean callStuckOnLockScreenBecauseSimMissing() { return stuckOnLockScreenBecauseSimMissing(); }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    Mode callGetInitialMode() { return getInitialMode(); }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    UnlockMode callGetUnlockMode() { return getUnlockMode(); }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    void callMaybeStartBiometricUnlock() { maybeStartBiometricUnlock(); }
-
-    @MiuiHook(MiuiHookType.NEW_CLASS)
-    static class Injector {
-        static void updateShowLockBeforeUnlock(LockPatternKeyguardView keyguardView) {
-            keyguardView.setShowLockBeforeUnlock(ExtraSettings.System.getBoolean(
-                    keyguardView.getContext().getContentResolver(),
-                    ExtraSettings.System.SHOW_LOCK_BEFORE_UNLOCK,
-                    true));
-        }
-
-        static boolean needRecreateLockScreen(LockPatternKeyguardView keyguardView) {
-            if (keyguardView.getMode() == Mode.LockScreen && keyguardView.getLockScreen() != null && keyguardView.getLockScreen() instanceof AwesomeLockScreen)
-                return false;
-            return true;
-        }
-
-        public static void startBiometricUnlock(LockPatternKeyguardView keyguardView) {
-            if (keyguardView.getScreenOn()) {
-                keyguardView.callMaybeStartBiometricUnlock();
-            }
-        }
-    }
 
     private static final int TRANSPORT_USERACTIVITY_TIMEOUT = 10000;
 
@@ -178,7 +107,6 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
     private boolean mRequiresSim;
     // True if the biometric unlock should not be displayed.  For example, if there is an overlay on
     // lockscreen or the user is plugging in / unplugging the device.
-    @MiuiHook(MiuiHookType.CHANGE_ACCESS)
     protected boolean mSuppressBiometricUnlock;
     //True if a dialog is currently displaying on top of this window
     //Unlike other overlays, this does not close with a power button cycle
@@ -248,7 +176,6 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
      * Keeps track of what mode the current unlock screen is (cached from most recent computation in
      * {@link #getUnlockMode}).
      */
-    @MiuiHook(MiuiHookType.CHANGE_ACCESS)
     protected UnlockMode mUnlockScreenMode = UnlockMode.Unknown;
 
     private boolean mForgotPattern;
@@ -345,7 +272,6 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
      */
     KeyguardScreenCallback mKeyguardScreenCallback = createKeyguardScreenCallback();
 
-    @MiuiHook(MiuiHookType.NEW_METHOD)
     protected KeyguardScreenCallback createKeyguardScreenCallback() {
         return new KeyguardScreenCallback() {
         public void goToLockScreen() {
@@ -451,11 +377,8 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
             final int failedAttemptsBeforeWipe = mLockPatternUtils.getDevicePolicyManager()
                     .getMaximumFailedPasswordsForWipe(null);
 
-            // MIUI MOD:
-            // final int failedAttemptWarning = LockPatternUtils.FAILED_ATTEMPTS_BEFORE_RESET
-            //        - LockPatternUtils.FAILED_ATTEMPTS_BEFORE_TIMEOUT;
-            final int failedAttemptWarning = LockPatternUtils.FAILED_ATTEMPTS_BEFORE_RESET
-                        - 1;
+                final int failedAttemptWarning = LockPatternUtils.FAILED_ATTEMPTS_BEFORE_RESET
+                        - LockPatternUtils.FAILED_ATTEMPTS_BEFORE_TIMEOUT;
 
             final int remainingBeforeWipe = failedAttemptsBeforeWipe > 0 ?
                     (failedAttemptsBeforeWipe - failedAttempts)
@@ -540,34 +463,24 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
         maybeEnableFallback(context);
     }
 
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private class AccountAnalyzer implements AccountManagerCallback<Bundle> {
         private final AccountManager mAccountManager;
         private Account[] mAccounts;
         private int mAccountIndex;
 
-        @MiuiHook(MiuiHookType.CHANGE_CODE)
         private AccountAnalyzer(AccountManager accountManager) {
             mAccountManager = accountManager;
             mAccounts = accountManager.getAccountsByType("com.google");
-            checkAccounts(accountManager);  //miui-add
         }
 
-        @MiuiHook(MiuiHookType.NEW_METHOD)
-        private void checkAccounts(AccountManager accountManager){
-            if (mAccounts == null || mAccounts.length == 0)
-                mAccounts = accountManager.getAccountsByType("com.xiaomi");
-        }
-
-        @MiuiHook(MiuiHookType.CHANGE_CODE)
         private void next() {
             // if we are ready to enable the fallback or if we depleted the list of accounts
             // then finish and get out
             if (mEnableFallback || mAccountIndex >= mAccounts.length) {
                 if (mUnlockScreen == null) {
                     if (DEBUG) Log.w(TAG, "no unlock screen when trying to enable fallback");
-                } else if (mUnlockScreen instanceof MiuiCommonUnlockScreen) {   // miui-modify
-                    ((MiuiCommonUnlockScreen)mUnlockScreen).setEnableFallback(mEnableFallback); // miui-motify
+                } else if (mUnlockScreen instanceof PatternUnlockScreen) {
+                    ((PatternUnlockScreen)mUnlockScreen).setEnableFallback(mEnableFallback);
                 }
                 return;
             }
@@ -728,10 +641,7 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
         }
     }
 
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private void recreateLockScreen() {
-        if (! Injector.needRecreateLockScreen(this)) return; // miui add
-
         if (mLockScreen != null) {
             ((KeyguardScreen) mLockScreen).onPause();
             ((KeyguardScreen) mLockScreen).cleanUp();
@@ -920,7 +830,6 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
         return secure;
     }
 
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private void updateScreen(Mode mode, boolean force) {
 
         if (DEBUG_CONFIGURATION) Log.v(TAG, "**** UPDATE SCREEN: mode=" + mode
@@ -975,8 +884,6 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
             throw new IllegalStateException("keyguard screen must be able to take "
                     + "focus when shown " + visibleScreen.getClass().getCanonicalName());
         }
-
-        Injector.startBiometricUnlock(this); // miui add
     }
 
     View createLockScreen() {
@@ -990,7 +897,6 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
         return lockView;
     }
 
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     View createUnlockScreenFor(UnlockMode unlockMode) {
         View unlockView = null;
 
@@ -998,7 +904,7 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
                 "createUnlockScreenFor(" + unlockMode + "): mEnableFallback=" + mEnableFallback);
 
         if (unlockMode == UnlockMode.Pattern) {
-            MiuiPatternUnlockScreen view = new MiuiPatternUnlockScreen(  // miui-modify
+            PatternUnlockScreen view = new PatternUnlockScreen(
                     mContext,
                     mConfiguration,
                     mLockPatternUtils,
@@ -1008,14 +914,14 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
             view.setEnableFallback(mEnableFallback);
             unlockView = view;
         } else if (unlockMode == UnlockMode.SimPuk) {
-            unlockView = new MiuiSimPUKUnlockScreen(  // miui-modify
+            unlockView = new SimPukUnlockScreen(
                     mContext,
                     mConfiguration,
                     mUpdateMonitor,
                     mKeyguardScreenCallback,
                     mLockPatternUtils);
         } else if (unlockMode == UnlockMode.SimPin) {
-            unlockView = new MiuiSimPINUnlockScreen(  // miui-modify
+            unlockView = new SimUnlockScreen(
                     mContext,
                     mConfiguration,
                     mUpdateMonitor,
@@ -1023,13 +929,12 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
                     mLockPatternUtils);
         } else if (unlockMode == UnlockMode.Account) {
             try {
-                unlockView = new MiuiAccountUnlockScreen(
+                unlockView = new AccountUnlockScreen(
                         mContext,
                         mConfiguration,
                         mUpdateMonitor,
                         mKeyguardScreenCallback,
-                        mLockPatternUtils,
-                        mForgotPattern);  // miui-modify
+                        mLockPatternUtils);
             } catch (IllegalStateException e) {
                 Log.i(TAG, "Couldn't instantiate AccountUnlockScreen"
                       + " (IAccountsService isn't available)");
@@ -1046,13 +951,12 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
                 return createUnlockScreenFor(UnlockMode.Pattern);
             }
         } else if (unlockMode == UnlockMode.Password) {
-            unlockView = new MiuiPasswordUnlockScreen(  // miui-modify
+            unlockView = new PasswordUnlockScreen(
                     mContext,
                     mConfiguration,
                     mLockPatternUtils,
                     mUpdateMonitor,
                     mKeyguardScreenCallback);
-            ((MiuiPasswordUnlockScreen)unlockView).setEnableFallback(mEnableFallback);  // miui-add
         } else {
             throw new IllegalArgumentException("unknown unlock mode " + unlockMode);
         }
@@ -1090,13 +994,7 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
                 (unlockMode == UnlockMode.Pattern || unlockMode == UnlockMode.Password));
     }
 
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    protected View getFaceLockAreaView(View view) {
-        return view.findViewById(R.id.faceLockAreaView);
-    }
-
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
-    private void initializeBiometricUnlockView(View view) {
+    protected void initializeBiometricUnlockView(View view) {
         boolean restartBiometricUnlock = false;
 
         if (mBiometricUnlock != null) {
@@ -1121,7 +1019,7 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
             // TODO: make faceLockAreaView a more general biometricUnlockView
             // We will need to add our Face Unlock specific child views programmatically in
             // initializeView rather than having them in the XML files.
-            View biometricUnlockView = getFaceLockAreaView(view); //miui-modify
+            View biometricUnlockView = view.findViewById(R.id.faceLockAreaView);
             if (biometricUnlockView != null) {
                 mBiometricUnlock = new FaceUnlock(mContext, mUpdateMonitor, mLockPatternUtils,
                         mKeyguardScreenCallback);
@@ -1144,10 +1042,7 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
      * Given the current state of things, what should be the initial mode of
      * the lock screen (lock or unlock).
      */
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private Mode getInitialMode() {
-        Injector.updateShowLockBeforeUnlock(this); // miui add
-
         final IccCard.State simState = mUpdateMonitor.getSimState();
         if (stuckOnLockScreenBecauseSimMissing() ||
                 (simState == IccCard.State.PUK_REQUIRED &&
@@ -1162,20 +1057,10 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
         }
     }
 
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    private UnlockMode getUnlockModeForHighPasswordQuality() {
-        if (mForgotPattern || mLockPatternUtils.isPermanentlyLocked()) {
-            return UnlockMode.Account;
-        } else {
-            return UnlockMode.Password;
-        }
-    }
-
     /**
      * Given the current state of things, what should the unlock screen be?
      */
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
-    private UnlockMode getUnlockMode() {
+    protected UnlockMode getUnlockMode() {
         final IccCard.State simState = mUpdateMonitor.getSimState();
         UnlockMode currentMode;
         if (simState == IccCard.State.PIN_REQUIRED) {
@@ -1189,7 +1074,7 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
                 case DevicePolicyManager.PASSWORD_QUALITY_ALPHABETIC:
                 case DevicePolicyManager.PASSWORD_QUALITY_ALPHANUMERIC:
                 case DevicePolicyManager.PASSWORD_QUALITY_COMPLEX:
-                    currentMode = getUnlockModeForHighPasswordQuality();  // miui-modify
+                    currentMode = UnlockMode.Password;
                     break;
                 case DevicePolicyManager.PASSWORD_QUALITY_SOMETHING:
                 case DevicePolicyManager.PASSWORD_QUALITY_UNSPECIFIED:
@@ -1208,8 +1093,7 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
         return currentMode;
     }
 
-    // MIUI CHANGE ACCESS
-    protected void showDialog(String title, String message) {
+    private void showDialog(String title, String message) {
         mHasDialog = true;
         final AlertDialog dialog = new AlertDialog.Builder(mContext)
             .setTitle(title)
@@ -1220,7 +1104,6 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
         dialog.show();
     }
 
-    @MiuiHook(MiuiHookType.CHANGE_ACCESS)
     protected void showTimeoutDialog() {
         int timeoutInSeconds = (int) LockPatternUtils.FAILED_ATTEMPT_TIMEOUT_MS / 1000;
         int messageId = R.string.lockscreen_too_many_failed_attempts_dialog_message;
@@ -1324,9 +1207,7 @@ public class LockPatternKeyguardView extends KeyguardViewBase {
      * the mSuppressBiometricUnlock flag.  If it should not be started, it hides the biometric
      * unlock area.
      */
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private void maybeStartBiometricUnlock() {
-        if (getMode() == Mode.LockScreen) return; // miui add
         if (mBiometricUnlock != null) {
             final boolean backupIsTimedOut = (mUpdateMonitor.getFailedAttempts() >=
                     LockPatternUtils.FAILED_ATTEMPTS_BEFORE_TIMEOUT);

@@ -22,12 +22,6 @@ import com.android.internal.policy.impl.KeyguardUpdateMonitor.InfoCallbackImpl;
 import com.android.internal.telephony.IccCard;
 import com.android.internal.widget.LockPatternUtils;
 
-import miui.app.ExtraStatusBarManager;
-import miui.net.FirewallManager;
-import miui.security.MiuiLockPatternUtils;
-
-import android.annotation.MiuiHook;
-import android.annotation.MiuiHook.MiuiHookType;
 import android.app.ActivityManagerNative;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -98,23 +92,6 @@ import android.view.WindowManagerPolicy;
  */
 public class KeyguardViewMediator implements KeyguardViewCallback,
         KeyguardUpdateMonitor.SimStateCallback {
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    StatusBarManager getStatusBarManager() { return mStatusBarManager; }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    Context getContext() { return mContext; }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    void callNotifyScreenOffLocked() { notifyScreenOffLocked(); }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    void postAdjustStatusBarLocked() { }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    void callShowLocked() { showLocked(); }
-
-    @MiuiHook(MiuiHookType.NEW_METHOD)
-    void suppressNextLockSound() { mSuppressNextLockSound = true; }
 
     private static final int KEYGUARD_DISPLAY_TIMEOUT_DELAY_DEFAULT = 30000;
     private final static boolean DEBUG = false;
@@ -295,7 +272,6 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
 
     };
 
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     public KeyguardViewMediator(Context context, PhoneWindowManager callback,
             LocalPowerManager powerManager) {
         mContext = context;
@@ -322,21 +298,17 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
                 .getSystemService(Context.ALARM_SERVICE);
         mCallback = callback;
 
-        mUpdateMonitor = new MiuiKeyguardUpdateMonitor(context); // miui-modify
+        mUpdateMonitor = new KeyguardUpdateMonitor(context);
 
         mUpdateMonitor.registerInfoCallback(mInfoCallback);
 
         mUpdateMonitor.registerSimStateCallback(this);
 
-        // MIUI MOD:
-        // mLockPatternUtils = new LockPatternUtils(mContext);
-        mLockPatternUtils = new MiuiLockPatternUtils(mContext);
+        mLockPatternUtils = new LockPatternUtils(mContext);
         mKeyguardViewProperties
-                = new MiuiLockPatternKeyguardViewProperties(mLockPatternUtils, mUpdateMonitor); // miui modify
+                = new LockPatternKeyguardViewProperties(mLockPatternUtils, mUpdateMonitor);
 
-        // MIUI MOD:
-        // mKeyguardViewManager = new KeyguardViewManager(
-        mKeyguardViewManager = new MiuiKeyguardViewManager(
+        mKeyguardViewManager = new KeyguardViewManager(
                 context, WindowManagerImpl.getDefault(), this,
                 mKeyguardViewProperties, mUpdateMonitor);
 
@@ -397,10 +369,8 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
             // This also "locks" the device when not secure to provide easy access to the
             // camera while preventing unwanted input.
 
-            // MIUI MOD:
-//            final boolean lockImmediately =
-//                mLockPatternUtils.getPowerButtonInstantlyLocks() || !mLockPatternUtils.isSecure();
-            final boolean lockImmediately = mLockPatternUtils.getPowerButtonInstantlyLocks();
+            final boolean lockImmediately =
+                mLockPatternUtils.getPowerButtonInstantlyLocks() || !mLockPatternUtils.isSecure();
 
             if (mExitSecureCallback != null) {
                 if (DEBUG) Log.d(TAG, "pending exit secure callback cancelled");
@@ -1135,8 +1105,7 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
         }
     }
 
-    @MiuiHook(MiuiHookType.CHANGE_ACCESS)
-    protected void playSounds(boolean locked) {
+    private void playSounds(boolean locked) {
         // User feedback for keyguard.
 
         if (mSuppressNextLockSound) {
@@ -1176,13 +1145,10 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
      * Handle message sent by {@link #showLocked}.
      * @see #SHOW
      */
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private void handleShow() {
         synchronized (KeyguardViewMediator.this) {
             if (DEBUG) Log.d(TAG, "handleShow");
             if (!mSystemReady) return;
-
-            playSounds(true);    //MiuiHook play sound before show instead of after
 
             mKeyguardViewManager.show();
             mShowing = true;
@@ -1193,6 +1159,8 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
                 ActivityManagerNative.getDefault().closeSystemDialogs("lock");
             } catch (RemoteException e) {
             }
+
+            playSounds(true);
 
             mShowKeyguardWakeLock.release();
         }
@@ -1235,7 +1203,6 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
         }
     }
 
-    @MiuiHook(MiuiHookType.CHANGE_CODE)
     private void adjustStatusBarLocked() {
         if (mStatusBarManager == null) {
             mStatusBarManager = (StatusBarManager)
@@ -1286,7 +1253,6 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
 
             mStatusBarManager.disable(flags);
         }
-        postAdjustStatusBarLocked(); // miui add
     }
 
     /**

@@ -3983,14 +3983,14 @@ public class Editor {
                 ((MiuiCursorController.SelectionModifierCursorController)cc).addClipData(clip, data, mTextView.getTransformedText(min, max));
                 stopTextSelectionMode();
                 Toast.makeText(mContext, mContext.getResources().getString(
-                            com.android.internal.R.string.text_copied), Toast.LENGTH_SHORT).show();
+                            miui.R.string.text_copied), Toast.LENGTH_SHORT).show();
                 break;
             case miui.R.id.buttonCut:
                 ((MiuiCursorController.SelectionModifierCursorController)cc).addClipData(clip, data, mTextView.getTransformedText(min, max));
                 stopTextSelectionMode();
                 mTextView.deleteText_internal(min, max);
                 Toast.makeText(mContext, mContext.getResources().getString(
-                            com.android.internal.R.string.text_copied), Toast.LENGTH_SHORT).show();
+                            miui.R.string.text_cut), Toast.LENGTH_SHORT).show();
                 break;
         }
     }

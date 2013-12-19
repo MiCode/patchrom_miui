@@ -2,15 +2,15 @@
 
 <resources>
     <!-- Name of the application -->
-    <string name="app_label">Yellow Page</string>
+    <string name="app_label">Directory</string>
     <string name="phone_info_divider">" ｜ "</string>
 
     <!-- Loading process related -->
     <string name="check_network">Network settings</string>
     <string name="try_again">Try again</string>
-    <string name="network_unavaliable">Couldn\'t connect to network.</string>
-    <string name="service_unavailiable">Service unavailable.</string>
-    <string name="data_error">Service unavailable.</string>
+    <string name="network_unavaliable">Couldn\'t connect to network</string>
+    <string name="service_unavailiable">Service unavailable</string>
+    <string name="data_error">An error occurred</string>
 
     <!-- YellowPage related -->
     <string name="yellow_page_detail_title">About</string>
@@ -18,13 +18,14 @@
     <string name="yellow_page_website">Official website</string>
     <string name="menu_copy_text">Copy to clipboard</string>
     <string name="menu_call_ip_number">Dial IP call (dial %s)</string>
-    <string name="toast_text_copied">Text copied.</string>
+    <string name="toast_text_copied">Text copied</string>
     <string name="provider_tag">Data source</string>
     <string name="all_numbers">All numbers</string>
     <plurals name="all_numbers_count">
         <item quantity="one">1 entry</item>
         <item quantity="other">%d entries</item>
     </plurals>
+    <string name="provider">Identified by %s</string>
 
     <!-- Call log related -->
     <string name="callrecordview_item_newcontact">New contact</string>
@@ -37,7 +38,7 @@
     <string name="callrecordview_item_op_time_rejected">Rejected</string>
     <string name="voicemail">Voicemail</string>
     <string name="menu_delete_one">Remove from call log</string>
-    <string name="toast_finish_delete_call_log">Call log deleted.</string>
+    <string name="toast_finish_delete_call_log">Call log deleted</string>
     <string name="confirm_delete_call_log_title">Delete call log?</string>
     <string name="confirm_delete_all_call_log_title">Delete all call logs?</string>
     <string name="contact_detail_calllog_call_record_tips">Call recording</string>
@@ -45,8 +46,8 @@
 
     <!-- Yellowpage menu related -->
     <string name="menu_delete_call_log">Delete call logs</string>
-    <string name="menu_add_black_list">Add to black list</string>
-    <string name="menu_remove_black_list">Remove from black list</string>
+    <string name="menu_add_black_list">Add to blocklist</string>
+    <string name="menu_remove_black_list">Remove from blocklist</string>
     <string name="menu_about_yellow_page">About this page</string>
     <string name="menu_correct_yellow_page">Correction</string>
     <string name="menu_refresh">Refresh</string>
@@ -55,104 +56,120 @@
 
     <!-- Mark related -->
     <string name="custom_mark_category">Custom</string>
-    <string name="mark_number_dialog_maintitle">Mark unknown number and upload</string>
-    <string name="mark_number_custom_dialog_maintitle">Agree or correct the mark</string>
+    <string name="mark_number_dialog_maintitle">Label number and upload</string>
+    <string name="mark_number_custom_dialog_maintitle">Confirm or correct label</string>
     <string name="delete">Delete</string>
-    <string name="selected_category_format">%1$s(%2$d people have marked, click to agree)</string>
-    <string name="mark_title_null_hint">Input should not be empty</string>
+    <string name="selected_category_format">Labeled by %2$d people as %1$s. Touch to confirm.</string>
+    <string name="mark_title_null_hint">You need to enter a label</string>
 
     <!-- Setting related -->
-    <string name="smart_antispam">Identify unknown number smartly</string>
-    <string name="turn_on_smart_antispam_hint">Help you to identify strange numbers and harassing phone calls;\nYou can get the best experience after enabling.</string>
+    <string name="smart_antispam">Identify unknown numbers</string>
+    <string name="turn_on_smart_antispam_hint">Identify calls from unknown numbers using Xiaomi\'s label directory</string>
     <string name="turn_on_smart_antispam_title">Identify unknown numbers</string>
-    <string name="turn_on_smart_antispam_summary_on">Upload and identify unknown numbers in call logs and text messagess</string>
-    <string name="turn_on_smart_antispam_summary_off">Only query local preset numbers</string>
+    <string name="turn_on_smart_antispam_summary_on">Upload and identify unknown numbers in call logs and text messages</string>
+    <string name="turn_on_smart_antispam_summary_off">Only search numbers saved on this device</string>
     <string name="agree">Agree</string>
-    <string name="user_notice_identify_summary_format">Numbers can be identified in networked environment.\n\nClick \"Open\" means that you are willing to comply with %1$s and %2$s, click "Cancel" will only query your phone number database. \n\nTips: Do not trust transfer and winning messages when talking to strangers.</string>
-    <string name="user_notice_yp_detail_summary_format">The partial info of this yellow page needs to be updated online, please read %1$s and %2$s, click \"Agree\" means that you agree the above content and should obey the agreement, click \"Cancel\" to view the cached info only.</string>
-    <string name="about_smart_antispam_summary">About "Identify unknown number smartly"</string>
-    <string name="about_telephone_fraud">Be aware of telephone fraud</string>
+    <string name="user_notice_identify_summary_format">Your phone will use MIUI\'s label directory to block unwanted calls when connected to Wi-Fi. By touching \"Agree\" you agree to Xiaomi\'s %1$s and %2$s.</string>
+    <string name="user_notice_yp_detail_summary_format">Some of your label directory info is outdated. Do you want to update it? By touching \"Agree\" you agree to Xiaomi\'s %1$s and %2$s.</string>
+    <string name="about_smart_antispam_summary">About this feature</string>
+    <string name="about_telephone_fraud">Watch out for telephone fraud</string>
 
     <!-- Common web page related -->
     <string name="title_about_yellow_page">About</string>
 
     <!-- Payment related -->
     <string name="payment_back">Back</string>
-    <string name="payment_failed_common_problems">A problem occurred during payment.</string>
-    <string name="payment_unknown_status_title">Can\'t confirm payment status</string>
+    <string name="payment_failed_common_problems">An error occurred during payment</string>
+    <string name="payment_unknown_status_title">Couldn\'t confirm payment status</string>
     <string name="payment_unknown_status_summary">Check your network connection and try again.</string>
 
     <!-- Recharge related -->
-    <string name="recharge_input_phone_title">Input phone number(China mobile, China Unicom, or China Telecom)</string>
-    <string name="recharge_select_money_title">Please select top-up value</string>
-    <string name="recharge_charge_range">Price:¥%1$s-%2$s</string>
-    <string name="recharge_charge_value">Price:¥%s</string>
-    <string name="recharge_pay">Recharge now</string>
+    <string name="recharge_input_phone_title">Enter phone number (China Mobile, China Unicom, or China Telecom)</string>
+    <string name="recharge_select_money_title">Select top-up value</string>
+    <string name="recharge_charge_range">Price: RMB %1$s-%2$s</string>
+    <string name="recharge_charge_value">Price: RMB %s</string>
+    <string name="recharge_pay">Top up now</string>
     <string name="recharge_pay_hint">Support provided by Xiaomi</string>
         <string name="mishop_web_payment_title">MiStore checkout</string>
     <string name="recharge_pay_hint_license">Top-up notice</string>
     <string name="recharge_title">Top-up</string>
-    <string name="recharge_payment_result_ok_title">Added RMB%s.</string>
+    <string name="recharge_payment_result_ok_title">Added RMB %s</string>
     <string name="recharge_payment_result_ok_summary">Confirm that this amount is reflected in your balance.</string>
     <string name="recharge_payment_result_failed_title">Top-up failed</string>
     <string name="recharge_payment_result_failed_summary">Please try again</string>
     <string name="recharge_payment_result_progress_summary">Checking payment result\u2026</string>
-    <string name="recharge_phone_number_error">Invalid phone number.</string>
+    <string name="recharge_phone_number_error">The phone number you entered is invalid</string>
     <string name="recharge_user_confirm_title">Confirm</string>
-    <string name="recharge_user_confirm_summary">You will be charged %1$s for RMB%2$s！\n\nTotal amount: RMB%3$s</string>
-    <string name="recharge_order_id">Order ID：</string>
-    <string name="recharge_status_description">Status：</string>
-    <string name="recharge_actual_price">Price：</string>
-    <string name="recharge_order_original_price">RMB%s</string>
+    <string name="recharge_user_confirm_summary">You will be charged RMB %2$s for %1$s.\n\nTotal amount: RMB %3$s</string>
+    <string name="recharge_order_id">Order ID:</string>
+    <string name="recharge_status_description">Status:</string>
+    <string name="recharge_actual_price">Price:</string>
+    <string name="recharge_order_original_price">RMB %s</string>
     <string name="recharge_order_actual_price">\u00A5%s</string>
     <string name="recharge_order_pay">Checkout</string>
-    <string name="recharge_history">Recharge history</string>
+    <string name="recharge_history">Top-up history</string>
     <string name="recharge_history_empty">No history</string>
 
     <!-- 运营商流量套餐相关 -->
     <string name="packages_pay">Buy</string>
-    <string name="packages_pay_confirm">Confirm to buy</string>
-    <string name="packages_title">Preferential flow of packages</string>
-    <string name="select_package_before_buy">Please select the package you want to buy</string>
-    <string name="packages_select_to_buy_title">You choose to buy:</string>
-    <string name="packages_pay_hint">Send text message, it is free</string>
+    <string name="packages_pay_confirm">Confirm</string>
+    <string name="packages_title">Mobile data packages</string>
+    <string name="select_package_before_buy">Select package</string>
+    <string name="packages_select_to_buy_title">Select package</string>
+    <string name="packages_pay_hint">Send text message (free)</string>
     <string name="packages_pay_success">Message sent</string>
-    <string name="packages_wait_for_op_reply">Please wait for operator\'s confirmation message</string>
-    <string name="packages_select_sim_cards_title">Please select SIM card</string>
-    <string name="packages_select_sim_cards_summmary">System will recommend traffic packages according to your choice</string>
-    <string name="packages_no_package">No suitable traffic packages</string>
+    <string name="packages_wait_for_op_reply">Wait for a confirmation message from your network provider</string>
+    <string name="packages_select_sim_cards_title">Select SIM card</string>
+    <string name="packages_select_sim_cards_summmary">Browse recommended data packages</string>
+    <string name="packages_no_package">No recommended packages</string>
 
     <!-- Multi modules related -->
-    <string name="login_ok">Log in</string>
-    <string name="login_before_use">You need to log in before you can use.</string>
+    <string name="login_ok">Sign in</string>
+    <string name="login_before_use">You need to sign in first</string>
 
     <!--  Express inquiry related -->
     <string name="express_inquiry">Tracking</string>
     <string name="express_inquiry_serial_number_indication">Tracking number</string>
     <string name="express_inquiry_logistics_indication">Courier company</string>
     <string name="express_inquiry_button_text">Track</string>
-    <string name="express_inquiry_serial_number_prefix">Number:\u0020</string>
-    <string name="express_inquiry_no_result">No results.</string>
-    <string name="express_inquiry_internal_failure">Error occurred.\nPlease check tracking number</string>
-    <string name="express_inquiry_data_owner" formatted="false">Tracking info provided by %s</string>
+    <string name="express_inquiry_serial_number_prefix">Number: \u0020</string>
+    <string name="express_inquiry_no_result">No results</string>
+    <string name="express_inquiry_internal_failure">An error occurred.\nPlease your check tracking number.</string>
+    <string name="express_inquiry_data_owner_prefix">Tracking info provided by </string>
+    <string name="express_inquiry_data_owner_suffix"></string>
     <string name="scan">Scan</string>
-    <string name="express_inqiury_select_logistics">Courier company</string>
+    <string name="express_inqiury_select_logistics">Delivery company</string>
     <string name="expresss_inquiry_frequently_used_logistics">Common</string>
     <string name="expresss_inquiry_all_logistics">All</string>
     <string name="express_inquiry_history">History</string>
     <string name="express_inquiry_delivered">Delivered</string>
     <string name="express_inquiry_no_history">No history</string>
-    <string name="express_inquiry_delete_warning_single">Delete this entry？</string>
-    <string name="express_inquiry_delete_warning_multiple">Delete %d selected history entries？</string>
+    <string name="express_inquiry_delete_warning_single">Delete this entry?</string>
+    <string name="express_inquiry_delete_warning_multiple">Delete %d selected history entries?</string>
 
     <!-- Scams numbers related -->
-    <string name="remind_user_suspect_number_title">Beware of scams numbers</string>
-    <string name="remind_user_suspect_number_message">Criminals might steal other people\'s phone numbers for fraud. If in doubt, please call back to verify.\n\nPublic security organs, the postal sector, e-commerce companies and courier companies will not give you propose transfer and remittance requirements, it will not ask for your password or bank card information.</string>
-    <string name="remind_another_time">Do not prompt again</string>
+    <string name="remind_user_suspect_number_title">Suspicious number</string>
+    <string name="remind_user_suspect_number_message">Be careful: You should always verify the identity of the contact first by phone or video before responding to any messages involving your personal information.</string>
+    <string name="remind_another_time">Don\'t remind me</string>
     <string name="remind_user_confirm">OK</string>
 
     <!-- Balance inquiry related -->
     <string name="balance_inquiry_title">Balance inquiry</string>
     <string name="balance_inquiry_default_sp_name">Operator</string>
-    <string name="balance_inquiry_send_sms_hint">A free SMS message will be sent to operator to query balance</string>
+    <string name="balance_inquiry_send_sms_hint">A text message will be sent to your service provider to check your balance (free of charge)</string>
+
+    <!-- 导航相关 -->
+    <string name="navigation_search_automatically_positioned_city">Current city</string>
+    <string name="navigation_search_positioning">Locating\u2026</string>
+    <string name="navigation_search_positioning_failed">Select a city</string>
+    <string name="navigation_search_no_city_list">Didn\'t find anything</string>
+    <string name="navigation_search_hot_cities">Popular</string>
+    <string name="navigation_search_all_cities">All cities</string>
+
+    <!-- Order related -->
+    <string name="order_empty_hint">No orders</string>
+    <string name="order_merchant_title">My orders - %s</string>
+    <string name="order_id">Order ID:%s</string>
+    <string name="order_status">%s</string>
+    <string name="order_price">%s</string>
 </resources>

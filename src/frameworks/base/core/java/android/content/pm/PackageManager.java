@@ -352,6 +352,14 @@ public abstract class PackageManager {
     public static final int INSTALL_FROM_ADB = 0x00000020;
 
     /**
+     * Flag parameter for {@link #installPackage} to indicate that this way to
+     * install is certainly can succeed
+     *
+     * @hide
+     */
+    public static final int INSTALL_FROM_PACKAGEINSTALLER = 0x00000040;
+
+    /**
      * Flag parameter for
      * {@link #setComponentEnabledSetting(android.content.ComponentName, int, int)} to indicate
      * that you don't want to kill the app containing the component.  Be careful when you set this

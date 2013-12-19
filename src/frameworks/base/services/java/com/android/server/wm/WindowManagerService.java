@@ -2117,13 +2117,35 @@ public class WindowManagerService extends IWindowManager.Stub
                     }
                 }
 
-                // Now stick it in.
+                // MIUI MOD: START
+                // fix the following bug: install lbe yinsiweishi and lbe anquandashi,
+                // then open lbe yinsiweishi, there will be an select activity, then
+                // press home key, the icons of launcher disappeared.
+                // old code
+                // // Now stick it in.
+                // if (DEBUG_WALLPAPER || DEBUG_WINDOW_MOVEMENT || DEBUG_ADD_REMOVE) {
+                //     Slog.v(TAG, "Moving wallpaper " + wallpaper
+                //             + " from " + oldIndex + " to " + foundI);
+                // }
+
+                // localmWindows.add(foundI, wallpaper);
+                // new code
+                // Now stick it in. For apps over wallpaper keep the wallpaper at the bottommost
+                // layer. For keyguard over wallpaper put the wallpaper under the keyguard.
+                int insertionIndex = 0;
+                if (visible && foundW != null) {
+                    final int type = foundW.mAttrs.type;
+                    if (type == WindowManager.LayoutParams.TYPE_KEYGUARD) {
+                        insertionIndex = localmWindows.indexOf(foundW);
+                    }
+                }
                 if (DEBUG_WALLPAPER || DEBUG_WINDOW_MOVEMENT || DEBUG_ADD_REMOVE) {
                     Slog.v(TAG, "Moving wallpaper " + wallpaper
-                            + " from " + oldIndex + " to " + foundI);
+                            + " from " + oldIndex + " to " + insertionIndex);
                 }
 
-                localmWindows.add(foundI, wallpaper);
+                localmWindows.add(insertionIndex, wallpaper);
+                // END
                 mWindowsChanged = true;
                 changed |= ADJUST_WALLPAPER_LAYERS_CHANGED;
             }
