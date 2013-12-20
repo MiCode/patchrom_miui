@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.contacts.yellowpage.NavigationGroupItem xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@miui:drawable/v5_bottom_bar_top_line_light" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/yellow_page_navigation_item_margin_bottom"
+        android:background="@miui:drawable/v5_list_view_section_item_bg_light" >
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/YellowPageNavigationGroupSectioTextStyle" />
+    </LinearLayout>
+
+    <com.android.contacts.yellowpage.NavigationGroupGridView
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="@integer/yellowpage_navigation_column_count"
+        android:paddingLeft="@dimen/yellow_page_navigation_grid_view_padding_horizontal"
+        android:paddingRight="@dimen/yellow_page_navigation_grid_view_padding_horizontal" />
+
+</com.android.contacts.yellowpage.NavigationGroupItem>

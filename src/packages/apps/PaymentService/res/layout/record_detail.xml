@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/detail_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dip"
+        android:background="@drawable/record_detail"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="57dip"
+            android:textColor="@color/text_color_black"
+            android:textSize="@dimen/text_size_large" />
+
+        <EditText
+            android:id="@+id/orderNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="14dip"
+            android:background="@null"
+            android:focusable="false"
+            android:textSize="@dimen/text_size_large" />
+
+        <View
+            android:layout_width="@dimen/detail_divider_len"
+            android:layout_height="@dimen/divider"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dip"
+            android:layout_marginTop="28dip"
+            android:background="@drawable/divider_bg" />
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dip"
+            android:layout_marginLeft="@dimen/record_detail_margin_left"
+            android:gravity="center_vertical"
+            android:shrinkColumns="2" >
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/account_1_title"
+                    style="@style/DetailTitleText" />
+
+                <TextView android:text="@string/colon" />
+
+                <TextView
+                    android:id="@+id/account_1_value"
+                    style="@style/DetailTitleText" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/account_2_title"
+                    style="@style/DetailTitleText"
+                    android:text="@string/detail_pay_account" />
+
+                <TextView android:text="@string/colon" />
+
+                <TextView
+                    android:id="@+id/account_2_value"
+                    style="@style/DetailTitleText" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/name_title"
+                    style="@style/DetailTitleText" />
+
+                <TextView android:text="@string/colon" />
+
+                <TextView
+                    android:id="@+id/name_value"
+                    style="@style/DetailTitleText" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/mibi_title"
+                    style="@style/DetailTitleText" />
+
+                <TextView android:text="@string/colon" />
+
+                <TextView
+                    android:id="@+id/mibi_value"
+                    style="@style/DetailTitleText" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/time_title"
+                    style="@style/DetailTitleText" />
+
+                <TextView android:text="@string/colon" />
+
+                <TextView
+                    android:id="@+id/time_value"
+                    style="@style/DetailTitleText" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+    <include layout="@layout/loading" />
+
+</FrameLayout>

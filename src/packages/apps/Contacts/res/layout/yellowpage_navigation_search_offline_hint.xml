@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/hint_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/offline_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/yellow_page_navigation_search_offline_hint_margin_vertical"
+            android:gravity="center"
+            android:text="@string/yellowpage_navigation_search_offline_hint"
+            android:textColor="@miui:color/v5_secondary_text_color_light" />
+
+        <LinearLayout
+            android:id="@+id/refresh"
+            style="@miui:style/V5.Widget.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/yellow_page_navigation_search_offline_hint_text_margin_vertical"
+            android:layout_marginTop="@dimen/yellow_page_navigation_search_offline_hint_text_margin_vertical" >
+
+            <TextView
+                style="@miui:style/V5.TextAppearance.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/yellow_page_navigation_search_offline_hint_text_margin_horizontal"
+                android:layout_marginRight="@dimen/yellow_page_navigation_search_offline_hint_text_margin_horizontal"
+                android:text="@string/refresh" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

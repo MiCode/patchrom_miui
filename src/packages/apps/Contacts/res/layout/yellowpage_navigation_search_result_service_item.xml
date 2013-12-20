@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.contacts.yellowpage.NavigationSearchResultServiceItem xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/YellowPageNavigationSearchResultItemStyle" >
+
+    <ImageView
+        android:id="@+id/photo"
+        style="@style/YellowPageNavigationSearchResultItemPhotoStyle" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dialer_photo_right_margin"
+        android:layout_toLeftOf="@+id/indicator"
+        android:layout_toRightOf="@+id/photo"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/name"
+            style="@miui:style/V5.TextAppearance.List.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/description"
+            style="@miui:style/V5.TextAppearance.List.Secondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@miui:drawable/v5_arrow_right" />
+
+</com.android.contacts.yellowpage.NavigationSearchResultServiceItem>

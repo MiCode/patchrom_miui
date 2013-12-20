@@ -11,6 +11,7 @@
         android:paddingRight="15dip"
         android:paddingBottom="13dip"
         android:orientation="vertical" >
+
        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -19,15 +20,17 @@
             android:textColor="@color/text_color_gray"
             android:singleLine="true"
             android:ellipsize="end" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="13dip"
             android:gravity="center_vertical"
             android:background="@miui:drawable/v5_group_single_item_bg_light">
+
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="@string/voucher_edit_hint"
                 android:textSize="@dimen/text_size_medium"
@@ -35,24 +38,36 @@
                 android:background="@drawable/input_item_single"
                 android:singleLine="true"
                 android:ellipsize="end" />
-            <EditText
-                android:id="@+id/voucher_edit"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginLeft="10dip"
-                android:gravity="center_vertical"
-                android:digits="0123456789 "
-                android:inputType="number"
-                android:hint="@string/voucher_edit_limit"
-                android:textSize="@dimen/text_size_medium"
-                android:textColor="@color/text_color_black"
-                android:background="@null" />
+
+                <EditText
+                    android:id="@+id/voucher_edit"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dip"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:digits="0123456789 "
+                    android:hint="@string/voucher_edit_limit"
+                    android:inputType="number"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/text_size_medium" />
+
+                <ImageView
+                    android:id="@+id/camera_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="3dip"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/camera" />
+
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1" />
+
         <TextView
             android:id="@+id/contentHint"
             android:layout_width="match_parent"
@@ -60,6 +75,7 @@
             android:gravity="center"
             android:textColor="@color/text_color_orange"
             android:textSize="@dimen/text_size_content_hint" />
+
         <Button
             android:id="@+id/button_recharge"
             android:layout_width="match_parent"

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:background="@drawable/giftcard_detail"
+        android:orientation="vertical" >
+
+        <com.xiaomi.payment.component.MiuiDigitFontTextView
+            android:id="@+id/available"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dip"
+            android:gravity="center"
+            android:textColor="@color/giftcard_detail_mibi_color"
+            android:textSize="@dimen/text_size_giftdetail_available" />
+
+        <TextView
+            android:id="@+id/unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dip"
+            android:textColor="@color/giftcard_detail_unit_color"
+            android:textSize="13sp" />
+
+        <View
+            android:layout_width="@dimen/detail_divider_len"
+            android:layout_height="@dimen/divider"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dip"
+            android:layout_marginTop="28dip"
+            android:background="@drawable/divider_bg" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dip"
+            android:layout_marginLeft="@dimen/record_detail_margin_left"
+            android:gravity="center_vertical" >
+
+            <TableRow android:gravity="center_vertical" >
+                <TextView
+                    android:id="@+id/total_amount_title"
+                    style="@style/DetailTitleText"
+                    android:text="@string/detail_giftcard_total" />
+
+                <TextView android:text="@string/colon" />
+
+                <TextView
+                    android:id="@+id/total_amount_value"
+                    style="@style/DetailTitleText" />
+            </TableRow>
+
+            <TableRow android:gravity="center_vertical" >
+                <TextView
+                    android:id="@+id/activity_title"
+                    style="@style/DetailTitleText"
+                    android:text="@string/detail_giftcard_activity" />
+
+                <TextView android:text="@string/colon" />
+
+                <TextView
+                    android:id="@+id/activity_value"
+                    style="@style/DetailTitleText" />
+            </TableRow>
+
+            <TableRow android:gravity="center_vertical" >
+                <TextView
+                    android:id="@+id/expired_time_title"
+                    style="@style/DetailTitleText"
+                    android:text="@string/detail_giftcard_expired_time" />
+
+                <TextView android:text="@string/colon" />
+
+                <TextView
+                    android:id="@+id/expired_time_value"
+                    style="@style/DetailTitleText" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/button_theme"
+        style="@style/ButtonNotice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="15dip"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:text="@string/detail_giftcard_theme"
+        android:visibility="gone" />
+
+</LinearLayout>

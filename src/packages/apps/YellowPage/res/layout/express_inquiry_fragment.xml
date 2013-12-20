@@ -46,7 +46,7 @@
             <Button
                 android:id="@+id/scan"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="right"
                 android:layout_marginLeft="@dimen/express_inquiry_scan_margin_left"
                 android:background="@drawable/scan_bg" />
@@ -61,13 +61,7 @@
             android:enabled="false"
             android:text="@string/express_inquiry_button_text" />
 
-        <TextView
-            android:id="@+id/source_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/express_inquiry_source_info_margin_top"
-            android:gravity="center"
-            android:textSize="@miui:dimen/v5_text_font_size_small" />
+        <include layout="@layout/express_provider_info_container" />
     </LinearLayout>
 
 </LinearLayout>
