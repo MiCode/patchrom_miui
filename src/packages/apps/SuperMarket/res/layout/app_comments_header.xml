@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <LinearLayout
             android:id="@+id/container"
@@ -48,14 +48,38 @@
 
     </LinearLayout>
 
-    <include
-            android:id="@+id/rating_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="@dimen/comment_padding_rating_list"
-            android:layout_toRightOf="@id/container"
-            layout="@layout/app_rating_list" />
+    <LinearLayout
+        android:id="@+id/rating_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/container"
+        android:layout_marginTop="@dimen/comment_padding_rating_list"
+        android:paddingLeft="@dimen/common_padding"
+        android:paddingRight="@dimen/common_padding"
+        android:orientation="vertical" >
+
+        <include
+            android:id="@+id/app_comment_5_star"
+            layout="@layout/app_comment_rating_item" />
+
+        <include
+            android:id="@+id/app_comment_4_star"
+            layout="@layout/app_comment_rating_item" />
+
+        <include
+            android:id="@+id/app_comment_3_star"
+            layout="@layout/app_comment_rating_item" />
+
+        <include
+            android:id="@+id/app_comment_2_star"
+            layout="@layout/app_comment_rating_item" />
+
+        <include
+            android:id="@+id/app_comment_1_star"
+            layout="@layout/app_comment_rating_item" />
+
+    </LinearLayout>
 
 </RelativeLayout>

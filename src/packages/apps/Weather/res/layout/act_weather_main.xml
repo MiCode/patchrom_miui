@@ -80,18 +80,39 @@
             style="@style/text_shadow"
             android:visibility="gone" />
     </RelativeLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/text_link"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dip"
-        android:layout_marginRight="10dip"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="@dimen/weather_main_view_page_bar_offset_bottom"
+        android:layout_marginRight="20dip"
+        android:singleLine="true"
+        android:text="@string/act_weather_cycle_link_china"
+        android:textAppearance="@miui:style/V5.TextAppearance.Title.Medium"
+        android:textSize="12sp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/image_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="@dimen/weather_main_view_page_bar_offset_bottom"
+        android:layout_marginRight="20dip"
+        android:src="@drawable/act_weather_cycle_link"
+        android:visibility="gone" />
+
+    <com.miui.weather2.view.ViewPageBar
+        android:id="@+id/act_weather_cycle_page_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="@dimen/weather_main_view_page_bar_offset_bottom" >
-        <com.miui.weather2.view.ViewPageBar
-            android:id="@+id/act_weather_cycle_page_bar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
+        android:layout_marginBottom="@dimen/weather_main_view_page_bar_offset_bottom"
+        android:layout_marginLeft="30dip"
+        android:layout_marginRight="10dip" />
+
     <TextView
         android:id="@+id/error_tip"
         android:layout_width="match_parent"
