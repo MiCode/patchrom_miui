@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res/com.android.browser"
+  android:layout_width="match_parent" android:layout_height="match_parent"
+  android:orientation="vertical" >
+
+  <FrameLayout android:layout_width="wrap_content"
+    android:layout_height="@dimen/search_logo_container_height"
+    android:layout_gravity="center_horizontal">
+    <com.android.browser.search.TranslateImageView
+      android:id="@+id/search_engine_logo" android:layout_width="wrap_content"
+      android:layout_height="wrap_content" android:layout_gravity="center_horizontal|bottom" />
+  </FrameLayout>
+  <LinearLayout android:id="@+id/search_input_container"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/search_input_leftMargin"
+    android:layout_marginRight="@dimen/search_input_rightMargin"
+    android:layout_marginTop="@dimen/search_input_topMargin"
+    android:background="@drawable/miui_search_input_bg" android:orientation="horizontal"
+    android:layout_gravity="center_vertical">
+    <com.android.browser.search.Rotate3DImageView
+      android:id="@+id/search_icon" android:layout_width="wrap_content"
+      android:layout_height="wrap_content" android:src="@drawable/ic_search_engine_baidu" />
+    <com.android.browser.search.MiuiSearchInputEdit
+      android:id="@+id/search_input" android:focusable="true"
+      android:layout_width="0dip" android:layout_weight="1.0"
+      android:layout_height="match_parent" android:paddingRight="15dip"
+      android:gravity="center_vertical" android:fadingEdge="horizontal"
+      android:fadingEdgeLength="24dip" android:textSize="@dimen/text_font_size_medium"
+      android:textColor="@color/search_color" android:textColorHint="@color/search_hint_color"
+      android:hint="@string/search_hint" android:singleLine="true"
+      android:ellipsize="end" android:lines="1" android:scrollHorizontally="true"
+      android:inputType="text" android:imeOptions="actionGo|flagNoExtractUi|flagNoFullscreen"
+      android:textCursorDrawable="@drawable/search_text_cursor" style="@style/Suggestions"
+      android:background="@null" />
+    <Button android:id="@+id/search_cancel" android:layout_width="wrap_content"
+      android:layout_height="match_parent" android:text="@string/search_cancel"
+      android:background="@drawable/search_button_bg" style="@style/SearchButtonTextStyle" />
+  </LinearLayout>
+
+  <com.android.browser.search.MiuiSearchEngineFlingLayout
+    android:id="@+id/search_engies_scroller" android:layout_width="match_parent"
+    android:layout_height="wrap_content" android:layout_marginLeft="20dip"
+    android:layout_marginRight="20dip">
+    <ScrollView android:layout_width="match_parent"
+      android:layout_height="200dip">
+      <com.android.browser.search.MiuiSearchEngineLayout
+        android:id="@+id/search_engies" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/MiuiSearch.MiuiSearchEngineLayoutStyle" />
+    </ScrollView>
+
+  </com.android.browser.search.MiuiSearchEngineFlingLayout>
+
+</LinearLayout>

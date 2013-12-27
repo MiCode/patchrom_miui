@@ -134,6 +134,10 @@ public class WebSettingsClassic extends WebSettings {
     private boolean         mForceUserScalable = false;
     private boolean         mPasswordEchoEnabled = true;
 
+    // MIUI ADD:
+    // adblock
+    private boolean         mBlockFloatPopupWindows = true;
+    // END
     // AutoFill Profile data
     public static class AutoFillProfile {
         private int mUniqueId;
@@ -1742,6 +1746,27 @@ public class WebSettingsClassic extends WebSettings {
 
     public String getProperty(String key) {
         return mWebView.nativeGetProperty(key);
+    }
+
+    /**
+     * MIUI ADD:
+     * @hide
+     */
+    @Override
+    public synchronized void setBlockFloatPopupWindows(boolean flag) {
+        if (mBlockFloatPopupWindows != flag) {
+            mBlockFloatPopupWindows = flag;
+            postSync();
+        }
+    }
+
+    /**
+     * MIUI ADD:
+     * @hide
+     */
+    @Override
+    public synchronized boolean getBlockFloatPopupWindows() {
+        return mBlockFloatPopupWindows;
     }
 
     /**

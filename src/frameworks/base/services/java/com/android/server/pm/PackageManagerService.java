@@ -273,12 +273,20 @@ public class PackageManagerService extends IPackageManager.Stub {
         }
 
         static ResolveInfo getSystemResolveInfo(List<ResolveInfo> riList) {
+            ResolveInfo ret = null;
             for (ResolveInfo ri : riList) {
                 if (ri.system) {
-                    return ri;
+                    ret = ri;
+                }
+
+                if ((ri.match & IntentFilter.MATCH_CATEGORY_MASK) != IntentFilter.MATCH_CATEGORY_SCHEME &&
+                        (ri.match & IntentFilter.MATCH_CATEGORY_MASK) != IntentFilter.MATCH_CATEGORY_EMPTY &&
+                        (ri.match & IntentFilter.MATCH_CATEGORY_MASK) != IntentFilter.MATCH_CATEGORY_TYPE) {
+                    ret = null;
+                    break;
                 }
             }
-            return null;
+            return ret;
         }
 
         static ResolveInfo checkMiuiIntent(PackageManagerService pms, List<ResolveInfo> riList, Intent intent, String resolvedType,
@@ -312,7 +320,7 @@ public class PackageManagerService extends IPackageManager.Stub {
                     intent.setClassName("com.android.packageinstaller", "com.android.packageinstaller.PackageInstallerActivity");
                 } else if (MediaStore.ACTION_IMAGE_CAPTURE.equals(intent.getAction()) ||
                         (Intent.ACTION_VIEW.equals(intent.getAction()) && intent.getType() != null &&
-                        (intent.getType().contains("image") || intent.getType().contains("audio") || intent.getType().contains("video"))) ||
+                        (intent.getType().contains("image") || intent.getScheme() != null && intent.getScheme().contains("file") && intent.getType().contains("audio"))) ||
                         (Intent.ACTION_VIEW.equals(intent.getAction()) && intent.getScheme() != null &&
                         (intent.getScheme().contains("tel") || intent.getScheme().contains("mailto") || intent.getScheme().contains("https"))) ||
                         (Intent.ACTION_SENDTO.equals(intent.getAction()) && intent.getScheme() != null && intent.getScheme().contains("smsto"))) {

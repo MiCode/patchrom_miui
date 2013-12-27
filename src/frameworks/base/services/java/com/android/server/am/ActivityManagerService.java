@@ -30,6 +30,7 @@ import com.android.server.am.ActivityStack.ActivityState;
 import com.android.server.wm.WindowManagerService;
 
 import miui.content.ExtraIntent;
+import miui.net.FirewallManager;
 import miui.provider.ExtraSettings;
 
 import dalvik.system.Zygote;
@@ -229,14 +230,46 @@ public final class ActivityManagerService extends ActivityManagerNative
             service.mContext.registerReceiver(new BroadcastReceiver() {
                 @Override
                 public void onReceive(Context context, Intent intent) {
-                    // only update configuration for resume activity
-                    ActivityRecord r = service.mMainStack.topRunningActivityLocked(null);
-                    if (!r.finishing && sMonitorPrivacyPackage.contains(r.packageName)) {
-                         r.forceNewConfig = true;
-                         service.updateConfigurationLocked(service.mConfiguration, r, false, false);
-                    }
+                    new Thread() {
+                        @Override
+                        public void run() {
+                            synchronized (service) {
+                                // TODO: Don't look for any tasks from other users
+                                int i = service.mMainStack.mHistory.size()-1;
+                                int topIndex = i;
+                                ActivityRecord topRecord = null;
+                                while (i >= 0) {
+                                    ActivityRecord r = service.mMainStack.mHistory.get(i);
+                                    if (!r.finishing && sMonitorPrivacyPackage.contains(r.packageName)) {
+                                        r.forceNewConfig = true;
+                                        if (i == topIndex) {
+                                            topRecord = r;
+                                        }
+                                    }
+                                    i--;
+                                }
+                                if (topRecord != null) {
+                                    service.updateConfigurationLocked(service.mConfiguration, topRecord, false, false);
+                                }
+                            }
+                        }
+                    }.start();
                 }
             }, privacyModeFilter);
+        }
+
+        static IBinder checkFinishToken(ActivityManagerService service, IBinder token, int resultCode, Intent resultData) {
+            if (token == null) {
+                synchronized(service) {
+                    ActivityRecord top = service.mMainStack.topRunningActivityLocked(null);
+                    if (top != null && top.packageName != null
+                            && FirewallManager.isAccessControlProtected(service.mContext, top.packageName)
+                            && !FirewallManager.getInstance().checkAccessControlPass(top.packageName)) {
+                        token = top.appToken;
+                    }
+                }
+            }
+            return token;
         }
     }
 
@@ -2722,6 +2755,9 @@ public final class ActivityManagerService extends ActivityManagerNative
      * @return Returns true if the activity successfully finished, or false if it is still running.
      */
     public final boolean finishActivity(IBinder token, int resultCode, Intent resultData) {
+        // MIUI ADD:
+        token = Injector.checkFinishToken(this, token, resultCode, resultData);
+
         // Refuse possible leaked file descriptors
         if (resultData != null && resultData.hasFileDescriptors() == true) {
             throw new IllegalArgumentException("File descriptors passed in Intent");
