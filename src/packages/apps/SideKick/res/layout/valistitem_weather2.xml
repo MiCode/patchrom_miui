@@ -2,30 +2,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center"
     android:orientation="vertical" >
 
     <ProgressBar
         android:id="@+id/pb_weather"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         style="@android:style/Widget.Holo.Light.ProgressBar"
         android:visibility="gone" />
 <!--         android:indeterminateDrawable="@drawable/progress_medium_holo" -->
 <!--         android:indeterminateDuration="4000" -->
         
-
-    <TextView
-        android:id="@+id/tv_content"
+    <TextView android:id="@+id/tv_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/dialog_bg"
-        android:clickable="false"
+        android:layout_gravity="left|center_vertical"
         android:focusable="false"
         android:textColor="@color/bright_foreground_light"
         android:textSize="@dimen/content_text_size"
-        android:visibility="gone" />
+        android:background="@drawable/dialog_bg"
+        android:clickable="false"
+        android:visibility="gone"/>
 
     <com.miui.voiceassist.view.WeatherView
         android:id="@+id/layout_weather"
