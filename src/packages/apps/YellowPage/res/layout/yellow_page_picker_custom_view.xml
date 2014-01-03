@@ -18,7 +18,23 @@
         style="@miui:style/V5.TextAppearance.Title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_toLeftOf="@+id/place_holder"
+        android:layout_toRightOf="@+id/cancel"
         android:gravity="center"
+        android:singleLine="true"
         android:text="@string/app_label" />
+
+    <!-- place holder -->
+
+    <Button
+        android:id="@+id/place_holder"
+        style="@miui:style/V5.Widget.EditMode.TopBar.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/yellow_page_picker_custom_view_margin_top"
+        android:text="@android:string/cancel"
+        android:visibility="invisible" >
+    </Button>
 
 </RelativeLayout>
