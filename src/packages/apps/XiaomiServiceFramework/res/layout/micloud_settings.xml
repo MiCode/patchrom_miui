@@ -1,31 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:paddingLeft="@dimen/content_horizontal_margin"
-            android:paddingRight="@dimen/content_horizontal_margin"
-            android:scrollbarStyle="outsideOverlay"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingLeft="@dimen/content_horizontal_margin"
+        android:paddingRight="@dimen/content_horizontal_margin"
+        android:scrollbarStyle="outsideOverlay"
         >
-    <LinearLayout
-            android:orientation="vertical"
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:paddingBottom="@dimen/content_horizontal_margin"
             >
-        <com.xiaomi.xmsf.account.ui.ExpandedListView
+            <com.xiaomi.xmsf.account.ui.ExpandedListView
                 android:id="@android:id/list"
                 android:layout_width="fill_parent"
                 android:layout_height="0dip"
-                android:layout_weight="1"
                 android:layout_marginLeft="@dimen/content_horizontal_margin_neg"
                 android:layout_marginRight="@dimen/content_horizontal_margin_neg"
+                android:layout_weight="1"
                 />
-        <TextView
+            <TextView
+                style="@style/SyncStatus"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                />
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/micloud_web_discription_01"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/micloud_web_discription_02"
+                    />
+            </LinearLayout>
+            <Button
+                android:id="@+id/btn_delete_account"
+                style="@style/ButtonRemove"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                style="@style/SyncStatus"
+                android:text="@string/micloud_delete_account"
                 />
-    </LinearLayout>
-</ScrollView>
+        </LinearLayout>
+    </ScrollView>
+    <ViewStub
+        android:id="@+id/warn_bar_stub"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/content_horizontal_margin"
+        android:paddingRight="@dimen/content_horizontal_margin"
+        android:layout="@layout/warn_bar"
+        />
+</FrameLayout>

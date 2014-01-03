@@ -29,16 +29,30 @@
                 style="@miui:style/V5.TextAppearance.List.Secondary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:paddingRight="10dip" />
+                android:layout_alignParentRight="true" />
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/order_short_info"
-            style="@miui:style/V5.TextAppearance.List.Secondary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/order_short_info"
+                style="@miui:style/V5.TextAppearance.List.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/order_status"
+                android:paddingRight="7dip" />
+
+            <TextView
+                android:id="@+id/order_status"
+                style="@miui:style/V5.TextAppearance.List.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/highlight_text_color" />
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -50,22 +64,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:paddingRight="7dip" />
+                android:layout_toLeftOf="@+id/order_price"
+                android:paddingRight="7dip"
+                android:singleLine="true" />
 
             <TextView
                 android:id="@+id/order_price"
                 style="@miui:style/V5.TextAppearance.List.Secondary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/order_id"
-                android:paddingRight="7dip" />
-
-            <TextView
-                android:id="@+id/order_status"
-                style="@miui:style/V5.TextAppearance.List.Secondary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/order_price" />
+                android:layout_alignParentRight="true" />
         </RelativeLayout>
     </LinearLayout>
 

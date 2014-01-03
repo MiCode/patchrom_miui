@@ -29,15 +29,22 @@
         android:id="@+id/layout_salutation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:background="@drawable/dialog_bg"
         android:visibility="gone">
         <TextView
             android:id="@+id/tv_salutaion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/dialog_bg"
+            android:layout_weight="1"
             android:textColor="@color/bright_foreground_light"
             android:textSize="@dimen/content_text_size" />
+        <ImageView android:id="@+id/iv_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="10dp"
+            android:src="@miui:drawable/v5_arrow_right_p" />
     </LinearLayout>
 
 </LinearLayout>

@@ -29,6 +29,10 @@
         <item name="android:textColor">@color/text_color_white</item>
         <item name="android:textSize">@miui:dimen/v5_text_font_size_primary</item>
     </style>
+    <style name="TextPrimary.Highlight">
+        <item name="android:textColor">@color/text_color_red</item>
+        <item name="android:textColorLink">@color/text_color_red</item>
+    </style>
     <style name="BlankWarnTitleText" parent="WarnTitleText">
         <item name="android:textColor">@android:color/black</item>
     </style>
@@ -58,6 +62,14 @@
         <item name="android:textColor">?android:textColorSecondary</item>
         <item name="android:textSize">@miui:dimen/v5_text_font_size_list_secondary</item>
         <item name="android:textAllCaps">true</item>
+    </style>
+    <style name="TitleDsptText">
+        <item name="android:textColor">?android:textColorSecondary</item>
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_list_secondary</item>
+    </style>
+    <style name="TitleDsptText.Highlight" parent="@TitleDsptText">
+        <item name="android:textColor">@color/text_color_red</item>
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_list_secondary</item>
     </style>
     <style name="ButtonLogin">
         <item name="android:background">@miui:drawable/v5_btn_bg_positive_warn_light</item>
@@ -123,9 +135,6 @@
     <style name="Theme.MiCloudEntrance" parent="@style/Theme.NoTitle">
         <item name="android:windowBackground">@drawable/user_detail_info_bg</item>
     </style>
-    <style name="Theme.MiCloudUserDetails" parent="@style/Theme.Main">
-        <item name="android:windowBackground">@drawable/user_detail_info_bg</item>
-    </style>
     <style name="ActionBarStyle.ShowCustom" parent="@miui:V5.Widget.ActionBar">
         <item name="android:displayOptions">showCustom</item>
         <item name="android:background">@drawable/micloud_settings_title_bg</item>
@@ -169,5 +178,13 @@
     <style name="MiCloudIntro03Part2">
         <item name="android:textSize">@miui:dimen/v5_text_font_size_medium</item>
         <item name="android:textColor">@color/micloud_intro_03</item>
+    </style>
+    <style name="Theme.ActionBarTab" parent="@miui:style/V5.Theme.Light.ActionBar.NoTitle">
+        <item name="miui:v5_action_bar_tab">true</item>
+    </style>
+    <style name="TextAppearance.Warn" parent="miui:style/V5.TextAppearance.Title.Medium.Secondary">
+        <item name="android:shadowColor">@null</item>
+        <item name="android:textColor">@color/text_color_orange</item>
+        <item name="android:textColorLink">@color/text_color_orange</item>
     </style>
 </resources>
