@@ -141,21 +141,33 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/option_summary"
+        android:id="@+id/goout_option"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:background="@miui:drawable/v5_preference_item_bg"
         android:gravity="center_vertical"
-        android:background="@miui:drawable/v5_preference_item_bg" >
+        android:orientation="horizontal" >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/option_title_1"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
-            android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
-            android:text="@string/power_save_on_time_option_summary"
-            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:text="@string/power_save_on_time_goout_title"
+            android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" />
 
+        <TextView
+            android:id="@+id/option_label_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
+            android:drawableRight="@miui:drawable/v5_arrow_right"
+            android:singleLine="true"
+            android:text="@string/power_save_choose_mode"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"
+            android:textSize="14sp" />
     </LinearLayout>
 
 </LinearLayout>

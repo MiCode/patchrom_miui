@@ -26,11 +26,19 @@
             miui:clickable="true"
             miui:label="@string/power_save_choose_mode" />
 
+        <com.miui.powercenter.OptionPreference
+            android:dependency="power_save_low_battery_auto_save"
+            android:key="power_save_low_battery_option_recovery"
+            android:layout="@layout/pc_option_preference"
+            android:title="@string/power_save_low_battery_option_recovery_title"
+            miui:clickable="true"
+            miui:label="@string/power_save_choose_recovery_mode" />
+        <!--
         <Preference
             android:dependency="power_save_low_battery_auto_save"
             android:layout="@layout/pc_descript_preference"
             android:selectable="false"
-            android:summary="@string/power_save_low_battery_option_summary" />
+            android:summary="@string/power_save_low_battery_option_summary" /> -->
     </PreferenceCategory>
 
 </PreferenceScreen>

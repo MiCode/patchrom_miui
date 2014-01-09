@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.securitycenter.common.RecycleLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miui="http://schemas.android.com/apk/res/com.android.settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="9.5dip"
+    android:paddingLeft="7.5dip"
+    android:paddingRight="7.5dip"
+    android:paddingTop="9.5dip" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <com.miui.securitycenter.view.SecurityMenuItemView
+            android:id="@+id/rubbish_clean"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            miui:menuIcon="@drawable/ic_menu_rubbish_clean"
+            miui:menuTitle="@string/cleaner" />
+
+        <com.miui.securitycenter.view.SecurityMenuItemView
+            android:id="@+id/network_assistant"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            miui:fancyIcon="@string/fancy_icon_network_assistant"
+            miui:menuIcon="@drawable/ic_menu_network_assistant"
+            miui:menuTitle="@string/network_assistant" />
+
+        <com.miui.securitycenter.view.SecurityMenuItemView
+            android:id="@+id/anti_spam"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            miui:menuIcon="@drawable/ic_menu_anti_spam"
+            miui:menuTitle="@string/anti_spam" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <com.miui.securitycenter.view.BatteryMenuItemView
+            android:id="@+id/power_optimize"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            miui:fancyIcon="@string/fancy_icon_power_center"
+            miui:menuIcon="@drawable/ic_menu_power_optimize"
+            miui:menuTitle="@string/power_mgr" />
+
+        <com.miui.securitycenter.view.SecurityMenuItemView
+            android:id="@+id/virus_scan"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            miui:menuIcon="@drawable/ic_menu_virus_scan"
+            miui:menuTitle="@string/virus_scan" />
+
+        <com.miui.securitycenter.view.SecurityMenuItemView
+            android:id="@+id/license_manage"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            miui:menuIcon="@drawable/ic_menu_license_manage"
+            miui:menuTitle="@string/permission_mgr" />
+    </LinearLayout>
+
+</com.miui.securitycenter.common.RecycleLinearLayout>
