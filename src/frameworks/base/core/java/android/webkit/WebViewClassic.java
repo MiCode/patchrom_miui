@@ -2772,6 +2772,16 @@ public final class WebViewClassic implements WebViewProvider, WebViewProvider.Sc
     }
 
     /**
+     * MIUI ADD:
+     * See {@link WebView#executeJavaScript(String script)}
+     * @hide
+     */
+    @Override
+    public void executeJavaScript(String script) {
+        mWebViewCore.sendMessage(EventHub.EXECUTE_JS, script);
+    }
+
+    /**
      * See {@link WebView#saveWebArchive(String)}
      */
     @Override

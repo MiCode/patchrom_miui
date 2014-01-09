@@ -530,11 +530,6 @@ public class ConnectivityService extends IConnectivityManager.Stub {
                 mNetTrackers[netType] = EthernetDataTracker.getInstance();
                 mNetTrackers[netType].startMonitoring(context, mHandler);
                 break;
-            case ConnectivityManager.TYPE_USB_SHARE_NET:
-                mNetTrackers[netType] = new UsbShareNetStateTracker(netType,
-                        mNetConfigs[netType].name);
-                mNetTrackers[netType].startMonitoring(context, mHandler);
-                break;
             default:
                 loge("Trying to create a DataStateTracker for an unknown radio type " +
                         mNetConfigs[netType].radio);

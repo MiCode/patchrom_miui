@@ -876,6 +876,18 @@ public class WebView extends AbsoluteLayout
     }
 
     /**
+     * MIUI ADD:
+     * Executes JavaScript.
+     * @param script the JavaScript to execute.
+     *
+     * @hide
+     */
+    public void executeJavaScript(String script) {
+        checkThread();
+        mProvider.executeJavaScript(script);
+    }
+
+    /**
      * Saves the current view as a web archive.
      *
      * @param filename the filename where the archive should be placed

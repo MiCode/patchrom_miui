@@ -15,87 +15,18 @@
         android:layout_height="match_parent"
         android:background="@drawable/security_bg_green" />
 
-    <com.miui.securitycenter.common.RecycleLinearLayout
+    <FrameLayout
         android:id="@+id/menuBar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/securitycenter_main_menubar_height"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/security_menubar_bg"
-        android:orientation="vertical"
-        android:paddingBottom="9.5dip"
-        android:paddingLeft="7.5dip"
-        android:paddingRight="7.5dip"
-        android:paddingTop="9.5dip" >
+        android:layout_alignParentBottom="true" >
 
-        <LinearLayout
+        <fragment
+            android:id="@+id/menu_fragment"
+            android:name="com.miui.securitycenter.fragment.MenuFragment"
             android:layout_width="match_parent"
-            android:layout_height="0dip"
-            android:layout_weight="1"
-            android:orientation="horizontal" >
-
-            <com.miui.securitycenter.view.SecurityMenuItemView
-                android:id="@+id/rubbish_clean"
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                miui:menuIcon="@drawable/ic_menu_rubbish_clean"
-                miui:menuTitle="@string/cleaner" />
-
-            <com.miui.securitycenter.view.SecurityMenuItemView
-                android:id="@+id/network_assistant"
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                miui:fancyIcon="@string/fancy_icon_network_assistant"
-                miui:menuIcon="@drawable/ic_menu_network_assistant"
-                miui:menuTitle="@string/network_assistant" />
-
-            <com.miui.securitycenter.view.SecurityMenuItemView
-                android:id="@+id/anti_spam"
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                miui:menuIcon="@drawable/ic_menu_anti_spam"
-                miui:menuTitle="@string/anti_spam" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dip"
-            android:layout_weight="1"
-            android:orientation="horizontal" >
-
-            <com.miui.securitycenter.view.SecurityMenuItemView
-                android:id="@+id/power_optimize"
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                miui:menuIcon="@drawable/ic_menu_power_optimize"
-                miui:menuTitle="@string/power_mgr" />
-
-            <com.miui.securitycenter.view.SecurityMenuItemView
-                android:id="@+id/virus_scan"
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                miui:menuIcon="@drawable/ic_menu_virus_scan"
-                miui:menuTitle="@string/virus_scan" />
-
-            <com.miui.securitycenter.view.SecurityMenuItemView
-                android:id="@+id/license_manage"
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                miui:menuIcon="@drawable/ic_menu_license_manage"
-                miui:menuTitle="@string/permission_mgr" />
-        </LinearLayout>
-    </com.miui.securitycenter.common.RecycleLinearLayout>
+            android:layout_height="match_parent" />
+    </FrameLayout>
 
     <RelativeLayout
         android:id="@+id/handleBar"
@@ -247,6 +178,14 @@
             android:text="@string/last_check_never_checked"
             android:textColor="#7fffffff"
             android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dip"
+            android:background="@drawable/icon_settings_selector" />
     </RelativeLayout>
 
     <TextView

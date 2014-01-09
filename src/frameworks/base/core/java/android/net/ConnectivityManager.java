@@ -290,13 +290,11 @@ public class ConnectivityManager {
      */
     public static final int TYPE_WIFI_P2P    = 13;
 
-    public static final int TYPE_USB_SHARE_NET = 14;
+    /** {@hide} */
+    public static final int MAX_RADIO_TYPE   = TYPE_WIFI_P2P;
 
     /** {@hide} */
-    public static final int MAX_RADIO_TYPE   = TYPE_USB_SHARE_NET;
-
-    /** {@hide} */
-    public static final int MAX_NETWORK_TYPE = TYPE_USB_SHARE_NET;
+    public static final int MAX_NETWORK_TYPE   = TYPE_WIFI_P2P;
 
     public static final int DEFAULT_NETWORK_PREFERENCE = TYPE_WIFI;
 
@@ -337,8 +335,6 @@ public class ConnectivityManager {
                 return "MOBILE_CBS";
             case TYPE_WIFI_P2P:
                 return "WIFI_P2P";
-            case TYPE_USB_SHARE_NET:
-                return "USB_SHARE_NET";
             default:
                 return Integer.toString(type);
         }

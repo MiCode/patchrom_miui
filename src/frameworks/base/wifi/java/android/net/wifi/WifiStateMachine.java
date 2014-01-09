@@ -1672,6 +1672,8 @@ public class WifiStateMachine extends StateMachine {
         mWifiInfo.setRssi(MIN_RSSI);
         mWifiInfo.setLinkSpeed(-1);
         mWifiInfo.setMeteredHint(false);
+        // MIUI ADD:
+        mWifiInfo.setVendorInfo(null);
 
         setNetworkDetailedState(DetailedState.DISCONNECTED);
         mWifiConfigStore.updateStatus(mLastNetworkId, DetailedState.DISCONNECTED);
@@ -1741,6 +1743,8 @@ public class WifiStateMachine extends StateMachine {
         InetAddress addr = NetworkUtils.numericToInetAddress(dhcpInfoInternal.ipAddress);
         mWifiInfo.setInetAddress(addr);
         mWifiInfo.setMeteredHint(dhcpInfoInternal.hasMeteredHint());
+        // MIUI ADD:
+        mWifiInfo.setVendorInfo(dhcpInfoInternal.vendorInfo);
         if (getNetworkDetailedState() == DetailedState.CONNECTED) {
             //DHCP renewal in connected state
             LinkProperties linkProperties = dhcpInfoInternal.makeLinkProperties();
@@ -1764,6 +1768,8 @@ public class WifiStateMachine extends StateMachine {
 
         mWifiInfo.setInetAddress(null);
         mWifiInfo.setMeteredHint(false);
+        // MIUI ADD:
+        mWifiInfo.setVendorInfo(null);
         /**
          * If we've exceeded the maximum number of retries for DHCP
          * to a given network, disable the network

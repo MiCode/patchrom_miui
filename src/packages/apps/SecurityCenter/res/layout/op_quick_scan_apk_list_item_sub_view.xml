@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.optimizecenter.view.QuickScanApkListItemSubView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ListItemSubView" >
+
+    <RelativeLayout
+        android:id="@+id/icon_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/item_view"
+            style="@style/ListItemSubViewItem"
+            android:drawableTop="@drawable/icon_view_selector"
+            android:text="@string/list_sub_view_item_view" />
+
+        <Button
+            android:id="@+id/item_clean"
+            style="@style/ListItemSubViewItem"
+            android:layout_marginLeft="30dip"
+            android:layout_toRightOf="@id/item_view"
+            android:drawableTop="@drawable/icon_clean_selector"
+            android:text="@string/list_sub_view_item_clean" />
+
+        <Button
+            android:id="@+id/item_install"
+            style="@style/ListItemSubViewItem"
+            android:layout_marginLeft="30dip"
+            android:layout_toRightOf="@id/item_clean"
+            android:drawableTop="@drawable/icon_install_selector"
+            android:text="@string/list_sub_view_item_install" />
+
+        <Button
+            android:id="@+id/item_lock"
+            style="@style/ListItemSubViewLock"
+            android:layout_alignParentRight="true"
+            android:drawableTop="@drawable/icon_lock_selector"
+            android:text="@string/list_sub_view_item_lock" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/info"
+        style="@style/ListItemSubViewInfo"
+        android:layout_below="@id/icon_frame" />
+
+</com.miui.optimizecenter.view.QuickScanApkListItemSubView>

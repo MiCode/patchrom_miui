@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent">
 
-    <TextView
-        android:id="@+id/content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:paddingLeft="@dimen/micloud_space_full_dspt_margin"
         android:paddingRight="@dimen/micloud_space_full_dspt_margin"
         android:paddingTop="@dimen/micloud_space_full_dspt_margin"
         android:paddingBottom="@dimen/micloud_space_full_dspt_margin"
-        android:text="@string/micloud_full_influence_dspt"
-        style="@style/TextPrimary"
-        />
+        android:scrollbarStyle="outsideOverlay">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/micloud_full_influence_dspt"
+            style="@style/TextPrimary"
+            />
+    </ScrollView>
+</FrameLayout>

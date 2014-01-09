@@ -113,15 +113,34 @@
                     android:textSize="@dimen/text_size_large" />
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/password_edit"
+            <LinearLayout
+                android:id="@+id/password_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="7dip"
                 android:layout_marginBottom="7dip"
-                android:hint="@string/password_hint"
-                android:inputType="textPassword"
-                android:textSize="@dimen/text_size_small" />
+                android:layout_marginTop="7dip"
+                android:background="?miui:attr/v5_edit_text_bg"
+                android:gravity="center"
+                android:orientation="horizontal" >
+                <EditText
+                    android:id="@+id/password_edit"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:hint="@string/password_hint"
+                    android:inputType="textPassword"
+                    android:textSize="@dimen/text_size_small"
+                    android:background="@null" />
+                <TextView
+                    android:id="@+id/password_forget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dip"
+                    android:text="@string/password_forget"
+                    android:textColor="@color/text_color_red"
+                    android:textSize="@dimen/text_size_small"
+                    android:visibility="gone" />
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
