@@ -56,30 +56,22 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:paddingTop="3dp"
-            android:paddingBottom="3dp"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
             android:background="@drawable/send_btn1_bg">
             <TextView
                 android:id="@+id/send_button1_text"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:singleLine="true"
                 android:ellipsize = "end"
                 android:duplicateParentState="true"
-                style="@miui:style/V5.TextAppearance.Button"
+                style="@style/NormalTextSendButton"
+                android:drawableRight="@drawable/send_btn_secondary"
+                android:drawablePadding="2dp"
                 android:text="@string/sim_card1"/>
-            <ImageView
-                android:id="@+id/send_button1_icon"
-                android:layout_marginLeft="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:duplicateParentState="true"
-                android:src="@drawable/send_btn_secondary"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/send_button2"
@@ -93,22 +85,16 @@
             android:background="@drawable/send_btn2_bg">
             <TextView
                 android:id="@+id/send_button2_text"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:singleLine="true"
                 android:ellipsize = "end"
                 android:duplicateParentState="true"
-                style="@miui:style/V5.TextAppearance.Button"
+                style="@style/NormalTextSendButton"
+                android:drawableRight="@drawable/send_btn_secondary"
+                android:drawablePadding="2dp"
                 android:text="@string/sim_card2"/>
-            <ImageView
-                android:id="@+id/send_button2_icon"
-                android:layout_marginLeft="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:duplicateParentState="true"
-                android:src="@drawable/send_btn_secondary"/>
         </LinearLayout>
     </LinearLayout>
 </com.android.mms.ui.ShrinkableLinearLayout>
