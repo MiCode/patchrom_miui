@@ -310,7 +310,7 @@ public class PackageManagerService extends IPackageManager.Stub {
                         }
                     }
                     // browser
-                    if (intent.getComponent() == null) {
+                    if (intent.getComponent() == null && intent.getType() == null) {
                         ResolveInfo ri = getSystemResolveInfo(riList);
                         if (ri != null) {
                             return ri;
@@ -322,7 +322,7 @@ public class PackageManagerService extends IPackageManager.Stub {
                         (Intent.ACTION_VIEW.equals(intent.getAction()) && intent.getType() != null &&
                         (intent.getType().contains("image") || intent.getScheme() != null && intent.getScheme().contains("file") && intent.getType().contains("audio"))) ||
                         (Intent.ACTION_VIEW.equals(intent.getAction()) && intent.getScheme() != null &&
-                        (intent.getScheme().contains("tel") || intent.getScheme().contains("mailto") || intent.getScheme().contains("https"))) ||
+                        (intent.getScheme().contains("tel") || intent.getScheme().contains("mailto") || (intent.getScheme().contains("https") && intent.getType() == null))) ||
                         (Intent.ACTION_SENDTO.equals(intent.getAction()) && intent.getScheme() != null && intent.getScheme().contains("smsto"))) {
                     // dialer, messaging, camera, gallary, music, video, email
                     ResolveInfo ri = getSystemResolveInfo(riList);

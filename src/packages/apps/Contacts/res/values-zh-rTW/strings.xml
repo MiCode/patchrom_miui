@@ -144,7 +144,7 @@
     <string name="menu_sendTextMessage" msgid="6937343460284499306">"傳送簡訊"</string>
     <string name="recentCalls_callNumber" msgid="1756372533999226126">"撥電話給<xliff:g id="NAME">%s</xliff:g>"</string>
     <string name="recentCalls_editNumberBeforeCall" msgid="7756171675833267857">"撥打電話前編輯號碼"</string>
-    <string name="recentCalls_addToContact" msgid="1429899535546487008">"新增至通訊錄"</string>
+    <string name="recentCalls_addToContact" msgid="1429899535546487008">"加入現有聯絡人"</string>
     <string name="recentCalls_removeFromRecentList" msgid="401662244636511330">"從通話記錄中移除"</string>
     <string name="recentCalls_deleteAll" msgid="6352364392762163704">"清除通話記錄"</string>
     <string name="recentCalls_trashVoicemail" msgid="7604696960787435655">"刪除語音留言"</string>
@@ -466,7 +466,7 @@
     <string name="organization_company_and_title" msgid="6718207751363732025">"<xliff:g id="COMPANY_1">%1$s</xliff:g> <xliff:g id="COMPANY_0">%2$s</xliff:g>"</string>
     <string name="hint_findContacts" msgid="1808681193458772072">"尋找聯絡人"</string>
     <string name="non_phone_caption" msgid="1541655052330027380">"電話號碼"</string>
-    <string name="non_phone_add_to_contacts" msgid="6590985286250471169">"新增至通訊錄"</string>
+    <string name="non_phone_add_to_contacts" msgid="6590985286250471169">"加入現有聯絡人"</string>
     <string name="activity_title_confirm_add_detail" msgid="4065089866210730616">"加入聯絡人"</string>
     <string name="non_phone_close" msgid="7608506439725515667">"關閉"</string>
     <string name="widget_name_and_phonetic" msgid="8739586586600099979">"<xliff:g id="DISPLAY_NAME">%1$s</xliff:g> (<xliff:g id="PHONETIC_NAME">%2$s</xliff:g>)"</string>
@@ -686,16 +686,42 @@
 
     <!-- 電話號碼picker -->
     <string name="recent_contacts_label">最近</string>
-    <string name="pick_favorites_list_title">共有%1$d個我的最愛聯絡人號碼</string>
-    <string name="pick_recent_list_title">共有%1$d個最近聯絡人號碼</string>
+    <plurals name="pick_favorites_list_title">
+        <item quantity="one">共有%1$d個我的最愛聯絡人號碼</item>
+        <item quantity="other">共有%1$d個我的最愛聯絡人號碼</item>
+    </plurals>
+
+    <plurals name="pick_recent_list_title">
+        <item quantity="one">>共有%1$d個最近聯絡人號碼</item>
+        <item quantity="other">>共有%1$d個最近聯絡人號碼</item>
+    </plurals>
+
     <string name="noRecentContacts">目前沒有最近聯絡人</string>
-    <string name="hint_search_contacts">"搜尋%d位聯絡人"</string>
-    <string name="hint_search_phone_numbers">"搜尋%d位聯絡人號碼"</string>
-    <string name="hint_search_emails">"搜尋%d個聯絡人郵箱"</string>
+
+    <plurals name="hint_search_contacts">
+        <item quantity="one">"搜尋%d位聯絡人"</item>
+        <item quantity="other">"搜尋%d位聯絡人"</item>
+    </plurals>
+
+    <plurals name="hint_search_phone_numbers">
+        <item quantity="one">"搜尋%d位聯絡人號碼"</item>
+        <item quantity="other">"搜尋%d位聯絡人號碼"</item>
+    </plurals>
+
+    <plurals name="hint_search_emails">
+        <item quantity="one">"搜尋%d個聯絡人郵箱"</item>
+        <item quantity="other">"搜尋%d個聯絡人郵箱"</item>
+    </plurals>
 
     <!-- Contacts Picker -->
-    <string name="pick_favorites_contacts_list_title">共有%1$d位我的最愛聯絡人</string>
-    <string name="pick_recent_contacts_list_title">共有%1$d位最近聯絡人</string>
+    <plurals name="pick_favorites_contacts_list_title">
+        <item quantity="one">共有%1$d位我的最愛聯絡人</item>
+        <item quantity="other">共有%1$d位我的最愛聯絡人</item>
+    </plurals>
+    <plurals name="pick_recent_contacts_list_title">
+        <item quantity="one">共有%1$d位最近聯絡人</item>
+        <item quantity="other">共有%1$d位最近聯絡人</item>
+    </plurals>
     <string name="loading_groups">正在載入群組…</string>
     <string name="loading_group_members">正在載入群組成員…</string>
     <string name="loading_recent">正在載入最近聯絡人…</string>
@@ -951,7 +977,9 @@
     <string name="prepare_import">準備匯入</string>
     <string name="device_import_message">正在匯入</string>
     <string name="bluetooth_connection_failed_toast">藍芽連接中斷</string>
-    <string name="device_import_done_toast">已經匯入%1$d個聯絡人</string>
+    <plurals name="device_import_done_toast">
+        <item quantity="other">已經匯入%1$d個聯絡人</item>
+    </plurals>
     <string name="device_import_progress_toast">剛剛匯入了%1$d個聯絡人</string>
     <string name="no_contact_in_other_phone">您的另一台手機上沒有聯絡人</string>
 
@@ -1054,4 +1082,5 @@
     <string name="yellowpage_navigation_search_result_service_error">您當前的網絡不是很好，請稍後再試</string>
     <string name="yellowpage_navigation_search_result_unknown_error">未知錯誤</string>
     <string name="yellowpage_navigation_menu_order">我的訂單</string>
+    <string name="yellowpage_navigation_send_to_desktop_succeeded">已發送到桌面</string>
 </resources>

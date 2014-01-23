@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingLeft="20dip"
-    android:paddingRight="20dip"
-    android:orientation="vertical" >
+    android:paddingRight="20dip" >
+
     <EditText
         android:id="@+id/share_content"
         android:layout_width="fill_parent"
@@ -16,8 +16,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
         <ImageView
             android:id="@+id/share_viwe"
             android:layout_width="match_parent"
@@ -26,67 +27,22 @@
             android:gravity="center" />
     </ScrollView>
 
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/share"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="20dip"
-        android:paddingBottom="20dip" >
-        <LinearLayout
-            android:id="@+id/share_sina"
-            android:layout_width="match_parent"
+        android:layout_marginBottom="20dip"
+        android:layout_marginTop="20dip"
+        android:background="@drawable/btn_share"
+        android:gravity="center" >
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginBottom="7dip"
-            android:background="@drawable/btn_share">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:textSize="15sp"
-                android:textColor="@color/share_btn_text"
-                android:drawablePadding="5dip"
-                android:text="@string/share_sina"
-                android:duplicateParentState="true"
-                android:drawableLeft="@drawable/sina" />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/install_qq"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_below="@id/share_sina"
-            android:layout_marginBottom="7dip"
-            android:background="@drawable/btn_share"
-            android:visibility="gone" >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:textSize="15sp"
-                android:textColor="@color/share_btn_text"
-                android:text="@string/install_tencent"
-                android:duplicateParentState="true"
-                android:drawablePadding="5dip"
-                android:drawableLeft="@drawable/tencent" />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/share_qq"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_below="@id/share_sina"
-            android:background="@drawable/btn_share"
-            android:visibility="gone">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:textSize="15sp"
-                android:textColor="@color/share_btn_text"
-                android:drawablePadding="5dip"
-                android:text="@string/share_qq"
-                android:duplicateParentState="true"
-                android:drawableLeft="@drawable/tencent" />
-        </LinearLayout>
-    </RelativeLayout>
+            android:gravity="center_vertical"
+            android:text="@string/share_button_text"
+            android:textColor="@color/share_btn_text"
+            android:textSize="15sp" />
+    </LinearLayout>
+
 </LinearLayout>
