@@ -29,13 +29,29 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
 
-            <ListView
-                android:id="@android:id/list"
-                style="@style/YellowPageNavigationFragmentListViewStyle" />
+            <FrameLayout
+                android:id="@+id/navigation_views_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
 
-            <TextView
-                android:id="@android:id/empty"
-                style="@style/YellowPageNavigationFragmentEmptyViewStyle" />
+                <ListView
+                    android:id="@+id/navigation_list"
+                    style="@style/YellowPageNavigationFragmentListViewStyle" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/search_views_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <ListView
+                    android:id="@+id/search_result_list"
+                    style="@style/YellowPageNavigationFragmentListViewStyle" />
+
+                <TextView
+                    android:id="@android:id/empty"
+                    style="@style/YellowPageNavigationFragmentEmptyViewStyle" />
+            </FrameLayout>
         </FrameLayout>
     </LinearLayout>
 

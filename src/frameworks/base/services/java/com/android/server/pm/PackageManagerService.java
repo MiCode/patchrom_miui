@@ -272,11 +272,19 @@ public class PackageManagerService extends IPackageManager.Stub {
             return pi != null ? list.append(pi) : false;
         }
 
-        static ResolveInfo getSystemResolveInfo(List<ResolveInfo> riList) {
+        static ResolveInfo getSystemResolveInfo(PackageManagerService pms, List<ResolveInfo> riList) {
             ResolveInfo ret = null;
             for (ResolveInfo ri : riList) {
                 if (ri.system) {
-                    ret = ri;
+                    if (ret == null) {
+                        ret = ri;
+                    } else {
+                        // App with system signature is always preferred
+                        int match = pms.checkSignatures(ret.activityInfo.packageName, "android");
+                        if (PackageManager.SIGNATURE_MATCH != match) {
+                            ret = ri;
+                        }
+                    }
                 }
 
                 if ((ri.match & IntentFilter.MATCH_CATEGORY_MASK) != IntentFilter.MATCH_CATEGORY_SCHEME &&
@@ -311,7 +319,7 @@ public class PackageManagerService extends IPackageManager.Stub {
                     }
                     // browser
                     if (intent.getComponent() == null && intent.getType() == null) {
-                        ResolveInfo ri = getSystemResolveInfo(riList);
+                        ResolveInfo ri = getSystemResolveInfo(pms, riList);
                         if (ri != null) {
                             return ri;
                         }
@@ -325,7 +333,7 @@ public class PackageManagerService extends IPackageManager.Stub {
                         (intent.getScheme().contains("tel") || intent.getScheme().contains("mailto") || (intent.getScheme().contains("https") && intent.getType() == null))) ||
                         (Intent.ACTION_SENDTO.equals(intent.getAction()) && intent.getScheme() != null && intent.getScheme().contains("smsto"))) {
                     // dialer, messaging, camera, gallary, music, video, email
-                    ResolveInfo ri = getSystemResolveInfo(riList);
+                    ResolveInfo ri = getSystemResolveInfo(pms, riList);
                     if (ri != null) {
                         return ri;
                     }
