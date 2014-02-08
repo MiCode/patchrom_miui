@@ -92,7 +92,8 @@
             android:id="@+id/animationContentView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true" >
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="65dip" >
 
             <com.miui.securitycenter.common.RecycleImageView
                 android:id="@+id/animationBgView"
@@ -121,47 +122,173 @@
                 android:layout_centerInParent="true" />
         </com.miui.optimizecenter.view.AnimationContentView>
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/supportTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="16dip"
-            android:orientation="vertical" >
+            android:layout_marginBottom="18dip"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/cleaner_support_hints"
+            android:textColor="#36ffffff"
+            android:textSize="12dip" />
 
-            <TextView
-                android:id="@+id/contentTitle"
+        <Button
+            android:id="@+id/deepClean"
+            android:layout_width="120dip"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/supportTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="8dip"
+            android:background="@drawable/deep_clean_button_selector"
+            android:text="@string/deep_cleaning"
+            android:textColor="#ffffff"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/memoryFrame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/deepClean"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="12dip" >
+
+            <ImageView
+                android:id="@+id/memoryDivider"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="8dip"
-                android:singleLine="true"
-                android:text="@string/storage_size_title"
-                android:textColor="#e6ffffff"
-                android:textSize="18dip"
-                android:textStyle="bold" />
+                android:layout_centerInParent="true"
+                android:background="@drawable/optimize_main_separator" />
+
+            <LinearLayout
+                android:id="@+id/usedFrame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dip"
+                android:layout_toLeftOf="@id/memoryDivider"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/usedMemory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#eeeeee"
+                    android:textSize="25dip" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dip"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/usedSuffix"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/memory_suffix"
+                        android:textColor="#aeafb0"
+                        android:textSize="9.5dip"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/memory_used_suffix"
+                        android:textColor="#aeafb0"
+                        android:textSize="8dip"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/availableFrame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dip"
+                android:layout_toRightOf="@id/memoryDivider"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/availableMemory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#eeeeee"
+                    android:textSize="25dip" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dip"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/availableSuffix"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/memory_suffix"
+                        android:textColor="#aeafb0"
+                        android:textSize="9.5dip"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/memory_available_suffix"
+                        android:textColor="#aeafb0"
+                        android:textSize="8dip"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/scanningInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/supportTitle"
+            android:layout_marginBottom="16dip"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="#99ffffff"
+            android:textSize="14dip"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/cacheFrame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/scanningInfo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dip"
+            android:visibility="gone" >
+
+            <com.miui.securitycenter.view.ScoreTextView
+                android:id="@+id/cacheSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/contentSummary"
-                android:layout_width="match_parent"
+                android:id="@+id/cacheSuffix"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dip"
-                android:ellipsize="end"
-                android:gravity="center"
-                android:singleLine="true"
+                android:layout_alignBottom="@id/cacheSize"
+                android:layout_marginBottom="-3dip"
+                android:layout_marginLeft="4dip"
+                android:layout_toRightOf="@id/cacheSize"
                 android:textColor="#99ffffff"
                 android:textSize="14dip" />
-
-            <TextView
-                android:id="@+id/contentSupport"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:gravity="center"
-                android:singleLine="true"
-                android:text="@string/cleaner_support_hints"
-                android:textColor="#36ffffff"
-                android:textSize="12dip" />
-        </LinearLayout>
+        </RelativeLayout>
     </com.miui.optimizecenter.view.MainFragmentContent>
 
 </com.miui.optimizecenter.view.MainFragmentView>
