@@ -146,6 +146,7 @@ import java.util.Set;
 import libcore.io.ErrnoException;
 import libcore.io.IoUtils;
 import libcore.io.Libcore;
+import miui.content.pm.ExtraPackageManager;
 import miui.provider.ExtraGuard;
 /**
  * Keep track of all those .apks everywhere.
@@ -274,24 +275,26 @@ public class PackageManagerService extends IPackageManager.Stub {
 
         static ResolveInfo getSystemResolveInfo(PackageManagerService pms, List<ResolveInfo> riList) {
             ResolveInfo ret = null;
+            PackageManager pm = pms.mContext.getPackageManager();
             for (ResolveInfo ri : riList) {
-                if (ri.system) {
-                    if (ret == null) {
-                        ret = ri;
-                    } else {
-                        // App with system signature is always preferred
-                        int match = pms.checkSignatures(ret.activityInfo.packageName, "android");
-                        if (PackageManager.SIGNATURE_MATCH != match) {
-                            ret = ri;
-                        }
-                    }
+                if (ri.priority < riList.get(0).priority) {
+                    break;
                 }
-
+                // Skip compare if ri is a precisely match
                 if ((ri.match & IntentFilter.MATCH_CATEGORY_MASK) != IntentFilter.MATCH_CATEGORY_SCHEME &&
                         (ri.match & IntentFilter.MATCH_CATEGORY_MASK) != IntentFilter.MATCH_CATEGORY_EMPTY &&
                         (ri.match & IntentFilter.MATCH_CATEGORY_MASK) != IntentFilter.MATCH_CATEGORY_TYPE) {
-                    ret = null;
-                    break;
+                   ret = null;
+                   break;
+                }
+                if (ri.system) {
+                    if (ExtraPackageManager.isMiuiSystemApp(pm, ri.activityInfo.packageName)) {
+                        ret = ri;
+                        break;
+                    }
+                    if (ret == null) {
+                        ret = ri;
+                    }
                 }
             }
             return ret;
