@@ -3,8 +3,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:orientation="horizontal"
-        android:visibility="invisible" >
+        android:orientation="horizontal" >
         <com.miui.home.launcher.UninstallDialog
             android:id="@+id/uninstall_dialog"
             android:layout_width="match_parent"
@@ -69,10 +68,14 @@
             </LinearLayout>
         </com.miui.home.launcher.UninstallDialog>
         <FrameLayout
-            android:id="@+id/indicate_panel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/prompt_message_bg" >
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content" >
+            <ImageView
+                android:id="@+id/bg_panel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="invisible"
+                android:background="@drawable/prompt_message_bg" />
             <ImageView
                 android:id="@+id/trash"
                 android:layout_width="wrap_content"
@@ -87,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="top|center_horizontal"
                 android:paddingTop="12dip"
-                style="@style/WorkspaceIconTitle.notification"
-                android:text="@string/editing_tips" />
+                android:visibility="invisible"
+                style="@style/WorkspaceIconTitle.notification" />
         </FrameLayout>
     </com.miui.home.launcher.DeleteZone>
