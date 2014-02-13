@@ -50,13 +50,29 @@
                     android:paddingTop="@dimen/status_bar_height"
                     android:visibility="invisible" />
 
+                <com.miui.home.launcher.EditingEntryThumbnailView
+                    android:id="@+id/editing_entry_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/widget_box_height"
+                    android:layout_gravity="bottom"
+                    android:visibility="invisible" />
+                <com.miui.home.launcher.TransitionEffectThumbnailView
+                    android:id="@+id/transition_thumbnail_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/widget_box_height"
+                    android:layout_gravity="bottom"
+                    android:visibility="invisible" />
+                <com.miui.home.launcher.WallpaperThumbnailView
+                    android:id="@+id/wallpaper_thumbnail_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/widget_box_height"
+                    android:layout_gravity="bottom"
+                    android:visibility="invisible" />
                 <com.miui.home.launcher.WidgetThumbnailView
                     android:id="@+id/widget_thumbnail_view"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/widget_box_height"
                     android:layout_gravity="bottom"
-                    android:paddingLeft="10dip"
-                    android:paddingRight="10dip"
                     android:visibility="invisible" />
 
                 <com.miui.home.launcher.MultiSelectContainerView
@@ -65,6 +81,16 @@
                     android:layout_height="@dimen/multi_select_container_height"
                     android:layout_gravity="bottom"
                     android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/multi_selecting_tips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/multi_select_container_height"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:gravity="center"
+                    android:visibility="invisible"
+                    style="@style/WorkspaceIconTitle.notification"
+                    android:text="@string/multi_selecting_tips" />
 
                 <com.miui.home.launcher.HotSeats
                     android:id="@+id/hot_seats"
