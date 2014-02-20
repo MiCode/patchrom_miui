@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/common_list_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.xiaomi.o2o.activity.view.CommonPullListView
+        android:id="@android:id/list"
+        style="@style/Widget.ListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/detail_background"
+        android:divider="@color/item_divider_line"
+        android:dividerHeight="@dimen/common_divider_height" />
+
+    <FrameLayout
+        android:id="@+id/loading_holder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.xiaomi.o2o.activity.view.EmptyLoadingView
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="center" />
+    </FrameLayout>
+
+</FrameLayout>

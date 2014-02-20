@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_list_view_background" >
+
+    <ScrollView
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/choose_content_category_padding_left"
+                android:paddingRight="@dimen/choose_content_category_padding_left" >
+
+                <LinearLayout
+                    android:id="@+id/allcategory_holder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/choose_content_allcategory_height"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/choose_content_allcategory_paddingleft" >
+
+                    <CheckBox
+                        android:id="@+id/allcategory"
+                        android:layout_width="@dimen/check_button_width"
+                        android:layout_height="@dimen/check_button_width"
+                        android:background="@drawable/check_selector"
+                        android:button="@null"
+                        android:clickable="false" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/check_button_margin_left"
+                        android:text="@string/allcategory"
+                        android:textColor="@color/choose_content_all_category_title"
+                        android:textSize="@dimen/choose_type_text_size" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/choose_content_category_line" />
+
+                <LinearLayout
+                    android:id="@+id/content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/choose_content_title_margin_top"
+                    android:paddingTop="@dimen/choose_content_padding_top" >
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/choose_content_category_padding_left"
+                android:paddingRight="@dimen/choose_content_category_padding_left" >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/choose_content_category_line" />
+
+                <LinearLayout
+                    android:id="@+id/nores_holder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/choose_content_nores_height"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/choose_content_allcategory_paddingleft" >
+
+                    <CheckBox
+                        android:id="@+id/nores"
+                        android:layout_width="@dimen/check_button_width"
+                        android:layout_height="@dimen/check_button_width"
+                        android:background="@drawable/check_selector"
+                        android:button="@null"
+                        android:duplicateParentState="false" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/check_button_margin_left"
+                        android:text="@string/nores"
+                        android:textColor="@color/choose_content_all_category_title"
+                        android:textSize="@dimen/choose_type_text_size" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/choose_content_category_line" />
+            </LinearLayout>
+
+            <com.xiaomi.o2o.activity.view.EmptyLoadingView
+                android:id="@+id/loading"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:gravity="center" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/item_buy_layout"
+        style="@style/Widget.BottomBar"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/item_detail_bottom_height"
+        android:layout_gravity="bottom"
+        android:background="@color/common_list_view_background"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/cancel_button"
+            style="@style/Widget.BottomBar.CategoryButtonCancel"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/button_cancel"
+            android:textAppearance="@style/TextAppearance.BuyButton" />
+
+        <ImageView
+            android:layout_width="1px"
+            android:layout_height="@dimen/bottombar_button_height"
+            android:background="@color/check_button_gap_color" />
+
+        <TextView
+            android:id="@+id/ok_button"
+            style="@style/Widget.BottomBar.CategoryButtonOK"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/button_ok"
+            android:textAppearance="@style/TextAppearance.BuyButton" />
+    </LinearLayout>
+
+</FrameLayout>

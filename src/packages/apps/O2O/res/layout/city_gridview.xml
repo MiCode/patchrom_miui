@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/city_hottest_city_gridview_title_height"
+        android:background="@color/city_list_background"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/personal_settings_item_padding_left"
+        android:text="@string/hot_cities"
+        android:textAppearance="@style/TextAppearance.Title.CityListItem"
+        android:textSize="@dimen/text_sub_title_size" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:paddingRight="@dimen/city_hottest_city_gridview_padding_right" >
+
+        <com.xiaomi.o2o.activity.view.ExtendedGridView
+            android:id="@+id/gridview"
+            style="@style/Widget.HottestCityGridView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </com.xiaomi.o2o.activity.view.ExtendedGridView>
+    </LinearLayout>
+
+</LinearLayout>

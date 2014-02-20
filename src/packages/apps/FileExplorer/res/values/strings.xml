@@ -46,12 +46,22 @@
     <string name="operation_rename_message">Name folder</string>
     <string name="operation_create_folder_message">Name folder</string>
     <string name="operation_delete_confirm_message">Delete</string>
-    <string name="operation_delete_confirm_message_folder">All folder contents will also be deleted.\r\n</string>
+    <string name="operation_delete_confirm_message_folder">All folder contents will be deleted.\r\n</string>
     <string name="delete_folder">Delete this folder?</string>
     <string name="delete_folders">Delete %1$d?</string>
     <string name="delete_file">Delete this file?</string>
     <string name="delete_files">Delete %1$d files?</string>
-    <string name="delete_files_and_folders">Delete %1$d file(s) and %2$d folder(s)?</string>
+
+    <plurals name="delete_files_confirm">
+        <item quantity="one">Delete 1 file</item>
+        <item quantity="other">Delete %1$d files</item>
+    </plurals>
+
+    <plurals name="delete_folders_confirm">
+        <item quantity="one">" and 1 folder?"</item>
+        <item quantity="other">" and %1$d folders?"</item>
+    </plurals>
+
     <string name="new_folder_name">Unnamed folder</string>
     <string name="sd_card_size">SD card: <xliff:g id="total_size">%1$s</xliff:g></string>
     <string name="sd_card_available">Available: <xliff:g id="available_size">%1$s</xliff:g></string>
@@ -118,8 +128,16 @@
     <string name="no_enough_storage_title">Not enough space</string>
     <string name="no_enough_storage_indication">Device\'s storage space is full.</string>
 
-    <string name="ui_bar_txt_download_progress">%1$d file(s) left to download</string>
-    <string name="ui_bar_txt_upload_progress">%1$d file(s) left to upload</string>
+    <plurals name="ui_bar_txt_download_progress">
+        <item quantity="one">1 file left to download</item>
+        <item quantity="other">%1$d files left to download</item>
+    </plurals>
+
+    <plurals name="ui_bar_txt_upload_progress">
+        <item quantity="one">1 file left to upload</item>
+        <item quantity="other">%1$d files left to upload</item>
+    </plurals>
+
     <string name="ui_main_menu_option_task_manage">Manage transfers</string>
     <string name="kuaipan_label">Kuaipan</string>
     <string name="create_kuaipan_shortcut_pref">Place on Home screen</string>

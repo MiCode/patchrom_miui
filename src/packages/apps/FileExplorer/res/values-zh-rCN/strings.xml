@@ -31,7 +31,14 @@
     <string name="delete_folders">确定要删除所选的%1$d个文件夹吗？</string>
     <string name="delete_file">确定要删除该文件吗？</string>
     <string name="delete_files">确定要删除所选的%1$d个文件吗？</string>
-    <string name="delete_files_and_folders">确定要删除所选的%1$d个文件和%2$d个文件夹吗？</string>
+    
+    <plurals name="delete_files_confirm">
+        <item quantity="other">确定要删除所选的%1$d个文件</item>
+    </plurals>
+    <plurals name="delete_folders_confirm">
+        <item quantity="other">和%1$d个文件夹吗？</item>
+    </plurals>
+
     <string name="cancel">取消</string>
     <string name="background">后台下载</string>
     <string name="no_file">没有文件</string>
@@ -118,8 +125,13 @@
     <string name="no_enough_storage_indication">存储空间不足，复制操作失败。您可以删除一些不必要的文件后再试，或者使用“文件清理”功能释放垃圾文件所占用的空间。</string>
 
     <!-- 通知栏 -->
-    <string name="ui_bar_txt_download_progress">还有%1$d个文件需要下载</string>
-    <string name="ui_bar_txt_upload_progress">还有%1d个文件需要上传</string>
+    <plurals name="ui_bar_txt_download_progress">
+        <item quantity="other">还有%1$d个文件需要下载</item>
+    </plurals>
+    <plurals name="ui_bar_txt_upload_progress">
+        <item quantity="other">还有%1$d个文件需要上传</item>
+    </plurals>
+    <string name="ui_bar_txt_upload_progress">还有%1$d个文件需要上传</string>
     <!-- mainActivity MENU -->
     <string name="ui_main_menu_option_task_manage">传输管理</string>
     <!-- 传输管理界面 -->
