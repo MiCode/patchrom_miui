@@ -357,7 +357,7 @@ public abstract class PackageManager {
      *
      * @hide
      */
-    public static final int INSTALL_FROM_PACKAGEINSTALLER = 0x00000040;
+    public static final int INSTALL_FROM_XIAOMI = 0x00000040;
 
     /**
      * Flag parameter for

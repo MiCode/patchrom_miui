@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/detail_background"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="none"
+        android:fillViewport="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/base_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <ImageSwitcher
+                    android:id="@+id/itempic"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_detail_pic_height"
+                    android:layout_marginBottom="@dimen/item_detail_imageswitch_margin_bottom" />
+
+                <LinearLayout
+                    style="@style/Detail.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <include layout="@layout/item_detail_upper_passbook" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/Detail.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <include layout="@layout/item_detail_upper_sec_passbook" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/Detail.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <include layout="@layout/item_detail_middle" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/Detail.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <include layout="@layout/item_detail_bottom" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.xiaomi.o2o.activity.view.EmptyLoadingView
+                android:id="@+id/loading"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:gravity="center" />
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

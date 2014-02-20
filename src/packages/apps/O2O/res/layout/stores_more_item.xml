@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaomi.o2o.activity.view.StoresMoreItem xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Detail.Padding"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white" >
+
+    <TextView
+        android:id="@+id/merchant_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:text="@string/loading_item_detail"
+        android:textAppearance="@style/TextAppearance.Title.NoAntiColor"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/merchant_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/merchant_title"
+        android:layout_marginTop="@dimen/stores_list_sub_title_margin_top"
+        android:gravity="bottom"
+        android:text="@string/loading_item_detail"
+        android:textColor="@color/text_description_color"
+        android:textSize="@dimen/stores_list_sub_title_size" />
+
+    <TextView
+        android:id="@+id/merchant_branchname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/merchant_location"
+        android:layout_toRightOf="@id/merchant_title"
+        android:gravity="bottom"
+        android:text="@string/item_loading"
+        android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/location_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="@string/location_distance"
+        android:textAppearance="@style/TextAppearance.Title.Secondary.NoAntiColor"
+        android:textSize="@dimen/item_detail_small_size" />
+
+    <ImageView
+        android:id="@id/split_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/merchant_location"
+        android:layout_marginTop="@dimen/stores_list_item_margin_top"
+        android:background="@color/item_divider_line" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/split_line"
+        android:layout_marginBottom="@dimen/stores_list_item_margin_bottom"
+        android:layout_marginTop="@dimen/stores_list_item_margin_top"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="@dimen/item_detail_map_width"
+                android:layout_height="@dimen/item_detail_map_height"
+                android:layout_gravity="center"
+                android:background="@drawable/item_detail_map_icon"
+                android:scaleType="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/item_detail_image_margin_left"
+                android:text="@string/findinmap"
+                android:textAppearance="@style/TextAppearance.DetailHelp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/contactmerchant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/stores_list_phone_margin_left"
+            android:gravity="right"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="@dimen/item_detail_phone_width"
+                android:layout_height="@dimen/item_detail_phone_height"
+                android:layout_gravity="center"
+                android:background="@drawable/item_detail_phone_icon"
+                android:scaleType="center" />
+
+            <TextView
+                android:id="@+id/contactmerchant_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/item_detail_image_margin_left"
+                android:text="@string/contactwithmerchant"
+                android:textAppearance="@style/TextAppearance.DetailHelp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</com.xiaomi.o2o.activity.view.StoresMoreItem>

@@ -290,7 +290,6 @@ public class PackageManagerService extends IPackageManager.Stub {
                 if (ri.system) {
                     if (ExtraPackageManager.isMiuiSystemApp(pm, ri.activityInfo.packageName)) {
                         ret = ri;
-                        break;
                     }
                     if (ret == null) {
                         ret = ri;
@@ -5540,6 +5539,8 @@ public class PackageManagerService extends IPackageManager.Stub {
 
         final int uid = Binder.getCallingUid();
 
+        flags |= checkInstallerFromXiaomi(uid);
+
         final int filteredFlags;
 
         if (uid == Process.SHELL_UID || uid == 0) {
@@ -5555,6 +5556,23 @@ public class PackageManagerService extends IPackageManager.Stub {
         msg.obj = new InstallParams(packageURI, observer, filteredFlags, installerPackageName,
                 verificationURI, manifestDigest, encryptionParams);
         mHandler.sendMessage(msg);
+    }
+
+    // MIUI ADD:
+    private int checkInstallerFromXiaomi(int uid) {
+        final String INSTALL_FROM_PACKAGEINSTALLER = "com.android.packageinstaller";
+        final String INSTALL_FROM_GAMECENTER = "com.xiaomi.gamecenter";
+        final String INSTALL_FROM_MARKET = "com.xiaomi.market";
+
+        String[] packages = this.getPackagesForUid(uid);
+        if ((packages != null && packages.length == 1)
+                && (INSTALL_FROM_PACKAGEINSTALLER.equals(packages[0])
+                        || INSTALL_FROM_GAMECENTER.equals(packages[0]) || INSTALL_FROM_MARKET
+                            .equals(packages[0]))) {
+            return PackageManager.INSTALL_FROM_XIAOMI;
+        }
+
+        return 0;
     }
 
     @Override

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaomi.o2o.activity.view.PersonalFavoritesItem xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/common_list_view_background" >
+
+    <LinearLayout
+        android:id="@+id/content_holder"
+        style="@style/Widget.ListView.Item.TrebleLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <FrameLayout
+            android:id="@+id/icon_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageSwitcher
+                android:id="@+id/icon"
+                style="@style/Widget.Icon"
+                android:layout_marginBottom="@dimen/item_padding_bottom"
+                android:layout_marginRight="@dimen/item_icon_margin_right" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="5" >
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:text="@string/app_name"
+                    android:textAppearance="@style/TextAppearance.Title" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="12"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/personal_item_padding_bottom" >
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/available_deadline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/item_shopcount_margin_top"
+                        android:lines="1"
+                        android:text="@string/available_deadline"
+                        android:textAppearance="@style/TextAppearance.Title.Secondary" />
+
+                    <TextView
+                        android:id="@+id/personal_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/item_shopcount_margin_top"
+                        android:lines="1"
+                        android:text="@string/personal_desc"
+                        android:textAppearance="@style/TextAppearance.Title.Secondary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/available_day_left"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/personal_available_dayleft_margin_bottom"
+                        android:gravity="center_horizontal|bottom"
+                        android:textAppearance="@style/TextAppearance.Personal.DayLeft" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/item_divider_line" />
+
+</com.xiaomi.o2o.activity.view.PersonalFavoritesItem>

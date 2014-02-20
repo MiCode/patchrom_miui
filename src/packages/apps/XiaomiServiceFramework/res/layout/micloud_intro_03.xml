@@ -1,49 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:orientation="vertical">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
     <ImageView
         android:id="@+id/pic"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/micloud_intro_03"
-        />
+        android:src="@drawable/micloud_intro_03" />
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_below="@id/pic"
         android:background="@drawable/micloud_intro_bg"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical" >
+
         <TextView
+            style="@style/MiCloudIntro03Part1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/micloud_intro_margin_h"
             android:layout_marginRight="@dimen/micloud_intro_margin_h"
             android:layout_marginTop="@dimen/micloud_intro_margin_t"
-            android:text="@string/micloud_intro_03_part_01"
-            style="@style/MiCloudIntro03Part1"
-            />
+            android:text="@string/micloud_intro_03_part_01" />
+
         <TextView
+            style="@style/MiCloudIntro03Part2"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/micloud_intro_margin_v"
             android:layout_marginLeft="@dimen/micloud_intro_margin_h"
             android:layout_marginRight="@dimen/micloud_intro_margin_h"
-            android:text="@string/micloud_intro_03_part_02"
-            style="@style/MiCloudIntro03Part2"
-            />
+            android:layout_marginTop="@dimen/micloud_intro_margin_v"
+            android:text="@string/micloud_intro_03_part_02" />
+
         <Button
             android:id="@+id/start_micloud"
+            style="@style/ButtonLogin"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:layout_marginLeft="@dimen/content_horizontal_margin"
             android:layout_marginRight="@dimen/content_horizontal_margin"
             android:layout_marginTop="10dp"
-            android:text="@string/start_micloud"
-            style="@style/ButtonLogin"
-            />
+            android:text="@string/start_micloud" />
     </LinearLayout>
+
 </RelativeLayout>

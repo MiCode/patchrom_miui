@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/detail_background"
+    android:fadingEdge="none"
+    android:fillViewport="true"
+    android:overScrollMode="never" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/personal_settings_margin_top"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/personal_settings_padding_left"
+        android:paddingRight="@dimen/personal_settings_padding_right" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/choose_content_border"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/personal_settings_star"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/personal_settings_item_height"
+                android:background="@drawable/setting_bg_selector"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/personal_settings_item_padding_left"
+                android:paddingRight="@dimen/personal_settings_item_padding_right" >
+
+                <ImageView
+                    android:layout_width="@dimen/personal_settings_star_width"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/avatar_right_click" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/personal_settings_star"
+                    android:textAppearance="@style/TextAppearance.Title.PersonalSetting" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/personal_divider_line" />
+
+            <RelativeLayout
+                android:id="@+id/buy_history"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/personal_settings_item_height"
+                android:background="@drawable/setting_bg_selector"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/personal_settings_item_padding_left"
+                android:paddingRight="@dimen/personal_settings_item_padding_right" >
+
+                <ImageView
+                    android:layout_width="@dimen/personal_settings_star_width"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/avatar_right_click" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/personal_buy_history"
+                    android:textAppearance="@style/TextAppearance.Title.PersonalSetting" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/personal_divider_line" />
+
+            <RelativeLayout
+                android:id="@+id/change_city"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/personal_settings_item_height"
+                android:background="@drawable/setting_bg_selector"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/personal_settings_item_padding_left"
+                android:paddingRight="@dimen/personal_settings_item_padding_right" >
+
+                <ImageView
+                    android:id="@+id/change_city_image"
+                    android:layout_width="@dimen/personal_settings_star_width"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/avatar_right_click" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/personal_change_city"
+                    android:textAppearance="@style/TextAppearance.Title.PersonalSetting" />
+
+                <TextView
+                    android:id="@+id/city_location_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/personal_settings_city_location_name_margin_right"
+                    android:layout_toLeftOf="@id/change_city_image"
+                    android:gravity="center_vertical"
+                    android:text="@string/personal_change_city_default"
+                    android:textAppearance="@style/TextAppearance.Title.PersonalSetting" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/personal_settings_margin_top_sec"
+            android:background="@drawable/choose_content_border"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/personal_settings_account"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/personal_settings_item_height"
+                android:background="@drawable/setting_bg_selector"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/personal_settings_item_padding_left"
+                android:paddingRight="@dimen/personal_settings_item_padding_right" >
+
+                <ImageView
+                    android:id="@+id/account_avatar_image"
+                    android:layout_width="@dimen/personal_settings_star_width"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/avatar_right_click" />
+
+                <TextView
+                    android:id="@+id/account_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/personal_settings_city_location_name_margin_right"
+                    android:layout_toLeftOf="@id/account_avatar_image"
+                    android:gravity="center_vertical"
+                    android:text="@string/personal_account_default"
+                    android:textAppearance="@style/TextAppearance.Title.PersonalSetting" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/personal_settings_account"
+                    android:textAppearance="@style/TextAppearance.Title.PersonalSetting" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/personal_divider_line" />
+
+            <RelativeLayout
+                android:id="@+id/personal_settings_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/personal_settings_item_height"
+                android:background="@drawable/setting_bg_selector"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/personal_settings_item_padding_left"
+                android:paddingRight="@dimen/personal_settings_item_padding_right" >
+
+                <ImageView
+                    android:layout_width="@dimen/personal_settings_star_width"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/avatar_right_click" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/personal_settings_feedback"
+                    android:textAppearance="@style/TextAppearance.Title.PersonalSetting" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/personal_divider_line" />
+
+            <RelativeLayout
+                android:id="@+id/app_version_holder"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/personal_settings_item_height"
+                android:background="@drawable/setting_bg_selector"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/personal_settings_item_padding_left"
+                android:paddingRight="@dimen/personal_settings_item_padding_right" >
+
+                <ImageView
+                    android:id="@+id/check_update_image"
+                    android:layout_width="@dimen/personal_settings_star_width"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/avatar_right_click" />
+
+                <TextView
+                    android:id="@+id/check_update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/personal_settings_city_location_name_margin_right"
+                    android:layout_toLeftOf="@id/check_update_image"
+                    android:gravity="center_vertical"
+                    android:text="@string/personal_check_update_default"
+                    android:textAppearance="@style/TextAppearance.Title.PersonalSetting" />
+
+                <TextView
+                    android:id="@+id/app_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/app_version"
+                    android:textAppearance="@style/TextAppearance.Title.PersonalSetting" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
