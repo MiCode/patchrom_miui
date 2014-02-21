@@ -14,7 +14,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/item_desc_title_height"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_detail_upper_margin_top"
             android:orientation="horizontal"
             android:paddingLeft="@dimen/personal_settings_padding_left" >
 
@@ -25,7 +26,15 @@
                 android:layout_marginRight="@dimen/banner_margin_right"
                 android:gravity="center_vertical"
                 android:lines="1"
-                android:text="@string/personal_desc"
+                android:text="@string/source"
+                android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="@string/order_id_prefix"
                 android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor" />
 
             <TextView
@@ -35,13 +44,14 @@
                 android:gravity="center_vertical"
                 android:singleLine="true"
                 android:text="@string/order_id_text"
-                android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor" />
+                android:textAppearance="@style/TextAppearance.Title.OderId" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/deadline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_detail_orderid_margin_top"
             android:gravity="bottom"
             android:paddingLeft="@dimen/personal_settings_padding_left"
             android:text="@string/deadline"

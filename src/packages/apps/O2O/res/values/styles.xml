@@ -121,7 +121,7 @@
     </style>
 
     <!-- Text Appearance -->
-    <style name="TextAppearance" parent="@miui:style/V5.TextAppearance.Title">
+    <style name="TextAppearance">
         <item name="android:shadowDx">0.0</item>
         <item name="android:shadowDy">0.0</item>
         <item name="android:shadowRadius">0.0</item>
@@ -155,26 +155,29 @@
         <item name="android:textColor">@color/primary_text</item>
         <!-- redefine text style and shadow, which is different from V5. -->
         <item name="android:shadowDx">0.0</item>
-        <item name="android:shadowDy">1.0</item>
-        <item name="android:shadowRadius">1.0</item>
+        <item name="android:shadowDy">0.0</item>
+        <item name="android:shadowRadius">0.0</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/text_title_size</item>
     </style>
 
-    <style name="TextAppearance.Distance">
+    <style name="TextAppearance.Title.NoShadow">
         <item name="android:textColor">@color/primary_text</item>
         <!-- redefine text style and shadow, which is different from V5. -->
         <item name="android:shadowDx">0.0</item>
-        <item name="android:shadowDy">1.0</item>
-        <item name="android:shadowRadius">1.0</item>
-        <item name="android:textSize">@dimen/text_title_size</item>
+        <item name="android:shadowDy">0.0</item>
+        <item name="android:shadowRadius">0.0</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/text_sec_title_size</item>
     </style>
 
     <style name="TextAppearance.Title.NoAntiColor">
         <item name="android:textColor">@color/text_title_color</item>
         <!-- redefine text style and shadow, which is different from V5. -->
+        <item name="android:textStyle">bold</item>
         <item name="android:shadowDx">0.0</item>
-        <item name="android:shadowDy">1.0</item>
-        <item name="android:shadowRadius">1.0</item>
+        <item name="android:shadowDy">0.0</item>
+        <item name="android:shadowRadius">0.0</item>
     </style>
 
     <style name="TextAppearance.Title.Secondary">
@@ -195,6 +198,24 @@
         <item name="android:textColor">@color/text_description_color</item>
     </style>
 
+    <style name="TextAppearance.Title.OderId">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/item_detail_title_size</item>
+        <item name="android:textColor">@color/text_price_color</item>
+    </style>
+
+    <style name="TextAppearance.Title.DetailPriceMoney">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/item_detail_pricemoney_size</item>
+        <item name="android:textColor">@color/secondary_text</item>
+    </style>
+
+    <style name="TextAppearance.Title.DetailPriceMoney.NoAntiColor">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/item_detail_pricemoney_size</item>
+        <item name="android:textColor">@color/text_description_color</item>
+    </style>
+
     <style name="TextAppearance.Title.OrderNumber">
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">@dimen/text_order_number_size</item>
@@ -203,7 +224,7 @@
 
     <style name="TextAppearance.Title.PersonalSetting">
         <item name="android:textStyle">normal</item>
-        <item name="android:textSize">@dimen/text_title_size</item>
+        <item name="android:textSize">@dimen/personal_setting_text_title_size</item>
         <item name="android:textColor">@color/text_description_color</item>
     </style>
 
