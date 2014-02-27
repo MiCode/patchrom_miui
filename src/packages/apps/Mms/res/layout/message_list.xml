@@ -4,9 +4,7 @@
     android:id="@+id/history"
     android:layout_width="match_parent"
     android:layout_height="0dp"
-    android:layout_weight="1.0"
-    android:foregroundGravity="left|bottom"
-    android:foreground="@drawable/message_list_bottom_foreground">
+    android:layout_weight="1.0" >
     <com.android.mms.ui.MessageListView
         android:id="@+id/message_list"
         android:layout_width="match_parent"
@@ -24,4 +22,16 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:visibility="invisible" />
+    <ImageView
+        android:id="@+id/message_list_top_foreground"
+        android:layout_gravity="left|top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/message_list_top_foreground" />
+    <ImageView
+        android:id="@+id/message_list_bottom_foreground"
+        android:layout_gravity="left|bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/message_list_bottom_foreground" />
 </FrameLayout>
