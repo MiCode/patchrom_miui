@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.optimizecenter.view.DeepCleanInstalledAppsListItemSubView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ListItemSubView" >
+
+    <RelativeLayout
+        android:id="@+id/icon_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/item_detail"
+            style="@style/ListItemSubViewItem"
+            android:drawableTop="@drawable/icon_app_details_selector"
+            android:text="@string/list_sub_view_item_view_detail" />
+
+        <Button
+            android:id="@+id/item_view"
+            style="@style/ListItemSubViewItem"
+            android:layout_marginLeft="10dip"
+            android:layout_toRightOf="@id/item_detail"
+            android:drawableTop="@drawable/icon_view_selector"
+            android:text="@string/list_sub_view_item_view_file" />
+
+        <Button
+            android:id="@+id/item_backup_uninstall"
+            style="@style/ListItemSubViewItem"
+            android:layout_marginLeft="10dip"
+            android:layout_toRightOf="@id/item_view"
+            android:drawableTop="@drawable/icon_uninstall_backup_selector"
+            android:text="@string/list_sub_view_item_backup_uninstall" />
+
+        <Button
+            android:id="@+id/item_uninstall"
+            style="@style/ListItemSubViewItem"
+            android:layout_marginLeft="10dip"
+            android:layout_toRightOf="@id/item_backup_uninstall"
+            android:drawableTop="@drawable/icon_clean_selector"
+            android:text="@string/list_sub_view_item_uninstall" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/info"
+        style="@style/ListItemSubViewInfo"
+        android:layout_below="@id/icon_frame" />
+
+</com.miui.optimizecenter.view.DeepCleanInstalledAppsListItemSubView>

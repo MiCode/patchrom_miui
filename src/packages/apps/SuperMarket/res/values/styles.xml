@@ -238,18 +238,10 @@
 
     <style name="TextAppearance.Title"> <!-- 有反色 -->
         <item name="android:textColor">@color/primary_text</item>
-        <!-- redefine text style and shadow, which is different from V5. -->
-        <item name="android:shadowDx">0.0</item>
-        <item name="android:shadowDy">1.0</item>
-        <item name="android:shadowRadius">1.0</item>
     </style>
 
     <style name="TextAppearance.Title.NoAntiColor"> <!-- 无反色 -->
         <item name="android:textColor">@miui:color/v5_primary_text_color_light</item>
-        <!-- redefine text style and shadow, which is different from V5. -->
-        <item name="android:shadowDx">0.0</item>
-        <item name="android:shadowDy">1.0</item>
-        <item name="android:shadowRadius">1.0</item>
     </style>
 
     <style name="TextAppearance.Title.Secondary"> <!-- 有反色 -->
@@ -267,9 +259,10 @@
     <style name="TextAppearance.Title.Diagnostics">
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">@miui:dimen/v5_text_font_size_preference_category</item>
-        <item name="android:shadowDx">0.0</item>
-        <item name="android:shadowDy">0.0</item>
-        <item name="android:shadowRadius">0.0</item>
+    </style>
+
+    <style name="TextAppearance.Title.Preference" parent="@miui:style/V5.TextAppearance.PreferenceList">
+        <item name="android:textStyle">normal</item>
     </style>
 
     <style name="TextAppearance.Content">
@@ -317,10 +310,6 @@
 
     <!-- App Comments Style -->
     <style name="TextAppearance.Title.Comment" parent="TextAppearance.Title">
-        <!-- redefine text style and shadow, which is different from V5 and TextAppearance.Title. -->
-        <item name="android:shadowDx">0.0</item>
-        <item name="android:shadowDy">0.0</item>
-        <item name="android:shadowRadius">0.0</item>
         <item name="android:textStyle">normal</item>
     </style>
 
