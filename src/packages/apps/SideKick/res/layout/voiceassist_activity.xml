@@ -18,6 +18,7 @@
         android:id="@+id/layout_main"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:focusable="true"
         android:background="@drawable/main_bg" >
 
         <include layout="@layout/phone" />
@@ -33,13 +34,16 @@
                 android:id="@+id/layout_voiceassist"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:focusable="true">
             </com.miui.voiceassist.view.VALinearLayout>
 
-            <ImageView
+            <com.miui.voiceassist.view.ImageViewCareIME
+                android:id="@+id/iv_fit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="false"
+                android:focusable="false"
                 android:longClickable="false"
                 android:src="@drawable/list_fix_transparent" />
         </LinearLayout>
