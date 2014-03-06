@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <PreferenceCategory>
+    <PreferenceCategory android:key="pref_category_setting" >
         <CheckBoxPreference
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -9,8 +9,14 @@
             android:persistent="false"
             android:summary="@string/turn_on_smart_antispam_summary_on"
             android:title="@string/turn_on_smart_antispam_title" />
+        <CheckBoxPreference
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:key="pref_show_user_notice_yp_detail"
+            android:persistent="false"
+            android:title="@string/notify_connect_every_time" />
     </PreferenceCategory>
-    <PreferenceCategory>
+    <PreferenceCategory android:key="pref_category_info" >
         <PreferenceScreen
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

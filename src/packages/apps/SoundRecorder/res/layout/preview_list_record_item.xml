@@ -42,12 +42,23 @@
         android:layout_weight="1"
         android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/record_title"
-            style="@miui:style/V5.TextAppearance.List.Primary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/white" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/record_title"
+                style="@miui:style/V5.TextAppearance.List.Primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:layout_gravity="left"/>
+            <TextView
+                android:id="@+id/download_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_progress"
+                android:layout_gravity="right"/>
+        </FrameLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
