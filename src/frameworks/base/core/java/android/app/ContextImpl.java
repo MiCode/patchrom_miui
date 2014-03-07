@@ -104,6 +104,9 @@ import android.annotation.MiuiHook.MiuiHookType;
 import android.app.admin.DevicePolicyManager;
 import com.android.internal.os.IDropBoxManagerService;
 
+import miui.security.ISecurityManager;
+import miui.security.SecurityManager;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -505,6 +508,17 @@ class ContextImpl extends Context {
         registerService(WINDOW_SERVICE, new ServiceFetcher() {
                 public Object getService(ContextImpl ctx) {
                     return WindowManagerImpl.getDefault(ctx.mPackageInfo.mCompatibilityInfo);
+                }});
+
+        registerMiuiServices();
+    }
+
+    static void registerMiuiServices() {
+        registerService(SECURITY_SERVICE, new ServiceFetcher() {
+                public Object getService(ContextImpl ctx) {
+                    IBinder b = ServiceManager.getService(SECURITY_SERVICE);
+                    ISecurityManager service = ISecurityManager.Stub.asInterface(b);
+                    return new SecurityManager(service);
                 }});
     }
 

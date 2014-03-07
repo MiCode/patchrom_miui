@@ -62,6 +62,7 @@ import com.android.server.usb.UsbService;
 import com.android.server.wm.WindowManagerService;
 import com.miui.server.ClipServiceExtra;
 import com.miui.server.MiuiUsbService;
+import com.miui.server.SecurityManagerService;
 
 import dalvik.system.VMRuntime;
 import dalvik.system.Zygote;
@@ -597,6 +598,8 @@ class ServerThread extends Thread {
             } catch (Throwable e) {
                 reportWtf("starting UsbService", e);
             }
+
+            ServiceManager.addService(Context.SECURITY_SERVICE, new SecurityManagerService(context));  // miui-add
 
             try {
                 Slog.i(TAG, "Serial Service");

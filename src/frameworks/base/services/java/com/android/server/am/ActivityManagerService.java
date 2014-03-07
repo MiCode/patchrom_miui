@@ -32,6 +32,7 @@ import com.android.server.wm.WindowManagerService;
 import miui.content.ExtraIntent;
 import miui.net.FirewallManager;
 import miui.provider.ExtraSettings;
+import miui.security.SecurityManager;
 
 import dalvik.system.Zygote;
 
@@ -3810,12 +3811,18 @@ public final class ActivityManagerService extends ActivityManagerNative
                 }
             }
         }
-        
+
         int N = procs.size();
         for (int i=0; i<N; i++) {
             removeProcessLocked(procs.get(i), callerWillRestart, allowRestart, reason);
         }
+
         return N > 0;
+    }
+
+    private final void killNativePackageProcesses(int uid, String packageName) {
+        SecurityManager sm = (SecurityManager)mContext.getSystemService(Context.SECURITY_SERVICE);
+        if (sm != null && packageName != null) sm.killNativePackageProcesses(uid, packageName);
     }
 
     private final boolean forceStopPackageLocked(String name, int uid,
@@ -3843,6 +3850,7 @@ public final class ActivityManagerService extends ActivityManagerNative
             }
         }
         
+        killNativePackageProcesses(uid, name);
         boolean didSomething = killPackageProcessesLocked(name, uid, -100,
                 callerWillRestart, false, doit, evenPersistent, "force stop");
         
