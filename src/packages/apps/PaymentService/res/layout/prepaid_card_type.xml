@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="13dip"
+        android:paddingLeft="15dip"
+        android:paddingRight="15dip"
+        android:paddingTop="15dip" >
+
+        <TextView
+            android:id="@+id/carrier_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dip"
+            android:singleLine="true"
+            android:text="@string/prepaid_grid_carrier_hint"
+            android:textColor="@color/text_color_gray"
+            android:textSize="@dimen/text_size_small"
+            android:textStyle="bold" />
+
+        <com.xiaomi.payment.component.CarrierGrid
+            android:id="@+id/carrier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/denomination_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dip"
+            android:layout_marginTop="10dip"
+            android:singleLine="true"
+            android:text="@string/prepaid_grid_denomination_hint"
+            android:textColor="@color/text_color_gray"
+            android:textSize="@dimen/text_size_small"
+            android:textStyle="bold" />
+
+        <com.xiaomi.payment.component.DenominationGrid
+            android:id="@+id/denomination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:gravity="center" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="25dip"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="2dip"
+                    android:text="@string/prepaid_picker_hint_1_1"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/text_size_small" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/prepaid_picker_hint_1_2"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/text_size_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="2dip"
+                    android:text="@string/prepaid_picker_hint_2_1"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/text_size_small" />
+
+                <TextView
+                    android:id="@+id/prepaid_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/prepaid_picker_hint_2_2_a"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/text_size_small" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/contentHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/text_color_orange"
+            android:textSize="@dimen/text_size_content_hint" />
+
+        <Button
+            android:id="@+id/button_next"
+            style="@style/ButtonNotice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip"
+            android:text="@string/btn_next" />
+    </LinearLayout>
+</ScrollView>

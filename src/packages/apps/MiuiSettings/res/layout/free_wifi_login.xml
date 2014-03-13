@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="top"
+    android:layout_gravity="center">
+    <LinearLayout
+        android:id="@+id/free_wifi_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/free_wifi_signal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitCenter"
+            android:src="@drawable/free_wifi_login_signal"
+            android:layout_marginTop="92dip" />
+        <TextView
+           android:id="@+id/free_wifi_status"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textColor="@color/white"
+           android:textSize="17sp"
+           android:layout_gravity="center_horizontal"
+           android:layout_marginTop="40dip"
+           android:layout_marginBottom="8dip" />
+       <TextView android:id="@+id/free_wifi_online_users_num"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textColor="@color/transparent_40_white"
+           android:textSize="13sp"
+           android:layout_gravity="center_horizontal" />
+       <Button
+            android:id="@+id/free_wifi_login_again"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:textColor="@color/white"
+            android:textSize="22dip"
+            android:layout_marginTop="7dip"
+            android:text="@string/free_wifi_login_again"
+            android:layout_gravity="center_horizontal"
+            android:paddingLeft="20dip"
+            android:paddingRight="20dip"
+            android:background="@drawable/free_wifi_login_btn" />
+    </LinearLayout>
+    <TextView
+       android:layout_width="match_parent"
+       android:layout_height="55dip"
+       android:textColor="@color/transparent_80_balck"
+       android:textSize="17sp"
+       android:textStyle="bold"
+       android:paddingLeft="20dip"
+       android:layout_gravity="center_vertical"
+       android:text="@string/free_wifi_speed_title"
+       android:background="@drawable/free_wifi_speed_bg"
+       android:gravity="center_vertical" />
+    <LinearLayout
+        android:id="@+id/free_wifi_speed_slow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center" />
+    <View android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1" />
+
+    <Button
+       android:id="@+id/free_wifi_confirm"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_margin="10dip"
+       android:layout_gravity="center_horizontal"
+       android:text="@string/free_wifi_confirm" />
+</LinearLayout>
