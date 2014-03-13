@@ -90,11 +90,12 @@ import miui.content.ExtraIntent;
  */
 public class WifiWatchdogStateMachine extends StateMachine {
     static class Injector {
-        static void showLogin(Context context, Intent intent, String ssid) {
+        static void showLogin(Context context, Intent intent, String ssid, String bssid) {
             intent.setAction(ExtraIntent.ACTION_OPEN_WIFI_LOGIN);
             intent.setPackage("com.android.settings");
             intent.putExtra(ExtraIntent.EXTRA_OPEN_WIFI_SSID, ssid);
-            context.startActivity(intent);
+            intent.putExtra(ExtraIntent.EXTRA_BSSID, bssid);
+            context.startService(intent);
         }
     }
     /* STOPSHIP: Keep this configurable for debugging until ship */
@@ -148,7 +149,9 @@ public class WifiWatchdogStateMachine extends StateMachine {
        TODO: This should go away once we provide an API to apps to disable walled garden test
        for certain SSIDs
      */
-    private static final int WALLED_GARDEN_START_DELAY_MS = 3000;
+    // MIUI MOD:
+    //private static final int WALLED_GARDEN_START_DELAY_MS = 3000;
+    private static final int WALLED_GARDEN_START_DELAY_MS = 500;
 
     private static final int BASE = Protocol.BASE_WIFI_WATCHDOG;
 
@@ -479,7 +482,7 @@ public class WifiWatchdogStateMachine extends StateMachine {
 
             // MIUI MOD:
             // notificationManager.notify(WALLED_GARDEN_NOTIFICATION_ID, 1, notification);
-            Injector.showLogin(mContext, intent, mWifiInfo.getSSID());
+            Injector.showLogin(mContext, intent, mWifiInfo.getSSID(), mWifiInfo.getBSSID());
         } else {
             notificationManager.cancel(WALLED_GARDEN_NOTIFICATION_ID, 1);
         }
@@ -718,7 +721,9 @@ public class WifiWatchdogStateMachine extends StateMachine {
             switch (msg.what) {
                 case CMD_DELAYED_WALLED_GARDEN_CHECK:
                     if (msg.arg1 == mWalledGardenToken) {
-                        mLastWalledGardenCheckTime = SystemClock.elapsedRealtime();
+                        // MIUI DEL:
+                        // don't need to record check time and 30 mins later check next time, android4.2 remove it.
+                        // mLastWalledGardenCheckTime = SystemClock.elapsedRealtime();
                         if (isWalledGardenConnection()) {
                             if (DBG) log("Walled garden detected");
                             setWalledGardenNotificationVisible(true);
