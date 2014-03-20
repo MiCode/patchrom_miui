@@ -127,6 +127,12 @@
         <item name="android:background">@drawable/list_item_selector</item>
     </style>
 
+    <style name="ListItemChildMainView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">55dip</item>
+        <item name="android:background">@drawable/list_item_child_selector</item>
+    </style>
+
     <style name="ListItemMainViewArrow">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -136,8 +142,8 @@
     </style>
 
     <style name="ListItemMainViewIcon">
-        <item name="android:layout_width">48dip</item>
-        <item name="android:layout_height">48dip</item>
+        <item name="android:layout_width">@android:dimen/app_icon_size</item>
+        <item name="android:layout_height">@android:dimen/app_icon_size</item>
         <item name="android:layout_centerVertical">true</item>
     </style>
 
@@ -157,6 +163,18 @@
         <item name="android:layout_marginRight">15dip</item>
     </style>
 
+    <style name="ListItemMainViewTitleText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginLeft">15dip</item>
+        <item name="android:layout_marginRight">15dip</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/ListItemMainViewTextPrimary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="ListItemMainViewTextPrimary">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -164,6 +182,16 @@
         <item name="android:textColor">@color/ListItemMainViewTextPrimary</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ListItemMainViewContentText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">15dip</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/ListItemMainViewTextSecondary</item>
+        <item name="android:textSize">13sp</item>
     </style>
 
     <style name="ListItemMainViewTextSecondary">
@@ -205,11 +233,11 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
         <item name="android:minWidth">70dip</item>
-        <item name="android:layout_marginRight">0dip</item>
+        <item name="android:layout_marginRight">15dip</item>
         <item name="android:background">@null</item>
         <item name="android:drawablePadding">5dip</item>
         <item name="android:textSize">13sp</item>
-        <item name="android:textColor">#99000000</item>
+        <item name="android:textColor">@color/list_item_sub_view_lock_text_color</item>
     </style>
 
     <style name="ListItemSubViewInfo">

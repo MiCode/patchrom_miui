@@ -1,0 +1,179 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_marginTop="12dp"
+            android:text="@string/traffic_setting_fragment_area"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary" />
+
+        <Spinner
+            android:id="@+id/spinner_province"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_marginTop="4dp" />
+
+        <Spinner
+            android:id="@+id/spinner_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/traffic_setting_fragment_operator"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary" />
+
+        <Spinner
+            android:id="@+id/spinner_operator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_marginTop="8dp"
+            android:text="@string/traffic_setting_fragment_brand"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary" />
+
+        <Spinner
+            android:id="@+id/spinner_brand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_marginTop="8dp"
+            android:text="@string/traffic_setting_fragment_template"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary" />
+
+        <Spinner
+            android:id="@+id/spinner_sms_template"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_marginTop="4dp" />
+
+        <RelativeLayout
+            android:id="@+id/layout_customized_sms_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@miui:drawable/v5_preference_item_bg"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:singleLine="true"
+                    android:text="@string/traffic_setting_fragment_send_num"
+                    android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" />
+
+                <TextView
+                    android:id="@+id/textview_sms_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/traffic_setting_fragment_null"
+                    android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
+                android:src="@miui:drawable/v5_arrow_right" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_customized_sms_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@miui:drawable/v5_preference_item_bg"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:singleLine="true"
+                    android:text="@string/traffic_setting_fragment_sms_content"
+                    android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" />
+
+                <TextView
+                    android:id="@+id/textview_sms_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/traffic_setting_fragment_null"
+                    android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
+                android:src="@miui:drawable/v5_arrow_right" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>

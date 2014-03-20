@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="setting_preferences" >
+
+    <PreferenceCategory
+        android:key="category_key_traffic"
+        android:title="@string/pref_about_traffic_title" >
+        <Preference
+            android:key="pref_key_package_traffic"
+            android:title="@string/pref_package_traffic_settings" />
+        <Preference
+            android:key="pref_key_traffic_correction"
+            android:title="@string/pref_adjust_traffic_data" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="category_key_traffic_management"
+        android:title="@string/pref_app_traffic_managent" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_key_normal_traffic_limit"
+            android:summary="@string/pref_connect_settings_exceed_limit_hint"
+            android:title="@string/pref_connect_settings_exceed_limit" >
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_key_leisure_traffic_limit"
+            android:summary="@string/pref_free_traffic_exceed_limit"
+            android:title="@string/pref_free_traffic_limit_warn" >
+        </CheckBoxPreference>
+        <!--
+             <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_special_traffic_limit"
+            android:summary="@string/pref_special_traffic_exceed_limit"
+            android:title="@string/pref_special_traffic_limit_warn" >
+        </CheckBoxPreference>
+        -->
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_key_background_connective"
+            android:summary="@string/pref_connect_settings_enable_background_hint"
+            android:title="@string/pref_connect_settings_enable_background" >
+        </CheckBoxPreference>
+    </PreferenceCategory>
+    <!--
+    <PreferenceCategory android:title="@string/pref_title_network_diagnostics" >
+        <Preference
+            android:key="pref_key_network_diagnostics"
+            android:summary="@string/pref_check_network_diagnostics"
+            android:title="@string/pref_title_network_diagnostics" >
+        </Preference>
+    </PreferenceCategory>
+    -->
+    <PreferenceCategory
+        android:key="category_key_other"
+        android:title="@string/pref_category_title_other" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_show_traffic_notification"
+            android:title="@string/pref_title_update_notification" >
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_show_traffic_speed_state"
+            android:title="@string/pref_title_traffic_speed_state" >
+        </CheckBoxPreference>
+        <!--
+             <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_notification_traffic"
+            android:summary="@string/pref_show_mobile_traffic"
+            android:title="@string/pref_title_mobile_traffic" >
+        -->
+
+        <Preference
+            android:key="pref_key_declaration"
+            android:title="@string/pref_title_declaration" >
+        </Preference>
+        <Preference
+            style="?android:attr/preferenceInformationStyle"
+            android:key="pref_key_about"
+            android:title="@string/pref_about" >
+        </Preference>
+    </PreferenceCategory>
+
+</PreferenceScreen>
