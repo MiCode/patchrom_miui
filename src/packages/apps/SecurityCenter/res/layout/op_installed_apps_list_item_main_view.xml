@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.optimizecenter.view.InstalledAppsListItemMainView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ListItemMainView" >
+
+    <ImageView
+        android:id="@+id/arrow"
+        style="@style/ListItemMainViewArrow" />
+
+    <ImageView
+        android:id="@+id/icon"
+        style="@style/ListItemMainViewIcon"
+        android:layout_width="45dip"
+        android:layout_height="45dip"
+        android:layout_toRightOf="@id/arrow" />
+
+    <ImageView
+        android:id="@+id/subscript"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/icon"
+        android:layout_alignRight="@id/icon"
+        android:src="@drawable/icon_tips_risk" />
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        style="@style/ListItemMainViewCheckbox" />
+
+    <TextView
+        android:id="@+id/content"
+        style="@style/ListItemMainViewContentText"
+        android:layout_toLeftOf="@id/checkbox" />
+
+    <RelativeLayout
+        style="@style/ListItemMainViewContent"
+        android:layout_toLeftOf="@id/content"
+        android:layout_toRightOf="@id/icon" >
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/ListItemMainViewTextPrimary" />
+
+        <TextView
+            android:id="@+id/summary"
+            style="@style/ListItemMainViewTextSecondary"
+            android:layout_below="@id/name" />
+    </RelativeLayout>
+
+</com.miui.optimizecenter.view.InstalledAppsListItemMainView>

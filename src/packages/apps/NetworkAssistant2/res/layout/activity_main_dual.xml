@@ -1,0 +1,94 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:miui="http://schemas.android.com/apk/res/com.miui.networkassistant"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background"
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:id="@+id/main_top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/main_top_margin_dual"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <com.miui.networkassistant.ui.view.MainIndicatorView
+            android:id="@+id/main_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/main_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/main_menu_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/main_bottom_menu_margin_dual"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="@dimen/main_bottom_menu_margin_dual"
+            android:orientation="horizontal" >
+
+            <com.miui.networkassistant.ui.view.MainToolbarItemView
+                android:id="@+id/main_toolbar_firewall"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                miui:item_icon="@drawable/selector_main_toolbar_firewall"
+                miui:item_name="@string/main_toolbar_firewall" />
+
+            <com.miui.networkassistant.ui.view.MainToolbarItemView
+                android:id="@+id/main_toolbar_statistic"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                miui:item_icon="@drawable/selector_main_toolbar_statistic"
+                miui:item_name="@string/main_toolbar_statistic" />
+
+            <com.miui.networkassistant.ui.view.MainToolbarItemView
+                android:id="@+id/main_toolbar_purchase"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="gone"
+                miui:item_icon="@drawable/selector_main_toolbar_purchase"
+                miui:item_name="@string/main_toolbar_purchase" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_adjust_usage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="0dp"
+            android:text="@string/main_button_usage_adjust"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/pre_adjust_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="0dp"
+            android:textColor="@android:color/darker_gray" />
+    </LinearLayout>
+
+</RelativeLayout>

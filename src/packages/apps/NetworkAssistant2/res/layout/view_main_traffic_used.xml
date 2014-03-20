@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/traffic_used_graph_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/main_waterview_marginBottom"
+        android:layout_marginTop="9dp" >
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/main_water_middle_cicle" />
+
+            <com.miui.networkassistant.ui.view.WaterView
+                android:id="@+id/water_view"
+                android:layout_width="@dimen/main_waterview_width"
+                android:layout_height="@dimen/main_waterview_width"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent" />
+
+            <ImageView
+                android:id="@+id/overlimit_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/main_water_overlimit"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/main_water_out_circle" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_traffic_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/main_text_detail_marginBottom"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/center_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="11dp"
+            android:background="@drawable/main_traffic_separator" />
+
+        <TextView
+            android:id="@+id/used_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toLeftOf="@id/center_image"
+            android:textColor="@color/main_traffic_used_unit"
+            android:textSize="8sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/used_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/used_unit"
+            android:textColor="@miui:color/v5_title_text_color_light"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/remain_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:layout_toRightOf="@id/center_image"
+            android:textColor="@miui:color/v5_title_text_color_light"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/remain_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/remain_count"
+            android:textColor="@color/main_traffic_used_unit"
+            android:textSize="8sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/used_only"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textColor="@color/main_traffic_used_unit"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/textview_alert_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/layout_tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <Button
+            android:id="@+id/button_normal_traffic"
+            android:layout_width="@dimen/main_tab_button_width"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_main_tab_button_left"
+            android:text="@string/main_button_normal_traffic"
+            android:textColor="@color/selector_main_tab_button_text_color"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/button_idel_traffic"
+            android:layout_width="@dimen/main_tab_button_width"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_main_tab_button_right"
+            android:text="@string/main_button_idel_traffic"
+            android:textColor="@color/selector_main_tab_button_text_color"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</LinearLayout>

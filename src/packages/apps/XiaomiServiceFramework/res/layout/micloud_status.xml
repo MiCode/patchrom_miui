@@ -1,35 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingBottom="@dimen/content_bottom_margin"
+    >
+    <Button
+        android:id="@+id/upgrade_btn"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/notice_text_padding_h"
         android:layout_marginRight="@dimen/notice_text_padding_h"
-        android:layout_marginTop="@dimen/notice_text_padding_h"
-        style="@style/TitleDsptText"
-        />
-    <ListView
-        android:id="@android:id/list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-10dp"
+        android:layout_alignParentBottom="true"
+        android:text="@string/micloud_upgrade_space"
+        style="@style/ButtonNotice"
         />
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-        <Button
-            android:id="@+id/full_btn"
-            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/micloud_space_full_influence"
-            style="@style/HyperLinkStyle"
-            android:background="@drawable/btn_transparent_bkg"
+            android:layout_marginLeft="@dimen/notice_text_padding_h"
+            android:layout_marginRight="@dimen/notice_text_padding_h"
+            android:layout_marginTop="@dimen/notice_text_padding_h"
+            style="@style/TitleDsptText"
             />
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-10dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+            <Button
+                android:id="@+id/full_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/micloud_space_full_influence"
+                style="@style/HyperLinkStyle"
+                android:background="@drawable/btn_transparent_bkg"
+                />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>
