@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <PreferenceCategory android:title="" >
+    <PreferenceCategory android:title="@string/pref_category_title_securitycenter_settings" >
         <CheckBoxPreference
             android:key="@string/preference_key_create_permanent_notification"
             android:title="@string/menu_item_notification_title" />
-    </PreferenceCategory>
-    <PreferenceCategory android:title="" >
+
         <Preference
             android:key="@string/preference_key_create_shortcut"
             android:summary="@string/menu_item_shortcut_summary"
             android:title="@string/menu_item_shortcut_title" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_category_title_module_settings" >
+        <Preference
+            android:key="@string/preference_key_module_garbage_cleanup"
+            android:title="@string/cleaner" />
+        <Preference
+            android:key="@string/preference_key_module_network_assistant"
+            android:title="@string/network_assistant" />
+        <Preference
+            android:key="@string/preference_key_module_antipam"
+            android:title="@string/anti_spam" />
+        <Preference
+            android:key="@string/preference_key_module_power_center"
+            android:title="@string/power_mgr" />
+        <Preference
+            android:key="@string/preference_key_module_antivirus"
+            android:title="@string/virus_scan" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="" >
         <Preference
             android:key="@string/preference_key_about_version"
             android:summary="@string/menu_item_about_summary"

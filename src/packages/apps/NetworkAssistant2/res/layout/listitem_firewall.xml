@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@miui:style/V5.Widget.ListView.Item.SingleLine"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:id="@+id/imageview_icon"
+            android:layout_width="@dimen/icon_width"
+            android:layout_height="@dimen/icon_width"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/textview_appname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="@dimen/firewall_button_group_width"
+            android:layout_toRightOf="@id/imageview_icon"
+            android:singleLine="true"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Primary" />
+
+        <TextView
+            android:id="@+id/textview_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/textview_appname"
+            android:layout_below="@id/textview_appname"
+            android:singleLine="true"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="@dimen/firewall_button_group_width"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical|right"
+            android:orientation="horizontal" >
+
+            <com.miui.networkassistant.ui.view.FirewallRuleView
+                android:id="@+id/mobile_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:paddingBottom="20dp"
+                android:paddingTop="20dp" />
+
+            <com.miui.networkassistant.ui.view.FirewallRuleView
+                android:id="@+id/wifi_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:paddingBottom="20dp"
+                android:paddingTop="20dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="setting_preferences" >
+
+    <PreferenceCategory
+        android:key="pref_manual_adjust_traffic"
+        android:title="@string/pref_manual_adjust" >
+        <Preference
+            android:key="pref_daily_adjust_traffic"
+            android:title="@string/pref_daily_adjust" />
+        <Preference
+            android:key="pref_free_adjust_traffic"
+            android:title="@string/pref_free_adjust" />
+        <!--
+             <Preference
+            android:key="pref_specified_adjuest_traffic"
+            android:title="@string/pref_specified_adjust" />
+        -->
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="pref_automatic_adjust_traffic"
+        android:title="@string/pref_automatic_adjust" >
+        <Preference
+            android:key="pref_adjust_data_usage"
+            android:title="@string/pref_adjust_data_usage" />
+        <Preference
+            android:key="pref_automatic_adjust_settings"
+            android:summary="@string/pref_setting_operators_message"
+            android:title="@string/pref_auto_adjust_settings" />
+
+        <CheckBoxPreference
+            android:key="pref_automatic_adjust"
+            android:summary="@string/pref_open_adjust_traffic"
+            android:title="@string/pref_auto_adjust_traffic" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

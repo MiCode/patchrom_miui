@@ -7707,7 +7707,7 @@ public class PackageManagerService extends IPackageManager.Stub {
         try {
             if (dpm != null && dpm.packageHasActiveAdmins(packageName)) {
                 Slog.w(TAG, "Not removing package " + packageName + ": has active device admin");
-                return PackageManager.DELETE_FAILED_DEVICE_POLICY_MANAGER;
+                //return PackageManager.DELETE_FAILED_DEVICE_POLICY_MANAGER;
             }
         } catch (RemoteException e) {
         }

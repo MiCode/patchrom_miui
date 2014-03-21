@@ -15,19 +15,15 @@
         android:id="@+id/checkbox"
         style="@style/ListItemMainViewCheckbox" />
 
-    <RelativeLayout
-        style="@style/ListItemMainViewContent"
-        android:layout_toLeftOf="@id/checkbox"
-        android:layout_toRightOf="@id/icon" >
+    <TextView
+        android:id="@+id/content"
+        style="@style/ListItemMainViewContentText"
+        android:layout_toLeftOf="@id/checkbox" />
 
-        <TextView
-            android:id="@+id/title"
-            style="@style/ListItemMainViewTextPrimary" />
-
-        <TextView
-            android:id="@+id/summary"
-            style="@style/ListItemMainViewTextSecondary"
-            android:layout_below="@id/title" />
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/title"
+        style="@style/ListItemMainViewTitleText"
+        android:layout_toLeftOf="@id/content"
+        android:layout_toRightOf="@id/icon" />
 
 </com.miui.optimizecenter.view.QuickScanResidualListItemMainView>

@@ -968,7 +968,6 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
      * for the given {@link NetworkTemplate}.
      */
     private void setNetworkTemplateEnabled(NetworkTemplate template, boolean enabled) {
-        Injector.setNetworkTemplateEnabled(this, template, enabled); // miui add
 
         final TelephonyManager tele = TelephonyManager.from(mContext);
 

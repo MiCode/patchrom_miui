@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" >
+
+            <ImageView
+                android:id="@+id/imageview_icon"
+                android:layout_width="@dimen/icon_width"
+                android:layout_height="@dimen/icon_width"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp" />
+
+            <TextView
+                android:id="@+id/textview_appname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@id/imageview_icon"
+                android:singleLine="true"
+                android:textAppearance="@miui:style/V5.TextAppearance.List.Primary" />
+
+            <TextView
+                android:id="@+id/textview_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textview_appname"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="2dp"
+                android:layout_toRightOf="@id/imageview_icon"
+                android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:drawable/divider_horizontal_bright" />
+
+        <RelativeLayout
+            android:id="@+id/layout_show"
+            android:layout_width="match_parent"
+            android:layout_height="48dp" >
+
+            <TextView
+                android:id="@+id/list_spinner_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:duplicateParentState="true"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/imageview_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:drawable/divider_horizontal_bright" />
+
+        <com.miui.networkassistant.ui.view.AppDetailTrafficView
+            android:id="@+id/detail_view"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/network_control"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+
+        <RelativeLayout
+            android:id="@+id/layout_mobile_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@miui:drawable/v5_preference_item_bg" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:singleLine="true"
+                android:text="@string/app_mobile"
+                android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" />
+
+            <SlidingButton
+                android:id="@+id/sliding_mobile_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_wifi_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@miui:drawable/v5_preference_item_bg" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:singleLine="true"
+                android:text="@string/app_wifi"
+                android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" />
+
+            <SlidingButton
+                android:id="@+id/sliding_wifi_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_network_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@miui:drawable/v5_preference_item_bg" >
+
+            <TextView
+                android:id="@+id/network_permit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:singleLine="true"
+                android:text="@string/permit_running_network"
+                android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" />
+
+            <TextView
+                android:id="@+id/foreground_traffic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/network_permit"
+                android:layout_marginLeft="10dp"
+                android:text="@string/foreground_traffic"
+                android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+
+            <TextView
+                android:id="@+id/background_traffic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/network_permit"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/foreground_traffic"
+                android:text="@string/background_traffic"
+                android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+
+            <SlidingButton
+                android:id="@+id/sliding_permit_running_network_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>

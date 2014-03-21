@@ -217,8 +217,12 @@ public class Resources {
         synchronized (mSync) {
             Resources ret = mSystem;
             if (ret == null) {
-                ret = new MiuiResources(); // miui modify
+                // MIUI MOD:
+                // ret = new Resources();
+                ret = new MiuiResources();
                 mSystem = ret;
+                // MIUI ADD
+                ((MiuiResources)ret).init(null);
             }
 
             return ret;

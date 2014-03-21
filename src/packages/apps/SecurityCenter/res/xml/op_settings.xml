@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
+    <PreferenceCategory android:title="" >
+        <CheckBoxPreference
+            android:key="@string/preference_key_default_expand_cache_group"
+            android:summary="@string/pref_summary_expand_cache_group"
+            android:title="@string/pref_title_expand_cache_group" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_category_title_cleanup_white_list" >
+        <com.miui.optimizecenter.view.CustomPreference
+            android:key="@string/preference_key_cleanup_white_list"
+            android:summary="@string/pref_summary_cleanup_white_list"
+            android:title="@string/pref_title_cleanup_white_list" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_category_title_garbage_cleanup_check" >
+        <com.miui.optimizecenter.view.CustomPreference
+            android:key="@string/preference_key_garbage_cleanup_auto_check_time"
+            android:title="@string/pref_title_garbage_cleanup_check_time" />
+        <com.miui.optimizecenter.view.CustomPreference
+            android:key="@string/preference_key_garbage_cleanup_auto_check_size"
+            android:summary="@string/pref_summary_garbage_cleanup_check_size"
+            android:title="@string/pref_title_garbage_cleanup_check_size" />
+    </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_category_title_auto_update_cleanup_db" >
         <CheckBoxPreference
             android:key="@string/preference_key_auto_update_cleanup_db"
@@ -9,15 +30,6 @@
         <Preference
             android:key="@string/preference_key_manual_update_cleanup_db"
             android:title="@string/pref_title_manual_check_cleanup_db_update" />
-    </PreferenceCategory>
-    <PreferenceCategory android:title="@string/pref_category_title_garbage_cleanup_check" >
-        <com.miui.optimizecenter.view.CustomPreference
-            android:key="@string/preference_key_garbage_cleanup_auto_check_time"
-            android:summary="@string/pref_summary_garbage_cleanup_check_time"
-            android:title="@string/pref_title_garbage_cleanup_check_time" />
-        <com.miui.optimizecenter.view.CustomPreference
-            android:key="@string/preference_key_garbage_cleanup_auto_check_size"
-            android:title="@string/pref_title_garbage_cleanup_check_size" />
     </PreferenceCategory>
 
 </PreferenceScreen>

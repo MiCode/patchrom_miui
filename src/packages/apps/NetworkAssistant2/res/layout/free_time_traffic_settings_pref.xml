@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <!-- CheckBoxPreference -->
+
+    <LinearLayout
+        android:id="@+id/free_time_traffic_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@miui:drawable/v5_preference_item_single_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+            android:layout_weight="1"
+            android:text="@string/free_traffic_settings"
+            android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" />
+
+        <SlidingButton
+            android:id="@+id/free_time_traffic_setting_sliding_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side" />
+    </LinearLayout>
+
+    <!-- free time avaible traffic preference -->
+
+    <LinearLayout
+        android:id="@+id/free_time_avaible_traffic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@miui:drawable/v5_preference_item_single_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/free_time_traffic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+                android:singleLine="true"
+                android:text="@string/free_time_traffic"
+                android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" />
+
+            <TextView
+                android:id="@+id/free_time_traffic_summary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:text="@string/free_time_traffic"
+                android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/free_time_traffic_lebal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
+            android:drawableRight="@miui:drawable/v5_arrow_right"
+            android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+    </LinearLayout>
+
+    <!-- two time button -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/turn_on_time_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/pc_time_button_bg"
+            android:gravity="center"
+            android:selectable="true" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/turn_on_time_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/power_save_on_time_default_time"
+                    android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" />
+
+                <TextView
+                    android:id="@+id/turn_on_time_summary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/power_save_on_time_start_time_summary"
+                    android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/shut_down_time_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/pc_time_button_bg"
+            android:gravity="center"
+            android:selectable="false" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/shut_down_time_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/power_save_on_time_default_time"
+                    android:textAppearance="@miui:style/V5.TextAppearance.PreferenceList" />
+
+                <TextView
+                    android:id="@+id/shut_down_time_summary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/power_save_on_time_end_time_summary"
+                    android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- TimePicker -->
+
+    <TimePicker
+        android:id="@+id/time_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp" />
+
+</LinearLayout>

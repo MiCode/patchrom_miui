@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="setting_preferences" >
+
+    <PreferenceCategory
+        android:key="pref_package_aviable_traffic"
+        android:title="@string/pref_avaible_traffic" >
+        <Preference
+            android:key="pref_daily_aviable_traffic"
+            android:summary="30MB"
+            android:title="@string/pref_daily_traffic" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="pref_warn_values"
+        android:title="@string/pref_warning_values" >
+        <com.miui.networkassistant.ui.view.SeekBarPreference
+            android:key="pref_month_varning"
+            android:layout="@layout/pc_seekbar_preference"
+            android:selectable="false"
+            android:title="seekbar" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="pref_package_begin_date"
+        android:title="@string/pref_pkg_begin_date" >
+        <Preference
+            android:key="pref_per_month_start_date"
+            android:summary="@string/pref_month_first_day"
+            android:title="@string/pref_month_begin_date" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="pref_more_settings"
+        android:title="@string/pref_more_traffic_settings" >
+        <Preference
+            android:key="pref_add_traffic_pkg"
+            android:title="@string/pref_add_traffic_pkg" />
+        <Preference
+            android:key="pref_free_traffic_settings"
+            android:summary="300M,23:00-7:00"
+            android:title="@string/pref_free_traffic_settings" />
+<!--         <Preference
+            android:key="pref_specified_traffic_settings"
+            android:title="@string/pref_specified_traffic_settings" /> -->
+    </PreferenceCategory>
+
+</PreferenceScreen>

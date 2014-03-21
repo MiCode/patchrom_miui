@@ -6,7 +6,6 @@
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="power_save_low_battery_auto_save"
-            android:persistent="true"
             android:title="@string/power_save_low_battery_auto_save_title" />
     </PreferenceCategory>
     <PreferenceCategory>
@@ -33,12 +32,14 @@
             android:title="@string/power_save_low_battery_option_recovery_title"
             miui:clickable="true"
             miui:label="@string/power_save_choose_recovery_mode" />
-        <!--
-        <Preference
+    </PreferenceCategory>
+
+    <PreferenceCategory>
+        <CheckBoxPreference
             android:dependency="power_save_low_battery_auto_save"
-            android:layout="@layout/pc_descript_preference"
-            android:selectable="false"
-            android:summary="@string/power_save_low_battery_option_summary" /> -->
+            android:defaultValue="false"
+            android:key="power_exit_lowbattery_whencharge"
+            android:title="@string/power_exitlowbattery_whencharge" />
     </PreferenceCategory>
 
 </PreferenceScreen>
