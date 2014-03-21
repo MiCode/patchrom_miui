@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.optimizecenter.storage.InternalStorageHeaderView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/group_title_bg"
+    android:padding="20dip" >
+
+    <LinearLayout
+        android:id="@+id/memory_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3" >
+
+        <TextView
+            android:id="@+id/avail_memory"
+            style="@style/ListItemMainViewTextSecondary"
+            android:layout_weight="1"
+            android:text="@string/internal_available_memory_hint" />
+
+        <TextView
+            android:id="@+id/used_memory"
+            style="@style/ListItemMainViewTextSecondary"
+            android:layout_weight="1"
+            android:text="@string/internal_used_memory_hint" />
+    </LinearLayout>
+
+    <com.miui.optimizecenter.storage.PercentageBarChart
+        android:id="@+id/usage_bar"
+        android:layout_width="match_parent"
+        android:layout_height="16dip"
+        android:layout_below="@id/memory_bar"
+        android:layout_marginTop="15dip"
+        settings:emptyColor="@color/memory_avail"
+        settings:minTickWidth="6dip" />
+
+    <LinearLayout
+        android:id="@+id/legend_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/usage_bar"
+        android:layout_marginTop="15dip"
+        android:weightSum="3" >
+
+        <TextView
+            android:id="@+id/legend_cache"
+            style="@style/ListItemMainViewTextPrimary"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/icon_legend_memory"
+            android:drawablePadding="6dip"
+            android:text="@string/internal_memory_item_cache_hint"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/legend_app"
+            style="@style/ListItemMainViewTextPrimary"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/icon_legend_app"
+            android:drawablePadding="6dip"
+            android:text="@string/internal_memory_item_app_hint"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/warning_view"
+        style="@style/ListItemMainViewTextSecondary"
+        android:layout_width="match_parent"
+        android:layout_below="@id/legend_bar"
+        android:drawableLeft="@drawable/icon_warning"
+        android:drawablePadding="6dip"
+        android:paddingTop="15dip"
+        android:singleLine="false"
+        android:text="@string/internal_memory_low_waring_hint"
+        android:visibility="gone" />
+
+</com.miui.optimizecenter.storage.InternalStorageHeaderView>
