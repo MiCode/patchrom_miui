@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_margin="@dimen/express_button_margin_horizontal"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <include layout="@layout/express_address_fields" />
+
+            <CheckBox
+                android:id="@+id/save_to_contact"
+                style="@miui:style/V5.TextAppearance.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/exapress_save_address_to_contact"
+                android:textColor="@miui:color/v5_primary_text_color_light"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/delete"
+            style="@miui:style/V5.Widget.Button.NegativeWarn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/express_button_margin_horizontal"
+            android:text="@string/delete" />
+    </LinearLayout>
+
+    <com.miui.yellowpage.widget.LoadingProgressView
+        android:id="@+id/loading_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:gravity="center" />
+
+</FrameLayout>

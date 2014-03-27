@@ -752,6 +752,7 @@
 
     <!-- Action string for selecting SIM for importing contacts -->
     <string name="import_from_sim">Import from SIM card</string>
+    <string name="import_from_sim2">Import from SIM card 2</string>
 
     <!-- Action string for selecting (USB) storage for importing contacts [CHAR LIMIT=25] -->
     <string name="import_from_sdcard" product="default">Import from storage</string>
@@ -918,7 +919,7 @@
     <string name="fail_reason_too_long_filename">Required filename is too long (\"<xliff:g id="filename">%s</xliff:g>\").</string>
 
     <!-- The title shown when exporting vCard is successfuly finished [CHAR LIMIT=40] -->
-    <string name="exporting_vcard_finished_title">Finished exporting <xliff:g id="filename" example="export.vcf">%s</xliff:g>.</string>
+    <string name="exporting_vcard_finished_title">Exporting <xliff:g id="filename" example="export.vcf">%s</xliff:g> finished.</string>
 
     <!-- The title shown when exporting vCard is canceled (probably by a user)
          The argument is file name the user canceled importing.
@@ -929,7 +930,7 @@
     <string name="exporting_contact_list_title">Exporting contact data</string>
 
     <!-- Message shown when the application is exporting contact data outside -->
-    <string name="exporting_contact_list_message">Your contact data is being exported to: <xliff:g id="file_name">%s</xliff:g>.</string>
+    <string name="exporting_contact_list_message">Exporting to <xliff:g id="file_name">%s</xliff:g>.</string>
 
     <!-- The failed reason shown when contacts exporter fails to be initialized.
          Some exact reason must follow this. [CHAR LIMIT=NONE]-->
@@ -1162,6 +1163,8 @@
 
     <!-- Generic action string for text messaging a contact. Used by AccessibilityService to announce the purpose of the view. [CHAR LIMIT=NONE] -->
     <string name="sms">Text message</string>
+
+    <string name="eventTypeCustom">"Custom"</string>
 
     <!-- Action string for sending an email to a home email address -->
     <string name="email_home">Email home</string>
@@ -1841,7 +1844,8 @@
     <string name="callrecordview_menu_show_called">Outgoing calls</string>
     <string name="callrecordview_menu_show_accepted">Answered calls</string>
     <string name="callrecordview_menu_show_stranger">Calls from unknown numbers</string>
-    <string name="callrecordview_menu_show_new">New contacts</string>
+    <string name="callrecordview_menu_show_new">New Contacts</string>
+    <string name="callrecordview_menu_show_sim">%s calls</string>
     <string name="callrecordview_menu_delete">Clear call log</string>
     <string name="callrecordview_menu_delete_all">Clear call log</string>
     <string name="callrecordview_menu_delete_missed">Clear missed calls</string>
@@ -1849,6 +1853,7 @@
     <string name="callrecordview_menu_delete_accepted">Clear answered calls</string>
     <string name="callrecordview_menu_delete_stranger">Clear unknown numbers</string>
     <string name="callrecordview_menu_delete_new">Clear call logs of new contacts</string>
+    <string name="callrecordview_menu_delete_sim">Clear %s call logs</string>
     <string name="callrecordview_menu_delete_confirm">%s?</string>
     <string name="callrecordview_menu_delete_one">Remove from call log</string>
     <string name="callrecordview_menu_add_call_note">Add call note</string>
@@ -1890,6 +1895,7 @@
     <string name="calllog_menu_edit_before_call">Edit</string>
     <string name="calllog_menu_send_sms">Send a message</string>
     <string name="menu_call_ip_number">Dial IP call (dial %s)</string>
+    <string name="menu_dial_ip_number">Dial IP call</string>
     <string name="delete_contact_calllog_title">"Delete call logs?"</string>
     <string name="delete_unknown_contact_calllog_title">"Delete call logs?"</string>
     <string name="callrecordview_menu_batch_delete">Delete batch</string>
@@ -2003,6 +2009,7 @@
     <string name="export_vcard_description" product="nosdcard">Export vCard to phone\'s internal storage</string>
     <string name="export_vcard_description" product="default">Export vCard to SD card</string>
     <string name="export_to_sim">Export to SIM card</string>
+    <string name="export_to_sim2">Export to SIM card 2</string>
     <string name="export_to_sim_title">Exporting\u2026</string>
     <string name="sim_card_no_free_space_title">SIM card full</string>
     <string name="sim_card_no_free_space_message">Not enough space</string>
@@ -2025,6 +2032,7 @@
     <string name="pref_key_rebuild_t9_index_title">Rebuild index data</string>
     <string name="pref_key_rebuild_t9_index_message">Rebuild index to resolve search issues</string>
     <string name="pref_key_sim_manage">Configure SIM card</string>
+    <string name="pref_key_sim_manage2">Configure SIM card 2</string>
     <string name="pref_key_photo">Photo</string>
     <string name="pref_key_photo_word_title">Assign contact photos</string>
     <string name="pref_key_photo_word_summary">Automatically assign a picture to contacts without one</string>
@@ -2059,6 +2067,7 @@
     <!-- local account -->
     <string name="account_default">Phone</string>
     <string name="account_sim">SIM card</string>
+    <string name="account_sim2">SIM card %d</string>
     <string name="lunarBirthdayLabelsGroup">Lunar birthday</string>
 
     <!-- 联系人上下文菜单 -->
@@ -2365,4 +2374,22 @@
     <string name="yellowpage_navigation_network_location_not_enabled_summary">Directory provides services according to your city and enabling WLAN &amp; mobile network location service can improve the quality of services.</string>
     <string name="yellowpage_navigation_network_location_enable">Enable now</string>
     <string name="yellowpage_navigation_network_location_enable_later">Enable later</string>
+
+    <string name="sim_capacity">View SIM Card Capacity</string>
+    <string name="sim_capacity_content">Total capacity <xliff:g id="items">%d</xliff:g>, used <xliff:g id="items">%d</xliff:g></string>
+    <string name="sim_contact_existing">The SIM contact is already existing.</string>
+    <string name="sim_contact_number_missing">SIM contact number is missing.</string>
+
+    <string name="sim_error_generic_failure">Generic Failure.</string>
+    <string name="sim_error_storage_full">Storage is full.</string>
+    <string name="sim_error_not_ready">Loading SIM contacts, please wait for a mement…</string>
+    <string name="sim_error_text_too_long">Name is too long.</string>
+    <string name="sim_error_number_too_long">Number is too long.</string>
+    <string name="sim_error_email_too_long">Email is too long.</string>
+    <string name="sim_error_email_full">Storage for email is full.</string>
+    <string name="sim_error_anr_full">storage for number is full.</string>
+    <string name="sim_error_password_error">Password error.</string>
+
+    <string name="imei_invalid">Invalid IMEI</string>
+    <string name="meid_invalid">Invalid MEID</string>
 </resources>

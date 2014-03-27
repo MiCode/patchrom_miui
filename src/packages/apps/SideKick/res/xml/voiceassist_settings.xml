@@ -3,6 +3,21 @@
     xmlns:miui="http://schemas.android.com/apk/res/com.miui.player"
     android:title="@string/voiceassist_settings" >
 
+    <CheckBoxPreference
+        android:key="voice_wakeup_enable"
+        android:title="@string/voice_wakeup"
+        android:persistent="false" />
+
+    <Preference
+        android:key="voice_wakeup_keyword"
+        android:title="@string/voice_wakeup_keyword_title"
+        android:dependency="voice_wakeup_enable"
+        android:persistent="false">
+        <intent
+            android:targetPackage="com.miui.voiceassist"
+            android:targetClass="com.miui.voiceassist.VoiceWakeupKeywordSettingActivity" />
+    </Preference>
+
     <PreferenceCategory android:title="@string/voice_report" >
         <ListPreference
             android:defaultValue="2"
