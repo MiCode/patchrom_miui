@@ -10,11 +10,11 @@
         android:id="@+id/select_logistics"
         style="@miui:style/V5.TextAppearance.PreferenceList"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/express_inquiry_field_height"
-        android:layout_marginLeft="@dimen/express_inquiry_fragment_logistics_margin_horizontal"
-        android:layout_marginRight="@dimen/express_inquiry_fragment_logistics_margin_horizontal"
+        android:layout_height="@dimen/express_text_field_height"
+        android:layout_marginLeft="@dimen/express_button_margin_horizontal"
+        android:layout_marginRight="@dimen/express_button_margin_horizontal"
         android:layout_marginTop="@dimen/express_inquiry_fragment_logistics_margin_vertical"
-        android:background="@drawable/select_logistics_button_bg"
+        android:background="@drawable/express_select_button_bg"
         android:gravity="center_vertical"
         android:singleLine="true"
         android:text="@string/express_inquiry_logistics_indication"
@@ -35,13 +35,14 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/express_inquiry_field_height"
+            android:layout_height="@dimen/express_text_field_height"
             android:background="@miui:drawable/v5_group_single_item_bg_light"
             android:orientation="horizontal" >
 
             <ClearableEditText
                 android:id="@+id/serial_number"
-                style="@style/ExpressInquirySerialNumberStyle"
+                style="@style/ExpressEditText"
+                android:hint="@string/express_inquiry_serial_number_indication"
                 android:inputType="text" />
 
             <Button

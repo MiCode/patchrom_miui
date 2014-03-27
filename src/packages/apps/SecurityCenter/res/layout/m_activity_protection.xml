@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <FrameLayout
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="22dip"
+        android:paddingTop="22dip" >
+
+        <Button
+            android:id="@+id/optimize"
+            android:layout_width="320dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/button_text_a_key_optimize"
+            android:textColor="@color/optimize_button_text_color"
+            android:textSize="16sp" />
+    </FrameLayout>
+
+    <com.miui.securitycenter.common.PinnedHeaderListView
+        android:id="@+id/protection_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/toolBar"
+        android:cacheColorHint="#00000000"
+        android:fadingEdge="none" />
+
+</RelativeLayout>
