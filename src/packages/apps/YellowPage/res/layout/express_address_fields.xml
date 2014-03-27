@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/address_fields"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        style="@style/ExpressAddressFieldsStsyle"
+        android:background="@miui:drawable/v5_group_single_item_bg_light"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/name"
+            style="@style/ExpressEditText"
+            android:drawableRight="@null"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/pick_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_marginLeft="@dimen/express_inquiry_scan_margin_left"
+            android:background="@drawable/express_contact_bg" />
+    </FrameLayout>
+
+    <FrameLayout
+        style="@style/ExpressAddressFieldsStsyle"
+        android:background="@miui:drawable/v5_group_single_item_bg_light"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/phone"
+            style="@style/ExpressEditText"
+            android:drawableRight="@null"
+            android:hint="@string/express_phone"
+            android:inputType="phone"
+            android:paddingRight="10dip" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/area"
+        style="@miui:style/V5.TextAppearance.PreferenceList"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/express_text_field_height"
+        android:layout_marginBottom="@dimen/express_address_fields_margin_vertical"
+        android:layout_marginTop="@dimen/express_address_fields_margin_vertical"
+        android:background="@drawable/express_select_button_bg"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:visibility="visible" />
+
+    <FrameLayout
+        style="@style/ExpressAddressFieldsStsyle"
+        android:layout_height="wrap_content"
+        android:background="@miui:drawable/v5_group_single_item_bg_light"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/detailed_address"
+            style="@style/ExpressDetailedAddressStyle" />
+    </FrameLayout>
+
+</LinearLayout>

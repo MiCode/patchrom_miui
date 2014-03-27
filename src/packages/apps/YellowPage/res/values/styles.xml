@@ -122,14 +122,13 @@
         <item name="android:layout_gravity">center_vertical</item>
     </style>
 
-    <style name="ExpressInquirySerialNumberStyle" parent="@miui:style/V5.Widget.EditText">
+    <style name="ExpressEditText" parent="@miui:style/V5.Widget.EditText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_marginLeft">@dimen/express_inquiry_edit_text_margin_left</item>
         <item name="android:background">@null</item>
         <item name="android:drawableRight">@miui:drawable/v5_edit_text_search_clear_btn_light</item>
-        <item name="android:hint">@string/express_inquiry_serial_number_indication</item>
         <item name="android:paddingRight">@dimen/express_inquiry_edit_text_padding_right</item>
     </style>
 
@@ -153,5 +152,34 @@
     <style name="SearchResultListItemStyle" parent="@miui:style/V5.Widget.ListView.Item.DoubleLine">
         <item name="android:paddingTop">5dip</item>
         <item name="android:paddingBottom">5dip</item>
+    </style>
+
+    <style name="ExpressAddressFieldsStsyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/express_text_field_height</item>
+        <item name="android:layout_marginBottom">@dimen/express_address_fields_margin_vertical</item>
+        <item name="android:layout_marginTop">@dimen/express_address_fields_margin_vertical</item>
+    </style>
+
+    <style name="ExpressDetailedAddressStyle" parent="@style/ExpressEditText">
+        <item name="android:drawableRight">@null</item>
+        <item name="android:gravity">left|top</item>
+        <item name="android:hint">@string/express_detailed_address</item>
+        <item name="android:inputType">text|textMultiLine</item>
+        <item name="android:maxHeight">@dimen/express_detailed_address_edit_text_height</item>
+        <item name="android:minHeight">@dimen/express_detailed_address_edit_text_height</item>
+        <item name="android:minLines">@integer/express_detailed_address_lines</item>
+        <item name="android:paddingBottom">@dimen/express_detailed_address_edit_text_padding</item>
+        <item name="android:paddingRight">@dimen/express_detailed_address_edit_text_padding</item>
+        <item name="android:paddingTop">@dimen/express_detailed_address_edit_text_padding</item>
+    </style>
+
+    <style name="SendExpressAddressViewContainerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/express_send_express_fragment_view_margin_bottom</item>
+        <item name="android:layout_marginTop">@dimen/express_send_express_fragment_view_margin_top</item>
+        <item name="android:background">@miui:drawable/v5_preference_item_bg</item>
+        <item name="android:orientation">horizontal</item>
     </style>
 </resources>

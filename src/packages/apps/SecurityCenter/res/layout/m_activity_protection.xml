@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.miui.securitycenter.view.ProtectionFragmentView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/protection_view"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
@@ -22,12 +21,12 @@
             android:textSize="16sp" />
     </FrameLayout>
 
-    <ListView
-        android:id="@+id/listView"
+    <com.miui.securitycenter.common.PinnedHeaderListView
+        android:id="@+id/protection_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/toolBar" />
+        android:layout_above="@id/toolBar"
+        android:cacheColorHint="#00000000"
+        android:fadingEdge="none" />
 
-    <include layout="@layout/m_protection_header_view" />
-
-</com.miui.securitycenter.view.ProtectionFragmentView>
+</RelativeLayout>

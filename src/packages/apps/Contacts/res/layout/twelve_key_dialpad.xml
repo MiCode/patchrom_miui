@@ -95,21 +95,31 @@
             android:id="@+id/close_dialpad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_close_dialpad"
+            android:background="@drawable/dual_btn_close_dialpad"
             android:contentDescription="@string/close_dial_pad"
             android:hapticFeedbackEnabled="true" />
         <LinearLayout
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center">
+            android:gravity="center" >
             <Button
-                android:id="@+id/call"
+                android:id="@+id/call_sim1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/btn_call"
+                android:background="@drawable/btn_call_sim1"
+                android:hapticFeedbackEnabled="true"
                 android:contentDescription="@string/dial"
-                android:hapticFeedbackEnabled="true" />
+                style="@style/DialerCallButton" />
+            <Button
+                android:id="@+id/call_sim2"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_call_sim2"
+                android:hapticFeedbackEnabled="true"
+                android:contentDescription="@string/dial"
+                style="@style/DialerCallButton" />
         </LinearLayout>
         <Button
             android:id="@+id/delete"
