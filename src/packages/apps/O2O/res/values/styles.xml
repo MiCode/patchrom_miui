@@ -2,25 +2,24 @@
 
     <!-- Activity Style -->
     <style name="Theme.Light" parent="@miui:style/V5.Theme.Light">
-        <item name="miui:v5_action_bar_tab">true</item>
+        <item name="miui:v5_action_bar_tab">false</item>
     </style>
 
     <style name="Theme.Light.NoTitle" parent="@miui:style/V5.Theme.Light.NoTitle">
-        <item name="miui:v5_action_bar_tab">true</item>
+        <item name="miui:v5_action_bar_tab">false</item>
     </style>
 
     <style name="Theme.Light.O2OTab">
-        <item name="android:homeAsUpIndicator">@null</item>
+        <item name="android:homeAsUpIndicator">@drawable/v5_title_bar_back_button_light</item>
         <item name="android:actionBarStyle">@style/Widget.ActionBar.O2OTab</item>
     </style>
 
     <style name="Detail" />
 
     <style name="Detail.Padding">
-        <item name="android:paddingLeft">7dip</item>
-        <item name="android:paddingTop">5dip</item>
-        <item name="android:paddingRight">7dip</item>
-        <item name="android:paddingBottom">5dip</item>
+        <item name="android:paddingLeft">@dimen/item_detail_layout_padding_left</item>
+        <item name="android:paddingRight">@dimen/item_detail_layout_padding_right</item>
+        <item name="android:paddingTop">@dimen/item_detail_layout_padding_top</item>
     </style>
     <!-- Widget Style -->
     <style name="Widget" parent="@miui:style/V5.Widget" />
@@ -50,11 +49,27 @@
         <item name="android:listSelector">@drawable/list_view_item_bg_light_header</item>
     </style>
 
-    <style name="Widget.ActionBar" parent="@miui:style/V5.Widget.ActionBar.NoTitle" />
+    <style name="Widget.TopItemGridView">
+        <item name="android:paddingLeft">@dimen/top_item_padding</item>
+        <item name="android:paddingRight">@dimen/top_item_padding</item>
+        <item name="android:paddingTop">@dimen/top_item_padding_top</item>
+        <item name="android:paddingBottom">@dimen/top_item_padding_top</item>
+        <item name="android:numColumns">5</item>
+        <item name="android:horizontalSpacing">@dimen/map_choose_grid_gap</item>
+        <item name="android:verticalSpacing">@dimen/map_choose_grid_gap</item>
+        <item name="android:stretchMode">columnWidth</item>
+        <item name="android:gravity">center</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:fastScrollEnabled">true</item>
+        <item name="android:listSelector">@drawable/top_item_bg_click</item>
+    </style>
 
-    <style name="Widget.ActionBar.O2OTab"></style>
+    <style name="Widget.ActionBar" parent="@miui:style/V5.Widget.ActionBar" />
 
-    <style name="Widget.ActionBar.TabText" parent="@miui:style/V5.Widget.ActionBar.TabText" />
+    <style name="Widget.ActionBar.O2OTab">
+        <item name="android:height">@dimen/action_bar_height</item>
+    </style>
 
     <style name="Widget.Button" parent="@miui:style/V5.Widget.Button" />
 
@@ -90,6 +105,14 @@
         <item name="android:background">@drawable/list_view_item_bg_light_header</item>
     </style>
 
+    <style name="Widget.ListView.Item.PersonalLine" parent="@miui:style/V5.Widget.ListView.Item.TrebleLine">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/item_padding_top</item>
+        <item name="android:paddingLeft">@dimen/item_padding_left</item>
+        <item name="android:paddingRight">@dimen/item_padding_right</item>
+        <item name="android:background">@drawable/list_view_item_bg_light_header</item>
+    </style>
+
     <!-- Icon style -->
     <!-- No V5 default style -->
     <style name="Widget.Icon">
@@ -97,6 +120,12 @@
         <item name="android:layout_height">@dimen/display_icon_height_size</item>
         <item name="android:layout_alignParentLeft">true</item>
         <item name="android:background">@null</item>
+    </style>
+
+    <style name="Widget.SourceIcon">
+        <item name="android:layout_width">@dimen/display_source_width_size</item>
+        <item name="android:layout_height">@dimen/display_source_height_size</item>
+        <item name="android:layout_alignParentRight">true</item>
     </style>
 
     <style name="Widget.SecondaryTab" parent="@miui:style/V5.Widget.SecondaryTab">
@@ -127,6 +156,16 @@
         <item name="android:shadowRadius">0.0</item>
     </style>
 
+    <style name="TextAppearance.PersonalLogin">
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">3.5</item>
+        <item name="android:shadowRadius">5.5</item>
+        <item name="android:shadowColor">#59000000</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/text_personal_login</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
     <style name="TextAppearance.PersonalHeader">
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">@dimen/text_sub_title_size</item>
@@ -149,6 +188,12 @@
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">@dimen/not_found_text_size</item>
         <item name="android:textColor">@color/not_found_text_color</item>
+    </style>
+
+    <style name="TextAppearance.ActionBarTitle">
+        <item name="android:textColor">@color/action_bar_title</item>
+        <item name="android:textSize">@dimen/action_title_size</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextAppearance.Title">
@@ -184,6 +229,12 @@
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">@dimen/text_sub_title_size</item>
         <item name="android:textColor">@color/secondary_text</item>
+    </style>
+
+    <style name="TextAppearance.Title.Secondary.NoAntiColor"> <!-- 无反色 -->
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/text_sub_title_size</item>
+        <item name="android:textColor">@color/text_description_color</item>
     </style>
 
     <style name="TextAppearance.Title.DetailSecondary">
@@ -236,7 +287,7 @@
 
     <style name="TextAppearance.Title.LocationDesc">
         <item name="android:textStyle">normal</item>
-        <item name="android:textSize">@dimen/text_sub_title_size</item>
+        <item name="android:textSize">@dimen/text_category_title_size</item>
         <item name="android:textColor">@color/text_location_description_color</item>
     </style>
 
@@ -250,12 +301,6 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/text_sub_title_size</item>
         <item name="android:textColor">@color/item_nores_text</item>
-    </style>
-
-    <style name="TextAppearance.Title.Secondary.NoAntiColor"> <!-- 无反色 -->
-        <item name="android:textStyle">normal</item>
-        <item name="android:textSize">@dimen/text_sub_title_size</item>
-        <item name="android:textColor">@color/text_description_color</item>
     </style>
 
     <style name="TextAppearance.Title.Recommend">
@@ -315,11 +360,8 @@
     <style name="Widget.BottomBar" />
 
     <style name="Widget.BottomBar.Button">
-        <item name="android:layout_width">@dimen/bottombar_button_width</item>
-        <item name="android:layout_height">@dimen/bottombar_button_height</item>
-        <item name="android:gravity">center</item>
-        <item name="android:layout_marginLeft">20dip</item>
-        <item name="android:layout_marginRight">20dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/v5_btn_bg_main_action_light</item>
     </style>
 
@@ -352,6 +394,13 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">left|center_vertical</item>
         <item name="android:imeOptions">actionSearch</item>
+        <item name="android:maxLength">50</item>
+    </style>
+
+    <style name="Widget.Title.Back.Search" parent="@miui:style/V5.Widget.Title.Back.Search">
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:visibility">gone</item>
     </style>
 
     <style name="BottomBarIcon">

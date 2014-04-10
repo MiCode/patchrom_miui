@@ -2,8 +2,7 @@
 <com.xiaomi.o2o.activity.view.PersonalBuyHistoryItem xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/item_holder"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/common_list_view_background" >
+    android:layout_height="wrap_content" >
 
     <LinearLayout
         android:id="@+id/content_holder"
@@ -26,83 +25,83 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/item_right_padding_bottom" >
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:layout_weight="12"
-                android:orientation="horizontal" >
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_item_title_margin_top"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="@string/app_name"
+                    android:textAppearance="@style/TextAppearance.Title"
+                    android:textSize="@dimen/common_item_text_title_size" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical" >
+                    android:layout_marginTop="@dimen/item_price_margin_top"
+                    android:orientation="horizontal" >
 
                     <TextView
-                        android:id="@+id/title"
+                        android:id="@+id/money_prefix"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:lines="1"
-                        android:text="@string/app_name"
-                        android:textAppearance="@style/TextAppearance.Title" />
+                        android:gravity="center"
+                        android:text="@string/money_prefix"
+                        android:textAppearance="@style/TextAppearance.Title.Secondary" />
 
-                    <LinearLayout
+                    <com.xiaomi.o2o.activity.view.NumbericTextView
+                        android:id="@+id/currentprice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/item_price_margin_top"
-                        android:orientation="horizontal" >
+                        android:layout_marginTop="@dimen/item_pricemoney_margin_top"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.Price"
+                        android:textSize="@dimen/buy_history_price_size" />
 
-                        <TextView
-                            android:id="@+id/currentprice"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="@dimen/item_pricemoney_margin_top"
-                            android:gravity="center"
-                            android:textAppearance="@style/TextAppearance.Price" />
+                    <TextView
+                        android:id="@+id/pricemoney"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/money"
+                        android:textAppearance="@style/TextAppearance.Title.Secondary" />
 
-                        <TextView
-                            android:id="@+id/pricemoney"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="@string/money"
-                            android:textAppearance="@style/TextAppearance.Title.Secondary" />
+                    <ImageView
+                        android:layout_width="1px"
+                        android:layout_height="@dimen/common_item_desc_line_height"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/action_bar_line_margin_left"
+                        android:layout_marginRight="@dimen/action_bar_line_margin_left"
+                        android:background="@color/item_divider_line" />
 
-                        <TextView
-                            android:id="@+id/passbook_count"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="@string/total_passbook"
-                            android:textAppearance="@style/TextAppearance.Title.Secondary" />
-                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/passbook_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/total_passbook"
+                        android:textAppearance="@style/TextAppearance.Title.Secondary" />
                 </LinearLayout>
             </LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:layout_weight="5" >
-
-                <TextView
-                    android:id="@+id/buy_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="top"
-                    android:text="@string/buy_date"
-                    android:textAppearance="@style/TextAppearance.Title.Secondary" />
-
-                <TextView
-                    android:id="@+id/available_day_left"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:gravity="top"
-                    android:text="@string/app_name"
-                    android:textAppearance="@style/TextAppearance.Personal.DayLeft" />
-            </RelativeLayout>
+            <TextView
+                android:id="@+id/available_day_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_price_margin_top"
+                android:text="@string/app_name"
+                android:textAppearance="@style/TextAppearance.Title.Secondary" />
         </LinearLayout>
     </LinearLayout>
 
