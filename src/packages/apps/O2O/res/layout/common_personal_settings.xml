@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <include layout="@layout/common_personal_title_headview" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/my_passbook_title_margin_bottom"
+            android:layout_marginLeft="@dimen/my_passbook_title_margin_left"
+            android:layout_marginTop="@dimen/my_passbook_title_margin_top"
+            android:text="@string/my_passbook_title"
+            android:textAppearance="@style/TextAppearance.Title.Secondary.NoAntiColor" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/detail_background" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/detail_background"
+                android:orientation="vertical" >
+
+                <include layout="@layout/common_personal_listview" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/persoanl_passbook_none"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/detail_background"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/no_content_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/not_found_text_margin_top"
+                    android:singleLine="true"
+                    android:text="@string/no_personal_passbook"
+                    android:textAppearance="@style/TextAppearance.NotFound" />
+            </RelativeLayout>
+        </FrameLayout>
+
+        <include layout="@layout/personal_settings_bottom" />
+    </LinearLayout>
+
+</ScrollView>

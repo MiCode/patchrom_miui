@@ -2,159 +2,137 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/choose_content_border"
     android:orientation="vertical" >
 
     <LinearLayout
-        android:id="@+id/item_notice_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/item_detail_padding_top" >
+        android:layout_marginBottom="@dimen/item_detail_pwd_divider_height"
+        android:layout_marginTop="@dimen/item_detail_pwd_divider_height"
+        android:background="@drawable/item_detail_bg"
+        android:orientation="vertical" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/item_detail_upper_margin_top"
             android:orientation="horizontal"
-            android:paddingLeft="@dimen/personal_settings_padding_left" >
+            android:paddingBottom="@dimen/item_detail_padding_top"
+            android:paddingLeft="@dimen/personal_settings_padding_left"
+            android:paddingRight="@dimen/personal_settings_padding_right"
+            android:paddingTop="@dimen/item_detail_orderid_margin_top" >
 
             <TextView
                 android:id="@+id/source"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="@dimen/banner_margin_right"
-                android:gravity="center_vertical"
-                android:lines="1"
-                android:text="@string/source"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="71"
+                android:text="@string/item_loading"
                 android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:singleLine="true"
-                android:text="@string/order_id_prefix"
-                android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor" />
+            <LinearLayout
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_weight="16" >
 
-            <TextView
-                android:id="@+id/item_order_id"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:singleLine="true"
-                android:text="@string/order_id_text"
-                android:textAppearance="@style/TextAppearance.Title.OderId" />
+                <ImageSwitcher
+                    android:id="@+id/icon_source"
+                    style="@style/Widget.SourceIcon" />
+            </LinearLayout>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/deadline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/item_detail_orderid_margin_top"
-            android:gravity="bottom"
-            android:paddingLeft="@dimen/personal_settings_padding_left"
-            android:text="@string/deadline"
-            android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/item_divider_line" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/item_detail_orderid_margin_top"
-            android:orientation="horizontal"
-            android:paddingLeft="@dimen/personal_settings_padding_left" >
-
-            <ImageView
-                android:id="@+id/item_res_status"
-                android:layout_width="@dimen/item_detail_status_width"
-                android:layout_height="@dimen/item_detail_status_height"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="@dimen/item_detail_status_margin_right"
-                android:src="@drawable/item_detail_status" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/item_detail_status_between_margin_right"
-                android:gravity="bottom"
-                android:singleLine="true"
-                android:text="@string/no_reservation_detail"
-                android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
-                android:textStyle="normal" />
-
-            <ImageView
-                android:id="@+id/item_refund_status"
-                android:layout_width="@dimen/item_detail_status_width"
-                android:layout_height="@dimen/item_detail_status_height"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="@dimen/item_detail_status_margin_right"
-                android:src="@drawable/item_detail_status" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="bottom"
-                android:singleLine="true"
-                android:text="@string/refundable"
-                android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
-                android:textStyle="normal" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/item_divider_line" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/item_desc_title_height"
-        android:orientation="horizontal" >
-
-        <LinearLayout
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="54"
-            android:orientation="horizontal"
-            android:paddingLeft="@dimen/personal_settings_padding_left" >
-
-            <TextView
-                android:id="@+id/call_service_prefix"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="@string/call_service_prefix"
-                android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor" />
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/item_detail_padding_top"
+            android:paddingLeft="@dimen/personal_settings_padding_left"
+            android:paddingRight="@dimen/personal_settings_padding_right"
+            android:paddingTop="@dimen/item_detail_orderid_margin_top" >
 
             <TextView
                 android:id="@+id/call_service"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="@string/call_service"
+                android:layout_height="wrap_content"
+                android:text="@string/item_loading"
                 android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor" />
         </LinearLayout>
 
         <ImageView
-            android:layout_width="1px"
-            android:layout_height="match_parent"
+            android:id="@+id/item_notice_layout_line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
             android:background="@color/item_divider_line" />
 
-        <LinearLayout
-            android:id="@+id/service_phone_layout"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="15"
-            android:gravity="center" >
+        <RelativeLayout
+            android:id="@+id/item_notice_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/item_detail_res_margin_bottom"
+            android:paddingLeft="@dimen/personal_settings_padding_left"
+            android:paddingRight="@dimen/personal_settings_padding_right"
+            android:paddingTop="@dimen/item_detail_res_margin_top" >
 
-            <ImageView
-                android:layout_width="@dimen/big_phone_image_view_width"
-                android:layout_height="@dimen/big_phone_image_view_height"
-                android:layout_gravity="center_vertical"
-                android:contentDescription="@string/app_name"
-                android:scaleType="fitCenter"
-                android:src="@drawable/item_detail_phone_icon" />
-        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/item_res_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/item_detail_status_margin_right"
+                    android:src="@drawable/item_detail_status" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/item_detail_status_between_margin_right"
+                    android:gravity="bottom"
+                    android:singleLine="true"
+                    android:text="@string/no_reservation_detail"
+                    android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+                    android:textStyle="normal" />
+
+                <ImageView
+                    android:id="@+id/item_refund_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/item_detail_status_margin_right"
+                    android:src="@drawable/item_detail_status" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom"
+                    android:singleLine="true"
+                    android:text="@string/refundable"
+                    android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+                    android:textStyle="normal" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/item_order_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:ellipsize="end"
+                android:gravity="bottom"
+                android:singleLine="true"
+                android:text="@string/item_loading"
+                android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+                android:textSize="@dimen/common_item_text_sub_title_size" />
+        </RelativeLayout>
     </LinearLayout>
 
 </LinearLayout>

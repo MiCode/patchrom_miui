@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_buy_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/item_detail_currentprice_margin_left"
+        android:baselineAligned="false"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/item_detail_currentprice_padding_bottom" >
+
+        <com.xiaomi.o2o.activity.view.NumbericTextView
+            android:id="@+id/currentprice"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/item_price_gap_margin_top"
+            android:gravity="bottom"
+            android:textAppearance="@style/TextAppearance.Price"
+            android:textSize="@dimen/item_detail_currentprice" />
+
+        <TextView
+            android:id="@+id/pricemoney"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/gap_between_currentprice"
+            android:gravity="bottom"
+            android:text="@string/money"
+            android:textAppearance="@style/TextAppearance.Title.Secondary" />
+
+        <TextView
+            android:id="@+id/listprice"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/gap_between_price"
+            android:gravity="bottom"
+            android:text="@string/orig_price"
+            android:textAppearance="@style/TextAppearance.Title.Secondary" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/buy_button"
+        style="@style/Widget.BottomBar.Button"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:paddingTop="@dimen/buy_button_padding_top"
+        android:text="@string/buynow"
+        android:textAppearance="@style/TextAppearance.BuyButton" />
+
+</RelativeLayout>

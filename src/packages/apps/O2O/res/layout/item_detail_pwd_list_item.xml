@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaomi.o2o.activity.view.ItemDetailPwdListItem xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/item_detail_pwd_divider_height"
+        android:background="@drawable/item_detail_bg"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/show_detail_holder"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_desc_title_height"
+            android:clickable="true"
+            android:paddingRight="@dimen/personal_settings_item_padding_right" >
+
+            <TextView
+                android:id="@id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/personal_settings_padding_left"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="@string/item_loading"
+                android:textAppearance="@style/TextAppearance.Title" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/item_detail_avatar" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/item_divider_line" />
+
+        <LinearLayout
+            android:id="@+id/item_order_number_holder"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_desc_title_height"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/personal_settings_padding_left" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="@string/order_number"
+                android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor" />
+
+            <TextView
+                android:id="@+id/item_order_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/item_order_number_margin_left"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="@string/loading_item_detail"
+                android:textAppearance="@style/TextAppearance.Title.OrderNumber" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/item_divider_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_desc_title_height"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/personal_settings_padding_left" >
+
+            <TextView
+                android:id="@+id/available_deadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:lines="1"
+                android:text="@string/available_deadline"
+                android:textAppearance="@style/TextAppearance.Title.Secondary"
+                android:textSize="@dimen/common_item_text_sub_title_size" />
+        </LinearLayout>
+    </LinearLayout>
+
+</com.xiaomi.o2o.activity.view.ItemDetailPwdListItem>

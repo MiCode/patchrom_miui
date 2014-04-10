@@ -32,7 +32,17 @@
                 <LinearLayout
                     style="@style/Detail.Padding"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_detail_buy_margin_top" >
+
+                    <include layout="@layout/item_detail_buy" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/Detail.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_detail_buy_margin_top" >
 
                     <include layout="@layout/item_detail_upper" />
                 </LinearLayout>
@@ -40,15 +50,9 @@
                 <LinearLayout
                     style="@style/Detail.Padding"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <include layout="@layout/item_detail_upper_sec" />
-                </LinearLayout>
-
-                <LinearLayout
-                    style="@style/Detail.Padding"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_detail_info_margin_top"
+                    android:orientation="vertical" >
 
                     <include layout="@layout/item_detail_middle" />
                 </LinearLayout>
@@ -56,7 +60,20 @@
                 <LinearLayout
                     style="@style/Detail.Padding"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_detail_info_margin_top"
+                    android:orientation="vertical" >
+
+                    <include layout="@layout/item_detail_upper_sec" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/Detail.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/item_detail_info_margin_top"
+                    android:layout_marginTop="@dimen/item_detail_info_margin_top"
+                    android:orientation="vertical" >
 
                     <include layout="@layout/item_detail_bottom" />
                 </LinearLayout>
@@ -70,50 +87,5 @@
                 android:gravity="center" />
         </LinearLayout>
     </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/item_buy_layout"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/item_detail_bottom_height"
-        android:layout_gravity="bottom"
-        android:background="@color/common_list_view_background"
-        android:gravity="center"
-        android:orientation="vertical" >
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/item_divider_line" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center" >
-
-            <ImageView
-                android:id="@+id/favorites_button"
-                style="@style/BottomBarIcon"
-                android:layout_width="@dimen/bottombar_fav_width"
-                android:layout_height="@dimen/bottombar_fav_height"
-                android:layout_weight="1"
-                android:src="@drawable/ic_menu_favorites" />
-
-            <TextView
-                android:id="@+id/buy_button"
-                style="@style/Widget.BottomBar.Button"
-                android:layout_gravity="center"
-                android:text="@string/buynow"
-                android:textAppearance="@style/TextAppearance.BuyButton" />
-
-            <ImageView
-                android:id="@+id/share_button"
-                style="@style/BottomBarIcon"
-                android:layout_width="@dimen/bottombar_fav_width"
-                android:layout_height="@dimen/bottombar_fav_height"
-                android:layout_weight="1"
-                android:src="@drawable/ic_menu_share"
-                android:visibility="invisible" />
-        </LinearLayout>
-    </LinearLayout>
 
 </FrameLayout>

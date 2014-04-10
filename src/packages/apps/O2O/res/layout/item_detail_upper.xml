@@ -2,58 +2,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/choose_content_border"
+    android:background="@drawable/item_detail_bg"
     android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/item_desc_title_height"
-        android:orientation="horizontal" >
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/item_detail_padding_top"
+        android:paddingLeft="@dimen/personal_settings_padding_left"
+        android:paddingRight="@dimen/personal_settings_padding_right"
+        android:paddingTop="@dimen/item_detail_orderid_margin_top" >
 
         <TextView
             android:id="@id/title"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="54"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:ellipsize="end"
             android:gravity="center_vertical"
-            android:paddingLeft="@dimen/personal_settings_padding_left"
             android:singleLine="true"
             android:text="@string/item_loading"
             android:textAppearance="@style/TextAppearance.Title" />
 
-        <ImageView
-            android:layout_width="1px"
-            android:layout_height="match_parent"
-            android:background="@color/item_divider_line" />
-
-        <LinearLayout
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="15"
-            android:gravity="right"
-            android:orientation="horizontal"
-            android:paddingRight="@dimen/personal_settings_padding_left" >
-
-            <TextView
-                android:id="@id/currentprice"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/item_detail_currentprice_bottom"
-                android:gravity="bottom"
-                android:text="@string/item_loading"
-                android:textAppearance="@style/TextAppearance.Price"
-                android:textSize="@dimen/item_detail_currentprice_size" />
-
-            <TextView
-                android:id="@id/pricemoney"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/item_detail_upper_padding_bottom"
-                android:gravity="bottom"
-                android:text="@string/money"
-                android:textAppearance="@style/TextAppearance.Title.DetailPriceMoney.NoAntiColor" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/item_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_detail_description_margin_top"
+            android:text="@string/item_loading"
+            android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor" />
     </LinearLayout>
 
     <ImageView
@@ -61,35 +38,24 @@
         android:layout_height="1px"
         android:background="@color/item_divider_line" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/item_notice_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/item_detail_padding_top" >
-
-        <TextView
-            android:id="@+id/item_order_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/item_detail_orderid_margin_top"
-            android:gravity="bottom"
-            android:singleLine="true"
-            android:text="@string/item_loading"
-            android:textAppearance="@style/TextAppearance.Title.DetailSecondary"
-            android:visibility="gone" />
+        android:layout_height="@dimen/single_item_common_height"
+        android:paddingLeft="@dimen/personal_settings_padding_left"
+        android:paddingRight="@dimen/personal_settings_padding_right" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/item_detail_orderid_margin_top"
-            android:orientation="horizontal"
-            android:paddingLeft="@dimen/personal_settings_padding_left" >
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal" >
 
             <ImageView
                 android:id="@+id/item_res_status"
-                android:layout_width="@dimen/item_detail_status_width"
-                android:layout_height="@dimen/item_detail_status_height"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="@dimen/item_detail_status_margin_right"
                 android:src="@drawable/item_detail_status" />
@@ -106,8 +72,8 @@
 
             <ImageView
                 android:id="@+id/item_refund_status"
-                android:layout_width="@dimen/item_detail_status_width"
-                android:layout_height="@dimen/item_detail_status_height"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="@dimen/item_detail_status_margin_right"
                 android:src="@drawable/item_detail_status" />
@@ -121,37 +87,19 @@
                 android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
                 android:textStyle="normal" />
         </LinearLayout>
-    </LinearLayout>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/item_divider_line" />
-
-    <LinearLayout
-        android:id="@+id/item_desc_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/item_detail_padding_top"
-        android:paddingLeft="@dimen/personal_settings_padding_left"
-        android:paddingTop="@dimen/item_detail_padding_top" >
 
         <TextView
-            android:id="@+id/deadline"
+            android:id="@+id/purchasecount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:ellipsize="end"
             android:gravity="bottom"
+            android:singleLine="true"
             android:text="@string/item_loading"
-            android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor" />
-
-        <TextView
-            android:id="@+id/source"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="bottom"
-            android:text="@string/item_loading"
-            android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor" />
-    </LinearLayout>
+            android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+            android:textSize="@dimen/common_item_text_sub_title_size" />
+    </RelativeLayout>
 
 </LinearLayout>

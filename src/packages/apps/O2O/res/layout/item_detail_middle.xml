@@ -1,198 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/item_detail_part_margin_top"
-    android:background="@drawable/choose_content_border"
-    android:orientation="vertical" >
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/item_desc_title_height"
-        android:paddingLeft="@dimen/personal_settings_padding_left" >
+    <TextView
+        android:id="@+id/nearestmerchant"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/item_detail_info_margin_bottom"
+        android:layout_marginLeft="@dimen/personal_settings_padding_left"
+        android:gravity="center_vertical"
+        android:text="@string/nearestmerchant"
+        android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor" />
 
-        <TextView
-            android:id="@+id/nearestmerchant"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text="@string/nearestmerchant"
-            android:textAppearance="@style/TextAppearance.Title.NoShadow" />
-    </RelativeLayout>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/item_divider_line" />
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/item_detail_padding_top" >
+        android:background="@drawable/item_detail_bg"
+        android:orientation="vertical" >
 
-        <LinearLayout
-            android:id="@+id/nearestmerchant_holder"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="@dimen/personal_settings_padding_left"
-            android:paddingRight="@dimen/personal_settings_padding_left" >
+            android:paddingBottom="@dimen/item_detail_padding_bottom"
+            android:paddingTop="@dimen/item_detail_padding_top" >
 
             <LinearLayout
-                android:layout_width="0dip"
+                android:id="@+id/nearestmerchant_holder"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="51" >
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/personal_settings_padding_left"
+                android:paddingRight="@dimen/personal_settings_padding_left" >
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="51" >
+
+                    <TextView
+                        android:id="@+id/nearestmerchant_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:lines="1"
+                        android:text="@string/loading_item_detail"
+                        android:textAppearance="@style/TextAppearance.Title.NoAntiColor"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/nearestmerchant_branchname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:lines="1"
+                        android:text="@string/item_loading"
+                        android:textAppearance="@style/TextAppearance.Title.NoAntiColor"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/nearestmerchant_title"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/location_distance"
+                    android:layout_width="0dip"
                     android:layout_height="wrap_content"
-                    android:gravity="top"
-                    android:lines="1"
-                    android:text="@string/loading_item_detail"
-                    android:textAppearance="@style/TextAppearance.Title.NoAntiColor"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/nearestmerchant_branchname"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="top"
-                    android:lines="1"
-                    android:text="@string/item_loading"
-                    android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
-                    android:textStyle="normal" />
+                    android:layout_weight="15"
+                    android:gravity="right|bottom"
+                    android:text="@string/location_distance"
+                    android:textAppearance="@style/TextAppearance.Title.DetailSecondary" />
             </LinearLayout>
 
             <TextView
-                android:id="@+id/location_distance"
-                android:layout_width="0dip"
+                android:id="@+id/nearestmerchant_location"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="15"
-                android:gravity="right|bottom"
-                android:text="@string/location_distance"
-                android:textAppearance="@style/TextAppearance.Title.DetailSecondary" />
-        </LinearLayout>
+                android:layout_below="@id/nearestmerchant_holder"
+                android:layout_marginTop="@dimen/item_detail_neareststore_location_margin_top"
+                android:gravity="bottom"
+                android:paddingLeft="@dimen/personal_settings_padding_left"
+                android:text="@string/loading_item_detail"
+                android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+                android:textStyle="normal" />
+        </RelativeLayout>
 
-        <TextView
-            android:id="@+id/nearestmerchant_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/nearestmerchant_holder"
-            android:layout_marginTop="@dimen/item_detail_neareststore_location_margin_top"
-            android:gravity="bottom"
-            android:paddingLeft="@dimen/personal_settings_padding_left"
-            android:text="@string/loading_item_detail"
-            android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
-            android:textStyle="normal" />
+        <RelativeLayout
+            android:id="@+id/merchant_phone_number_holder"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/single_item_common_height" >
+
+            <ImageView
+                android:id="@+id/split_line"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/item_divider_line" />
+
+            <TextView
+                android:id="@+id/merchant_phone_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/personal_settings_padding_left"
+                android:gravity="bottom"
+                android:text="@string/loading_item_detail"
+                android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+                android:textStyle="normal" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/item_divider_line" />
+
+                <ImageView
+                    android:id="@+id/contactmerchant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/phone_call" />
+            </LinearLayout>
+        </RelativeLayout>
 
         <ImageView
-            android:id="@+id/split_line"
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:layout_below="@id/nearestmerchant_location"
-            android:layout_marginTop="@dimen/item_detail_neareststore_map_margin_top"
             android:background="@color/item_divider_line" />
 
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/moremerchant"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/split_line"
-            android:orientation="horizontal" >
-
-            <LinearLayout
-                android:id="@+id/map"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/item_detail_neareststore_map_margin_top"
-                android:layout_marginTop="@dimen/item_detail_neareststore_map_margin_top"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:orientation="horizontal" >
-
-                <ImageView
-                    android:layout_width="@dimen/item_detail_map_width"
-                    android:layout_height="@dimen/item_detail_map_height"
-                    android:layout_gravity="center"
-                    android:background="@drawable/item_detail_map_icon"
-                    android:scaleType="center" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/item_detail_image_margin_left"
-                    android:duplicateParentState="true"
-                    android:text="@string/findinmap"
-                    android:textAppearance="@style/TextAppearance.DetailHelp" />
-            </LinearLayout>
+            android:layout_height="@dimen/single_item_common_height"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/personal_settings_padding_left"
+            android:paddingRight="@dimen/personal_settings_padding_right" >
 
             <ImageView
-                android:layout_width="1px"
-                android:layout_height="match_parent"
-                android:background="@color/item_divider_line" />
-
-            <LinearLayout
-                android:id="@+id/contactmerchant"
-                android:layout_width="0dip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/item_detail_neareststore_map_margin_top"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:orientation="horizontal" >
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/item_detail_avatar" />
 
-                <ImageView
-                    android:layout_width="@dimen/item_detail_phone_width"
-                    android:layout_height="@dimen/item_detail_phone_height"
-                    android:layout_gravity="center"
-                    android:background="@drawable/item_detail_phone_icon"
-                    android:scaleType="center" />
-
-                <TextView
-                    android:id="@+id/contactmerchant_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/item_detail_image_margin_left"
-                    android:duplicateParentState="true"
-                    android:text="@string/contactwithmerchant"
-                    android:textAppearance="@style/TextAppearance.DetailHelp" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="1px"
+            <TextView
+                android:id="@+id/moremerchant_count"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@color/item_divider_line" />
+                android:gravity="center_vertical"
+                android:text="@string/moremerchant"
+                android:textAppearance="@style/TextAppearance.Title.NoAntiColor"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/moremerchant"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/item_detail_neareststore_map_margin_top"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:orientation="horizontal" >
-
-                <ImageView
-                    android:layout_width="@dimen/item_detail_allstore_width"
-                    android:layout_height="@dimen/item_detail_allstore_height"
-                    android:layout_gravity="center"
-                    android:background="@drawable/item_detail_more_icon"
-                    android:scaleType="center" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/item_detail_image_margin_left"
-                    android:duplicateParentState="true"
-                    android:text="@string/moremerchant"
-                    android:textAppearance="@style/TextAppearance.DetailHelp" />
-            </LinearLayout>
-        </LinearLayout>
-    </RelativeLayout>
-
-</LinearLayout>
+</merge>

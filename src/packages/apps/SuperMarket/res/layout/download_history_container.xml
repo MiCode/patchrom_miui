@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <FrameLayout
+        android:id="@+id/download_history"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ListView
+            android:id="@android:id/list"
+            style="@style/Widget.ListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.xiaomi.market.ui.EmptyLoadingView
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <include
+        android:id="@+id/login_page"
+        layout="@layout/login_page" />
+
+</FrameLayout>

@@ -8,10 +8,10 @@
         style="@style/Widget.ListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/item_firstone_margin_top"
-        android:background="@color/detail_background"
         android:divider="@color/item_divider_line"
-        android:dividerHeight="@dimen/common_divider_height" />
+        android:dividerHeight="@dimen/common_personal_divider_height"
+        android:paddingLeft="@dimen/personal_settings_padding_left"
+        android:paddingRight="@dimen/personal_settings_padding_right" />
 
     <com.xiaomi.o2o.activity.view.EmptyLoadingView
         android:id="@+id/loading"
@@ -19,21 +19,5 @@
         android:layout_height="match_parent"
         android:layout_gravity="bottom"
         android:gravity="center" />
-
-    <LinearLayout
-        android:id="@+id/login_button_holder"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:visibility="gone" >
-
-        <TextView
-            android:id="@+id/login_button"
-            style="@style/Widget.BottomBar.Button"
-            android:layout_gravity="bottom"
-            android:layout_marginBottom="@dimen/personal_login_button_margin_bottom"
-            android:text="@string/menu_login"
-            android:textAppearance="@style/TextAppearance.BuyButton" />
-    </LinearLayout>
 
 </FrameLayout>
