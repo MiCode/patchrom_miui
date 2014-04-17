@@ -14,49 +14,58 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal" />
+
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/aqi_index_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:paddingTop="125dip"
             android:gravity="center_horizontal"
-            android:orientation="vertical" >
-            <LinearLayout
-                android:id="@+id/aqi_index_value"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/aqi_num_padding_top" >
+
+            <ImageView
+                android:id="@+id/aqi_index_value_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-                <ImageView
-                    android:id="@+id/aqi_index_value_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone" />
-                <ImageView
-                    android:id="@+id/aqi_index_value_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone" />
-                <ImageView
-                    android:id="@+id/aqi_index_value_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone" />
-            </LinearLayout>
-            <TextView
-                android:id="@+id/act_aqi_city"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/aqi_index_value_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dip"
-                android:textColor="#929292"
-                android:textSize="12sp"
-                style="@style/text_shadow_1" />
-             <TextView
-                android:id="@+id/act_aqi_index"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/aqi_index_value_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
-                style="@style/text_shadow_1" />
+                android:visibility="gone" />
         </LinearLayout>
+
+         <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingBottom ="@dimen/aqi_desc_padding_bottom">
+
+                <TextView
+                    android:id="@+id/act_aqi_city"
+                    style="@style/text_shadow_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#929292"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/act_aqi_index"
+                    style="@style/text_shadow_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp" />
+             </LinearLayout>
     </FrameLayout>
     <ScrollView
         android:layout_width="match_parent"
