@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/personal_settings_padding_left"
+    android:paddingRight="@dimen/personal_settings_padding_right"
+    android:paddingTop="@dimen/personal_settings_margin_top" >
+
+    <TextView
+        android:id="@+id/lotter_deal_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/my_passbook_title_margin_bottom"
+        android:text="@string/lottery_not_run"
+        android:textAppearance="@style/TextAppearance.Title"
+        android:textSize="@dimen/common_item_text_title_size" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/item_detail_pwd_divider_height"
+        android:background="@drawable/item_detail_bg"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/show_detail_holder"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_desc_title_height"
+            android:clickable="true"
+            android:paddingRight="@dimen/personal_settings_item_padding_right" >
+
+            <TextView
+                android:id="@id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/personal_settings_padding_left"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="@string/item_loading"
+                android:textAppearance="@style/TextAppearance.Title" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/item_divider_line" />
+
+        <LinearLayout
+            android:id="@+id/item_order_number_holder"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_desc_title_height"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/personal_settings_padding_left" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="@string/lottery_info_prefix"
+                android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor" />
+
+            <TextView
+                android:id="@+id/item_order_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/item_order_number_margin_left"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="@string/loading_item_detail"
+                android:textAppearance="@style/TextAppearance.Title.OrderNumber" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/announcement_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/my_passbook_title_margin_bottom"
+            android:layout_marginLeft="@dimen/my_passbook_title_margin_left"
+            android:layout_marginTop="@dimen/my_passbook_title_margin_top"
+            android:text="@string/lottery_announcement_title"
+            android:textAppearance="@style/TextAppearance.Title.Secondary.NoAntiColor" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_detail_bg"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/personal_settings_padding_left"
+            android:paddingLeft="@dimen/personal_settings_padding_left"
+            android:paddingTop="@dimen/personal_settings_padding_left" >
+
+            <TextView
+                android:id="@+id/announcement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/loading_item_detail"
+                android:textAppearance="@style/TextAppearance.Title.Secondary.NoAntiColor" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
