@@ -33,6 +33,38 @@
                 android:text="@string/item_loading"
                 android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor" />
         </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/item_divider_line" />
+
+        <RelativeLayout
+            android:id="@+id/moreinfo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/single_item_common_height"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/personal_settings_padding_left"
+            android:paddingRight="@dimen/personal_settings_padding_right"
+            android:visibility="gone" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/item_detail_avatar" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/moreinfo"
+                android:textAppearance="@style/TextAppearance.Title.NoAntiColor"
+                android:textStyle="bold" />
+        </RelativeLayout>
     </LinearLayout>
 
 </merge>

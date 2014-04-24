@@ -32,7 +32,6 @@ import com.android.internal.telephony.AdnRecordLoader;
 import com.android.internal.telephony.CommandsInterface;
 import com.android.internal.telephony.IccRefreshResponse;
 import com.android.internal.telephony.IccCard;
-import com.android.internal.telephony.IccCardConstants;
 import com.android.internal.telephony.MiuiAdnRecordCache;
 import com.android.internal.telephony.PhoneBase;
 import com.android.internal.telephony.TelephonyProperties;
@@ -347,7 +346,7 @@ public final class RuimRecords extends IccRecords {
         recordsLoadedRegistrants.notifyRegistrants(
             new AsyncResult(null, null, null));
         mParentCard.broadcastIccStateChangedIntent(
-                IccCardConstants.INTENT_VALUE_ICC_LOADED, null);
+                IccCard.INTENT_VALUE_ICC_LOADED, null);
     }
 
     @Override
@@ -357,7 +356,7 @@ public final class RuimRecords extends IccRecords {
         */
 
         mParentCard.broadcastIccStateChangedIntent(
-                IccCardConstants.INTENT_VALUE_ICC_READY, null);
+                IccCard.INTENT_VALUE_ICC_READY, null);
 
         fetchRuimRecords();
 
