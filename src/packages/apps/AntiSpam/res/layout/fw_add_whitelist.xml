@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@miui:dimen/v5_preference_item_padding_side"
+        android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+        android:layout_marginTop="@miui:dimen/v5_preference_item_padding_side"
+        android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+
+    <EditText
+        android:id="@+id/label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@miui:dimen/v5_preference_item_padding_side"
+        android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+        android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
+        android:layout_marginTop="@miui:dimen/v5_preference_item_padding_side"
+        android:layout_weight="1"
+        android:inputType="number"
+        android:singleLine="true"
+        android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+
+    <TextView
+        android:id="@+id/citi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@miui:dimen/v5_preference_item_padding_side"
+        android:layout_marginLeft="@miui:dimen/v5_preference_item_padding_side"
+        android:layout_marginRight="@miui:dimen/v5_preference_item_padding_side"
+        android:layout_marginTop="@miui:dimen/v5_preference_item_padding_side"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textAppearance="@miui:style/V5.TextAppearance.List.Primary"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <View
+            android:layout_width="0px"
+            android:layout_height="0px"
+            android:layout_weight="1.5" />
+
+        <CheckBox
+            android:id="@+id/SMSpass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:text="@string/st_message_SMSpass" />
+
+        <CheckBox
+            android:id="@+id/Phonepass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:text="@string/st_message_phonepass" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="20dip"
+        android:singleLine="true"
+        android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" >
+    </TextView>
+
+</LinearLayout>
