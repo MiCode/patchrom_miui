@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/count"
+            style="@android:style/TextAppearance.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@miui:drawable/v5_list_view_section_item_bg_light"
+            android:gravity="left|center_vertical"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/startup_count"
+            style="@android:style/TextAppearance.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@miui:drawable/v5_list_view_section_item_bg_light"
+            android:gravity="right|center_vertical"
+            android:singleLine="true"
+            android:text="@string/baidu_thanks" />
+    </LinearLayout>
+
+    <miui.v5.widget.EditableListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:fastScrollEnabled="true" />
+
+    <include
+        android:id="@android:id/empty"
+        layout="@layout/fw_log_list_empty"
+        android:visibility="gone" />
+
+</LinearLayout>

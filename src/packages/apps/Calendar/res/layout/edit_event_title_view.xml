@@ -5,16 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:background="@drawable/action_bar_bg" >
+    android:background="@drawable/action_bar_bg"
+    android:id="@+id/title_container">
 
     <Button
         android:id="@+id/action_cancel"
         style="@style/editEventTitileBarBtnStyle"
         android:text="@string/discard_label" />
 
-    <TextView
-        android:id="@+id/title"
-        style="@style/editEventTitileBarTitleStyle" />
+    <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+        <TextView
+            android:id="@+id/title"
+            style="@style/editEventTitileBarTitleStyle" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/action_done"
