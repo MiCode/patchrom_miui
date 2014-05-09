@@ -19,7 +19,6 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">center</item>
-        <item name="android:adjustViewBounds">true</item>
         <item name="android:scaleType">centerCrop</item>
         <item name="android:background">@drawable/resource_thumbnail_bg</item>
     </style>
@@ -48,9 +47,12 @@
     <style name="ResourceBrowser.ResourceDescription.Font">
         <item name="android:singleLine">false</item>   <!-- set center_horizontal will cause a bug when singleLine is true -->
         <item name="android:maxLines">1</item>
-        <item name="android:paddingBottom">30dip</item>
         <item name="android:gravity">center_horizontal|bottom</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <style name="ResourceBrowser.ResourceDescription.Font.Price">
+        <item name="android:textSize">10sp</item>
     </style>
 
     <style name="ResourceBrowser.ResourceDescription.SubDescription">
@@ -60,29 +62,28 @@
     </style>
 
     <!-- progressBar style -->
-    <style name="ResourceBrowser.Widget.ProgressBar.ReadOnly" parent="@miui:style/V5.Widget.ProgressBar.Horizontal.Small">
+    <style name="ResourceBrowser.Widget.ProgressBar.ReadOnly" parent="@style/Widget.ProgressBar.Horizontal">
         <item name="android:background">@null</item>
         <item name="android:layout_width">0dip</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
         <item name="android:max">100</item>
-        <item name="miui:progressBar">@drawable/resource_progressbar</item>
         <item name="android:progressDrawable">@drawable/resource_progressbar_readonly</item>
     </style>
 
     <!-- ratingBar style -->
-    <style name="ResourceBrowser.Widget.RatingBar.ReadOnly" parent="@miui:style/V5.Widget.RatingBar.Small">
+    <style name="ResourceBrowser.Widget.RatingBar.ReadOnly" parent="@style/Widget.RatingBar.Small">
         <item name="android:gravity">center_vertical</item>
         <item name="android:stepSize">0.5</item>
     </style>
 
-    <style name="ResourceBrowser.Widget.RatingBar.Edit" parent="@miui:style/V5.Widget.RatingBar">
+    <style name="ResourceBrowser.Widget.RatingBar.Edit" parent="@style/Widget.RatingBar">
         <item name="android:numStars">5</item>
         <item name="android:stepSize">1</item>
     </style>
 
     <!-- detail page category title -->
-    <style name="Resource.Detail.Category.Title" parent="@miui:style/V5.Widget.TextView">
+    <style name="Resource.Detail.Category.Title" parent="@style/Widget.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center_vertical</item>
@@ -94,4 +95,12 @@
         <item name="android:background">@drawable/resource_detail_category_title_bg</item>
     </style>
 
+    <style name="Resource.Comment.TextAppearance.List.Primary" parent="@style/TextAppearance.List.Primary">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="Resource.Comment.TextAppearance.List.Secondary" parent="@style/TextAppearance.List.Secondary">
+        <item name="android:textSize">@dimen/resource_comment_secondary_text_size</item>
+    </style>
 </resources>

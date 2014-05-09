@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:gravity="center_horizontal">
+            >
+    <TextView
+            android:id="@android:id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal"
+            style="@style/DialogTitleStyle"
+            />
+    <TextView
+            android:id="@+id/desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="@dimen/dialog_margin_h"
+            android:layout_marginRight="@dimen/dialog_margin_h"
+            style="@miui:style/V5.TextAppearance.Medium"
+            />
+    <LinearLayout
+            android:id="@+id/phone_group"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="@dimen/dialog_margin_h"
+            android:layout_marginRight="@dimen/dialog_margin_h"
+            android:gravity="center"
+            android:background="?miui:attr/v5_edit_text_bg">
+        <TextView
+                android:id="@+id/country_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@miui:style/V5.TextAppearance.EditText"
+                android:textColor="?android:attr/textColorHint"
+                />
+        <EditText
+                android:id="@+id/phone"
+                android:inputType="phone"
+                android:digits="0123456789"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:minHeight="@dimen/editor_height"
+                android:singleLine="true"
+                android:background="@null"
+                style="@miui:style/V5.TextAppearance.EditText"
+                />
+    </LinearLayout>
+    <!-- Alert dialog style buttons along the bottom. -->
+    <LinearLayout style="?android:attr/buttonBarStyle"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="8dp"
+                  android:measureWithLargestChild="true">
+        <Button style="?android:attr/buttonBarButtonStyle"
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@android:string/cancel"/>
+        <Button style="?android:attr/buttonBarButtonStyle"
+                android:id="@+id/confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/confirm"/>
+    </LinearLayout>
+</LinearLayout>

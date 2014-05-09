@@ -3,19 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <ListView
-        android:id="@android:id/list"
-        style="@style/Widget.ListView"
+    <FrameLayout
+        android:id="@+id/favorites"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" >
 
-    <com.xiaomi.market.ui.EmptyLoadingView
-        android:id="@+id/loading"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="bottom"
-        android:gravity="center"
-        android:visibility="gone" />
+        <ListView
+            android:id="@android:id/list"
+            style="@style/Widget.ListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.xiaomi.market.ui.EmptyLoadingView
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:visibility="gone" />
+    </FrameLayout>
 
     <include
         android:id="@+id/login_page"

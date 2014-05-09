@@ -5,7 +5,7 @@
     android:background="@color/detail_background"
     android:orientation="vertical" >
 
-    <ScrollView
+    <com.xiaomi.o2o.activity.view.ItemDetailScrollView
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -98,6 +98,23 @@
                 android:layout_weight="1"
                 android:gravity="center" />
         </LinearLayout>
-    </ScrollView>
+    </com.xiaomi.o2o.activity.view.ItemDetailScrollView>
+
+    <LinearLayout
+        android:id="@+id/buy_layout"
+        style="@style/Detail.Padding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/detail_background"
+        android:paddingBottom="@dimen/item_detail_layout_padding_top"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_detail_buy_margin_top" />
+
+        <include layout="@layout/item_detail_buy" />
+    </LinearLayout>
 
 </FrameLayout>
