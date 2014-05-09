@@ -6,10 +6,13 @@
 
     <string name="account">Account</string>
     <string name="account_hint_text">Email or phone number</string>
+    <string name="phone_num_hint_text">Phone number</string>
     <string name="login">Sign in</string>
     <string name="next">Next</string>
     <string name="prev">Back</string>
     <string name="forget_password"><u>Forgot password</u></string>
+    <string name="foreign_login"><u>Country/Area code</u></string>
+    <string name="seperator_forget_and_foreign"> | </string>
     <string name="password">Password</string>
     <string name="captcha">Captcha code</string>
     <string name="vcode">Verification code</string>
@@ -21,7 +24,8 @@
     <string name="micloud_reg_new">Create an account</string>
     <string name="micloud_error_empty_username">Enter your username</string>
     <string name="micloud_error_empty_pwd">Enter your password</string>
-    <string name="micloud_error_illegal_pwd">Invalid password</string>
+    <string name="micloud_error_invalid_phone_num">Invalid phone number</string>
+    <string name="micloud_error_illegal_pwd">The password you entered is incorrect</string>
     <string name="micloud_error_empty_captcha_code">Enter captcha code</string>
     <string name="micloud_error_empty_vcode">Enter verification code</string>
     <string name="micloud_email">Email address</string>
@@ -34,8 +38,6 @@
     </string>
     <string name="micloud_password_error_inconsistent">Passwords don\'t match</string>
     <string name="micloud_active_alert_title">Send text message</string>
-    <string name="micloud_via_sms_alert">Activation text message may incur charges from your carrier.</string>
-    <string name="micloud_via_int_sms_alert">Activation text message may incur charges from your carrier.</string>
     <string name="micloud_error_email">Invalid email</string>
     <string name="micloud_account">Xiaomi Account</string>
     <string name="micloud_activing_account">Activating account\u2026</string>
@@ -80,6 +82,7 @@
     <string name="logout_failed">Sign-out failed</string>
     <string name="error_network">Network error</string>
     <string name="error_dup_phone">This number is already associated with another account</string>
+    <string name="error_phone_error">Invalid phone number</string>
     <string name="error_server">Server error</string>
     <string name="error_sim_not_ready">Couldn\'t find SIM card</string>
     <string name="error_unknown">Unknown error</string>
@@ -94,22 +97,18 @@
     </string>
     <string name="input_password_hint">Enter password</string>
     <string name="input_captcha_hint">Enter captcha</string>
-    <string name="input_vcode_hint">Enter verfication code</string>
+    <string name="input_vcode_hint">Enter verification code</string>
     <string name="confirm">Confirm</string>
     <string name="alert_title_remove_account">Sign out</string>
-    <string name="remove_account_notice">What would you like to do with the synced messages, contacts and notes on this device?</string>
+    <string name="remove_account_notice">What would you like to do with the synced messages, contacts, music and notes on this device?</string>
     <string name="data_keep_in_phone">Keep on this device</string>
     <string name="data_wipe_from_phone">Delete from this device</string>
     <string name="login_notice">Signing in\u2026</string>
     <string name="data_sync_notice">Use your Xiaomi Account to sync messages and contacts across devices.</string>
     <string name="cmcc_data_sync_notice">Use your Xiaomi Account to sync messages and contacts across devices.</string>
     <string name="sync_dspt">Enable sync</string>
-    <string name="sync_sub_dspt">Activation text message is subject to regular data charges.</string>
-    <string name="sync_sub_int_dspt">Activation text message is subject to international data charges.</string>
     <string name="send_sms_for_sync_title">Send text message</string>
-    <string name="send_sms_for_sync_notice">Activation text message is subject to regular data charges.</string>
-    <string name="send_int_sms_for_sync_notice">Activation text message is subject to international data charges.</string>
-    <string name="failed_to_send_activate_email">Failed to send activation email.</string>
+    <string name="failed_to_send_activate_email">Failed to send activation email</string>
     <string name="access_denied">Access denied</string>
     <string name="reging">Signing up\u2026</string>
     <string name="reg_success">Account created</string>
@@ -137,15 +136,13 @@
     <string name="find_device_notice_p1">Go to</string>
     <string name="find_device_notice_p2">i.xiaomi.com</string>
     <string name="find_device_notice_p3">to find, lock, or restore your phone remotely.</string>
+    <string name="find_device_notice_p4">Whenever the SIM card changes, a registration SMS may be sent to keep track of the phone</string>
     <string name="i_know">OK</string>
     <string name="find_device_disabled_title">Find device disabled</string>
-    <string name="find_device_disabled_notice">You can the toggle the Find device feature in Settings > Accounts &amp; sync > Xiaomi Account</string>
+    <string name="find_device_disabled_notice">You can toggle the Find device feature in Settings > Accounts &amp; sync > Xiaomi Account</string>
 
-    <string name="activate_phone_send_sms_fail">Failed to send activation text</string>
-    <string name="activate_phone_server_error">Server error</string>
-    <string name="activate_phone_failed_notif_title">Failed to start Mi Cloud</string>
-    <string name="activate_phone_send_sms_failed_notif">Failed to send activation text</string>
-    <string name="activate_phone_server_error_notif">Server error</string>
+    <string name="micloud_area_code_title">Country/Area Code</string>
+    <string name="micloud_area_code_hot">Hot</string>
 
     <string name="user_agreement_p1">By signing in, you\'re agreeing to Xiaomi\'s\n &#160;</string>
     <string name="user_agreement_p2">Terms of service</string>
@@ -158,20 +155,20 @@
     <string name="remove_unactivated_account_notice">Your account hasn\'t been activated.</string>
     <string name="remove_confirm">Sign out</string>
     <string name="find_password_on_web_msg">Visit account.xiaomi.com to retrieve your password.</string>
-    <string name="relogin">Re-log in</string>
+    <string name="relogin">Sign in again</string>
     <string name="skip_login">Skip sign-in</string>
     <string name="skip_login_u"><u>Skip sign-in</u></string>
     <string name="removing_account">Signing out\u2026</string>
     <string name="checking_account">Verifying\u2026</string>
 
-    <string name="button_cancel">Cancel</string>
-    <string name="mili_center">MiCredit</string>
+   <string name="button_cancel">Cancel</string>
+    <string name="mili_center">Mi Credit</string>
 
     <string name="sina_weibo">Sina Weibo</string>
     <string name="bind_sina_weibo">Bind with Sina Weibo</string>
     <string name="bind_weibo_description">Find and sync your friends from Sina Weibo.</string>
     <string name="add_weibo_account">Add account</string>
-    <string name="binded">Binded</string>
+    <string name="binded">Bind complete</string>
     <string name="nobind">Don\'t bind</string>
     <string name="unbind">Unbind</string>
     <string name="update_contacts">Update address book</string>
@@ -192,13 +189,14 @@
     <string name="internet_comm">Messaging services</string>
     <string name="cloud_messaging">Cloud messaging</string>
     <string name="xiaomi_cloud_service">Mi Cloud</string>
+
     <string name="current_account">Current account</string>
     <string name="my_xiaomi_account">Xiaomi Account</string>
     <string name="micloud_intro_01_part_01">Save your mobile data!</string>
-    <string name="micloud_intro_01_part_02">Free messaging via Wi-Fi</string>
-    <string name="micloud_intro_02_part_01">Stop using thumb drives and email accounts to move your files around!</string>
-    <string name="micloud_intro_02_part_02">Sync contacts, messages, photos, and more across devices</string>
-    <string name="micloud_intro_03_part_01">Remotely secure your phone\'s contents</string>
+    <string name="micloud_intro_01_part_02">Free messaging via MiCloud</string>
+    <string name="micloud_intro_02_part_01">Stop using thumb drives and email accounts to move your files around.</string>
+    <string name="micloud_intro_02_part_02">Sync contacts, messages, photos, and more across devices. </string>
+    <string name="micloud_intro_03_part_01">Secure your phone\'s contents from anywhere.</string>
     <string name="micloud_intro_03_part_02">Remotely locate, lock, or erase your device\'s contents at i.xiaomi.com</string>
     <string name="micloud_dspt">Use Mi Cloud to sync data, locate your phone, and share things with friends.</string>
     <string name="cmcc_micloud_dspt">Use Mi Cloud to sync data, locate your phone, and share things with friends.</string>
@@ -230,44 +228,99 @@
     <string name="vcode_prompt_long">Enter verification code generated by your Xiaomi Security Token</string>
     <string name="vcode_notification_title">Your sign-in verification is incomplete</string>
 
-    <string name="activate_phone_failed_notif_title_msim">Failed to start Mi Cloud for SIM %s</string>
-    <string name="activate_status_title_activating">Activating SIM card</string>
-    <string name="activate_status_title_activating_msim">Activating SIM card %s</string>
-    <string name="activate_status_desc_getting_device_info">Getting device info</string>
-    <string name="activate_status_desc_failed_getting_device_info">Couldn\'t get device info</string>
-    <string name="activate_status_desc_getting_sim_info">Getting SIM card info</string>
-    <string name="activate_status_desc_failed_getting_sim_info">Couldn\'t get SIM card info</string>
+    <string name="activate_phone_failed_notif_title">Couldn\'t activate SIM card</string>
+    <string name="activate_phone_failed_notif_title_msim">Couldn\'t activate SIM card %s</string>
+    <string name="activate_status_title_activating">Activating your SIM card</string>
+    <string name="activate_status_title_activating_msim">Activating your SIM card %s</string>
+
+    <string name="activate_status_desc_wait_for_phone_service">Waiting for phone service</string>
+    <string name="activate_status_desc_registration">Registering SIM card</string>
+    <string name="activate_status_desc_registration_server_error">A server error occurred while registering SIM card</string>
+    <string name="activate_status_desc_query_activation_info">Querying activation info from server</string>
+    <string name="activate_status_desc_query_activation_info_no_info">No activation info on server</string>
+    <string name="activate_status_desc_query_activation_info_server_error">A server error occurred while querying activation info</string>
+    <string name="activate_status_desc_query_activation_info_downlink_sms_error">The server failed to send an activation SMS to your phone</string>
+    <string name="activate_status_desc_wait_for_sms">Waiting for activation SMS from server</string>
+    <string name="activate_status_desc_wait_for_sms_success">Successfully received activation SMS from server</string>
+    <string name="activate_status_desc_wait_for_sms_fail">Couldn\'t receive activation SMS from server</string>
+    
+    <string name="activate_status_desc_request_activation_sms">Requesting an activation SMS from server to your phone</string>
+    <string name="activate_status_desc_request_activation_sms_server_error">A server error occurred while requesting an activation SMS from server to your phone</string>
+    <string name="activate_status_desc_request_activation_sms_phone_error">The phone number you entered is invalid</string>
+
     <string name="activate_status_desc_getting_gateway">Getting SMS Gateway</string>
-    <string name="activate_status_desc_failed_getting_gateway">Couldn\'t get SMS Gateway</string>
-    <string name="activate_status_desc_prepare_sending_sms">Preparing to sending activation SMS</string>
-    <string name="activate_status_desc_sending_sms">Sending\u2026</string>
-    <string name="activate_status_desc_sms_sent">Activation SMS has been sent</string>
-    <string name="activate_status_desc_sim_absent">No SIM card detected</string>
+    <string name="activate_status_desc_failed_getting_gateway">Couldn\'t get SMS gateway</string>
+    <string name="activate_status_desc_prepare_sending_sms">Preparing to sending activation SMS to gateway</string>
+    <string name="activate_status_desc_sending_sms">Sending activation SMS to gateway</string>
+    <string name="activate_status_desc_sending_sms_fail">Couldn\'t send activation SMS to gateway</string>
+    <string name="activate_status_desc_sms_sent">Activation SMS sent</string>
+    
+    <string name="activate_status_desc_acquire_phone_number">Acquiring phone number from server</string>
+    <string name="activate_status_desc_acquire_phone_number_server_error">A server error occurred while acquiring phone number</string>
+    <string name="activate_status_desc_acquire_phone_number_server_no_info">Couldn\'t get phone number</string>
 
-    <string name="activate_status_desc_acquire_phone_number">Getting phone number from server</string>
-    <string name="activate_status_desc_acquire_phone_number_server_error_wait">A server error occurred while acquiring phone number. Retrying\u2026</string>
-    <string name="activate_status_desc_acquire_phone_number_server_io_error_wait">A server I/O error occurred while acquiring phone number. Retrying\u2026</string>
-    <string name="activate_status_desc_acquire_phone_number_server_no_info_wait">Couldn\'t get phone number. Retrying\u2026</string>
-    <string name="activate_status_desc_acquire_phone_number_server_error">A server error occurred while acquiring phone number.</string>
-    <string name="activate_status_desc_acquire_phone_number_server_io_error">A server I/O error occurred while acquiring phone number.</string>
-    <string name="activate_status_desc_acquire_phone_number_server_no_info">Couldn\'t get phone number.</string>
+    <string name="activate_status_desc_registering_sim_account">Registering SIM card on server</string>
+    <string name="activate_status_desc_registering_sim_account_server_error">A server error occured while registering SIM card</string>
+    <string name="activate_status_desc_checking_xiaomi_account">Checking Xiaomi account on server</string>
+    <string name="activate_status_desc_checking_xiaomi_account_server_error">A server error occured while checking Xiaomi account</string>
+    <string name="activate_status_desc_registering_xiaomi_account">Registering Xiaomi account on server</string>
+    <string name="activate_status_desc_registering_xiaomi_account_server_error">A server error occured while registering Xiaomi account</string>
+    <string name="activate_status_desc_getting_sim_info">Getting SIM card info</string>
+    <string name="activate_status_desc_getting_sim_info_fail">Couldn\'t get SIM card info</string>
 
-    <string name="activate_status_desc_acquire_sim_user_id">Acquiring registration info from server</string>
-    <string name="activate_status_desc_acquire_sim_user_id_server_error_wait">A server error occurred while acquiring registration info. Retrying\u2026</string>
-    <string name="activate_status_desc_acquire_sim_user_id_server_io_error_wait">A server I/O error occurred while acquiring registration info. Retrying\u2026</string>
-    <string name="activate_status_desc_acquire_sim_user_id_server_no_info_wait">Couldn\'t get registration info. Retrying\u2026</string>
-    <string name="activate_status_desc_acquire_sim_user_id_server_error">A server error occurred while acquiring registration info.</string>
-    <string name="activate_status_desc_acquire_sim_user_id_server_io_error">A server I/O error occurred while acquiring registration info.</string>
-    <string name="activate_status_desc_acquire_sim_user_id_server_no_info">Couldn\'t get registration info.</string>
+    <string name="sim_unactivated_title">Your SIM card is unactivated</string>
 
-    <string name="activate_status_desc_acquire_sim_pass_token">Acquiring security info from server</string>
-    <string name="activate_status_desc_acquire_sim_pass_token_server_error_wait">A server error occurred while acquiring security info. Retrying\u2026</string>
-    <string name="activate_status_desc_acquire_sim_pass_token_server_io_error_wait">A server I/O error occurred while acquiring security info. Retrying\u2026</string>
-    <string name="activate_status_desc_acquire_sim_pass_token_server_no_info_wait">Couldn\'t get security info. Retrying\u2026</string>
-    <string name="activate_status_desc_acquire_sim_pass_token_server_error">A server error occurred while acquiring security info.</string>
-    <string name="activate_status_desc_acquire_sim_pass_token_server_io_error">A server I/O error occurred while acquiring security info.</string>
-    <string name="activate_status_desc_acquire_sim_pass_token_server_no_info">Couldn\'t get security info.</string>
-    <string name="activate_status_desc_acquire_sim_pass_token_password_error">The Xiaomi Security Token password you entered is incorrect.</string>
+    <string name="activate_popup_title_manual">SIM Card Activation</string>
+    <string name="activate_popup_desc_sim_card">An SMS will be sent to activate your SIM card in order to enable features like %s (carrier rates apply)</string>
+    <string name="activate_popup_desc_intl_sim_card">An international SMS will be sent to activate your SIM card in order to enable features like %s (carrier rates apply)</string>
+    <string name="activate_popup_desc_mixed_sim_cards">An SMS and an international SMS will be sent to activate your 2 SIM cards in order to enable features like %s (carrier rates apply)</string>
+    <string name="activate_popup_desc_2_sim_cards">2 SMSes will be sent to activate your 2 SIM card in order to enable features like %s (carrier rates apply)</string>
+    <string name="activate_popup_desc_2_intl_sim_cards">2 international SMS will be sent to activate your SIM card in order to enable features like %s (carrier rates apply)</string>
+    <string name="activate_popup_desc_sim_card_downlink">Please enter the number for your SIM card, in order to enable features like %s</string>
+
+    <string name="activate_popup_title_new_sim_card">New SIM Card Activation</string>
+    <string name="activate_popup_desc_new_sim_card">Your SIM card is changed. An SMS will be sent to activate the new SIM card in order to enable features like %s (carrier rates apply)</string>
+    <string name="activate_popup_desc_new_intl_sim_card">Your SIM card is changed. An international SMS will be sent to activate the new SIM card in order to enable features like %s (carrier rates apply)</string>
+    <string name="activate_popup_desc_new_mixed_sim_cards">Your SIM cards are changed. An SMS and an international SMS will be sent to activate the 2 new SIM cards in order to enable features like %s (carrier rates apply)</string>
+    <string name="activate_popup_desc_new_2_sim_cards">Your SIM cards are changed. 2 SMSes will be sent to activate the 2 new SIM cards in order to enable features like %s (carrier rates apply)</string>
+    <string name="activate_popup_desc_new_2_intl_sim_cards">Your SIM cards are changed. 2 international SMSes will be sent to activate the 2 SIM cards in order to enable features like %s (carrier rates apply)</string>
+    <string name="activate_popup_desc_new_sim_card_downlink">Your SIM card is changed. Please enter the number for your SIM card, in order to enable features like %s</string>
+
+    <string name="activate_popup_title_register_account">Register Account</string>
+    <string name="activate_popup_desc_register_account">An SMS will be sent to register your Xiaomi Account</string>
+    <string name="activate_popup_desc_register_account_intl">An international SMS will be sent to register your Xiaomi Account</string>
+    <string name="activate_popup_desc_register_account_downlink">Please enter the number for your SIM card, in order to register you Xiaomi Account</string>
+
+    <string name="activate_popup_title_failed_send_sms">Activation Failed</string>
+    <string name="activate_popup_desc_failed_send_sms">Couldn\'t send activation SMS. Please ensure that your SIM card is in service.</string>
+    <string name="activate_popup_confirm_failed_send_sms">Resend</string>
+
+    <string name="activate_popup_title_failed_query_info">Activation Failed</string>
+    <string name="activate_popup_desc_failed_query_info">Cannot acquire your phone number. Please ensure that your SIM card is in service.</string>
+    <string name="activate_popup_confirm_failed_query_info">Retry</string>
+
+    <string name="activate_popup_title_failed_server">Activation Failed</string>
+    <string name="activate_popup_desc_failed_server">Server error. Please check your network connection.</string>
+    <string name="activate_popup_confirm_failed_server">Retry</string>
+
+    <string name="activate_popup_title_failed_receive_sms">Activation Failed</string>
+    <string name="activate_popup_desc_failed_receive_sms">Please double check the number you entered, and ensure that your SIM card is in service.</string>
+    <string name="activate_popup_confirm_failed_receive_sms">Retry</string>
+
+    <string name="activate_popup_title_failed_phone_error">Activation Failed</string>
+    <string name="activate_popup_desc_failed_phone_error">The number your entered is invalid.</string>
+    <string name="activate_popup_confirm_failed_phone_error">Retry</string>
+
+    <string name="activate_feature_mx">Free Cloud Messaging</string>
+    <string name="activate_feature_mms_sync">SMS Sync</string>
+    <string name="activate_feature_call_log_sync">Call Log Sync</string>
+    <string name="activate_feature_find_device">Find Device</string>
+
+    <string name="activate_desc_sim_card">An SMS will be sent to activate your SIM card</string>
+    <string name="activate_desc_intl_sim_card">An international SMS will be sent to activate your SIM card</string>
+    <string name="activate_desc_mixed_sim_cards">An SMS and an international SMS will be sent to activate your 2 SIM cards</string>
+    <string name="activate_desc_2_sim_cards">2 SMSes will be sent to activate your 2 SIM cards</string>
+    <string name="activate_desc_2_intl_sim_cards">2 international SMSes will be sent to activate your 2 SIM cards</string>
 
     <string name="checking_input">Checking input\u2026</string>
 

@@ -13731,7 +13731,7 @@ public final class ActivityManagerService extends ActivityManagerNative
                         | Intent.FLAG_RECEIVER_REPLACE_PENDING);
                 broadcastIntentLocked(null, null, intent, null, null, 0, null, null,
                         null, false, false, MY_PID, Process.SYSTEM_UID, 0 /* TODO: Verify */);
-                android.app.MiuiThemeHelper.handleExtraConfigurationChanges(changes, newConfig, mContext, mHandler); // miui add
+                android.app.MiuiThemeHelper.handleExtraConfigurationChangesForSystem(changes, newConfig); // miui add
                 if ((changes&ActivityInfo.CONFIG_LOCALE) != 0) {
                     broadcastIntentLocked(null, null,
                             new Intent(Intent.ACTION_LOCALE_CHANGED),

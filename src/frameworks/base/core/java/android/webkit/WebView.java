@@ -540,6 +540,8 @@ public class WebView extends AbsoluteLayout
 
         ensureProviderCreated();
         mProvider.init(javaScriptInterfaces, privateBrowsing);
+
+        miui.content.res.ThemeFontChangeHelper.markWebViewCreated(context); // MIUI ADD
     }
 
     /**

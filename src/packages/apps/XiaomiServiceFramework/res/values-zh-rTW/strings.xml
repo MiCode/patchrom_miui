@@ -6,10 +6,13 @@
 
     <string name="account">帳號</string>
     <string name="account_hint_text">信箱/手機號碼/小米ID</string>
+    <string name="phone_num_hint_text">手機號碼</string>
     <string name="login">登入</string>
     <string name="next">下一步</string>
     <string name="prev">上一步</string>
     <string name="forget_password"><u>忘記密碼</u></string>
+    <string name="foreign_login"><u>海外手機登錄</u></string>
+    <string name="seperator_forget_and_foreign"> | </string>
     <string name="password">密碼</string>
     <string name="captcha">圖片驗證碼</string>
     <string name="vcode">驗證碼</string>
@@ -21,6 +24,7 @@
     <string name="micloud_reg_new">註冊新帳號</string>
     <string name="micloud_error_empty_username">用戶名不能為空</string>
     <string name="micloud_error_empty_pwd">密碼不能為空</string>
+    <string name="micloud_error_invalid_phone_num">手機號不合法</string>
     <string name="micloud_error_illegal_pwd">密碼格式錯誤</string>
     <string name="micloud_error_empty_captcha_code">圖片驗證碼不能為空</string>
     <string name="micloud_error_empty_vcode">驗證碼不能為空</string>
@@ -34,8 +38,6 @@
     </string>
     <string name="micloud_password_error_inconsistent">密碼不一致</string>
     <string name="micloud_active_alert_title">啟用帳號</string>
-    <string name="micloud_via_sms_alert">您的手機會傳送一條簡訊來啟用您的帳號，產生的資費由電信商收取，是否繼續？</string>
-    <string name="micloud_via_int_sms_alert">您的手機會傳送一條簡訊啟用於您的帳號，將會產生國際簡訊資費並由電信商收取，是否繼續？</string>
     <string name="micloud_error_email">信箱格式不正確</string>
     <string name="micloud_account">小米帳號</string>
     <string name="micloud_activing_account">正在啟用您的帳號，請稍候...</string>
@@ -80,6 +82,7 @@
     <string name="logout_failed">登出失敗</string>
     <string name="error_network">目前網路不可用</string>
     <string name="error_dup_phone">該電話號碼已被註冊</string>
+    <string name="error_phone_error">無效的電話號碼</string>
     <string name="error_server">伺服器出錯</string>
     <string name="error_sim_not_ready">SIM卡未就緒</string>
     <string name="error_unknown">未知錯誤</string>
@@ -97,23 +100,22 @@
     <string name="input_vcode_hint">請輸入驗證碼</string>
     <string name="confirm">確定</string>
     <string name="alert_title_remove_account">註銷帳號</string>
-    <string name="remove_account_notice">帳號刪除後，您要如何處理手機上的簡訊、聯絡人和便簽？</string>
+    <string name="remove_account_notice">帳號刪除後，您要如何處理手機上的簡訊、聯絡人、音樂和便簽？</string>
     <string name="data_keep_in_phone">保留在我的手機上</string>
     <string name="data_wipe_from_phone">從手機上刪除</string>
     <string name="login_notice">登入中...</string>
     <string name="data_sync_notice">您能使用小米帳號同步您的簡訊、聯絡人等各種數據，從此無需擔心數據丟失，同時享受免費網路簡訊等雲服務。</string>
     <string name="cmcc_data_sync_notice">您能使用小米帳號同步您的簡訊、聯絡人等各種數據，從此無需擔心數據丟失，同時享受雲服務。</string>
     <string name="sync_dspt">開啟同步和雲端服務</string>
-    <string name="sync_sub_dspt">系統可能會發送一條簡訊來啟用服務\n(產生的資費由電信商收取)</string>
-    <string name="sync_sub_int_dspt">系統可能會發送一條國際簡訊來啟用服務\n(產生的資費由電信商收取)</string>
-    <string name="send_sms_for_sync_title">同步服務需要啟用</string>
-    <string name="send_sms_for_sync_notice">系統將發送一條簡訊來啟用服務，產生的資費由電信商收取，是否繼續？</string>
-    <string name="send_int_sms_for_sync_notice">系統將發送一條國際簡訊來啟用服務，產生的資費由電信商收取，是否繼續？</string>
+    <string name="send_int_sms_for_sync_notice">您的手機將發送一條國際簡訊來啟用服務，產生的資費由電信商收取，是否繼續？</string>
     <string name="failed_to_send_activate_email">發送啟用郵件失敗</string>
     <string name="access_denied">瀏覽受限</string>
     <string name="reging">正在註冊，請稍候……</string>
     <string name="reg_success">註冊成功</string>
-    <string name="reg_success_summary">您的手機號<xliff:g id="code">%1$s</xliff:g>已經成爲小米帳號的密保手機，用于登錄和找回密碼，請妥善保管！</string>
+    <string name="reg_success_summary">您的手機號<xliff:g id="code">%1$s</xliff:g>已經成爲小米帳號的密保手機，用于登入和找回密碼，請妥善保管！</string>
+
+    <string name="micloud_area_code_title">選擇國家/地區號碼</string>
+    <string name="micloud_area_code_hot">常用</string>
 
     <string name="sync_on">開啟</string>
     <string name="sync_off">關閉</string>
@@ -137,15 +139,10 @@
     <string name="find_device_notice_p1">當您的手機丟失時，可登入</string>
     <string name="find_device_notice_p2">i.xiaomi.com</string>
     <string name="find_device_notice_p3">嘗試找回、鎖定手機或移除資料</string>
+    <string name="find_device_notice_p4">每當手機更換SIM卡時，系統可能會自動發送一條註冊簡訊來跟蹤手機位置</string>
     <string name="i_know">我知道了</string>
     <string name="find_device_disabled_title">查找手機功能已經關閉</string>
     <string name="find_device_disabled_notice">您可以在 設定 -> 帳號與同步-> 小米帳號中重新開啟此功能</string>
-
-    <string name="activate_phone_send_sms_fail">啟用簡訊发送失敗，無法開啟</string>
-    <string name="activate_phone_server_error">連接伺服器失敗，無法開啟</string>
-    <string name="activate_phone_failed_notif_title">小米雲服務開啟失敗</string>
-    <string name="activate_phone_send_sms_failed_notif">啟用簡訊发送失敗</string>
-    <string name="activate_phone_server_error_notif">伺服器連接失敗</string>
 
     <string name="user_agreement_p1">登入帳號即表示您同意遵守\n小米帳號的</string>
     <string name="user_agreement_p2">用戶協議</string>
@@ -230,44 +227,93 @@
     <string name="vcode_prompt_long">請輸入小米安全令牌生成的驗證碼</string>
     <string name="vcode_notification_title">您的登入驗證未完成</string>
 
-    <string name="activate_phone_failed_notif_title_msim">為SIM卡%s開啟小米雲服務失敗</string>
-    <string name="activate_status_title_activating">正在開啟小米雲服務</string>
-    <string name="activate_status_title_activating_msim">正在為SIM卡%s開啟小米雲服務</string>
-    <string name="activate_status_desc_getting_device_info">獲取設備信息</string>
-    <string name="activate_status_desc_failed_getting_device_info">獲取設備信息失敗</string>
-    <string name="activate_status_desc_getting_sim_info">獲取SIM卡信息</string>
-    <string name="activate_status_desc_failed_getting_sim_info">獲取SIM卡信息失敗</string>
-    <string name="activate_status_desc_getting_gateway">獲取網關信息</string>
-    <string name="activate_status_desc_failed_getting_gateway">獲取網關信息失敗</string>
-    <string name="activate_status_desc_prepare_sending_sms">準備發送激活短信</string>
-    <string name="activate_status_desc_sending_sms">正在發送激活短信</string>
-    <string name="activate_status_desc_sms_sent">激活短信發送成功</string>
-    <string name="activate_status_desc_sim_absent">SIM卡被拔出</string>
+    <string name="activate_phone_failed_notif_title">激活SIM卡失敗</string>
+    <string name="activate_phone_failed_notif_title_msim">激活SIM卡%s失敗</string>
+    <string name="activate_status_title_activating">正在開啓小米雲服務</string>
+    <string name="activate_status_title_activating_msim">正在爲SIM卡%s開啓小米雲服務</string>
 
-    <string name="activate_status_desc_acquire_phone_number">正在從服務器獲取本機號碼</string>
-    <string name="activate_status_desc_acquire_phone_number_server_error_wait">服務器錯誤，無法獲取本機號碼，等待重試……</string>
-    <string name="activate_status_desc_acquire_phone_number_server_io_error_wait">服務器IO錯誤，無法獲取本機號碼，等待重試……</string>
-    <string name="activate_status_desc_acquire_phone_number_server_no_info_wait">暫時無法從服務器獲得本機號碼，等待重試……</string>
-    <string name="activate_status_desc_acquire_phone_number_server_error">服務器錯誤，無法獲取本機號碼</string>
-    <string name="activate_status_desc_acquire_phone_number_server_io_error">服務器IO錯誤，無法獲取本機號碼</string>
-    <string name="activate_status_desc_acquire_phone_number_server_no_info">暫時無法從服務器獲得本機號碼.</string>
+    <string name="activate_status_desc_wait_for_phone_service">正在等待電信商服務訊號</string>
+    <string name="activate_status_desc_registration">正在注冊SIM卡</string>
+    <string name="activate_status_desc_registration_server_error">注冊SIM卡時發生伺服器錯誤</string>
+    <string name="activate_status_desc_query_activation_info">正在獲取激活信息</string>
+    <string name="activate_status_desc_query_activation_info_no_info">伺服器無該SIM卡的激活信息</string>
+    <string name="activate_status_desc_query_activation_info_server_error">獲取激活信息時遇到伺服器錯誤</string>
+    <string name="activate_status_desc_query_activation_info_downlink_sms_error">伺服器向您發送激活簡訊失敗</string>
+    <string name="activate_status_desc_wait_for_sms">等待伺服器向您發送激活簡訊</string>
+    <string name="activate_status_desc_wait_for_sms_success">成功收到伺服器發來的激活簡訊</string>
+    <string name="activate_status_desc_wait_for_sms_fail">未能收到伺服器發來的激活簡訊</string>
+    
+    <string name="activate_status_desc_request_activation_sms">正在請求伺服器向您發送激活簡訊</string>
+    <string name="activate_status_desc_request_activation_sms_server_error">請求伺服器向您發送激活簡訊時發生伺服器錯誤</string>
+    <string name="activate_status_desc_request_activation_sms_phone_error">輸入的電話號碼無效</string>
 
-    <string name="activate_status_desc_acquire_sim_user_id">正在從服務器獲取註冊信息</string>
-    <string name="activate_status_desc_acquire_sim_user_id_server_error_wait">服務器錯誤，無法獲取註冊信息，等待重試……</string>
-    <string name="activate_status_desc_acquire_sim_user_id_server_io_error_wait">服務器IO錯誤，無法獲取註冊信息，等待重試……</string>
-    <string name="activate_status_desc_acquire_sim_user_id_server_no_info_wait">暫時無法從服務器獲得註冊信息，等待重試……</string>
-    <string name="activate_status_desc_acquire_sim_user_id_server_error">服務器錯誤，無法獲取註冊信息</string>
-    <string name="activate_status_desc_acquire_sim_user_id_server_io_error">服務器IO錯誤，無法獲取註冊信息</string>
-    <string name="activate_status_desc_acquire_sim_user_id_server_no_info">暫時無法從服務器獲得註冊信息</string>
+    <string name="activate_status_desc_getting_gateway">正在獲取簡訊網關</string>
+    <string name="activate_status_desc_failed_getting_gateway">獲取簡訊網關失敗</string>
+    <string name="activate_status_desc_prepare_sending_sms">准備向網關發送激活簡訊</string>
+    <string name="activate_status_desc_sending_sms">正在向網關發送激活簡訊</string>
+    <string name="activate_status_desc_sending_sms_fail">向網關發送激活簡訊失敗</string>
+    <string name="activate_status_desc_sms_sent">激活簡訊發出</string>
+    
+    <string name="activate_status_desc_acquire_phone_number">正在向伺服器查詢您的電話號碼</string>
+    <string name="activate_status_desc_acquire_phone_number_server_error">向伺服器查詢您的電話號碼時發生伺服器錯誤</string>
+    <string name="activate_status_desc_acquire_phone_number_server_no_info">無法獲取您的電話號碼</string>
 
-    <string name="activate_status_desc_acquire_sim_pass_token">正在從服務器獲取安全信息</string>
-    <string name="activate_status_desc_acquire_sim_pass_token_server_error_wait">服務器錯誤，無法獲取安全信息，等待重試……</string>
-    <string name="activate_status_desc_acquire_sim_pass_token_server_io_error_wait">服務器IO錯誤，無法獲取安全信息，等待重試……</string>
-    <string name="activate_status_desc_acquire_sim_pass_token_server_no_info_wait">暫時無法從服務器獲得安全信息，等待重試……</string>
-    <string name="activate_status_desc_acquire_sim_pass_token_server_error">服務器錯誤，無法獲取安全信息</string>
-    <string name="activate_status_desc_acquire_sim_pass_token_server_io_error">服務器IO錯誤，無法獲取安全信息</string>
-    <string name="activate_status_desc_acquire_sim_pass_token_server_no_info">暫時無法從服務器獲得安全信息</string>
-    <string name="activate_status_desc_acquire_sim_pass_token_password_error">安全信息錯誤，激活失敗</string>
+    <string name="activate_status_desc_registering_sim_account">正在注冊您的SIM卡</string>
+    <string name="activate_status_desc_registering_sim_account_server_error">正在注冊您的SIM卡時發生伺服器錯誤</string>
+    <string name="activate_status_desc_checking_xiaomi_account">正在檢查小米帳號</string>
+    <string name="activate_status_desc_checking_xiaomi_account_server_error">檢查小米帳號時發生伺服器錯誤</string>
+    <string name="activate_status_desc_registering_xiaomi_account">正在注冊小米帳號</string>
+    <string name="activate_status_desc_registering_xiaomi_account_server_error">注冊小米帳號時發生伺服器錯誤</string>
+    <string name="activate_status_desc_getting_sim_info">正在獲取您的SIM卡信息</string>
+    <string name="activate_status_desc_getting_sim_info_fail">無法獲取您的SIM卡信息</string>
+
+    <string name="sim_unactivated_title">您的SIM卡還未激活</string>
+
+    <string name="activate_popup_title_manual">激活SIM卡</string>
+    <string name="activate_popup_desc_sim_card">您的手機將發送一條普通簡訊用於激活SIM卡，以使用%s等功能(產生費用由電信商收取)</string>
+    <string name="activate_popup_desc_intl_sim_card">您的手機將發送一條國際簡訊用於激活SIM卡，以使用%s等功能(產生費用由電信商收取)</string>
+    <string name="activate_popup_desc_mixed_sim_cards">您的手機將發送一條普通簡訊和一條國際簡訊用於激活2張SIM卡，以使用%s等功能(產生費用由電信商收取)</string>
+    <string name="activate_popup_desc_2_sim_cards">您的手機將發送2條普通簡訊用於激活2張SIM卡，以使用%s等功能(產生費用由電信商收取)</string>
+    <string name="activate_popup_desc_2_intl_sim_cards">您的手機將發送2條國際簡訊用於激活2張SIM卡，以使用%s等功能(產生費用由電信商收取)</string>
+    <string name="activate_popup_desc_sim_card_downlink">請輸入當前SIM卡的電話號碼，用於啟用%s等功能</string>
+
+    <string name="activate_popup_title_new_sim_card">激活新SIM卡</string>
+    <string name="activate_popup_desc_new_sim_card">SIM卡發生變化，您的手機將發送一條普通簡訊用於激活新SIM卡，以使用%s等功能(產生費用由電信商收取)</string>
+    <string name="activate_popup_desc_new_intl_sim_card">SIM卡發生變化，您的手機將發送一條國際簡訊用於激活新SIM卡，以使用%s等功能(產生費用由電信商收取)</string>
+    <string name="activate_popup_desc_new_mixed_sim_cards">SIM卡發生變化，您的手機將發送一條普通簡訊和一條國際簡訊用於激活2張新SIM卡，以使用%s等功能(產生費用由電信商收取)</string>
+    <string name="activate_popup_desc_new_2_sim_cards">SIM卡發生變化，您的手機將發送2條普通簡訊用於激活2張新SIM卡，以使用%s等功能(產生費用由電信商收取)</string>
+    <string name="activate_popup_desc_new_2_intl_sim_cards">SIM卡發生變化，您的手機將發送2條國際簡訊用於激活2張新SIM卡，以使用%s等功能(產生費用由電信商收取)</string>
+    <string name="activate_popup_desc_new_sim_card_downlink">SIM卡發生變化，請輸入當前SIM卡的電話號碼，用於啟用%s等功能</string>
+
+    <string name="activate_popup_title_register_account">註冊帳號</string>
+    <string name="activate_popup_desc_register_account">您的手機將發送一條普通簡訊用於註冊新的小米帳號</string>
+    <string name="activate_popup_desc_register_account_intl">您的手機將發送一條國際簡訊用於註冊新的小米帳號</string>
+    <string name="activate_popup_desc_register_account_downlink">請輸入您當前SIM卡的電話號碼，以註冊新的小米帳號</string>
+
+    <string name="activate_popup_title_failed_send_sms">SIM卡激活失敗</string>
+    <string name="activate_popup_desc_failed_send_sms">發送激活簡訊失敗，請檢查您的SIM卡是否處於正常服務狀態，資費是否充足</string>
+    <string name="activate_popup_confirm_failed_send_sms">重發簡訊</string>
+
+    <string name="activate_popup_title_failed_query_info">SIM卡激活失敗</string>
+    <string name="activate_popup_desc_failed_query_info">無法獲取電話號碼，請檢查您的SIM卡是否處於正常服務狀態，資費是否充足</string>
+    <string name="activate_popup_confirm_failed_query_info">重試</string>
+
+    <string name="activate_popup_title_failed_server">SIM卡激活失敗</string>
+    <string name="activate_popup_desc_failed_server">服務器錯誤，請確認網路狀態是否正常</string>
+    <string name="activate_popup_confirm_failed_server">重試</string>
+
+    <string name="activate_popup_title_failed_receive_sms">SIM卡激活失敗</string>
+    <string name="activate_popup_desc_failed_receive_sms">請檢查您輸入的號碼是否正確，以及SIM卡是否處於正常服務狀態，是否欠費</string>
+    <string name="activate_popup_confirm_failed_receive_sms">重試</string>
+
+    <string name="activate_popup_title_failed_phone_error">SIM卡激活失敗</string>
+    <string name="activate_popup_desc_failed_phone_error">您輸入的號碼無效</string>
+    <string name="activate_popup_confirm_failed_phone_error">重試</string>
+
+    <string name="activate_feature_mx">免費網路簡訊</string>
+    <string name="activate_feature_mms_sync">簡訊同步</string>
+    <string name="activate_feature_call_log_sync">通話記錄同步</string>
+    <string name="activate_feature_find_device">查找手機</string>
 
     <string name="checking_input">正在檢查輸入</string>
 

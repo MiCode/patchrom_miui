@@ -105,6 +105,7 @@ import android.os.UserId;
 import android.provider.MediaStore;
 import android.provider.Settings.Secure;
 import android.security.SystemKeyStore;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.EventLog;
 import android.util.Log;
@@ -1344,7 +1345,7 @@ public class PackageManagerService extends IPackageManager.Stub {
             //delete tmp files
             deleteTempPackageFiles();
 
-            ExtraPackageManagerServices.performPreinstallApp(mSettings);
+            ExtraPackageManagerServices.performPreinstallApp(this, mSettings);
 
             if (!mOnlyCore) {
                 EventLog.writeEvent(EventLogTags.BOOT_PROGRESS_PMS_DATA_SCAN_START,
@@ -7926,6 +7927,39 @@ public class PackageManagerService extends IPackageManager.Stub {
                     applicationInfo.publicSourceDir, applicationInfo.nativeLibraryDir);
         }
         return true;
+    }
+
+    /**
+     * MIUI ADD:
+     * delete apk in /data/app/
+     * if keep data is true, just delete code and resource file exclude data files
+     */
+    boolean deleteDataPackage(String packageName, boolean keepData) {
+        if (TextUtils.isEmpty(packageName)) {
+            return false;
+        }
+        PackageSetting ps;
+        synchronized (mPackages) {
+            ps = mSettings.mPackages.get(packageName);
+            if (ps == null) {
+                return false;
+            }
+        }
+        if (!isSystemApp(ps)) {
+            final PackageRemovedInfo info = new PackageRemovedInfo();
+            synchronized (mInstallLock) {
+                boolean ret = deletePackageLI(packageName, true,
+                        REMOVE_CHATTY | (keepData ? PackageManager.DONT_DELETE_DATA : 0),
+                        info, true);
+                // Delete the resources here after sending the broadcast to let
+                // other processes clean up before deleting resources.
+                if (info.args != null) {
+                    info.args.doPostDeleteLI(true);
+                }
+                return ret;
+            }
+        }
+        return false;
     }
 
     /*

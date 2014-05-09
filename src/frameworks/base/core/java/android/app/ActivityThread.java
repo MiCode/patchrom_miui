@@ -3674,7 +3674,7 @@ public final class ActivityThread {
                     | ActivityInfo.CONFIG_SCREEN_SIZE
                     | ActivityInfo.CONFIG_SMALLEST_SCREEN_SIZE;
         }
-        MiuiThemeHelper.handleExtraConfigurationChanges(changes); // miui add
+        MiuiThemeHelper.handleExtraConfigurationChanges(changes, config); // miui add
 
         // set it for java, this also affects newly created Resources
         if (config.locale != null) {
