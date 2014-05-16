@@ -66,6 +66,13 @@ public class SpnOverride {
         return CarrierSpnMap.get(carrier);
     }
 
+    /**
+     * MIUI ADD:
+     */
+    String getSpn(String carrier, String spn) {
+        return getSpn(carrier);
+    }
+
     private void loadSpnOverrides() {
         FileReader spnReader;
 

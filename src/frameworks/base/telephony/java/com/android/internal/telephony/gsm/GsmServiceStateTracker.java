@@ -87,7 +87,7 @@ final class GsmServiceStateTracker extends ServiceStateTracker {
         }
 
         static String getSpn(GsmServiceStateTracker tracker, String serviceProviderName) {
-            String spn = ((SIMRecords) tracker.phone.mIccRecords).mSpnOverride.getSpn(tracker.phone.mIccRecords.getOperatorNumeric());
+            String spn = ((SIMRecords) tracker.phone.mIccRecords).mSpnOverride.getSpn(tracker.phone.mIccRecords.getOperatorNumeric(), serviceProviderName);
             if (TextUtils.isEmpty(spn)) {
                 return serviceProviderName;
             }

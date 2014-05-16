@@ -12659,6 +12659,8 @@ public final class ActivityManagerService extends ActivityManagerNative
             }
 
             // Backup agent is now in use, its package can't be stopped.
+            // MIUI DEL:START
+            /*
             try {
                 AppGlobals.getPackageManager().setPackageStoppedState(
                         app.packageName, false, UserId.getUserId(app.uid));
@@ -12667,6 +12669,8 @@ public final class ActivityManagerService extends ActivityManagerNative
                 Slog.w(TAG, "Failed trying to unstop package "
                         + app.packageName + ": " + e);
             }
+            */
+            // END
 
             BackupRecord r = new BackupRecord(ss, app, backupMode);
             ComponentName hostingName = (backupMode == IApplicationThread.BACKUP_MODE_INCREMENTAL)

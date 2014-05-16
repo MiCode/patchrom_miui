@@ -1313,7 +1313,11 @@ public class SIMRecords extends IccRecords {
     @android.annotation.MiuiHook(android.annotation.MiuiHook.MiuiHookType.CHANGE_CODE)
     private void setSpnFromConfig(String carrier) {
         if (mSpnOverride.containsCarrier(carrier)) {
-            spn = mSpnOverride.getSpn(carrier);
+            /**
+             * MIUI DEL:
+             * maintian spn string get from EF_SPN
+             */
+            // spn = mSpnOverride.getSpn(carrier);
             Injector.updateSpnDisplayCondition(this); // miui add
         }
     }
