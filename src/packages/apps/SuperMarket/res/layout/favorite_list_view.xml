@@ -3,46 +3,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <ListView
-        android:id="@android:id/list"
-        style="@style/Widget.ListView"
+    <FrameLayout
+        android:id="@+id/favorites"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" >
 
-    <com.xiaomi.market.ui.EmptyLoadingView
-        android:id="@+id/loading"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="bottom"
-        android:gravity="center"
-        android:visibility="gone" />
-
-    <LinearLayout
-        android:id="@+id/login_page"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone" >
-
-        <TextView
-            android:id="@+id/login_hint"
+        <ListView
+            android:id="@android:id/list"
+            style="@style/Widget.ListView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent" />
+
+        <com.xiaomi.market.ui.EmptyLoadingView
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
             android:gravity="center"
-            android:text="@string/favorite_login_hint"
-            android:textAppearance="@style/TextAppearance.Title" />
+            android:visibility="gone" />
+    </FrameLayout>
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/common_padding"
-            android:src="@drawable/favorite_pg_bg" />
-
-        <Button
-            android:id="@+id/login_btn"
-            style="@style/Widget.Button.FavoriteLoginButton"
-            android:layout_gravity="center" />
-    </LinearLayout>
+    <include
+        android:id="@+id/login_page"
+        layout="@layout/login_page" />
 
 </FrameLayout>

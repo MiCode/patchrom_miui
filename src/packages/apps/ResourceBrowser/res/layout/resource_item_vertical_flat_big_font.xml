@@ -9,12 +9,23 @@
         <miui.resourcebrowser.view.AsyncDecodeImageView
             android:id="@+id/thumbnail"
             style="@style/ResourceBrowser.ResourceImage"
-            android:paddingBottom="30dip"
+            android:paddingBottom="45dip"
             android:background="@drawable/resource_font_bg"
             android:scaleType="fitCenter" />
-        <TextView
-            android:id="@+id/inline_title"
-            style="@style/ResourceBrowser.ResourceDescription.Font" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:paddingBottom="10dip"
+            android:orientation="vertical" >
+            <TextView
+                android:id="@android:id/title"
+                style="@style/ResourceBrowser.ResourceDescription.Font"
+                android:paddingBottom="10dip" />
+            <TextView
+                android:id="@+id/price"
+                style="@style/ResourceBrowser.ResourceDescription.Font.Price" />
+        </LinearLayout>
         <include layout="@layout/resource_flag" />
     </FrameLayout>
 </LinearLayout>

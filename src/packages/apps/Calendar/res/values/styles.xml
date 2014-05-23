@@ -176,27 +176,44 @@
         <item name="android:endYear">2036</item>
         <item name="android:startYear">1970</item>
         <item name="android:actionBarStyle">@style/ActionBarStyle</item>
+        <item name="android:homeAsUpIndicator">@drawable/action_bar_back</item>
+    </style>
+
+    <style name="CalendarTheme.NoTitle">
+        <item name="android:windowNoTitle">true</item>
     </style>
 
     <style name="CalendarTheme.Main">
         <item name="miui:v5_bottom_bar_top_line">@null</item>
         <item name="miui:v5_title_bar_bg_search_mode">@drawable/miui_search_bar_bg</item>
         <item name="miui:v5_title_bar_back_button_search_mode">@miui:drawable/v5_title_bar_back_button_light</item>
-        <item name="android:actionBarStyle">@style/CustomActionBarStyle</item>
+        <item name="android:actionBarStyle">@style/MainActionBarStyle</item>
     </style>
 
     <style name="ActionBarStyle" parent="@miui:V5.Widget.ActionBar">
-        <item name="android:background">@drawable/miui_header_panel_bg_normal</item>
+        <item name="android:background">@drawable/action_bar_bg_n</item>
     </style>
 
     <style name="CustomActionBarStyle" parent="@miui:V5.Widget.ActionBar">
         <item name="android:displayOptions">showCustom</item>
     </style>
 
+    <style name="MainActionBarStyle" parent="CustomActionBarStyle">
+        <item name="android:displayOptions">showCustom</item>
+        <item name="android:height">@dimen/action_bar_height</item>
+    </style>
+
+    <style name="NewActionBarStyle" parent="@miui:V5.Widget.ActionBar">
+        <item name="android:background">@drawable/action_bar_bg_n</item>
+        <item name="android:titleTextStyle">@style/ActionBarTitleTextStyle</item>
+    </style>
+
+    <style name="ActionBarTitleTextStyle" parent="@miui:V5.Widget.Title">
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
     <style name="CalendarTheme.Search">
         <item name="android:actionBarStyle">@style/CustomActionBarStyle</item>
-        <item name="miui:v5_title_bar_bg_search_mode">@drawable/miui_search_bar_bg</item>
-        <item name="miui:v5_title_bar_back_button_search_mode">@miui:drawable/v5_title_bar_back_button_light</item>
     </style>
 
     <style name="CalendarTheme.Wallpaper">
@@ -209,7 +226,12 @@
         <item name="android:actionBarStyle">@style/CustomActionBarStyle</item>
     </style>
 
-    <style name="CalendarTheme.Settings" parent="miui:V5.Theme.Light.Settings" />
+    <!-- Shadow attr is accessable in theme, not in text appearance -->
+    <style name="CalendarTheme.NewActionBar" >
+        <item name="android:actionBarStyle">@style/NewActionBarStyle</item>
+        <item name="miui:v5_title_text_shadow">@null</item>
+        <item name="android:windowBackground">@color/month_week_bg</item>
+    </style>
 
     <style name="MultiStateButton">
         <item name="android:focusable">true</item>

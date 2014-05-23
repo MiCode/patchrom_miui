@@ -1,49 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <string name="app_label">Feedback</string>
-    <string name="user_feedback">User feedback</string>
-    <string name="report_miui">Report</string>
-    <string name="menu_send">Send report</string>
+    <!-- Title for the bug report activity.  This is the name
+         used for the Home screen icon. -->
+    <string name="app_label">Report Bug</string>
+    <!-- Title for the dialog pop-up that appears when bug occurs
+         and user has option to report it to Xiaomi. -->
+    <string name="report_miui">Report bug</string>
+    <!-- Button text that copies error log -->
     <string name="menu_copy">Copy</string>
+    <!-- Title for item in pop-up menu that brings user to Gallery where
+         they can select a screenshot. -->
     <string name="menu_attach_screenshot">Attach screenshot</string>
-    <string name="menu_discard">Discard</string>
-    <string name="description">Enter your description (required)</string>
+    <!-- Title for item in pop-up menu that discards current
+         bug report. -->
+    <string name="menu_discard">Discard draft</string>
+    <!-- Text that appears in the input box where user
+         can describe the bug or provide feedback. -->
+    <string name="description">Describe the bug or write your feedback here</string>
+    <!-- Button text that appears in the upper-most banner that sends the
+         user's message to Xiaomi. -->
     <string name="btn_send">Send</string>
-    <string name="err_type">Bug type</string>
-    <string name="err_type_reboot">System reboots</string>
+    <!-- Title text that appears below the image for random reboot
+         bug at the bug type selection activity. -->
+    <string name="err_type_reboot">Random reboots</string>
+    <!-- Title text that appears below the image for force close
+         bug at the bug type selection activity. -->
     <string name="err_type_force_close">Force closes</string>
+    <!-- Title text that appears below the image for network issues
+         bug at the bug type selection activity. -->
     <string name="err_type_network">Network issues</string>
+    <!-- Title text that appears below the image for the "other"
+         category at the bug type selection activity. -->
     <string name="err_type_others">Other</string>
+    <!-- Title text that appears below the image for the power consumption
+         bug at the bug type selection activity. -->
     <string name="err_type_power_consuming">Power consumption</string>
+    <!-- Title text that appears below the image for the call issues
+         bug at the bug type selection activity. -->
     <string name="err_type_call">Call issues</string>
+    <!-- Title text that appears below the image for the suggestions
+         option at the bug type selection activity. -->
     <string name="err_type_suggestion">Suggestions</string>
+    <!-- Title text that appears below the image for the data loss
+         bug at the bug type selection activity. -->
     <string name="err_type_data_lost">Data loss</string>
-    <string name="status_msg_pending_upload">Uploading %d comments\u2026</string>
-    <string name="status_msg_collecting_log">Collecting logs</string>
-    <string name="action_submit">Submit</string>
+    <!-- Text displayed while user's comments are being sent. -->
+    <string name="status_msg_pending_upload">Sending %d comments\u2026</string>
+    <!-- Text that appears at the bottom of the report activity
+         while system automatically collects activity logs. -->
+    <string name="status_msg_collecting_log">Getting logs</string>
+    <!-- Button text that appears in the upper-most banner that sends the
+         user's message to Xiaomi. -->
+    <string name="action_submit">Send</string>
+    <!-- Title text that appears above the selected bug type at the main
+         report activity. -->
     <string name="section_err_type">Bug type</string>
+    <!-- Title text that appears above the input box where user
+         can describe the bug or provide feedback at report activity. -->
     <string name="section_description">Description</string>
+    <!-- Title text that appears above the add button where
+         user add a screenshot to the report. -->
     <string name="section_screenshot">Screenshot</string>
-    <string name="toast_report_sent_succeed">The report has been sent</string>
-    <string name="toast_report_sent_failed">Failed to send the report</string>
+    <!-- Toast that is displayed when user's report is sent successfully. -->
+    <string name="toast_report_sent_succeed">Report has been sent</string>
+    <!-- Toast that is displayed when user's report fails to send -->
+    <string name="toast_report_sent_failed">"Can't send report"</string>
+    <!-- Toast that is displayed when user's report is copied to clipboard. -->
     <string name="toast_report_copied_to_clipboard">Report copied to clipboard</string>
+    <!-- Toast that is displayed when user's tries to submit a report without
+         entering text in the description box. -->
     <string name="toast_description_required">Description is required</string>
-    <string name="toast_pending_log_collection">Collecting logs\u2026</string>
-    <string name="toast_feedback_submitted">Your feedback has been submitted</string>
-    <string name="toast_feedback_pending_wlan">Your feedback will be sent when you\'re connected to Wi-Fi</string>
-    <string name="discard_draft_dialog_title">Discard draft</string>
-    <string name="discard_draft_dialog_content">This report has been modified, touch OK to discard your draft.</string>
-    <string name="discard_draft_dialog_button_discard">OK</string>
+    <!-- Toast that is displayed when user's tries to submit a report before
+         device's logs have been collected at main report activity. -->
+    <string name="toast_pending_log_collection">Still getting logs\u2026</string>
+    <!-- Toast that is displayed when user's report is sent successfully from
+         main report activity. -->
+    <string name="toast_feedback_submitted">Report has been sent</string>
+    <!-- Toast that is displayed when user doesn't have a Wi-Fi connection
+         and has disabled mobile data connection while trying to send a report. -->
+    <string name="toast_feedback_pending_wlan">"Message will be sent when you're connected to a Wi-Fi network"</string>
+    <!-- Title for the dialog box that appears when user navigates away from
+         a report that they have started but not sent. -->
+    <string name="discard_draft_dialog_title">Discard draft?</string>
+    <!-- Content for the dialog box that appears when user navigates away from
+         a report that they have started but not sent. -->
+    <string name="discard_draft_dialog_content">"Any changes you've made to this report will be lost."</string>
+    <!-- Text for button in the dialog box that discards the
+         the user's draft report. -->
+    <string name="discard_draft_dialog_button_discard">Discard</string>
+    <!-- Text for cancel button in the discard draft dialog box. -->
     <string name="discard_draft_dialog_button_cancel">Cancel</string>
-    <string name="network_unavailable_dialog_title">Network unavailable</string>
-    <string name="network_unavailable_dialog_content">Your feedback will be sent when you\'re connected to a network</string>
+    <!-- Title for the dialog box that appears when user has no mobile data
+         connection. -->
+    <string name="network_unavailable_dialog_title">Check your data connection</string>
+    <!-- Text for the dialog box that appears when user has no mobile data
+         connection. -->
+    <string name="network_unavailable_dialog_content">"Can't connect to the network. Your message will be sent when you have a data connection."</string>
+    <!-- Text for OK button in the dialog box that appears when user has no mobile data
+         connection. -->
     <string name="network_unavailable_dialog_button_ok">OK</string>
-    <string name="wlan_unavailable_dialog_title">Wi-Fi unavailable</string>
-    <string name="wlan_unavailable_dialog_content">%s is required for 2G/3G data, your feedback will be sent when you\'re connected to Wi-Fi</string>
+    <!-- Title for the dialog box that appears when user has no Wi-Fi
+         connection and asks if they want to use data connection. -->
+    <string name="wlan_unavailable_dialog_title">"Data usage"</string>
+    <!-- Pop-up that tells user how much data will be used when they send their report to
+         Xiaomi. -->
+    <string name="wlan_unavailable_dialog_content">"Sending your report will use %s of data. To wait until you're connected to Wi-Fi network to send, touch Wait."</string>
+    <!-- Text for button in dialog box that sends users report using data connection. -->
     <string name="wlan_unavailable_dialog_button_sent">Send now</string>
-    <string name="wlan_unavailable_dialog_button_ok">OK</string>
-    <string name="packaging_dialog_content">Generating report\u2026</string>
-    <string name="bugreport_feedback_from">From: %s</string>
+    <!-- Text for wait button in the dialog box that will wait until user has
+         Wi-Fi connection to  send out. -->
+    <string name="wlan_unavailable_dialog_button_ok">Wait</string>
+    <!-- Toast that is displayed after user touches "send" while report is being
+         packaged and sent to Xiaomi. -->
+    <string name="packaging_dialog_content">Creating report\u2026</string>
 
 </resources>

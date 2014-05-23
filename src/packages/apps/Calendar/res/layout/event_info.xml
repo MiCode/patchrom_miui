@@ -16,8 +16,7 @@
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/event_info_padding">
+    android:layout_height="match_parent">
     <RelativeLayout
         android:id="@+id/event_info_loading_msg"
         android:layout_width="match_parent"
@@ -37,17 +36,19 @@
             android:layout_height="wrap_content" />
     </RelativeLayout>
     <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/event_info_scroll_view"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:fadingEdge="none"
         android:animateLayoutChanges="true"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbarStyle="outsideOverlay" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="@dimen/event_info_padding_top_bottom"
+            android:paddingBottom="@dimen/event_info_padding_top_bottom"
             android:orientation="vertical">
 
             <!--  Container for the event's headline
@@ -57,30 +58,39 @@
                 android:id="@+id/event_info_headline"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="16dip"
-                android:paddingRight="16dip"
-                android:paddingTop="8dip"
-                android:paddingBottom="16dip"
                 android:layout_weight="1"
+                android:paddingLeft="@dimen/event_info_padding_left_right"
+                android:paddingRight="@dimen/event_info_padding_left_right"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingBottom="30dip"
                     android:orientation="horizontal">
-                    <!-- WHAT -->
-                    <TextView
-                        android:id="@+id/title"
-                        android:layout_weight=".8"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:autoLink="all"
-                        android:textIsSelectable="true"
-                        android:textStyle="bold"
-                        android:textColor="@color/event_info_headline_color"
-                        android:textColorLink="@color/event_info_headline_color"
-                        style="?android:attr/textAppearanceLarge"
-                        android:textSize="24sp" />
+                        android:orientation="vertical" >
+                        <!-- WHAT -->
+                        <TextView
+                            android:id="@+id/title"
+                            style="@style/eventInfoTitleStyle" />
+                        <!-- Organizer -->
+
+                        <LinearLayout
+                            android:id="@+id/organizer_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="-8dip"
+                            android:orientation="horizontal"
+                            android:paddingRight="16dip"
+                            android:visibility="gone" >
+                            <TextView
+                                android:id="@+id/organizer"
+                                style="@style/eventInfoSubtitleStyle" />
+                        </LinearLayout>
+
                     <!-- BUTTONS -->
                     <LinearLayout
                         android:id="@+id/event_info_buttons_container"
@@ -107,118 +117,54 @@
                             android:text="@string/delete_label" />
                     </LinearLayout>
                 </LinearLayout>
-
-                <!-- WHEN -->
-                <TextView
-                    android:id="@+id/when_datetime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dip"
-                    android:textIsSelectable="true"
-                    android:textSize="14sp"
-                    android:textColor="@color/event_info_headline_color"
-                    style="?android:attr/textAppearanceLarge" />
-
-                <TextView
-                    android:id="@+id/when_repeat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="-3dip"
-                    android:textSize="14sp"
-                    android:textColor="@color/event_info_headline_color"
-                    style="?android:attr/textAppearanceLarge" />
-
-                <!-- WHERE -->
-                <TextView
-                    android:id="@+id/where"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:singleLine="false"
-                    android:layout_marginTop="4dip"
-                    android:textIsSelectable="true"
-                    android:textSize="14sp"
-                    android:textColor="@color/event_info_headline_color"
-                    android:textColorLink="@color/event_info_headline_link_color"
-                    style="?android:attr/textAppearanceLarge" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="16dip"
-                android:paddingRight="16dip"
-                android:layout_marginTop="8dip"
-                android:orientation="vertical">
-                <!-- Calendar Owner -->
-                <LinearLayout
-                    android:id="@+id/calendar_container"
-                    android:visibility="gone"
-                    android:paddingRight="16dip"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                <!-- WHEN -->
+                <LinearLayout style="@style/eventInfoSubtitleLinearlayoutStyle" >
                     <TextView
-                        android:id="@+id/calendar_label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:singleLine="true"
-                        android:text="@string/view_event_calendar_label"
-                        android:textColor="@color/event_info_organizer_color"
-                        style="?android:attr/textAppearanceSmall"
-                        android:textSize="14sp"/>
+                        android:id="@+id/when_datetime_label"
+                        android:text="@string/event_info_when"
+                        style="@style/eventInfoSubtitleStyle" />
                     <TextView
-                        android:id="@+id/calendar_name"
-                        android:layout_width="0px"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:layout_weight="1"
-                        android:singleLine="true"
-                        android:layout_marginLeft="2dip"
-                        android:textIsSelectable="true"
-                        android:textColor="@color/event_info_organizer_color"
-                        style="?android:attr/textAppearanceSmall"
-                        android:textSize="14sp"/>
+                        android:id="@+id/when_datetime"
+                        style="@style/eventInfoSubtitleStyle" />
                 </LinearLayout>
 
-                <!-- Organizer -->
-                <LinearLayout
-                    android:id="@+id/organizer_container"
-                    android:visibility="gone"
-                    android:paddingRight="16dip"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:id="@+id/organizer_label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/miui_ic_organizer" />
+                <LinearLayout 
+                    android:id="@+id/when_repeat_parent"
+                    style="@style/eventInfoSubtitleLinearlayoutStyle" >
                     <TextView
-                        android:id="@+id/organizer"
-                        android:layout_width="0px"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:layout_weight="1"
-                        android:singleLine="true"
-                        android:layout_marginLeft="5dip"
-                        android:textIsSelectable="true"
-                        android:textColor="@color/event_info_organizer_color"
-                        style="?android:attr/textAppearanceSmall"
-                        android:textSize="14sp"/>
+                        android:text="@string/event_info_repeat"
+                        style="@style/eventInfoSubtitleStyle" />
+                    <TextView
+                        android:id="@+id/when_repeat"
+                        style="@style/eventInfoSubtitleStyle" />
+                </LinearLayout>
+
+                <!-- WHERE -->
+                <LinearLayout 
+                     android:id="@+id/where_parent"
+                    style="@style/eventInfoSubtitleLinearlayoutStyle" >
+                    <TextView
+                        android:text="@string/event_info_where"
+                        style="@style/eventInfoSubtitleStyle" />
+                    <TextView 
+                        android:id="@+id/where"
+                        style="@style/eventInfoSubtitleStyle" />
                 </LinearLayout>
 
                 <!-- DESCRIPTION -->
-                <include
-                    android:id="@+id/description"
-                    layout="@layout/expandable_textview" />
-
+                <LinearLayout 
+                    android:id="@+id/description_parent"
+                    style="@style/eventInfoSubtitleLinearlayoutStyle" >
+                    <TextView
+                        android:text="@string/event_info_descrip"
+                        style="@style/eventInfoSubtitleStyle" />
+                    <include
+                        android:id="@+id/description"
+                        layout="@layout/expandable_textview" />
+                </LinearLayout>
             </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginBottom="5dip"
-                android:background="@color/miui_separator_color" />
 
             <!-- RESPONSE -->
             <LinearLayout
@@ -311,40 +257,18 @@
                 android:paddingRight="3dip"
                 style="@style/miui_edit_event_container_style"
                 android:visibility="gone" />
-
             <!-- REMINDERS -->
             <LinearLayout
                 android:id="@+id/reminder_items_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                style="@style/miui_edit_event_container_style">
-                <TextView
-                    android:id="@+id/reminder_items_container_label"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical"
-                    android:text="@string/event_info_reminders_label"
-                    style="@style/TextAppearance.Container_Label" />
-                <LinearLayout
-                    android:id="@+id/reminder_items_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
-                <Button
-                    android:id="@+id/reminder_add"
-                    android:text="@string/reminders_label"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:gravity="center"
-                    android:layout_marginTop="5dip"
-                    android:layout_marginLeft="0dip"
-                    android:layout_marginRight="0dip"
-                    android:textAllCaps="false"
-                    android:contentDescription="@string/accessibility_add_reminder"
-                    style="@style/TextAppearance.EditEvent_LabelSmall" />
+                android:paddingTop="@dimen/event_info_padding_top_bottom"
+                android:orientation="vertical">
+                <include
+                    android:id="@+id/event_account"
+                    layout="@layout/event_info_view_list_item" />
             </LinearLayout>
         </LinearLayout>
+
     </ScrollView>
 </FrameLayout>

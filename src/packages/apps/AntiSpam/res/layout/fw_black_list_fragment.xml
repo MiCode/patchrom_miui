@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <miui.v5.widget.EditableListView
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.miui.antispam.ui.view.EditableListViews
         android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
-        android:fastScrollEnabled="true"
-        />
+        android:layout_height="match_parent"
+        android:fastScrollEnabled="true" />
+
     <include
         android:id="@android:id/empty"
-        android:visibility="gone"
-        layout="@layout/fw_log_list_empty" />
-</LinearLayout>
+        android:layout_centerInParent="true"
+        layout="@layout/fw_log_list_empty"
+        android:visibility="gone" />
+
+</RelativeLayout>

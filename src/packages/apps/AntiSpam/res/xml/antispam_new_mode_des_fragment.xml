@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miui="http://schemas.android.com/apk/res/com.miui.antispam" >
+
+    <!-- 黑白名单 group -->
+    <PreferenceCategory android:title="@string/st_sub_title_whiteblack_list_group" >
+        <com.miui.antispam.ui.LabelPreference
+            android:key="key_des_blacklist"
+            android:layout="@layout/antispam_new_label_preference"
+            android:title="@string/tab_blacklist"
+            miui:clickable="false" />
+        <com.miui.antispam.ui.LabelPreference
+            android:key="key_des_whitelist"
+            android:layout="@layout/antispam_new_label_preference"
+            android:title="@string/st_antispam_title_whitelist"
+            miui:clickable="false" />
+    </PreferenceCategory>
+
+    <!-- 联系人与陌生人 -->
+    <PreferenceCategory android:title="@string/st_antispam_title_contactandanoy_group" >
+        <com.miui.antispam.ui.LabelPreference
+            android:key="key_des_contact_sms"
+            android:layout="@layout/antispam_new_label_preference"
+            android:title="@string/st_antispam_title_contact_sms"
+            miui:clickable="false" />
+        <com.miui.antispam.ui.LabelPreference
+            android:key="key_des_contact_incoming"
+            android:layout="@layout/antispam_new_label_preference"
+            android:title="@string/st_antispam_title_contact_incoming"
+            miui:clickable="false" />
+        <com.miui.antispam.ui.LabelPreference
+            android:key="key_des_anoy_sms"
+            android:layout="@layout/antispam_new_label_preference"
+            android:title="@string/st_antispam_title_anoy_sms"
+            miui:clickable="false" />
+        <com.miui.antispam.ui.LabelPreference
+            android:key="key_des_anoy_incoming"
+            android:layout="@layout/antispam_new_label_preference"
+            android:title="@string/st_antispam_title_anoy_incoming"
+            miui:clickable="false" />
+        <com.miui.antispam.ui.LabelPreference
+            android:key="key_des_null_incoming"
+            android:layout="@layout/antispam_new_label_preference"
+            android:title="@string/st_antispam_title_null_incoming"
+            miui:clickable="false" />
+    </PreferenceCategory>
+    <PreferenceCategory android:key="key_des_delete" >
+    </PreferenceCategory>
+</PreferenceScreen>

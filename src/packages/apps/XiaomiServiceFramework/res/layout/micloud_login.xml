@@ -13,6 +13,15 @@
             android:paddingTop="@dimen/content_horizontal_margin"
             android:paddingBottom="@dimen/content_bottom_margin"
             >
+        <TextView
+                android:id="@+id/tv_area_code"
+                style="@miui:style/V5.TextAppearance.PreferenceList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/login_notice_text_margin_h"
+                android:background="@drawable/single_edit_normal_bg"
+                android:visibility = "gone"
+                android:gravity = "center_vertical"/>
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -27,15 +36,24 @@
                     android:inputType="textVisiblePassword"
                     android:background="@drawable/group_first_item_normal_bg"
                     />
-            <EditText
-                    android:id="@+id/et_account_password"
+            <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/password"
-                    android:singleLine="true"
-                    android:password="true"
-                    android:background="@drawable/group_last_item_normal_bg"
-                    />
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/et_account_password"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/password"
+                        android:singleLine="true"
+                        android:password="true"
+                        android:background="@drawable/group_last_item_normal_bg"
+                        />
+                    <ImageView android:id="@+id/show_password_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        />
+            </FrameLayout>
             <LinearLayout
                     android:id="@+id/et_captcha_area"
                     android:background="@drawable/group_last_item_normal_bg"
@@ -63,13 +81,19 @@
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical">
-            <CheckBox
-                    android:id="@+id/show_password"
-                    android:layout_width="0dip"
+                android:gravity="right">
+            <Button
+                    android:id="@+id/tv_foreign_login"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/show_password"/>
+                    android:text="@string/foreign_login"
+                    style="@style/HyperLinkStyle"
+                    android:background="@drawable/btn_transparent_bkg"/>
+            <TextView
+                    android:id="@+id/tv_foreign_forget_seperator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/seperator_forget_and_foreign"/>
             <Button
                     android:id="@+id/tv_forget_pwd"
                     android:layout_width="wrap_content"
@@ -99,13 +123,5 @@
                 style="@style/ButtonLogin"
                 />
 
-        <TextView
-                android:id="@+id/privacy_policy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center_horizontal"
-                style="@style/PrivacyPolicy"
-                />
     </LinearLayout>
 </ScrollView>

@@ -59,16 +59,19 @@
 
         <RingtonePreference
             android:layout="?android:attr/preferenceLayoutChild"
-            android:key="preferences_alerts_ringtone"
+            android:key="preferences_alarm_alerts_ringtone"
             android:title="@string/preferences_alerts_ringtone_title"
             android:ringtoneType="notification"
-            android:defaultValue="content://settings/system/notification_sound" />
+            android:defaultValue="content://settings/system/alarm_alert" />
 
-        <CheckBoxPreference
+        <ListPreference
             android:layout="?android:attr/preferenceLayoutChild"
-            android:key="preferences_alerts_vibrate"
+            android:key="preferences_alerts_vibrateWhen"
             android:title="@string/preferences_alerts_vibrateWhen_title"
-            android:defaultValue="false" />
+            android:entries="@array/prefEntries_alerts_vibrateWhen"
+            android:entryValues="@array/prefValues_alerts_vibrateWhen"
+            android:defaultValue="@string/prefDefault_alerts_vibrateWhen"
+            android:dialogTitle="@string/prefDialogTitle_vibrateWhen" />
 
         <CheckBoxPreference
             android:layout="?android:attr/preferenceLayoutChild"

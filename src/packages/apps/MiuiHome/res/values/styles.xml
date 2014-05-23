@@ -25,7 +25,7 @@
         <item name="android:windowFrame">@null</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowBackground">@null</item>
-        <item name="android:windowSoftInputMode">stateHidden|adjustPan</item>
+        <item name="android:windowSoftInputMode">stateAlwaysHidden|adjustPan</item>
     </style>
 
     <style name="AnimationPreview">
@@ -64,6 +64,11 @@
         <item name="android:textColor">@color/icon_title_text</item>
     </style>
 
+    <style name="WorkspaceIconTitle.dark">
+        <item name="android:textColor">@color/icon_title_text_dark</item>
+        <item name="android:shadowColor">@color/icon_title_text_shadow_light</item>
+    </style>
+
     <style name = "WorkspaceIconTitle.Thumbnail">
         <item name = "android:layout_marginLeft">5dip</item>
         <item name = "android:layout_marginRight">5dip</item>
@@ -73,9 +78,19 @@
         <item name = "android:gravity">center</item>
         <item name = "android:drawablePadding">5dip</item>
     </style>
+    <style name = "WorkspaceIconTitle.Thumbnail.dark">
+        <item name="android:textColor">@color/icon_title_text_dark</item>
+        <item name="android:shadowColor">@color/icon_title_text_shadow_light</item>
+    </style>
+
     <style name="WorkspaceIconTitle.folder">
         <item name="android:textColor">@color/folder_icon_title_text</item>
         <item name="android:shadowColor">@color/folder_icon_title_text_shadow</item>
+    </style>
+
+    <style name="WorkspaceIconTitle.folder.dark">
+        <item name="android:textColor">@color/folder_icon_title_text_dark</item>
+        <item name="android:shadowColor">@color/folder_icon_title_text_shadow_light</item>
     </style>
 
     <style name="WorkspaceIconTitle.notification">
@@ -84,6 +99,10 @@
         <item name="android:shadowRadius">0</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/workspace_icon_text_notification_size</item>
+    </style>
+
+    <style name="WorkspaceIconTitle.notification.dark">
+        <item name="android:textColor">@color/icon_title_text_dark</item>
     </style>
 
     <style name="SearchButton" parent="@android:style/Widget.Button.Small">

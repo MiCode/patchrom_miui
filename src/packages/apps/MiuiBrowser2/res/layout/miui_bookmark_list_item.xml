@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="7dip"
+    android:paddingRight="7dip" >
+
+    <LinearLayout
+        android:id="@+id/list_item"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/widgetItemMinHeight" >
+
+        <LinearLayout
+            android:id="@+id/label_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <ImageView
+                android:id="@+id/favicon"
+                android:layout_width="@dimen/bookmark_icon_width"
+                android:layout_height="@dimen/bookmark_icon_height"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/bookmark_list_favicon_bg"
+                android:src="@drawable/app_web_browser_sm"
+                android:scaleType="fitXY" />
+            <TextView
+                android:id="@+id/label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dip"
+                android:paddingRight="10dip"
+                style="@style/BookmarkLabelTextStyle" />
+        </LinearLayout>
+
+        <!-- paddingLeft = label.paddingLeft + ImageView.width -->
+        <TextView
+            android:id="@+id/url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/bookmark_url_padding_left"
+            android:paddingRight="10dip"
+            style="@style/BookmarkUrlTextStyle" />
+    </LinearLayout>
+
+</FrameLayout>

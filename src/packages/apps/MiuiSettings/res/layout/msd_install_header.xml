@@ -33,10 +33,28 @@
         android:gravity="center"
         android:paddingTop="20dip" />
 
-    <ImageView
-        android:id="@+id/msd_install_icon"
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center" />
+        android:layout_gravity="center_horizontal">
+        <ImageView
+            android:id="@+id/msd_install_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center" />
+        <TextView
+            style="@android:style/TextAppearance.Medium"
+            android:id="@+id/msd_install_model"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="7sp"
+            android:visibility="gone" />
+        <ImageView
+            android:id="@+id/msd_install_magnifier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/msd_install_driver_magnifier"
+            android:visibility="gone" />
+    </FrameLayout>
 </LinearLayout>

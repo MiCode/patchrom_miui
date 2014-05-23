@@ -75,7 +75,7 @@
         android:layout_marginTop="9dip"
         android:orientation="vertical">
         <!-- WHAT -->
-        <AutoCompleteTextView
+        <EditText
             android:id="@+id/title"
             style="@style/TextAppearance.EditEvent.Grouped"
             android:singleLine="true"
@@ -85,7 +85,6 @@
             android:minHeight="48dip"
             android:hint="@string/hint_what"
             android:capitalize="sentences"
-            android:imeOptions="actionDone"
             android:inputType="textAutoCorrect|textCapSentences"
             android:focusable="true" />
 
@@ -110,19 +109,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="48dip"
-        android:focusable="true">
+        android:focusable="true"
+        style="@style/miui_edit_event_container_style" >
         <TextView
             android:id="@+id/when_label"
             android:text="@string/when_label"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:layout_marginBottom="-8dip"
-            style="@style/TextAppearance.EditEvent_LabelSmall" />
+            style="@style/TextAppearance.Container_Label" />
         <TextView
             android:id="@+id/when"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:layout_marginLeft="24dip"
             android:layout_marginRight="24dip"
             style="@style/TextAppearance" />
     </LinearLayout>

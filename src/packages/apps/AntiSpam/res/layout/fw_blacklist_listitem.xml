@@ -1,38 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root"
     style="@miui:style/V5.Widget.ListView.Item.DoubleLine"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/list_item_padding"
-    android:paddingTop="@dimen/list_item_padding" >
-    <LinearLayout
-        android:layout_width="match_parent"
+    android:gravity="center_vertical" >
+
+    <TextView
+        android:id="@+id/name"
+        style="@miui:style/V5.TextAppearance.List.Primary"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:singleLine="true" />
 
-        <TextView
-            android:id="@+id/name"
-            style="@miui:style/V5.TextAppearance.List.Primary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true" />
-
-        <TextView
-            android:id="@+id/tag"
-            style="@miui:style/V5.TextAppearance.List.Secondary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="5dip"
-            android:singleLine="true" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/tag"
+        style="@miui:style/V5.TextAppearance.List.Secondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/name"
+        android:paddingLeft="5dip" />
 
     <TextView
         android:id="@+id/info"
         style="@miui:style/V5.TextAppearance.List.Secondary"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:singleLine="true" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name" />
 
-</LinearLayout>
+    <CheckBox
+        android:id="@android:id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center"
+        android:clickable="false"
+        android:focusable="false"
+        android:visibility="gone" />
+
+</RelativeLayout>

@@ -249,6 +249,42 @@
             </LinearLayout>
         </LinearLayout>
 
+        <!-- WAPI start for MTK -->
+        <LinearLayout android:id="@+id/wapi_cert_fields"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                style="@style/wifi_spinner_item">
+
+                <TextView
+                        style="@style/wifi_spinner_item_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dip"
+                        android:text="@string/wifi_wapi_as_cert" />
+
+                <Spinner android:id="@+id/wapi_as_cert"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:prompt="@string/wifi_wapi_as_cert"
+                        style="@style/wifi_spinner_item_content" />
+
+                <TextView
+                        style="@style/wifi_spinner_item_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dip"
+                        android:text="@string/wifi_wapi_user_cert" />
+
+                <Spinner android:id="@+id/wapi_user_cert"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:prompt="@string/wifi_wapi_user_cert"
+                        style="@style/wifi_spinner_item_content" />
+        </LinearLayout>
+        <!--WAPI end for MTK -->
+
         <LinearLayout android:id="@+id/wifi_advanced_toggle"
                     style="@style/wifi_item"
                     android:layout_marginLeft="8dip"

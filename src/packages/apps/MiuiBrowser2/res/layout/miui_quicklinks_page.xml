@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <LinearLayout
+            android:id="@+id/quicklinks_page_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+            <FrameLayout
+                android:id="@+id/search_view_container"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/search_view_height" >
+                <LinearLayout
+                    android:id="@+id/search_input_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/search_input_leftMargin"
+                    android:layout_marginRight="@dimen/search_input_rightMargin"
+                    android:layout_marginTop="@dimen/search_input_topMargin"
+                    android:layout_marginBottom="@dimen/search_input_bottomMargin"
+                    android:background="@drawable/search_input_bg"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical" >
+                    <ImageView
+                        android:id="@+id/search_engine_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_search_engine_baidu" />
+                    <TextView
+                        android:id="@+id/search_hint"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="false"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/search_hint_color"
+                        android:textSize="@dimen/text_font_size_medium"
+                        android:text="@string/search_hint"
+                        style="@style/Suggestions"
+                        android:background="@null" />
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:internal="http://schemas.android.com/apk/prv/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    internal:layout_minHeight="64dp"
+    internal:layout_maxHeight="64dp"
+    android:paddingLeft="@dimen/notification_padding_left"
+    android:paddingRight="@dimen/notification_padding_right">
+    <ImageView
+        android:id="@android:id/icon"
+        android:layout_width="@android:dimen/notification_large_icon_width"
+        android:layout_height="@android:dimen/notification_large_icon_height"
+        android:layout_gravity="center_vertical"
+        android:scaleType="centerInside" />
+
+    <LinearLayout
+        android:id="@+id/doubleline"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/notification_content_to_icon_length" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal"
+            android:singleLine="true"
+            android:textAppearance="@android:style/TextAppearance.StatusBar.EventContent.Title"/>
+
+        <TextView
+            android:id="@+id/sub_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal"
+            android:singleLine="true"
+            android:textAppearance="@android:style/TextAppearance.StatusBar.EventContent"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/notification_action_button_bg"
+        android:gravity="center"
+        android:textAppearance="@android:style/TextAppearance.StatusBar.EventContent"
+        android:textColor="@color/notification_action_button_color"
+        android:visibility="gone" />
+
+</LinearLayout>

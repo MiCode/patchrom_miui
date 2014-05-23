@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/suggesion_item"
+    android:layout_width="match_parent"
+    android:layout_height="52dip"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:baselineAligned="false"
+    android:descendantFocusability="blocksDescendants"
+    android:background="@drawable/pop_account_list_item_background">
+
+    <LinearLayout
+        android:id="@+id/suggestion"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="14dip"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center_vertical" >
+        <LinearLayout
+            android:id="@+id/title_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <ImageView
+                android:id="@+id/icon1"
+                android:layout_width="@dimen/bookmark_icon_width"
+                android:layout_height="@dimen/bookmark_icon_height"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/bookmark_list_favicon_bg"
+                android:scaleType="fitXY" />
+            <TextView
+                android:id="@android:id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dip"
+                android:paddingRight="10dip"
+                style="@style/BookmarkLabelTextStyle" />
+        </LinearLayout>
+
+        <!-- paddingLeft = label.paddingLeft + ImageView.width -->
+        <TextView
+            android:id="@android:id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/bookmark_url_padding_left"
+            android:paddingRight="10dip"
+            style="@style/BookmarkUrlTextStyle" />
+    </LinearLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/icon2"
+        android:scaleType="center" />
+</LinearLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.android.browser.view.PathGallery
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/path_gallery"
+        android:layout_height="wrap_content"
+        android:layout_width="0dip"
+        android:layout_weight="1">
+    <TextView
+            android:id="@+id/first_path"
+            style="@style/V5PathItemTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/path_gallery_first_item_bg"/>
+    <HorizontalScrollView
+            android:id="@+id/path_scroll_view"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:scrollbars="none"
+            android:overScrollMode="ifContentScrolls"
+            android:gravity="left">
+        <LinearLayout
+                android:id="@+id/scroll_container"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+        </LinearLayout>
+    </HorizontalScrollView>
+</com.android.browser.view.PathGallery>

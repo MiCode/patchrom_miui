@@ -1,99 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
-        android:orientation="vertical"
-    >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dip"
-            android:background="@drawable/app_city_edit"
-        >
-            <EditText
-                android:id="@+id/act_find_city_key"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:gravity="left|center_vertical"
-                android:background="#00000000"
-                android:textSize="16sp"
-                android:singleLine="true"
-                android:hint="@string/act_find_city_hint"
-                android:textColorHighlight="#A0FFFFFF"
-            />
+    android:layout_height="match_parent" >
 
-            <TextView
-                android:id="@+id/search_online"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                 android:layout_gravity="center"
-                android:textSize="16sp"
-                android:textColor="#808080"
-                android:text="@string/act_weather_find_city_search_online"
-            />
-            <ImageButton
-                android:id="@+id/act_find_city_ok"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="5dip"
-                android:layout_gravity="center"
-                android:background="#00000000"
-                android:src="@drawable/app_city_btn_clear"
-            />
-        </LinearLayout>
+    <ListView
+        android:id="@+id/result_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:dividerHeight="1dip"
+        android:divider="#30000000"
+        >
+    </ListView>
+
+    <LinearLayout
+        android:id="@+id/act_hot_city_part"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
         <TextView
             android:id="@+id/act_find_city_hot_title"
+            style="@style/text_group_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="6dip"
+            android:paddingLeft="12dip"
+            android:paddingTop="2dip"
             android:text="@string/act_find_city_hot_title"
-            style="@style/text_group_title"/>
+            android:background="@miui:drawable/v5_list_view_section_item_bg_light" />
 
-        <LinearLayout
-            android:id="@+id/act_find_city_layout_main"
+
+        <GridView
+            android:id="@+id/act_find_city_grid"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="12dip"
-            android:layout_marginTop="0dip"
-            android:layout_marginRight="11dip"
-            android:orientation="vertical"
-            android:background="@drawable/app_city_info_bg"
-        >
-            <TextView
-                android:id="@+id/act_find_city_empty"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="20sp"
-                android:textColor="@android:color/black"
-                android:text="@string/act_find_city_null_data"
-                android:background="#00000000"
-            />
-            <GridView
-                android:id="@+id/act_find_city_grid"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:numColumns="4"
-                android:scrollbars="none"
-            />
-             <TextView
-                android:id="@+id/isSearching"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="20sp"
-                android:textColor="#808080"
-                android:background="#00000000"
-                android:text="@string/act_weather_find_city_searching"
-            />
-        </LinearLayout>
+            android:layout_height="match_parent"
+            android:verticalSpacing="@dimen/grid_item_offsite"
+            android:horizontalSpacing="@dimen/grid_item_offsite"
+            android:background="#30000000"
+            android:numColumns="3"
+            android:scrollbars="none" />
+
     </LinearLayout>
-</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/act_find_city_information_part"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/search_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#808080"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/search_result_retry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#808080"
+            android:text="@string/act_weather_find_city_click_retry"
+            android:background="@drawable/btn_retry"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+</FrameLayout>

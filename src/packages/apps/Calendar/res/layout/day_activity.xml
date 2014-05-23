@@ -14,12 +14,23 @@
      limitations under the License.
 -->
 
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/day_view_bg_color"
+    android:orientation="vertical">
+    <view
+        style="@style/WeekHeaderStyle"
+        class="com.miui.calendar.week.WeekHeaderView" />
+
+    <ViewSwitcher
+        android:id="@+id/header_switcher"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/month_week_height"
+        android:background="@color/month_week_bg" />
     <ViewSwitcher
         android:id="@+id/switcher"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-</FrameLayout>
+</LinearLayout>

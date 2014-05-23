@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.android.browser.view.BookmarkPathGallery
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/path_gallery"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:gravity="center_vertical"
+    android:minHeight="@dimen/widgetItemMinHeight" >
+    <TextView
+        android:id="@+id/first_path"
+        style="@style/BookmarkV5PathItemTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:singleLine="true"
+        android:background="@drawable/bookmark_path_gallery_item_bg"/>
+    <HorizontalScrollView
+        android:id="@+id/path_scroll_view"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:scrollHorizontally="true"
+        android:overScrollMode="always"
+        android:gravity="left">
+        <LinearLayout
+            android:id="@+id/scroll_container"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical" >
+        </LinearLayout>
+    </HorizontalScrollView>
+</com.android.browser.view.BookmarkPathGallery>

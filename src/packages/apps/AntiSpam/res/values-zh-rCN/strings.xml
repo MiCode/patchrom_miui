@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
     <string name="app_name">骚扰拦截</string>
 
-    <!--  notification -->
+    <!-- notification -->
     <string name="fw_blocked">已保护您免于骚扰</string>
-    <string name="fw_blocked_count">替您新拦截了<xliff:g id="opt">%d</xliff:g>个来电<xliff:g id="opt">%d</xliff:g>个短信</string>
+    <string name="fw_blocked_count">替您新拦截了</string>
+    <string name="fw_blocked_count_call"><xliff:g id="opt">%d</xliff:g>个来电</string>
+    <string name="fw_blocked_count_sms"><xliff:g id="opt">%d</xliff:g>个短信</string>
 
     <!-- Tab/Other View -->
     <string name="tab_title">骚扰拦截</string>
@@ -16,23 +19,43 @@
     <string name="bl_no_block_call">目前没有来电拦截记录</string>
     <string name="bl_no_block_sms">目前没有短信拦截记录</string>
     <string name="bl_no_blacklist">目前没有黑名单</string>
+    <string name="wl_no_whitelist">目前没有白名单</string>
     <string name="tab_block_log_unKnowNumber">未知号码</string>
+    <string name="user_define_title">添加自定义模式</string>
+    <string name="blacklist_prefix_add_hint">添加后将拦截特定号码开头的所有短信或电话</string>
+    <string name="whitelist_prefix_add_hint">添加后将放行特定号码开头的所有短信或电话</string>
+    <string name="customizer_mode_user_define_name">自定义</string>
+    <string name="all_address_choose_hint">全部地区</string>
+    <string name="address_choose_hint">%1$s、%2$s等%3$d个地区</string>
+    <string name="two_address_choose_hint">%1$s、%2$s2个地区</string>
+    <string name="one_address_choose_hint">%s1个地区</string>
 
     <!-- Mark info -->
     <string name="marked_by_user">已被您标记为</string>
     <string name="marked_by_others">已被%d人标记为</string>
 
     <!-- Dialog -->
+    <string name="dlg_black_antispam_message">确定要把该号码加入黑名单，并为其选择拦截内容？</string>
+    <string name="dlg_white_antispam_message">确定要把该号码加入白名单，并为其选择放行内容？</string>
+    <string name="dlg_black_address_antispam_message">确定要把该地区加入黑名单，并为其选择拦截内容？</string>
+    <string name="dlg_white_address_antispam_message">确定要把该地区加入白名单，并为其选择放行内容？</string>
+    <string name="dlg_black_antispam_hint">拦截提示</string>
+    <string name="dlg_white_antispam_hint">放行提示</string>
     <string name="dlg_clear_all_sms">确定要彻底删除所有被拦截短信吗？</string>
     <string name="dlg_clear_all_call">确定要彻底删除所有被拦截电话吗？</string>
     <string name="dlg_clear_current_sms">确定要删除该号码发送的所有短信吗？</string>
     <string name="dlg_clear_current_call">确定要删除该号码拨打的所有电话吗？</string>
     <string name="dlg_clear_all_ok">全部删除</string>
     <string name="dlg_clear_current_ok">删除</string>
-    <string name="dlg_no_block">确定要不再屏蔽该号码？</string>
-    <string name="dlg_no_block_ok">不再屏蔽</string>
+    <string name="dlg_no_block">确定不再拦截该号码来电,并将被拦截的来电记录恢复到拨号记录中吗？</string>
+    <string name="dlg_no_block_ok">不再拦截</string>
     <string name="dlg_add_blacklist">确定要把该号码加入黑名单吗？</string>
+    <string name="dlg_add_blacklist_warn_conflict_title">添加黑名单冲突提示</string>
+    <string name="dlg_add_blacklist_warn_conflict_content"><xliff:g id="tel">%1$s</xliff:g>等<xliff:g id="tel_count">%2$s</xliff:g>项已存在于白名单,将优先放行,确定继续添加？</string>
     <string name="dlg_remove_blacklist">确定要把该号码移出黑名单，并将被拦截短信恢复到短信收件箱中吗？</string>
+    <string name="dlg_remove_whitelist">确定要把该号码移出白名单吗？</string>
+    <string name="dlg_remove_address_blacklist">确定要把该地区移出黑名单，并将被拦截短信恢复到短信收件箱中吗？</string>
+    <string name="dlg_remove_address_whitelist">确定要把该地区移出白名单吗？</string>
     <string name="dlg_remove_blacklist_ok">移出</string>
     <string name="dlg_clear_blacklist">确定要清空黑名单吗？</string>
     <string name="dlg_clear_blacklist_ok">清空</string>
@@ -40,7 +63,9 @@
     <string name="dlg_add_manual_ok">添加</string>
     <string name="dlg_add_manual_hint">输入电话号码</string>
     <string name="dlg_import_blacklist">正在添加黑名单</string>
-    <string name="dlg_import_whitelist">正在添加VIP名单</string>
+    <string name="dlg_remove_blacklist_ing">正在移除黑名单</string>
+    <string name="dlg_import_whitelist">正在添加白名单</string>
+    <string name="dlg_remove_whitelist_ing">正在移除白名单</string>
     <string name="dlg_add_keyword">添加关键词</string>
     <string name="dlg_edit_keyword">编辑关键词</string>
     <string name="dlg_delete_keyword">确定要删除所选关键词吗？</string>
@@ -56,7 +81,7 @@
     <string name="menu_clear_all_call">删除所有被拦截来电</string>
     <string name="menu_clear_current_sms">删除该号码发送的所有短信</string>
     <string name="menu_clear_current_call">删除该号码拨打的所有电话</string>
-    <string name="menu_no_block">不再屏蔽</string>
+    <string name="menu_no_block">不再拦截</string>
     <string name="menu_mark">标记</string>
     <string name="menu_call">拨打电话</string>
     <string name="menu_sms">发送短信</string>
@@ -64,6 +89,7 @@
     <string name="menu_bl_call_log">查看被拦截电话</string>
     <string name="menu_bl_sms_log">查看被拦截短信</string>
     <string name="menu_bl_remove">移出黑名单</string>
+    <string name="menu_wh_remove">移出白名单</string>
     <string name="menu_bl_clear">清空黑名单</string>
     <string name="menu_bl_add_manual">手动输入号码</string>
     <string name="menu_bl_add_contact">联系人</string>
@@ -90,12 +116,88 @@
     <string name="st_filter_sms_button">智能过滤垃圾短信</string>
     <string name="st_filter_keywords_setting_title">设置短信过滤关键词</string>
     <string name="st_filter_keywords_title">短信过滤关键词</string>
-    <string name="st_filter_keywords_setting_summary1">陌生人发送给您的短信中出现下列词汇将被拦截。</string>
+    <string name="st_filter_keywords_setting_summary1">陌生人发送给您的短信中出现上述词汇将被拦截。</string>
     <string name="st_filter_keywords_setting_summary2">可以一次添加多个关键词，用逗号分开。</string>
     <string name="st_advanced_setting_group">高级屏蔽设置</string>
     <string name="st_block_unknown_call">拦截所有陌生号码来电</string>
     <string name="st_block_unknown_sms">拦截所有陌生号码短信</string>
     <string name="st_other_setting_group">其他</string>
     <string name="st_show_block_notification">显示拦截通知</string>
-</resources>
+    <string name="label_callwait">来电等待</string>
+    <string name="open_callwait">开启</string>
+    <string name="close_callwait">关闭</string>
+    <string name="st_show_num_keyword">个关键词</string>
+    <string name="st_show_num_number">个号码</string>
 
+    <!-- 骚扰拦截 -->
+    <string name="addwhitelist">添加白名单</string>
+    <string name="SMSpass">短信放行</string>
+    <string name="Phonepass">电话放行</string>
+    <string name="NACaddnumtitle">手动输入号码加入白名单</string>
+
+    <!-- 添加黑名单 -->
+    <string name="st_title_addblacklist">添加黑名单</string>
+    <string name="st_title_editblacklist">编辑黑名单</string>
+    <string name="st_title_addwhitelist">添加白名单</string>
+    <string name="st_title_editwhitelist">编辑白名单</string>
+    <string name="st_title_man_head_addblacklist">手动输入开头号码加入黑名单</string>
+    <string name="st_title_man_addblacklist">手动输入号码加入黑名单</string>
+    <string name="st_title_man_head_addwhitelist">手动输入开头号码加入白名单</string>
+    <string name="st_title_man_addwhitelist">手动输入号码加入白名单</string>
+    <string name="st_title_man_editblacklist">请选择该城市的拦截内容</string>
+    <string name="st_title_man_editwhitelist">请选择该城市的放行内容</string>
+
+    <!-- BackSound -->
+    <string name="st_title_back_sound_choose">拦截返回音选择</string>
+    <string name="st_title_back_sound_busy">忙音</string>
+    <string name="st_title_back_sound_none">空号</string>
+    <string name="st_title_back_sound_closed">已关机</string>
+    <string name="st_title_back_sound_stop">已停机</string>
+    <string name="st_title_call_wait_setting">来电等待设置</string>
+    <string name="st_title_call_wait">来电等待</string>
+    <string name="st_sum_call_wait">如果您的来电拦截返回音不是忙音，建议您开启。否则当您正在通话时，第三个人给您打电话也会听到您设置的来电拦截返回音，造成不必要的误会。</string>
+
+
+    <!-- 骚扰拦截 -->
+    <string name="NACaddnumcontent">输入电话号码</string>
+    <string name="ACaddnumcontent">输入开头号码,系统自动补通配符*</string>
+    <string name="SMS_BLACKLIST">黑名单拦截</string>
+    <string name="SMS_PREFIX">开头号码拦截</string>
+    <string name="SMS_DEFAULT">智能拦截</string>
+    <string name="SMS_KEYWORDS">关键词拦截</string>
+    <string name="SMS_ADRESS">按地区拦截</string>
+    <string name="Call_BLACKLIST">黑名单拦截</string>
+    <string name="Call_PREFIX">开头号码拦截</string>
+    <string name="Call_DEFAULT">智能拦截</string>
+    <string name="Call_ADRESS">按地区拦截</string>
+    <string name="Call_PRIVATE_CALL">空号码拦截</string>
+    <string name="PAST_BLOCK">以往模式拦截</string>
+
+    <!-- 广告拦截 -->
+    <string name="AD_AntiSpam">广告插件</string>
+    <string name="AD_SCANNING">扫描中</string>
+    <string name="AD_BLOCK_ALL">一键拦截所有广告</string>
+    <string name="AD_SCAN_BUTTON">广告插件扫描</string>
+    <string name="AD_NOT_BLOCK">不拦截</string>
+    <string name="AD_BLOCKED">已拦截</string>
+    <string name="AD_COUNT">含有%d款广告插件</string>
+    <string name="AD_TITLE_COUNT">%d个应用包含广告插件</string>
+    <string name="AD_TITLE_NON_COUNT">未发现应用包含广告插件</string>
+    <string name="AD_BLOCK">拦截广告</string>
+    <string name="AD_ALLOW">允许广告</string>
+    <string name="AD_Unistall">卸载</string>
+    <string name="AD_APPInfo">应用信息</string>
+    <string name="AD_Info">广告插件</string>
+    <string name="AD_Info_Hint">广告插件,是广告商为手机开发者提供的分发广告的插件,开发者使用后,即可在应用中展示各种形式的广告。</string>
+    <string name="ad_relative_setting">相关设置</string>
+    <string name="ad_install_monitor">安装监控</string>
+    <string name="ad_install_monitor_hint">应用安装时检测是否含有广告</string>
+    <string name="ad_update_setting">广告库更新设置</string>
+    <string name="ad_update_title">自动更新</string>
+    <string name="ad_update_time">更新于：%s</string>
+    <string name="ad_update_time_unKnown">更新于：未知</string>
+
+    <string name="sms_delete_hint">确定删除所选号码的短信吗?</string>
+    <string name="call_delete_hint">确定删除所选号码的来电吗?</string>
+    <string name="backsound_set_hint">拦截返回音需要使用运营商的遇忙呼转功能,设置时会打开拨号页面,是否确定要设置拦截返回音为%s?</string>
+</resources>

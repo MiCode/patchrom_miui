@@ -1,36 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2010 The Android Open Source Project
-
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-
-          http://www.apache.org/licenses/LICENSE-2.0
-
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
-
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <PreferenceCategory
-        android:key="category_general"
-        android:title="@string/preferences_category_general_title" >
+        android:key="account_and_calendar"
+        android:title="@string/account_and_calendar" >
         <Preference
-            android:fragment="com.android.calendar.GeneralPreferences"
-            android:key="key_general_preference_header"
-            android:title="@string/menu_general_preferences" />
-        <Preference
-            android:fragment="com.android.calendar.extensions.AboutPreferences"
-            android:key="key_about_preference_header"
-            android:title="@string/menu_about_preferences" />
+            android:key="key_account_and_calendar"
+            android:title="@string/account_and_calendar_to_display" />
     </PreferenceCategory>
-
-    <PreferenceCategory android:key="category_account"
-        android:title="@string/preferences_category_account_title" />
-
+    <PreferenceCategory
+        android:key="category_general"
+        android:title="@string/menu_general_preferences" >
+        <Preference
+            android:fragment="com.miui.calendar.settings.ReminderPreferences"
+            android:key="key_reminder_mode"
+            android:title="@string/default_reminder_mode" />
+        <ListPreference
+            android:defaultValue="@string/preferences_default_reminder_default"
+            android:dialogTitle="@string/preferences_default_reminder_dialog"
+            android:entries="@array/preferences_default_reminder_labels"
+            android:entryValues="@array/preferences_default_reminder_values"
+            android:key="preferences_default_reminder"
+            android:title="@string/preferences_default_reminder_title" />
+        <ListPreference
+            android:defaultValue="@string/preferences_week_start_day_default"
+            android:dialogTitle="@string/preferences_week_start_day_dialog"
+            android:entries="@array/preferences_week_start_day_labels"
+            android:entryValues="@array/preferences_week_start_day_values"
+            android:key="preferences_week_start_day"
+            android:title="@string/preferences_week_start_day_title" />
+        <Preference
+            android:fragment="com.miui.calendar.settings.TimeZonePreferences"
+            android:key="key_time_zone"
+            android:title="@string/time_zone" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="category_online"
+        android:title="@string/setting_online_calendar" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="key_wifi_mode"
+            android:title="@string/setting_wifi_mode" />
+    </PreferenceCategory>
 </PreferenceScreen>

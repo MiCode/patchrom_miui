@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/path_gallery_bg" >
+
+        <ImageButton
+            android:id="@+id/volume_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/volume_switch"
+            android:visibility="gone" />
+
+        <include
+            android:id="@+id/path_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/path_gallery" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/file_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/navigation_bar"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:id="@+id/volumes_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dropdown_panel_bg"
+        android:layout_below="@+id/navigation_bar"
+        android:orientation="vertical"
+        android:visibility="gone" >
+    </LinearLayout>
+
+</RelativeLayout>

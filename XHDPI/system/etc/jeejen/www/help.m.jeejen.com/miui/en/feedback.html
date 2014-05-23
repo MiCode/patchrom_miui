@@ -79,7 +79,7 @@ form {
 }
 </style>
 <script>
-var hint = "想说点什么？";
+var hint = "Input your advice";
 $(document).ready(function(){
     $(window).resize(resize);
     $("#bottombar").click(function() {
@@ -99,7 +99,7 @@ function resize() {
     //$("#content_fb").height(fb_height);
 }
 function toggle() {
-    window["android.app"].setTopbarStatus(false);
+    //window["android.app"].setTopbarStatus(false);
     //window["android.system"].toggleInput();
     //$("#advice").val("\b");
     //window["android.app"].preformOnTouch();
@@ -114,12 +114,12 @@ function report() {
     $("#advice").focus();
     var netType = window["android.system"].getNetType();
     if (netType <= 0) {
-        alert("提交意见需要连接网络");
+        alert("You need connect to internet");
         return;
     }
     var value = $("#advice").val();
     if (value == hint || value.length <= 0) {
-        alert("您还没有填写内容");
+        alert("Your advice cann't empty!");
         return;
     }
     if (value.length > 512) {
@@ -137,7 +137,7 @@ function report() {
                     onsuccess();
                 } else {
                     window["android.app"].stopPostLoading();
-                    alert("提交失败，请重新提交");
+                    alert("Failed!Please try again.");
                 }
             },
             success: function(data) {
@@ -147,7 +147,7 @@ function report() {
 }
 function onsuccess(data) {
     window["android.app"].stopPostLoading();
-    alert("感谢您的支持\r\n我们会尽快解决");
+    alert("Succeed!Thank you.");
     javascript:history.go(-1);
     setTimeout(window["android.app"].clearHtml(), 500);
 }
@@ -159,7 +159,6 @@ function onsuccess(data) {
         <div id="content_fb">
             <textarea id="advice" name="advice" type="text" style="color:#9fa0a1;" class="textarea1" autofocus="true" maxlength="1024" >Write your feedback here</textarea>
         </div>
-        <div style="text-align:center;padding-top:10px;padding-bottom:10px;margin:0px auto;" class="font1" >QQ support chat: 238902796</div>
     </div>
     <div id="bottombar">
         <div class="button">

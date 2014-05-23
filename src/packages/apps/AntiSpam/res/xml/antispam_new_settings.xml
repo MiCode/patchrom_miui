@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miui="http://schemas.android.com/apk/res/com.miui.antispam" >
+
+    <!-- 设置的第一个group，包括开启骚扰拦截和拦截模式 TODO: 点击的fragment 还没有定 -->
+    <PreferenceCategory>
+        <CheckBoxPreference
+            android:key="key_open_anti_spam"
+            android:persistent="false"
+            android:title="@string/st_title_open_antispam" >
+        </CheckBoxPreference>
+        <!-- TODO: 这里是还没有定fragment -->
+        <com.miui.antispam.ui.LabelPreference
+            android:key="key_antispam_mode"
+            android:layout="@layout/antispam_new_label_preference"
+            android:title="@string/st_title_antispam_mode" >
+            <intent
+                android:targetClass="com.miui.antispam.ui.AntiSpamModeChooseActivity"
+                android:targetPackage="com.miui.antispam" />
+        </com.miui.antispam.ui.LabelPreference>
+    </PreferenceCategory>
+
+    <!-- 黑白名单 group -->
+    <PreferenceCategory android:title="@string/st_sub_title_whiteblack_list_group" >
+        <com.miui.antispam.ui.LabelPreference
+            android:key="key_keyword_blacklist"
+            android:layout="@layout/antispam_new_label_preference"
+            android:title="@string/st_title_keywords_blacklist"
+            miui:clickable="true" >
+            <intent
+                android:targetClass="com.miui.antispam.firewall.KeywordListActivity"
+                android:targetPackage="com.miui.antispam" />
+        </com.miui.antispam.ui.LabelPreference>
+        <com.miui.antispam.ui.LabelPreference
+            android:key="key_number_blacklist"
+            android:layout="@layout/antispam_new_label_preference"
+            android:title="@string/st_title_blacklist_numbers"
+            miui:clickable="true" >
+            <intent
+                android:targetClass="com.miui.antispam.ui.BlackListActivity"
+                android:targetPackage="com.miui.antispam" />
+        </com.miui.antispam.ui.LabelPreference>
+        <com.miui.antispam.ui.LabelPreference
+            android:key="key_number_whitelist"
+            android:layout="@layout/antispam_new_label_preference"
+            android:title="@string/st_title_whitelist_numbers"
+            miui:clickable="true" >
+            <intent
+                android:targetClass="com.miui.antispam.ui.WhiteListActivity"
+                android:targetPackage="com.miui.antispam" />
+        </com.miui.antispam.ui.LabelPreference>
+    </PreferenceCategory>
+
+    <!-- 返回音设置 -->
+    <PreferenceCategory 
+        android:key="key_backsound_modes" android:title="@string/st_title_backsound_group" />
+
+    <!-- 其他设置 -->
+    <PreferenceCategory android:title="@string/st_title_settings_other_group" >
+        <CheckBoxPreference
+            android:key="key_show_antispam_notification"
+            android:persistent="false"
+            android:summary="@string/st_antispam_notification_sum"
+            android:title="@string/st_title_show_antispamnotification" >
+        </CheckBoxPreference>
+    </PreferenceCategory>
+
+</PreferenceScreen>

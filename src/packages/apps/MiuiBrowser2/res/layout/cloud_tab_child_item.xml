@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/cloud_tab_bottom_margin"
+    android:layout_marginTop="@dimen/cloud_tab_top_margin"
+    android:background="@drawable/cloud_tab_child_item" >
+
+    <LinearLayout
+        android:id="@+id/list_item"
+        style="@style/BookmarkItemStyle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
+        android:minHeight="@dimen/widgetItemMinHeight"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/label_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical" >
+
+            <ImageView
+                android:id="@+id/favicon"
+                android:layout_width="@dimen/bookmark_icon_width"
+                android:layout_height="@dimen/bookmark_icon_height"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/cloud_tab_favicon_bg"
+                android:scaleType="fitXY"
+                android:src="@drawable/cloud_tab_default_icon" />
+
+            <TextView
+                android:id="@+id/label"
+                style="@style/CloudTabTitleTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                 />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/url"
+            style="@style/CloudTabUrlTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true" />
+    </LinearLayout>
+
+</FrameLayout>
