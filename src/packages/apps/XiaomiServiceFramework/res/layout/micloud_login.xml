@@ -36,15 +36,24 @@
                     android:inputType="textVisiblePassword"
                     android:background="@drawable/group_first_item_normal_bg"
                     />
-            <EditText
-                    android:id="@+id/et_account_password"
+            <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/password"
-                    android:singleLine="true"
-                    android:password="true"
-                    android:background="@drawable/group_last_item_normal_bg"
-                    />
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/et_account_password"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/password"
+                        android:singleLine="true"
+                        android:password="true"
+                        android:background="@drawable/group_last_item_normal_bg"
+                        />
+                    <ImageView android:id="@+id/show_password_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        />
+            </FrameLayout>
             <LinearLayout
                     android:id="@+id/et_captcha_area"
                     android:background="@drawable/group_last_item_normal_bg"
@@ -72,13 +81,7 @@
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical">
-            <CheckBox
-                    android:id="@+id/show_password"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/show_password"/>
+                android:gravity="right">
             <Button
                     android:id="@+id/tv_foreign_login"
                     android:layout_width="wrap_content"
