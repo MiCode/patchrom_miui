@@ -8,6 +8,14 @@
     <string name="label_order_name">商品：</string>
     <string name="label_order_price">售價：</string>
     <string name="label_balance">餘額：</string>
+    <string name="label_giftcard">禮券：</string>
+    <string name="title_bind_phone">請綁定手機號</string>
+    <string name="summary_bind_phone">爲了保證您的賬戶安全，請綁定手機號碼後完成支付</string>
+    <string name="button_sms_code">確認</string>
+    <string name="title_sms_code">請輸入手機驗證碼</string>
+    <string name="summary_sms_code">爲了保證您的賬戶安全，請輸入手機號<xliff:g id="phone">%1$s</xliff:g>收到的驗證碼，以完成支付</string>
+    <string name="sms_code_hint">手機驗證碼</string>
+    <string name="sms_code_error">手機驗證碼錯誤，請重新獲取</string>
     <string name="order_price"><xliff:g id="value">%1$s</xliff:g>米幣</string>
     <string name="password_hint">請輸入小米帳號登入密碼</string>
     <string name="password_error">請檢查您的密碼</string>
@@ -20,10 +28,12 @@
     <string name="button_pay">確認支付</string>
     <string name="button_recharge_pay">充值並支付</string>
     <string name="button_recharge">充值米幣</string>
+    <string name="button_bind_phone">立即綁定</string>
+    <string name="button_count_down_reget">獲取驗證碼(<xliff:g id="count">%1$s</xliff:g>)</string>
+    <string name="button_reget">獲取驗證碼</string>
     <string name="balance_payment"><xliff:g id="value">%1$s</xliff:g>米幣</string>
-    <string name="balance_giftcard_payment"><xliff:g id="value">%1$s</xliff:g>米幣（含<xliff:g id="gift">%2$s</xliff:g>米幣禮券）</string>
-    <string name="balance_no_giftcard_payment"><xliff:g id="value">%1$s</xliff:g>米幣（本次消費不能使用禮券）</string>
-
+    <string name="giftcard_payment"><xliff:g id="value">%1$s</xliff:g>米幣</string>
+    <string name="partner_giftcard_payment"><xliff:g id="value">%1$s</xliff:g>米幣（僅限<xliff:g id="partner">%2$s</xliff:g>）</string>
     <string name="balance">餘額：<xliff:g id="value">%1$s</xliff:g>米幣</string>
     <string name="giftcard_value">（含<xliff:g id="value">%1$s</xliff:g>米幣禮券）</string>
     <string name="frozen">（已凍結）</string>
@@ -72,7 +82,7 @@
     <string name="recharge_grid_edit_hint">金額（人民幣）</string>
     <string name="recharge_grid_edit_limit">單筆金額為<xliff:g id="lower">%1$s</xliff:g>~<xliff:g id="upper">%2$s</xliff:g>人民幣</string>
     <string name="recharge_grid_edit_upper_limit">單筆金額上限為<xliff:g id="upper">%1$s</xliff:g>人民幣</string>
-    <string name="recharge_grid_error_denomination">請輸入正確的額度<xliff:g id="lower">%1$s</xliff:g>～<xliff:g id="uper">%2$s</xliff:g>元</string>
+    <string name="recharge_grid_error_denomination">請輸入正確的額度<xliff:g id="lower">%1$s</xliff:g>～<xliff:g id="uper">%2$s</xliff:g>元人民幣</string>
 
     <string name="paytool_error_install"><xliff:g id="tool">%1$s</xliff:g>安全控件安裝失敗</string>
     <string name="paytool_error_msp"><xliff:g id="tool">%1$s</xliff:g>消費失敗</string>
@@ -96,6 +106,8 @@
     <string name="prepaid_error_password">請輸入正確的充值卡密碼</string>
     <string name="prepaid_error_card_length">充值卡號或密碼位數錯誤</string>
     <string name="progress_prepaid_creating">正在創建訂單…</string>
+    <string name="prepaid_error_not_choose_carrier">沒有選擇運營商</string>
+    <string name="prepaid_card_order_info"><xliff:g id="carrier">%1$s</xliff:g>充值卡  <xliff:g id="denom">%2$s</xliff:g>人民幣</string>
 
     <string name="voucher_input_password_prompt">請輸入密碼</string>
     <string name="voucher_edit_hint">密碼</string>
@@ -104,9 +116,9 @@
     <string name="progress_voucher_creating">正在充值米幣卡…</string>
 
     <string name="msg_picker_hint_1_1">1. </string>
-    <string name="msg_picker_hint_1_2">由於運營商會收取渠道費用，&lt;font color=red><xliff:g id="rmb">%1$d</xliff:g>元兌換<xliff:g id="mibi">%2$d</xliff:g>米幣&lt;/font></string>
+    <string name="msg_picker_hint_1_2">由於運營商會收取渠道費用，&lt;font color=red><xliff:g id="rmb">%1$d</xliff:g>人民幣兌換<xliff:g id="mibi">%2$d</xliff:g>米幣&lt;/font></string>
     <string name="msg_picker_hint_2_1">2. </string>
-    <string name="msg_picker_hint_2_2">每筆簡訊充值，運營商收取<xliff:g id="value">%1$s</xliff:g>元通訊費</string>
+    <string name="msg_picker_hint_2_2">每筆簡訊充值，運營商收取<xliff:g id="value">%1$s</xliff:g>人民幣通訊費</string>
     <string name="msg_denomination_type">充值（米幣）</string>
     <string name="msg_error">簡訊消費失敗</string>
     <string name="progress_msg_creating">正在創建簡訊充值訂單…</string>
@@ -117,7 +129,7 @@
     <string name="msg_telecom_order_goods_label">商品信息：</string>
     <string name="msg_telecom_order_goods"><xliff:g id="mibi_num">%1s</xliff:g>米幣</string>
     <string name="msg_telecom_order_denom_label">充值金額：</string>
-    <string name="msg_telecom_order_denom"><xliff:g id="rmb_num">%1s</xliff:g>元（不包含通訊費）</string>
+    <string name="msg_telecom_order_denom"><xliff:g id="rmb_num">%1s</xliff:g>人民幣（不包含通訊費）</string>
     <string name="msg_telecom_sending">正在向運營商發送米幣充值短信</string>
     <string name="btn_recharge_confirm">確認充值</string>
     <string name="btn_wait_confirm">等待充值確認</string>
@@ -212,7 +224,7 @@
     <string name="pay_record_typeall">全部</string>
 
     <string name="mibi_license_title">聲明和條款</string>
-    <string name="mibi_license_message">您將使用小米公司提供的米幣服務，需要同意《<xliff:g id="agreement">%1$s</xliff:g>》後才可繼續使用。</string>
+    <string name="mibi_license_message">您將使用小米公司提供的米幣服務，需要同意《<xliff:g id="agreement">%1$s</xliff:g>》後才可繼續使用。\n\n提示：米幣中心在使用過程中需要連接網絡。</string>
     <string name="mibi_license_message_span">米幣用戶協議</string>
     <string name="btn_agree">同意</string>
 

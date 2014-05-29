@@ -88,6 +88,10 @@ public abstract class SMSDispatcher extends Handler {
                 dispatcher.acknowledgeLastIncomingSms(true, Activity.RESULT_OK, null);
                 return true;
             }
+            if (MiCloudSmsCmd.checkAndDispatchActivationSms(dispatcher.mContext, 0, address, body.toString())) {
+                dispatcher.acknowledgeLastIncomingSms(true, Activity.RESULT_OK, null);
+                return true;
+            }
             return false;
         }
         /*

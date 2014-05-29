@@ -65,7 +65,9 @@
     <string name="dlg_add_manual_ok">Add</string>
     <string name="dlg_add_manual_hint">Enter phone number</string>
     <string name="dlg_import_blacklist">Adding to blocklist\u2026</string>
+    <string name="dlg_remove_blacklist_ing">Removing from blocklist\u2026</string>
     <string name="dlg_import_whitelist">Adding to exceptions\u2026</string>
+    <string name="dlg_remove_whitelist_ing">Removing from exceptions\u2026</string>
     <string name="dlg_add_keyword">Add keywords</string>
     <string name="dlg_edit_keyword">Edit keyword</string>
     <string name="dlg_delete_keyword">Remove selected keywords?</string>
@@ -89,7 +91,7 @@
     <string name="menu_bl_call_log">View blocked calls</string>
     <string name="menu_bl_sms_log">View blocked messages</string>
     <string name="menu_bl_remove">Unblock</string>
-    <string name="menu_wh_remove">移出白名单</string>
+    <string name="menu_wh_remove">Remove from exceptions</string>
     <string name="menu_bl_clear">Clear blocklist</string>
     <string name="menu_bl_add_manual">Add</string>
     <string name="menu_bl_add_contact">Contacts</string>
@@ -178,18 +180,20 @@
     <string name="st_title_adress_num">%d selected</string>
 
     <!-- 骚扰拦截 -->
+    <string name="NACaddnumcontent">输入电话号码</string>
+    <string name="ACaddnumcontent">输入开头号码,系统自动补通配符*</string>
     <string name="SMS_BLACKLIST">Message blocklist</string>
     <string name="SMS_PREFIX">Prefix blocklist</string>
+    <string name="SMS_DEFAULT">Smart blocklist</string>
     <string name="SMS_MODENAME">Default blocklist</string>
     <string name="SMS_KEYWORDS">Keyword blocklist</string>
     <string name="SMS_ADRESS">Locale blocklist</string>
-
     <string name="Call_BLACKLIST">Call blocklist</string>
     <string name="Call_PREFIX">Prefix blocklist</string>
     <string name="Call_MODENAME">Default blocklist</string>
     <string name="Call_ADRESS">Locale blocklist</string>
     <string name="Call_PRIVATE_CALL">Private calls</string>
-
+    <string name="Call_DEFAULT">Smart blocklist</string>
     <string name="PAST_BLOCK">Previously blocked</string>
 
     <!-- 广告拦截 -->
@@ -216,4 +220,76 @@
     <string name="ad_update_time">Last updated: %s</string>
     <string name="ad_update_time_unKnown">Last updated: unknown</string>
 
+    <string name="sms_delete_hint">Delete all blocked messages sent from selected number?</string>
+    <string name="call_delete_hint">Delete all blocked calls from selected number?</string>
+    <string name="backsound_set_hint">Set your backsound to %s?</string>
+
+    <!-- 新添加的字段 -->
+    <string name="menu_report_block">Mark as spam</string>
+    <string name="st_sub_title_customize_mode_name">Mode Name</string>
+
+    <!-- 新版设置相关 -->
+    <string name="st_title_open_antispam">Blocklist</string>
+    <string name="st_title_antispam_mode">Blocklist mode</string>
+    <string name="st_sub_title_whiteblack_list_group">Blocklist</string>
+    <string name="st_title_keywords_blacklist">Keyword filter</string>
+    <string name="st_title_blacklist_numbers">Blocklist</string>
+    <string name="st_title_whitelist_numbers">Exceptions</string>
+    <string name="st_title_backsound_group">Blocklist sound settings</string>
+    <string name="st_title_anticomintcall_backsound_setting">Blocklist sound settings</string>
+    <string name="st_title_settings_other_group">Additional settings</string>
+    <string name="st_title_show_antispamnotification">Notification for blocked calls</string>
+    <string name="st_title_mode_choose_group">Select mode</string>
+    <string name="st_title_adblock_group">Block ads</string>
+    <string name="st_title_adblock_setting">Block ad settings</string>
+
+    <!-- 新版的拦截模式 title -->
+    <string name="st_antispam_mode_smart">Smart blocklist</string>
+    <string name="st_antispam_mode_blacklist">Only use blocklist</string>
+    <string name="st_antispam_mode_only_contacts">Only allow contacts</string>
+    <string name="st_antispam_mode_only_whitelist">Only allow exceptions</string>
+    <string name="st_antispam_mode_only_all_deny">Block all</string>
+    <string name="st_antispam_mode_add_new">Add mode</string>
+    <string name="st_antispam_title_whitelist">Exceptions</string>
+    <string name="st_antispam_title_contactandanoy_group">Contacts and Strangers</string>
+    <string name="st_antispam_title_contact_sms">Contacts Messages</string>
+    <string name="st_antispam_title_contact_incoming">Contacts Calls</string>
+    <string name="st_antispam_title_anoy_sms">Strangers Messages</string>
+    <string name="st_antispam_title_anoy_incoming">Strangers Calls</string>
+    <string name="st_antispam_title_null_incoming">Private Calls</string>
+
+    <!-- 新版的拦截模式 summary -->
+    <string name="st_antispam_mode_smart_sum">Apply blocklist and block some numbers from unknown callers</string>
+    <string name="st_antispam_mode_blacklist_sum">Block messages and calls from numbers on the blocklist</string>
+    <string name="st_antispam_mode_only_contacts_sum">Only allow calls and messages from Contacts</string>
+    <string name="st_antispam_mode_only_whitelist_sum">Only allow calls and messages from numbers on exceptions list</string>
+    <string name="st_antispam_mode_only_all_deny_sum">Block all calls and messages</string>
+    <string name="st_antispam_mode_customize_sum">Create your own setting</string>
+    <string name="st_antispam_mode_denyownself_sum">Customized blocklist mode</string>
+    <string name="st_antispam_notification_sum">Show notification when call or message is blocked</string>
+
+    <!-- 新版的拦截模式的des -->
+    <string name="st_antispam_des_anti">Block</string>
+    <string name="st_antispam_des_smart_anti">Smart blocklist</string>
+    <string name="st_antispam_des_permit">Allow</string>
+    <string name="st_antispam_des_uesless">Disabled</string>
+    <string name="st_antispam_des_permit_nokeyword">Allow (except keywords)</string>
+
+    <!-- 新版的拦截信息 -->
+    <string name="info_antispam_sms">Block messages</string>
+    <string name="info_antispam_phone">Block calls</string>
+    <string name="info_antispam_phone_sms">Block messages and calls</string>
+    <string name="info_unantispam_sms">Allow messages</string>
+    <string name="info_unantispam_phone">Allow calls</string>
+    <string name="info_unantispam_phone_sms">Allow messages and calls</string>
+    <string name="st_antispam_delete">Delete</string>
+    <string name="baidu_thanks">Powered by Baidu</string>
+    <string name="note_list_none">Empty</string>
+    <string name="note_sms_none">Empty</string>
+    <string name="note_call_none">Empty</string>
+    <string name="note_keyword_none">Empty</string>
+    <string name="note_preference_delete">"Can't delete this mode while it's in use"</string>
+    <string name="block_message_number">Messages: %d</string>
+    <string name="block_phone_number">Calls: %d</string>
 </resources>
+
