@@ -12,20 +12,22 @@
         android:layout_gravity="top|right"
         android:src="@drawable/watermark"/>
     <LinearLayout
+        android:id="@+id/normal_mode"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="8dip"
-        android:paddingBottom="8dip"
         android:gravity="center_horizontal"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:paddingBottom="8dip"
+        android:paddingTop="8dip" >
+
         <TableLayout
             android:id="@+id/order_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="7dip"
             android:layout_marginLeft="15dip"
             android:layout_marginRight="15dip"
             android:layout_marginTop="7dip"
-            android:layout_marginBottom="7dip"
             android:gravity="center_vertical"
             android:shrinkColumns="1" >
             <TableRow>
@@ -72,6 +74,64 @@
                     android:textColor="@color/text_color_dark_gray"
                     android:textSize="@dimen/text_size_medium"
                     android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tablerow_giftcard"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@+id/label_giftcard"
+                    android:gravity="right"
+                    android:text="@string/label_giftcard"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/text_giftcard"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:textColor="@color/payment_text_enable_disable_color"
+                    android:textSize="@dimen/text_size_medium"
+                    android:textStyle="bold" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_giftcard"
+                    android:layout_width="35dip"
+                    android:layout_height="35dip"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:text="@null" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tablerow_partner_giftcard"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@+id/label_partner_giftcard"
+                    android:gravity="right"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/text_partner_giftcard"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:textColor="@color/payment_text_enable_disable_color"
+                    android:textSize="@dimen/text_size_medium"
+                    android:textStyle="bold" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_partner_giftcard"
+                    android:layout_width="35dip"
+                    android:layout_height="35dip"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:text="@null" />
             </TableRow>
         </TableLayout>
 
@@ -87,8 +147,8 @@
                 android:id="@+id/error_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="7dip"
                 android:layout_marginBottom="7dip"
+                android:layout_marginTop="7dip"
                 android:textColor="@color/text_color_red"
                 android:textSize="@dimen/text_size_large" />
 
@@ -96,8 +156,8 @@
                 android:id="@+id/progress_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="7dip"
                 android:layout_marginBottom="7dip"
+                android:layout_marginTop="7dip"
                 android:gravity="center" >
                 <ProgressBar
                     android:id="@+id/progress"
@@ -127,10 +187,11 @@
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:background="@null"
                     android:hint="@string/password_hint"
                     android:inputType="textPassword"
-                    android:textSize="@dimen/text_size_small"
-                    android:background="@null" />
+                    android:textSize="@dimen/text_size_small" />
+
                 <TextView
                     android:id="@+id/password_forget"
                     android:layout_width="wrap_content"
@@ -147,7 +208,6 @@
             android:id="@+id/button_area"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="7dip"
             android:layout_marginBottom="7dip"
             android:orientation="vertical" >
             <View
@@ -160,36 +220,36 @@
                 style="@style/ButtonNormal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dip"
                 android:layout_marginLeft="15dip"
                 android:layout_marginRight="15dip"
-                android:layout_marginBottom="5dip"
                 android:text="@string/button_retry" />
             <Button
                 android:id="@+id/button_call"
                 style="@style/ButtonNormal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dip"
                 android:layout_marginLeft="15dip"
                 android:layout_marginRight="15dip"
-                android:layout_marginBottom="5dip"
                 android:text="@string/button_call" />
             <Button
                 android:id="@+id/button_pay"
                 style="@style/ButtonNotice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dip"
                 android:layout_marginLeft="15dip"
                 android:layout_marginRight="15dip"
-                android:layout_marginBottom="5dip"
                 android:text="@string/button_pay" />
             <Button
                 android:id="@+id/button_recharge"
                 style="@style/ButtonNotice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dip"
                 android:layout_marginLeft="15dip"
                 android:layout_marginRight="15dip"
-                android:layout_marginBottom="5dip"
                 android:text="@string/button_recharge" />
             <View
                 android:layout_width="match_parent"
@@ -203,5 +263,138 @@
                 android:layout_marginRight="15dip"
                 android:text="@string/button_cancel" />
         </LinearLayout>
+    </LinearLayout>
+
+    <!-- sms code -->
+    <LinearLayout
+        android:id="@+id/sms_code_mode"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginBottom="8dip"
+        android:layout_marginTop="15dip" >
+
+        <TextView
+            style="?android:attr/textAppearanceLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/title_sms_code" />
+
+        <TextView
+            android:id="@+id/sms_code_summary"
+            style="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/summary_sms_code"
+            android:layout_marginTop="10dip" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="7dip"
+            android:layout_marginTop="7dip" >
+
+            <EditText
+                android:id="@+id/edit_sms_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?miui:attr/v5_edit_text_bg"
+                android:hint="@string/sms_code_hint"
+                android:digits="0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:textSize="@dimen/text_size_small" />
+
+            <Button
+                android:id="@+id/button_reget_sms_code"
+                android:layout_width="120dip"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:background="@drawable/common_btn"
+                android:gravity="center"
+                android:text="@string/button_reget" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/sms_code_error_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_red"
+            android:textSize="@dimen/text_size_large" />
+
+        <LinearLayout
+            android:id="@+id/sms_code_progress_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dip"
+            android:layout_marginTop="7dip"
+            android:gravity="center" >
+
+            <ProgressBar
+                android:id="@+id/sms_code_progress"
+                android:layout_width="32dip"
+                android:layout_height="32dip"
+                android:layout_marginRight="5dip" />
+
+            <TextView
+                android:id="@+id/sms_code_progress_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/progress_loading"
+                android:textColor="@color/text_color_black"
+                android:textSize="@dimen/text_size_large" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_sms_code"
+            style="@style/ButtonNotice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dip"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:text="@string/button_sms_code" />
+    </LinearLayout>
+
+    <!-- bind phone -->
+    <LinearLayout
+        android:id="@+id/bind_phone_mode"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="15dip"
+        android:paddingRight="15dip"
+        android:paddingBottom="8dip"
+        android:paddingTop="8dip" >
+
+        <TextView
+            style="?android:attr/textAppearanceLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/title_bind_phone"/>
+
+        <TextView
+            style="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:text="@string/summary_bind_phone" />
+
+        <Button
+            android:id="@+id/button_bind_phone"
+            style="@style/ButtonNotice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:text="@string/button_bind_phone" />
     </LinearLayout>
 </com.xiaomi.payment.ui.PaymentView>
