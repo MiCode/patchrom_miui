@@ -1,28 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Name of the blocklist feature that is displayed in the popup menu at the main activity for Phone.  This is also
+         the name displayed under the Blocklist icon in Security Center. [CHAR LIMIT=10] -->
     <string name="app_name">Blocklist</string>
 
-    <!-- notification -->
-    <string name="fw_blocked">Blocked:</string>
-    <string name="fw_blocked_count">Blocked:</string>
-    <string name="fw_blocked_count_call"><xliff:g id="opt">%d</xliff:g>calls and</string>
-    <string name="fw_blocked_count_sms"><xliff:g id="opt">%d</xliff:g>messages</string>
+    <!-- Title for notiiciation in notification that appears when a call or message is blocked -->
+    <string name="fw_blocked">Blocklist</string>
+    <!-- First word in content for notificiation in notification shade that appears as follows:
+         "Blocked %d calls and %d messages ".  TODO: format this string better. -->
+    <string name="fw_blocked_count">"Blocked "</string>
+    <!-- Part of content for notificiation in notification shade.  Refer to string "fw_blocked". -->
+    <string name="fw_blocked_count_call">"<xliff:g id="opt">%d</xliff:g> calls"</string>
+    <!-- Last part of content for notificiation in notification shade.  "Refer to string fw_blocked".
+         %d refers to the number of blocked messages. -->
+    <string name="fw_blocked_count_sms">" and<xliff:g id="opt">%d</xliff:g>messages"</string>
 
-    <!-- Tab/Other View -->
+    <!-- Title displayed in action bar at Blocklist main activity. -->
     <string name="tab_title">Blocklist</string>
-    <string name="tab_block_log">Blocked log</string>
+    <!-- TODO: Locate this string. -->
+    <string name="tab_block_log">History</string>
+    <!-- TODO: Locate this string. -->
     <string name="tab_blacklist">Blocklist</string>
-    <string name="tab_sms">Message log</string>
-    <string name="tab_call">Call log</string>
-    <string name="bl_block_info">Blocked calls: <xliff:g id="tel_count">%d</xliff:g> "|" SMS: <xliff:g id="ms_count">%d</xliff:g></string>
+    <!-- Title displayed for tab under the action bar at the blocklist main activity. -->
+    <string name="tab_sms">Messages</string>
+    <!-- Title displayed for tab under the action bar at the blocklist main activity. -->
+    <string name="tab_call">Calls</string>
+
+    <string name="bl_block_info">Blocked: <xliff:g id="tel_count">%d</xliff:g> "|" SMS: <xliff:g id="ms_count">%d</xliff:g></string>
+
     <string name="bl_no_block_call">No blocked calls</string>
+
     <string name="bl_no_block_sms">No blocked messages</string>
+
     <string name="bl_no_blacklist">No blocked numbers</string>
-    <string name="wl_no_whitelist">No white numbers</string>
+
+    <string name="wl_no_whitelist">No exceptions</string>
+
     <string name="log_count">(%d)</string>
 
     <string name="tab_block_log_unKnowNumber">Unknown number</string>
+
     <string name="user_define_title">Custom</string>
     <string name="blacklist_prefix_add_hint">Add all numbers with prefix to blocklist</string>
     <string name="whitelist_prefix_add_hint">Add all numbers with prefix to exceptions</string>
@@ -105,7 +123,7 @@
     <string name="st_settings_name">Blocklist settings</string>
     <string name="st_block_setting_group">Blocklist settings</string>
     <string name="st_block_setting_title">Calls and messages</string>
-    <string name="st_block_all">Block calls and messgaes</string>
+    <string name="st_block_all">Block calls and messages</string>
     <string name="st_mute_all">Silence calls and messages</string>
     <string name="st_block_mute">Block calls and silence messages</string>
     <string name="st_mute_block">Silence calls and block messages</string>
@@ -159,14 +177,14 @@
     <string name="st_title_man_editwhitelist">Choose an location code to add to exceptions</string>
 
     <!-- BackSound -->
-    <string name="st_title_back_sound_choose">BackSound</string>
+    <string name="st_title_back_sound_choose">Blocklist status</string>
     <string name="st_title_back_sound_busy">Busy</string>
     <string name="st_title_back_sound_none">Number no longer in service</string>
     <string name="st_title_back_sound_closed">Phone powered off</string>
     <string name="st_title_back_sound_stop">Number out of service</string>
     <string name="st_title_call_wait_setting">Call waiting settings</string>
     <string name="st_title_call_wait">Call waiting</string>
-    <string name="st_sum_call_wait">If your busy signal is not default. This may be confusing for an incoming caller.</string>
+    <string name="st_sum_call_wait">If your busy signal is not default, it may confuse incoming callers.</string>
 
     <!-- Black White list -->
     <string name="st_antispam_bw_man_add">Add phone number</string>
@@ -180,8 +198,8 @@
     <string name="st_title_adress_num">%d selected</string>
 
     <!-- 骚扰拦截 -->
-    <string name="NACaddnumcontent">输入电话号码</string>
-    <string name="ACaddnumcontent">输入开头号码,系统自动补通配符*</string>
+    <string name="NACaddnumcontent">Enter phone number</string>
+    <string name="ACaddnumcontent">Enter area code</string>
     <string name="SMS_BLACKLIST">Message blocklist</string>
     <string name="SMS_PREFIX">Prefix blocklist</string>
     <string name="SMS_DEFAULT">Smart blocklist</string>
@@ -229,50 +247,102 @@
     <string name="st_sub_title_customize_mode_name">Mode Name</string>
 
     <!-- 新版设置相关 -->
+    <!-- Title text for i/o switch for Blocklist displayed at the top of list of items
+         in Blocklist settings. -->
     <string name="st_title_open_antispam">Blocklist</string>
-    <string name="st_title_antispam_mode">Blocklist mode</string>
+    <!-- Title text for item in list view that brings user to another list of all the blocklist rules.  The rules
+         dictate which calls and messages the blocklist will let through to the user's phone.  For example: "Only allow contacts"
+         or "Only use blocklist". -->
+    <string name="st_title_antispam_mode">Rules</string>
+    <!-- Text displayed in title above g -->
     <string name="st_sub_title_whiteblack_list_group">Blocklist</string>
     <string name="st_title_keywords_blacklist">Keyword filter</string>
-    <string name="st_title_blacklist_numbers">Blocklist</string>
+    <!-- Title text displayed next to item in "Blocklist settings" that (on touch
+         brings user to a list of blocked numbers that he or she has manually. -->
+    <string name="st_title_blacklist_numbers">Blocked numbers</string>
+    <!-- Title text displayed next to item in "Blocklist settings" that (on touch
+         brings user to a list of numbers that she or he has added to a "white list" that
+         is allowed to bypass blocklist. -->
     <string name="st_title_whitelist_numbers">Exceptions</string>
-    <string name="st_title_backsound_group">Blocklist sound settings</string>
+    <!-- Title text that appear next to item in blocklist settings menu that controls
+         what a blocked caller will hear in the call when she or he is being blocked. -->
+    <string name="st_title_backsound_group">Block message</string>
+    <!-- TODO: Locate this string -->
     <string name="st_title_anticomintcall_backsound_setting">Blocklist sound settings</string>
+    <!-- Title category text displayed above the final category in Blocklist -->
     <string name="st_title_settings_other_group">Additional settings</string>
+    <!-- Title for feature in blocklist settings that creates a notification in the notification shade
+         whenever a message or call is blocked. -->
     <string name="st_title_show_antispamnotification">Notification for blocked calls</string>
-    <string name="st_title_mode_choose_group">Select mode</string>
+    <!-- Title displayed at top of list of rules for blocklist at the list view. -->
+    <string name="st_title_mode_choose_group">Blocklist rules</string>
+    <!-- TODO: locate this string. -->
     <string name="st_title_adblock_group">Block ads</string>
+    <!-- TODO: locate this string. -->
     <string name="st_title_adblock_setting">Block ad settings</string>
-
-    <!-- 新版的拦截模式 title -->
-    <string name="st_antispam_mode_smart">Smart blocklist</string>
-    <string name="st_antispam_mode_blacklist">Only use blocklist</string>
+    <!-- Title for preset rules for blocklist that block numbers that are stored in Baidu's directory and numbers
+         that user as added to the "Blocked numbers" list manually. -->
+    <string name="st_antispam_mode_smart">Shared blocklist</string>
+    <!-- Title for preset rules for blocklist that block numbers that user as added to the "Blocked numbers"
+         list manually. -->
+    <string name="st_antispam_mode_blacklist">Blocked numbers</string>
+    <!-- Title for preset rules for blocklist that block all numbers except those associated with user's
+         saved contacts.-->
     <string name="st_antispam_mode_only_contacts">Only allow contacts</string>
+    <!-- Title for preset rules for blocklist that block all numbers except those which the user
+         has added manually.-->
     <string name="st_antispam_mode_only_whitelist">Only allow exceptions</string>
-    <string name="st_antispam_mode_only_all_deny">Block all</string>
-    <string name="st_antispam_mode_add_new">Add mode</string>
+    <!-- Title for preset rules for blocklist that block all numbers.-->
+    <string name="st_antispam_mode_only_all_deny">Block everything</string>
+    <!-- Text displayed under the add icon at the list activity for rules. -->
+    <string name="st_antispam_mode_add_new">Add rule</string>
+    <!-- Title text for item under blocklist in blocklist settings.  Touching this item
+         brings user to activity where they can add numbers which they do not want to block. -->
     <string name="st_antispam_title_whitelist">Exceptions</string>
-    <string name="st_antispam_title_contactandanoy_group">Contacts and Strangers</string>
-    <string name="st_antispam_title_contact_sms">Contacts Messages</string>
-    <string name="st_antispam_title_contact_incoming">Contacts Calls</string>
-    <string name="st_antispam_title_anoy_sms">Strangers Messages</string>
-    <string name="st_antispam_title_anoy_incoming">Strangers Calls</string>
-    <string name="st_antispam_title_null_incoming">Private Calls</string>
+    <!-- Title text for category above a group of rules user can select to create a custom
+         blocklist setting.  For example: "Allow messages from Contacts", "Block messages from private
+         numbers" automatically, etc.  -->
+    <string name="st_antispam_title_contactandanoy_group">Settings</string>
+    <!-- Title text for item under rules configuration.  It is paired with dynamic indicator text "Allow" or "Block". -->
+    <string name="st_antispam_title_contact_sms">Messages from Contacts</string>
+    <!-- Title text for item under rules configuration.  It is paired with dynamic indicator text "Allow" or "Block". -->
+    <string name="st_antispam_title_contact_incoming">Calls from Contacts</string>
+    <!-- Title text for item under rules configuration.  It is paired with dynamic indicator text "Allow" or "Block". -->
+    <string name="st_antispam_title_anoy_sms">Messages from unknown numbers</string>
+    <!-- Title text for item under rules configuration.  It is paired with dynamic indicator text "Allow" or "Block". -->
+    <string name="st_antispam_title_anoy_incoming">Calls from unknown numbers</string>
+    <!-- Title text for item under rules configuration.  It is paired with dynamic indicator text "Allow" or "Block". -->
+    <string name="st_antispam_title_null_incoming">Private numbers</string>
 
     <!-- 新版的拦截模式 summary -->
-    <string name="st_antispam_mode_smart_sum">Apply blocklist and block some numbers from unknown callers</string>
-    <string name="st_antispam_mode_blacklist_sum">Block messages and calls from numbers on the blocklist</string>
+    <!-- Summary for the blocklist rules that block numbers from Baidu's database and the numbers that the user has added manually. -->
+    <string name="st_antispam_mode_smart_sum">"Block numbers you've added manually and block numbers that have been reported by other users"</string>
+    <!-- Summary for the blocklist rules that block messages and calls from numbers on the blocklist. -->
+    <string name="st_antispam_mode_blacklist_sum">Block messages and calls from numbers on blocklist</string>
+    <!-- Summary for the blocklist rules that only allow messages and calls from user's Contacts. -->
     <string name="st_antispam_mode_only_contacts_sum">Only allow calls and messages from Contacts</string>
-    <string name="st_antispam_mode_only_whitelist_sum">Only allow calls and messages from numbers on exceptions list</string>
+    <!-- Summary for the blocklist rules that only allow messages and calls from numbers in the exceptions list. -->
+    <string name="st_antispam_mode_only_whitelist_sum">Only allow calls and messages from numbers on the exceptions list</string>
+    <!-- Summary for the blocklist rules that block all calls and messages. -->
     <string name="st_antispam_mode_only_all_deny_sum">Block all calls and messages</string>
-    <string name="st_antispam_mode_customize_sum">Create your own setting</string>
-    <string name="st_antispam_mode_denyownself_sum">Customized blocklist mode</string>
+    <!-- TODO: Find this string. -->
+    <string name="st_antispam_mode_customize_sum">Create blocklist rules</string>
+    <!-- TODO: Find this string. -->
+    <string name="st_antispam_mode_denyownself_sum">Custom rules</string>
+    <!-- Description for feature in blocklist settings that controls whether a notification
+         in the notification shade every time a call or message is blocked. -->
     <string name="st_antispam_notification_sum">Show notification when call or message is blocked</string>
 
     <!-- 新版的拦截模式的des -->
+    <!-- Status displayed next to item on rules for Blocklist.  For example: Calls from Contacts -Block. -->
     <string name="st_antispam_des_anti">Block</string>
-    <string name="st_antispam_des_smart_anti">Smart blocklist</string>
+    <!-- Status displayed next to item on rules for Blocklist.  For example: Messages from Contacts -Filter. -->
+    <string name="st_antispam_des_smart_anti">Filter</string>
+        <!-- Status displayed next to item on rules for Blocklist.  For example: Messages from Contacts -Allow. -->
     <string name="st_antispam_des_permit">Allow</string>
+    <!-- Status displayed next to item on rules for Blocklist.  For example: Messages from Contacts -Disabled. -->
     <string name="st_antispam_des_uesless">Disabled</string>
+    <!-- Status displayed next to item on rules for Blocklist.  For example: Messages from Contacts -Allow (except keywords). -->
     <string name="st_antispam_des_permit_nokeyword">Allow (except keywords)</string>
 
     <!-- 新版的拦截信息 -->
@@ -283,13 +353,24 @@
     <string name="info_unantispam_phone">Allow calls</string>
     <string name="info_unantispam_phone_sms">Allow messages and calls</string>
     <string name="st_antispam_delete">Delete</string>
+    <!-- Displayed under the action bar at the Blocklist main activity. TODO: confirm if this number
+         is translatable or not. -->
     <string name="baidu_thanks">Powered by Baidu</string>
+    <!-- TODO: Locate this string. -->
     <string name="note_list_none">Empty</string>
+    <!-- TODO: Locate this string. -->
     <string name="note_sms_none">Empty</string>
+    <!-- TODO: Locate this string. -->
     <string name="note_call_none">Empty</string>
+    <!-- TODO: Locate this string. -->
     <string name="note_keyword_none">Empty</string>
-    <string name="note_preference_delete">"Can't delete this mode while it's in use"</string>
+    <!-- TODO: Locate this string. -->
+    <string name="note_preference_delete">"Can't delete this rule while it's in use"</string>
+    <!-- Displayed under the action bar at the Blocklist main activity. Shows number of messages that have
+         been blocked. -->
     <string name="block_message_number">Messages: %d</string>
+    <!-- Displayed under the action bar at the Blocklist main activity. Shows number of calls
+          that have been blocked. -->
     <string name="block_phone_number">Calls: %d</string>
 </resources>
 

@@ -43,26 +43,27 @@
                 android:layout_height="wrap_content" >
 
                 <com.android.fileexplorer.view.FileListTextView
+                    android:id="@+id/file_name"
+                    style="@miui:style/V5.TextAppearance.List.Primary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:ellipsize="end"
+                    android:singleLine="true" />
+
+                <com.android.fileexplorer.view.FileListTextView
                     android:id="@+id/file_owner"
                     style="@miui:style/V5.TextAppearance.List.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@id/file_name"
                     android:layout_alignParentRight="true"
+                    android:layout_toRightOf="@id/file_name"
                     android:gravity="left"
                     android:paddingLeft="@dimen/file_info_layout_padding_left"
                     android:singleLine="true" />
-
-                <com.android.fileexplorer.view.FileListTextView
-                    android:id="@+id/file_name"
-                    style="@miui:style/V5.TextAppearance.List.Primary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_toLeftOf="@id/file_owner"
-                    android:ellipsize="end"
-                    android:singleLine="true" />
             </RelativeLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

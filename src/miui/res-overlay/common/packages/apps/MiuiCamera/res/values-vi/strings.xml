@@ -1,0 +1,914 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- General strings -->
+
+    <!-- title for the dialog showing the error of camera hardware -->
+    <string name="camera_error_title">Lỗi máy ảnh</string>
+
+    <!-- message for the dialog showing the error of camera hardware -->
+    <string name="cannot_connect_camera_once">Không thể kết nối với máy ảnh</string>
+    <string name="cannot_connect_camera_twice">Vẫn không thể kết nối với máy ảnh. Hãy thử khởi động lại điện thoại của bạn.</string>
+    <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
+    <string name="camera_disabled">Máy ảnh đã bị tắt</string>
+
+    <!-- label for the icon meaning 'show me all the images that were taken with the camera' -->
+    <string name="camera_label">Máy ảnh</string>
+
+    <!-- label for the 'video recording application shown in the top level 'all applications' -->
+    <string name="video_camera_label">Máy quay video</string>
+
+
+    <!-- alert to the user to wait for some operation to complete -->
+    <string name="wait">Giữ máy\u2026</string>
+
+    <!-- alert to the user that USB storage must be available before using the camera [CHAR LIMIT=NONE] -->
+    <string name="no_storage" product="nosdcard">Lắp thẻ SD trước khi sử dụng máy ảnh</string>
+    <!-- alert to the user that an SD card must be installed before using the camera -->
+    <string name="no_storage" product="default">Lắp thẻ SD trước khi sử dụng máy ảnh</string>
+
+    <!-- alert to the user that the USB storage is too full to complete the operation [CHAR LIMIT=NONE] -->
+    <string name="not_enough_space" product="nosdcard">Bộ nhớ trong đã đầy</string>
+    <!-- alert to the user that the SD card is too full to complete the operation -->
+    <string name="not_enough_space" product="default">Thẻ SD đã đầy</string>
+
+    <!-- alert to the user that the USB storage is being disk-checked [CHAR LIMIT=30] -->
+    <string name="preparing_sd" product="nosdcard">Đang chuẩn bị bộ nhớ trong\u2026</string>
+    <!-- alert to the user that the SD card is being disk-checked -->
+    <string name="preparing_sd" product="default">Đang kiểm tra thẻ SD\u2026</string>
+
+    <!-- alert to the user that the camera fails to read or write the USB storage. [CHAR LIMIT=NONE] -->
+    <string name="access_sd_fail" product="nosdcard">Không thể truy cập bộ nhớ USB.</string>
+    <!-- alert to the user that the camera fails to read or write the SD card. -->
+    <string name="access_sd_fail" product="default">Không thể truy cập thẻ SD.</string>
+
+    <!-- Confirmation dialog when restoring settings -->
+    <string name="confirm_restore_title">Khôi phục mặc định</string>
+    <string name="confirm_restore_message">Khôi phục cài đặt mặc định của Máy ảnh?</string>
+
+    <string name="confirm_change_mode_title">Chuyển chế độ</string>
+    <string name="confirm_change_to_expert_mode_message">Chuyển sang chế độ nâng cao?</string>
+    <string name="confirm_change_to_simple_mode_message">Chuyển sang chế độ đơn giản?</string>
+
+    <string name="confirm_location_message">Bạn có muốn lưu thông tin vị trí trong ảnh của bạn?</string>
+    <string name="save">Lưu</string>
+    <string name="no_save">Không lưu</string>
+
+    <!-- button in review mode indicating that the video just taken should be played [CHAR LIMIT=10] -->
+
+    <!-- button in review mode indicating that the photo taking, video recording, and panorama saving session should be canceled [CHAR LIMIT=10] -->
+    <string name="review_cancel">HỦY</string>
+
+
+
+
+    <!-- Settings screen, setting title text -->
+    <string name="pref_camera_recordlocation_title">Thông tin vị trí lưu trữ</string>
+
+
+    <!-- Settings screen, Record location dialog choices -->
+    <string name="pref_camera_recordlocation_entry_off">Tắt</string>
+    <string name="pref_camera_recordlocation_entry_on">Bật</string>
+
+    <string name="pref_camera_sound_title">Âm thanh của máy ảnh</string>
+    <string name="pref_camera_sound_title_entry_off">Tắt</string>
+    <string name="pref_camera_sound_title_entry_on">Bật</string>
+
+
+
+    <string name="pref_camera_sound_entry_off">tắt</string>
+    <string name="pref_camera_sound_entry_on">bật</string>
+
+    <string name="pref_camera_auto_focus_title_entry_off">Tắt</string>
+    <string name="pref_camera_auto_focus_title_entry_on">Bật</string>
+
+    <string name="pref_captrue_mirror_title">Máy ảnh mặt trước</string>
+    <string name="pref_captrue_mirror_entry_off">Tắt</string>
+    <string name="pref_captrue_mirror_entry_on">Bật</string>
+
+
+    <!-- The Video quality settings in preference [CHAR LIMIT=21] -->
+    <string name="pref_video_quality_title">Chất lượng video</string>
+    <!-- The default quality value is 9 (480p) -->
+
+    <!-- Video quality setting entry. Videos will be recorded in 1080p quality. [CHAR LIMIT=24] -->
+    <string name="pref_video_quality_entry_1080p">HD ĐẦY ĐỦ</string>
+    <!-- Video quality setting entry. Videos will be recorded in 720p quality. [CHAR LIMIT=24] -->
+    <string name="pref_video_quality_entry_720p">HD</string>
+    <!-- Video quality setting entry. Videos will be recorded in 480p quality. [CHAR LIMIT=24] -->
+    <string name="pref_video_quality_entry_480p">SD</string>
+    <!-- Video quality setting entry. Videos will be recorded in FWVGA quality. [CHAR LIMIT=24] -->
+
+    <!-- Video quality setting entry. Videos will be recorded in CIF quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
+
+    <!-- Describes the preference dialog for choosing interval between frame capture for
+    time lapse recording. Appears at top of the dialog. [CHAR LIMIT=30] -->
+    <string name="pref_video_time_lapse_frame_interval_title">Khoảng thời gian trôi</string>
+
+    <!-- The time interval between frame capture for time lapse recording -->
+    <string name="pref_video_time_lapse_frame_interval_entry_2">Khoảng thời gian 0,06 giây (2 lần)</string>
+    <string name="pref_video_time_lapse_frame_interval_entry_4">Khoảng thời gian 0,12 giây (4 lần)</string>
+    <string name="pref_video_time_lapse_frame_interval_entry_10">Khoảng thời gian 0,3 giây (10 lần)</string>
+    <string name="pref_video_time_lapse_frame_interval_entry_30">Khoảng thời gian 1 giây (30 lần)</string>
+    <string name="pref_video_time_lapse_frame_interval_entry_60">Khoảng thời gian 2 giây (60 lần)</string>
+    <string name="pref_video_time_lapse_frame_interval_entry_90">Khoảng thời gian 3 giây (90 lần)</string>
+    <string name="pref_video_time_lapse_frame_interval_entry_120">Khoảng thời gian 4 giây (120 lần)</string>
+    <string name="pref_video_time_lapse_frame_interval_entry_150">Khoảng thời gian 5 giây (150 lần)</string>
+    <string name="pref_video_time_lapse_frame_interval_entry_240">Khoảng thời gian 8 giây (240 lần)</string>
+    <string name="pref_video_time_lapse_frame_interval_entry_300">Khoảng thời gian 10 giây (300 lần)</string>
+    <string name="pref_video_time_lapse_frame_interval_entry_450">Khoảng thời gian 15 giây (450 lần)</string>
+    <string name="pref_video_time_lapse_frame_interval_entry_900">Khoảng thời gian 30 giây (900 lần)</string>
+    <string name="pref_video_time_lapse_frame_interval_entry_1800">Khoảng thời gian 60 giây (1800 lần)</string>
+
+    <!-- Settings screen, Camera setting category title -->
+    <string name="pref_camera_settings_category">Cài đặt máy ảnh</string>
+
+    <!-- Settings screen, Camcorder setting category title -->
+    <string name="pref_camcorder_settings_category">Cài đặt máy ảnh</string>
+
+    <!-- Settings screen, Picture size title -->
+    <string name="pref_camera_picturesize_title">Cỡ ảnh</string>
+    <string name="pref_camera_picturesize_title_simple_mode" msgid="4333724936665883006">"Khung máy ảnh"</string>
+
+    <!-- simple mode -->
+    <string name="pref_camera_picturesize_entry_standard">Chuẩn 4:3</string>
+    <string name="pref_camera_picturesize_entry_fullscreen">Toàn màn hình 16:9</string>
+
+    <!-- professional mode -->
+    <string name="pref_camera_picturesize_entry_4208x3120">13M(4208x3120)</string>
+    <string name="pref_camera_picturesize_entry_4208x2368">10M(4208x2368)</string>
+    <string name="pref_camera_picturesize_entry_3264x2448">8M(3264x2448)</string>
+    <string name="pref_camera_picturesize_entry_3200x2400">8M(3200x2400)</string>
+    <string name="pref_camera_picturesize_entry_3328x1872">6M(3328x1872)</string>
+    <string name="pref_camera_picturesize_entry_3264x1840">6M(3264x1840)</string>
+    <string name="pref_camera_picturesize_entry_3200x1800">6M(3200x1800)</string>
+    <string name="pref_camera_picturesize_entry_3264x1836">6M(3264x1836)</string>
+    <string name="pref_camera_picturesize_entry_2592x1936">5M(2592x1936)</string>
+    <string name="pref_camera_picturesize_entry_2592x1456">4M(2592x1456)</string>
+    <string name="pref_camera_picturesize_entry_2592x1944">5M(2592x1944)</string>
+    <string name="pref_camera_picturesize_entry_2048x1536">3M(2048x1536)</string>
+    <string name="pref_camera_picturesize_entry_1920x1088">2M(1920x1088)</string>
+    <string name="pref_camera_picturesize_entry_1920x1080">2M(1920x1080)</string>
+    <string name="pref_camera_picturesize_entry_1600x1200">2M(1600x1200)</string>
+    <string name="pref_camera_picturesize_entry_1472x1104">1.6M(1472x1104)</string>
+    <string name="pref_camera_picturesize_entry_1440x1080">1.6M(1440x1080)</string>
+    <string name="pref_camera_picturesize_entry_1280x960">1.3M(1280x960)</string>
+    <string name="pref_camera_picturesize_entry_1440x816">1.2M(1440x816)</string>
+    <string name="pref_camera_picturesize_entry_1472x832">1.2M(1472x832)</string>
+    <string name="pref_camera_picturesize_entry_1280x720">0.9M(1280x720)</string>
+    <string name="pref_camera_picturesize_entry_1024x768">0.8M(1024x768)</string>
+
+    <!-- Settings screen, Select Picture format title -->
+    <string name="pref_camera_picture_format_title">Chọn định dạng ảnh</string>
+
+    <!-- Settings screen, picture format dialog radio button choices -->
+    <string name="pref_camera_picture_format_entry_jpeg">Jpeg</string>
+    <string name="pref_camera_picture_format_entry_raw">Raw</string>
+
+    <!-- Picture format entry values. Do not translate. -->
+    <string name="pref_camera_picture_format_value_jpeg">jpeg</string>
+    <string name="pref_camera_picture_format_value_raw">raw</string>
+    <!-- Settings screen, Picture quality title -->
+    <string name="pref_camera_jpegquality_title">Chất lượng ảnh</string>
+
+    <!-- Settings screen, Picture quality dialog radio button choices -->
+    <string name="pref_camera_jpegquality_entry_high">Cao</string>
+    <string name="pref_camera_jpegquality_entry_normal">Chuẩn</string>
+    <string name="pref_camera_jpegquality_entry_low">Thấp</string>
+
+
+     <!-- Settings screen, Select Histogram title -->
+     <string name="pref_camera_histogram_title">Biểu đồ</string>
+
+     <!-- Settings screen, Histogram radio button choices -->
+     <string name="pref_camera_histogram_entry_enable">Bật</string>
+     <string name="pref_camera_histogram_entry_disable">Tắt</string>
+
+
+    <!-- Settings screen, Focus mode title -->
+    <string name="pref_camera_focusmode_title">Chế độ lấy nét</string>
+
+    <!-- Settings screen, Focue mode dialog radio button choices -->
+    <string name="pref_camera_focusmode_entry_auto">Tự động</string>
+    <string name="pref_camera_focusmode_entry_normal">Chuẩn</string>
+    <string name="pref_camera_focusmode_entry_infinity">Vô cực</string>
+    <string name="pref_camera_focusmode_entry_macro">Macro</string>
+    <string name="pref_camera_focusmode_entry_continuous">CAF</string>
+    <string name="pref_camera_focusmode_entry_manual">Thủ công</string>
+    <string name="pref_camera_focusmode_entry_lock">Khóa</string>
+
+    <string name="pref_video_focusmode_title">Chế độ lấy nét</string>
+    <string name="pref_video_focusmode_entry_continuous">CAF</string>
+    <string name="pref_video_focusmode_entry_auto">Nhấn</string>
+
+
+    <string name="pref_camera_focusmode_value_default">ảnh-liên tục</string>
+
+
+    <!-- Settings screen, Flash mode title -->
+    <string name="pref_camera_flashmode_title">Chế độ Flash</string>
+
+    <!-- Settings screen, Flash mode dialog radio button choices -->
+    <string name="pref_camera_flashmode_entry_auto">Tự động</string>
+    <string name="pref_camera_flashmode_entry_on">Bật</string>
+    <string name="pref_camera_flashmode_entry_off">Tắt</string>
+
+
+    <!-- Settings screen, white balance title -->
+    <string name="pref_camera_whitebalance_title">Cân bằng trắng</string>
+    <string name="pref_camera_whitebalance_k_value_title">Giá trị cân bằng trắng K</string>
+
+    <!-- Settings screen, White balance dialog radio button choices -->
+    <string name="pref_camera_whitebalance_entry_auto">Tự động</string>
+    <string name="pref_camera_whitebalance_entry_incandescent">Sáng chói</string>
+    <string name="pref_camera_whitebalance_entry_daylight">Ánh sáng ban ngày</string>
+    <string name="pref_camera_whitebalance_entry_fluorescent">Huỳnh quang</string>
+    <string name="pref_camera_whitebalance_entry_cloudy">Có mây</string>
+    <string name="pref_camera_whitebalance_entry_manual">Thủ công</string>
+    <string name="pref_camera_whitebalance_entry_measure">Đơn vị đo</string>
+
+
+    <!-- Settings screen, Select Color effect title -->
+    <string name="pref_camera_coloreffect_title">Bộ lọc</string>
+
+    <!-- Settings screen, Color effect dialog radio button choices -->
+    <string name="pref_camera_coloreffect_entry_sepia"/>
+    <string name="pref_camera_coloreffect_entry_negative"/>
+    <string name="pref_camera_coloreffect_entry_posterize"/>
+    <string name="pref_camera_coloreffect_entry_aqua"/>
+
+    <string name="pref_camera_coloreffect_entry_none">Bình thường</string>
+    <string name="pref_camera_coloreffect_entry_mono">Đơn sắc</string>
+    <string name="pref_camera_coloreffect_entry_vivid">Sống động</string>
+    <string name="pref_camera_coloreffect_entry_yesteryear">Quá khứ</string>
+    <string name="pref_camera_coloreffect_entry_brannan">Bình minh</string>
+    <string name="pref_camera_coloreffect_entry_sketch">Bức vẽ phác</string>
+    <string name="pref_camera_coloreffect_entry_seventy">Những năm 1970</string>
+    <string name="pref_camera_coloreffect_entry_fisheye">Mắt cá</string>
+    <string name="pref_camera_coloreffect_entry_jstyle">Kiểu Nhật</string>
+    <string name="pref_camera_coloreffect_entry_xproii">XProII</string>
+    <string name="pref_camera_coloreffect_entry_mosaic">Tranh ghép mảnh</string>
+    <string name="pref_camera_coloreffect_entry_earlybird">Mùa thu</string>
+    <string name="pref_camera_coloreffect_entry_nashvile">Màu chàm</string>
+    <string name="pref_camera_coloreffect_entry_planet">Thế giới nhỏ</string>
+    <string name="pref_camera_coloreffect_entry_mirror">Phản chiếu</string>
+    <string name="pref_camera_coloreffect_entry_gaussianblur">Làm mờ bằng hàm Gauss</string>
+
+    <!-- Settings screen, Select Touch AF/AEC title -->
+    <string name="pref_camera_touchafaec_title">Chạm AF/AEC</string>
+
+    <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
+    <string name="pref_camera_touchafaec_entry_off">Tắt</string>
+    <string name="pref_camera_touchafaec_entry_on">Bật</string>
+
+    <!-- Settings screen, Multiple levels entries -->
+    <string name="pref_camera_multilevel_entry_lowest">Thấp nhất</string>
+    <string name="pref_camera_multilevel_entry_lower">Thấp hơn</string>
+    <string name="pref_camera_multilevel_entry_low">Thấp</string>
+    <string name="pref_camera_multilevel_entry_normal">Bình thường</string>
+    <string name="pref_camera_multilevel_entry_high">Cao</string>
+    <string name="pref_camera_multilevel_entry_higher">Cao hơn</string>
+    <string name="pref_camera_multilevel_entry_highest">Cao nhất</string>
+    <string name="pref_camera_default_suffix">(Mặc định)</string>
+    <string name="pref_camera_multilevel_entry_middle">Giữa (mặc định)</string>
+
+
+    <!-- Settings screen, Select contrast title -->
+    <string name="pref_camera_contrast_title">Độ tương phản</string>
+
+
+    <!-- Settings screen, Select saturation title -->
+    <string name="pref_camera_saturation_title">Độ bão hòa</string>
+
+
+    <!-- Settings screen, Select sharpness title -->
+    <string name="pref_camera_sharpness_title">Độ sắc nét</string>
+
+
+    <!-- Settings screen, Select Scene mode -->
+    <string name="pref_camera_scenemode_title">Chế độ cảnh</string>
+
+    <!-- Settings menu, scene mode choices -->
+    <string name="pref_camera_scenemode_entry_off">Tắt</string>
+    <string name="pref_camera_scenemode_entry_auto">Tự động</string>
+    <!-- Scene mode that takes an image quickly with little motion blur. -->
+    <!-- Scene mode that takes an image with as little noise as possible so details of the subject are maintained. -->
+    <string name="pref_camera_scenemode_entry_portrait">Chân dung</string>
+    <!-- Scene mode that takes an image of a landscape assuming all subjects are relatively far from the phone. -->
+    <string name="pref_camera_scenemode_entry_landscape">Phong cảnh</string>
+    <!-- Scene mode that takes long exposures to capture night scenes without flash. -->
+    <string name="pref_camera_scenemode_entry_night">Ban đêm</string>
+    <!-- Scene mode that takes night shots with long exposure and flash to illuminate the subject while still capturing darker detail in the background. -->
+    <string name="pref_camera_scenemode_entry_night_portrait">Chân dung ban đêm</string>
+    <!-- Scene mode to be used in a stage show. -->
+    <!-- Scene mode optimized for taking images on the beach. -->
+    <string name="pref_camera_scenemode_entry_beach">Bãi biển</string>
+    <!-- Scene mode optimized for taking images in the snow. -->
+    <string name="pref_camera_scenemode_entry_snow">Tuyết</string>
+    <!-- Scene mode optimized for taking images in the sunset. -->
+    <string name="pref_camera_scenemode_entry_sunset">Hoàng hôn</string>
+    <!-- Scene mode for taking a photo as sharp as possible. -->
+    <!-- Scene mode optimized for taking images of fireworks. -->
+    <string name="pref_camera_scenemode_entry_fireworks">Pháo hoa</string>
+    <!-- Scene mode optimized for taking images during sports . -->
+    <string name="pref_camera_scenemode_entry_sports">Thể thao</string>
+    <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=16] -->
+    <!-- Scene mode optimized for capturing the naturally warm color of scenes lit by candles. [CHAR LIMIT=16] -->
+    <!-- Scene mode for taking a photo with backlight. -->
+    <string name="pref_camera_scenemode_entry_backlight">Đèn nền</string>
+    <!-- Scene mode optimized for taking images of flowers. -->
+    <string name="pref_camera_scenemode_entry_flowers">Hoa</string>
+    <!-- Scene mode optimized for taking images of AR. -->
+
+    <!-- Default auto scene detection setting. -->
+
+    <!-- Settings screen, Select Auto Scene Detection -->
+    <string name="pref_camera_scenedetect_title">Tự động phát hiện phong cảnh</string>
+
+    <!-- Settings menu, auto scene detection choices -->
+    <!-- Scene detection set to on - supports backlight and snow cloudy detection. -->
+
+    <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
+    <string name="not_selectable_in_scene_mode">Không thể chọn được ở chế độ phong cảnh</string>
+
+    <!-- Restore settings item in preference -->
+
+    <!-- Exposure settings in preference -->
+    <string name="pref_exposure_title">Độ phơi sáng</string>
+
+
+    <!-- Denoise Settings screen, setting title text -->
+    <string name="pref_camera_denoise_title">Chế độ khử nhiễu Wavelet</string>
+
+
+    <!-- Denoise Settings screen, Record location dialog choices -->
+
+
+     <!-- Settings screen, Select Iso title -->
+     <string name="pref_camera_iso_title">Chọn ISO</string>
+
+     <!-- Settings screen, ISO dialog radio button choices -->
+     <string name="pref_camera_iso_entry_auto">Tự động</string>
+     <string name="pref_camera_iso_entry_iso100">ISO100</string>
+     <string name="pref_camera_iso_entry_iso200">ISO200</string>
+     <string name="pref_camera_iso_entry_iso400">ISO400</string>
+     <string name="pref_camera_iso_entry_iso800">ISO800</string>
+     <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+     <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
+
+
+     <!-- Settings screen, Anti Banding title -->
+     <string name="pref_camera_antibanding_title">Chống tạo vạch</string>
+
+     <!-- Default Anti Banding setting. -->
+     <string name="pref_camera_antibanding_default">50hz</string>
+     <string name="pref_camera_antibanding_60">60hz</string>
+
+     <!-- Settings screen, Anti Banding entries -->
+     <string name="pref_camera_antibanding_entry_0">Tắt</string>
+     <string name="pref_camera_antibanding_entry_1">50 Hz</string>
+     <string name="pref_camera_antibanding_entry_2">60 Hz</string>
+     <string name="pref_camera_antibanding_entry_3">Tự động</string>
+
+    <!-- Dialog "OK" button. Dismisses dialog. -->
+    <string name="dialog_ok">OK</string>
+
+    <!-- Low-memory dialog message [CHAR LIMT=NONE] -->
+    <string name="spaceIsLow_content" product="nosdcard">Bộ nhớ USB sắp hết dung lượng</string>
+    <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->
+    <string name="spaceIsLow_content" product="default">Thẻ SD sắp hết dung lượng</string>
+
+
+    <!-- The messsage shown when video record reaches size limit. -->
+    <string name="video_reach_size_limit">Đã đạt tới giới hạn kích thước.</string>
+
+     <!-- Default hfr setting. Do not translate. -->
+     <string name="pref_camera_hfr_default">90</string>
+
+     <!-- Settings screen, Select hfr title -->
+     <string name="pref_camera_hfr_title">Tốc độ khung hình cao (chuyển động chậm)</string>
+
+     <!-- Settings screen, hfr radio button choices -->
+     <string name="pref_camera_hfr_entry_off">Tắt</string>
+     <string name="pref_camera_hfr_entry_2x">60</string>
+     <string name="pref_camera_hfr_entry_3x">90</string>
+     <string name="pref_camera_hfr_entry_4x">120</string>
+
+
+     <!-- Video speed -->
+     <string name="pref_video_speed_title">Tốc độ quay video</string>
+
+
+     <string name="pref_video_speed_entry_normal">Chuẩn</string>
+     <string name="pref_video_speed_entry_fast">Nhanh</string>
+     <string name="pref_video_speed_entry_slow">Chậm</string>
+
+
+
+    <!-- The text shown when the panorama panning speed is to fast [CHAR LIMIT=12] -->
+    <string name="pano_too_fast_prompt">Quá nhanh</string>
+    <string name="pano_how_to_use_prompt">Để chụp ảnh toàn cảnh, \nchạm vào nút Chụp</string>
+    <string name="pano_how_to_use_prompt_to_move">Bắt đầu xoay chậm</string>
+    <string name="pano_how_to_use_prompt_go_on_moving">Tiếp tục\u2026</string>
+
+    <!-- The text shown in the progress dialog when panorama preview is generating in the background [CHAR LIMIT=30] -->
+    <string name="pano_dialog_prepare_preview">Đang tạo ảnh toàn cảnh</string>
+
+    <!-- The text shown in the progress dialog when waiting for previous panorama finishing [CHAR LIMIT=40] -->
+    <string name="pano_dialog_waiting_previous">Đang chờ ảnh toàn cảnh trước kết thúc</string>
+
+    <!-- The text shown in the dialog when panorama saving failed [CHAR LIMIT=40] -->
+    <string name="pano_dialog_panorama_failed">Không thể lưu ảnh toàn cảnh</string>
+
+    <!-- The text shown on the dialog title in the dialogs for Panorama [CHAR LIMIT=12] -->
+    <string name="pano_dialog_title">Ảnh toàn cảnh</string>
+    <string name="pref_camera_panoramamode_title">Ảnh toàn cảnh</string>
+
+    <!-- The text shown on the top-left corner of the screen to indicate the capturing is on going [CHAR LIMIT=27] -->
+
+    <!-- The text shown on the bottom-left corner of the screen to indicate that the saving is in process [CHAR LIMIT=13] -->
+    <string name="pano_review_saving_indication_str">Đang lưu\u2026</string>
+
+    <!-- Toast telling users tapping on the viewfinder will trigger autofocus [CHAR LIMIT=28] -->
+    <string name="tap_to_focus">Chạm để lấy nét</string>
+    <string name="tap_to_exposure">Chạm để điều chỉnh thủ công độ phơi sáng</string>
+
+    <!-- Title of video effect setting popup window -->
+
+    <!-- Effect setting item that clear the effect. [CHAR LIMIT=14] -->
+    <string name="effect_none">Không có</string>
+    <!-- Effect setting item that squeezes the face. [CHAR LIMIT=14] -->
+    <string name="effect_goofy_face_squeeze">Cau mặt</string>
+    <!-- Effect setting item that makes eyes big. [CHAR LIMIT=14] -->
+    <string name="effect_goofy_face_big_eyes">Đôi mắt to</string>
+    <!-- Effect setting item that makes mouth big. [CHAR LIMIT=14] -->
+    <string name="effect_goofy_face_big_mouth">Miệng lớn</string>
+    <!-- Effect setting item that makes mouth small. [CHAR LIMIT=14] -->
+    <string name="effect_goofy_face_small_mouth">Miệng nhỏ</string>
+    <!-- Effect setting item that makes nose big. [CHAR LIMIT=14] -->
+    <string name="effect_goofy_face_big_nose">Mũi to</string>
+    <!-- Effect setting item that makes eyes small. [CHAR LIMIT=14] -->
+    <string name="effect_goofy_face_small_eyes">Đôi mắt nhỏ</string>
+    <!-- Effect setting item that replaces background with Android in Space. [CHAR LIMIT=14] -->
+    <string name="effect_backdropper_space">Trong không gian</string>
+    <!-- Effect setting item that replaces background with a sunset. [CHAR LIMIT=14] -->
+    <string name="effect_backdropper_sunset">Hoàng hôn</string>
+    <!-- Effect setting item that replaces background with a disco effect. [CHAR LIMIT=14] -->
+    <string name="effect_backdropper_disco">Disco</string>
+    <!-- Effect setting item that replaces background with video from gallery. [CHAR LIMIT=14] -->
+    <string name="effect_backdropper_gallery">Chọn của riêng bạn</string>
+
+    <!-- Message displayed in overlay during background replacement training [CHAR LIMIT=180]-->
+    <string name="bg_replacement_message">Đặt thiết bị của bạn trên bề mặt vững chắc,\n và bước ra khỏi tầm nhìn trong chốc lát</string>
+
+    <!-- Toast after trying to select a setting that is not allowed to change in effect [CHAR LIMIT=50] -->
+
+    <!-- Toast telling users tapping on the viewfinder will take a picture [CHAR LIMIT=65] -->
+    <string name="video_snapshot_hint">Chụp ảnh trong khi quay video bằng cách chạm vào màn hình xem trước.</string>
+
+    <!-- Toast telling users video snapshot is disabled when the effects are on and a user tries to tap on the viewfinder [CHAR LIMIT=65] -->
+    <string name="disable_video_snapshot_hint">Ảnh chụp nhanh video bị tắt khi các hiệu ứng đặc biệt đang bật.</string>
+
+    <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
+    <string name="snapshot_lower_than_video">Độ phân giải ảnh chụp nhanh video thấp hơn kích thước video. Giới hạn theo kích thước Video. Chọn độ phân giải cao hơn hoặc bằng kích thước video hiện tại. </string>
+
+    <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
+    <string name="snapshotsize_low_powermode">Độ phân giải ảnh không được cài đặt quản lý điện năng hiện tại của bạn hỗ trợ. Ảnh chụp nhanh kích thước video sẽ được sử dụng.
+    </string>
+
+    <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
+    <string name="snapshot_qcif_and_d1">Chỉ kích thước ảnh chụp nhanh video được hỗ trợ đối với độ phân giải này. </string>
+
+    <!-- A button in effect setting popup to clear the effect. [CHAR LIMIT=26] -->
+    <string name="clear_effects">Xóa hiệu ứng</string>
+
+    <!-- Title of category for silly face effects. [CHAR LIMIT=26] -->
+    <string name="effect_silly_faces">MẶT NGỐ</string>
+
+    <!-- Title of category for background replacement effects. [CHAR LIMIT=26] -->
+    <string name="effect_background">NỀN</string>
+
+    <string name="accessibility_shutter_button">Nút Chụp</string>
+    <string name="accessibility_review_thumbnail">Ảnh gần đây nhất</string>
+    <string name="accessibility_zoom_control">Điều khiển thu phóng</string>
+    <string name="accessibility_camera_picker">Chuyển đổi giữa máy ảnh mặt trước và mặt sau</string>
+    <string name="accessibilit_camera_video_switch_picker_and_state">Chuyển đổi giữa máy ảnh và video (hiện dùng  %s)</string>
+    <string name="accessibility_camera_flashmode">Luôn có flash</string>
+    <string name="accessibility_camera_auto_flashmode">Flash tự động</string>
+    <string name="accessibility_camera_flash_closemode">Không có flash</string>
+    <string name="accessibility_open_more_ptions">Bật thêm tùy chọn</string>
+    <string name="accessibility_close_more_ptions">Tắt thêm tùy chọn</string>
+    <string name="accessibility_more_ptions_opened">Đã bật thêm tùy chọn</string>
+    <string name="accessibility_more_ptions_closed">Đã tắt thêm tùy chọn</string>
+    <string name="accessibility_skin_beautify_opened">Đã bật trình cải thiện màu da</string>
+    <string name="accessibility_skin_beautify_closed">Đã tắt trình cải thiện màu da</string>
+
+    <!-- TODO: remove the string as it is a work-around solution to bypass the default speak of the element type. -->
+
+    <!-- Settings screen, Select auto exposure title -->
+    <string name="pref_camera_autoexposure_title">Cài đặt tự động phơi sáng</string>
+
+    <!-- Settings screen, auto exposure dialog radio button choices -->
+    <string name="pref_camera_autoexposure_entry_frameaverage">Mức trung bình của khung hình</string>
+    <string name="pref_camera_autoexposure_entry_centerweighted">Lấy nét ở giữa ảnh</string>
+    <string name="pref_camera_autoexposure_entry_spotmetering">Căn sáng điểm</string>
+
+
+
+    <!-- Settings screen, Video encoder dialog title -->
+
+
+
+    <!-- Settings screen, Audio encoder title -->
+    <string name="pref_camera_audio_capture_title">Âm thanh</string>
+
+    <!-- Settings screen, Audio encoder dialog radio button choices -->
+
+
+    <!-- Settings screen, Video duration title -->
+    <string name="pref_camera_video_duration_title">Thời lượng video</string>
+
+    <!-- Settings screen, Video duration dialog radio button choices -->
+    <string name="pref_camera_video_duration_entry_mms">30 giây (MMS)</string>
+    <string name="pref_camera_video_duration_entry_10">10 phút</string>
+    <string name="pref_camera_video_duration_entry_30">30 phút</string>
+    <string name="pref_camera_video_duration_entry_120">Không giới hạn</string>
+
+
+    <!-- Settings screen, Select Skin Tone Enhancement title -->
+    <string name="pref_camera_skinToneEnhancement_title">Cải thiện màu da</string>
+
+    <!-- Settings screen, Skin Tone Enhancement radio button choices -->
+    <string name="pref_camera_skinToneEnhancement_entry_auto">Tự động cải thiện</string>
+    <string name="pref_camera_skinToneEnhancement_entry_enable">Bật</string>
+    <string name="pref_camera_skinToneEnhancement_entry_disable">Tắt</string>
+
+
+     <!-- Settings screen, Selectable zone af title -->
+
+     <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
+
+
+    <!-- Settings screen, ZSL location dialog choices -->
+    <string name="pref_camera_zsl_entry_off">Tắt</string>
+    <string name="pref_camera_zsl_entry_on">Bật</string>
+
+
+
+    <!-- Settings screen, Select Face Detection -->
+    <string name="pref_camera_facedetection_title">Dò tìm khuôn mặt</string>
+
+    <!-- Settings menu, Face Detection choices -->
+    <string name="pref_camera_facedetection_entry_off">Tắt</string>
+    <string name="pref_camera_facedetection_entry_on">Bật</string>
+
+    <!-- Settings screen, Power mode dialog radio button choices -->
+
+    <!-- Settings screen, Power mode dialog radio button choices -->
+
+
+    <!-- The message is shown in dialog when take raw picture while wavelet denoise is on-->
+    <string name="error_app_unsupported_raw_wavelet">Khử nhiễu Wavelet sẽ không có tác dụng khi chụp ảnh raw</string>
+
+    <!-- Settings screen, Select Redeye Reduction -->
+    <string name="pref_camera_redeyereduction_title">Giảm mắt đỏ</string>
+    <string name="pref_camera_redeyereduction_entry_auto">Tự động</string>
+    <string name="pref_camera_redeyereduction_entry_enable">Bật</string>
+    <string name="pref_camera_redeyereduction_entry_disable">Tắt</string>
+
+
+     <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
+
+     <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
+     <string name="error_app_unsupported_hfr_codec">Chỉ mã hóa video H264 không được hỗ trợ khi HFR đang BẬT</string>
+     <string name="error_app_unsupported_hfr_720p">720P có thể hỗ trợ tối đa 90FPS</string>
+
+     <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
+     <string name="error_app_unsupported">Độ phân giải video không được hỗ trợ đối với loại bộ mã hóa này</string>
+
+    <string name="pref_camera_ae_bracket_hdr_title">HDR</string>
+    <string name="pref_camera_hand_night_title">HHT</string>
+
+
+    <string name="hdr_exit_button_text">Thoát khỏi chế độ HDR</string>
+    <string name="raw_data_exit_button_text">Thoát khỏi chế độ RAW</string>
+    <string name="hand_night_exit_button_text">Thoát khỏi chế độ chụp cầm tay ban đêm</string>
+
+    <!-- 设置相关 -->
+    <string name="videocamera_settings_label">Cài đặt máy quay video</string>
+    <string name="camera_settings_label">Cài đặt máy ảnh</string>
+    <string name="pref_grp_picture_settings">Cài đặt ảnh</string>
+    <string name="pref_grp_capture_settings">Cài đặt chụp</string>
+    <string name="pref_advanced_settings">Nâng cao</string>
+    <string name="pref_advanced_functions">Cài đặt nâng cao</string>
+    <string name="pref_grp_advanced_settings">Cài đặt nâng cao</string>
+    <string name="pref_grp_restore_settings">Khôi phục cài đặt</string>
+    <string name="pref_camera_settings_title">Cài đặt</string>
+
+    <!-- 参考线 -->
+    <string name="pref_camera_referenceline_title">Đường quy chiếu</string>
+    <string name="pref_camera_referenceline_entry_off">Tắt</string>
+    <string name="pref_camera_referenceline_entry_on">Bật</string>
+
+    <!--音量键功能 -->
+    <string name="pref_camera_volumekey_function_entry_volume">Âm lượng</string>
+    <string name="pref_camera_volumekey_function_entry_shutter">Chụp</string>
+    <string name="pref_camera_volumekey_function_entry_zoom">Thu phóng</string>
+    <string name="pref_camera_volumekey_function_entry_exposure">Độ phơi sáng</string>
+    <string name="pref_camera_volumekey_function_title">Chức năng của phím âm lượng</string>
+
+
+
+    <!-- 长按连快门功能 -->
+    <string name="pref_camera_long_pressing_burst_shooting_title">Nhấn và giữ nút Chụp</string>
+    <string name="pref_camera_long_pressing_burst_shooting_entry_off">Lấy nét</string>
+    <string name="pref_camera_long_pressing_burst_shooting_entry_on">Chụp liên tiếp</string>
+    <string name="pref_camera_long_pressing_burst_shooting_default" translatable="false">on</string>
+
+    <!-- 白平衡K值 -->
+    <string name="pref_camera_current_k_value">Giá trị hiện tại</string>
+
+    <!-- notify user when fail to start audio capture -->
+    <string name="error_fail_to_start_audio_capture">Không bắt đầu ghi âm được</string>
+
+    <!-- notify user when start audio capture -->
+    <string name="toast_start_audio_capture">Phát ra âm thanh khi bấm nút chụp</string>
+    <string name="record_back_pressed_hint">Chạm lại để dừng ghi lại</string>
+    <string name="can_not_play_video">Mở khóa màn hình để xem phát lại</string>
+    <!-- The button to switch to Panorama mode. [CHAR LIMIT = NONE] -->
+
+    <!-- burst snap -->
+    <string name="toast_burst_snap_finished_start">Đã kết thúc chụp liên tiếp:</string>
+    <string name="toast_burst_snap_finished_end"> ảnh</string>
+    <string name="toast_burst_snap_forbidden_when_hdr_open">Chụp liên tiếp không được hỗ trợ khi HDR đang BẬT</string>
+    <string name="toast_burst_snap_forbidden_when_audio_capture_open">Chụp liên tiếp không được hỗ trợ khi ghi âm đang BẬT</string>
+    <string name="toast_burst_snap_forbidden_when_iso_not_auto">Bạn cần đặt ISO \'tự động\'</string>
+
+    <string name="time_lapse_error">Không thể dùng kích cỡ video này để quay ở chế độ thời gian trôi</string>
+
+    <!-- MovieSolid -->
+    <string name="pref_camera_movie_solid_default">bật</string>
+    <string name="pref_camera_movie_solid_title">Ổn định hình ảnh phim</string>
+    <string name="pref_camera_movie_solid_entry_off">Tắt</string>
+    <string name="pref_camera_movie_solid_entry_on">Bật</string>
+    <string name="pref_camera_movie_solid_value_off">off</string>
+    <string name="pref_camera_movie_solid_value_on">on</string>
+
+    <!-- Add for Gallery3d Start -->
+    <string name="unit_mm">mm</string>
+    <string name="share">Chia sẻ</string>
+    <string name="send">Gửi</string>
+    <string name="Import">Nhập</string>
+    <string name="delete">Xóa</string>
+    <string name="slideshow">Trình chiếu</string>
+    <string name="edit">Sửa</string>
+    <string name="rotate_left">Xoay trái</string>
+    <string name="rotate_right">Xoay phải</string>
+    <string name="set_image">Đặt ảnh làm</string>
+    <string name="details">Chi tiết</string>
+    <string name="show_on_map">Hiện trên bản đồ</string>
+    <string name="select_image">Chọn ảnh</string>
+    <string name="select_video">Chọn video</string>
+    <string name="select_item">Chọn mục</string>
+    <string name="details_ms">%1$02d:%2$02d</string>
+    <string name="details_hms">%1$d:%2$02d:%3$02d</string>
+    <string name="import_complete">Nhập hoàn tất</string>
+    <string name="import_fail">Không nhập được</string>
+    <string name="auto">Tự động</string>
+    <string name="flash_on">Đã kích hoạt Flash</string>
+    <string name="flash_off">Không có flash</string>
+    <string name="manual">Thủ công</string>
+    <string name="close">Đóng</string>
+    <string name="details_title">%1$d / %2$d mục:</string>
+    <string name="set_label_local_albums">Album cục bộ</string>
+    <string name="folder_camera">Máy ảnh</string>
+    <string name="folder_download">Tải xuống</string>
+    <string name="folder_imported">Đã nhập</string>
+    <string name="folder_screenshot">Ảnh chụp màn hình</string>
+    <string name="deleted">Đã xóa</string>
+    <string name="undo">Hoàn tác</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Hủy</string>
+    <string name="set_as">Đặt làm</string>
+    <string name="no_thumbnail">Không có hình thu nhỏ</string>
+    <string name="loading">Đang tải\u2026</string>
+    <string name="crop_saved">
+        Đã lưu ảnh được cắt vào <xliff:g id="folder_name">%s</xliff:g>.</string>
+    <string name="video_err">Không thể phát video</string>
+        <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
+    <plurals name="delete_selection">
+        <item quantity="one">Xóa mục đã chọn?</item>
+        <item quantity="other">Xóa các mục đã chọn?</item>
+    </plurals>
+    <string name="iso">ISO</string>
+    <string name="exposure_time">Thời gian phơi sáng</string>
+    <string name="white_balance">Cân bằng trắng</string>
+    <string name="focal_length">Tiêu cự</string>
+    <string name="aperture">Khẩu độ</string>
+    <string name="flash">Flash</string>
+    <string name="description">Mô tả</string>
+    <string name="duration">Thời lượng</string>
+    <string name="file_size">Cỡ tệp</string>
+    <string name="height">Chiều cao</string>
+    <string name="loading_video">Đang tải video\u2026</string>
+    <string name="location">Vị trí</string>
+    <string name="maker">Hãng sản xuất</string>
+    <string name="mimetype">Loại MIME</string>
+    <string name="model">Mẫu</string>
+    <string name="orientation">Hướng</string>
+    <string name="path">Đường dẫn</string>
+    <string name="time">Thời gian</string>
+    <string name="title">Tiêu đề</string>
+    <string name="group_by">Nhóm theo</string>
+    <string name="group_by_album">Theo album</string>
+    <string name="group_by_faces">Theo người</string>
+    <string name="group_by_location">Theo vị trí</string>
+    <string name="group_by_tags">Theo thẻ</string>
+    <string name="group_by_time">Theo thời gian</string>
+    <string name="locations">Vị trí</string>
+    <string name="people">Người</string>
+    <string name="resume_playing_message">Tiếp tục phát từ %s?</string>
+    <string name="resume_playing_restart">Bắt đầu lại</string>
+    <string name="resume_playing_resume">Tiếp tục phát</string>
+    <string name="resume_playing_title">Tiếp tục video</string>
+    <string name="show_all">Hình ảnh &amp; video</string>
+    <string name="show_images_only">Chỉ hình ảnh</string>
+    <string name="show_videos_only">Chỉ video</string>
+    <string name="tags">Thẻ</string>
+    <string name="times">Thời gian</string>
+    <string name="width">Chiều rộng</string>
+    <string name="albums">Album</string>
+    <string name="select_all">Chọn tất cả</string>
+    <string name="set_label_all_albums">Tất cả album</string>
+    <string name="send_multiple_files_hint_format">Gửi nhiều tệp (%s)</string>
+    <!-- Add for Gallery3d End -->
+
+    <string name="simple_mode_button_text_hdr">Đóng chế độ HDR</string>
+    <string name="simple_mode_button_text_hand_night">Đóng chế độ Chụp cầm tay ban đêm</string>
+    <string name="simple_mode_button_text_panorama">Đóng ảnh toàn cảnh</string>
+    <string name="simple_mode_button_text_color_effect">Đóng bộ lọc</string>
+    <string name="simple_mode_button_text_audio_capture">Đóng ghi âm</string>
+    <string name="simple_mode_button_text_slow_video">Đóng máy ảnh chuyển động nhanh</string>
+
+    <string name="pref_video_slow_speed_title_simple_mode">Chuyển động nhanh</string>
+
+    <string name="simple_mode_title">Chế độ đơn giản</string>
+    <string name="pref_settings_mode">Chế độ máy ảnh</string>
+
+    <string name="pref_video_captrue_ability_title">Khả năng chụp</string>
+
+    <!-- QR code camera_app_root-->
+    <string name="find_mecard_qrcode">Tìm mã Mecard QR</string>
+    <string name="find_wechat_qrcode">Tìm mã WeChat QR</string>
+    <string name="find_market_qrcode">Tìm mã Market QR</string>
+    <string name="find_web_qrcode">Tìm mã Web QR</string>
+    <string name="find_other_qrcode">Tìm mã QR khác</string>
+    <string name="find_qq_qrcode">Tìm mã QQ QR</string>
+    <string name="find_wifi_qrcode">Tìm mã Wi-Fi QR</string>
+    <string name="see_qrcode_detals">Xem chi tiết</string>
+
+    <!-- QR code fragment-->
+    <string name="scan_qrcode">Quét mã QR</string>
+    <string name="app_details">Chi tiết về ứng dụng:</string>
+    <string name="website_details">Chi tiết về trang web:</string>
+    <string name="contact_details">Chi tiết liên hệ:</string>
+    <string name="wechat_details">Chi tiết về WeChat:</string>
+    <string name="qr_code_details">chi tiết về mã QR:</string>
+    <string name="import_contact">Nhập liên hệ</string>
+    <string name="secure_access_web_url">Truy cập an toàn</string>
+    <string name="download_by_browser">Tải xuống bằng Trình duyệt</string>
+    <string name="launch_market">Khởi chạy Xiaomi App Market</string>
+    <string name="launch_wechat">Khởi chạy WeChat</string>
+    <string name="download_wechat">Tải xuống WeChat</string>
+    <string name="see_app_details">Xem chi tiết ứng dụng</string>
+    <string name="copy_text">Sao chép văn bản</string>
+    <string name="copy_text_success">Đã sao chép văn bản</string>
+    <string name="contact_name">Tên</string>
+    <string name="contact_nickname">Biệt hiệu</string>
+    <string name="contact_company">Công ty</string>
+    <string name="contact_title">Tiêu đề</string>
+    <string name="contact_phone">Điện thoại</string>
+    <string name="contact_email">Email</string>
+    <string name="contact_web">Web</string>
+    <string name="contact_address">Địa chỉ</string>
+    <string name="contact_birthday">Sinh nhật</string>
+    <string name="contact_note">Ghi chú</string>
+    <string name="success_message_import_from_account">Đã nhập</string>
+    <string name="web_url_warning">Trang web được liên kết đến từ nguồn không xác định và có thể gây ra rủi ro về bảo mật.</string>
+    <string name="web_url_apk_warning">Ứng dụng này đến từ nguồn không xác định và có thể gây ra rủi ro về bảo mật. Chỉ cài đặt ứng dụng từ các nguồn mà bạn tin cậy.</string>
+    <string name="wifi_ssid">SSID:</string>
+    <string name="wifi_pwd">Mật khẩu:</string>
+    <string name="wifi_security">Bảo mật:</string>
+    <string name="wifi_details">Chi tiết về Wi-Fi:</string>
+    <string name="connect_wifi">Kết nối với mạng này</string>
+    <string name="qq_details">Chi tiết về QQ:</string>
+    <string name="launch_qq">Khởi chạy QQ trong Trình duyệt</string>
+    <string name="download_qq">Tải xuống QQ</string>
+    <string name="wifi_warning">Trước khi bạn kết nối, hãy xác minh rằng mạng mà bạn đang sử dụng an toàn.</string>
+
+    <string name="cloud_album_details">Chi tiết về album trên đám mây:</string>
+    <string name="visit_cloud_album">Truy cập album trên đám mây</string>
+    <string name="find_cloud_album">Tìm mã QR của album trên đám mây</string>
+
+    <string name="wifi_connecting">Đang kết nối\u2026</string>
+    <string name="wifi_open_fail">Không thể mở Wi-Fi</string>
+    <string name="wifi_connect_fail">Kết nối đã hết thời gian chờ</string>
+    <string name="wifi_connect_success">Đã kết nối</string>
+    <string name="wifi_connect_not_found">Không thể tìm thấy Wi-Fi</string>
+    <string name="wifi_connect_current_connetion">Bạn đã kết nối với Wi-Fi</string>
+
+    <string name="pref_camera_watermark_title">Vân nước thời gian</string>
+    <string name="pref_camera_watermark_entry_off">Tắt</string>
+    <string name="pref_camera_watermark_entry_on">Bật</string>
+
+    <string name="pref_scan_qrcode_title">Quét mã QR</string>
+    <string name="pref_scan_qrcode_entry_off">Tắt</string>
+    <string name="pref_scan_qrcode_entry_on">Bật</string>
+
+    <string name="pref_manual_exposure_title">Phơi sáng thủ công</string>
+
+    <string name="pref_camera_exposuretime_title">Thời gian phơi sáng</string>
+    <string name="pref_camera_exposuretime_entry_auto">Tự động</string>
+    <string name="pref_camera_exposuretime_entry_0.5">2 giây</string>
+    <string name="pref_camera_exposuretime_entry_1">1 giây</string>
+    <string name="pref_camera_exposuretime_entry_2">1/2 giây</string>
+    <string name="pref_camera_exposuretime_entry_4">1/4 giây</string>
+    <string name="pref_camera_exposuretime_entry_8">1/8 giây</string>
+    <string name="pref_camera_exposuretime_entry_15">1/15 giây</string>
+    <string name="pref_camera_exposuretime_entry_30">1/30 giây</string>
+    <string name="pref_camera_exposuretime_entry_60">1/60 giây</string>
+    <string name="pref_camera_exposuretime_entry_125">1/125 giây</string>
+    <string name="pref_camera_exposuretime_entry_250">1/250 giây</string>
+    <string name="pref_camera_exposuretime_entry_1000">1/1000 giây</string>
+    <string name="pref_camera_exposuretime_entry_5000">1/5000 giây</string>
+
+    <!-- Face analyze -->
+    <string name="face_analyze_info">Tuổi: %2$s (%1$s)</string>
+    <string name="face_analyze_info_male">Nam</string>
+    <string name="face_analyze_info_female">Nữ</string>
+    <string name="face_beauty_intelligent_title">Điều chỉnh tự động</string>
+    <string name="face_beauty_manual_title">Điều chỉnh thủ công</string>
+    <string name="face_beauty_simple_mode_title">Màu da</string>
+    <string name="face_beauty_intelligent_level_0">Tắt</string>
+    <string name="face_beauty_intelligent_level_1">Thấp</string>
+    <string name="face_beauty_intelligent_level_2">Ở giữa</string>
+    <string name="face_beauty_intelligent_level_3">Cao</string>
+    <string name="pref_camera_show_gender_age_title">Nhận diện khuôn mặt</string>
+    <string name="pref_camera_show_gender_age_entry_off">Tắt</string>
+    <string name="pref_camera_show_gender_age_entry_on">Hiển thị tuổi và giới tính</string>
+    <string name="pref_camera_show_gender_age_entry_alias">Hiển thị tuổi</string>
+    <string name="toast_burst_snap_forbidden_when_face_beauty_open">Chụp liên hoàn không được hỗ trợ khi bật cải thiện màu da</string>
+    <string name="face_beauty_age_alias_male_0_7">Nam 0-7</string>
+    <string name="face_beauty_age_alias_male_8_17">Nam 8-17</string>
+    <string name="face_beauty_age_alias_male_18_30">Nam 18-30</string>
+    <string name="face_beauty_age_alias_male_31_44">Nam 31-44</string>
+    <string name="face_beauty_age_alias_male_45_60">Nam 45-60</string>
+    <string name="face_beauty_age_alias_male_60_m">Nam 60+</string>
+    <string name="face_beauty_age_alias_female_0_7">Nữ 0-7</string>
+    <string name="face_beauty_age_alias_female_8_17">Nữ 8-17</string>
+    <string name="face_beauty_age_alias_female_18_30">Nữ 18-30</string>
+    <string name="face_beauty_age_alias_female_31_44">Nữ 31-44</string>
+    <string name="face_beauty_age_alias_female_45_60">Nữ 45-60</string>
+    <string name="face_beauty_age_alias_female_60_m">Nữ 60+</string>
+    <string name="simple_mode_button_text_face_beauty">Đóng cải thiện màu da</string>
+    <string name="pref_camera_multiple_face_beauty_title">Cải thiện màu da</string>
+    <string name="pref_camera_multiple_face_beauty_entry_off">1 người</string>
+    <string name="pref_camera_multiple_face_beauty_entry_on">2 người</string>
+
+    <string name="measure_whitebalance_button">Đơn vị đo</string>
+    <string name="measure_whitebalance_text">Đặt một tờ giấy trắng cách ống kính của máy ảnh mặt sau 15,24 cm rồi chụp ảnh.</string>
+
+    <string name="pref_camera_hdr_type_title">Loại HDR</string>
+    <string name="pref_camera_hdr_type_entry_normal">Bình thường</string>
+    <string name="pref_camera_hdr_type_entry_live">Sống động</string>
+    <string name="pref_camera_ubi_focus_title">Tiêu điểm Ubi</string>
+    <string name="pref_camera_opti_zoom_title">Thu phóng quang học</string>
+    <string name="pref_camera_chroma_flash_title">Chroma Flash</string>
+    <string name="simple_mode_button_text_ubi_focus">Đóng chế độ Tiêu đểm Ubi</string>
+    <string name="simple_mode_button_text_chroma_flash">Đóng chế độ Chroma Flash</string>
+    <string name="simple_mode_button_text_opti_zoom">Đóng chế độ Thu phóng quang học</string>
+    <string name="ubi_focus_exit_button_text">Thoát khỏi chế độ Tiêu điểm Ubi</string>
+    <string name="chroma_flash_exit_button_text">Thoát khỏi chế độ Chroma Flash</string>
+    <string name="opti_zoom_exit_button_text">Thoát khỏi chế độ Thu phóng quang học</string>
+    <string name="pref_camera_auto_opti_zoom_title">Tự động thu phóng quang học khi tỷ lệ lớn hơn 2</string>
+    <string name="confirm_enable_opti_zoom_message">Bạn có muốn bật thu phóng quang học trong ảnh của mình không?</string>
+    <string name="enable_feature">Có</string>
+    <string name="not_enable_feature">Nhắc vào lần sau</string>
+
+    <string name="accessibility_ev_control">Bù phơi sáng</string>
+</resources>

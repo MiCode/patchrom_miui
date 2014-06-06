@@ -45,26 +45,28 @@
             android:textAppearance="@android:style/TextAppearance.Small"
             android:textStyle="bold"
             android:visibility="gone" />
+    </RelativeLayout>
 
-        <LinearLayout
-            android:id="@+id/loading_view"
+    <LinearLayout
+        android:id="@+id/loading_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tool_bar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="120dip"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/loading_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:orientation="vertical" >
-
-            <ProgressBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/loading_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="@android:style/TextAppearance.Small"
-                android:textStyle="bold" />
-        </LinearLayout>
-    </RelativeLayout>
+            android:textAppearance="@android:style/TextAppearance.Small"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 </com.miui.optimizecenter.storage.ExternalStorageFragmentView>
