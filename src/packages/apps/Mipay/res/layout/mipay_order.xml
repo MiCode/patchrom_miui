@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mipay_info_bg"
+            android:gravity="center_vertical"
+            android:minHeight="100dip"
+            android:paddingLeft="25dip"
+            android:paddingRight="25dip" >
+
+            <TableRow android:gravity="center_vertical" >
+
+                <TextView
+                    android:gravity="right|center_vertical"
+                    android:text="@string/mipay_order_title"
+                    android:textColor="@color/mipay_text_color_black"
+                    android:textSize="@dimen/mipay_text_size_large" />
+
+                <TextView
+                    android:id="@+id/order_title"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="left|center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/mipay_text_color_black"
+                    android:textSize="@dimen/mipay_text_size_large" />
+
+                <TextView
+                    android:id="@+id/denom"
+                    android:gravity="right|center_vertical"
+                    android:textColor="@color/mipay_text_color_orange"
+                    android:textSize="@dimen/mipay_text_size_huge" />
+
+                <TextView
+                    android:layout_gravity="top"
+                    android:paddingTop="3dip"
+                    android:text="@string/mipay_denom_unit"
+                    android:textColor="@color/mipay_text_color_orange"
+                    android:textSize="@dimen/mipay_text_size_small" />
+            </TableRow>
+
+            <TableRow android:gravity="center_vertical" >
+
+                <TextView
+                    android:gravity="right|center_vertical"
+                    android:text="@string/mipay_order_id"
+                    android:textColor="@color/mipay_text_color_gray"
+                    android:textSize="@dimen/mipay_text_size_small" />
+
+                <TextView
+                    android:id="@+id/order_id"
+                    android:ellipsize="end"
+                    android:gravity="left|center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/mipay_text_color_gray"
+                    android:textSize="@dimen/mipay_text_size_small" />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dip"
+            android:layout_marginTop="20dip"
+            android:text="@string/mipay_pay_type_hint"
+            android:textColor="@color/mipay_text_color_gray"
+            android:textSize="@dimen/mipay_text_size_small" />
+
+        <RadioGroup
+            android:id="@+id/pay_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dip"
+            android:layout_marginRight="2dip"
+            android:layout_marginTop="10dip" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1" />
+
+        <com.mipay.common.component.AgreementCheckBox
+            android:id="@+id/agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dip"
+            android:textColor="@color/mipay_text_color_gray"
+            android:textSize="@dimen/mipay_text_size_small" />
+
+        <com.mipay.common.component.ProgressButton
+            android:id="@+id/button"
+            style="@miui:style/V5.Widget.Button.PositiveWarn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="13dip"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:layout_marginTop="15dip"
+            android:text="@string/mipay_button_pay" />
+    </LinearLayout>
+
+</ScrollView>
