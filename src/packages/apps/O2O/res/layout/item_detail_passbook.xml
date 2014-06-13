@@ -41,6 +41,17 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/receiptnumber_layout_holder"
+                    style="@style/Detail.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/item_detail_info_margin_top"
+                    android:orientation="vertical" >
+
+                    <include layout="@layout/item_detail_receiptnumber" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:id="@+id/announcement_layout_holder"
                     style="@style/Detail.Padding"
                     android:layout_width="match_parent"
@@ -81,6 +92,14 @@
 
                     <include layout="@layout/item_detail_bottom" />
                 </LinearLayout>
+
+                <ViewStub
+                    android:id="@+id/refund_stub_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/item_detail_layout_padding_left"
+                    android:layout_marginRight="@dimen/item_detail_layout_padding_right"
+                    android:layout="@layout/item_detail_passbook_refund" />
             </LinearLayout>
 
             <com.xiaomi.o2o.activity.view.EmptyLoadingView

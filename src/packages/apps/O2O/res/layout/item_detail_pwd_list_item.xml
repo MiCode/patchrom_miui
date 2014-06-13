@@ -25,6 +25,7 @@
                 android:layout_marginLeft="@dimen/personal_settings_padding_left"
                 android:ellipsize="end"
                 android:gravity="center_vertical"
+                android:maxLength="@integer/personal_title_max_length"
                 android:singleLine="true"
                 android:text="@string/item_loading"
                 android:textAppearance="@style/TextAppearance.Title" />
@@ -82,6 +83,29 @@
             android:layout_height="@dimen/item_desc_title_height"
             android:orientation="horizontal"
             android:paddingLeft="@dimen/personal_settings_padding_left" >
+
+            <TextView
+                android:id="@+id/passbook_status_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:lines="1"
+                android:text="@string/passbook_status_pwd"
+                android:textAppearance="@style/TextAppearance.Title.Secondary"
+                android:textSize="@dimen/common_item_text_sub_title_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:lines="1"
+                android:text="@string/passbook_status_split"
+                android:textAppearance="@style/TextAppearance.Title.Secondary"
+                android:textSize="@dimen/common_item_text_sub_title_size" />
 
             <TextView
                 android:id="@+id/available_deadline"

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/detail_background"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="none"
+        android:fillViewport="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/personal_settings_margin_bottom"
+            android:paddingLeft="@dimen/personal_settings_padding_left"
+            android:paddingRight="@dimen/personal_settings_padding_right"
+            android:paddingTop="@dimen/personal_settings_margin_top" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/movie_announcement"
+                android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+                android:textColor="@color/choose_content_subcategory_selected" />
+
+            <include layout="@layout/item_detail_upper_passbook" />
+
+            <ViewStub
+                android:id="@+id/store_stub_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout="@layout/item_detail_passbook_movie_map" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/item_detail_info_margin_bottom"
+                android:layout_marginLeft="@dimen/personal_settings_padding_left"
+                android:layout_marginTop="@dimen/item_detail_pwd_divider_height"
+                android:gravity="center_vertical"
+                android:text="@string/movie_order_info"
+                android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/item_detail_bg"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/personal_settings_item_height"
+                    android:clickable="false"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/personal_settings_item_padding_left"
+                    android:paddingRight="@dimen/personal_settings_item_padding_right" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/movie_name"
+                        android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+                        android:textSize="@dimen/common_item_text_title_size" />
+
+                    <TextView
+                        android:id="@+id/movie_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center_vertical"
+                        android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+                        android:textSize="@dimen/common_item_text_title_size" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/personal_divider_line" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/personal_settings_item_height"
+                    android:clickable="false"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/personal_settings_item_padding_left"
+                    android:paddingRight="@dimen/personal_settings_item_padding_right" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/movie_date"
+                        android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+                        android:textSize="@dimen/common_item_text_title_size" />
+
+                    <TextView
+                        android:id="@+id/movie_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center_vertical"
+                        android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+                        android:textSize="@dimen/common_item_text_title_size" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/personal_divider_line" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/personal_settings_item_height"
+                    android:clickable="false"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/personal_settings_item_padding_left"
+                    android:paddingRight="@dimen/personal_settings_item_padding_right" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/movie_seat"
+                        android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+                        android:textSize="@dimen/common_item_text_title_size" />
+
+                    <TextView
+                        android:id="@+id/movie_seat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center_vertical"
+                        android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+                        android:textSize="@dimen/common_item_text_title_size" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/personal_divider_line" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/personal_settings_item_height"
+                    android:clickable="false"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/personal_settings_item_padding_left"
+                    android:paddingRight="@dimen/personal_settings_item_padding_right" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/movie_price"
+                        android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+                        android:textSize="@dimen/common_item_text_title_size" />
+
+                    <TextView
+                        android:id="@+id/money_static"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center_vertical"
+                        android:text="@string/money"
+                        android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+                        android:textSize="@dimen/common_item_text_title_size" />
+
+                    <TextView
+                        android:id="@+id/movie_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_toLeftOf="@id/money_static"
+                        android:gravity="center_vertical"
+                        android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+                        android:textSize="@dimen/common_item_text_title_size" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/personal_divider_line" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/personal_settings_item_height"
+                    android:clickable="false"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/personal_settings_item_padding_left"
+                    android:paddingRight="@dimen/personal_settings_item_padding_right" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/movie_amount"
+                        android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+                        android:textSize="@dimen/common_item_text_title_size" />
+
+                    <TextView
+                        android:id="@+id/amount_static"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center_vertical"
+                        android:text="@string/movie_amount_static"
+                        android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+                        android:textSize="@dimen/common_item_text_title_size" />
+
+                    <TextView
+                        android:id="@+id/movie_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_toLeftOf="@id/amount_static"
+                        android:gravity="center_vertical"
+                        android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+                        android:textSize="@dimen/common_item_text_title_size" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/personal_divider_line" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/personal_settings_item_height"
+                    android:clickable="false"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/personal_settings_item_padding_left"
+                    android:paddingRight="@dimen/personal_settings_item_padding_right" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/movie_total_price"
+                        android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+                        android:textSize="@dimen/common_item_text_title_size" />
+
+                    <TextView
+                        android:id="@+id/total_money_static"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center_vertical"
+                        android:text="@string/money"
+                        android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+                        android:textSize="@dimen/common_item_text_title_size" />
+
+                    <TextView
+                        android:id="@+id/movie_total_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_toLeftOf="@id/total_money_static"
+                        android:gravity="center_vertical"
+                        android:textAppearance="@style/TextAppearance.Title.OderId"
+                        android:textSize="@dimen/common_item_text_title_size" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/personal_divider_line" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/personal_settings_item_height"
+                    android:clickable="false"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/personal_settings_item_padding_left"
+                    android:paddingRight="@dimen/personal_settings_item_padding_right" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/movie_purchased_phone_number"
+                        android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+                        android:textSize="@dimen/common_item_text_title_size" />
+
+                    <TextView
+                        android:id="@+id/movie_purchased_phone_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center_vertical"
+                        android:textAppearance="@style/TextAppearance.Title.DetailSecondary.NoAntiColor"
+                        android:textSize="@dimen/common_item_text_title_size" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

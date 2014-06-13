@@ -17,8 +17,17 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/privacy_settings_title">
 
+    <PreferenceCategory android:title="@string/system_backup_section_title" />
+    <PreferenceScreen android:key="local_backup"
+          android:title="@string/local_backup_section_title"
+          android:summary="@string/local_backup_section_summary">
+           <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.miui.backup"
+                android:targetClass="com.miui.backup.BackupActivity" />
+    </PreferenceScreen>
+
     <PreferenceCategory android:key="backup_category"
-            android:title="@string/backup_section_title">
+            android:title="@string/google_backup_section_title">
         <!-- Backup settings -->
         <CheckBoxPreference
                 android:key="backup_data"
