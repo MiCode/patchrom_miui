@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/packages_detail_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/payment_padding"
+            android:background="@miui:drawable/v5_preference_item_bg"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/payment_padding"
+            android:paddingLeft="36dip"
+            android:paddingRight="36dip"
+            android:paddingTop="@dimen/payment_padding" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="false"
+                android:text="@string/datausage_purchase_confirm_tip"
+                android:textAppearance="@miui:style/V5.TextAppearance.Medium" />
+
+            <TextView
+                android:id="@+id/packages_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:singleLine="false"
+                android:textAppearance="@miui:style/V5.TextAppearance.List.Primary"
+                android:textColor="#ff6100" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/packages_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/payment_padding"
+            android:singleLine="false"
+            android:textAppearance="@miui:style/V5.TextAppearance.Label" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/payment_padding"
+        android:paddingRight="@dimen/payment_padding" >
+
+        <TextView
+            android:id="@+id/pay_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/payment_vertical_margin"
+            android:gravity="center"
+            android:singleLine="false" />
+
+        <Button
+            android:id="@+id/pay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@miui:drawable/v5_btn_bg_main_action_light"
+            android:text="@string/datausage_purchase_buy"
+            android:textColor="@color/selector_bottom_bar_text" />
+    </LinearLayout>
+
+</RelativeLayout>

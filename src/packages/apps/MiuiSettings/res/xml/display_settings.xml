@@ -58,6 +58,15 @@
             android:targetClass="com.android.settings.display.MiuiScreensaverSettings" />
     </miui.preference.ValuePreference>
 
+    <PreferenceScreen
+        android:key="font_size"
+        android:title="@string/title_font">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.display.FontSettings" />
+    </PreferenceScreen>
+
     <!-- launcher -->
     <PreferenceScreen
         android:key="preferred_launcher"
@@ -66,15 +75,6 @@
             android:action="android.intent.action.MAIN"
             android:targetPackage="com.android.settings"
             android:targetClass="com.android.settings.applications.PreferredSettings" />
-    </PreferenceScreen>
-
-    <PreferenceScreen
-        android:key="font_size"
-        android:title="@string/title_font_size">
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.android.settings"
-            android:targetClass="com.android.settings.display.FontSizeSettings" />
     </PreferenceScreen>
 
     <CheckBoxPreference

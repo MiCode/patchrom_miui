@@ -74,4 +74,19 @@
         </CheckBoxPreference>
     </PreferenceCategory>
 
+    <!-- 广告拦截设置 -->
+    <PreferenceCategory
+        android:key="key_adblock_category"
+        android:title="@string/st_title_adblock_group" >
+        <com.miui.antispam.ui.LabelPreference
+            android:key="key_adblock"
+            android:layout="@layout/antispam_new_label_preference"
+            android:title="@string/st_title_adblock_setting"
+            miui:clickable="true" >
+            <intent
+                android:targetClass="com.miui.antispam.ui.AdwareBlock"
+                android:targetPackage="com.miui.antispam" />
+        </com.miui.antispam.ui.LabelPreference>
+    </PreferenceCategory>
+
 </PreferenceScreen>
