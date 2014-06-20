@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/captcha_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/payment_padding" >
+
+            <EditText
+                android:id="@+id/captcha_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:hint="@string/datausage_purchase_pay_captcha_hint" />
+
+            <Button
+                android:id="@+id/captcha_send_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="-4dp"
+                android:layout_weight="2"
+                android:background="@drawable/selector_action_btn" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/captcha_tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/payment_padding"
+            android:paddingRight="@dimen/payment_padding"
+            android:singleLine="false"
+            android:text="@string/datausage_purchase_pay_captcha_tips"
+            android:textAppearance="@miui:style/V5.TextAppearance.Label" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/payment_padding"
+        android:paddingRight="@dimen/payment_padding" >
+
+        <Button
+            android:id="@+id/pay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@miui:drawable/v5_btn_bg_main_action_light"
+            android:enabled="false"
+            android:text="@string/datausage_purchase_pay_confirm"
+            android:textColor="@color/selector_bottom_bar_text" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/layout_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/layout_bottom"
+        android:layout_alignParentTop="true"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/result_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:drawablePadding="10dp"
+            android:gravity="center_horizontal"
+            android:textAppearance="@miui:style/V5.TextAppearance.Label" />
+    </FrameLayout>
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+</RelativeLayout>

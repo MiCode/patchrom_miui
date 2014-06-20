@@ -3,15 +3,15 @@
 
     <style name="Mipay" />
 
-    <style name="Mipay.Theme.Main" parent="miui:style/V5.Theme.Light" />
+    <style name="Mipay.Theme.Main" parent="@miui:style/V5.Theme.Light" />
 
-    <style name="Mipay.Theme.Dialog" parent="miui:style/V5.Theme.Light.Dialog.NoTitle" />
+    <style name="Mipay.Theme.Dialog" parent="@miui:style/V5.Theme.Light.Dialog.NoTitle" />
 
-    <style name="Mipay.Theme.NoDisplay" parent="miui:style/V5.Theme.NoDisplay" />
+    <style name="Mipay.Theme.NoDisplay" parent="@miui:style/V5.Theme.NoDisplay" />
 
-    <style name="Mipay.Theme.Settings" parent="miui:style/V5.Theme.Light.Settings" />
+    <style name="Mipay.Theme.Settings" parent="@miui:style/V5.Theme.Light.Settings" />
 
-    <style name="Mipay.Theme.Translucent" parent="miui:style/V5.Theme.Light.Translucent.NoTitle" />
+    <style name="Mipay.Theme.Translucent" parent="@miui:style/V5.Theme.Light.Translucent.NoTitle" />
 
     <style name="Mipay.Theme.NoTitle" parent="@style/Mipay.Theme.Main">
         <item name="android:windowNoTitle">true</item>
@@ -20,15 +20,17 @@
 
     <style name="Mipay.Theme.Tab" parent="@miui:style/V5.Theme.Light.ActionBar.NoTitle" />
 
-    <style name="Mipay.NumberEditText">
+    <style name="Mipay.Widget" />
+
+    <style name="Mipay.Widget.NumberEditText">
         <item name="numberBackground">@drawable/mipay_number_edit_bg</item>
-        <item name="numberWidth">45dip</item>
-        <item name="numberHeight">45dip</item>
+        <item name="numberWidth">@dimen/mipay_number_edit_item_width</item>
+        <item name="numberHeight">@dimen/mipay_number_edit_item_height</item>
         <item name="numberSize">@dimen/mipay_text_size_huge</item>
         <item name="numberColor">@color/mipay_text_color_black</item>
     </style>
 
-    <style name="Mipay.EditText">
+    <style name="Mipay.Widget.EditText">
         <item name="android:background">@drawable/mipay_edit_bg</item>
         <item name="android:paddingLeft">10dip</item>
         <item name="android:paddingRight">10dip</item>
@@ -36,5 +38,17 @@
         <item name="android:textColor">@color/mipay_text_color_black</item>
         <item name="android:singleLine">true</item>
     </style>
+
+    <style name="Mipay.Widget.Button" parent="@miui:style/V5.Widget.Button" />
+
+    <style name="Mipay.Widget.Button.Warn" parent="@miui:style/V5.Widget.Button.PositiveWarn" />
+
+    <style name="Mipay.Widget.ListView.Item.DoubleLine" parent="@miui:style/V5.Widget.ListView.Item.DoubleLine" />
+
+    <style name="Mipay.TextAppearance" parent="@miui:style/V5.TextAppearance" />
+
+    <style name="Mipay.TextAppearance.List.Primary" parent="@miui:style/V5.TextAppearance.List.Primary" />
+
+    <style name="Mipay.TextAppearance.List.Secondary" parent="@miui:style/V5.TextAppearance.List.Secondary" />
 
 </resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/title_font" >
+
+    <Preference
+        android:key="preferred_font"
+        android:title="@string/title_font_current"
+        android:order="-2" >
+    </Preference>
+
+    <PreferenceCategory
+        android:title="@string/title_font_size"
+        android:order="-1" />
+
+    <miui.preference.NoTitlePreference
+        style="?android:attr/preferenceInformationStyle"
+        android:enabled="false"
+        android:order="10"
+        android:summary="@string/font_size_summary" />
+
+</PreferenceScreen>

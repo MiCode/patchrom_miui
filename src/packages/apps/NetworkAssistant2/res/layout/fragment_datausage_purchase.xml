@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/pay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/payment_padding"
+        android:layout_marginRight="@dimen/payment_padding"
+        android:layout_marginTop="@dimen/payment_padding"
+        android:background="@miui:drawable/v5_btn_bg_main_action_light"
+        android:enabled="false"
+        android:text="@string/datausage_purchase_view_detail"
+        android:textColor="@color/selector_bottom_bar_text" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/pay"
+        android:layout_alignParentTop="true" >
+
+        <LinearLayout
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/datausage_purchase_banner_bg"
+            android:orientation="vertical"
+            android:padding="@dimen/payment_padding" >
+
+            <TextView
+                android:id="@+id/packages_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="false"
+                android:textColor="@color/primary_color_inverse"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/packages_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/payment_padding"
+                android:singleLine="false"
+                android:textColor="@color/primary_color_inverse"
+                android:textSize="@miui:dimen/v5_text_font_size_small" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/banner"
+            android:fillViewport="true"
+            android:overScrollMode="never" >
+
+            <RadioGroup
+                android:id="@+id/packages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+            </RadioGroup>
+        </ScrollView>
+
+        <FrameLayout
+            android:id="@+id/layout_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/banner"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/result_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawablePadding="10dp"
+                android:gravity="center_horizontal"
+                android:textAppearance="@miui:style/V5.TextAppearance.Label" />
+        </FrameLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
