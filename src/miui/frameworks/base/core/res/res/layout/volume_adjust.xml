@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/v5_volume_panel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/v5_ic_audio_bg"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center">
+            <ImageView
+                android:id="@+id/v5_volume_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/v5_volume_type"
+                    android:textColor="@color/v5_volume_panel_text_color"
+                    android:textSize="9sp"/>
+               <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/v5_volume_divider"
+                    android:src="@drawable/v5_ic_audio_divider"
+                    android:layout_gravity="center_vertical"
+                    android:visibility="gone"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/v5_volume_headset"
+                    android:layout_gravity="center_vertical"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </LinearLayout>
+        <miui.v5.widget.CircleProgressView
+            xmlns:miui="http://schemas.android.com/apk/res/miui"
+            android:id="@+id/v5_volume_progress"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            miui:v5_foreground="@drawable/v5_ic_audio_progress"
+            android:gravity="center"
+            android:layout_gravity="center"
+        />
+    </FrameLayout>
+    <LinearLayout android:id = "@+id/v5_volume_settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@miui:drawable/v5_volume_settings_bg"
+        android:visibility="gone">
+
+        <include  android:id="@+id/v5_ringer_section" layout="@layout/v5_volume_adjust_item"
+             android:layout_height="0dip"
+             android:layout_weight="1"/>
+        <include  android:id="@+id/v5_notification_section" layout="@layout/v5_volume_adjust_item"
+             android:layout_height="0dip"
+             android:layout_weight="1"/>
+        <include  android:id="@+id/v5_media_section" layout="@layout/v5_volume_adjust_item"
+             android:layout_height="0dip"
+             android:layout_weight="1"/>
+    </LinearLayout>
+</FrameLayout>

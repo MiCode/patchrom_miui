@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This is the general lock screen which shows information about the
+  state of the device, as well as instructions on how to get past it
+  depending on the state of the device.  It is the same for landscape
+  and portrait.-->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tabunlock="http://schemas.android.com/apk/res/com.android.tabunlock"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <!-- 显示板这层frame -->
+    <LinearLayout
+        android:id="@+id/common_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/android_status_bar_height"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        >
+
+        <!-- "emergency calls only" shown when sim is missing or PUKd -->
+        <FrameLayout
+            android:layout_width="144dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:gravity="center"
+            android:background="@drawable/emergency_btn_bg"
+            >
+            <Button android:id="@+id/emergencyCall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/android_lockscreen_emergency_call"
+                android:textSize="18sp"
+                android:textColor="#ffffffff"
+                android:drawableLeft="@drawable/android_ic_emergency"
+                android:drawablePadding="10dip"
+                android:background="@null"
+                />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/carrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="18sp"
+            android:textColor="#80ffffff"
+            android:visibility="gone"
+            android:shadowColor="#48000000"
+            android:shadowDx="0"
+            android:shadowDy="2.0"
+            android:shadowRadius="2.0"
+            />
+
+        <TextView
+            android:id="@+id/screenLocked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="16sp"
+            android:shadowColor="#48000000"
+            android:shadowDx="0"
+            android:shadowDy="2.0"
+            android:shadowRadius="2.0"
+            />
+
+        <FrameLayout
+            android:id="@+id/unlock_sim_via_puk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:gravity="center"
+            android:background="@drawable/emergency_btn_bg"
+            android:visibility="gone"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/lockscreen_unlock_sim_via_puk"
+                android:textSize="18sp"
+                android:textColor="#ffffffff"
+                />
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>
