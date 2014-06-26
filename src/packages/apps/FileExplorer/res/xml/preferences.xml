@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/pan_settting" >
+
     <Preference
         style="@miui:style/V5.Preference.Information"
         android:key="account_name"
@@ -9,10 +9,19 @@
     <Preference
         style="@style/PreferenceInformation"
         android:key="space_info"
-        android:title="@string/space_usage"
-        android:summary="@string/net_lose_connected" />
+        android:summary="@string/net_lose_connected"
+        android:title="@string/space_usage" />
     <Preference
         style="@style/PreferenceInformation"
         android:key="create_shortcut"
         android:title="@string/create_kuaipan_shortcut_pref" />
+
+    <PreferenceCategory
+        android:key="network_group">
+        <CheckBoxPreference
+            style="@style/PreferenceInformation"
+            android:key="network_confirm"
+            android:title="@string/connect_network_setting_des" />
+    </PreferenceCategory>
+
 </PreferenceScreen>
