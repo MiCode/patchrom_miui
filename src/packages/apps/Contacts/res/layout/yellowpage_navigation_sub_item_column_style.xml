@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.contacts.yellowpage.ui.NavigationSubItemColumnStyle
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@miui:style/V5.Widget.ListView.Item.SingleLine"
+    android:layout_width="@dimen/yellowpage_navigation_item_icon_size"
+    android:layout_height="@dimen/yellowpage_navigation_sub_item_column_style_height"
+    android:minHeight="@dimen/yellowpage_navigation_sub_item_column_style_height"
+    android:background="@null"
+    android:gravity="@null"
+    android:paddingLeft="0dip"
+    android:paddingRight="0dip">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/yellowpage_navigation_sub_item_column_style_height"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/yellow_page_column_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="@dimen/yellowpage_navigation_sub_item_column_style_padding_left"
+            android:paddingRight="@dimen/yellowpage_navigation_sub_item_column_style_padding_right">
+
+            <LinearLayout
+                android:id="@+id/placeholder"
+                android:layout_width="@dimen/yellowpage_navigation_sub_item_column_style_placeholder_width"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/name"
+                    style="@style/YellowPageNavigationGridColumnItemTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:id="@+id/badge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dip" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingRight="@miui:dimen/v5_list_view_padding_horizontal"
+                android:src="@drawable/yellow_page_arrow_right" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/divider"
+        android:layout_width="1px"
+        android:layout_height="@dimen/yellowpage_navigation_sub_item_column_style_divider_height"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/yellowpage_navigation_divider" />
+
+    <ImageView
+        android:id="@+id/bottom_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/yellowpage_navigation_divider" />
+
+</com.android.contacts.yellowpage.ui.NavigationSubItemColumnStyle>

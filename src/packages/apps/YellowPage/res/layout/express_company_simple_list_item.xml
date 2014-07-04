@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@miui:style/V5.Widget.ListView.Item.DoubleLine"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal"
+    android:paddingLeft="0dip"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+
+    <RadioButton
+        android:clickable="false"
+        android:id="@+id/radio"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/express_company_icon_margin_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_marginLeft="@dimen/express_company_content_margin_left"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/name"
+            style="@miui:style/V5.TextAppearance.List.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/description"
+            style="@miui:style/V5.TextAppearance.List.Secondary"
+            android:maxLines="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</FrameLayout>

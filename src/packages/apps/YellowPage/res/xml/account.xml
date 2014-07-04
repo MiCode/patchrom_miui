@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:key="pref_category_account" >
+        <PreferenceScreen
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:key="pref_account_info"
+            android:title="@string/account_type_name" >
+            <intent android:action="android.settings.XIAOMI_ACCOUNT_SYNC_SETTINGS" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+    <PreferenceCategory android:key="pref_category_general_yellowpage" >
+        <PreferenceScreen
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:key="pref_general_yellowpage_recent"
+            android:title="@string/account_yellowpage_recent" >
+            <intent android:action="com.miui.yellowpage.action.VIEW_RECENT" />
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:key="pref_general_yellowpage_favorite"
+            android:title="@string/account_yellowpage_favorite" >
+            <intent android:action="com.miui.yellowpage.action.VIEW_FAVORITE" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+    <PreferenceCategory android:key="pref_category_order" >
+        <PreferenceScreen
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:key="pref_order_record"
+            android:title="@string/account_order" >
+            <intent android:action="com.miui.yellowpage.action.ORDER" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+    <PreferenceCategory android:key="pref_category_address" >
+        <PreferenceScreen
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:key="pref_general_address"
+            android:title="@string/account_address" >
+            <intent android:action="com.miui.yellowpage.action.MANAGE_ADDRESS" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+</PreferenceScreen>

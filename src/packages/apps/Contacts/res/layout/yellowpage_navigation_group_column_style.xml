@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.contacts.yellowpage.ui.NavigationGroupItem xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@drawable/yellowpage_navigation_divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@miui:drawable/v5_list_view_section_item_bg_light"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/YellowPageNavigationGroupSectioTextStyle" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dip"
+        android:visibility="gone" />
+
+    <com.android.contacts.yellowpage.ui.NavigationGroupGridView
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="@integer/yellowpage_navigation_column_style_column_count" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginBottom="0dip"
+        android:background="@drawable/yellowpage_navigation_divider" />
+
+</com.android.contacts.yellowpage.ui.NavigationGroupItem>

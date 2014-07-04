@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.contacts.yellowpage.ui.NavigationGroupItem xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/name_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/yellowpage_navigation_group_tile_style_name_padding_horizontal"
+        android:paddingRight="@dimen/yellowpage_navigation_group_tile_style_name_padding_horizontal" >
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/YellowPageNavigationGroupSectioTextStyle"
+            android:paddingRight="10dip" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@miui:drawable/v5_bottom_bar_top_line_light" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/yellowpage_navigation_group_placeholder_height"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/yellow_page_navigation_item_margin_bottom" />
+
+    <com.android.contacts.yellowpage.ui.NavigationGroupGridView
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="@integer/yellowpage_navigation_tile_style_column_count"
+        android:paddingLeft="@dimen/yellow_page_navigation_grid_view_padding_horizontal"
+        android:paddingRight="@dimen/yellow_page_navigation_grid_view_padding_horizontal" />
+
+</com.android.contacts.yellowpage.ui.NavigationGroupItem>

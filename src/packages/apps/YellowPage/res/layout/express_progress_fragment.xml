@@ -17,45 +17,23 @@
             android:layout_height="@miui:dimen/v5_list_view_single_line_height" >
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center_vertical"
+                style="@style/ExpressProgressBannerStyle"
                 android:layout_toLeftOf="@+id/state"
                 android:orientation="horizontal"
                 android:paddingLeft="@dimen/express_progress_serial_number_padding_left" >
 
                 <TextView
-                    style="@miui:style/V5.TextAppearance.List"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    style="@style/ExpressProgressBannerPrefixAppearance.Primary"
                     android:text="@string/express_inquiry_serial_number_prefix" />
 
                 <TextView
                     android:id="@+id/serial_number"
-                    style="@miui:style/V5.TextAppearance.List"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="middle"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:textIsSelectable="true" />
+                    style="@style/ExpressProgressBannerContentAppearance.Primary" />
             </LinearLayout>
 
             <TextView
                 android:id="@+id/state"
-                style="@miui:style/V5.TextAppearance.List"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center_vertical"
-                android:gravity="center|right"
-                android:paddingRight="@dimen/express_progress_state_padding_right"
-                android:textColor="@miui:color/v5_secondary_text_color_light"
-                android:textIsSelectable="true" />
+                style="@style/ExpressProgressStateAppearance" />
         </RelativeLayout>
 
         <ListView

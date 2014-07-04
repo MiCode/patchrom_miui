@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.yellowpage.ui.ExpressOrderListItem xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@miui:style/V5.Widget.ListView.Item.DoubleLine"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/express_progress_item_padding_left" >
+
+    <LinearLayout
+        android:id="@+id/context_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/express_progress_item_padding_vertical"
+        android:paddingRight="@dimen/express_progress_item_padding_right"
+        android:paddingTop="@dimen/express_progress_item_padding_vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@miui:style/V5.TextAppearance.List.Primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="@string/express_order_internal_id" />
+
+            <TextView
+                android:id="@+id/internal_id"
+                style="@miui:style/V5.TextAppearance.List.Primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/time"
+                style="@miui:style/V5.TextAppearance.List.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/state"
+            style="@miui:style/V5.TextAppearance.List.Secondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/express_send_express_fragment_arrow_margin"
+            android:src="@miui:drawable/v5_arrow_right" >
+        </ImageView>
+    </LinearLayout>
+
+</com.miui.yellowpage.ui.ExpressOrderListItem>

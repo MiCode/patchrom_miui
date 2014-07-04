@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:clickable="false" />
 
-    <com.miui.yellowpage.ui.ExpressAddressView
+    <com.miui.yellowpage.widget.ExpressAddressView
         android:id="@+id/address_view"
         android:layout_width="0dip"
         android:layout_height="wrap_content"
@@ -19,11 +19,20 @@
         android:layout_marginTop="@dimen/express_list_item_address_view_margin"
         android:layout_weight="1" />
 
-    <Button
-        android:id="@+id/detail_button"
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:background="@miui:drawable/v5_btn_next_light" />
+        android:layout_gravity="center_vertical" >
+
+        <Button
+            android:id="@+id/detail_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@miui:drawable/v5_btn_next_light" />
+
+        <ImageView
+            android:id="@+id/arrow"
+            style="@style/ExpressFieldIndicatorStyle" />
+    </FrameLayout>
 
 </com.miui.yellowpage.ui.ExpressAddressListItem>

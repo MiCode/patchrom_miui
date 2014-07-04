@@ -39,27 +39,25 @@
                 android:singleLine="true"
                 android:textAppearance="@miui:style/V5.TextAppearance.List.Primary" />
 
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/mobile"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical" >
 
                 <TextView
                     android:id="@+id/textview_mobile"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:singleLine="true"
-                    android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+                    android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"
+                    android:visibility="gone" />
 
                 <ImageView
                     android:id="@+id/imageview_mobile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_centerVertical="true"
                     android:layout_marginRight="4dp"
-                    android:layout_toRightOf="@id/textview_mobile"
                     android:background="@drawable/traffic_mobile"
                     android:visibility="gone" />
 
@@ -67,9 +65,6 @@
                     android:id="@+id/textview_mobile_traffic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/imageview_mobile"
                     android:singleLine="true"
                     android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
 
@@ -77,33 +72,31 @@
                     android:id="@+id/imageview_mobile_netoff"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:layout_marginLeft="4dp"
-                    android:layout_toRightOf="@id/textview_mobile_traffic"
                     android:background="@drawable/net_off"
                     android:visibility="gone" />
-            </RelativeLayout>
+            </LinearLayout>
 
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/wifi"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:visibility="gone" >
 
                 <TextView
                     android:id="@+id/textview_wifi"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:singleLine="true"
-                    android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+                    android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"
+                    android:visibility="gone" />
 
                 <ImageView
                     android:id="@+id/imageview_wifi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:layout_marginRight="4dp"
-                    android:layout_toRightOf="@id/textview_wifi"
                     android:background="@drawable/traffic_wifi"
                     android:visibility="gone" />
 
@@ -111,8 +104,6 @@
                     android:id="@+id/textview_wifi_traffic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/imageview_wifi"
                     android:singleLine="true"
                     android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
 
@@ -120,12 +111,49 @@
                     android:id="@+id/imageview_wifi_netoff"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:layout_marginLeft="4dp"
-                    android:layout_toRightOf="@id/textview_wifi_traffic"
                     android:background="@drawable/net_off"
                     android:visibility="gone" />
-            </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mobile_saving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/textview_mobile_saving"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imageview_mobile_saving"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:background="@drawable/traffic_mobile_saving"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textview_mobile_traffic_saving"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textAppearance="@miui:style/V5.TextAppearance.List.Secondary" />
+
+                <ImageView
+                    android:id="@+id/imageview_mobile_netoff_saving"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:background="@drawable/net_off"
+                    android:visibility="gone" />
+            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
 

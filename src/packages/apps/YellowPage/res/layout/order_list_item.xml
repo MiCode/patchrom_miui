@@ -16,7 +16,7 @@
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/order_title"
+                android:id="@+id/provider_name"
                 style="@miui:style/V5.TextAppearance.List.Primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -37,13 +37,13 @@
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/order_short_info"
+                android:id="@+id/order_title"
                 style="@miui:style/V5.TextAppearance.List.Secondary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_toLeftOf="@+id/order_status"
-                android:paddingRight="7dip" />
+                android:singleLine="true" />
 
             <TextView
                 android:id="@+id/order_status"
@@ -54,27 +54,12 @@
                 android:textColor="@color/highlight_text_color" />
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/order_id"
-                style="@miui:style/V5.TextAppearance.List.Secondary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_toLeftOf="@+id/order_price"
-                android:paddingRight="7dip"
-                android:singleLine="true" />
-
-            <TextView
-                android:id="@+id/order_price"
-                style="@miui:style/V5.TextAppearance.List.Secondary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true" />
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/order_short_info"
+            style="@miui:style/V5.TextAppearance.List.Secondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true" />
     </LinearLayout>
 
     <ImageView
