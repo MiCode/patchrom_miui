@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<com.xiaomi.payment.ui.PaymentView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/payment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+
     <ImageView
         android:id="@+id/watermark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|right"
-        android:src="@drawable/watermark"/>
+        android:src="@drawable/watermark" />
+
     <LinearLayout
         android:id="@+id/normal_mode"
         android:layout_width="match_parent"
@@ -30,7 +31,9 @@
             android:layout_marginTop="7dip"
             android:gravity="center_vertical"
             android:shrinkColumns="1" >
+
             <TableRow>
+
                 <TextView
                     android:id="@+id/label_order_name"
                     android:gravity="right|center_vertical"
@@ -38,6 +41,7 @@
                     android:textColor="@color/text_color_gray"
                     android:textSize="@dimen/text_size_small"
                     android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/text_order_name"
                     android:gravity="left|center_vertical"
@@ -45,7 +49,9 @@
                     android:textSize="@dimen/text_size_medium"
                     android:textStyle="bold" />
             </TableRow>
+
             <TableRow>
+
                 <TextView
                     android:id="@+id/label_order_price"
                     android:gravity="right|center_vertical"
@@ -53,6 +59,7 @@
                     android:textColor="@color/text_color_gray"
                     android:textSize="@dimen/text_size_small"
                     android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/text_order_price"
                     android:gravity="left|center_vertical"
@@ -60,7 +67,9 @@
                     android:textSize="@dimen/text_size_medium"
                     android:textStyle="bold" />
             </TableRow>
+
             <TableRow>
+
                 <TextView
                     android:id="@+id/label_balance"
                     android:gravity="right|center_vertical"
@@ -68,13 +77,13 @@
                     android:textColor="@color/text_color_gray"
                     android:textSize="@dimen/text_size_small"
                     android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/text_balance"
                     android:gravity="left|center_vertical"
                     android:textColor="@color/text_color_dark_gray"
                     android:textSize="@dimen/text_size_medium"
                     android:textStyle="bold" />
-
             </TableRow>
 
             <TableRow
@@ -143,6 +152,7 @@
             android:layout_marginRight="15dip"
             android:gravity="center"
             android:orientation="vertical" >
+
             <TextView
                 android:id="@+id/error_info"
                 android:layout_width="wrap_content"
@@ -153,27 +163,6 @@
                 android:textSize="@dimen/text_size_large" />
 
             <LinearLayout
-                android:id="@+id/progress_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="7dip"
-                android:layout_marginTop="7dip"
-                android:gravity="center" >
-                <ProgressBar
-                    android:id="@+id/progress"
-                    android:layout_width="32dip"
-                    android:layout_height="32dip"
-                    android:layout_marginRight="5dip" />
-                <TextView
-                    android:id="@+id/progress_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/progress_loading"
-                    android:textColor="@color/text_color_black"
-                    android:textSize="@dimen/text_size_large" />
-            </LinearLayout>
-
-            <LinearLayout
                 android:id="@+id/password_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -182,6 +171,7 @@
                 android:background="?miui:attr/v5_edit_text_bg"
                 android:gravity="center"
                 android:orientation="horizontal" >
+
                 <EditText
                     android:id="@+id/password_edit"
                     android:layout_width="0dip"
@@ -210,20 +200,13 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="7dip"
             android:orientation="vertical" >
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/divider"
                 android:layout_marginBottom="15dip"
                 android:background="@drawable/divider_bg" />
-            <Button
-                android:id="@+id/button_retry"
-                style="@style/ButtonNormal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dip"
-                android:layout_marginLeft="15dip"
-                android:layout_marginRight="15dip"
-                android:text="@string/button_retry" />
+
             <Button
                 android:id="@+id/button_call"
                 style="@style/ButtonNormal"
@@ -232,8 +215,10 @@
                 android:layout_marginBottom="5dip"
                 android:layout_marginLeft="15dip"
                 android:layout_marginRight="15dip"
-                android:text="@string/button_call" />
-            <Button
+                android:text="@string/button_call"
+                android:visibility="gone" />
+
+            <com.xiaomi.payment.component.ProgressButton
                 android:id="@+id/button_pay"
                 style="@style/ButtonNotice"
                 android:layout_width="match_parent"
@@ -242,6 +227,7 @@
                 android:layout_marginLeft="15dip"
                 android:layout_marginRight="15dip"
                 android:text="@string/button_pay" />
+
             <Button
                 android:id="@+id/button_recharge"
                 style="@style/ButtonNotice"
@@ -251,9 +237,11 @@
                 android:layout_marginLeft="15dip"
                 android:layout_marginRight="15dip"
                 android:text="@string/button_recharge" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dip" />
+
             <Button
                 android:id="@+id/button_cancel"
                 style="@style/ButtonNormal"
@@ -264,18 +252,18 @@
                 android:text="@string/button_cancel" />
         </LinearLayout>
     </LinearLayout>
-
     <!-- sms code -->
+
     <LinearLayout
         android:id="@+id/sms_code_mode"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
+        android:layout_marginBottom="8dip"
         android:layout_marginLeft="15dip"
         android:layout_marginRight="10dip"
-        android:layout_marginBottom="8dip"
-        android:layout_marginTop="15dip" >
+        android:layout_marginTop="15dip"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
 
         <TextView
             style="?android:attr/textAppearanceLarge"
@@ -289,15 +277,15 @@
             style="?android:attr/textAppearanceMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/summary_sms_code"
-            android:layout_marginTop="10dip" />
+            android:layout_marginTop="10dip"
+            android:text="@string/summary_sms_code" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginBottom="7dip"
-            android:layout_marginTop="7dip" >
+            android:layout_marginTop="7dip"
+            android:orientation="horizontal" >
 
             <EditText
                 android:id="@+id/edit_sms_code"
@@ -305,12 +293,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="?miui:attr/v5_edit_text_bg"
-                android:hint="@string/sms_code_hint"
                 android:digits="0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:hint="@string/sms_code_hint"
                 android:textSize="@dimen/text_size_small" />
 
-            <Button
+            <com.xiaomi.payment.component.ProgressButton
                 android:id="@+id/button_reget_sms_code"
+                style="@miui:style/V5.Widget.Button"
                 android:layout_width="120dip"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dip"
@@ -326,30 +315,7 @@
             android:textColor="@color/text_color_red"
             android:textSize="@dimen/text_size_large" />
 
-        <LinearLayout
-            android:id="@+id/sms_code_progress_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="7dip"
-            android:layout_marginTop="7dip"
-            android:gravity="center" >
-
-            <ProgressBar
-                android:id="@+id/sms_code_progress"
-                android:layout_width="32dip"
-                android:layout_height="32dip"
-                android:layout_marginRight="5dip" />
-
-            <TextView
-                android:id="@+id/sms_code_progress_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/progress_loading"
-                android:textColor="@color/text_color_black"
-                android:textSize="@dimen/text_size_large" />
-        </LinearLayout>
-
-        <Button
+        <com.xiaomi.payment.component.ProgressButton
             android:id="@+id/button_sms_code"
             style="@style/ButtonNotice"
             android:layout_width="match_parent"
@@ -361,15 +327,16 @@
     </LinearLayout>
 
     <!-- bind phone -->
+
     <LinearLayout
         android:id="@+id/bind_phone_mode"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:orientation="vertical"
+        android:paddingBottom="8dip"
         android:paddingLeft="15dip"
         android:paddingRight="15dip"
-        android:paddingBottom="8dip"
         android:paddingTop="8dip" >
 
         <TextView
@@ -377,7 +344,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="@string/title_bind_phone"/>
+            android:text="@string/title_bind_phone" />
 
         <TextView
             style="?android:attr/textAppearanceMedium"
@@ -391,10 +358,11 @@
             style="@style/ButtonNotice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dip"
             android:layout_marginBottom="10dip"
             android:layout_marginLeft="15dip"
             android:layout_marginRight="15dip"
+            android:layout_marginTop="10dip"
             android:text="@string/button_bind_phone" />
     </LinearLayout>
-</com.xiaomi.payment.ui.PaymentView>
+
+</FrameLayout>

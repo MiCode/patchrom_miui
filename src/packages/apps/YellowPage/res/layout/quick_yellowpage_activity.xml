@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.yellowpage.widget.FloatingChildLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/floating_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:descendantFocusability="afterDescendants">
+
+    <LinearLayout
+        android:id="@android:id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/quickcontact_window_bg"
+        android:orientation="vertical">
+
+        <include layout="@layout/quickcontact_header" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include layout="@layout/quickcontact_tab_placeholder"/>
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="260dip"/>
+            </LinearLayout>
+
+            <include layout="@layout/quickcontact_track"/>
+        </FrameLayout>
+    </LinearLayout>
+</com.miui.yellowpage.widget.FloatingChildLayout>

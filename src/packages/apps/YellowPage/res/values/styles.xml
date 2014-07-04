@@ -95,6 +95,24 @@
         <item name="android:textColor">@miui:color/v5_button_text_dark</item>
     </style>
 
+    <style name="Widget.TextView.Label">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">16dip</item>
+        <item name="android:paddingRight">16dip</item>
+        <item name="android:paddingTop">8dip</item>
+        <item name="android:paddingBottom">8dip</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+
+    <style name="Widget.Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">10dip</item>
+        <item name="android:layout_marginTop">10dip</item>
+        <item name="android:background">@miui:drawable/v5_bottom_bar_top_line_light</item>
+    </style>
+
     <style name="ExpressInquiryIndicationTextStyle" parent="@miui:style/V5.TextAppearance.PreferenceCategory">
         <item name="android:textSize">@miui:dimen/v5_text_font_size_medium</item>
         <item name="android:textStyle">bold</item>
@@ -146,7 +164,7 @@
         <item name="android:paddingLeft">@miui:dimen/v5_list_view_padding_horizontal</item>
         <item name="android:paddingRight">@miui:dimen/v5_list_view_padding_horizontal</item>
         <item name="android:layout_height">@miui:dimen/v5_list_view_double_line_height</item>
-        <item name="android:minHeight">@miui:dimen/v5_list_view_double_line_height</item>
+]        <item name="android:minHeight">@miui:dimen/v5_list_view_double_line_height</item>
     </style>
 
     <style name="SearchResultListItemStyle" parent="@miui:style/V5.Widget.ListView.Item.DoubleLine">
@@ -166,7 +184,6 @@
         <item name="android:gravity">left|top</item>
         <item name="android:hint">@string/express_detailed_address</item>
         <item name="android:inputType">text|textMultiLine</item>
-        <item name="android:maxHeight">@dimen/express_detailed_address_edit_text_height</item>
         <item name="android:minHeight">@dimen/express_detailed_address_edit_text_height</item>
         <item name="android:minLines">@integer/express_detailed_address_lines</item>
         <item name="android:paddingBottom">@dimen/express_detailed_address_edit_text_padding</item>
@@ -174,12 +191,139 @@
         <item name="android:paddingTop">@dimen/express_detailed_address_edit_text_padding</item>
     </style>
 
-    <style name="SendExpressAddressViewContainerStyle">
+    <style name="ExpressPositiveWarn" parent="@miui:style/V5.Widget.Button.PositiveWarn">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginBottom">@dimen/express_button_margin_horizontal</item>
+        <item name="android:layout_marginLeft">@dimen/express_button_margin_horizontal</item>
+        <item name="android:layout_marginRight">@dimen/express_button_margin_horizontal</item>
+        <item name="android:layout_marginTop">10dip</item>
+    </style>
+
+    <style name="SendExpressLabelTextViewStyle" parent="@miui:style/V5.TextAppearance.PreferenceCategory">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginBottom">@dimen/express_send_express_fragment_view_margin_bottom</item>
-        <item name="android:layout_marginTop">@dimen/express_send_express_fragment_view_margin_top</item>
-        <item name="android:background">@miui:drawable/v5_preference_item_bg</item>
-        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginLeft">@dimen/express_label_margin</item>
+        <item name="android:layout_marginTop">@dimen/express_label_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/express_label_margin_bottom</item>
+    </style>
+
+    <style name="ExpressFieldIndicatorStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginRight">@dimen/express_send_express_fragment_arrow_margin</item>
+        <item name="android:src">@miui:drawable/v5_arrow_right</item>
+    </style>
+
+    <style name="ExpressFieldStyle" parent="@miui:style/V5.TextAppearance.Medium">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/express_button_margin_horizontal</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="ExpressAddressViewContainerStyle">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/express_button_margin_horizontal</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="ExpressProgressBannerPrefixAppearance.Primary" parent="@miui:style/V5.TextAppearance.List">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:text">@string/express_inquiry_serial_number_prefix</item>
+    </style>
+
+    <style name="ExpressProgressBannerPrefixAppearance.Secondary" parent="@miui:style/V5.TextAppearance.List.Secondary">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:text">@string/express_inquiry_serial_number_prefix</item>
+    </style>
+
+    <style name="ExpressProgressBannerContentAppearance.Primary" parent="@miui:style/V5.TextAppearance.List">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">middle</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textIsSelectable">true</item>
+    </style>
+
+    <style name="ExpressProgressBannerContentAppearance.Secondary" parent="@miui:style/V5.TextAppearance.List.Secondary">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">middle</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textIsSelectable">true</item>
+    </style>
+
+    <style name="ExpressProgressBannerStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="ExpressProgressStateAppearance" parent="@miui:style/V5.TextAppearance.List">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:gravity">center|right</item>
+        <item name="android:paddingRight">@dimen/express_progress_state_padding_right</item>
+        <item name="android:textColor">@miui:color/v5_secondary_text_color_light</item>
+        <item name="android:textIsSelectable">true</item>
+    </style>
+
+    <style name="ExpressOrderDetailLabelAppearance" parent="@miui:style/V5.TextAppearance.PreferenceCategory">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="ExpressOrderDetailPlaceholderAppearance" parent="@miui:style/V5.TextAppearance.Medium">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:hint">@string/express_field_empty</item>
+    </style>
+
+    <style name="QuickYellowPageTheme" parent="@miui:style/V5.Theme.Light">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@style/QuickYellowPageAnimations</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/QuickYellowPageAnimations</item>
+    </style>
+
+    <style name="QuickYellowPageAnimations">
+        <item name="android:taskToBackEnterAnimation">@anim/qcb_enter</item>
+        <item name="android:taskToBackExitAnimation">@anim/qcb_exit</item>
+    </style>
+
+    <style name="QcbTabText" parent="@miui:style/V5.TextAppearance.TabIndicator">
+        <item name="android:textSize">@dimen/qcb_tab_text_size</item>
+        <item name="android:textColor">@color/qcb_tab_text_color</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="QcbNameText" parent="@miui:style/V5.TextAppearance.Title">
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textSize">@dimen/qcb_name_text_size</item>
+        <item name="android:textColor">@color/qcb_name_text_color</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowRadius">0</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
     </style>
 </resources>

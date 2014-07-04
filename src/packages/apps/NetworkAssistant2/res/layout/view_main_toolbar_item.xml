@@ -1,35 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/selector_toolbar_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingBottom="20dp"
+    android:paddingTop="20dp" >
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_margin="10dp"
-        android:background="@drawable/selector_toolbar_bg"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:padding="15dp" >
+        android:duplicateParentState="true" />
 
-        <ImageView
-            android:id="@+id/icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:duplicateParentState="true" />
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="2.5dp"
+        android:ellipsize="marquee"
+        android:gravity="center"
+        android:minWidth="60dp"
+        android:singleLine="true"
+        android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/icon"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="2.5dp"
-            android:ellipsize="marquee"
-            android:singleLine="true"
-            android:textSize="14sp" />
-    </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>

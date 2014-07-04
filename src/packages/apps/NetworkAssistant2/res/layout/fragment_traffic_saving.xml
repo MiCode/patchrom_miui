@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/button_start_saving"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:text="@string/traffic_saving_button_start"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textview_tecsupport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/button_start_saving"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-10dp"
+        android:text="@string/traffic_saving_tecsupport"
+        android:textColor="@android:color/darker_gray" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/textview_tecsupport"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="60dp" >
+
+        <com.miui.networkassistant.ui.view.FloatNumberView
+            android:id="@+id/number_today_saving"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:id="@+id/textview_today_saving"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/number_today_saving"
+            android:layout_alignLeft="@id/number_today_saving"
+            android:layout_marginBottom="17dp"
+            android:layout_marginLeft="-50dp"
+            android:text="@string/traffic_saving_msg_today"
+            android:textColor="#80000000"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/textview_today_saving_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/number_today_saving"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="-5dp"
+            android:layout_toRightOf="@id/number_today_saving"
+            android:textColor="@color/traffic_saving_primary"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/textview_month_saving"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/number_today_saving"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="17dp"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/traffic_saving_primary"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/button_saving_sorted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_month_saving"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/selector_traffic_saving_sorted_button"
+            android:text="@string/traffic_saving_button_sorted" />
+    </RelativeLayout>
+
+</RelativeLayout>

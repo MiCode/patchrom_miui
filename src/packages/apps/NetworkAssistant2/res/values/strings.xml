@@ -13,6 +13,7 @@
     <string name="main_button_idel_traffic">Off-peak</string>
     <string name="main_toolbar_firewall">Restrict</string>
     <string name="main_toolbar_statistic">Stats</string>
+    <string name="main_toolbar_saving">Saver</string>
     <string name="main_toolbar_purchase">Top-up</string>
     <string name="main_button_usage_adjust">Set data usage</string>
     <string name="main_button_usage_adjusting">Changing\u2026</string>
@@ -53,7 +54,7 @@
     <string name="app_wifi">Wi-Fi</string>
     <string name="spinner_title">%1$s - Mobile data: %2$s</string>
     <string name="traffic_none">None</string>
-    <string name="sorted_dialog_title">Sort by</string>
+    <string name="sorted_dialog_title">List order</string>
     <string name="cancel_button">Cancel</string>
     <string name="ok_button">OK</string>
     <string name="permit_running_network">Allow background data</string>
@@ -219,15 +220,16 @@
     <string name="traffic_correction_failed">"Can't get data usage info"</string>
 
     <!-- traffic package configuration alert -->
-    <string name="traffic_config_alert_title">%s difference</string>
+
+    <string name="traffic_config_alert_title">%s correction</string>
     <string name="traffic_config_alert_ok">OK</string>
     <string name="traffic_config_alert_cancel">Cancel</string>
-    <string name="traffic_config_alert_nomore">"Don't ask again"</string>
-    <string name="traffic_config_alert_body">"Your carrier's data usage accounting shows you have %s remaining.\nDo you want to update your local data usage limit?</string>
-    <string name="traffic_config_alert_body_normal">\n"Your carrier's data usage accounting shows you have %1$s of peak usage remaining. This is different from the %2$s limit you've set locally."</string>
-    <string name="traffic_config_alert_body_leisure">\n"Your carrier's data usage accounting shows you have %1$s of off-peak usage remaining. This is different from the %2$s limit you've set locally."</string>
-    <string name="traffic_config_alert_body_leisure_notset">\n"Your carrier's data usage accounting shows you have %1$s of off-peak usage remaining. You haven't set a limit."</string>
-    <string name="traffic_config_alert_setted">Data limit set</string>
+    <string name="traffic_config_alert_nomore">"Don't show again"</string>
+    <string name="traffic_config_alert_body">Your carrier\'s accounting show you have used %s\nUpdate your data usage info?</string>
+    <string name="traffic_config_alert_body_normal">"\nYour carrier's accounting shows you've used %1$s of your peak-time data this month, this is different from the %2$s you've set manually."</string>
+    <string name="traffic_config_alert_body_leisure">"Your carrier's accounting shows you've used %1$s of your off-peak data this month, this is different from the %2$s you've set manually."</string>
+    <string name="traffic_config_alert_body_leisure_notset">\n"Your carrer's accounting shows you have %s of off-peak data remaining. You haven't set a limit for off-peak data."</string>
+    <string name="traffic_config_alert_setted">Settings applied</string>
 
     <!-- operator -->
     <string name="operator_name_cmcc">China Mobile</string>
@@ -242,27 +244,54 @@
     <string name="dual_setting_simcard2">SIM 2</string>
 
     <!-- data usage purchase -->
-    <string name="datausage_purchase_title_pkglist">Buy data</string>
+
+    <string name="datausage_purchase_title_pkglist">Purchase data</string>
     <string name="datausage_purchase_title_confirm">Purchase details</string>
-    <string name="datausage_purchase_title_order">Buy data</string>
-    <string name="datausage_purchase_banner_title">"You're %s over your limit"</string>
+    <string name="datausage_purchase_title_order">Purchase additional data</string>
+    <string name="datausage_purchase_banner_title">%s top-up offer (Xiaomi exclusive)</string>
     <string name="datausage_purchase_view_detail">View details</string>
     <string name="datausage_purchase_buy">Buy</string>
-    <string name="datausage_purchase_pay_confirm">Pay</string>
-    <string name="datausage_purchase_pay_hint">To cancel call %s</string>
-    <string name="datausage_purchase_pay_captcha_hint">Enter verification code</string>
-    <string name="datausage_purchase_pay_captcha_tips">"After you've entered your verification code tap Pay. You'll receive a confirmation within 10 minutes."</string>
+    <string name="datausage_purchase_pay_confirm">Buy</string>
+    <string name="datausage_purchase_pay_hint">To cancel, dial %s</string>
+    <string name="datausage_purchase_pay_captcha_hint">Enter the code you receive here</string>
+    <string name="datausage_purchase_pay_captcha_tips">After you receive your verification code, enter it in the box above and tap \"Buy\" to complete your purchase. Note that the code will is only valid for 10 minutes.</string>
     <string name="datausage_purchase_get_captcha">Get verification code(%d)</string>
-    <string name="datausage_purchase_get_captcha_again">Send again</string>
-    <string name="datausage_purchase_get_captcha_failed">"Can't get verification code. Check your data connection and try again."</string>
-    <string name="datausage_purchase_confirm_tip">Order:</string>
+    <string name="datausage_purchase_get_captcha_again">Send a new code</string>
+    <string name="datausage_purchase_get_captcha_failed">"Couldn't get verification code. Check your data connection and try again.</string>
+    <string name="datausage_purchase_confirm_tip">Your order:</string>
     <string name="datausage_purchase_ordering">Purchasing\u2026</string>
-    <string name="datausage_purchase_result_ok">"You purchased "%s\nSee the message sent by your service provider for more info.</string>
-    <string name="datausage_purchase_result_failed">"Can't complete purchase"</string>
+    <string name="datausage_purchase_result_ok">You bought %s\nFor more info check the message you received from your service provider</string>
+    <string name="datausage_purchase_result_failed">"Couldn't buy data. Check with your service provider for more info about the issue. "</string>
     <string name="datausage_purchase_backto_ns">Back</string>
-    <string name="datausage_purchase_goto_monthsetting">Readjust data limit</string>
-    <string name="datausage_purchase_pkglist_nodata">"There's a conflict with your existing data plan and your current order. Contact your service provider for more information."</string>
-    <string name="datausage_purchase_pkglist_networkerror">"Can't connect to the network. Check your data connection and try again."</string>
-    <string name="datausage_purchase_pkglist_servererror">Server error</string>
+    <string name="datausage_purchase_goto_monthsetting">Edit package info</string>
+    <string name="datausage_purchase_pkglist_nodata">There\'s conflict between your current data package and the data package you\'re attempting to purchase.\n Check with your service provider for more info.</string>
+    <string name="datausage_purchase_pkglist_networkerror">"Couldn\'t connect to the network. Check your data connection and try again.</string>
+    <string name="datausage_purchase_pkglist_servererror">Yikes! Something went wrong with our server.</string>
+
+    <!-- traffic saving -->
+    <string name="traffic_saving_tecsupport">Powered by Opera Max</string>
+    <string name="traffic_saving_notify_start_title">Reduce your data usage</string>
+    <string name="traffic_saving_notify_start_content">%s saved this month</string>
+    <string name="traffic_saving_toast_start_mobile">Data Saver is on</string>
+    <string name="traffic_saving_toast_start_none_mobile">Data Saver will start whenever you begin consuming mobile data</string>
+    <string name="traffic_saving_toast_start_unreachable">"Can't start Data Saver"</string>
+    <string name="traffic_saving_toast_stop">Data Saver is off</string>
+    <string name="traffic_saving_title">Data Saver</string>
+    <string name="traffic_saving_button_start">Enable</string>
+    <string name="traffic_saving_button_stop">Disable</string>
+    <string name="traffic_saving_button_sorted">Details</string>
+    <string name="traffic_saving_msg_today">Data saved today:</string>
+    <string name="traffic_saving_msg_month">Month total %1$s (RMB %2$s)</string>
+    <string name="traffic_saving_history_title">History</string>
+    <string name="traffic_saving_history_total_traffic">Data saved</string>
+    <string name="traffic_saving_history_total_money">Cash saved</string>
+    <string name="traffic_saving_history_total_money_unit"></string>
+    <string name="pref_traffic_saving_title">Data saver settings</string>
+    <string name="pref_traffic_saving_switch">Data Saver</string>
+    <string name="pref_traffic_saving_switch_hint">Use proxy to compress data</string>
+    <string name="pref_traffic_saving_notify_switch">Show in notification shade</string>
+    <string name="pref_traffic_saving_notify_switch_hint">Show Data Saver info in the notification shade</string>
+    <string name="pref_traffic_saving_issue">FAQ</string>
+    <string name="pref_traffic_saving_issue_content"><![CDATA[<b> 1. Will enabling Data Saver affect my privacy? </b><br /><br />No. Your data will remain private and will not be shared with third parties. <br /><br /><br /><b> Why isn\'t Data Saver working? </b><br /><br /> Data Saver only kicks in when you\'re using your carrier\'s network to send or download content. ]]></string>
 
 </resources>

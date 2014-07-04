@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <com.miui.yellowpage.widget.ContactDetailPhotoView
         android:id="@+id/photo"
@@ -18,28 +19,10 @@
         android:background="@drawable/yellow_page_with_photo_mask"
         android:visibility="gone" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
 
-        <include
-            android:id="@+id/title_bar"
-            layout="@layout/yellow_page_title_bar" />
+    <include
+        android:id="@+id/title_bar"
+        layout="@layout/yellow_page_title_bar" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-
-            <ImageView
-                android:id="@+id/tab_mask"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/yellow_page_action_bar_tab_mask"
-                android:visibility="invisible" >
-            </ImageView>
-        </LinearLayout>
-    </LinearLayout>
 
 </FrameLayout>

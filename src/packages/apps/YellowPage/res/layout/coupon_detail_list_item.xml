@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.yellowpage.ui.CouponListItem
+    android:background="@drawable/list_item_bg"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:paddingTop="@dimen/extended_data_list_item_margin_vertical"
+        android:paddingBottom="@dimen/extended_data_list_item_margin_vertical">
+
+        <FrameLayout
+            android:id="@+id/icon_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="@dimen/coupon_image_width"
+                android:layout_height="@dimen/coupon_image_height"
+                android:layout_alignParentLeft="true"
+                android:background="@null"
+                android:layout_marginRight="10dip" />
+
+            <ImageView
+                android:id="@+id/item_res"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dip"
+                android:layout_marginTop="3dip"
+                android:src="@drawable/item_reservation"
+                android:visibility="gone" />
+        </FrameLayout>
+
+
+        <LinearLayout
+            android:layout_toRightOf="@+id/icon_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                style="@miui:style/V5.TextAppearance.List.Primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lines="1" />
+
+
+            <TextView
+                android:id="@+id/description"
+                style="@miui:style/V5.TextAppearance.List.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:lines="1"
+                android:ellipsize="end" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_alignBottom="@+id/icon_frame"
+            android:layout_toRightOf="@+id/icon_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:baselineAligned="false"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/currentprice"
+                android:textColor="@color/yellow_page_highlight_text_color"
+                android:textSize="@dimen/coupon_current_price_text_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom" />
+
+            <TextView
+                android:id="@+id/pricemoney"
+                android:text="@string/currency_character"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2.5dip"
+                android:gravity="bottom"
+                style="@miui:style/V5.TextAppearance.List.Secondary" />
+
+            <TextView
+                android:id="@+id/listprice"
+                style="@miui:style/V5.TextAppearance.List.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:gravity="bottom" />
+
+            <TextView
+                android:visibility="gone"
+                android:layout_marginLeft="5dip"
+                android:id="@+id/purchasecount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                style="@miui:style/V5.TextAppearance.List.Secondary" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</com.miui.yellowpage.ui.CouponListItem>

@@ -1,74 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/express_container"
+        android:id="@+id/root"
+        android:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/express_send_express_fragment_view_margin_bottom" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/sender_label"
-        style="@miui:style/V5.TextAppearance.PreferenceCategory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/express_label_margin"
-        android:text="@string/express_sender" />
+        <LinearLayout
+            style="@miui:style/V5.Widget.ListView.Item.SingleLine"
+            android:background="@miui:drawable/v5_list_view_single_item_bg_normal_light"
+            android:paddingLeft="0dip"
+            android:paddingRight="0dip"
+            android:descendantFocusability="blocksDescendants"
+            android:id="@+id/express_company_container"
+            android:orientation="horizontal"
+            android:layout_width="match_parent">
 
-    <LinearLayout
-        android:id="@+id/sender_container"
-        style="@style/SendExpressAddressViewContainerStyle" >
+            <FrameLayout
+                android:id="@+id/express_company"
+                android:layout_height="wrap_content"
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
-        <com.miui.yellowpage.ui.ExpressAddressView
-            android:id="@+id/sender"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/express_button_margin_horizontal"
-            android:layout_weight="1" />
+                <ImageView
+                    android:id="@+id/express_company_icon"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/express_company_icon_margin_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginRight="@dimen/express_send_express_fragment_arrow_margin"
-            android:src="@miui:drawable/v5_arrow_right" />
+                <LinearLayout
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="@dimen/express_company_content_margin_left"
+                    android:layout_marginRight="@dimen/express_company_content_margin_right"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@miui:style/V5.TextAppearance.List.Primary"
+                        android:textColor="@miui:color/v5_list_text_color_light"
+                        android:id="@+id/express_company_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        style="@miui:style/V5.TextAppearance.List.Secondary"
+                        android:textColor="@miui:color/v5_list_secondary_text_color_light"
+                        android:id="@+id/express_company_description"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginRight="10dip"
+                    android:id="@+id/arrow"
+                    android:src="@miui:drawable/arrow_down"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </FrameLayout>
+
+            <ImageView
+                android:background="@drawable/vertical_line"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:src="@drawable/express_detail"
+                android:scaleType="center"
+                android:id="@+id/express_company_list"
+                android:layout_width="@miui:dimen/v5_list_view_single_line_height"
+                android:layout_height="@miui:dimen/v5_list_view_single_line_height" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shadow_divider" />
+
+            <LinearLayout
+                android:layout_marginLeft="@dimen/express_send_express_fragment_view_margin"
+                android:layout_marginRight="@dimen/express_send_express_fragment_view_margin"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- contact -->
+                <TextView
+                    style="@style/SendExpressLabelTextViewStyle"
+                    android:text="@string/express_contact_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="0dip">
+
+
+                    <LinearLayout
+                        android:descendantFocusability="beforeDescendants"
+                        android:focusableInTouchMode="true"
+                        android:id="@+id/address_container"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.miui.yellowpage.ui.VerticallyClippedButton
+                            android:id="@+id/src_city"
+                            android:gravity="left|center_vertical"
+                            android:text="@string/express_select_city"
+                            android:paddingLeft="@dimen/express_button_margin_horizontal"
+                            android:paddingRight="@dimen/express_button_margin_horizontal"
+                            android:background="@miui:drawable/v5_group_first_item_bg_light"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent" />
+
+                        <ClearableEditText
+                            android:id="@+id/address"
+                            style="@miui:style/V5.Widget.EditText"
+                            android:paddingLeft="@dimen/express_button_margin_horizontal"
+                            android:paddingRight="@dimen/express_button_margin_horizontal"
+                            android:background="@miui:drawable/v5_group_last_item_bg_light"
+                            android:drawableRight="@miui:drawable/v5_edit_text_search_clear_btn_light"
+                            android:hint="@string/express_contact_address"
+                            android:inputType="text"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent" />
+
+                        <!-- dest city -->
+                        <TextView
+                            android:text="@string/express_dest_city_label"
+                            style="@style/SendExpressLabelTextViewStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:text="@string/express_select_city"
+                            android:id="@+id/dest_city"
+                            android:gravity="center_vertical"
+                            style="@miui:style/V5.TextAppearance.List.Primary"
+                            android:textStyle="normal"
+                            android:background="@drawable/express_select_button_bg"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent" />
+                    </LinearLayout>
+
+                    <ClearableEditText
+                        android:id="@+id/phone"
+                        style="@miui:style/V5.Widget.EditText"
+                        android:paddingLeft="@dimen/express_button_margin_horizontal"
+                        android:paddingRight="@dimen/express_button_margin_horizontal"
+                        android:background="@miui:drawable/v5_group_first_item_bg_light"
+                        android:drawableRight="@miui:drawable/v5_edit_text_search_clear_btn_light"
+                        android:hint="@string/express_contact_phone"
+                        android:inputType="phone"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/create_order"
+                android:enabled="false"
+                android:layout_gravity="bottom"
+                style="@style/ExpressPositiveWarn"
+                android:text="@string/express_preview_order" />
+        </FrameLayout>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/addressee_label"
-        style="@miui:style/V5.TextAppearance.PreferenceCategory"
+    <com.miui.yellowpage.widget.LoadingProgressView
+        android:id="@+id/loading_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/express_label_margin"
-        android:text="@string/express_addressee" />
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:visibility="gone" />
 
-    <LinearLayout
-        android:id="@+id/addressee_container"
-        style="@style/SendExpressAddressViewContainerStyle" >
-
-        <com.miui.yellowpage.ui.ExpressAddressView
-            android:id="@+id/addressee"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/express_button_margin_horizontal"
-            android:layout_weight="1" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginRight="@dimen/express_send_express_fragment_arrow_margin"
-            android:src="@miui:drawable/v5_arrow_right" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/create_order"
-        style="@miui:style/V5.Widget.Button.PositiveWarn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/express_button_margin_horizontal"
-        android:layout_marginRight="@dimen/express_button_margin_horizontal"
-        android:text="@string/express_create_order" />
-
-</LinearLayout>
+</FrameLayout>
