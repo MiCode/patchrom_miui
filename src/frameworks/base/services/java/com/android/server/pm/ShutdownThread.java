@@ -33,6 +33,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ActivityInfo;
+import android.graphics.drawable.AnimatedRotateDrawable;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Handler;
 import android.os.PowerManager;
@@ -88,25 +90,20 @@ public final class ShutdownThread extends Thread {
         }
 
         static void createShutDownDialog(Context context){
-            Dialog bootMsgDialog = new Dialog(context, android.R.style.Theme_Holo_Light_NoActionBar_Fullscreen);
+            Dialog bootMsgDialog = new Dialog(context, android.R.style.Theme_Holo_NoActionBar_Fullscreen);
             LayoutInflater layoutInflater = LayoutInflater.from(bootMsgDialog.getContext());
             View view = layoutInflater.inflate(miui.R.layout.boot_msg, null);
-            TextView msgText = (TextView)view.findViewById(miui.R.id.boot_msg_title);
-            ImageView animationView = (ImageView)view.findViewById(miui.R.id.boot_msg_animation);
-            if (getReboot()) {
-                msgText.setText(miui.R.string.reboot_progress);
-            }
-            else {
-                msgText.setText(miui.R.string.android_shutdown_progress);
-            }
-
             bootMsgDialog.setContentView(view);
             bootMsgDialog.setCancelable(false);
+            WindowManager.LayoutParams lp = bootMsgDialog.getWindow().getAttributes();
+            lp.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+            bootMsgDialog.getWindow().setAttributes(lp);
             bootMsgDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_BOOT_PROGRESS);
-            bootMsgDialog.getWindow().setBackgroundDrawableResource(miui.R.drawable.boot_msg_bg);
             bootMsgDialog.show();
 
-            AnimationDrawable animationDrawable= (AnimationDrawable)animationView.getDrawable();
+            ImageView shutdownImage = (ImageView)view.findViewById(miui.R.id.shutdown_progress_animation);
+            shutdownImage.setVisibility(View.VISIBLE);
+            AnimatedRotateDrawable animationDrawable = (AnimatedRotateDrawable) shutdownImage.getDrawable();
             animationDrawable.start();
         }
 
