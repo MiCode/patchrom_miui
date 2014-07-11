@@ -9,12 +9,26 @@
     android:gravity="bottom"
     android:background="@drawable/message_edit_bottom_panel">
 
-    <Button
-        android:id="@+id/sms_button_show_attachment_panel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/add_attachment"
-        android:background="@drawable/insert_attachment_button_n" />
+    <FrameLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content">
+
+         <Button
+           android:id="@+id/sms_button_show_attachment_panel"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:contentDescription="@string/add_attachment"
+           android:background="@drawable/insert_attachment_button_n" />
+
+         <Button
+           android:id="@+id/send_hms_pic_btn"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:visibility="gone"
+           android:contentDescription="@string/add_attachment"
+           android:background="@drawable/select_pic_btn" />
+
+    </FrameLayout>
 
     <include layout="@layout/mms_editor" />
 
