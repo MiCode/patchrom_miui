@@ -104,6 +104,7 @@ public final class ShutdownThread extends Thread {
             ImageView shutdownImage = (ImageView)view.findViewById(miui.R.id.shutdown_progress_animation);
             shutdownImage.setVisibility(View.VISIBLE);
             AnimatedRotateDrawable animationDrawable = (AnimatedRotateDrawable) shutdownImage.getDrawable();
+            animationDrawable.setFramesDuration(context.getResources().getInteger(miui.R.integer.shutdown_progress_frames_duration));
             animationDrawable.start();
         }
 

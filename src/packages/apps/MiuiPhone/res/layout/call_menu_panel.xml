@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.ivr.ui.CallMenuPanelView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/call_menu_panel_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/ivrDialingMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/ivr_menu_dialing_msg"
+        android:visibility="gone"
+        style="@miui:style/V5.TextAppearance.Small.Inverse"/>
+
+    <LinearLayout
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@miui:drawable/v5_list_view_item_bg_dark"
+        android:gravity="center"
+        android:paddingLeft="20dip"
+        android:paddingRight="20dip" >
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@string/ivr_menu_list_title"
+            android:textAppearance="@miui:style/V5.TextAppearance.Small.Inverse"/>
+
+        <ImageView
+            android:id="@+id/expand_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:src="@drawable/ivr_menu_list_close" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="20dip"
+        android:paddingRight="20dip"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:background="@drawable/call_menu_panel_bg" >
+
+        <ListView
+            android:id="@+id/ivrMenuList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <GridView
+            android:id="@+id/nonIvrMenuList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:listSelector="@android:color/transparent"
+            android:gravity="center"
+            android:numColumns="3"
+            android:verticalSpacing="26dip"
+            android:horizontalSpacing="12dip"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+</com.miui.ivr.ui.CallMenuPanelView>
