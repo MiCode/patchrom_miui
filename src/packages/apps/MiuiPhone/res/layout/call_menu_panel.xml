@@ -6,7 +6,7 @@
     android:gravity="center_horizontal"
     android:orientation="vertical" >
 
-    <TextView
+    <com.miui.ivr.ui.MarqueeTextView
         android:id="@+id/ivrDialingMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,7 +15,8 @@
         android:singleLine="true"
         android:text="@string/ivr_menu_dialing_msg"
         android:visibility="gone"
-        style="@miui:style/V5.TextAppearance.Small.Inverse"/>
+        style="@miui:style/V5.TextAppearance.Medium.Inverse"
+        android:textColor="@miui:color/v5_secondary_text_color_dark"/>
 
     <LinearLayout
         android:id="@+id/titleBar"
@@ -24,7 +25,7 @@
         android:background="@miui:drawable/v5_list_view_item_bg_dark"
         android:gravity="center"
         android:paddingLeft="20dip"
-        android:paddingRight="20dip" >
+        android:paddingRight="5dip" >
 
         <TextView
             android:id="@+id/text"
@@ -34,7 +35,8 @@
             android:ellipsize="end"
             android:singleLine="true"
             android:text="@string/ivr_menu_list_title"
-            android:textAppearance="@miui:style/V5.TextAppearance.Small.Inverse"/>
+            android:textAppearance="@miui:style/V5.TextAppearance.Medium.Inverse"
+            android:textColor="@miui:color/v5_secondary_text_color_dark"/>
 
         <ImageView
             android:id="@+id/expand_icon"
@@ -48,8 +50,8 @@
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="20dip"
-        android:paddingRight="20dip"
+        android:paddingLeft="7dip"
+        android:paddingRight="7dip"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone"
@@ -69,6 +71,7 @@
             android:numColumns="3"
             android:verticalSpacing="26dip"
             android:horizontalSpacing="12dip"
+            android:layout_marginTop="10dip"
             android:visibility="gone"/>
     </LinearLayout>
 
