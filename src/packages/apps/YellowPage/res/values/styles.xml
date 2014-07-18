@@ -167,9 +167,10 @@
 ]        <item name="android:minHeight">@miui:dimen/v5_list_view_double_line_height</item>
     </style>
 
-    <style name="SearchResultListItemStyle" parent="@miui:style/V5.Widget.ListView.Item.DoubleLine">
-        <item name="android:paddingTop">5dip</item>
-        <item name="android:paddingBottom">5dip</item>
+    <style name="SearchResultListItemStyle" parent="@miui:style/V5.Widget.ListView.Item.TrebleLine">
+        <item name="android:paddingLeft">0dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">left</item>
     </style>
 
     <style name="ExpressAddressFieldsStsyle">
@@ -325,5 +326,15 @@
         <item name="android:shadowRadius">0</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="SearchResultListItemThumbnailStyle">
+        <item name="android:layout_width">@miui:dimen/v5_list_view_treble_line_photo_size</item>
+        <item name="android:layout_height">@miui:dimen/v5_list_view_treble_line_photo_size</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginLeft">@dimen/nearby_list_item_thumbnail_left_margin</item>
+        <item name="android:focusable">false</item>
+        <item name="android:scaleType">centerCrop</item>
     </style>
 </resources>
