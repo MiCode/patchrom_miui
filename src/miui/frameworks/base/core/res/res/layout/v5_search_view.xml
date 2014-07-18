@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@miui:id/v5_search_panel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentTop="true"
+    >
+
+    <FrameLayout
+        android:id="@+id/search_wrapper"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:gravity="left|center_vertical"
+        style="@miui:style/V5.Widget.Title.SearchMode"
+        >
+        <view
+            class="miui.widget.ClearableEditText"
+            android:id="@android:id/input"
+            style="@miui:style/V5.Widget.EditText.Search"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_gravity="left|center_vertical"
+            android:imeOptions="actionSearch"
+            />
+    </FrameLayout>
+
+    <ImageView
+        style="@miui:style/V5.Widget.Title.Back.Search"
+        android:id="@android:id/home"
+        android:visibility="gone"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        />
+
+    <View
+        android:id="@android:id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/v5_search_mode_mask_bg"
+        android:layout_below="@id/search_wrapper"
+        android:layout_alignParentLeft="true"
+        />
+
+    <FrameLayout
+        android:id="@miui:id/v5_search_result_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/search_wrapper"
+        android:layout_alignParentLeft="true"
+        android:visibility="gone"
+        />
+</RelativeLayout>
