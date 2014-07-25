@@ -90,67 +90,97 @@
                             android:ellipsize="end"
                             android:textAppearance="@style/Miui.TextAppearance.Telocation" />
                     </LinearLayout>
-                    <!-- Extra information of this contact or call -->
+
                     <!-- Extra for mark -->
                     <LinearLayout
-                        android:id="@+id/callCardMarkInfo"
-                        android:orientation="horizontal"
+                        android:id="@+id/callCardOptionalInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
                         android:visibility="gone" >
-                        <!-- Mark title -->
-                        <TextView
-                            android:id="@+id/callCardMarkTitle"
+
+                        <LinearLayout
+                            android:id="@+id/callCardMarkInfo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:singleLine="true"
-                            android:textStyle="bold"
-                            android:textAppearance="@style/Miui.TextAppearance.MarkTitle"/>
-                        <!-- Sepatator -->
-                        <ImageView
-                            android:id="@+id/callCardMarkSep"
-                            android:layout_marginLeft="2dip"
-                            android:layout_marginRight="2dip"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/incall_callcard_mark_sep_miui"
-                            android:visibility="gone" />
-                        <!-- Mark count -->
-                        <TextView
-                            android:id="@+id/callCardMarkCount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:singleLine="true"
-                            android:textAppearance="@style/Miui.TextAppearance.Telocation"
-                            android:visibility="gone" />
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:visibility="gone" >
+
+                            <!-- Mark title -->
+                            <TextView
+                                android:id="@+id/callCardMarkTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true"
+                                android:textAppearance="@style/Miui.TextAppearance.MarkTitle"
+                                android:textStyle="bold" />
+                            <ImageView
+                                android:id="@+id/callCardMarkSep"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dip"
+                                android:layout_marginRight="2dip"
+                                android:src="@drawable/incall_callcard_mark_sep_miui"
+                                android:visibility="gone" />
+                            <!-- Mark count -->
+                            <TextView
+                                android:id="@+id/callCardMarkCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true"
+                                android:textAppearance="@style/Miui.TextAppearance.Telocation"
+                                android:visibility="gone" />
+                            <!-- Mark provider icon -->
+                            <ImageView
+                                android:id="@+id/callCardMarkProvider"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dip"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
                         <!-- Provider -->
-                        <ImageView
-                            android:id="@+id/callCardMarkProvider"
-                            android:layout_marginLeft="2dip"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:visibility="gone" />
-                        <!-- Sepatator -->
-                        <ImageView
-                            android:id="@+id/callCardExtraInfoSep"
-                            android:layout_marginLeft="2dip"
-                            android:layout_marginRight="2dip"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/incall_callcard_mark_sep_miui"
-                            android:visibility="gone" />
-                        <!-- image sim card number, ignore here -->
-                        <!-- Extra information of this contact or call -->
                         <TextView
-                        android:id="@+id/callCardExtraInfo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:singleLine="true"
-                        android:ellipsize="end"
-                        android:textAppearance="@style/Miui.TextAppearance.ExtraInfo"
-                        android:visibility="gone" />
+                            android:id="@+id/callCardProviderInfoTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:textAppearance="@style/Miui.TextAppearance.ExtraInfo"
+                            android:visibility="gone" />
+
+                        <LinearLayout
+                            android:id="@+id/callCardExtraInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:visibility="gone" >
+
+                            <ImageView
+                                android:id="@+id/callCardExtraInfoSep"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dip"
+                                android:layout_marginRight="2dip"
+                                android:src="@drawable/incall_callcard_mark_sep_miui"
+                                android:visibility="gone" />
+
+                            <!-- Extra information of this contact or call -->
+                            <TextView
+                                android:id="@+id/callCardExtraTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:singleLine="true"
+                                android:textAppearance="@style/Miui.TextAppearance.ExtraInfo"
+                                android:visibility="gone" />
+
+                        </LinearLayout>
                     </LinearLayout>
+
                     <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="wrap_content"

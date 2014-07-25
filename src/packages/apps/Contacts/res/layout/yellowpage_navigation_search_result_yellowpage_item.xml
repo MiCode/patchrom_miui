@@ -21,29 +21,57 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical" >
 
-           <TextView
-               android:id="@+id/name"
-               style="@miui:style/V5.TextAppearance.List.Primary"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:singleLine="true"
-               android:layout_weight="1"
-               android:ellipsize="end" />
+            <TextView
+                android:id="@+id/name"
+                style="@miui:style/V5.TextAppearance.List.Primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:singleLine="true" />
 
-           <ImageView
+            <ImageView
                 android:id="@+id/first_service_icon"
                 android:layout_width="@dimen/yellowpage_navigation_search_result_service_icon"
                 android:layout_height="@dimen/yellowpage_navigation_search_result_service_icon"
                 android:layout_marginLeft="@dimen/yellowpage_navigation_search_result_first_service_icon_margin_left"
                 android:visibility="gone" />
 
-           <ImageView
+            <ImageView
                 android:id="@+id/second_service_icon"
                 android:layout_width="@dimen/yellowpage_navigation_search_result_service_icon"
                 android:layout_height="@dimen/yellowpage_navigation_search_result_service_icon"
                 android:layout_marginLeft="@dimen/yellowpage_navigation_search_result_next_service_icon_margin_left"
                 android:visibility="gone" />
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <RatingBar
+                android:id="@+id/rating"
+                style="@miui:style/V5.Widget.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:indeterminateDrawable="@drawable/yellow_page_navigation_search_result_rating"
+                android:maxHeight="@dimen/yellowpage_navigation_search_result_rating_height"
+                android:minHeight="@dimen/yellowpage_navigation_search_result_rating_height"
+                android:progressDrawable="@drawable/yellow_page_navigation_search_result_rating"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/average_price"
+                style="@miui:style/V5.TextAppearance.List.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/yellowpage_navigation_search_result_first_service_icon_margin_left"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:visibility="gone" />
         </LinearLayout>
 
         <RelativeLayout

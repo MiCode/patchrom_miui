@@ -4,6 +4,36 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/attachment_preview"
+            android:layout_width="@dimen/mms_attachment_pic_width"
+            android:layout_height="@dimen/mms_attachment_pic_height"
+            android:layout_gravity="top"
+            android:scaleType="centerCrop"
+            android:visibility="gone" />
+
+        <View
+           android:id="@+id/attachment_progress"
+           android:layout_width="@dimen/mms_attachment_pic_width"
+           android:layout_height="wrap_content"
+           android:layout_gravity="top"
+           android:background="@color/background"
+           android:duplicateParentState="true"
+           android:visibility="gone" />
+    </FrameLayout>
+
+    <View
+        android:id="@+id/attachment_padding"
+        android:layout_width="10dip"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,31 +60,5 @@
             style="@style/TextAppearance.MessageBody.Out"
             android:layout_margin="@dimen/bubble_text_extra_padding" />
     </LinearLayout>
-    <View
-        android:id="@+id/attachment_padding"
-        android:layout_width="10dip"
-        android:layout_height="wrap_content"
-        android:visibility="gone" />
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <ImageView
-            android:id="@+id/attachment_preview"
-            android:layout_width="@dimen/mms_attachment_pic_width"
-            android:layout_height="@dimen/mms_attachment_pic_height"
-            android:layout_gravity="top"
-            android:scaleType="centerCrop"
-            android:visibility="gone" />
-
-        <View
-           android:id="@+id/attachment_progress"
-           android:layout_width="@dimen/mms_attachment_pic_width"
-           android:layout_height="wrap_content"
-           android:layout_gravity="top"
-           android:background="@color/background"
-           android:duplicateParentState="true"
-           android:visibility="gone" />
-    </FrameLayout>
 
 </LinearLayout>
