@@ -2,83 +2,310 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background" >
 
-    <Button
-        android:id="@+id/button_start_saving"
+    <LinearLayout
+        android:id="@+id/layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical" >
+
+        <!-- today detail -->
+
+        <RelativeLayout
+            android:id="@+id/layout_started"
+            android:layout_width="match_parent"
+            android:layout_height="221.3dp" >
+
+            <TextView
+                android:id="@+id/textview_today_saving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="45dp"
+                android:text="@string/traffic_saving_msg_today"
+                android:textColor="#B3FFFFFF"
+                android:textSize="@dimen/traffic_saving_today_saving_text_size" />
+
+            <TextView
+                android:id="@+id/textview_number_today_saving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/traffic_saving_primary"
+                android:textSize="@dimen/traffic_saving_number_today_saving_text_size" />
+
+            <TextView
+                android:id="@+id/textview_today_saving_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/textview_number_today_saving"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="6dp"
+                android:layout_toRightOf="@id/textview_number_today_saving"
+                android:textColor="@color/traffic_saving_primary"
+                android:textSize="@dimen/traffic_saving_today_saving_unit_text_size"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_not_started"
+            android:layout_width="match_parent"
+            android:layout_height="221.3dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="45dp"
+                android:text="@string/traffic_saving_msg_today"
+                android:textColor="#B3FFFFFF"
+                android:textSize="@dimen/traffic_saving_today_saving_text_size" />
+
+            <TextView
+                android:id="@+id/textview_not_started"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/traffic_saving_msg_not_started"
+                android:textColor="#ff8c46"
+                android:textSize="60dp" />
+        </RelativeLayout>
+
+        <!-- month detail -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="111dp"
+            android:background="@drawable/traffic_saving_month_detail_bg"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35.3dp"
+                android:layout_marginLeft="12dp"
+                android:gravity="center_vertical"
+                android:text="@string/traffic_saving_msg_month"
+                android:textColor="#B3FFFFFF"
+                android:textSize="@dimen/traffic_saving_msg_title_text_size" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:layout_marginBottom="13.3dp"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" >
+
+                    <TextView
+                        android:id="@+id/textview_history_total_traffic_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="6dp"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/traffic_saving_history_total_traffic"
+                        android:textColor="#73FFFFFF"
+                        android:textSize="@dimen/traffic_saving_msg_title_text_size" />
+
+                    <TextView
+                        android:id="@+id/textview_history_total_traffic_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/textview_history_total_traffic_title"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/traffic_saving_msg_value_text_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textview_history_total_traffic_unit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/textview_history_total_traffic_value"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_toRightOf="@id/textview_history_total_traffic_value"
+                        android:textColor="#73FFFFFF"
+                        android:textSize="@dimen/traffic_saving_msg_unit_text_size" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="47dp"
+                    android:background="#19FFFFFF" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" >
+
+                    <TextView
+                        android:id="@+id/textview_history_total_rate_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="6dp"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/traffic_saving_history_total_rate"
+                        android:textColor="#73FFFFFF"
+                        android:textSize="@dimen/traffic_saving_msg_title_text_size" />
+
+                    <TextView
+                        android:id="@+id/textview_history_total_rate_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/textview_history_total_rate_title"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/traffic_saving_msg_value_text_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textview_history_total_rate_unit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/textview_history_total_rate_value"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_toRightOf="@id/textview_history_total_rate_value"
+                        android:text="@string/traffic_saving_history_total_rate_unit"
+                        android:textColor="#73FFFFFF"
+                        android:textSize="@dimen/traffic_saving_msg_unit_text_size" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="47dp"
+                    android:background="#19FFFFFF" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" >
+
+                    <TextView
+                        android:id="@+id/textview_history_total_moneytitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="6dp"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/traffic_saving_history_total_money"
+                        android:textColor="#73FFFFFF"
+                        android:textSize="@dimen/traffic_saving_msg_title_text_size" />
+
+                    <TextView
+                        android:id="@+id/textview_history_total_money_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/textview_history_total_moneytitle"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/traffic_saving_msg_value_text_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textview_history_total_money_unit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/textview_history_total_money_value"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_toRightOf="@id/textview_history_total_money_value"
+                        android:text="@string/traffic_saving_history_total_money_unit"
+                        android:textColor="#73FFFFFF"
+                        android:textSize="@dimen/traffic_saving_msg_unit_text_size" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_margin="20dp"
-        android:text="@string/traffic_saving_button_start"
-        android:textSize="16sp" />
+        android:background="@android:color/white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textview_tecsupport"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/button_start_saving"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-10dp"
-        android:drawableLeft="@drawable/icon_opera_liuliangbao"
-        android:text="@string/traffic_saving_tecsupport"
-        android:textColor="@android:color/darker_gray" />
+        <TextView
+            android:id="@+id/textview_tecsupport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/icon_opera_liuliangbao"
+            android:text="@string/traffic_saving_tecsupport"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12sp" />
 
-    <RelativeLayout
+        <LinearLayout
+            android:id="@+id/layout_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/button_saving_sorted"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/traffic_saving_button_sorted"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/button_start_saving"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/traffic_saving_button_start"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- month detail value -->
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/textview_tecsupport"
-        android:layout_alignParentTop="true"
-        android:layout_marginBottom="60dp" >
-
-        <com.miui.networkassistant.ui.view.FloatNumberView
-            android:id="@+id/number_today_saving"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true" />
+        android:layout_height="0dp"
+        android:layout_above="@id/layout_bottom"
+        android:layout_below="@id/layout_top"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/textview_today_saving"
+            android:id="@+id/textview_history_month_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@id/number_today_saving"
-            android:layout_alignLeft="@id/number_today_saving"
-            android:layout_marginBottom="17dp"
-            android:layout_marginLeft="-50dp"
-            android:text="@string/traffic_saving_msg_today"
-            android:textColor="#80000000"
-            android:textSize="17sp" />
+            android:text="@string/traffic_saving_history_total_month"
+            android:textColor="#B3000000"
+            android:textSize="@dimen/traffic_saving_hisotry_title_text_size"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textview_today_saving_unit"
+            android:id="@+id/textview_history_month_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@id/number_today_saving"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="-5dp"
-            android:layout_toRightOf="@id/number_today_saving"
-            android:textColor="@color/traffic_saving_primary"
-            android:textSize="17sp" />
-
-        <TextView
-            android:id="@+id/textview_month_saving"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/number_today_saving"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="17dp"
-            android:layout_marginTop="30dp"
-            android:textColor="@color/traffic_saving_primary"
-            android:textSize="17sp" />
-
-        <Button
-            android:id="@+id/button_saving_sorted"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/textview_month_saving"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/selector_traffic_saving_sorted_button"
-            android:text="@string/traffic_saving_button_sorted" />
-    </RelativeLayout>
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/traffic_saving_history_total_month_value"
+            android:textColor="#73000000"
+            android:textSize="@dimen/traffic_saving_hisotry_content_text_size" />
+    </LinearLayout>
 
 </RelativeLayout>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/black" >
+
+    <com.xiaomi.channel.common.controls.ImageViewer.ImageNavigatorView
+        android:id="@+id/full_image_gallery"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:spacing="1dip"
+        android:unselectedAlpha="1.0" />
+
+    <RelativeLayout
+        android:id="@+id/title_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="44dip"
+        android:background="@drawable/image_viewer_top_bg"
+        android:paddingLeft="8.67dip"
+        android:paddingRight="10dip"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/image_viewer_icon_back" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/operation_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:visibility="gone" >
+
+        <include
+            android:id="@+id/image_info"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            layout="@layout/view_image_image_info" />
+
+        <LinearLayout
+            android:id="@+id/operation_content"
+            android:layout_width="fill_parent"
+            android:layout_height="77.5dip"
+            android:layout_below="@id/image_info"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom"
+            android:background="@drawable/image_viewer_bottom_bg"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="visible" >
+
+            <LinearLayout
+                android:id="@+id/save_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingLeft="5dip"
+                android:paddingRight="5dip" >
+
+                <ImageView
+                    android:id="@+id/save_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/image_viewer_btn_bg"
+                    android:scaleType="center"
+                    android:src="@drawable/image_viewer_icon_deep_keep" />
+
+                <TextView
+                    android:id="@+id/save_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/save"
+                    android:textColor="@android:color/white"
+                    android:textSize="10dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/share_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingLeft="5dip"
+                android:paddingRight="5dip" >
+
+                <ImageView
+                    android:id="@+id/share_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/image_viewer_btn_bg"
+                    android:scaleType="center"
+                    android:src="@drawable/image_viewer_icon_deep_share" />
+
+                <TextView
+                    android:id="@+id/share_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/share_img"
+                    android:textColor="@android:color/white"
+                    android:textSize="10dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/image_info_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingLeft="5dip"
+                android:paddingRight="5dip" >
+
+                <ImageView
+                    android:id="@+id/image_info_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/image_viewer_btn_bg"
+                    android:scaleType="center"
+                    android:src="@drawable/image_viewer_icon_deep_info" />
+
+                <TextView
+                    android:id="@+id/image_info_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/view_message_details"
+                    android:textColor="@android:color/white"
+                    android:textSize="10dip" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</FrameLayout>
