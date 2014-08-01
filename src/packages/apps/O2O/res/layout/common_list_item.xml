@@ -4,12 +4,11 @@
     android:layout_height="wrap_content"
     android:background="@color/common_list_view_background" >
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/content_holder"
         style="@style/Widget.ListView.Item.TrebleLine"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:layout_height="wrap_content" >
 
         <FrameLayout
             android:id="@+id/icon_frame"
@@ -33,8 +32,11 @@
         </FrameLayout>
 
         <LinearLayout
+            android:id="@+id/right_linear"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/icon_frame"
+            android:layout_toRightOf="@+id/icon_frame"
             android:orientation="vertical"
             android:paddingBottom="@dimen/item_right_padding_bottom" >
 
@@ -63,9 +65,9 @@
                         android:id="@+id/shop_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:ellipsize="end"
                         android:gravity="top"
                         android:lines="2"
-                        android:ellipsize="end"
                         android:text="@string/shop_count"
                         android:textAppearance="@style/TextAppearance.Title.Secondary"
                         android:textSize="@dimen/common_item_text_sub_title_size" />
@@ -88,8 +90,8 @@
                         android:lines="1"
                         android:text="@string/shop_count"
                         android:textAppearance="@style/TextAppearance.Title.Secondary"
-                        android:textSize="@dimen/common_item_text_sub_title_size" 
-                        android:visibility="gone"/>
+                        android:textSize="@dimen/common_item_text_sub_title_size"
+                        android:visibility="gone" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -144,7 +146,7 @@
                     android:textSize="@dimen/common_item_text_sub_title_size" />
             </RelativeLayout>
         </LinearLayout>
-    </LinearLayout>
+    </RelativeLayout>
 
     <ImageView
         android:layout_width="match_parent"

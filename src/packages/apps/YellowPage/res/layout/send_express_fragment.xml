@@ -153,11 +153,13 @@
                             android:text="@string/express_select_city"
                             android:id="@+id/dest_city"
                             android:gravity="center_vertical"
-                            style="@miui:style/V5.TextAppearance.List.Primary"
+                            android:textAppearance="@miui:style/V5.TextAppearance.EditText"
                             android:textStyle="normal"
                             android:background="@drawable/express_select_button_bg"
                             android:layout_height="wrap_content"
-                            android:layout_width="match_parent" />
+                            android:layout_width="match_parent"
+                            android:paddingLeft="@dimen/express_button_margin_horizontal"
+                            android:paddingRight="@dimen/express_button_margin_horizontal" />
                     </LinearLayout>
 
                     <ClearableEditText
@@ -175,12 +177,26 @@
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/create_order"
-                android:enabled="false"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                style="@style/ExpressPositiveWarn"
-                android:text="@string/express_preview_order" />
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/express_notice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/express_progress_item_padding_vertical" />
+
+                <Button
+                    android:id="@+id/create_order"
+                    style="@style/ExpressPositiveWarn"
+                    android:enabled="false"
+                    android:text="@string/express_preview_order" />
+            </LinearLayout>
+
         </FrameLayout>
     </LinearLayout>
 
