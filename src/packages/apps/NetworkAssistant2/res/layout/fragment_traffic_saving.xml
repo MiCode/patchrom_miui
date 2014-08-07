@@ -85,14 +85,31 @@
             android:background="@drawable/traffic_saving_month_detail_bg"
             android:orientation="vertical" >
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="35.3dp"
-                android:layout_marginLeft="12dp"
-                android:gravity="center_vertical"
-                android:text="@string/traffic_saving_msg_month"
-                android:textColor="#B3FFFFFF"
-                android:textSize="@dimen/traffic_saving_msg_title_text_size" />
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="35.3dp"
+                    android:layout_marginLeft="12dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/traffic_saving_msg_month"
+                    android:textColor="#B3FFFFFF"
+                    android:textSize="@dimen/traffic_saving_msg_title_text_size" />
+
+                <TextView
+                    android:id="@+id/textview_traffic_saving_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="35.3dp"
+                    android:layout_marginRight="@dimen/checkout_traffic_saving_history_size"
+                    android:drawableRight="@drawable/traffic_saving_history_arrow"
+                    android:gravity="center_vertical|right"
+                    android:text="@string/checkout_traffic_saving_history"
+                    android:textColor="#73FFFFFF"
+                    android:textSize="@dimen/traffic_saving_msg_title_text_size" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

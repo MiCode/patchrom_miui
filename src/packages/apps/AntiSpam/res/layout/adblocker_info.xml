@@ -16,12 +16,12 @@
         android:text="@string/AD_APPInfo" />
 
     <LinearLayout
+        style="@miui:style/V5.Widget.ListView.Item.DoubleLine"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
         <LinearLayout
-            style="@miui:style/V5.Widget.ListView.Item.DoubleLine"
             android:layout_width="0px"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -56,16 +56,24 @@
         </LinearLayout>
 
         <LinearLayout
-            style="@miui:style/V5.Widget.ListView.Item.DoubleLine"
+            android:id="@+id/background"
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent" >
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="20dip"  >
 
-            <ImageView
+            <TextView
+                android:id="@+id/state"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="10dp"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal" />
+            <!--<ImageView
                 android:id="@+id/state"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
-                android:scaleType="fitEnd" />
+                android:scaleType="fitEnd" />-->
         </LinearLayout>
     </LinearLayout>
     <!-- 广告插件文案 -->
