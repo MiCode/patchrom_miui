@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <!-- Title for the bug report activity.  This is the name
-         used for the Home screen icon. -->
+    <!-- Title for the bug report app.  This is the name
+         displayed under the Home screen icon. [CHAR LIMIT=9] -->
     <string name="app_label">Report Bug</string>
+    <!-- This text is displayed under the MIUI logo at the main activity menu. -->
+    <string name="app_title">"Bug     Report     Center"</string>
     <!-- Title for the dialog pop-up that appears when bug occurs
          and user has option to report it to Xiaomi. -->
     <string name="report_miui">Report bug</string>
-    <!-- Button text that copies error log -->
+    <!-- Button text that copies error log. [CHAR LIMIT=14] -->
     <string name="menu_copy">Copy</string>
     <!-- Title for item in pop-up menu that brings user to Gallery where
          they can select a screenshot. -->
@@ -15,64 +16,89 @@
     <!-- Title for item in pop-up menu that discards current
          bug report. -->
     <string name="menu_discard">Discard draft</string>
-    <!-- Text that appears in the input box where user
+   <!-- Hint text that appears in the input box where user
          can describe the bug or provide feedback. -->
-    <string name="description">Describe the bug or write your feedback here</string>
+    <string name="description">"If you don't see your issue in the common bugs, describe it here"</string>
+    <string name="suggestion_description">I hope you\'ll add X feature, because\u2026</string>
+    <string name="nonsystemapp_description">Describe the issue</string>
     <!-- Button text that appears in the upper-most banner that sends the
          user's message to Xiaomi. -->
     <string name="btn_send">Send</string>
-    <!-- Title text that appears below the image for random reboot
-         bug at the bug type selection activity. -->
+    <!-- Title text that appears above the selected bug type at the main
+         report activity. -->
+    <string name="err_type">Bug type</string>
+    <!-- Title text that appears below the icon for random reboot
+         bugs at the bug type selection activity. -->
     <string name="err_type_reboot">Random reboots</string>
-    <!-- Title text that appears below the image for force close
+    <!-- Title text that appears below the icon for power consumption
+         bugs at the bug type selection activity. -->
+    <string name="err_type_power_consuming">Power usage</string>
+    <!-- Title text that appears below the icon for the network issues
          bug at the bug type selection activity. -->
-    <string name="err_type_force_close">Force closes</string>
-    <!-- Title text that appears below the image for network issues
-         bug at the bug type selection activity. -->
-    <string name="err_type_network">Network issues</string>
-    <!-- Title text that appears below the image for the "other"
-         category at the bug type selection activity. -->
-    <string name="err_type_others">Other</string>
-    <!-- Title text that appears below the image for the power consumption
-         bug at the bug type selection activity. -->
-    <string name="err_type_power_consuming">Power consumption</string>
-    <!-- Title text that appears below the image for the call issues
-         bug at the bug type selection activity. -->
-    <string name="err_type_call">Call issues</string>
-    <!-- Title text that appears below the image for the suggestions
+    <string name="err_type_signal">Network issues</string>
+    <!-- Title text that appears below the icon for Wi-Fi
+         bugs at the bug type selection activity. -->
+    <string name="err_type_wifi">Wi-Fi</string>
+    <!-- Title text that appears below the icon for Bluetooth
+         bugs at the bug type selection activity. -->
+    <string name="err_type_bluetooth">Bluetooth</string>
+    <!-- Title text that appears below the icon for Camera
+         bugs at the bug type selection activity. -->
+    <string name="err_type_camera">Camera</string>
+    <!-- Title text that appears below the icon for MIUI system apps
+         bugs at the bug type selection activity. -->
+    <string name="err_type_systemapp">MIUI apps</string>
+    <!-- Title text that appears below the icon for apps
+         that the user has downloaded at the bug type selection activity. -->
+    <string name="err_type_nonsystemapp">Other apps</string>
+    <!-- Title text that appears below the icon for the suggestions
          option at the bug type selection activity. -->
     <string name="err_type_suggestion">Suggestions</string>
-    <!-- Title text that appears below the image for the data loss
-         bug at the bug type selection activity. -->
-    <string name="err_type_data_lost">Data loss</string>
-    <!-- Text displayed while user's comments are being sent. -->
-    <string name="status_msg_pending_upload">Sending %d comments\u2026</string>
-    <!-- Text that appears at the bottom of the report activity
-         while system automatically collects activity logs. -->
-    <string name="status_msg_collecting_log">Getting logs</string>
-    <!-- Button text that appears in the upper-most banner that sends the
-         user's message to Xiaomi. -->
+    <!-- Toast text displayed when user has a bug report that is waiting to be sent over Wi-Fi. -->
+    <string name="status_msg_pending_upload">%d waiting to be sent\u2026</string>
+    <!-- Toast text displayed while system is collecting logs for the bug report. -->
+    <string name="status_msg_collecting_log">Collecting logs\u2026</string>
+    <!-- Button text that appears in at bottom of the screen at the bug
+         report description activity. Tapping this button sends user's
+         report or message to MIUI. -->
     <string name="action_submit">Send</string>
+    <!-- Button text that appears below selection of common bug.  Brings user back to bug report activity.-->
+    <string name="action_cancel">Cancel</string>
+    <!-- Button text that appears below selection of common bug. -->
+    <string name="action_confirm">Select</string>
     <!-- Title text that appears above the selected bug type at the main
          report activity. -->
     <string name="section_err_type">Bug type</string>
+    <!-- Text displayed above input field where user describes the bug.  Touching
+         this text brings user to a list of common bugs for the respective item -->
+    <string name="hot_problem">View common bugs</string>
+    <!-- Title displayed in the activity bar above the list of common bugs for the section
+         that the user is viewing. -->
+    <string name="title_hot_problem">Common bugs</string>
+    <!-- Title displayed in the activity bar above list of non-MIUI built-in apps that user can
+         select from.  In other words, the title for a list of apps the user has downloaded. -->
+    <string name="non_system_app_select">Downloaded apps</string>
+    <!-- Title displayed in the activity bar above list of MIUI built-in apps that user can
+         select from.  In other words, the title for a list of apps that are developed by MIUI. -->
+    <string name="system_app_select">Built-in apps</string>
     <!-- Title text that appears above the input box where user
          can describe the bug or provide feedback at report activity. -->
     <string name="section_description">Description</string>
     <!-- Title text that appears above the add button where
          user add a screenshot to the report. -->
     <string name="section_screenshot">Screenshot</string>
-    <!-- Toast that is displayed when user's report is sent successfully. -->
+    <!-- Toast displayed when user's report is sent successfully. -->
     <string name="toast_report_sent_succeed">Report has been sent</string>
-    <!-- Toast that is displayed when user's report fails to send -->
+    <!-- Toast displayed when user's report fails to send -->
     <string name="toast_report_sent_failed">"Can't send report"</string>
     <!-- Toast that is displayed when user's report is copied to clipboard. -->
     <string name="toast_report_copied_to_clipboard">Report copied to clipboard</string>
     <!-- Toast that is displayed when user's tries to submit a report without
          entering text in the description box. -->
-    <string name="toast_description_required">Description is required</string>
+    <string name="toast_description_required">You need to write a description</string>
     <!-- Toast that is displayed when user's tries to submit a report before
          device's logs have been collected at main report activity. -->
+    <string name="toast_feedbackservice_in_submit">Sending previous feedback\u2026</string>
     <string name="toast_pending_log_collection">Still getting logs\u2026</string>
     <!-- Toast that is displayed when user's report is sent successfully from
          main report activity. -->
@@ -93,26 +119,83 @@
     <string name="discard_draft_dialog_button_cancel">Cancel</string>
     <!-- Title for the dialog box that appears when user has no mobile data
          connection. -->
-    <string name="network_unavailable_dialog_title">Check your data connection</string>
+    <string name="network_unavailable_dialog_title">"Can't connect to the network"</string>
     <!-- Text for the dialog box that appears when user has no mobile data
          connection. -->
     <string name="network_unavailable_dialog_content">"Can't connect to the network. Your message will be sent when you have a data connection."</string>
     <!-- Text for OK button in the dialog box that appears when user has no mobile data
          connection. -->
     <string name="network_unavailable_dialog_button_ok">OK</string>
-    <!-- Title for the dialog box that appears when user has no Wi-Fi
+     <!-- Title for the dialog box that appears when user has no Wi-Fi
          connection and asks if they want to use data connection. -->
     <string name="wlan_unavailable_dialog_title">"Data usage"</string>
     <!-- Pop-up that tells user how much data will be used when they send their report to
          Xiaomi. -->
-    <string name="wlan_unavailable_dialog_content">"Sending your report will use %s of data. To wait until you're connected to Wi-Fi network to send, touch Wait."</string>
-    <!-- Text for button in dialog box that sends users report using data connection. -->
-    <string name="wlan_unavailable_dialog_button_sent">Send now</string>
+    <string name="wlan_unavailable_dialog_content">"Sending this report will use %s of your mobile data. You can send it now or wait for a Wi-Fi connection."</string>
+    <!-- Button text that sends user's report immediately using mobile data connection. -->
+    <string name="wlan_unavailable_dialog_button_sent">Send</string>
     <!-- Text for wait button in the dialog box that will wait until user has
          Wi-Fi connection to  send out. -->
     <string name="wlan_unavailable_dialog_button_ok">Wait</string>
     <!-- Toast that is displayed after user touches "send" while report is being
          packaged and sent to Xiaomi. -->
     <string name="packaging_dialog_content">Creating report\u2026</string>
+    <!-- Loading text displayed while list of downloaded apps is populated. -->
+    <string name="loading_apps">Creating list\u2026</string>
+    <!-- Loading text displayed while list of common bugs is populated. -->
+    <string name="loading_hot_problem">Loading\u2026</string>
+    <!-- Network error message when user is trying to send out their bug report -->
+    <string name="network_err">"Can't connect to the network. Check your data connection and try refeshing."</string>
+    <!--Button text displayed when there is a problem with Wi-Fi connection and user want refresh the app. -->
+    <string name="refresh">Refresh</string>
+    <!-- Text displayed when user selects Downloaded apps as bug type but hasn't downloaded any apps. -->
+    <string name="app_empty">"You haven't downloaded any apps"</string>
+    <!--Common type of reboot related bug in the common bugs list. -->
+    <string name="reboot_problem1">"Can't reboot"</string>
+    <!--Common type of reboot related bug in the common bugs list. -->
+    <string name="reboot_problem2">"Reboots randomly when using a certain app"</string>
+    <!--Common type of power consumption related bug in the common bugs list. -->
+    <string name="power_consuming_problem1">"Increased power consumption after update"</string>
+    <!--Common type of power consumption related bug in the common bugs list. -->
+    <string name="power_consuming_problem2">"Using this app eats up my power"</string>
+    <!--Common type of power consumption related bug in the common bugs list. -->
+    <string name="power_consuming_problem3">"High power consumption during standby"</string>
+    <!--Common type of network signal or reception related bug in the common bugs list. -->
+    <string name="signal_problem1">No signal</string>
+    <!--Common type of network signal or reception related bug in the common bugs list. -->
+    <string name="signal_problem2">Weak signal</string>
+    <!--Common type of Wi-Fi related bug in the common bugs list. -->
+    <string name="wifi_problem1">"Can't automatically connect to secure Wi-Fi"</string>
+    <!--Common type of Wi-Fi related bug in the common bugs list. -->
+    <string name="wifi_problem2">"Wi-Fi signal is weak"</string>
+    <!--Common type of Wi-Fi related bug in the common bugs list. -->
+    <string name="wifi_problem3">"Wi-Fi disconnects unexpectedly"</string>
+    <!--Common type of Wi-Fi related bug in the common bugs list. -->
+    <string name="wifi_problem4">"Can't connect to network"</string>
+    <!--Common type of Bluetooth related bug in the common bugs list. -->
+    <string name="bluetooth_problem1">"Can't pair with third-party devices"</string>
+    <!--Common type of Bluetooth related bug in the common bugs list. -->
+    <string name="bluetooth_problem2">"Can't detect third-party devices"</string>
+    <!--Common type of Bluetooth related bug in the common bugs list. -->
+    <string name="bluetooth_problem3">"Can't send files"</string>
+    <!--Common type of Bluetooth related bug in the common bugs list. -->
+    <string name="bluetooth_problem4">"Can't receive files"</string>
+    <!--Common type of Camera app related bug in the common bugs list. -->
+    <string name="camera_problem1">Bad photo quality</string>
+    <!--Common type of Camera app related bug in the common bugs list. -->
+    <string name="camera_problem2">"Can't connect to Camera with USB"</string>
+    <!--Common type of Camera app related bug in the common bugs list. -->
+    <string name="camera_problem3">Camera force quits</string>
+    <!--Common type of Camera app related bug in the common bugs list. -->
+    <string name="camera_problem4">"Can't switch between back and front cameras"</string>
+    <!--Common type of Camera app related bug in the common bugs list. -->
+    <string name="camera_problem5">"Camera stops working"</string>
+    <!-- Common type of user suggestion in the common bugs list -->
+    <string name="suggestion_problem1">You should add this feature because\u2026</string>
+    <string name="screen_lock">"Screen lock"</string>
+    <string name="systemui">Notification shade</string>
+    <string name="no_userbook_toast">Read Me doesn\'t exist </string>
 
+    <!-- Userbook -->
+    <string name="userbook_name">User guide</string>
 </resources>

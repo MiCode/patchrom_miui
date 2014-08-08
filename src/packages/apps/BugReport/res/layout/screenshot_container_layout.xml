@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:id="@+id/shot_container_layout"
+        android:layout_width = "wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal"
+        >
+        <ViewStub
+             android:id="@+id/screenshot_attachement_stub_1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginRight="@dimen/screenshot_margin_gap"
+             android:layout="@layout/viewstub_item" />
+
+         <ViewStub
+             android:id="@+id/screenshot_attachement_stub_2"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginLeft="@dimen/screenshot_margin_gap"
+             android:layout_marginRight="@dimen/screenshot_margin_gap"
+             android:layout="@layout/viewstub_item" />
+
+         <ViewStub
+             android:id="@+id/screenshot_attachement_stub_3"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginLeft="@dimen/screenshot_margin_gap"
+             android:layout_marginRight="@dimen/screenshot_margin_gap"
+             android:layout="@layout/viewstub_item" />
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/section_screenshot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:text="@string/section_screenshot"
+        android:textAllCaps="true"
+        android:textColor="@color/textFourColor"
+        android:textSize="@dimen/small_font_size" />
+
+</LinearLayout>

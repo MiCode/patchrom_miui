@@ -7,8 +7,11 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1" >
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/feedback_margin_left"
+        android:layout_marginRight="@dimen/feedback_margin_right"
+        android:layout_marginTop="@dimen/feedback_margin_top" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -17,125 +20,71 @@
             android:focusableInTouchMode="true"
             android:orientation="vertical" >
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/hot_problem"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:paddingLeft="@dimen/section_separator_padding_horinzontal"
-                android:paddingRight="@dimen/section_separator_padding_horinzontal"
-                android:paddingTop="@dimen/section_separator_padding_top"
-                android:singleLine="true"
-                android:text="@string/section_err_type"
-                android:textAllCaps="true"
-                android:textAppearance="@style/TextAppearance.SectionTitle" />
-
-            <TextView
-                android:id="@+id/err_type_text_view"
-                style="@miui:style/V5.TextAppearance.List.Primary"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/section_err_type_margin_top"
-                android:background="@miui:drawable/v5_preference_item_bg"
+                android:layout_height="@dimen/feedback_section_hotpro_height"
+                android:background="@drawable/hotproblem_title"
                 android:gravity="center_vertical"
-                android:paddingLeft="@dimen/section_err_type_padding_left"
-                android:singleLine="true" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:paddingLeft="@dimen/section_separator_padding_horinzontal"
-                android:paddingRight="@dimen/section_separator_padding_horinzontal"
-                android:paddingTop="@dimen/section_separator_padding_top"
-                android:singleLine="true"
-                android:text="@string/section_description"
-                android:textAllCaps="true"
-                android:textAppearance="@style/TextAppearance.SectionTitle" />
+                android:paddingTop="0dip"
+                android:paddingBottom="0dip"
+                >
+                <TextView
+                    android:id="@+id/hot_problem_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/feedback_margin_left"
+                    android:layout_marginRight="@dimen/feedback_margin_right"
+                    android:gravity="center_vertical"
+                    android:drawableRight="@miui:drawable/v5_arrow_right"
+                    android:text="@string/hot_problem"
+                    android:textColor="@color/textEightColor"
+                    android:textSize="@dimen/middle_font_size"
+                    />
+            </LinearLayout>
 
             <EditText
                 android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/section_description_margin_horizontal"
-                android:layout_marginRight="@dimen/section_description_margin_horizontal"
-                android:layout_marginTop="@dimen/section_description_margin_top"
+                android:layout_marginTop="@dimen/feedback_section_separator_vertial"
                 android:gravity="left|top"
+                android:padding="@dimen/feedback_section_edit_padding"
                 android:hint="@string/description"
-                android:minHeight="@dimen/section_description_min_height"
-                android:textAppearance="@style/TextAppearance.Medium"
-                android:textColor="#666666"
-                android:singleLine="false" />
+                android:minHeight="@dimen/feedback_section_edit_height"
+                android:singleLine="false"
+                android:background="@drawable/problem_description_edittext_bg"
+                style="@miui:style/V5.TextAppearance.EditText" />
 
-            <TextView
-                android:id="@+id/section_screenshot"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:paddingLeft="@dimen/section_separator_padding_horinzontal"
-                android:paddingRight="@dimen/section_separator_padding_horinzontal"
-                android:paddingTop="@dimen/section_separator_padding_top"
-                android:singleLine="true"
-                android:text="@string/section_screenshot"
-                android:textAllCaps="true"
-                android:textAppearance="@style/TextAppearance.SectionTitle" />
-
-            <com.miui.bugreport.ui.ScreenshotContainerLayout
-                android:id="@+id/screenshot_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/screenshot_margin_horizontal"
-                android:layout_marginRight="@dimen/screenshot_margin_horizontal"
-                android:layout_marginTop="@dimen/screenshot_margin_top" >
-
-                <ViewStub
-                    android:id="@+id/screenshot_attachement_stub_1"
-                    android:layout_width="0dip"
+                android:layout_height="@dimen/feedback_section_screenshot_height"
+                android:layout_marginTop="@dimen/feedback_section_separator_vertial"
+                android:background="@drawable/submit_picture_bg"
+                >
+                <com.miui.bugreport.ui.ScreenshotContainerLayout
+                    android:id="@+id/screenshot_layout"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/screenshot_margin_gap"
-                    android:layout_marginRight="@dimen/screenshot_margin_gap"
-                    android:layout_weight="1"
-                    android:layout="@layout/screenshot_attach_layout" />
-
-                <ViewStub
-                    android:id="@+id/screenshot_attachement_stub_2"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/screenshot_margin_gap"
-                    android:layout_marginRight="@dimen/screenshot_margin_gap"
-                    android:layout_weight="1"
-                    android:layout="@layout/screenshot_attach_layout" />
-
-                <ViewStub
-                    android:id="@+id/screenshot_attachement_stub_3"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/screenshot_margin_gap"
-                    android:layout_marginRight="@dimen/screenshot_margin_gap"
-                    android:layout_weight="1"
-                    android:layout="@layout/screenshot_attach_layout" />
-            </com.miui.bugreport.ui.ScreenshotContainerLayout>
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="@dimen/feedback_section_separator_vertial"
+                    >
+                </com.miui.bugreport.ui.ScreenshotContainerLayout>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
-    <LinearLayout
-        android:id="@+id/log_collection_layout"
+    <Button
+        android:id="@+id/btn_submit"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/bottom_bar_height"
-        android:baselineAligned="false"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
         android:gravity="center"
-        android:visibility="gone" >
-
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/status_msg"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/status_msg_collecting_log"
-            android:textAppearance="@style/TextAppearance.Small" />
-    </LinearLayout>
+        android:layout_marginLeft="@dimen/feedback_margin_left"
+        android:layout_marginRight="@dimen/feedback_margin_right"
+        android:layout_marginBottom="@dimen/feedback_margin_bottom"
+        android:text="@string/action_submit"
+        style="@miui:style/V5.TextAppearance.Button" />
 
 </LinearLayout>
