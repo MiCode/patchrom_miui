@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/detail_background"
+    android:orientation="vertical" >
+
+    <com.xiaomi.o2o.activity.view.ItemDetailScrollView
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="none"
+        android:fillViewport="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/base_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <ImageSwitcher
+                    android:id="@+id/itempic"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_detail_pic_height"
+                    android:layout_marginBottom="@dimen/item_detail_imageswitch_margin_bottom" />
+
+                <LinearLayout
+                    style="@style/Detail.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_detail_buy_margin_top" >
+
+                    <include layout="@layout/item_detail_buy" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/Detail.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_detail_buy_margin_top" >
+
+                    <include layout="@layout/item_detail_upper" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/announcement_layout_holder"
+                    style="@style/Detail.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_detail_info_margin_top"
+                    android:orientation="vertical" >
+
+                    <include layout="@layout/item_detail_announcement" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/store_layout_holder"
+                    style="@style/Detail.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_detail_info_margin_top"
+                    android:orientation="vertical" >
+
+                    <include layout="@layout/item_detail_middle" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/Detail.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_detail_info_margin_top"
+                    android:orientation="vertical" >
+
+                    <include layout="@layout/item_detail_upper_sec" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/Detail.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/item_detail_info_margin_top"
+                    android:layout_marginTop="@dimen/item_detail_info_margin_top"
+                    android:orientation="vertical" >
+
+                    <include layout="@layout/item_detail_bottom" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.xiaomi.o2o.activity.view.EmptyLoadingView
+                android:id="@+id/loading"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:gravity="center" />
+        </LinearLayout>
+    </com.xiaomi.o2o.activity.view.ItemDetailScrollView>
+
+    <LinearLayout
+        android:id="@+id/buy_layout"
+        style="@style/Detail.Padding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/detail_background"
+        android:paddingBottom="@dimen/item_detail_layout_padding_top"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_detail_buy_margin_top" />
+
+        <include layout="@layout/item_detail_buy" />
+    </LinearLayout>
+
+</FrameLayout>

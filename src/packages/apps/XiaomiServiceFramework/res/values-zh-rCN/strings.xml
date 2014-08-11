@@ -37,7 +37,6 @@
         您的密码长度必须为8－16字符，且必须包含一个数字、一个字母。可以使用特殊符号，字母区分大小写。
     </string>
     <string name="micloud_password_error_inconsistent">密码不一致</string>
-    <string name="micloud_active_alert_title">激活帐户</string>
     <string name="micloud_error_email">邮箱格式不正确</string>
     <string name="micloud_account">小米帐户</string>
     <string name="micloud_activing_account">正在激活您的帐户，请稍候...</string>
@@ -62,18 +61,8 @@
     <string name="completed">完成</string>
     <string name="header_data_and_synchronization">数据与同步</string>
     <string name="title_reg">注册小米帐户</string>
-    <string name="micloud_account_label">帐户:
-        <xliff:g id="name">
-            %1$s
-        </xliff:g>
-    </string>
     <string name="email_already_be_used">邮箱已被注册</string>
     <string name="error_no_sms_service">短信服务不可用</string>
-    <string name="reg_by_email_failure">注册失败：
-        <xliff:g id="reason">
-            %1$s
-        </xliff:g>
-    </string>
     <string name="unactivated_user">未激活</string>
     <string name="reg_failed">注册失败</string>
     <string name="login_instead_reg">用此电话号码登录</string>
@@ -81,6 +70,7 @@
     <string name="login_failed">登录失败</string>
     <string name="logout_failed">注销失败</string>
     <string name="error_network">当前网络不可用</string>
+    <string name="error_device_id">无法获取IMEI号</string>
     <string name="error_dup_phone">该电话号码已被注册</string>
     <string name="error_phone_error">无效的电话号码</string>
     <string name="error_server">服务器出错</string>
@@ -88,6 +78,8 @@
     <string name="error_unknown">未知错误</string>
     <string name="error_invalid_dev_id">无效的设备号</string>
     <string name="error_user_name">用户名不存在</string>
+    <string name="error_login">登录异常</string>
+    <string name="relogin_notice">登录错误，请重新登录</string>
     <string name="quick_login_title">系统需要验证您的小米帐户，\n请输入您的帐户密码</string>
     <string name="quick_login_step2_title">小米登录保护</string>
     <string name="account_name">帐户:
@@ -104,8 +96,8 @@
     <string name="data_keep_in_phone">保留在我的手机上</string>
     <string name="data_wipe_from_phone">从手机上删除</string>
     <string name="login_notice">登录中...</string>
-    <string name="data_sync_notice">您能使用小米帐户同步您的短信、联系人等各种数据，从此无需担心数据丢失，同时享受免费网络短信等云服务。</string>
-    <string name="cmcc_data_sync_notice">您能使用小米帐户同步您的短信、联系人等各种数据，从此无需担心数据丢失，同时享受云服务。</string>
+    <string name="data_sync_notice">您能使用小米帐户同步您的短信、联系人、通话记录等各种数据，从此无需担心数据丢失，同时享受免费网络短信等云服务。为保证云服务正常使用，会获取您当前的位置。</string>
+    <string name="cmcc_data_sync_notice">您能使用小米帐户同步您的短信、联系人、通话记录等各种数据，从此无需担心数据丢失，同时享受云服务。为保证云服务正常使用，会获取您当前的位置。</string>
     <string name="sync_dspt">开启同步和云服务</string>
     <string name="sync_sub_1_sms">您的手机可能会发送一条普通短信来激活SIM卡 (产生的费用由运营商收取)</string>
     <string name="sync_sub_1_intl_sms">您的手机可能会发送一条国际短信来激活SIM卡 (产生的费用由运营商收取)</string>
@@ -125,15 +117,10 @@
     <string name="sync_on">开启</string>
     <string name="sync_off">关闭</string>
 
-    <string name="btn_activate">激活</string>
-    <string name="sim_changed_notification_content">SIM卡未激活，请重新激活</string>
     <string name="activating">正在激活...</string>
-    <string name="check_phone_error_title">开启同步失败</string>
-    <string name="check_phone_io_error">网络错误</string>
 
     <string name="other_settings">其他功能</string>
     <string name="find_device">查找手机</string>
-    <string name="find_device_check_phone_error_title">开启查找手机功能失败</string>
     <string name="find_device_enabling">正在开启...</string>
     <string name="find_device_disabling">正在关闭...</string>
     <string name="enable_find_device_error"><xliff:g id="reason">%1$s</xliff:g>，开启查找手机失败</string>
@@ -143,7 +130,7 @@
     <string name="find_device_success_title">查找手机功能已经开启</string>
     <string name="find_device_notice_p1">当您的手机丢失时，可登录</string>
     <string name="find_device_notice_p2">i.xiaomi.com</string>
-    <string name="find_device_notice_p3">尝试找回、锁定手机或擦除数据</string>
+    <string name="find_device_notice_p3">启动手机定位，尝试找回、锁定手机或擦除数据</string>
     <string name="find_device_notice_p4">每当手机更换SIM卡时，系统可能会自动发送一条注册短信来跟踪手机位置</string>
     <string name="i_know">我知道了</string>
     <string name="find_device_disabled_title">查找手机功能已经关闭</string>
@@ -156,7 +143,7 @@
     <string name="user_agreement_p5">注册帐户即表示您同意遵守\n小米帐户的</string>
     <string name="skip_setup_account_title">跳过帐户设置</string>
     <string name="skip_setup_account_msg">使用小米帐户可以同步备份短信、联系人、照片等各种手机数据。确认要跳过帐户设置吗？</string>
-    <string name="account_dspt">小米帐户可以同步备份短信、\n联系人、照片等各种手机数据</string>
+    <string name="account_dspt">小米帐户可以同步备份短信、\n通话记录、联系人及照片等各种手机数据</string>
     <string name="remove_unactivated_account_notice">小米帐户还未激活，确认要注销？</string>
     <string name="remove_confirm">确认注销</string>
     <string name="find_password_on_web_msg">请访问 account.xiaomi.com 找回密码</string>
@@ -168,6 +155,7 @@
 
     <string name="button_cancel">取消</string>
     <string name="mili_center">米币中心</string>
+    <string name="bank_cards">银行卡</string>
 
     <string name="sina_weibo">新浪微博</string>
     <string name="bind_sina_weibo">绑定新浪微博</string>
@@ -180,29 +168,22 @@
     <string name="update_contacts_description">新浪微博会使用您小米帐户中的电话号码，对应并同步微博好友头像、生日等信息到通讯录</string>
     <string name="updated_contacts">已更新%s个联系人</string>
     <string name="updated_nothing">无可更新的联系人</string>
-    <string name="process_result">处理结果：</string>
     <string name="access_token_expired_warning">微博帐号已过期，请重新绑定</string>
     <string name="access_token_invalid_warning">微博帐号已无效，请重新绑定</string>
     <string name="service_error">服务出现错误</string>
 
     <string name="enable_micloud">启用云服务</string>
-    <string name="micloud_summary">登录小米帐户以启用联系人同步、云相册、查找手机等更多功能</string>
-    <string name="micloud_is_what">了解它能帮我做什么？</string>
-    <string name="available_functionality">当前可用功能</string>
-    <string name="internet_message">免费网络短信</string>
     <string name="micloud_more">了解更多</string>
     <string name="internet_comm">通讯服务</string>
     <string name="cloud_messaging">免费网络短信</string>
     <string name="xiaomi_cloud_service">小米云服务</string>
-    <string name="current_account">当前帐户</string>
-    <string name="my_xiaomi_account">我的小米帐户</string>
     <string name="micloud_intro_01_part_01">帮您节约大量的短信费用</string>
     <string name="micloud_intro_01_part_02">免费网络短信让您在MIUI之间通过网络免费发送短信</string>
     <string name="micloud_intro_02_part_01">您，什么事情都不用做</string>
-    <string name="micloud_intro_02_part_02">云服务帮您同步存储联系人、短信、照片等各种数据，并更新到您的各个手机</string>
+    <string name="micloud_intro_02_part_02">云服务帮您同步存储联系人、短信、通话记录、照片等各种数据，并更新到您的各个手机</string>
     <string name="micloud_intro_03_part_01">数据永不丢失，隐私有力掌握</string>
     <string name="micloud_intro_03_part_02">在i.xiaomi.com管理您的数据，更可以定位、锁定手机和一键擦除</string>
-    <string name="micloud_dspt">提供免费网络短信、手机数据同步、查找手机等众多功能，并能让您随时在线管理</string>
+    <string name="micloud_dspt">提供联系人、短信、通话记录等数据的同步功能\n还可以通过定位功能找回丢失手机</string>
     <string name="cmcc_micloud_dspt">提供手机数据同步、查找手机等众多功能，并能让您随时在线管理</string>
     <string name="start_micloud">开始使用</string>
 
@@ -227,7 +208,6 @@
 
     <string name="wrong_captcha">图片验证码错误</string>
     <string name="wrong_vcode">验证码错误</string>
-    <string name="input_vcode_prompt">请输入验证码</string>
     <string name="trust_device">我信任此设备</string>
     <string name="vcode_prompt_long">请输入小米安全令牌生成的验证码</string>
     <string name="vcode_notification_title">您的登录验证未完成</string>
@@ -237,9 +217,6 @@
     <string name="activate_status_title_activating">正在激活SIM卡</string>
     <string name="activate_status_title_activating_msim">正在激活SIM卡%s</string>
 
-    <string name="activate_status_desc_wait_for_phone_service">正在等待运营商服务信号</string>
-    <string name="activate_status_desc_registration">正在注册SIM卡</string>
-    <string name="activate_status_desc_registration_server_error">注册SIM卡时发生服务器错误</string>
     <string name="activate_status_desc_query_activation_info">正在获取激活信息</string>
     <string name="activate_status_desc_query_activation_info_no_info">服务器无该SIM卡的激活信息</string>
     <string name="activate_status_desc_query_activation_info_server_error">获取激活信息时遇到服务器错误</string>
@@ -269,8 +246,6 @@
     <string name="activate_status_desc_checking_xiaomi_account_server_error">检查小米帐号时发生服务器错误</string>
     <string name="activate_status_desc_registering_xiaomi_account">正在注册小米帐号</string>
     <string name="activate_status_desc_registering_xiaomi_account_server_error">注册小米帐号时发生服务器错误</string>
-    <string name="activate_status_desc_getting_sim_info">正在获取您的SIM卡信息</string>
-    <string name="activate_status_desc_getting_sim_info_fail">无法获取您的SIM卡信息</string>
 
     <string name="sim_unactivated_title">您的SIM卡还未激活</string>
 
@@ -322,7 +297,6 @@
 
     <string name="checking_input">正在检查输入</string>
 
-    <string name="micloud_data_loading">正在载入</string>
     <string name="micloud_space_full_influence"><u>空间满了对我有什么影响</u></string>
     <string name="micloud_title_dspt" formatted="false">"您当前总空间 %s \n已使用%s存储空间，还剩余%s"</string>
     <string name="micloud_title_full_dspt" formatted="false">"您的%s存储空间已经用满！"</string>
@@ -335,12 +309,8 @@
     <string name="micloud_user_space_usage">已用存储空间</string>
     <string name="micloud_web_discription_01">在电脑上访问 i.xiaomi.com</string>
     <string name="micloud_web_discription_02">随时管理您的个人数据</string>
-    <string name="micloud_gallery_image">照片</string>
-    <string name="micloud_gallery_video">视频</string>
-    <string name="micloud_app_data">APP备份</string>
     <string name="micloud_account_details">帐户详情</string>
     <string name="micloud_full_influence_title">空间满了对我有什么影响</string>
-    <string name="micloud_warn_full_msg">云存储空间已经用满</string>
     <string name="micloud_warn_low_title">您的云存储空间快满了</string>
     <string name="micloud_warn_low_sum">您已使用了90%的存储空间</string>
     <string name="micloud_warn_full_title">您的云存储空间已满</string>
@@ -351,4 +321,6 @@
 
     <string name="enable_sync_dspt">所有同步已关闭</string>
     <string name="enable_sync">立即开启</string>
+
+    <string name="barcode_add_account_prompt">登录后请再次扫描二维码确认授权登录</string>
 </resources>

@@ -52,8 +52,7 @@
     </PreferenceCategory>
 
     <!-- 返回音设置 -->
-    <PreferenceCategory 
-        android:key="key_backsound_modes" android:title="@string/st_title_backsound_group" />
+    <PreferenceCategory android:key="backsound_group" android:title="@string/st_title_backsound_group" />
 
     <!-- 其他设置 -->
     <PreferenceCategory android:title="@string/st_title_settings_other_group" >
@@ -63,6 +62,21 @@
             android:summary="@string/st_antispam_notification_sum"
             android:title="@string/st_title_show_antispamnotification" >
         </CheckBoxPreference>
+    </PreferenceCategory>
+
+    <!-- 广告拦截设置 -->
+    <PreferenceCategory
+        android:key="key_adblock_category"
+        android:title="@string/st_title_adblock_group" >
+        <com.miui.antispam.ui.LabelPreference
+            android:key="key_adblock"
+            android:layout="@layout/antispam_new_label_preference"
+            android:title="@string/st_title_adblock_setting"
+            miui:clickable="true" >
+            <intent
+                android:targetClass="com.miui.antispam.ui.AdwareBlock"
+                android:targetPackage="com.miui.antispam" />
+        </com.miui.antispam.ui.LabelPreference>
     </PreferenceCategory>
 
 </PreferenceScreen>

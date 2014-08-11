@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>help</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, target-densitydpi=high-dpi, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+<script src="js/jquery-1.8.3.min.js"></script>
+<style type="text/css">
+body {
+    margin:0px;
+    padding:0px;
+    background:#ECEEEE;
+    overflow-x: hidden;
+}
+form {
+    margin:0px;
+    padding:0px;
+}
+.textarea1 {
+    border:1px #BABBBC solid;
+    border-radius:10px;
+    width:100%;
+    height:100%;
+    color:#9fa0a1;
+    font-size:39px;
+    overflow-y:visible;
+    padding:10px;
+    height:210px;
+}
+#content {
+    width:100%;
+    height:100%;
+    top:0px;
+    bottom:200px;
+}
+#content_fb {
+    padding-top:20px;
+    padding-left:20px;
+    padding-right:40px;
+}
+#bottombar {
+    width:100%;
+    top:315px;
+    left:0%;
+    margin-bottom:20px;
+}
+.font_white {
+    font-size:39px;
+    color:#ffffff;
+}
+.button {
+    display:-webkit-box;
+    display:-moz-box;
+    height:90px;
+}
+.button .button_left {
+    width:30px;
+    background:url('image/tijiao1.png') no-repeat;
+    background-position:top right;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+}
+.button .button_center {
+    background:url('image/tijiao0.png');
+    -webkit-box-flex:1;
+    -moz-box-flex:1;
+    -webkit-box-ordinal-group:2;
+    -moz-box-ordinal-group:2;
+}
+.button .button_right {
+    background:url('image/tijiao2.png') no-repeat;
+    background-position:top left;
+    -webkit-box-ordinal-group:2;
+    -moz-box-ordinal-group:2;;
+    width:30px;
+}
+.font1 {
+    font-size:39px;
+}
+</style>
+<script>
+var hint = "想說點什麼？";
+$(document).ready(function(){
+    $(window).resize(resize);
+    $("#bottombar").click(function() {
+        report();
+    });
+    $("#advice").click(checkinput);
+    $("#advice").keydown(checkinput);
+    setTimeout("toggle()", 100);
+    $("#c_pn").val(window["android.system"].getPackageName());
+    $("#c_v").val(window["android.system"].getVersionName());
+    $("#s_v").val(window["android.system"].getSdk());
+    $("#product").val(window["android.system"].getProduct());
+});
+function resize() {
+    //var height = $("#content").height();
+    //var fb_height = height - 170;
+    //$("#content_fb").height(fb_height);
+}
+function toggle() {
+    //window["android.app"].setTopbarStatus(false);
+    //window["android.system"].toggleInput();
+    //$("#advice").val("\b");
+    //window["android.app"].preformOnTouch();
+    //$("#advice").click();
+    //$("#advice").focus();
+}
+function checkinput() {
+    var value = $("#advice").val();
+    $("#advice").css("color","#000000");
+    $("#advice").val(value.replace(hint, ""));
+}
+function report() {
+    $("#advice").focus();
+    var netType = window["android.system"].getNetType();
+    if (netType <= 0) {
+        alert("提交意見需要連接網路");
+        return;
+    }
+    var value = $("#advice").val();
+    if (value == hint || value.length <= 0) {
+        alert("您還沒有填寫內容");
+        return;
+    }
+    if (value.length > 512) {
+        $("#advice").val(value.substring(0,512));
+        return;
+    }
+    window["android.app"].startPostLoading();
+    $.ajax({
+            type: "POST",
+            url:"http://help.m.jeejen.com/advise/",
+            data:$('#form1').serialize(),
+            async: false,
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 200) {
+                    onsuccess();
+                } else {
+                    window["android.app"].stopPostLoading();
+                    alert("提交失敗，請重新提交");
+                }
+            },
+            success: function(data) {
+                onsuccess(data);
+            }
+    });
+}
+function onsuccess(data) {
+    window["android.app"].stopPostLoading();
+    alert("感謝您的支持\r\n我們會盡快解決");
+    javascript:history.go(-1);
+    setTimeout(window["android.app"].clearHtml(), 500);
+}
+</script>
+</head>
+<body>
+<form id="form1" name="form1" action="" method="post">
+    <div id="content">
+        <div id="content_fb">
+            <textarea id="advice" name="advice" type="text" style="color:#9fa0a1;" class="textarea1" autofocus="true" maxlength="1024" >想說點什麼？</textarea>
+        </div>
+        <!--<div style="text-align:center;padding-top:10px;padding-bottom:10px;margin:0px auto;" class="font1" >QQ交流群:238902796</div>-->
+    </div>
+    <div id="bottombar">
+        <div class="button">
+        <div class="button_center" style="line-height:90px;text-align:center"><span class="font_white">提交</span></div>
+            <div class="button_right"></div>
+            <div class="button_left"></div>
+        </div>
+    </div>
+    <input type="hidden" id="c_pn" name="c_pn" />
+    <input type="hidden" id="c_v" name="c_v" />
+    <input type="hidden" id="s_v" name="s_v" />
+    <input type="hidden" id="product" name="product" />
+</form>
+</body>

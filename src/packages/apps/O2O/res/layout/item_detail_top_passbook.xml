@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaomi.o2o.activity.view.CommonListItem xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/common_list_view_background" >
+
+    <LinearLayout
+        android:id="@+id/content_holder"
+        style="@style/Widget.ListView.Item.TrebleLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/common_list_view_background"
+        android:orientation="horizontal"
+        android:paddingBottom="0dp"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp" >
+
+        <FrameLayout
+            android:id="@+id/icon_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageSwitcher
+                android:id="@+id/icon_passbook"
+                style="@style/Widget.Icon"
+                android:layout_marginBottom="@dimen/item_padding_bottom"
+                android:layout_marginRight="@dimen/item_icon_margin_right" />
+
+            <ImageView
+                android:id="@+id/item_res"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/reservation_image_margin_left"
+                android:layout_marginTop="@dimen/reservation_image_margin_top"
+                android:src="@drawable/item_reservation"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/item_right_padding_bottom" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_item_title_margin_top"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="@string/app_name"
+                    android:textAppearance="@style/TextAppearance.Title"
+                    android:textSize="@dimen/common_item_text_title_size" />
+
+                <TextView
+                    android:id="@+id/item_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="top"
+                    android:lines="1"
+                    android:text="@string/shop_count"
+                    android:textAppearance="@style/TextAppearance.Title.Secondary"
+                    android:textSize="@dimen/common_item_text_sub_title_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_item_price_margin_top"
+                android:baselineAligned="false"
+                android:gravity="bottom"
+                android:orientation="horizontal" >
+
+                <com.xiaomi.o2o.activity.view.NumbericTextView
+                    android:id="@+id/currentprice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/item_pricemoney_margin_top"
+                    android:gravity="bottom"
+                    android:textAppearance="@style/TextAppearance.Price" />
+
+                <TextView
+                    android:id="@+id/pricemoney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/gap_between_currentprice"
+                    android:gravity="bottom"
+                    android:text="@string/money"
+                    android:textAppearance="@style/TextAppearance.Title.Secondary" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/common_list_item_empty" />
+
+</com.xiaomi.o2o.activity.view.CommonListItem>

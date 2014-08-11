@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/bank_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="100dip"
+        android:orientation="vertical"
+        android:paddingLeft="20dip"
+        android:paddingRight="20dip" >
+
+        <TextView
+            android:id="@+id/bank_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/mipay_text_color_white"
+            android:textSize="@dimen/mipay_text_size_large" />
+
+        <TextView
+            android:id="@+id/bank_number"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dip"
+            android:textColor="@color/mipay_text_color_white"
+            android:textSize="@dimen/mipay_text_size_medium" />
+    </LinearLayout>
+
+    <com.mipay.common.component.ProgressButton
+        android:id="@+id/button"
+        style="@style/Mipay.Widget.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="13dip"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:layout_marginTop="15dip"
+        android:text="@string/mipay_button_unbind_bank_card" />
+
+</FrameLayout>

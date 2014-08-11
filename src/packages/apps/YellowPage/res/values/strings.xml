@@ -5,8 +5,13 @@
     <string name="app_label">Directory</string>
 
     <!-- Global -->
-    <string name="phone_info_divider">" ｜ "</string>
+    <string name="colon" translatable="false">:</string>
+    <string name="phone_info_divider" translatable="false">" ｜ "</string>
     <string name="call">Call</string>
+    <string name="back">Back</string>
+    <string name="refresh">Refresh</string>
+    <string name="sim1" translatable="false">Sim 1</string>
+    <string name="sim2" translatable="false">Sim 2</string>
 
     <!-- Loading process related -->
     <string name="check_network">Network settings</string>
@@ -30,18 +35,45 @@
 
     <!-- YellowPage related -->
     <string name="yellow_page_detail_title">About</string>
-    <string name="yellow_page_call_log_title">Call log</string>
     <string name="yellow_page_website">Official website</string>
     <string name="menu_copy_text">Copy to clipboard</string>
     <string name="menu_call_ip_number">Dial IP call (dial %s)</string>
     <string name="toast_text_copied">Text copied</string>
-    <string name="provider_tag">Data source</string>
-    <string name="all_numbers">All numbers</string>
-    <plurals name="all_numbers_count">
-        <item quantity="one">1 entry</item>
-        <item quantity="other">%d entries</item>
-    </plurals>
     <string name="provider">Identified by %s</string>
+    <string name="confirm_to_send_to_desktop">Confirm to send %s to desktop？</string>
+    <string name="sending_shortcut">Sending&#8230;</string>
+    <string name="send_shortcut_failed">Send failed </string>
+    <string name="send_shortcut_success">Send success</string>
+
+    <string name="group_name_basic"></string>
+    <string name="group_name_service">Service</string>
+    <string name="group_name_group_buying">Group buying</string>
+    <string name="group_name_review">Reviews（%s total）</string>
+    <string name="group_name_gallery">Gallery</string>
+    <string name="group_name_more">Miscellaneous</string>
+    <string name="group_name_data_source">Source</string>
+    <string name="group_name_about">About</string>
+
+    <string name="add_to_favorite">Add to favorites</string>
+    <string name="remove_from_favorite">Remove from favorites</string>
+    <string name="added_to_favorite">Added</string>
+    <string name="removed_from_favorite">Removed</string>
+
+    <string name="correct_yellow_page">Send feedback</string>
+    <string name="about_yellow_page">About</string>
+
+    <string name="average_price">Average %s RMB</string>
+    <string name="review_nickname_prefix">From:</string>
+    <string name="more_coupons">All coupons</string>
+    <plurals name="more_coupons_count">
+        <item quantity="one">1 coupon</item>
+        <item quantity="other">%d coupons</item>
+    </plurals>
+    <string name="coupon_bought_count">%d bought</string>
+    <string name="gallery">Gallery</string>
+
+    <string name="content_desc_send_sms">Send text message</string>
+    <string name="currency_character">RMB</string>
 
     <!-- Call log related -->
     <string name="callrecordview_item_newcontact">New contact</string>
@@ -64,8 +96,6 @@
     <string name="menu_delete_call_log">Delete call logs</string>
     <string name="menu_add_black_list">Add to blocklist</string>
     <string name="menu_remove_black_list">Remove from blocklist</string>
-    <string name="menu_about_yellow_page">About this page</string>
-    <string name="menu_correct_yellow_page">Correction</string>
     <string name="menu_refresh">Refresh</string>
     <string name="confirm_to_add_blacklist">Block this number?</string>
     <string name="confirm_to_remove_blacklist">Unblock this number?</string>
@@ -85,15 +115,18 @@
     <string name="turn_on_smart_antispam_summary_on">Upload and identify unknown numbers in call logs and text messages</string>
     <string name="turn_on_smart_antispam_summary_off">Only search numbers saved on this device</string>
     <string name="agree">Agree</string>
+    <string name="enable_now">Enable now</string>
+    <string name="dont_enable">Don\'t enable</string>
     <string name="user_notice_identify_summary_format">Your phone will use MIUI\'s label directory to block unwanted calls when connected to Wi-Fi. By touching \"Agree\" you agree to Xiaomi\'s %1$s and %2$s.</string>
     <string name="user_notice_yp_detail_summary_format">Some of your label directory info is outdated. Do you want to update it? By touching \"Agree\" you agree to Xiaomi\'s %1$s and %2$s.</string>
+     <string name="user_notice_identify_summary_format_cta">Your phone will use MIUI\'s label directory to block unwanted calls when connected to Wi-Fi. By touching \"Agree\" you agree to Xiaomi\'s %1$s and %2$s.</string>
+    <string name="user_notice_yp_detail_summary_format_cta">Some of your label directory info is outdated. Do you want to update it? By touching \"Agree\" you agree to Xiaomi\'s %1$s and %2$s.</string>
     <string name="about_smart_antispam_summary">About this feature</string>
     <string name="about_telephone_fraud">Watch out for telephone fraud</string>
-    <string name="notify_connect_every_time">Ask for networking permission every time</string>
-    <string name="do_not_remind_me">Don\'t remind me</string>
-
-    <!-- Common web page related -->
-    <string name="title_about_yellow_page">About</string>
+    <string name="turn_on_yellowpage_service_title">Use directory service</string>
+    <string name="notify_connect_title">Networking permission</string>
+    <string name="notify_connect_summary">Ask for networking permission every time</string>
+    <string name="do_not_remind_me">Don\'t remind</string>
 
     <!-- Payment related -->
     <string name="payment_back">Back</string>
@@ -130,6 +163,7 @@
     <string name="recharge_history_empty">No history</string>
     <string name="recharge_my_phone_number">My number</string>
     <string name="recharge_unknown_number">Unknown</string>
+    <string name="recharge_phone">Top-up number:</string>
 
     <!-- 运营商流量套餐相关 -->
     <string name="packages_pay">Buy</string>
@@ -156,7 +190,7 @@
     <string name="express_inquiry_serial_number_prefix">Number: \u0020</string>
     <string name="express_inquiry_no_result">No results</string>
     <string name="express_inquiry_internal_failure">An error occurred.\nPlease your check tracking number.</string>
-    <string name="express_inquiry_data_owner_prefix">Tracking info provided by </string>
+    <string name="express_inquiry_data_owner_prefix">"Tracking info provided by "</string>
     <string name="express_inquiry_data_owner_suffix"></string>
     <string name="scan">Scan</string>
     <string name="express_inqiury_select_logistics">Delivery company</string>
@@ -167,15 +201,18 @@
     <string name="express_inquiry_no_history">No history</string>
     <string name="express_inquiry_delete_warning_single">Delete this entry?</string>
     <string name="express_inquiry_delete_warning_multiple">Delete %d selected history entries?</string>
+    <string name="express_inquiry_go_to_provider">Go to provider</string>
+    <string name="express_inquiry_provider_info">Powered by</string>
 
+    <string name="express_send">Ship</string>
     <string name="express_sender">Sender</string>
     <string name="express_sender_info">Sender info</string>
     <string name="express_addressee">Addressee</string>
     <string name="express_addressee_info">Addressee info</string>
     <string name="express_add_new_address">Add address</string>
-    <string name="express_next_step">Next</string>
-    <string name="express_create_order">Create</string>
+    <string name="express_preview_order">Preview</string>
     <string name="express_view_order">View orders</string>
+    <string name="express_submit_order">Submit</string>
     <string name="express_go_back">Back</string>
     <string name="express_address_delete_warning">Are you sure?</string>
     <string name="express_sender_name">Sender name</string>
@@ -184,6 +221,7 @@
     <string name="express_detailed_address">Address</string>
     <string name="express_no_address">Empty</string>
     <string name="express_order_confirmation">Order confirmation</string>
+    <string name="express_order_result">Result</string>
     <string name="express_select_sender">From</string>
     <string name="express_select_addressee">To</string>
     <string name="express_region_pick_title">Choose region</string>
@@ -200,6 +238,54 @@
     <string name="express_address_region">Region</string>
     <string name="express_address_deleted">Address deleted</string>
 
+    <string name="express_order_success_hint">Your package will be delivered by %s\nCustom service will contact you in a moment</string>
+    <string name="express_order_ongoing">Ordering\u2026</string>
+    <string name="express_order_succeeded">Succeeded</string>
+    <string name="express_order_failed">Failed</string>
+    <string name="express_field_empty">Empty</string>
+    <string name="express_company">Logistics</string>
+    <string name="express_company_empty">No companies</string>
+    <string name="express_order_internal_id">Order ID:</string>
+    <string name="express_order_created_time">Created time:</string>
+    <string name="express_cancel_order">Cancel</string>
+    <string name="express_delete_order">Delete</string>
+
+    <string name="express_order_state">State:</string>
+    <string name="express_order_state_note">Status</string>
+    <string name="express_order_state_ordered">Ordered</string>
+    <string name="express_order_state_processing">Processing</string>
+    <string name="express_order_state_accepted">Accepted</string>
+    <string name="express_order_state_failed">Failed</string>
+    <string name="express_order_state_cancelled">Cancelled</string>
+    <string name="express_order_state_wait_picking">Await picking</string>
+    <string name="express_order_state_picking_failed">Failed to pick</string>
+    <string name="express_order_state_picked">Picked</string>
+    <string name="express_order_state_transporting">Transporting</string>
+    <string name="express_order_state_dispatching">Delivering</string>
+    <string name="express_order_state_signed">Signed</string>
+    <string name="express_order_state_allograph">Signed</string>
+    <string name="express_order_state_dispatching_failed">Dispatching failed</string>
+    <string name="express_order_state_unknown">Unknown</string>
+
+    <string name="express_view_status">Track</string>
+    <string name="express_no_order_info">No order info</string>
+    <string name="express_orders">Orders</string>
+    <string name="express_order_detail">Detail</string>
+    <string name="express_no_order">Empty</string>
+    <string name="express_contact_prefix">"Contact "</string>
+    <string name="express_contact_label">Information for Package Pickup service</string>
+    <string name="express_contact_phone">Enter your phone number</string>
+    <string name="express_contact_phone_finding">Getting phone number&#8230;</string>
+    <string name="express_contact_address">Enter your address</string>
+    <string name="express_contact_address_finding">Locating&#8230;</string>
+    <string name="express_dest_city_label">Destination</string>
+    <string name="express_select_city">Select city</string>
+    <string name="express_company_phone_prefix">Contact: </string>
+    <string name="express_confirm_dest_city_prefix">Destination: </string>
+    <string name="express_company_pricing_details">Pricing detail</string>
+    <string name="express_company_list_empty">No companies</string>
+    <string name="express_send_notice">About prohibited items</string>
+
     <!-- Scams numbers related -->
     <string name="remind_user_suspect_number_title">Suspicious number</string>
     <string name="remind_user_suspect_number_message">Be careful: You should always verify the identity of the contact first by phone or video before responding to any messages involving your personal information.</string>
@@ -208,12 +294,12 @@
 
     <!-- Balance inquiry related -->
     <string name="balance_inquiry_title">Balance inquiry</string>
-    <string name="balance_inquiry_default_sp_name">Operator</string>
     <string name="balance_inquiry_send_sms_hint">A text message will be sent to your service provider to check your balance (free of charge)</string>
     <string name="balance_inquiry_send_sms_summmary">Check your balance</string>
     <string name="balance_inquiry_send_sms_fail_hint">Failed to send SMS. Check your SIM card\'s status.</string>
 
     <!-- 导航相关 -->
+    <string name="navigation_search_default_hint">Type in words you want to search (e.g. xiaomi)</string>
     <string name="navigation_search_automatically_positioned_city">Current city</string>
     <string name="navigation_search_positioning">Locating\u2026</string>
     <string name="navigation_search_positioning_failed">Select a city</string>
@@ -224,17 +310,20 @@
     <!-- Order related -->
     <string name="order_empty_hint">No orders</string>
     <string name="order_merchant_title">My orders</string>
-    <string name="order_merchant_title_format">%1$s-%2$s</string>
-    <string name="order_id">Order ID:%s</string>
+    <string name="order_merchant_title_format" translatable="false">%1$s-%2$s</string>
     <string name="order_status">%s</string>
-    <string name="order_price">%s</string>
+    <string name="order_product_name_label">Product name：</string>
+    <string name="order_status_label">Order status：%s</string>
+    <string name="order_price_label">Order price：%s</string>
+    <string name="order_id_label">Order id：%s</string>
+    <string name="order_date_label">Order date：%s</string>
+    <string name="order_not_found">No related order</string>
 
     <!-- Frequently used yellowpage related -->
     <string name="general_yellow_page_title">General</string>
     <string name="general_recent_title">Recent</string>
     <string name="general_favorite_title">Favorites</string>
     <string name="general_no_yellow_page">List is empty</string>
-    <string name="general_menu_favorite">Favorites</string>
     <string name="general_menu_unfavorite">Remove from favorites</string>
     <string name="general_menu_delete_recent">Delete recent</string>
     <string name="general_cancel_favorite_ok">Favorite removed</string>
@@ -243,5 +332,21 @@
     <!-- Nearby yellowpage related -->
     <string name="nearby_yellow_page_title">Nearby</string>
     <string name="nearby_no_yellow_page">No result nearby</string>
-    <string name="nearby_yellow_page_title_format">%1$s-%2$s</string>
+    <string name="nearby_yellow_page_title_format" translatable="false">%1$s-%2$s</string>
+    <string name="nearby_average_price">Average %d RMB</string>
+
+    <!-- Account related info -->
+    <string name="account_yellowpage_recent">View history</string>
+    <string name="account_yellowpage_favorite">My favorites</string>
+    <string name="account_order">Order record</string>
+    <string name="account_address">General addresses</string>
+    <string name="account_title">Profile</string>
+    <string name="account_type_name">XiaoMi account</string>
+    <string name="account_verify_password">You are using directory service on the other phone, for privacy reason, your account password should be verified</string>
+    <string name="account_updating_device">Loging directory, please wait&#8230;</string>
+    <string name="account_updating_device_failed">Login directory failed, please try again</string>
+
+    <!-- Quick YellowPage -->
+    <string name="quick_yellow_page_tab_phones">Phone</string>
+    <string name="quick_yellow_page_tab_call_log">Call log</string>
 </resources>

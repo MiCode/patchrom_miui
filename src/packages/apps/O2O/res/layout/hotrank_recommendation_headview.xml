@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaomi.o2o.activity.view.RecommendView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_list_view_background"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/banner_height"
+        android:layout_marginTop="@dimen/banner_margin_top"
+        android:orientation="horizontal" >
+
+        <ImageSwitcher
+            android:id="@+id/recommadation_hottest"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/banner_margin_left"
+            android:layout_marginRight="@dimen/banner_gap"
+            android:layout_weight="1"
+            android:background="@drawable/place_holder_background"
+            android:scaleType="fitXY"
+            android:src="@drawable/place_holder_background" />
+
+        <ImageSwitcher
+            android:id="@+id/recommadation_newest"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/banner_gap"
+            android:layout_marginRight="@dimen/banner_margin_right"
+            android:layout_weight="1"
+            android:background="@drawable/place_holder_background"
+            android:scaleType="fitXY"
+            android:src="@drawable/place_holder_background" />
+    </LinearLayout>
+
+    <com.xiaomi.o2o.activity.view.ExtendedGridView
+        android:id="@+id/top_item"
+        style="@style/Widget.TopItemGridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </com.xiaomi.o2o.activity.view.ExtendedGridView>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/item_divider_line" />
+
+    <RelativeLayout
+        android:id="@+id/recommend_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/recommend_margin_bottom"
+        android:paddingLeft="@dimen/recommend_margin_left"
+        android:paddingTop="@dimen/recommend_margin_top"
+        android:background="@drawable/recommend_title_bg" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:text="@string/recommend_title"
+            android:textAppearance="@style/TextAppearance.Title.Recommend" />
+    </RelativeLayout>
+
+</com.xiaomi.o2o.activity.view.RecommendView>

@@ -58,11 +58,29 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:key="wifi_remind_category">
+    <!--
+    <PreferenceCategory android:key="wifi_remind_category" >
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="pref_show_network_tips_window"
             android:title="@string/network_show_wifi_setting_tip_dialog_setting_cate_title"
             android:summary="@string/network_show_wifi_setting_tip_dialog_setting_title" />
+    </PreferenceCategory>
+     -->
+     <PreferenceCategory android:key="pref_adblock_setting"
+         android:title="@string/pref_adblock_title">
+        <CheckBoxPreference
+                android:key="enable_adblock"
+                android:defaultValue="true"
+                android:title="@string/pref_adblock_title"/>
+        <CheckBoxPreference
+                android:key="enable_adblock_notification"
+                android:defaultValue="true"
+                android:title="@string/pref_enable_adblock_notification"/>
+        <com.android.browser.preferences.BrowserYesNoPreference
+                android:key="clear_adblock_statistics"
+                android:title="@string/pref_clear_adblock_statistics"
+                android:summary="@string/pref_adblock_counts"
+                android:dialogMessage="@string/pref_clear_adblock_statistics_dlg" />
     </PreferenceCategory>
 </PreferenceScreen>

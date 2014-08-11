@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dip" >
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/mipay_text_color_black"
+        android:textSize="@dimen/mipay_text_size_medium" />
+
+    <TextView
+        android:id="@+id/summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="7dip"
+        android:layout_marginRight="7dip"
+        android:layout_marginTop="10dip"
+        android:textColor="@color/mipay_text_color_gray"
+        android:textSize="@dimen/mipay_text_size_medium" />
+
+    <ImageView
+        android:id="@+id/summary_image"
+        android:layout_width="wrap_content"
+        android:layout_height="0dip"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="7dip"
+        android:layout_marginRight="7dip"
+        android:layout_marginTop="10dip"
+        android:layout_weight="1" />
+
+    <com.mipay.common.component.PasswordEditText
+        android:id="@+id/check_password"
+        style="@style/Mipay.Widget.NumberEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dip" />
+
+    <EditText
+        android:id="@+id/cvv2"
+        style="@style/Mipay.Widget.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:inputType="number"
+        android:maxLength="3"
+        android:numeric="integer" />
+
+    <com.mipay.common.component.SmsCaptchaEditText
+        android:id="@+id/sms_captcha"
+        style="@style/Mipay.Widget.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:inputType="number"
+        android:maxLength="6"
+        android:numeric="integer" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dip"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/cancel"
+            style="@style/Mipay.Widget.Button"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/mipay_button_cancel" />
+
+        <Button
+            android:id="@+id/resend"
+            style="@style/Mipay.Widget.Button"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/mipay_check_sms_captcha_resend" />
+
+        <com.mipay.common.component.ProgressButton
+            android:id="@+id/confirm"
+            style="@style/Mipay.Widget.Button"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/mipay_button_pay" />
+    </LinearLayout>
+
+</LinearLayout>

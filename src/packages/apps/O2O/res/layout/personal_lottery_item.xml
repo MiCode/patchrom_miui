@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaomi.o2o.activity.view.PersonalLotteryItem xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_holder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/content_holder"
+        style="@style/Widget.ListView.Item.TrebleLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <FrameLayout
+            android:id="@+id/icon_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageSwitcher
+                android:id="@+id/icon"
+                style="@style/Widget.Icon"
+                android:layout_marginBottom="@dimen/item_padding_bottom"
+                android:layout_marginRight="@dimen/item_icon_margin_right" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="top"
+            android:layout_marginBottom="@dimen/item_padding_bottom"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="@string/app_name"
+                android:textAppearance="@style/TextAppearance.Title"
+                android:textSize="@dimen/common_item_text_title_size" />
+
+            <TextView
+                android:id="@+id/receipt_number"
+                android:layout_width="wrap_content"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:text="@string/app_name"
+                android:textAppearance="@style/TextAppearance.Title.Secondary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:text="@string/lottery_in"
+                android:textAppearance="@style/TextAppearance.Title.Secondary" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/item_divider_line" />
+
+    <include layout="@layout/personal_empty" />
+
+</com.xiaomi.o2o.activity.view.PersonalLotteryItem>

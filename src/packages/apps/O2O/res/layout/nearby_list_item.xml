@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaomi.o2o.activity.view.NearByListItem xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/common_list_view_background" >
+
+    <LinearLayout
+        android:id="@+id/content_holder"
+        style="@style/Widget.ListView.Item.TrebleLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <FrameLayout
+            android:id="@+id/icon_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageSwitcher
+                android:id="@+id/icon"
+                style="@style/Widget.Icon"
+                android:layout_marginBottom="@dimen/item_padding_bottom"
+                android:layout_marginRight="@dimen/item_icon_margin_right" />
+
+            <ImageView
+                android:id="@+id/item_res"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/reservation_image_margin_left"
+                android:layout_marginTop="@dimen/reservation_image_margin_top"
+                android:src="@drawable/item_reservation"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/item_right_padding_bottom" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_item_title_margin_top"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="@string/app_name"
+                    android:textAppearance="@style/TextAppearance.Title"
+                    android:textSize="@dimen/common_item_text_title_size" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/shop_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:lines="2"
+                        android:ellipsize="end"
+                        android:text="@string/shop_count"
+                        android:textAppearance="@style/TextAppearance.Title.Secondary"
+                        android:textSize="@dimen/common_item_text_sub_title_size" />
+
+                    <ImageView
+                        android:layout_width="1px"
+                        android:layout_height="@dimen/common_item_desc_line_height"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/action_bar_line_margin_left"
+                        android:layout_marginRight="@dimen/action_bar_line_margin_left"
+                        android:background="@color/item_divider_line"
+                        android:visibility="gone"  />
+
+                    <TextView
+                        android:id="@+id/item_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="top"
+                        android:lines="1"
+                        android:text="@string/shop_count"
+                        android:textAppearance="@style/TextAppearance.Title.Secondary"
+                        android:textSize="@dimen/common_item_text_sub_title_size"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_item_price_margin_top" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:baselineAligned="false"
+                    android:gravity="bottom"
+                    android:orientation="horizontal" >
+
+                    <com.xiaomi.o2o.activity.view.NumbericTextView
+                        android:id="@+id/currentprice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/item_pricemoney_margin_top"
+                        android:gravity="bottom"
+                        android:textAppearance="@style/TextAppearance.Price" />
+
+                    <TextView
+                        android:id="@+id/pricemoney"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/gap_between_currentprice"
+                        android:gravity="bottom"
+                        android:text="@string/money"
+                        android:textAppearance="@style/TextAppearance.Title.Secondary" />
+
+                    <TextView
+                        android:id="@+id/listprice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/gap_between_price"
+                        android:gravity="bottom"
+                        android:text="@string/orig_price"
+                        android:textAppearance="@style/TextAppearance.Title.Secondary" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/purchasecount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="bottom"
+                    android:textAppearance="@style/TextAppearance.Title.Secondary"
+                    android:textSize="@dimen/common_item_text_sub_title_size" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/item_divider_line" />
+
+    <include layout="@layout/nearby_list_item_empty" />
+
+</com.xiaomi.o2o.activity.view.NearByListItem>

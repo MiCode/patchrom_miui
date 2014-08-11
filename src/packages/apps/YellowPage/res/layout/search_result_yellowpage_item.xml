@@ -4,23 +4,75 @@
 
     <ImageView
         android:id="@+id/thumbnail"
-        style="@style/Widget.ImageView.Thumbnail" />
+        style="@style/SearchResultListItemThumbnailStyle" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="15dip"
+        android:layout_marginLeft="@dimen/nearby_list_item_thumbnail_right_margin"
         android:layout_toRightOf="@+id/thumbnail"
-        android:orientation="vertical"
-        android:gravity="center_vertical" >
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/name"
-            style="@miui:style/V5.TextAppearance.List.Primary"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:singleLine="true" />
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/name"
+                style="@miui:style/V5.TextAppearance.List.Primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:singleLine="true" />
+
+            <ImageView
+                android:id="@+id/first_service_icon"
+                android:layout_width="@dimen/nearby_list_item_service_icon_size"
+                android:layout_height="@dimen/nearby_list_item_service_icon_size"
+                android:layout_marginLeft="@dimen/nearby_list_item_first_service_icon_margin_left"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/second_service_icon"
+                android:layout_width="@dimen/nearby_list_item_service_icon_size"
+                android:layout_height="@dimen/nearby_list_item_service_icon_size"
+                android:layout_marginLeft="@dimen/nearby_list_item_next_service_icon_margin_left"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <RatingBar
+                android:id="@+id/rating"
+                style="@miui:style/V5.Widget.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:indeterminateDrawable="@drawable/review_rating"
+                android:maxHeight="@dimen/nearby_list_item_rating_bar_size"
+                android:minHeight="@dimen/nearby_list_item_rating_bar_size"
+                android:progressDrawable="@drawable/review_rating"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/average_price"
+                style="@miui:style/V5.TextAppearance.List.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/nearby_list_item_first_service_icon_margin_left"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:visibility="gone" />
+        </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -42,6 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/nearby_list_item_distance_margin_left"
                 android:singleLine="true"
                 android:visibility="gone" />
         </RelativeLayout>

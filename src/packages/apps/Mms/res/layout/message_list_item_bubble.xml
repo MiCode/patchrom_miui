@@ -40,6 +40,7 @@
                 />
     </RelativeLayout>
     <LinearLayout
+        android:id="@+id/date_indicator_panel"
         android:layout_marginTop="7dp"
         android:layout_marginBottom="7dp"
         android:layout_gravity="center"
@@ -82,6 +83,18 @@
                 android:layout="@layout/message_item_bubble_out_alert"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+            <ViewStub
+                android:id="@+id/message_item_simple_hms_stub"
+                android:layout="@layout/message_item_simple_hms_in"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ViewStub
+                android:id="@+id/message_item_simple_hms_out_stub"
+                android:layout="@layout/message_item_simple_hms_out"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
         <FrameLayout
             android:id="@+id/checkbox_container"

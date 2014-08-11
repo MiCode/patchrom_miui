@@ -18,35 +18,65 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/titlebar"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <LinearLayout
-        android:id="@+id/urlstatusbar"
+    android:layout_height="@dimen/toolbar_height"
+    android:background="@drawable/title_bar_nav_bg">
+
+   <ViewStub
+        android:id="@+id/tip_stub"
+        android:layout="@layout/title_bar_tip"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/toolbar_tips_height"
-        android:layout_marginTop="@dimen/toolbar_height"
-        android:gravity="center"
-        android:visibility="gone">
-        <ImageView
-            android:id="@+id/urlstatus_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:id="@+id/urlstatus_tips"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/url_status_color"
-            android:textSize="@dimen/text_font_size_small" />
-    </LinearLayout>
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/animator_mask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dip" />
     <include
         layout="@layout/title_bar_nav"
         android:id="@+id/taburlbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolbar_height" />
+    <!--
+     <ViewStub
+        android:id="@+id/snapshotbar_stub"
+        android:layout="@layout/title_bar_snapshot"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height" />
+         -->
+    <!-- chang to MiuiAutoLoginBar -->
+
+    <ViewStub
+        android:id="@+id/topBarStub"
+        android:layout="@layout/top_bar"
+        android:layout_width="@dimen/topbar_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"/>
+    <ViewStub
+        android:id="@+id/navTopBarStub"
+        android:layout="@layout/nav_top_bar"
+        android:layout_width="@dimen/topbar_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"/>
+
+    <com.android.browser.PageProgressView
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:src="@drawable/miui_progress"
+        android:visibility="invisible"/>
+
+    <!-- chang to MiuiAutoLoginBar -->
+    <!--
     <ViewStub
         android:id="@+id/autologin_stub"
         android:layout="@layout/title_bar_autologin"
         android:paddingTop="3dip"
-        android:layout_below="@id/taburlbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+         -->
 </merge>

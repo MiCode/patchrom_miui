@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/top_item_width"
+    android:layout_height="@dimen/top_item_height" >
+
+    <LinearLayout
+        android:layout_width="@dimen/top_item_width"
+        android:layout_height="@dimen/top_item_height"
+        android:orientation="vertical" >
+
+        <ImageSwitcher
+            android:id="@+id/item_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/top_item_icon_margin_top" />
+
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginTop="@dimen/top_item_name_margin_top"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textAppearance="@style/TextAppearance.Title.Secondary"
+            android:textSize="@dimen/common_item_text_sub_title_size" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/item_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|top"
+        android:layout_marginTop="@dimen/top_item_tip_margin_top"
+        android:paddingBottom="@dimen/top_item_tip_pading_bottom"
+        android:background="@drawable/choose_seat"
+        android:gravity="center"
+        android:text="@string/top_item_tips"
+        android:textAppearance="@style/TextAppearance.Title.Third"
+        android:visibility="gone" />
+
+</FrameLayout>

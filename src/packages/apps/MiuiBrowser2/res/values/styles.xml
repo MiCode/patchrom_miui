@@ -417,9 +417,8 @@
     <!-- cloudTab -->
     <style name="CloudTabGroupTitleTextStyle">
         <item name="android:textSize">13sp</item>
-        <item name="android:gravity">center_vertical</item>
         <item name="android:layout_gravity">bottom</item>
-        <item name="android:minHeight">@dimen/widgetItemMinHeight</item>
+        <item name="android:layout_marginBottom">4.2dip</item>
         <item name="android:textColor">@color/cloud_device_text</item>
     </style>
 
@@ -428,7 +427,7 @@
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:maxLines">1</item>
-        <item name="android:ellipsize">marquee</item>
+        <item name="android:ellipsize">end</item>
         <item name="android:singleLine">true</item>
         <item name="android:scrollHorizontally">true</item>
         <item name="android:paddingLeft">10dip</item>
@@ -439,7 +438,7 @@
         <item name="android:textColor">@color/cloud_tab_child_url_color</item>
         <item name="android:textSize">11sp</item>
         <item name="android:maxLines">1</item>
-        <item name="android:ellipsize">marquee</item>
+        <item name="android:ellipsize">end</item>
         <item name="android:singleLine">true</item>
         <item name="android:scrollHorizontally">true</item>
         <item name="android:paddingLeft">@dimen/bookmark_url_padding_left</item>
@@ -450,7 +449,21 @@
         <item name="android:textColor">@color/cloud_tab_title_color</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="CloudTabRefreshIconStyle">
+        <item name="android:layout_width">52dip</item>
+        <item name="android:layout_height">52dip</item>
+        <item name="android:paddingLeft">10dip</item>
+        <item name="android:indeterminateOnly">true</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:progressDrawable">@drawable/cloud_loading_img</item>
+    </style>
+
+    <style name="CloudTabTimeStyle">
+        <item name="android:textColor">@color/cloud_tab_time_color</item>
+        <item name="android:textSize">11sp</item>
     </style>
 
     <style name="BookmarkItemStyle">
@@ -471,4 +484,19 @@
 
     </style>
 
+    <style name="Loading">
+        <item name="stokewidth">3.5dip</item>
+        <item name="background_color">#5f5f5f</item>
+        <item name="loading_color">#ffffff</item>
+        <item name="img_bg_color">#777777</item>
+        <item name="loading_img">@drawable/loading_img</item>
+    </style>
+
+    <style name="CloudLoading">
+        <item name="stokewidth">3.5dip</item>
+        <item name="background_color">#ff5f5f5f</item>
+        <item name="loading_color">#dcffffff</item>
+        <item name="img_bg_color">#ff2f2f31</item>
+        <item name="loading_img">@drawable/cloud_loading_img</item>
+    </style>
 </resources>

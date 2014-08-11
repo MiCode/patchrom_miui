@@ -32,7 +32,12 @@
         <item name="android:actionBarStyle">@style/ActionBar.Show.Custom</item>
     </style>
 
-    <style name="BackupActivityTheme" parent="@miui:style/V5.Theme.Light.ActionBar.NoTitle">
+    <style name="transparentActionBarStyle" parent="@miui:V5.Widget.ActionBar">
+        <item name="android:background">@drawable/action_bar_transparent_bg</item>
+    </style>
+
+    <style name="BackupActivityTheme" parent="@miui:style/V5.Theme.Light">
         <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:actionBarStyle">@style/transparentActionBarStyle</item>
     </style>
 </resources>

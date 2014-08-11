@@ -20,22 +20,26 @@
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone" >
+
         <ProgressBar
             android:id="@+id/progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:indeterminateOnly="true" />
+
         <TextView
             android:id="@+id/progress_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/progress_downloading" />
+
         <ImageView
             android:id="@+id/error_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="?miui:attr/v5_content_empty_icon"
             android:visibility="gone" />
+
         <TextView
             android:id="@+id/error"
             android:layout_width="wrap_content"
@@ -43,5 +47,15 @@
             android:textColor="@color/text_color_gray"
             android:textSize="@dimen/text_size_small"
             android:visibility="gone" />
+
+        <Button
+            android:id="@+id/button_retry"
+            style="@style/ButtonNormal"
+            android:layout_width="120dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:text="@string/btn_net_connection_retry"
+            android:visibility="gone" />
     </LinearLayout>
+
 </FrameLayout>

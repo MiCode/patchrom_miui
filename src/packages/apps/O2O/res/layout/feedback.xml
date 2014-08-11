@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/detail_background"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/personal_settings_text_margin_bottom"
+        android:layout_marginLeft="@dimen/personal_settings_text_margin_left"
+        android:layout_marginTop="@dimen/personal_settings_text_margin_top"
+        android:text="@string/feedback_title"
+        android:textAppearance="@style/TextAppearance.Title.Secondary.NoAntiColor" />
+
+    <EditText
+        android:id="@+id/feedback_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/personal_settings_edittext_margin_left"
+        android:layout_marginRight="@dimen/personal_settings_edittext_margin_left"
+        android:gravity="left|top"
+        android:inputType="textMultiLine"
+        android:lines="6"
+        android:maxLength="200"
+        android:textSize="@dimen/text_sub_title_size" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/personal_settings_text_margin_bottom"
+        android:layout_marginLeft="@dimen/personal_settings_text_margin_left"
+        android:layout_marginTop="@dimen/personal_settings_text_margin_top"
+        android:text="@string/feedback_contact"
+        android:textAppearance="@style/TextAppearance.Title.Secondary.NoAntiColor" />
+
+    <EditText
+        android:id="@+id/feedback_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/personal_settings_edittext_margin_left"
+        android:layout_marginRight="@dimen/personal_settings_edittext_margin_left"
+        android:hint="@string/feedback_contact_subtitle"
+        android:inputType="phone"
+        android:lines="1"
+        android:maxLength="50"
+        android:textSize="@dimen/text_sub_title_size" />
+
+    <TextView
+        android:id="@+id/feedback_button"
+        style="@style/Widget.BottomBar.Button"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/personal_settings_text_margin_left"
+        android:layout_marginRight="@dimen/personal_settings_text_margin_left"
+        android:layout_marginTop="@dimen/personal_settings_text_margin_top"
+        android:gravity="center"
+        android:text="@string/feedback_submit"
+        android:textColor="@color/buy_button" />
+
+</LinearLayout>

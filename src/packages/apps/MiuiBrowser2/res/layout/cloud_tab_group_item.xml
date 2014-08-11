@@ -4,20 +4,26 @@
     android:layout_height="match_parent"
     android:background="@drawable/cloud_tab_bg_n"
     android:orientation="horizontal"
-    android:paddingLeft="0dip" >
-
-    <ImageView
-        android:id="@+id/device_type_view"
-        android:layout_width="@dimen/bookmark_icon_width"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        />
+ >
 
     <TextView
         android:id="@+id/device_name"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/CloudTabGroupTitleTextStyle"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <ImageView
+        android:id="@+id/delete_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="8dip"
+        android:src="@drawable/close_cloud_tab" />
 
 </LinearLayout>

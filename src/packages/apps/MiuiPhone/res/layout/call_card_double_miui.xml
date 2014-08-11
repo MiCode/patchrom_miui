@@ -23,9 +23,9 @@
             <LinearLayout
                 android:orientation ="vertical"
                 android:gravity="left"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content">
                 <!-- Name (or the phone number, if we don't have a name to display). -->
                 <com.android.phone.MiuiAdaptiveTextView
                     android:id="@+id/callCardName_First"
@@ -41,12 +41,12 @@
                     android:layout_height="wrap_content">
                     <TextView
                         android:id="@+id/callCardPhoneNumber_First"
-                        android:layout_width="0dip"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="5dip"
-                        android:layout_weight="1"
+                        android:layout_marginEnd="5dip"
                         android:ellipsize="end"
                         android:singleLine="true"
+                        android:maxWidth="@dimen/call_card_number_max_width"
                         android:textAppearance="@style/Miui.TextAppearance.PhoneNumber" />
                     <!-- Tel location -->
                     <TextView
@@ -122,9 +122,9 @@
             <LinearLayout
                 android:orientation ="vertical"
                 android:gravity="left"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content">
                 <!-- Name (or the phone number, if we don't have a name to display). -->
                 <com.android.phone.MiuiAdaptiveTextView
                     android:id="@+id/callCardName_Second"
@@ -140,12 +140,12 @@
                     android:layout_height="wrap_content">
                     <TextView
                         android:id="@+id/callCardPhoneNumber_Second"
-                        android:layout_width="0dip"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginRight="5dip"
+                        android:layout_marginEnd="5dip"
                         android:ellipsize="end"
                         android:singleLine="true"
+                        android:maxWidth="@dimen/call_card_number_max_width"
                         android:textAppearance="@style/Miui.TextAppearance.PhoneNumber" />
                     <!-- Tel location -->
                     <TextView

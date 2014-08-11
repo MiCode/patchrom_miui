@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaomi.o2o.activity.view.CommonPersonlItem xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/content_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/setting_bg_selector"
+            android:gravity="center_vertical"
+            android:paddingBottom="@dimen/personal_settings_item_padding_top"
+            android:paddingLeft="@dimen/personal_settings_item_padding_left"
+            android:paddingRight="@dimen/personal_settings_item_padding_right"
+            android:paddingTop="@dimen/personal_settings_item_padding_top" >
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:maxLength="@integer/personal_title_max_length"
+                android:text="@string/app_name"
+                android:textAppearance="@style/TextAppearance.Title"
+                android:textSize="@dimen/common_item_text_title_size" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:layout_marginTop="@dimen/personal_settings_item_gap"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/personal_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:text="@string/personal_desc"
+                    android:textAppearance="@style/TextAppearance.Title.Secondary"
+                    android:textSize="@dimen/common_item_text_sub_title_size" />
+
+                <ImageView
+                    android:layout_width="1px"
+                    android:layout_height="@dimen/common_item_desc_line_height"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/action_bar_line_margin_left"
+                    android:layout_marginRight="@dimen/action_bar_line_margin_left"
+                    android:background="@color/item_divider_line" />
+
+                <TextView
+                    android:id="@+id/available_deadline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="top"
+                    android:lines="1"
+                    android:text="@string/available_deadline"
+                    android:textAppearance="@style/TextAppearance.Title.Secondary"
+                    android:textSize="@dimen/common_item_text_sub_title_size" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/right_atar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/item_detail_avatar" />
+
+            <TextView
+                android:id="@+id/passbook_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/passbook_count_margin_right"
+                android:layout_toLeftOf="@id/right_atar"
+                android:gravity="right"
+                android:text="@string/passbook_count"
+                android:textAppearance="@style/TextAppearance.Title.Secondary" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <include layout="@layout/personal_empty" />
+
+</com.xiaomi.o2o.activity.view.CommonPersonlItem>

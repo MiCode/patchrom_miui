@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="13dip"
+        android:paddingLeft="15dip"
+        android:paddingRight="15dip"
+        android:paddingTop="15dip" >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/mipay_edit_bg"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dip"
+                android:paddingRight="10dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@string/mipay_check_personal_info_name"
+                    android:textColor="@color/mipay_text_color_black"
+                    android:textSize="@dimen/mipay_text_size_medium" />
+
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="@string/mipay_check_personal_info_name_hint"
+                    android:singleLine="true"
+                    android:textColor="@color/mipay_text_color_black"
+                    android:textSize="@dimen/mipay_text_size_medium" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/mipay_edit_bg"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dip"
+                android:paddingRight="10dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@string/mipay_check_personal_info_id_card"
+                    android:textColor="@color/mipay_text_color_black"
+                    android:textSize="@dimen/mipay_text_size_medium" />
+
+                <EditText
+                    android:id="@+id/id_card"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:digits="0123456789xX "
+                    android:gravity="center_vertical"
+                    android:hint="@string/mipay_check_personal_info_id_card_hint"
+                    android:maxLength="21"
+                    android:singleLine="true"
+                    android:textColor="@color/mipay_text_color_black"
+                    android:textSize="@dimen/mipay_text_size_medium" />
+            </TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_marginTop="10dip" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/mipay_edit_bg"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dip"
+                android:paddingRight="10dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@string/mipay_check_personal_info_phone"
+                    android:textColor="@color/mipay_text_color_black"
+                    android:textSize="@dimen/mipay_text_size_medium" />
+
+                <EditText
+                    android:id="@+id/phone_num"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="@string/mipay_check_personal_info_phone_hint"
+                    android:inputType="phone"
+                    android:singleLine="true"
+                    android:textColor="@color/mipay_text_color_black"
+                    android:textSize="@dimen/mipay_text_size_medium" />
+            </TableRow>
+        </TableLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1" />
+
+        <com.mipay.common.component.ProgressButton
+            android:id="@+id/button"
+            style="@style/Mipay.Widget.Button.Warn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip"
+            android:text="@string/mipay_button_next" />
+    </LinearLayout>
+
+</ScrollView>

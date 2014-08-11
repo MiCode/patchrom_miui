@@ -1,0 +1,137 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dip" >
+
+    <LinearLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <RelativeLayout
+            android:id="@+id/meta_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/express_order_item_banner_padding_vertical"
+            android:paddingLeft="@dimen/express_order_item_banner_padding_horizontal"
+            android:paddingRight="@dimen/express_order_item_banner_padding_horizontal"
+            android:paddingTop="@dimen/express_order_item_banner_padding_vertical" >
+
+            <LinearLayout
+                style="@style/ExpressProgressBannerStyle"
+                android:layout_toLeftOf="@+id/cancel"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        style="@style/ExpressProgressBannerPrefixAppearance.Primary"
+                        android:text="@string/express_inquiry_serial_number_prefix" />
+
+                    <TextView
+                        android:id="@+id/serial_number"
+                        style="@style/ExpressProgressBannerContentAppearance.Primary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        style="@style/ExpressProgressBannerPrefixAppearance.Secondary"
+                        android:text="@string/express_order_state" />
+
+                    <TextView
+                        android:id="@+id/state"
+                        style="@style/ExpressProgressBannerContentAppearance.Secondary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        style="@style/ExpressProgressBannerPrefixAppearance.Secondary"
+                        android:text="@string/express_order_created_time" />
+
+                    <TextView
+                        android:id="@+id/created_time"
+                        style="@style/ExpressProgressBannerContentAppearance.Secondary" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/checkout_button_bg" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/express_progress_background"
+            android:orientation="vertical" >
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:overScrollMode="never" >
+
+                <com.miui.yellowpage.widget.ExpressOrderDetailView
+                    android:id="@+id/detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </ScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/express_button_margin_horizontal"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/contact"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/view_status"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/express_view_status"
+                    android:textColor="@miui:color/v5_text_color_hilighted_light" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.miui.yellowpage.widget.LoadingProgressView
+        android:id="@+id/loading_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@android:id/empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:drawableTop="?miui:attr/v5_content_empty_icon"
+        android:text="@string/express_no_order_info"
+        android:visibility="gone" />
+
+</FrameLayout>

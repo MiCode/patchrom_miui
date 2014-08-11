@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.yellowpage.ui.ExpressCompanyListItem
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:background="@drawable/express_company_detail_header"
+        android:padding="@dimen/express_company_list_header_item_padding"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/header">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/express_company_detail_list_content_margin_left"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/name"
+                android:textColor="@miui:color/v5_list_text_color_light"
+                style="@miui:style/V5.TextAppearance.List.Primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/detail"
+                android:textColor="@miui:color/v5_list_secondary_text_color_light"
+                style="@miui:style/V5.TextAppearance.List.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:background="@drawable/express_company_detail_highlight"
+        style="@miui:style/V5.TextAppearance.List.Secondary"
+        android:textColor="@miui:color/v5_text_color_hilighted_light"
+        android:padding="@dimen/express_company_list_inner_item_padding"
+        android:id="@+id/highlight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:id="@+id/bottom"
+        android:background="@drawable/express_company_detail_bottom"
+        android:paddingLeft="@dimen/express_company_list_inner_item_padding"
+        android:paddingRight="0dip"
+        android:paddingTop="0dip"
+        android:paddingBottom="0dip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/prefix"
+            android:text="@string/express_company_phone_prefix"
+            style="@miui:style/V5.TextAppearance.List.Primary"
+            android:textStyle="normal"
+            android:textColor="@miui:color/v5_list_secondary_text_color_light"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:layout_toRightOf="@+id/prefix"
+            android:layout_toLeftOf="@+id/call"
+            android:id="@+id/number"
+            style="@miui:style/V5.TextAppearance.List.Primary"
+            android:textStyle="normal"
+            android:textColor="@miui:color/v5_list_secondary_text_color_light"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/divider"
+            android:background="@drawable/express_call_divider"
+            android:layout_toLeftOf="@+id/call"
+            android:layout_height="match_parent"
+            android:layout_width="1px" />
+
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/call"
+            android:src="@drawable/express_call_button"
+            android:scaleType="center"
+            android:layout_width="@dimen/express_company_detail_list_call_button_width"
+            android:layout_height="@dimen/express_company_detail_list_call_button_height" />
+    </RelativeLayout>
+</com.miui.yellowpage.ui.ExpressCompanyListItem>

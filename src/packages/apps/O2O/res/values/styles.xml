@@ -1,0 +1,440 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Activity Style -->
+    <style name="Theme.Light" parent="@miui:style/V5.Theme.Light">
+        <item name="miui:v5_action_bar_tab">false</item>
+    </style>
+
+    <style name="Theme.Light.NoTitle" parent="@miui:style/V5.Theme.Light.NoTitle">
+        <item name="miui:v5_action_bar_tab">false</item>
+    </style>
+
+    <style name="Theme.Light.O2OTab">
+        <item name="android:homeAsUpIndicator">@drawable/v5_title_bar_back_button_light</item>
+        <item name="android:actionBarStyle">@style/Widget.ActionBar.O2OTab</item>
+    </style>
+
+    <style name="Detail" />
+
+    <style name="Detail.Padding">
+        <item name="android:paddingLeft">@dimen/item_detail_layout_padding_left</item>
+        <item name="android:paddingRight">@dimen/item_detail_layout_padding_right</item>
+        <item name="android:paddingTop">@dimen/item_detail_layout_padding_top</item>
+    </style>
+    <!-- Widget Style -->
+    <style name="Widget" parent="@miui:style/V5.Widget" />
+
+    <style name="Widget.RatingBar.ReadOnly" parent="@miui:style/V5.Widget.RatingBar.Small">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:stepSize">0.5</item>
+    </style>
+
+    <style name="Widget.GridView">
+        <item name="android:padding">@dimen/map_choose_grid_padding</item>
+        <item name="android:numColumns">2</item>
+        <item name="android:horizontalSpacing">@dimen/map_choose_grid_gap</item>
+        <item name="android:verticalSpacing">@dimen/map_choose_grid_gap</item>
+        <item name="android:stretchMode">columnWidth</item>
+        <item name="android:gravity">center</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:fastScrollEnabled">true</item>
+    </style>
+
+    <style name="Widget.HottestCityGridView">
+        <item name="android:padding">@dimen/map_choose_grid_padding</item>
+        <item name="android:numColumns">5</item>
+        <item name="android:horizontalSpacing">@dimen/map_choose_grid_gap</item>
+        <item name="android:verticalSpacing">@dimen/map_choose_grid_gap</item>
+        <item name="android:stretchMode">columnWidth</item>
+        <item name="android:gravity">center</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:fastScrollEnabled">true</item>
+        <item name="android:listSelector">@drawable/list_view_item_bg_light_header</item>
+    </style>
+
+    <style name="Widget.TopItemGridView">
+        <item name="android:paddingLeft">@dimen/top_item_padding</item>
+        <item name="android:paddingRight">@dimen/top_item_padding</item>
+        <item name="android:paddingTop">@dimen/top_item_padding_top</item>
+        <item name="android:paddingBottom">@dimen/top_item_padding_top</item>
+        <item name="android:numColumns">5</item>
+        <item name="android:horizontalSpacing">@dimen/map_choose_grid_gap</item>
+        <item name="android:verticalSpacing">@dimen/map_choose_grid_gap</item>
+        <item name="android:stretchMode">columnWidth</item>
+        <item name="android:gravity">center</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:fastScrollEnabled">true</item>
+        <item name="android:listSelector">@drawable/top_item_bg_click</item>
+    </style>
+
+    <style name="Widget.ActionBar" parent="@miui:style/V5.Widget.ActionBar" />
+
+    <style name="Widget.ActionBar.O2OTab">
+        <item name="android:height">@dimen/action_bar_height</item>
+    </style>
+
+    <style name="Widget.Button" parent="@miui:style/V5.Widget.Button" />
+
+    <style name="Widget.BottomBar.TopLine" parent="@miui:style/V5.Widget.BottomBar.TopLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+    </style>
+
+    <style name="Widget.Button.Retry">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">85dip</item>
+        <item name="android:layout_marginRight">85dip</item>
+        <item name="android:minHeight">@dimen/large_button_height</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- ListView Style -->
+    <style name="Widget.ListView" parent="@miui:style/V5.Widget.ListView">
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:fastScrollEnabled">true</item>
+    </style>
+    <!-- ListView Item Style -->
+    <style name="Widget.ListView.Item" parent="@miui:style/V5.Widget.ListView.Item" />
+
+    <style name="Widget.ListView.Item.SingleLine" parent="@miui:style/V5.Widget.ListView.Item.SingleLine" />
+
+    <style name="Widget.ListView.Item.TrebleLine" parent="@miui:style/V5.Widget.ListView.Item.TrebleLine">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/item_padding_top</item>
+        <item name="android:paddingLeft">@dimen/item_padding_left</item>
+        <item name="android:paddingRight">@dimen/item_padding_right</item>
+        <item name="android:background">@drawable/list_view_item_bg_light_header</item>
+    </style>
+
+    <style name="Widget.ListView.Item.PersonalLine" parent="@miui:style/V5.Widget.ListView.Item.TrebleLine">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/item_padding_top</item>
+        <item name="android:paddingLeft">@dimen/item_padding_left</item>
+        <item name="android:paddingRight">@dimen/item_padding_right</item>
+        <item name="android:background">@drawable/list_view_item_bg_light_header</item>
+    </style>
+
+    <!-- Icon style -->
+    <!-- No V5 default style -->
+    <style name="Widget.Icon">
+        <item name="android:layout_width">@dimen/display_icon_width_size</item>
+        <item name="android:layout_height">@dimen/display_icon_height_size</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="Widget.SourceIcon">
+        <item name="android:layout_width">@dimen/display_source_width_size</item>
+        <item name="android:layout_height">@dimen/display_source_height_size</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+    <style name="Widget.SecondaryTab" parent="@miui:style/V5.Widget.SecondaryTab">
+        <item name="android:background">@drawable/secondarytab_background</item>
+    </style>
+
+    <style name="Widget.DetailPic">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Widget.DetailDesc">
+        <item name="android:layout_marginTop">0dip</item>
+        <item name="android:layout_marginLeft">0dip</item>
+        <item name="android:layout_marginRight">0dip</item>
+    </style>
+
+    <style name="Widget.PersonalCardItem">
+        <item name="android:layout_marginTop">0dip</item>
+        <item name="android:layout_marginLeft">@dimen/item_desc_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/item_desc_margin_right</item>
+    </style>
+
+    <!-- Text Appearance -->
+    <style name="TextAppearance">
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">0.0</item>
+        <item name="android:shadowRadius">0.0</item>
+    </style>
+
+    <style name="TextAppearance.PersonalLogin">
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">3.5</item>
+        <item name="android:shadowRadius">5.5</item>
+        <item name="android:shadowColor">#59000000</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/text_personal_login</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TextAppearance.PersonalHeader">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/text_sub_title_size</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TextAppearance.PersonalHeader.Account">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_account_title_size</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TextAppearance.Content">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_preference_category</item>
+        <item name="android:textColor">@miui:color/v5_primary_text_color_light</item>
+    </style>
+
+    <style name="TextAppearance.NotFound">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/not_found_text_size</item>
+        <item name="android:textColor">@color/not_found_text_color</item>
+    </style>
+
+    <style name="TextAppearance.ActionBarTitle">
+        <item name="android:textColor">@color/action_bar_title</item>
+        <item name="android:textSize">@dimen/action_title_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.Title">
+        <item name="android:textColor">@color/primary_text</item>
+        <!-- redefine text style and shadow, which is different from V5. -->
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">0.0</item>
+        <item name="android:shadowRadius">0.0</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_title_size</item>
+    </style>
+
+    <style name="TextAppearance.Title.NoShadow">
+        <item name="android:textColor">@color/primary_text</item>
+        <!-- redefine text style and shadow, which is different from V5. -->
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">0.0</item>
+        <item name="android:shadowRadius">0.0</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/text_sec_title_size</item>
+    </style>
+
+    <style name="TextAppearance.Title.NoAntiColor">
+        <item name="android:textColor">@color/text_title_color</item>
+        <!-- redefine text style and shadow, which is different from V5. -->
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">0.0</item>
+        <item name="android:shadowRadius">0.0</item>
+    </style>
+
+    <style name="TextAppearance.Title.Secondary">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/text_sub_title_size</item>
+        <item name="android:textColor">@color/secondary_text</item>
+    </style>
+
+    <style name="TextAppearance.Title.Third">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/common_item_text_thrid_title_size</item>
+        <item name="android:textColor">@color/common_background</item>
+    </style>
+
+    <style name="TextAppearance.Title.Secondary.NoAntiColor"> <!-- 无反色 -->
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/text_sub_title_size</item>
+        <item name="android:textColor">@color/text_description_color</item>
+    </style>
+
+    <style name="TextAppearance.Title.DetailSecondary">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/item_detail_title_size</item>
+        <item name="android:textColor">@color/secondary_text</item>
+    </style>
+
+    <style name="TextAppearance.Title.DetailSecondary.NoAntiColor">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/item_detail_title_size</item>
+        <item name="android:textColor">@color/text_description_color</item>
+    </style>
+
+    <style name="TextAppearance.Title.DetailAnnouncement">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/item_detail_title_size</item>
+        <item name="android:textColor">@color/text_announcement_color</item>
+    </style>
+
+    <style name="TextAppearance.Title.OderId">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/item_detail_title_size</item>
+        <item name="android:textColor">@color/text_price_color</item>
+    </style>
+
+    <style name="TextAppearance.Title.DetailPriceMoney">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/item_detail_pricemoney_size</item>
+        <item name="android:textColor">@color/secondary_text</item>
+    </style>
+
+    <style name="TextAppearance.Title.DetailPriceMoney.NoAntiColor">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/item_detail_pricemoney_size</item>
+        <item name="android:textColor">@color/text_description_color</item>
+    </style>
+
+    <style name="TextAppearance.Title.OrderNumber">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/text_order_number_size</item>
+        <item name="android:textColor">@color/order_number_color</item>
+    </style>
+
+    <style name="TextAppearance.Title.PersonalSetting">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/personal_setting_text_title_size</item>
+        <item name="android:textColor">@color/text_description_color</item>
+    </style>
+
+    <style name="TextAppearance.Title.CityListItem">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/text_city_size</item>
+        <item name="android:textColor">@color/text_description_color</item>
+    </style>
+
+    <style name="TextAppearance.Title.LocationDesc">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/text_category_title_size</item>
+        <item name="android:textColor">@color/text_location_description_color</item>
+    </style>
+
+    <style name="TextAppearance.Title.CategoryDesc">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/text_sub_title_size</item>
+        <item name="android:textColor">@color/text_category_description_color</item>
+    </style>
+
+    <style name="TextAppearance.Title.NORES">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_sub_title_size</item>
+        <item name="android:textColor">@color/item_nores_text</item>
+    </style>
+
+    <style name="TextAppearance.Title.Recommend">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/text_recommend_title_size</item>
+        <item name="android:textColor">@color/text_description_color</item>
+    </style>
+
+    <style name="TextAppearance.Title.Diagnostics">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_preference_category</item>
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">0.0</item>
+        <item name="android:shadowRadius">0.0</item>
+    </style>
+
+    <style name="TextAppearance.Price">
+
+        <!-- redefine text style and shadow, which is different from V5. -->
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">0.0</item>
+        <item name="android:shadowRadius">0.0</item>
+        <item name="android:textSize">@dimen/text_price_size</item>
+        <item name="android:textColor">@color/text_price_color_selector</item>
+    </style>
+
+    <style name="TextAppearance.Personal"></style>
+
+    <style name="TextAppearance.Personal.Title">
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">0.0</item>
+        <item name="android:shadowRadius">0.0</item>
+        <item name="android:textSize">@dimen/item_detail_title_size</item>
+        <item name="android:textColor">@color/text_price_color</item>
+    </style>
+
+    <style name="TextAppearance.Personal.DayLeft">
+
+        <!-- redefine text style and shadow, which is different from V5. -->
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">0.0</item>
+        <item name="android:shadowRadius">0.0</item>
+        <item name="android:textSize">@dimen/text_sub_title_size</item>
+        <item name="android:textColor">@color/personal_day_left</item>
+    </style>
+
+    <style name="TextAppearance.DetailHelp">
+        <item name="android:textSize">@dimen/text_title_size</item>
+        <item name="android:textColor">@color/detail_help</item>
+    </style>
+
+    <style name="TextAppearance.BuyButton">
+        <item name="android:textSize">@dimen/text_buy_button_size</item>
+        <item name="android:textColor">@color/buy_button</item>
+    </style>
+
+    <style name="TextAppearance.RefundButtonText">
+        <item name="android:textSize">@dimen/text_buy_button_size</item>
+        <item name="android:textColor">@color/refund_button_text</item>
+    </style>
+
+    <style name="Widget.BottomBar" />
+
+    <style name="Widget.BottomBar.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/v5_btn_bg_main_action_light</item>
+    </style>
+
+    <style name="Widget.BottomBar.CategoryButtonCancel">
+        <item name="android:layout_width">@dimen/bottombar_category_button_width</item>
+        <item name="android:layout_height">@dimen/bottombar_button_height</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/category_button_light_cancel</item>
+    </style>
+
+    <style name="Widget.BottomBar.CategoryButtonOK">
+        <item name="android:layout_width">@dimen/bottombar_category_button_width</item>
+        <item name="android:layout_height">@dimen/bottombar_button_height</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/category_button_light_ok</item>
+    </style>
+
+    <!-- SearchBar Style -->
+    <style name="Widget.Title.SearchMode" parent="@miui:style/V5.Widget.Title.SearchMode">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:paddingLeft">42dp</item>
+    </style>
+
+    <style name="Widget.EditText.Search" parent="@miui:style/V5.Widget.EditText.Search">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">left|center_vertical</item>
+        <item name="android:imeOptions">actionSearch</item>
+        <item name="android:maxLength">50</item>
+    </style>
+
+    <style name="Widget.Title.Back.Search" parent="@miui:style/V5.Widget.Title.Back.Search">
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="BottomBarIcon">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@null</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- AlphabetFastIndexer style with '*' -->
+    <style name="AlphabetFastIndexerStyle" parent="@miui:style/AlphabetFastIndexerStyle">
+        <item name="miui:indexerTable">@array/alphabet_table</item>
+    </style>
+
+</resources>

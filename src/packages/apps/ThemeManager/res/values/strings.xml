@@ -2,117 +2,238 @@
 <resources
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Text that appears under the icon at the Home screen.  This app lets
+         the user change, buy, and manage themes for MIUI. [CHAR LIMIT=8] -->
     <string name="app_name">Themes</string>
-    <string name="theme_import_activity_label">Theme update</string>
-
-    <string name="theme_changing_dialog_title">Applying theme\u2026</string>
-    <string name="theme_changed_message">Applied</string>
-    <string name="theme_changed_failed_message">Failed to apply</string>
-
+    <!-- Loading message displayed while system applies the theme selected by the
+         the user. -->
+    <string name="theme_changing_dialog_title">Applying\u2026</string>
+    <!-- Toast displayed when user has applied a theme successfully  -->
+    <string name="theme_changed_message">Theme applied</string>
+    <!-- Toast displayed when theme can't be applied for some reason. -->
+    <string name="theme_changed_failed_message">"Can't apply theme"</string>
+    <!-- Option in menu tab in components view.  Lets user make a back up of the
+         that's currently applied. -->
     <string name="backup_preference_title">Back up theme</string>
+    <!-- Button text for dialogue box where user confirms that they want to back up theme.  [CHAR LIMIT=10] -->
     <string name="backup_theme_dialog_ok">Back up</string>
-    <string name="backup_theme_dialog_message">Back up the current theme?</string>
-    <string name="backup_theme_progress_message">Backing up theme\u2026</string>
-    <string name="backup_theme_success_message">Theme backup complete</string>
-    <string name="backup_theme_name">My backup</string>
-
+    <!-- Content for dialogue box asking user to confirm that they want to back up their current theme. -->
+    <string name="backup_theme_dialog_message">Back up your current theme?</string>
+    <!-- Text displayed while theme is being backed. -->
+    <string name="backup_theme_progress_message">Backing up\u2026</string>
+    <!-- Text displayed when back up is finished. -->
+    <string name="backup_theme_success_message">Finished backing up theme.</string>
+    <!-- TODO: Locate this string. -->
+    <string name="backup_theme_name">Theme backup</string>
+    <!-- Dynamic status displayed beneath a component at the components grid view.  'Default' is displayed when the 
+         theme's default component is currently applied.  [CHAR LIMIT=10] -->
     <string name="theme_description_title_default">Default</string>
+    <!-- Dynamic status displayed beneath a component at the components grid view.  'Custom' is displayed when the 
+         user is not user the theme's default component.  For example, the user has changed the Home screen wallpaper.
+         [CHAR LIMIT=10] -->
     <string name="theme_description_title_customized">Custom</string>
-
+    <!-- Title displayed over a grid view of basic theme components at the activity
+         where user can change individual pieces of the current theme.  This group of components
+         includes Home screen, Font, Alarm style, and Icons. [CHAR LIMIT=16] -->
     <string name="component_category_finest_title">GENERAL</string>
+    <!-- Title displayed over a grid view of 'deeper' theme components at the activity
+         where user can change individual pieces of the current theme.  This group of components
+         includes Boot animation, Boot audio, and Dial pad. [CHAR LIMIT=16] -->
     <string name="component_category_more_title">ADVANCED</string>
+    <!-- Title for component at the themes component view.  TODO: Find if this string is used. [CHAR LIMIT=16] -->
     <string name="theme_component_title_framework">Borders</string>
+    <!-- Title for component at the themes component view.  This is the UI at the 
+         messaging activity in MIUI. [CHAR LIMIT=16] -->
     <string name="theme_component_title_mms">Messaging</string>
+    <!-- Title for component at the themes component view.  This is the wallpaper for the Home screen. [CHAR LIMIT=16] -->
     <string name="theme_component_title_wallpaper">Home screen</string>
+    <!-- Title for component at the themes component view.  This is the wallpaper for the lock screen. [CHAR LIMIT=16] -->
     <string name="theme_component_title_lockwallpaper">Lock screen</string>
-    <string name="theme_component_title_miwallpaper">Downloaded</string>
+    <!-- Title in the action bar when use is browsing MIUI theme's wallpaper in the themes store. -->
+    <string name="theme_component_title_miwallpaper">MIUI wallpaper</string>
+    <!-- Title for component at the themes component view.  This is the set of icons that
+         are used on the Home screen. [CHAR LIMIT=16] -->
     <string name="theme_component_title_icon">Icons</string>
+    <!-- Title for component at the themes component view.  This is animation displayed when the user boots
+         the device. [CHAR LIMIT=16] -->
     <string name="theme_component_title_boot_animation">Boot animation</string>
+    <!-- Title for component at the themes component view.  This is audio played when the user boots
+         the device. [CHAR LIMIT=16] -->
     <string name="theme_component_title_boot_audio">Boot audio</string>
+    <!-- Title for component at the themes component view.  This is the font used across the system. [CHAR LIMIT=16] -->
     <string name="theme_component_title_font">Font</string>
+    <!-- Title for component at the themes component view.  This is the ringtone played for incoming calls. [CHAR LIMIT=16] -->
     <string name="theme_component_title_ringtone">Ringtone</string>
+    <!-- Title for component at the themes component view.  This is the sound played when there's a notification. [CHAR LIMIT=12] -->
     <string name="theme_component_title_notification">Notification</string>
+    <!-- Title for component at the themes component view.  This is the alarm sound played for alarms that have been set. [CHAR LIMIT=16] -->
     <string name="theme_component_title_alarm">Alarm</string>
+    <!-- Title for component at the themes component view.  This is the UI for the dial pad at the call activity. [CHAR LIMIT=16] -->
     <string name="theme_component_title_contact">Dial pad</string>
+    <!-- Title for component at the themes component view.  This is unlock mechanism or gesture that user uses to unlock the device 
+         from the lock screen. [CHAR LIMIT=16] -->
     <string name="theme_component_title_lockstyle">Lock style</string>
+    <!-- Title for component at the themes component view.  This is the ringtone played for incoming calls. [CHAR LIMIT=16] -->
     <string name="theme_component_title_statusbar">Status bar</string>
+    <!-- Title for component at the themes component view.  This is tray of user's favorite apps that is locked to the bottom of the
+         Home screen. [CHAR LIMIT=16] -->
     <string name="theme_component_title_launcher">Favorites tray</string>
+    <!-- Title displayed in the action bar when user is selecting sound components in the theme store. -->
     <string name="theme_component_title_audio_effect">Sounds</string>
+    <!-- Title for component at the themes component view.  This is the UI for the alarm when it fires. [CHAR LIMIT=16] -->
     <string name="theme_component_title_alarmstyle">Alarm style</string>
+    <!-- Title for component at the themes component view.  This is the UI for system clock. TODO: Locate this string.
+         [CHAR LIMIT=16] -->
     <string name="theme_component_title_clock">Clock</string>
+    <!-- Title displayed in the action bar when user is selecting frames for the image widget that is displayed on the Home
+         screeen. -->
     <string name="theme_component_title_photo_frame">Image frames</string>
+    <!-- TODO: Locate this string. -->
     <string name="theme_component_title_others">Other</string>
-    <string name="theme_component_title_all">Theme</string>
-
-    <string name="apply_theme_no_select_message">Choose components</string>
-    <string name="apply_lockscreen_paper_tips">This screen lock doesn\'t support different wallpapers.</string>
-
+    <!-- Title displayed in the action bar in the theme store. -->
+    <string name="theme_component_title_all">Themes</string>
+    <!-- Title for item in pop-up settings menu that takes user to a file browser activity where she 
+         can select a theme to apply from the SD card. -->
     <string name="theme_import_from_sdcard">Import from SD card</string>
+    <!-- Text displayed below icon button that brings user to system browser where he can view sound files, images, etc. that
+         can be applied as themes. -->
     <string name="theme_select_others">Browse</string>
+    <!-- Displayed in the action bar.  The '%1$s' is a dynamic variable that may be displayed as follows:
+         'Set lock screen' or 'Set Home screen'. -->
     <string name="third_party_pickers_activity_title">Set %1$s</string>
+    <!-- TODO: Locate this string. -->
     <string name="lockstyle_personal_settings">Customize</string>
-
+    <!-- TODO: Locate this string -->
     <string name="wallpaper_settings">Wallpaper settings</string>
+    <!-- Title/button displayed next to preview of Home screen in the wallpaper menu activity
+         menu. Touching this text brings user to theme store where they can browse wallpapers. -->
     <string name="desktop_wallpaper">Home screen</string>
+    <!-- Title/button displayed next to preview of Live screen in the wallpaper menu activity
+         menu. Touching this text brings user to browser of locally saved Live wallpapers. -->
     <string name="live_wallpaper">Live wallpaper</string>
+    <!-- Title/button displayed next to MIUI wallpaper image in the .  -->
     <string name="mi_wallpaper">MIUI wallpaper</string>
+    <!-- Title/button displayed next to preview of Lock screen in the wallpaper chooser activity
+         menu. Touching this text brings user to theme store where they can browse and select wallpapers. -->
     <string name="lockscreen_wallpaper">Lock screen</string>
+    <!-- Title/button in main settings pop-up menu at Home screen. Touching this brings user to listview of Home screen, Lock screen,
+         Live wallpaper, and  MIUI wallpaper. -->
     <string name="change_wallpaper">Wallpaper</string>
-
-    <string name="component_settings_title">Customize theme</string>
-    <string name="component_select_title">%1$s components selected</string>
-    <string name="component_include_title">Contains %1$s components</string>
-
-    <string name="apply_font_tip">Reboot to apply this theme\'s font.</string>
+    <!-- Text for dialogue box that appears after user applies a theme.  Dialogue should tell user that she must reboot
+         to apply the theme's font across the system.  -->
+    <string name="apply_font_tip">"Reboot to apply this theme's font."</string>
+    <!-- Button text that reboots device so that the theme's font is applied to the system. -->
     <string name="apply_font_btn_reboot">Reboot</string>
-    <string name="apply_font_btn_exclude">Apply theme without font</string>
-    <string name="apply_default_font_tip">Keep using system\'s current font?</string>
-
+    <!-- Button text that doesn't reboot the device. -->
+    <string name="apply_font_btn_exclude">Not now</string>
+    <!-- Dialogue for  -->
+    <string name="apply_default_font_tip">"Keep using system's current font?"</string>
+    <!-- Button text that confirms user wants to keep using the system's current font. -->
     <string name="theme_yes">Yes</string>
+    <!-- Button text for button when user doesn't want keep using the system's current font. -->
     <string name="theme_no">No</string>
-
-    <string name="title_local">Local</string>
-    <string name="title_online">Online</string>
-    <string name="title_component">Components</string>
-
-    <string name="title_system_resource">System resources</string>
-
+    <!-- Button text and title displayed in the action bar in the component grid view.  Button brings
+         user to the component grid view where she can swap out and choose individual parts of the
+         theme. -->
+    <string name="title_component">Edit theme</string>
+    <!-- Displayed on a divider in listview when user is browsing.  Below this divider are sound files, images, etc. that
+         are saved locally.  User can choose to apply these resources for a given component of a theme. -->
+    <string name="title_system_resource">Local resources</string>
+    <!-- Sub-tab for sound browsing activity displayed under main tab in Themes Manager.  Under this tab are longer sound
+         files (e.g. ringtones). -->
     <string name="long_ringtone_resource">Long</string>
+    <!-- Sub-tab for sound browsing activity displayed under main tab in Themes Manager.  Under this tab are shorter sound
+         files (e.g. notification sounds). -->
     <string name="short_ringtone_resource">Short</string>
+    <!-- Under this tab are all the sound files that can be applied for a given theme's component. -->
     <string name="all_ringtone_resource">All</string>
-
-    <string name="resource_preview">Preview</string>
+    <!-- Button text at the wallpaper selection and adjustment activity.  Touching this button sets the selected wallpaper
+         for the Home screen and the lock screen at the same time.  [CHAR LIMIT=]-->
     <string name="wallpaper_set_as_both">Set both</string>
+    <!-- TODO: Locate this string. -->
     <string name="wallpaper_set_as_destop">Set as Home screen</string>
+    <!-- TODO: Locate this string. -->
     <string name="wallpaper_set_as_lockscreen">Set as lock screen</string>
+    <!-- TODO: Locate this string. -->
     <string name="wallpaper_crop">Crop</string>
+    <!-- Text displayed while wallpaper is loading. -->
     <string name="wallpaper_loading_text">Loading\u2026</string>
-    <string name="wallpaper_decoded_error">Failed to load</string>
-
+    <!-- Text displayed when wallpaper can't be loaded  -->
+    <string name="wallpaper_decoded_error">"Can't load wallpaper"</string>
+    <!-- TODO: Locate this string. -->
     <string name="close">Close</string>
-    <string name="download_success">Download complete</string>
-
-    <string name="basic_info">Info</string>
-    <string name="account_info">My Account</string>
-    <string name="purchased_list">Purchased List</string>
+    <!-- Toast displayed when wallpaper is finished downloading. -->
+    <string name="download_success">Download finished</string>
+    <!-- Title displayed above group of items in a list view.  Items in the list include My account, purchased themes,
+         and Mi Credits. -->
+    <string name="basic_info">Account info</string>
+    <!-- Displayed above grid view of purchased themes.  The user's Mi Account number is displayed
+         to the right.  Also displayed in a list view under account info.  Touching this item
+         takes user to the main Mi Cloud account activity. -->
+    <string name="account_info">My account</string>
+    <!-- Touching this item takes user to a grid view of all the themes they have purchased
+         previously. -->
+    <string name="purchased_list">Purchased themes</string>
+    <!-- Title for item in list view. Touch this item takes user to the Mi Credit account management activity. -->
     <string name="payment_info">Mi Credits</string>
-
+    <!-- Message  -->
     <string name="theme_batch_has_update_text">Updates available for %1$d themes.</string>
-    <string name="theme_batch_updating_text">Updating %1$d themes\u2026</string>
+    <!-- Text displayed while theme is being updated.  The dynamic variable '%1$d' is a count of the
+         the number of apps being updated.  For example it will display as 'Updating (2)...' -->
+    <string name="theme_batch_updating_text">Updating (%1$d)\u2026</string>
+    <!-- Button that updates all apps -->
     <string name="theme_batch_update_all">Update all</string>
-    <string name="theme_batch_update_dlg_title">Update</string>
-    <string name="theme_batch_update_dlg_content">Update now?</string>
-    <string name="theme_batch_update_dlg_content_single">Update now?</string>
-
-    <string name="theme_current_using_has_update">There\'s an update for the theme you\'re using.</string>
+    <!-- Title for dialogue box that asks user if they want to update themes. -->
+    <string name="theme_batch_update_dlg_title">Update theme</string>
+    <!-- Dialogue box content that asks user if they want to update a theme immediately.  The dynamic variable '%1$s'
+         is the name of the theme that will be updated.  The dynamic variable '%2$s' is the number of themes that
+         will be updated.  The string may be displayed as 'Update Pirate Theme and 4 other themes now?' -->
+    <string name="theme_batch_update_dlg_content">Update %1$s and %2$d other themes now?</string>
+    <!-- Dialogue box content that asks user if they want to update a theme immediately.  The dynamic variable '%1$s'
+         is the name of the theme that will be updated. -->
+    <string name="theme_batch_update_dlg_content_single">Update %1$s now?</string>
+    <!-- Title text for notification in the notification shade that appears when an update is available for the theme that
+         is currently being used. -->
+    <string name="theme_current_using_has_update">"Theme update available"</string>
+    <!-- Alert dialogue that appears download is completed and asks user if he wants to apply the update for the theme
+         immediately. -->
     <string name="theme_immediately_apply_tip">Apply theme update now?</string>
+    <!-- Text for notification displayed in the notification shade when there's an update.  The dynamic variable '%1$s'
+         is simply the theme's name. -->
     <string name="theme_name">%1$s</string>
-
-    <string name="theme_fresh_man_notifaction">Try some new themes.</string>
-
-    <string name="restore_default_theme_alert">Use the Themes app to purchase or re-download.</string>
-    <string name="selected_resource_file_invalid">Selected resource file is invalid</string>
-
-    <string name="apply_theme_with_ringtones">Apply theme ringtones</string>
+    <!-- Title for notification displayed in the notification shade.  Tells user that new themes
+         are available in the MIUI theme store to buy or download. -->
+    <string name="theme_fresh_man_notifaction">New themes available</string>
+    <!-- Toast displayed when user tries to use an invalid resource file. -->
+    <string name="selected_resource_file_invalid">"Can't use selected resource file"</string>
+    <!-- Title and summary for option setting that controls whether the corresponding ringtones are also
+         applied when user applies theme. -->
+    <string name="apply_theme_with_ringtones">Use theme ringtones</string>
+    <!-- Title for item in pop-up menu under the Local tab at the main Theme store activity. -->
     <string name="settings">Settings</string>
+    <!-- User Agreement displayed the first time the user enters the Themes app.  The paragraph appears in full
+         as follows: 'By touching agree, you agree to the terms stated in our User Agreement and Privacy Policy.'-->
+    <string name="theme_user_agreement_content1">"By touching agree, you agree to the terms stated in our "</string>
+    <!-- Link to Xiaomi's User Agreement in the Terms of Use paragraph -->
+    <string name="theme_user_agreement_content2">"User Agreement"</string>
+    <!-- The 'and' between the User Agreement link and the Privacy Policy link in the Terms of Service paragraph. -->
+    <string name="theme_user_agreement_content3">" and "</string>
+    <!-- Link to Xiaomi's Privacy Policy in the Terms of Use paragraph -->
+    <string name="theme_user_agreement_content4">"Privacy Policy"</string>
+    <!-- The period that appears at the end of the paragraph.  The paragraph appears in full
+         as follows: 'By touching agree, you agree to the terms stated in our User Agreement and Privacy Policy.' -->
+    <string name="theme_user_agreement_content5">.</string>
+    <!-- Title for the dialogue box for the Theme Store Terms of Use. -->
+    <string name="theme_user_agreement_title">Terms of Use</string>
+    <!-- Button text that expresses users consent to Xiaomi's User Agreement and Privacy Policy.
+         [CHAR LIMIT=9] -->
+    <string name="theme_user_agreement_allow">Agree</string>
+    <!-- Text next checkbox that will hide Terms of Use dialogue after the user agrees the first time. -->
+    <string name="theme_user_agreement_remind_never">"Don't show again"</string>
+    <!-- Title for option in settings that will show the Terms of Use dialogue box every time the user enters 
+         the theme store. -->
+    <string name="theme_user_agreement_remind_again">Show Terms of Use prompt</string>
+    <!-- Summary text for the option that will show the Terms of Use dialogue box every time the user enters 
+         the theme store. -->
+    <string name="theme_user_agreement_remind_summary">Show the Terms of Use prompt every time. This setting will take effect after you reboot your device.</string>
 </resources>

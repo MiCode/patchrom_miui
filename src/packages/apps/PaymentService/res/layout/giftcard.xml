@@ -2,21 +2,57 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-    <LinearLayout
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" >
+
         <ListView
             android:id="@android:id/list"
             android:layout_width="match_parent"
-            android:layout_height="0dip"
-            android:layout_weight="1"
+            android:layout_height="match_parent"
             android:cacheColorHint="@null"
             android:divider="@null"
             android:fadingEdge="@null"
             android:fastScrollEnabled="true"
             android:scrollbarStyle="outsideOverlay" >
         </ListView>
+
+        <LinearLayout
+            android:id="@+id/giftcard_define"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="30dip"
+            android:paddingRight="30dip"
+            android:paddingTop="25dip"
+            android:visibility="gone" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/giftcard_title"
+                android:textColor="@color/text_color_black"
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dip"
+                android:text="@string/giftcard_define_detail"
+                android:textColor="@color/text_color_gray"
+                android:textSize="@dimen/text_size_small"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="30dip"
+                android:background="@color/text_color_gray" />
+        </LinearLayout>
+
         <LinearLayout
             android:id="@+id/empty"
             android:layout_width="match_parent"
@@ -24,22 +60,26 @@
             android:gravity="center"
             android:orientation="vertical"
             android:visibility="gone" >
+
             <ProgressBar
                 android:id="@+id/progress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:indeterminateOnly="true" />
+
             <TextView
                 android:id="@+id/progress_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/progress_downloading" />
+
             <ImageView
                 android:id="@+id/error_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="?miui:attr/v5_content_empty_icon"
                 android:visibility="gone" />
+
             <TextView
                 android:id="@+id/error"
                 android:layout_width="wrap_content"
@@ -47,8 +87,18 @@
                 android:textColor="@color/text_color_gray"
                 android:textSize="@dimen/text_size_small"
                 android:visibility="gone" />
+
+            <Button
+                android:id="@+id/button_retry"
+                style="@style/ButtonNormal"
+                android:layout_width="120dip"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dip"
+                android:text="@string/btn_net_connection_retry"
+                android:visibility="gone" />
         </LinearLayout>
-    </LinearLayout>
+    </FrameLayout>
+
     <TextView
         android:id="@+id/giftcard_hint"
         android:layout_width="match_parent"
@@ -60,4 +110,5 @@
         android:textColor="@color/text_color_black_hint"
         android:textSize="@dimen/text_size_small"
         android:visibility="gone" />
+
 </FrameLayout>

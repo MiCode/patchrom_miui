@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaomi.o2o.activity.view.PersonalTitleView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/personal_title_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/personal_settings_background" >
+
+    <LinearLayout
+        android:id="@+id/user_account_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/user_account_info_margin_top"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/my_xiaomi_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/xiaomi_user"
+            android:textAppearance="@style/TextAppearance.PersonalHeader.Account" />
+
+        <TextView
+            android:id="@+id/user_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/user_account_info_user_id_margin_top"
+            android:text="@string/xiaomi_user"
+            android:textAppearance="@style/TextAppearance.PersonalHeader.Account"
+            android:textSize="@dimen/text_account_userid_title_size" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/personal_header_indicator_margin_left"
+        android:layout_marginTop="@dimen/user_account_info_click_margin_top"
+        android:layout_toRightOf="@id/user_account_info"
+        android:gravity="center"
+        android:src="@drawable/personal_settings_clickable" />
+
+    <TextView
+        android:id="@+id/user_not_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/user_not_loginmargin_top"
+        android:background="@drawable/personal_settings_not_login_bg"
+        android:gravity="center"
+        android:text="@string/personal_settings_login"
+        android:textAppearance="@style/TextAppearance.PersonalLogin"
+        android:visibility="gone" />
+
+</com.xiaomi.o2o.activity.view.PersonalTitleView>

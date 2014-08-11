@@ -1,110 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Title name displayed under the icon at the Home screen -->
   <string name="app_name">Updater</string>
+  <!-- Button text at dialogue box that confirms user wants to update to MIUI. -->
   <string name="apply_now_button_text">Update</string>
+
   <string name="download_whole_rom">Update <xliff:g id="SIZE">(%s)</xliff:g></string>
   <string name="download_ota_rom">Update <xliff:g id="SIZE">(%s)</xliff:g></string>
-  <string name="apply_later_button_text">Apply later</string>
+  <!-- Button text that appears in dialogue box after user has downloaded update.  This button
+       allows them to update the content later. -->
+  <string name="apply_later_button_text">Later</string>
+  <!-- TODO: make this in to a real plural -->
   <string name="apply_update_timer">Device will reboot in <xliff:g id="TIME">%d</xliff:g> seconds</string>
+  <!-- TODO: Locate this string -->
   <string name="reboot_now">Reboot now</string>
+  <!-- TODO: Locate this string -->
   <string name="reboot_later">Reboot later</string>
+  <!-- TODO: Locate this string -->
   <string name="now">Reboot now</string>
+  <!-- TODO: Locate this string -->
   <string name="later">Reboot later</string>
-  <string name="start_update">Start update</string>
+  <!-- Button text that starts update after the package has downloaded -->
+  <string name="start_update">Update</string>
+  <!-- Text displayed above the progress bar as update is being installed. -->
   <string name="applying_update">Updating <xliff:g id="PROGRESS">%s</xliff:g></string>
-  <string name="apply_update_fail">Update failed</string>
+  <!-- TODO: Locate this string. -->
+  <string name="apply_update_fail">"Couldn't install update"</string>
+  <!-- TODO: Locate this string. -->
   <string name="view_install_log">View error log</string>
+  <!-- TODO: Locate this string. -->
   <string name="send_install_log">Send error log</string>
+  <!-- TODO: Locate this string. -->
   <string name="install_email">Get the MIUI Mail app</string>
-  <string name="send_install_log_error">Couldn\'t send error log</string>
+  <!-- TODO: Locate this string. -->
+  <string name="send_install_log_error">"Couldn't send error log"</string>
+  <!-- TODO: Locate this string. -->
   <string name="copy_install_log">Copy</string>
+  <!-- TODO: Locate this string. -->
   <string name="reboot_to_new_system">Reboot to finish</string>
+  <!-- This string appears in the Status bar in the upper left after user has updated and
+       rebooted device. -->
   <string name="update_success">Update complete! :)</string>
+  <!-- TODO: Locate this string. -->
   <string name="mione_update_success_title">Update complete</string>
+  <!-- TODO: Locate this string. -->
   <string name="mione_update_fail_title">Update failed</string>
+  <!-- TODO: Locate this string. -->
   <string name="mione_update_fail_description">Try again</string>
-  <string name="apply_unable_to_reboot_toast">Unable to reboot to Recovery mode</string>
+  <!-- TODO: Locate this string. -->
+  <string name="apply_unable_to_reboot_toast">"Can't reboot to Recovery mode"</string>
+  <!-- TODO: Locate this string. -->
   <string name="checking_for_updates">Checking for updates\u2026</string>
+  <!-- TODO: Locate this string -->
   <string name="downloading_description">Downloading\u2026</string>
-  <string name="sdcard_is_not_present_dialog_body">Make sure that your SD card is mounted.</string>
-  <string name="sdcard_is_not_present_dialog_title">No SD card detected</string>
-  <string name="sdcard_has_no_space_dialog_body">There\'s not enough space on your SD card.</string>
+  <!-- Dialogue body text for when there's no SD card detected. -->
+  <string name="sdcard_is_not_present_dialog_body">Make sure that your SD card is inserted.</string>
+  <!-- Title for dialogue for when there's no SD card detected. -->
+  <string name="sdcard_is_not_present_dialog_title">"Can't find SD card"</string>
+  <!-- Dialogue body text for when there's not enough space on the SD card to download the update package. -->
+  <string name="sdcard_has_no_space_dialog_body">"There's not enough space on your SD card."</string>
+  <!-- Title for dialogue when there's not enough space on the SD card to download the update package. -->
   <string name="sdcard_has_no_space_dialog_title">Not enough space</string>
+  <!-- Sub-title text displayed under the version title for the version that is currently installed on the user's phone. -->
   <string name="current_version_text">"Current version"</string>
-  <string name="current_version_update_monthly_build">Ver. (update to monthly build)</string>
+  <!-- TODO: Find this string -->
+  <string name="current_version_update_monthly_build">Update to monthly build</string>
+  <!-- Button text for dialogue box that confirms update install. -->
   <string name="apply_update_dialog_update_button">Update</string>
+  <!-- Button text for dialogue box that cancels update install. -->
   <string name="apply_update_dialog_cancel_button">Cancel</string>
+  <!-- Button text for dialogue box that cancels update install. TODO: Find if any of these strings can be merged. -->
   <string name="cancel_download_buton_text">Cancel</string>
-  <string name="confirm_download_cancelation_dialog_message">Cancel download?</string>
+  <!-- Dialogue box message asking user to confirm that they want to cancel the download of the update. -->
+  <string name="confirm_download_cancelation_dialog_message">Cancel update download?</string>
+  <!-- Dialogue box message asking user to confirm that they want to cancel the download of the update. -->
+  <!-- Button text that confirms user want to cancel download for dialogue box. -->
   <string name="dialog_yes">Yes</string>
+  <!-- Button text that keeps download going download in the confirm cancel download dialogue box. -->
   <string name="dialog_no">No</string>
+  <!-- Button text for a dialogue box button that confirms current action. -->
   <string name="dialog_ok">OK</string>
-  <string name="verify_and_apply_dialog_title">Verifying\u2026</string>
-  <string name="verify_and_apply_dialog_message">Checking the update\'s source\u2026</string>
-  <string name="apply_existing_update_md5error_title">MD5 signatures don\'t match</string>
-  <string name="file_not_found_error_message">Couldn\'t find the requested file on Xiaomi\'s servers.</string>
-  <string name="apply_upload_info_message_manually">"After rebooting, you can enter Recovery mode and apply the update (<xliff:g id="FILE">%s</xliff:g>) manually. If you want to backup your data, you should do so before you apply the update.</string>
-  <string name="apply_upload_info_message">To apply the update and reboot your phone, touch Update.</string>
-  <string name="apply_buddy_update_info_message">When you touch Update, your phone will begin updating immediately.</string>
+  <!-- TODO: Locate this string -->
+  <string name="verify_and_apply_dialog_title">Checking\u2026</string>
+  <!-- TODO: Locate this string -->
+  <string name="verify_and_apply_dialog_message">"Checking update's source\u2026"</string>
+  <!-- TODO: Locate this string -->
+  <string name="apply_existing_update_md5error_title">"MD5 signatures don't match"</string>
+  <!-- Error message displayed when the update file can't be found on Xiaomi's servers. -->
+  <string name="file_not_found_error_message">"Couldn\'t find the requested update."</string>
+  <!-- TODO: Locate this string -->
+  <string name="apply_upload_info_message_manually">"After rebooting, you can enter Recovery mode and install the update (<xliff:g id="FILE">%s</xliff:g>) manually. If you want to backup your data, you should do so before you install the update.</string>
+  <!-- TODO: Locate this string -->
+  <string name="apply_upload_info_message">To install the update and reboot your phone, touch Update.</string>
+  <!-- TODO: Locate this string -->
+  <string name="apply_buddy_update_info_message">After you touch Update, your phone will begin installing the update immediately.</string>
+  <!-- TODO: Locate this string -->
   <string name="system_backup_button_text">Back up</string>
+  <!-- TODO: Locate this string -->
   <string name="system_backup_cancel_text">Start update</string>
+  <!-- TODO: Locate this string -->
   <string name="system_backup_ok_text">Back up</string>
-  <string name="system_backup_download_helper">Back up your data before applying this update?</string>
-  <string name="system_backup_apply_helper">Back up your data before applying this update?</string>
-  <string name="system_backup_helper"></string>
-  <string name="system_backup_ask">Ask me every time</string>
-  <string name="system_backup_error_message">Couldn\'t find MIUI\'s built-in Backup app.</string>
+  <!-- Body text for dialogue box that asks user if they want to back up her data before
+       she installs the update to her device. -->
+  <string name="system_backup_download_helper">Back up your data before installing this update?</string>
+  <!-- Body text for dialogue box that asks user if they want to back up her data before
+       she installs the update to her device. -->
+  <string name="system_backup_apply_helper">Back up your data before installing this update?</string>
+  <!-- TODO: ignore this string. Do not translate. -->
+  <string name="system_backup_helper" translate="false"></string>
+  <!-- Title displayed next to check box that will make the prompt to back up data appear the next time the user wants to update. -->
+  <string name="system_backup_ask">Ask again next time</string>
+  <!-- Error message for when Updater can find MIUI Back up app to back up user's system. -->
+  <string name="system_backup_error_message">"Couldn't find MIUI's built-in Backup app."</string>
+  <!-- TODO: Locate this string -->
   <string name="md5_check_cancelled">MD5 check cancelled</string>
-  <string name="no_updatecheck_executed">Didn\'t check for updates</string>
-  <string name="no_updates_found">You\'re already running the latest version of MIUI :)</string>
+  <!-- Toast displayed when system is unable to look for update -->
+  <string name="no_updatecheck_executed">"Can't check for updates"</string>
+  <!-- Toast displayed when user checks for updates and system finds that they are already running the latest version of MIUI-->
+  <string name="no_updates_found">"You're running the latest version of MIUI :)"</string>
+  <!-- Toast displayed when user checks for updates and system finds that they are already running the latest version of MIUI for the 2nd time in a row -->
   <string name="no_updates_warning">No updates found</string>
+  <!-- Toast displayed when user checks for updates and system finds that they are already running the latest version of MIUI for the 3nd time in a row -->
   <string name="no_updates_warning2">Relax, we\'ll let you know if there\'s an update :)</string>
+  <!-- Title for notification displayed in the notifcation shade. -->
   <string name="new_updates_found_title">Update available</string>
-  <string name="new_update_content_title">There\'s a new version of MIUI available</string>
-  <string name="new_update_content_notification_shade"></string>
+  <!-- Content for notification displayed in notifcation shade. -->
+  <string name="new_update_content_title">"There's an update for MIUI available"</string>
+  <!-- TODO: Ignore this string. -->
+  <string name="new_update_content_notification_shade" translate="false"></string>
+  <!-- TODO: Locate this string -->
   <string name="new_update_downloading_body">Downloading version: <xliff:g id="VERSION">%s</xliff:g></string>
+  <!-- TODO: Locate this string -->
   <string name="new_update_download_complete_body">New version: <xliff:g id="VERSION">%s</xliff:g></string>
   <string name="update_success_title">Update complete!</string>
-  <string name="update_success_body">System version: <xliff:g id="VERSION">%s</xliff:g></string>
+  <string name="update_success_body">Current version: <xliff:g id="VERSION">%s</xliff:g></string>
   <string name="exception_while_downloading">An unknown error occurred while the update was downloading</string>
+  <!-- TODO: Locate this string. -->
   <string name="new_updates_found_notification_title">Update available</string>
   <string name="network_error">A network error occurred</string>
-  <string name="monthly_build">Monthly build</string>
-  <string name="weekly_build">Weekly build</string>
-  <string name="daily_build">Daily build</string>
-  <string name="experimental_build">Experimental build</string>
-  <string name="internal_build">Internal build</string>
-  <string name="top_secret_build">Top-secret build</string>
-  <string name="stable_build">Stable build</string>
-  <string name="unstable_build">Unstable build</string>
-  <string name="about_device">About Phone</string>
-
+  <!-- Dynamic descriptor displayed next to version title at update screen.  For example "MIUI 4.1.20 (Monthly)" -->
+  <string name="monthly_build">Monthly</string>
+  <!-- Dynamic descriptor displayed next to version title at update screen.  For example "MIUI 4.1.20 (Monthly)" -->
+  <string name="weekly_build">Weekly</string>
+  <!-- Dynamic descriptor displayed next to version title at update screen.  For example "MIUI 4.1.20 (Monthly)" -->
+  <string name="daily_build">Nightly</string>
+  <!-- Dynamic descriptor displayed next to version title at update screen.  For example "MIUI 4.1.20 (Stable)" -->
+  <string name="experimental_build">Experimental</string>
+  <!-- Dynamic descriptor displayed next to version title at update screen.  For example "MIUI 4.1.20 (Stable)" -->
+  <string name="internal_build">Internal</string>
+  <!-- Dynamic descriptor displayed next to version title at update screen.  For example "MIUI 4.1.20 (Stable)" -->
+  <string name="top_secret_build">Top-secret</string>
+  <!-- Dynamic descriptor displayed next to version title at update screen.  For example "MIUI 4.1.20 (Stable)" -->
+  <string name="stable_build">Stable</string>
+  <!-- Dynamic descriptor displayed next to version title at update screen.  For example "MIUI 4.1.20 (Stable)" -->
+  <string name="unstable_build">Unstable</string>
+  <!-- Title displayed for the item in list view that brings user to a view of the specs of their phone. -->
+  <string name="about_device">About phone</string>
+  <!-- TODO: locate this string -->
   <string name="emegency_build">Build:</string>
-  <string name="wifi_not_available_title">You\'re not connected to Wi-Fi</string>
-  <string name="wifi_not_available_body">It\'s best to download MIUI updates over a Wi-Fi connection, as these files tend be large and can use up a lot of mobile data.</string>
+  <!-- Title for dialogue pop-up that appears when user is trying to download an update using his mobile data connection. -->
+  <string name="wifi_not_available_title">"Data usage warning"</string>
+  <!-- Body text for dialogue pop-up that appears when user is trying to download an update using his mobile data connection. -->
+  <string name="wifi_not_available_body">"Using your data connection to download updates for MIUI in excess of your carrier plan's data limits can result in steep overage charges."</string>
+  <!-- TODO: Locate this string. -->
   <string name="paused_queued_for_network">Waiting for network connection</string>
+  <!-- TODO: Locate this string. -->
   <string name="paused_queued_for_wifi">Waiting for Wi-Fi connection</string>
+  <!-- TODO: Locate this string. -->
   <string name="boot_recovery">Reboot to Recovery mode</string>
-  <string name="applying_rom_message">Applying update\u2026</string>
+  <!-- Status text displayed when using is installing update for MIUI. -->
+  <string name="applying_rom_message">Installing update\u2026</string>
+  <!-- TODO: Locate this string -->
   <string name="loading">Requesting\u2026</string>
+  <!-- Item on Menu button pop-up menu at main activity for updater.  Touching this brings the user to File Explorer type activity where he or she can
+       select a zip package to install as an update. -->
   <string name="install_rom_from_sd">Select update package</string>
-  <string name="download_current_rom">Get latest version of MIUI</string>
-  <string name="no_proper_updates">No updates were found for this version of MIUI</string>
+  <!-- Item on Menu button pop-up menu at main activity for updater.  Touching this brings user to screen where they view available updates
+       for his or her device. -->
+  <string name="download_current_rom">View available updates</string>
+  <!-- TODO: Locate this string. -->
+  <string name="no_proper_updates">No updates found</string>
+  <!-- TODO: Locate this string. -->
   <string name="sign_in_info">"Update status: <xliff:g id="RANK">%1$s</xliff:g>\n<xliff:g id="TOTAL">%2$s</xliff:g> users have already checked in to MIUI <xliff:g id="VERSION">%3$s</xliff:g>"</string>
+  <!-- TODO: Locate this string. -->
   <string name="sign_in_info_total_more">"Update status: <xliff:g id="RANK">%1$s</xliff:g>\nOver <xliff:g id="TOTAL">%2$s</xliff:g> users have already checked in to MIUI <xliff:g id="VERSION">%3$s</xliff:g>"</string>
+  <!-- TODO: Locate this string. -->
   <string name="sign_in_info_rank_more">"Update status: <xliff:g id="RANK">%1$s</xliff:g>\nOver <xliff:g id="TOTAL">%2$s</xliff:g> users have already checked in to MIUI <xliff:g id="VERSION">%3$s</xliff:g>"</string>
-  <string name="sign_in_add_account">Activate your Xiaomi Account now</string>
-  <string name="sign_in_add_account_helper">Receive Mi Points when you create a Xiaomi Account.</string>
+  <string name="sign_in_add_account">Activate your Mi Account</string>
+  <string name="sign_in_add_account_helper">Sync your contacts, photos, and more across devices</string>
   <string name="my_rank">Update status:</string>
 
-  <string name="check_update">Check update</string>
+  <string name="check_update">Check for updates</string>
   <string name="move_data_to_sdcard_title">Transfer data to SD card</string>
   <string name="move_data_to_sdcard_not_enough_space_message">Not enough space on SD card to move the selected <xliff:g id="SIZE">%d</xliff:g>MB</string>
   <string name="moving_data_to_sdcard_message">Data is being transferred to the SD card, please don\'t enable USB mode or remove SD card.</string>
   <string name="moving_data_to_sdcard_progress_format">Transferred <xliff:g id="PROGRESS">%1$d</xliff:g>dKb of <xliff:g id="TOTAL">%2$d</xliff:g>Kb</string>
-  <string name="finish_download">Download complete</string>
-  <string name="updater_finish_download">Download ROM completed</string>
+  <string name="finish_download">Download finished</string>
+  <string name="updater_finish_download">Download finished</string>
   <string name="install_whole_rom">Download ROM (standard)</string>
   <string name="check_update_policy">Updater settings</string>
   <string name="check_update_when_wifi_available">Only use Wi-Fi to check for updates</string>
@@ -151,8 +244,8 @@
   <string name="my_worst_update">Worst update</string>
   <string name="my_expect_update">Expectations</string>
   <string name="get_update_error">Failed to get update info</string>
-  <string name="active_xiaomi_account_title">Activate Xiaomi Account</string>
-  <string name="active_xiaomi_account_msg">"To activate your Xiaomi Account, go to https://account.xiaomi.com/pass/serviceLogin."</string>
+  <string name="active_xiaomi_account_title">Activate Mi Account</string>
+  <string name="active_xiaomi_account_msg">"To activate your Mi Account, go to https://account.mi.com/pass/serviceLogin."</string>
   <string name="active_xiaomi_account">Active</string>
   <string name="update_comment_title">Comment</string>
   <string name="update_comment_hint"></string>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="13dip"
+        android:paddingLeft="15dip"
+        android:paddingRight="15dip"
+        android:paddingTop="15dip" >
+
+        <TextView
+            android:id="@+id/summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mipay_text_color_dark_gray"
+            android:textSize="@dimen/mipay_text_size_medium" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip"
+            android:orientation="horizontal" >
+
+            <com.mipay.common.component.SmsCaptchaEditText
+                android:id="@+id/sms_captcha"
+                style="@style/Mipay.Widget.EditText"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:hint="@string/mipay_check_sms_captcha_hint"
+                android:inputType="number"
+                android:numeric="integer" />
+
+            <Button
+                android:id="@+id/resend"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dip"
+                android:background="@drawable/mipay_common_btn"
+                android:gravity="center"
+                android:minWidth="85dip"
+                android:text="@string/mipay_check_sms_captcha_resend" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1" />
+
+        <com.mipay.common.component.ProgressButton
+            android:id="@+id/button"
+            style="@style/Mipay.Widget.Button.Warn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip"
+            android:text="@string/mipay_button_ok" />
+    </LinearLayout>
+
+</ScrollView>

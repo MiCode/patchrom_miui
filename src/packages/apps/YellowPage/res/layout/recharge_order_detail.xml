@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Widget.TextView.Label"
+                    android:text="@string/order_product_name_label" />
+
+                <TextView
+                    android:id="@+id/product_name"
+                    style="@miui:style/V5.TextAppearance.List.Primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:singleLine="true" />
+
+                <TextView
+                    style="@style/Widget.TextView.Label"
+                    android:text="@string/recharge_phone" />
+
+                <TextView
+                    android:id="@+id/product_shortinfo"
+                    style="@miui:style/V5.TextAppearance.List.Primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <ImageView style="@style/Widget.Divider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/order_status"
+                    style="@style/Widget.TextView.Label" />
+
+                <TextView
+                    android:id="@+id/order_price"
+                    style="@style/Widget.TextView.Label" />
+
+                <TextView
+                    android:id="@+id/order_id"
+                    style="@style/Widget.TextView.Label" />
+
+                <TextView
+                    android:id="@+id/order_date"
+                    style="@style/Widget.TextView.Label" />
+            </LinearLayout>
+
+            <ImageView style="@style/Widget.Divider" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/payment_padding"
+            android:paddingRight="@dimen/payment_padding">
+
+            <TextView
+                android:id="@+id/pay_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/payment_vertical_margin"
+                android:gravity="center" />
+
+            <Button
+                android:id="@+id/pay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@miui:drawable/v5_btn_bg_main_action_light"
+                android:text="@string/recharge_pay"
+                android:textColor="@color/bottom_bar_text" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.miui.yellowpage.widget.LoadingProgressView
+        android:id="@+id/loading_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:gravity="center" />
+
+</FrameLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/location_category" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/item_divider_line" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/common_list_view_background" >
+
+        <ListView
+            android:id="@+id/search_list"
+            style="@style/Widget.ListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/search_result_margin_top_fix"
+            android:background="@color/common_list_view_background"
+            android:divider="@color/item_divider_line"
+            android:dividerHeight="@dimen/common_divider_height" />
+
+        <com.xiaomi.o2o.activity.view.EmptyLoadingView
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/search_none"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/search_not_found"
+                style="@style/TextAppearance.NotFound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/not_found_text_margin_top"
+                android:singleLine="true" />
+        </RelativeLayout>
+    </FrameLayout>
+
+</LinearLayout>

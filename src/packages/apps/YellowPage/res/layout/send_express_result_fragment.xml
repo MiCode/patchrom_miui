@@ -15,37 +15,40 @@
         <ImageView
             android:id="@+id/result_view"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/pay_success" />
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/result_description"
+            style="@miui:style/V5.TextAppearance.List.Primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/toast_text_copied" />
+            android:gravity="center" />
 
         <TextView
             android:id="@+id/result_detail"
+            style="@miui:style/V5.TextAppearance.List.Secondary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/toast_text_copied" />
+            android:gravity="center" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingLeft="@dimen/payment_padding"
-        android:paddingRight="@dimen/payment_padding" >
+        android:orientation="vertical" >
 
         <Button
             android:id="@+id/view_order"
             style="@miui:style/V5.Widget.Button.PositiveWarn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/express_view_order" />
+            android:layout_marginLeft="@dimen/express_button_margin_horizontal"
+            android:layout_marginRight="@dimen/express_button_margin_horizontal"
+            android:text="@string/express_view_order"
+            android:visibility="invisible" />
 
         <LinearLayout
+            android:orientation="horizontal"
             android:id="@+id/placeholder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -54,6 +57,9 @@
             android:id="@+id/go_back"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/express_button_margin_horizontal"
+            android:layout_marginLeft="@dimen/express_button_margin_horizontal"
+            android:layout_marginRight="@dimen/express_button_margin_horizontal"
             android:text="@string/express_go_back" />
     </LinearLayout>
 

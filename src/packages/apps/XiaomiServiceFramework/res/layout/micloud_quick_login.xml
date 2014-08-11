@@ -49,16 +49,6 @@ how the layout adjusts based on size. -->
                 android:layout_alignParentLeft="true"
                 style="?android:attr/textAppearanceMedium"
                 />
-        <TextView
-                android:id="@+id/forget_password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
-                android:text="@string/forget_password"
-                android:layout_alignParentRight="true"
-                android:layout_alignBottom="@+id/account_name"
-                style="@style/HyperLinkStyle"
-                />
         <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
@@ -70,13 +60,24 @@ how the layout adjusts based on size. -->
                 android:singleLine="true"
                 android:password="true"
                 />
+        <TextView
+                android:id="@+id/forget_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="5dp"
+                android:text="@string/forget_password"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/password"
+                style="@style/HyperLinkStyle"
+                />
         <LinearLayout
                 android:id="@+id/captcha_area"
                 android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_below="@+id/password"
+                android:layout_below="@+id/forget_password"
                 android:gravity="center"
                 android:background="?miui:attr/v5_edit_text_bg">
             <EditText

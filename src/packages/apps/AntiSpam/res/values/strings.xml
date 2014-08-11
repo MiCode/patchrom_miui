@@ -1,31 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Name of the blocklist feature that is displayed in the popup menu at the main activity for Phone.  This is also
+         the name displayed under the Blocklist icon in Security Center. [CHAR LIMIT=10] -->
     <string name="app_name">Blocklist</string>
 
-    <!-- notification -->
-    <string name="fw_blocked">Blocked:</string>
-    <string name="fw_blocked_count">Blocked:</string>
-    <string name="fw_blocked_count_call"><xliff:g id="opt">%d</xliff:g>calls and</string>
-    <string name="fw_blocked_count_sms"><xliff:g id="opt">%d</xliff:g>messages</string>
+    <!-- Title for notiiciation in notification that appears when a call or message is blocked -->
+    <string name="fw_blocked">Blocklist</string>
+    <!-- First word in content for notificiation in notification shade that appears as follows:
+         "Blocked %d calls and %d messages ".  TODO: format this string better. -->
+    <string name="fw_blocked_count">"Blocked "</string>
+    <!-- Part of content for notificiation in notification shade.  Refer to string "fw_blocked". -->
+    <string name="fw_blocked_count_call">"<xliff:g id="opt">%d</xliff:g> calls"</string>
+    <!-- Last part of content for notificiation in notification shade.  "Refer to string fw_blocked".
+         %d refers to the number of blocked messages. -->
+    <string name="fw_blocked_count_sms">" and <xliff:g id="opt">%d</xliff:g> messages"</string>
 
-    <!-- Tab/Other View -->
+    <!-- Title displayed in action bar at Blocklist main activity. -->
     <string name="tab_title">Blocklist</string>
-    <string name="tab_block_log">Blocked log</string>
+    <!-- TODO: Locate this string. -->
+    <string name="tab_block_log">History</string>
+    <!-- TODO: Locate this string. -->
     <string name="tab_blacklist">Blocklist</string>
-    <string name="tab_sms">Message log</string>
-    <string name="tab_call">Call log</string>
-    <string name="bl_block_info">Blocked calls: <xliff:g id="tel_count">%d</xliff:g> "|" SMS: <xliff:g id="ms_count">%d</xliff:g></string>
+    <!-- Title displayed for tab under the action bar at the blocklist main activity. -->
+    <string name="tab_sms">Messages</string>
+    <!-- Title displayed for tab under the action bar at the blocklist main activity. -->
+    <string name="tab_call">Calls</string>
+    <!-- TODO: locate this string -->
+    <string name="bl_block_info">Blocked: <xliff:g id="tel_count">%d</xliff:g> "|" SMS: <xliff:g id="ms_count">%d</xliff:g></string>
+    <!-- Displayed in the main activity list view for blocked call log when no calls have been blocked. -->
     <string name="bl_no_block_call">No blocked calls</string>
+    <!-- Displayed in the main activity list view for blocked message log when no calls have been blocked. -->
     <string name="bl_no_block_sms">No blocked messages</string>
+    <!-- Displayed in blocked numbers listview when user hasn't added any numbers manually to the blocklist. -->
     <string name="bl_no_blacklist">No blocked numbers</string>
-    <string name="wl_no_whitelist">No white numbers</string>
+    <!-- Displayed in exceptions listview when user hasn't added any numbers manually to exceptions list.  Calls and messages from exceptions are
+         silenced or diverted when blocklist is on. -->
+    <string name="wl_no_whitelist">No exceptions</string>
+    <!-- TODO: Locate this string -->
     <string name="log_count">(%d)</string>
-    <string name="tab_block_log_unKnowNumber">Unknown number</string>
-    <string name="user_define_title">Custom</string>
-    <string name="blacklist_prefix_add_hint">Add all numbers with prefix to blocklist</string>
+    <!-- Displayed next to a blocked call or message in listview for a number that is private and cannot be displayed. -->
+    <string name="tab_block_log_unKnowNumber">Private number</string>
+    <!-- Title in the activity bar when user is adding rules to blocklist. -->
+    <string name="user_define_title">Add rules</string>
+    <!-- Description under input field where user can input prefix that will be blocked.  All numbers that begin with this prefix
+         will be blocked. -->
+    <string name="blacklist_prefix_add_hint">Block all numbers that begin with this prefix</string>
+    <!-- Description under input field where user can input prefix that will be added to exceptions.  All numbers that begin with this prefix
+         will be treated as exceptions. -->
     <string name="whitelist_prefix_add_hint">Add all numbers with prefix to exceptions</string>
-    <string name="customizer_mode_user_define_name">Custom</string>
+    <!-- Hint text in input field where user names the set of rules that he or she is making for blocklist. -->
+    <string name="customizer_mode_user_define_name">My rules</string>
+    <!--  -->
     <string name="all_address_choose_hint">All locations</string>
     <string name="address_choose_hint">%1$s、%2$s and %3$d locations</string>
     <string name="two_address_choose_hint">%1$s, %2$s2 locations</string>
@@ -35,19 +61,25 @@
     <string name="marked_by_user">"you marked it as "</string>
     <string name="marked_by_others">"%d other users marked it as "</string>
 
-    <!-- Dialog -->
-    <string name="dlg_black_antispam_message">Add this message to blocklist?</string>
-    <string name="dlg_white_antispam_message">Add this message to exceptions?</string>
+    <!-- Confirmation dialog pop-ups -->
+    <!-- Title displayed for confirmation dialogue when user is adding a number to blocklist.  -->
+    <string name="dlg_black_antispam_message">Add this number to blocklist?</string>
+    <!-- Title displayed for confirmation dialogue when user is adding a number to exceptions.  -->
+    <string name="dlg_white_antispam_message">Add this number to exceptions?</string>
+    <!-- Title displayed for confirmation dialogue when user is added a location to blocklist.  -->
     <string name="dlg_black_address_antispam_message">Add this location to blocklist?</string>
+    <!-- Title displayed for confirmation dialogue when user is added a location to exceptions.  -->
     <string name="dlg_white_address_antispam_message">Add this location to exceptions?</string>
-    <string name="dlg_white_antispam_hint"> Exceptions </string>
-    <string name="dlg_black_antispam_hint">AntiSpam hint</string>
+    <!-- TODO: Locate this string. -->
+    <string name="dlg_white_antispam_hint">Exceptions</string>
+    <!-- TODO: Locate this string. -->
+    <string name="dlg_black_antispam_hint">Blocklist</string>
     <string name="dlg_clear_all_sms">Delete blocked messages?</string>
     <string name="dlg_clear_all_call">Clear blocked calls?</string>
     <string name="dlg_clear_current_sms">Delete all blocked messages sent from this number?</string>
     <string name="dlg_clear_current_call">Clear all blocked calls from this number?</string>
     <string name="dlg_clear_all_ok">Clear all</string>
-    <string name="dlg_clear_current_ok">Delete</string>
+    <string name="dlg_clear_current_ok">Clear</string>
     <string name="dlg_no_block">Unblock this number?</string>
     <string name="dlg_no_block_ok">Unblock</string>
     <string name="dlg_add_blacklist">Block this number?</string>
@@ -67,14 +99,23 @@
     <string name="dlg_remove_blacklist_ing">Removing from blocklist\u2026</string>
     <string name="dlg_import_whitelist">Adding to exceptions\u2026</string>
     <string name="dlg_remove_whitelist_ing">Removing from exceptions\u2026</string>
+    <!-- Title for dialogue box where user can add keywords to the filter list.  Displayed about input field. -->
     <string name="dlg_add_keyword">Add keywords</string>
-    <string name="dlg_edit_keyword">Edit keyword</string>
-    <string name="dlg_delete_keyword">Remove selected keywords?</string>
+    <!-- Title for dialogue box where user can edit keywords already on the filter list.  Displayed about input field. -->
+    <string name="dlg_edit_keyword">Edit keywords</string>
+    <!-- Title for dialogue confirmation asking user to confirm removing keyword from the filter list. -->
+    <string name="dlg_delete_keyword">Clear selected keywords?</string>
+    <!-- Button text for dialogue pop-up.  Dialog box contains an input field, in which user can enter info. [CHAR LIMIT=8] -->
     <string name="dlg_keyword_ok">Save</string>
     <string name="dlg_retore">Restore to message inbox?</string>
     <string name="dlg_retore_ok">Restore</string>
+    <!-- Toast that displays when user touches "Save" button in keyword filter without entering anything in the
+         input field. -->
     <string name="toast_keyword_blank">You need to enter a keyword</string>
-    <string name="toast_keyword_exist">Keyword saved</string>
+    <!-- Toast that displays after a keyword is added to the filter list -->
+    <string name="toast_keyword_exist">Keyword added</string>
+    <!-- Toast that displays when user tries to add a keyword to the keyword filter list, that
+         contains illegal characters. -->
     <string name="toast_keyword_invalid">Invalid keyword</string>
 
     <!-- Menu -->
@@ -101,10 +142,11 @@
     <string name="menu_remove">Remove</string>
 
     <!-- Settings -->
+
     <string name="st_settings_name">Blocklist settings</string>
     <string name="st_block_setting_group">Blocklist settings</string>
     <string name="st_block_setting_title">Calls and messages</string>
-    <string name="st_block_all">Block calls and messgaes</string>
+    <string name="st_block_all">Block calls and messages</string>
     <string name="st_mute_all">Silence calls and messages</string>
     <string name="st_block_mute">Block calls and silence messages</string>
     <string name="st_mute_block">Silence calls and block messages</string>
@@ -116,19 +158,28 @@
     <string name="st_block_private_call_button">Block private numbers</string>
     <string name="st_filter_sms_button">Filter messages</string>
     <string name="st_filter_keywords_setting_title">Configure keyword filter</string>
+    <!-- Title displayed in the activity bar at the listview where user can add or edit keywords that are being filtered. -->
     <string name="st_filter_keywords_title">Keyword filter</string>
-    <string name="st_filter_keywords_setting_summary1">Messages sent from unknown numbers that contain the following words will be blocked.</string>
-    <string name="st_filter_keywords_setting_summary2">(Use a comma \",\" to separate multiple keywords)</string>
+    <!-- Displayed at the bottom of the listview for keyword filters view.  Summary of how the keyword filter works: i.e.:
+         Messages from unknown numbers that contain the listed words will be blocked.  -->
+    <string name="st_filter_keywords_setting_summary1">Messages from unknown numbers that contain the words in this list will be blocked.</string>
+    <!-- Displayed at the bottom of the screen under the keyword filter function summary.  Tells user that she can use a comma to seperate words
+         that are going to be filtered in a single entry. -->
+    <string name="st_filter_keywords_setting_summary2">\n(Use a comma to separate multiple keywords)</string>
+    <!-- Title for category of items in a listview that are considered Advanced.  TODO: Locate this string. -->
     <string name="st_advanced_setting_group">Advanced</string>
+    <!--  -->
     <string name="st_block_unknown_call">Block unknown callers</string>
     <string name="st_block_unknown_sms">Block unknown messages</string>
     <string name="st_other_setting_group">Other settings</string>
     <string name="st_show_block_notification">Show blocked notification</string>
-    <string name="st_show_num_keyword"> keywords</string>
-    <string name="st_show_num_number"> numbers</string>
+    <string name="st_show_num_keyword">" keywords"</string>
+    <string name="st_show_num_number">" numbers"</string>
     <string name="label_callwait">Call waiting</string>
     <string name="open_callwait">On</string>
     <string name="close_callwait">Off</string>
+    <string name="st_title_adblock_group">Ad blocker</string>
+    <string name="st_title_adblock_setting">Ad blocker settings</string>
 
     <!-- 添加白名单 -->
     <string name="sure">Confirm</string>
@@ -158,7 +209,7 @@
     <string name="st_title_man_editwhitelist">Choose an location code to add to exceptions</string>
 
     <!-- BackSound -->
-    <string name="st_title_back_sound_choose">BackSound</string>
+    <string name="st_title_back_sound_choose">Blocklist status</string>
     <string name="st_title_back_sound_busy">Busy</string>
     <string name="st_title_back_sound_none">Number no longer in service</string>
     <string name="st_title_back_sound_closed">Phone powered off</string>
@@ -168,22 +219,23 @@
     <string name="st_title_call_wait">Call waiting</string>
     <string name="st_title_sim_card">%1$s-SIM %2$s</string>
     <string name="st_title_not_sim">Empty</string>
-    <string name="st_sum_call_wait">If your busy signal is not default. This may be confusing for an incoming caller.</string>
-    
+    <string name="st_sum_call_wait">If your busy signal is not default, it may confuse incoming callers.</string>
+    <string name="sim_not_ready">SIM card not ready</string>
+
     <!-- Black White list -->
     <string name="st_antispam_bw_man_add">Add phone number</string>
     <string name="st_antispam_bw_head_add">Add prefix</string>
     <string name="st_antispam_bw_pick_add">Choose a contact</string>
     <string name="st_antispam_bw_adress_add">Choose locale</string>
-    <string name="st_antispam_black_adress_add">Choose area</string>
-    <string name="st_antispam_bw_choose_modes">Select mode</string>
+    <string name="st_antispam_black_adress_add">Choose a location</string>
+    <string name="st_antispam_bw_choose_modes">Blocked numbers</string>
     <string name="hint_antispam_mode_edit">Custom mode</string>
-    <string name="st_title_adress">Select locale</string>
+    <string name="st_title_adress">Choose location</string>
     <string name="st_title_adress_num">%d selected</string>
 
     <!-- 骚扰拦截 -->
     <string name="NACaddnumcontent">Enter phone number</string>
-    <string name="ACaddnumcontent">Enter prefix(“*” will be added automatically)</string>
+    <string name="ACaddnumcontent">Enter area code</string>
     <string name="SMS_BLACKLIST">Message blocklist</string>
     <string name="SMS_PREFIX">Prefix blocklist</string>
     <string name="SMS_DEFAULT">Smart blocklist</string>
@@ -220,9 +272,115 @@
     <string name="ad_update_title">Auto Update</string>
     <string name="ad_update_time">Last updated: %s</string>
     <string name="ad_update_time_unKnown">Last updated: unknown</string>
+    <string name="ad_block_hint">%d blocked</string>
+    <string name="ad_single_block_hint">Blocked</string>
+    <string name="ad_permission_hint">Using ad blocker may also affect your apps\' performance or prevent them from working normally.</string>
 
     <string name="sms_delete_hint">Delete all blocked messages sent from selected number?</string>
     <string name="call_delete_hint">Delete all blocked calls from selected number?</string>
     <string name="backsound_set_hint">Set your backsound to %s?</string>
+
+    <!-- 新添加的字段 -->
+    <!-- TODO: Locate this string. -->
+    <string name="menu_report_block">Mark as spam</string>
+    <!-- Displayed next to input box where user can name the set of rules she is creating for the blocklist. [CHAR LIMIT=10] -->
+    <string name="st_sub_title_customize_mode_name">Name</string>
+
+    <!-- 新版设置相关 -->
+    <!-- Title text for i/o switch for Blocklist displayed at the top of list of items
+         in Blocklist settings. -->
+    <string name="st_title_open_antispam">Blocklist</string>
+    <!-- Title text for item in list view that brings user to another list of all the blocklist rules.  The rules
+         dictate which calls and messages the blocklist will let through to the user's phone.  For example: "Only allow contacts"
+         or "Only use blocklist". -->
+    <string name="st_title_antispam_mode">Rules</string>
+    <!-- Text displayed in title above g -->
+    <string name="st_sub_title_whiteblack_list_group">Blocklist</string>
+    <string name="st_title_keywords_blacklist">Keyword filter</string>
+    <!-- Title text displayed next to item in "Blocklist settings" that (on touch
+         brings user to a list of blocked numbers that he or she has manually. -->
+    <string name="st_title_blacklist_numbers">Blocked numbers</string>
+    <!-- Title text displayed next to item in "Blocklist settings" that (on touch
+         brings user to a list of numbers that she or he has added to a "white list" that
+         is allowed to bypass blocklist. -->
+    <string name="st_title_whitelist_numbers">Exceptions</string>
+    <!-- Title text that appear next to item in blocklist settings menu that controls
+         what a blocked caller will hear in the call when she or he is being blocked. -->
+    <string name="st_title_backsound_group">Message played to blocked numbers</string>
+    <!-- TODO: Locate this string -->
+    <string name="st_title_anticomintcall_backsound_setting">Message</string>
+    <!-- Title category text displayed above the final category in Blocklist -->
+    <string name="st_title_settings_other_group">Additional settings</string>
+    <string name="st_title_show_antispamnotification">Notification for blocked calls</string>
+    <string name="st_title_mode_choose_group">Blocklist rules</string>
+
+    <!-- 新版的拦截模式 title -->
+    <string name="st_antispam_mode_smart">Shared blocklist</string>
+    <string name="st_antispam_mode_blacklist">Blocked numbers</string>
+    <string name="st_antispam_mode_only_contacts">Only allow contacts</string>
+    <string name="st_antispam_mode_only_whitelist">Only allow exceptions</string>
+    <!-- Title for preset rules for blocklist that block all numbers.-->
+    <string name="st_antispam_mode_only_all_deny">Block everything</string>
+    <!-- Text displayed under the add icon at the list activity for rules. -->
+    <string name="st_antispam_mode_add_new">Add rules</string>
+    <!-- Title text for item under blocklist in blocklist settings.  Touching this item
+         brings user to activity where they can add numbers which they do not want to block. -->
+    <string name="st_antispam_title_whitelist">Exceptions</string>
+    <!-- Title text for category above a group of rules user can select to create a custom
+         blocklist setting.  For example: "Allow messages from Contacts", "Block messages from private
+         numbers" automatically, etc.  -->
+    <string name="st_antispam_title_contactandanoy_group">Settings</string>
+    <!-- Title text for item under rules configuration.  It is paired with dynamic indicator text "Allow" or "Block". -->
+    <string name="st_antispam_title_contact_sms">Messages from Contacts</string>
+    <!-- Title text for item under rules configuration.  It is paired with dynamic indicator text "Allow" or "Block". -->
+    <string name="st_antispam_title_contact_incoming">Calls from Contacts</string>
+    <!-- Title text for item under rules configuration.  It is paired with dynamic indicator text "Allow" or "Block". -->
+    <string name="st_antispam_title_anoy_sms">Messages from strangers</string>
+    <!-- Title text for item under rules configuration.  It is paired with dynamic indicator text "Allow" or "Block". -->
+    <string name="st_antispam_title_anoy_incoming">Calls from strangers</string>
+    <!-- Title text for item under rules configuration.  It is paired with dynamic indicator text "Allow" or "Block". -->
+    <string name="st_antispam_title_null_incoming">Private numbers</string>
+
+    <!-- 新版的拦截模式 summary -->
+    <string name="st_antispam_mode_smart_sum">"Block numbers you've added manually and block numbers that have been reported by other users"</string>
+    <string name="st_antispam_mode_blacklist_sum">"Block messages and calls from numbers you've added manually to the blocklist"</string>
+    <string name="st_antispam_mode_only_contacts_sum">Only allow calls and messages from Contacts</string>
+    <string name="st_antispam_mode_only_whitelist_sum">Only allow calls and messages from numbers on the exceptions list</string>
+    <string name="st_antispam_mode_only_all_deny_sum">Block all calls and messages</string>
+    <string name="st_antispam_mode_customize_sum">Create blocklist rules</string>
+    <string name="st_antispam_mode_denyownself_sum">Custom rules</string>
+    <string name="st_antispam_notification_sum">Show notification when call or message is blocked</string>
+
+    <!-- 新版的拦截模式 state -->
+    <string name="st_antispam_mode_smart_state">1111111</string>
+    <string name="st_antispam_mode_blacklist_state">1111211</string>
+    <string name="st_antispam_mode_only_contacts_state">1111000</string>
+    <string name="st_antispam_mode_only_whitelist_state">1100000</string>
+    <string name="st_antispam_mode_only_all_deny_state">1000000</string>
+
+    <!-- 新版的拦截模式的des -->
+    <string name="st_antispam_des_anti">Block</string>
+    <string name="st_antispam_des_smart_anti">Filter</string>
+    <string name="st_antispam_des_permit">Allow</string>
+    <string name="st_antispam_des_uesless">Disabled</string>
+    <string name="st_antispam_des_permit_nokeyword">Allow</string>
+
+    <!-- 新版的拦截信息 -->
+    <string name="info_antispam_sms">Block messages</string>
+    <string name="info_antispam_phone">Block calls</string>
+    <string name="info_antispam_phone_sms">Block messages and calls</string>
+    <string name="info_unantispam_sms">Allow messages</string>
+    <string name="info_unantispam_phone">Allow calls</string>
+    <string name="info_unantispam_phone_sms">Allow messages and calls</string>
+    <string name="st_antispam_delete">Delete</string>
+    <string name="baidu_thanks">Powered by Baidu</string>
+    <string name="note_list_none">Empty</string>
+    <string name="note_sms_none">Empty</string>
+    <string name="note_call_none">Empty</string>
+    <string name="note_keyword_none">Empty</string>
+    <string name="note_preference_delete">"Can't delete this rule while it's in use"</string>
+    <string name="block_message_number">Messages: %d</string>
+    <string name="block_phone_number">Calls: %d</string>
+    <string name="block_phm_number">%d</string>
 
 </resources>
