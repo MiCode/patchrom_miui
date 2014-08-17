@@ -1,0 +1,905 @@
+<resources>
+    <!-- Global Theme Styles -->
+    <eat-comment />
+
+    <!-- styles copied from android framework. It is a pity that we can't use alias
+         mechanism to refer to android private style. Luckily, this is very rare and
+         hopefully furture version will make these styles public
+    -->
+    <style name="TextViewFloatPanelButton">
+        <item name="android:singleLine">true</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:shadowColor">#ccffffff</item>
+        <item name="android:shadowRadius">0.2</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:textColor">@miui:color/textview_floatpanel_button_text_color</item>
+        <item name="android:minWidth">60dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">38dip</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@miui:drawable/textview_floatpanel_button_bg</item>
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_textview_float_panel_button</item>
+    </style>
+
+    <!-- default AlphabetFastIndexer style -->
+    <style name="AlphabetFastIndexerStyle">
+        <item name="miui:indexerTable">@array/alphabet_table</item>
+        <item name="miui:indexerTextSize">@dimen/alphabet_indexer_text_size</item>
+        <item name="miui:indexerTextColor">@color/alphabet_indexer_text_color</item>
+        <item name="miui:indexerTextHighlightColor">@color/alphabet_indexer_highlight_text_color</item>
+        <item name="miui:indexerBackground">@drawable/alphabet_indexer_bg</item>
+        <item name="miui:overlayBackground">@drawable/alphabet_indexer_overlay</item>
+        <item name="miui:overlayMarginLeft">@dimen/alphabet_indexer_overlay_offset</item>
+        <item name="miui:overlayMarginTop">@dimen/alphabet_indexer_overlay_padding_top</item>
+        <item name="miui:overlayTextSize">@dimen/alphabet_indexer_overlay_text_size</item>
+        <item name="miui:overlayTextColor">@color/alphabet_indexer_overlay_text_color</item>
+    </style>
+
+    <!-- AlphabetFastIndexer style with '*' -->
+    <style name="AlphabetFastIndexerStyleWithStarred" parent="AlphabetFastIndexerStyle">
+        <item name="miui:indexerTable">@array/alphabet_table_with_starred</item>
+    </style>
+
+    <!-- for V5 -->
+    <style name="V5" />
+
+    <!-- Text appearance -->
+    <style name="V5.TextAppearance" parent="android:TextAppearance">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_primary</item>
+    </style>
+    <style name="V5.TextAppearance.Inverse" parent="android:TextAppearance.Inverse">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_primary</item>
+    </style>
+
+    <style name="V5.TextAppearance.Large" parent="android:TextAppearance.Large">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_large</item>
+    </style>
+    <style name="V5.TextAppearance.Large.Inverse" parent="android:TextAppearance.Large.Inverse">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_large</item>
+    </style>
+
+    <style name="V5.TextAppearance.Medium" parent="android:TextAppearance.Medium">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_medium</item>
+    </style>
+    <style name="V5.TextAppearance.Medium.Inverse" parent="android:TextAppearance.Medium.Inverse">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_medium</item>
+    </style>
+
+    <style name="V5.TextAppearance.Small" parent="android:TextAppearance.Small">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_small</item>
+    </style>
+    <style name="V5.TextAppearance.Small.Inverse" parent="android:TextAppearance.Small.Inverse">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_small</item>
+    </style>
+
+    <style name="V5.TextAppearance.Title">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_title</item>
+        <item name="android:textColor">?v5_title_text_color</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowColor">?v5_title_text_shadow</item>
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">5.0</item>
+        <item name="android:shadowRadius">10.0</item>
+    </style>
+
+    <style name="V5.TextAppearance.Title.Large" parent="V5.TextAppearance.Title">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_main_page_title</item>
+    </style>
+
+    <style name="V5.TextAppearance.Title.Large.Secondary" parent="V5.TextAppearance.Title">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_small</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="V5.TextAppearance.Title.Medium" parent="V5.TextAppearance.Title">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_title_bar_medium</item>
+    </style>
+
+    <style name="V5.TextAppearance.Title.Medium.Secondary" parent="V5.TextAppearance.Title">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_title_bar_secondary_medium</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="V5.TextAppearance.EditMode" parent="V5.TextAppearance">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_primary</item>
+        <item name="android:textColor">?v5_edit_mode_text_color</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="V5.TextAppearance.EditMode.Button">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_edit_mode_button</item>
+        <item name="android:textColor">?v5_edit_mode_btn_text_color</item>
+    </style>
+
+    <style name="V5.TextAppearance.TabIndicator" parent="V5.TextAppearance.Title">
+        <item name="android:textColor">?v5_tab_text_color</item>
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_tab</item>
+    </style>
+
+    <style name="V5.TextAppearance.SecondaryTabIndicator">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_button</item>
+        <item name="android:textColor">?v5_secondary_tab_indicator_text_color</item>
+    </style>
+
+    <style name="V5.TextAppearance.BottomBarIcon">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_memo</item>
+        <item name="android:textColor">?v5_bottom_bar_icon_text_color</item>
+    </style>
+    <style name="V5.TextAppearance.BottomBarIcon.EditMode">
+        <item name="android:textColor">?v5_edit_mode_bottom_bar_icon_text_color</item>
+        <item name="android:shadowDy">0.0</item>
+    </style>
+
+    <style name="V5.TextAppearance.EditText">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_textedit</item>
+        <item name="android:textColor">?android:attr/editTextColor</item>
+    </style>
+
+    <style name="V5.TextAppearance.Button">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_button</item>
+        <item name="android:textColor">?v5_button_text_color</item>
+    </style>
+
+    <style name="V5.TextAppearance.Button.Warn">
+        <item name="android:textColor">@miui:color/v5_button_text_dark</item>
+    </style>
+
+    <style name="V5.TextAppearance.PreferenceCategory">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_preference_category</item>
+        <item name="android:textColor">@miui:color/v5_preference_category_text_color_light</item>
+    </style>
+    <style name="V5.TextAppearance.PreferenceList">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_primary</item>
+        <item name="android:textColor">?v5_preference_primary_text_color</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="V5.TextAppearance.MenuList">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_list_primary</item>
+        <item name="android:textColor">?v5_checkable_list_item_text_color</item>
+    </style>
+
+    <style name="V5.TextAppearance.List">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_list_primary</item>
+        <item name="android:textColor">?v5_list_text_color</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="V5.TextAppearance.List.Primary" />
+    <style name="V5.TextAppearance.List.Secondary">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_list_secondary</item>
+        <item name="android:textColor">?v5_list_secondary_text_color</item>
+        <item name="android:shadowColor">?v5_list_secondary_text_shadow</item>
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">1.0</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="V5.TextAppearance.List.Secondary.Preference">
+        <item name="android:textColor">?v5_preference_secondary_text_color</item>
+    </style>
+
+    <style name="V5.TextAppearance.DialogTitle">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_list_primary</item>
+        <item name="android:textColor">@miui:color/v5_dialog_title_text_color_light</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="V5.TextAppearance.ProgressDialogMessage">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_button</item>
+        <item name="android:textColor">@miui:color/v5_progress_dialog_message_text_color_light</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="V5.TextAppearance.Label">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_preference_category</item>
+        <item name="android:textColor">?v5_text_color_disable</item>
+    </style>
+
+    <style name="V5.TextAppearance.ReloadingBar" >
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_title_bar_secondary_medium</item>
+        <item name="android:textColor">?v5_reloading_bar_text_color</item>
+    </style>
+
+    <style name="V5.TextAppearance.ExpandableListView.GroupItem" parent="V5.TextAppearance">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_list_primary</item>
+        <item name="android:textColor">?v5_bottom_bar_icon_text_color</item>
+    </style>
+
+    <style name="V5.Widget" />
+
+    <style name="V5.Widget.Title">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:background">?v5_title_bar_bg</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.Title</item>
+        <item name="android:shadowColor">?v5_title_text_shadow</item>
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">5.0</item>
+        <item name="android:shadowRadius">10.0</item>
+    </style>
+    <style name="V5.Widget.Title.Large" parent="V5.Widget.Title">
+        <item name="android:background">?v5_title_bar_large_bg</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.Title.Large</item>
+    </style>
+    <style name="V5.Widget.Title.Medium" parent="V5.Widget.Title">
+        <item name="android:background">?v5_title_bar_medium_bg</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.Title.Medium</item>
+    </style>
+
+    <style name="V5.Widget.Title.Back">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">0dip</item>
+        <item name="android:minWidth">0dip</item>
+        <item name="android:textColor">@android:color/transparent</item>
+        <item name="android:background">?v5_title_bar_back_button</item>
+        <item name="android:contentDescription">@miui:string/android_action_bar_up_description</item>
+    </style>
+   <style name="V5.Widget.Title.Back.Search">
+        <item name="android:background">?v5_title_bar_back_button_search_mode</item>
+        <item name="android:scaleType">center</item>
+    </style>
+    <style name="V5.Widget.Title.Back.Large" parent="V5.Widget.Title.Back">
+        <item name="android:background">?v5_title_bar_back_button_large</item>
+    </style>
+    <style name="V5.Widget.Title.Back.Medium" parent="V5.Widget.Title.Back">
+        <item name="android:background">?v5_title_bar_back_button_medium</item>
+    </style>
+    <style name="V5.Widget.Title.SearchMode">
+        <item name="android:background">?v5_title_bar_bg_search_mode</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="V5.Widget.TabIndicator">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">?v5_tab_indicator_bg</item>
+    </style>
+
+    <style name="V5.Widget.TabIndicator.NoTitle" parent="@miui:V5.Widget.TabIndicator">
+        <item name="android:background">?v5_tab_indicator_bg_no_title</item>
+    </style>
+
+    <style name="V5.Widget.Tab" >
+        <item name="android:background">?v5_tab_bg</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.TabIndicator</item>
+    </style>
+
+    <style name="V5.Widget.TabIndicatorArrow">
+        <item name="android:scaleType">center</item>
+        <item name="android:gravity">bottom|left</item>
+        <item name="android:src">?v5_tab_indicator_arrow</item>
+    </style>
+
+    <style name="V5.Widget.SecondaryTabIndicator">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">?v5_secondary_tab_indicator_bg</item>
+    </style>
+
+    <style name="V5.Widget.SecondaryTab" >
+        <item name="android:background">?v5_secondary_tab_bg</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.SecondaryTabIndicator</item>
+        <item name="android:shadowColor">?v5_secondary_tab_indicator_text_shadow</item>
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">2.0</item>
+        <item name="android:shadowRadius">5.0</item>
+    </style>
+
+    <style name="V5.Widget.EditText" parent="@android:Widget.EditText">
+        <item name="android:singleLine">true</item>
+        <item name="android:background">?v5_edit_text_bg</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.EditText</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:textCursorDrawable">@miui:drawable/v5_text_cursor_holo</item>
+    </style>
+    <style name="V5.Widget.EditText.Search">
+        <item name="android:drawableRight">?v5_edit_text_search_clear_btn</item>
+        <item name="android:background">?v5_edit_text_search_bg</item>
+        <item name="android:imeOptions">actionSearch</item>
+        <item name="android:textCursorDrawable">@miui:drawable/v5_text_cursor_holo</item>
+    </style>
+
+    <style name="V5.Widget.BottomBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_horizontal|bottom</item>
+        <item name="android:background">?v5_bottom_bar_bg</item>
+        <item name="android:layoutAnimation">@miui:anim/v5_bottom_bar_layout_anim</item>
+    </style>
+
+    <style name="V5.Widget.BottomBarIcon">
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">?v5_bottom_bar_icon_bg</item>
+        <item name="android:gravity">center_horizontal|top</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.BottomBarIcon</item>
+        <item name="android:shadowColor">?v5_bottom_bar_icon_text_shadow</item>
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">1.0</item>
+        <item name="android:hapticFeedbackEnabled">true</item>
+    </style>
+
+    <style name="V5.Widget.BottomBar.List">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">top|left</item>
+        <item name="android:background">?v5_menu_list_view_bg</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layoutAnimation">@null</item>
+    </style>
+
+    <style name="V5.Widget.BottomBar.List.Item">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:background">?v5_menu_list_view_item_bg</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.MenuList</item>
+        <item name="android:textColor">?v5_bottom_bar_list_text_color</item>
+    </style>
+
+    <style name="V5.Widget.BottomBar.TopLine">
+         <item name="android:background">?v5_bottom_bar_top_line</item>
+    </style>
+
+    <style name="V5.Widget.EditMode" />
+    <style name="V5.Widget.EditMode.TopBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">?v5_edit_mode_top_bar_bg</item>
+        <item name="android:clickable">true</item>
+    </style>
+    <style name="V5.Widget.EditMode.TopBar.NoShadow">
+        <item name="android:background">?v5_edit_mode_top_bar_no_shadow_bg</item>
+    </style>
+        <style name="V5.Widget.EditMode.TopBar.Button" parent="@android:Widget.Button">
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:background">?v5_edit_mode_top_bar_button</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.EditMode.Button</item>
+        <item name="android:textColor">?v5_edit_mode_btn_text_color</item>
+        <item name="android:hapticFeedbackEnabled">true</item>
+    </style>
+    <style name="V5.Widget.EditMode.TopBar.Button.Default">
+        <item name="android:background">?v5_edit_mode_top_bar_button_main</item>
+        <item name="android:textColor">?v5_edit_mode_btn_default_text_color</item>
+    </style>
+    <style name="V5.Widget.EditMode.Bottom">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="V5.Widget.EditMode.BottomBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">?v5_edit_mode_bottom_bar_bg</item>
+    </style>
+    <style name="V5.Widget.EditMode.BottomBarIcon">
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">?v5_edit_mode_bottom_bar_icon_bg</item>
+        <item name="android:gravity">center_horizontal|top</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.BottomBarIcon.EditMode</item>
+        <item name="android:hapticFeedbackEnabled">true</item>
+    </style>
+    <style name="V5.Widget.EditMode.BottomBar.List">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:listSelector">@android:color/transparent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">top|left</item>
+        <item name="android:background">?v5_edit_mode_bottom_bar_list_bg</item>
+        <item name="android:layoutAnimation">@null</item>
+    </style>
+    <style name="V5.Widget.EditMode.BottomBar.List.Item">
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:background">?v5_edit_mode_bottom_bar_list_item_bg</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.MenuList</item>
+        <item name="android:textColor">@miui:color/v5_menu_preference_list_text_dark</item>
+    </style>
+
+    <style name="V5.Widget.ListView" parent="android:Widget.ListView.White">
+        <item name="android:listSelector">@android:color/transparent</item>
+        <item name="android:cacheColorHint">@null</item>
+        <item name="android:divider">@null</item>
+        <item name="android:fadingEdge">@null</item>
+    </style>
+    <style name="V5.Widget.ListView.DropDown">
+    </style>
+    <style name="V5.Widget.ListView.Item" parent="V5.Widget">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:background">?v5_list_view_item_bg</item>
+    </style>
+    <style name="V5.Widget.ListView.Item.SingleLine">
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_height">@miui:dimen/v5_list_view_single_line_height</item>
+        <item name="android:minHeight">@miui:dimen/v5_list_view_single_line_height</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.List</item>
+    </style>
+    <style name="V5.Widget.ListView.Item.DoubleLine">
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_height">@miui:dimen/v5_list_view_double_line_height</item>
+        <item name="android:minHeight">@miui:dimen/v5_list_view_double_line_height</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.List.Primary</item>
+    </style>
+    <style name="V5.Widget.ListView.Item.TrebleLine">
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_height">@miui:dimen/v5_list_view_treble_line_height</item>
+        <item name="android:minHeight">@miui:dimen/v5_list_view_treble_line_height</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.List.Primary</item>
+    </style>
+
+    <style name="V5.Widget.CompoundButton" parent="android:Widget.CompoundButton" />
+    <style name="V5.Widget.CompoundButton.CheckBox" parent="android:Widget.CompoundButton.CheckBox">
+        <item name="android:layout_height">0dip</item>
+        <item name="android:layout_width">0dip</item>
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_primary</item>
+        <item name="android:textColor">?v5_checkable_btn_text_color_stable</item>
+        <item name="android:background">@null</item>
+    </style>
+    <style name="V5.Widget.CompoundButton.RadioButton" parent="android:Widget.CompoundButton.RadioButton">
+        <item name="android:layout_height">0dip</item>
+        <item name="android:layout_width">0dip</item>
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_primary</item>
+        <item name="android:textColor">?v5_checkable_btn_text_color</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="V5.Widget.Button" parent="android:Widget.Button">
+        <item name="android:singleLine">true</item>
+        <item name="android:background">?v5_btn_bg</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.Button</item>
+        <item name="android:textColor">?v5_button_text_color</item>
+    </style>
+    <style name="V5.Widget.Button.NegativeWarn">
+        <item name="android:background">?v5_btn_bg_negative_warn</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.Button.Warn</item>
+        <item name="android:textColor">@miui:color/v5_button_text_dark</item>
+    </style>
+    <style name="V5.Widget.Button.PositiveWarn">
+        <item name="android:background">?v5_btn_bg_positive_warn</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.Button.Warn</item>
+        <item name="android:textColor">@miui:color/v5_button_text_dark</item>
+    </style>
+    <style name="V5.Widget.Button.Dialog">
+        <item name="android:background">@miui:drawable/v5_popup_btn_light</item>
+    </style>
+    <style name="V5.Widget.Button.Dialog.Default">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?v5_button_text_color</item>
+    </style>
+    <style name="V5.Widget.Button.Rect">
+        <item name="android:background">?v5_btn_bg_rect</item>
+    </style>
+
+    <style name="V5.Widget.ProgressBar" parent="@android:Widget.ProgressBar">
+        <item name="android:background">?v5_progress_bar_bg</item>
+        <item name="android:indeterminateDrawable">?v5_progress_bar_ani</item>
+        <item name="android:minWidth">@miui:dimen/v5_progress_bar_size</item>
+        <item name="android:maxWidth">@miui:dimen/v5_progress_bar_size</item>
+        <item name="android:minHeight">@miui:dimen/v5_progress_bar_size</item>
+        <item name="android:maxHeight">@miui:dimen/v5_progress_bar_size</item>
+    </style>
+
+    <style name="V5.Widget.ProgressBar.Large" parent="@android:Widget.ProgressBar">
+        <item name="android:background">?v5_progress_bar_bg_large</item>
+        <item name="android:indeterminateDrawable">?v5_progress_bar_ani_large</item>
+        <item name="android:minWidth">@miui:dimen/v5_progress_bar_size_large</item>
+        <item name="android:maxWidth">@miui:dimen/v5_progress_bar_size_large</item>
+        <item name="android:minHeight">@miui:dimen/v5_progress_bar_size_large</item>
+        <item name="android:maxHeight">@miui:dimen/v5_progress_bar_size_large</item>
+    </style>
+
+    <style name="V5.Widget.ProgressBar.Small" parent="@android:Widget.ProgressBar">
+        <item name="android:background">?v5_progress_bar_bg_small</item>
+        <item name="android:indeterminateDrawable">?v5_progress_bar_ani_small</item>
+        <item name="android:minWidth">@miui:dimen/v5_progress_bar_size_small</item>
+        <item name="android:maxWidth">@miui:dimen/v5_progress_bar_size_small</item>
+        <item name="android:minHeight">@miui:dimen/v5_progress_bar_size_small</item>
+        <item name="android:maxHeight">@miui:dimen/v5_progress_bar_size_small</item>
+    </style>
+
+    <style name="V5.Widget.ProgressBar.Horizontal" parent="@android:Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/v5_progress_horizontal</item>
+        <item name="android:indeterminateDrawable">@drawable/v5_progress_horizontal_indeterminate</item>
+        <item name="android:background">@null</item>
+        <item name="progressBar">@drawable/v5_progress_bar</item>
+        <item name="progressBarMask">@drawable/v5_progress_mask</item>
+        <item name="android:minHeight">@miui:dimen/v5_horizontal_progress_bar_height</item>
+        <item name="android:maxHeight">@miui:dimen/v5_horizontal_progress_bar_height</item>
+    </style>
+
+    <style name="V5.Widget.ProgressBar.Horizontal.Small" parent="@android:Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/v5_progress_horizontal_small</item>
+        <item name="android:indeterminateDrawable">@drawable/v5_progress_horizontal_indeterminate_small</item>
+        <item name="android:background">@null</item>
+        <item name="progressBar">@drawable/v5_progress_bar_small</item>
+        <item name="progressBarMask">@drawable/v5_progress_mask_small</item>
+        <item name="android:minHeight">@miui:dimen/v5_horizontal_progress_bar_small_height</item>
+        <item name="android:maxHeight">@miui:dimen/v5_horizontal_progress_bar_small_height</item>
+    </style>
+
+    <style name="V5.Widget.RatingBar" parent="@android:Widget.RatingBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/v5_ratingbar_full</item>
+        <item name="android:indeterminateDrawable">@drawable/v5_ratingbar_full</item>
+        <item name="android:maxHeight">@miui:dimen/v5_rating_bar_size</item>
+        <item name="android:minHeight">@miui:dimen/v5_rating_bar_size</item>
+        <item name="android:thumb">@null</item>
+        <item name="android:isIndicator">false</item>
+    </style>
+
+    <style name="V5.Widget.RatingBar.Indicator" parent="@android:Widget.RatingBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/v5_ratingbar</item>
+        <item name="android:indeterminateDrawable">@drawable/v5_ratingbar</item>
+        <item name="android:maxHeight">@miui:dimen/v5_rating_bar_size_indicator</item>
+        <item name="android:minHeight">@miui:dimen/v5_rating_bar_size_indicator</item>
+        <item name="android:thumb">@null</item>
+        <item name="android:isIndicator">true</item>
+    </style>
+
+    <style name="V5.Widget.RatingBar.Small" parent="@android:Widget.RatingBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/v5_ratingbar_small</item>
+        <item name="android:indeterminateDrawable">@drawable/v5_ratingbar_small</item>
+        <item name="android:maxHeight">@miui:dimen/v5_rating_bar_size_small</item>
+        <item name="android:minHeight">@miui:dimen/v5_rating_bar_size_small</item>
+        <item name="android:thumb">@null</item>
+        <item name="android:isIndicator">true</item>
+    </style>
+
+    <style name="V5.Widget.Spinner" parent="android:Widget.Spinner">
+        <item name="android:background">?v5_spinner_bg</item>
+        <item name="android:dropDownSelector">?v5_list_view_item_bg</item>
+        <item name="android:dropDownVerticalOffset">0dip</item>
+        <item name="android:dropDownHorizontalOffset">0dip</item>
+        <item name="android:dropDownWidth">wrap_content</item>
+        <item name="android:dropDownHeight">@miui:dimen/v5_list_view_single_line_height</item>
+    </style>
+    <style name="V5.Widget.Spinner.DropDown">
+        <item name="android:spinnerMode">dropdown</item>
+    </style>
+
+    <style name="V5.Widget.TextView" parent="android:Widget.TextView" >
+        <item name="android:textCursorDrawable">@miui:drawable/v5_text_cursor_holo</item>
+    </style>
+    <style name="V5.Widget.TextView.SpinnerItem" parent="android:Widget.TextView.SpinnerItem">
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_primary</item>
+        <item name="android:textColor">?v5_button_text_color</item>
+    </style>
+    <style name="V5.Widget.TextView.ListSeparator">
+        <item name="android:background">@miui:drawable/v5_preference_category_background</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.Label</item>
+    </style>
+
+    <style name="V5.Widget.DropDownItem">
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.MenuList</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@miui:drawable/v5_dialog_list_item_bg_light</item>
+    </style>
+    <style name="V5.Widget.DropDownItem.Spinner">
+        <item name="android:checkMark">?android:attr/listChoiceIndicatorSingle</item>
+        <item name="android:paddingLeft">0dip</item>
+    </style>
+
+    <style name="V5.Widget.ListPopupWindow">
+        <item name="android:dropDownSelector">@null</item>
+        <item name="android:popupBackground">?v5_list_popup_window_bg</item>
+        <item name="android:dropDownVerticalOffset">10dip</item>
+        <item name="android:dropDownHorizontalOffset">0dip</item>
+        <item name="android:dropDownWidth">match_parent</item>
+    </style>
+
+    <style name="V5.Widget.ActionBar.Solid.Settings" parent="android:Widget.Holo.Light.ActionBar.Solid">
+        <item name="android:displayOptions">homeAsUp|showTitle</item>
+        <item name="android:titleTextStyle">@style/V5.TextAppearance.Title</item>
+        <item name="android:background">@drawable/v5_title_bar_bg_light</item>
+    </style>
+
+    <style name="V5.Preference">
+        <item name="android:layout">@layout/v5_preference</item>
+    </style>
+    <style name="V5.Preference.CheckBoxPreference">
+        <item name="android:widgetLayout">@miui:layout/v5_preference_widget_checkbox</item>
+    </style>
+
+    <style name="V5.Preference.SwitchPreference">
+        <item name="android:widgetLayout">@layout/android_preference_widget_switch</item>
+        <item name="android:switchTextOn">@string/android_capital_on</item>
+        <item name="android:switchTextOff">@string/android_capital_off</item>
+    </style>
+
+    <style name="V5.Preference.PreferenceScreen">
+    </style>
+
+    <style name="V5.Preference.DialogPreference">
+        <item name="android:positiveButtonText">@android:string/ok</item>
+        <item name="android:negativeButtonText">@android:string/cancel</item>
+    </style>
+
+    <style name="V5.Preference.DialogPreference.YesNoPreference">
+        <item name="android:positiveButtonText">@android:string/yes</item>
+        <item name="android:negativeButtonText">@android:string/no</item>
+    </style>
+
+    <style name="V5.Preference.DialogPreference.EditTextPreference">
+        <item name="android:dialogLayout">@layout/v5_preference_dialog_edittext</item>
+    </style>
+    <style name="V5.Preference.RingtonePreference">
+        <item name="android:layout">@layout/v5_preference_ringtone</item>
+        <item name="android:ringtoneType">ringtone</item>
+        <item name="android:showSilent">true</item>
+        <item name="android:showDefault">true</item>
+    </style>
+    <style name="V5.Preference.Information">
+        <item name="android:layout">@layout/v5_preference_information</item>
+        <item name="android:enabled">false</item>
+        <item name="android:shouldDisableView">false</item>
+    </style>
+    <style name="V5.Preference.Category">
+        <item name="android:layout">@layout/v5_preference_category</item>
+        <!-- The title should not dim if the category is disabled, instead only the preference children should dim. -->
+        <item name="android:shouldDisableView">false</item>
+        <item name="android:selectable">false</item>
+    </style>
+
+    <style name="V5.Widget.DialogTitle">
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.DialogTitle</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="V5.Widget.ButtonBar" parent="android:Holo.ButtonBar">
+        <item name="android:divider">@null</item>
+        <item name="android:dividerPadding">0dip</item>
+    </style>
+    <style name="V5.Widget.PopupMenu" parent="android:Widget.PopupMenu">
+        <item name="android:dropDownSelector">@miui:drawable/v5_dialog_list_item_bg_light</item>
+        <item name="android:popupBackground">@miui:drawable/v5_dialog_bg_light</item>
+        <item name="android:dropDownVerticalOffset">-10dip</item>
+        <item name="android:dropDownHorizontalOffset">0dip</item>
+        <item name="android:dropDownWidth">wrap_content</item>
+        <item name="android:windowAnimationStyle">@miui:style/V5.Animation.Dialog</item>
+    </style>
+
+    <style name="V5.AlertDialog">
+        <item name="android:fullDark">@android:color/transparent</item>
+        <item name="android:topDark">@android:color/transparent</item>
+        <item name="android:centerDark">@android:color/transparent</item>
+        <item name="android:bottomDark">@android:color/transparent</item>
+        <item name="android:fullBright">@android:color/transparent</item>
+        <item name="android:topBright">@android:color/transparent</item>
+        <item name="android:centerBright">@android:color/transparent</item>
+        <item name="android:bottomBright">@android:color/transparent</item>
+        <item name="android:bottomMedium">@android:color/transparent</item>
+        <item name="android:centerMedium">@android:color/transparent</item>
+        <item name="android:layout">@miui:layout/v5_alert_dialog</item>
+        <item name="*android:listLayout">@miui:layout/v5_select_dialog</item>
+        <item name="*android:listItemLayout">@miui:layout/v5_select_dialog_item</item>
+        <item name="*android:multiChoiceItemLayout">@miui:layout/v5_select_dialog_multichoice</item>
+        <item name="*android:singleChoiceItemLayout">@miui:layout/v5_select_dialog_singlechoice</item>
+    </style>
+
+    <style name="V5.AlertDialog.GlobalAction">
+        <item name="android:layout">@layout/v5_global_action</item>
+    </style>
+
+    <style name="V5.Animation" />
+    <style name="V5.Animation.Dialog">
+        <item name="android:windowEnterAnimation">@miui:anim/v5_dialog_enter</item>
+        <item name="android:windowExitAnimation">@miui:anim/v5_dialog_exit</item>
+    </style>
+    <style name="V5.Animation.Menu">
+        <item name="android:windowEnterAnimation">@miui:anim/v5_menu_enter</item>
+        <item name="android:windowExitAnimation">@miui:anim/v5_menu_exit</item>
+    </style>
+    <style name="V5.Animation.ZoomButtons">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+    <style name="V5.Animation.VolumePanel">
+        <item name="android:windowEnterAnimation">@null</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+    <style name="V5.Widget.SlidingButton">
+        <item name="miui:buttonFrame">@drawable/v5_sliding_btn_frame</item>
+        <item name="miui:buttonSlider">@drawable/v5_sliding_btn_slider</item>
+        <item name="miui:buttonSliderPressed">@drawable/v5_sliding_btn_slider_pressed</item>
+        <item name="miui:buttonMask">@drawable/v5_sliding_btn_mask</item>
+        <item name="miui:buttonBarOff">@drawable/v5_sliding_btn_off</item>
+        <item name="miui:buttonBarOn">@drawable/v5_sliding_btn_on</item>
+        <item name="miui:buttonOnDisable">@drawable/v5_sliding_btn_on_disable</item>
+        <item name="miui:buttonOffDisable">@drawable/v5_sliding_btn_off_disable</item>
+    </style>
+
+    <style name="V5.Widget.SeekBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/v5_seekbar_bg</item>
+        <item name="android:indeterminateDrawable">@null</item>
+        <item name="android:minHeight">@miui:dimen/v5_seekbar_height</item>
+        <item name="android:maxHeight">@miui:dimen/v5_seekbar_height</item>
+        <item name="progressBar">@drawable/v5_seekbar_progress</item>
+        <item name="progressBarMask">@drawable/v5_seekbar_progress_mask</item>
+        <item name="android:thumb">@drawable/v5_seekbar_control_selector</item>
+        <item name="android:thumbOffset">8dip</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="V5.Widget.VerticalSeekBar" parent="V5.Widget.SeekBar">
+        <item name="android:paddingTop">8dip</item>
+        <item name="android:paddingBottom">8dip</item>
+        <item name="android:minWidth">@miui:dimen/v5_seekbar_height</item>
+        <item name="android:maxWidth">@miui:dimen/v5_seekbar_height</item>
+        <item name="android:minHeight">@null</item>
+        <item name="android:maxHeight">@null</item>
+    </style>
+
+    <style name="V5.Widget.SeekBar.ForMultiPositionBar" >
+        <item name="android:progressDrawable">@drawable/v5_multipositionbar_bg</item>
+        <item name="android:minHeight">@miui:dimen/v5_multipositionbar_seekbar_height</item>
+        <item name="android:maxHeight">@miui:dimen/v5_multipositionbar_seekbar_height</item>
+        <item name="progressBar">@null</item>
+        <item name="progressBarMask">@null</item>
+        <item name="android:thumb">@drawable/v5_multipositionbar_thumb</item>
+    </style>
+
+    <style name="V5.Widget.MultiPositionBar">
+        <item name="entries">@null</item>
+        <item name="entryValues">@null</item>
+        <item name="positionImage">@drawable/v5_multipositionbar_position_img</item>
+    </style>
+
+    <style name="V5.Widget.DatePicker" parent="@android:style/Widget.DatePicker">
+        <item name="android:calendarViewShown">false</item>
+        <item name="*android:internalLayout">@layout/v5_date_picker</item>
+    </style>
+
+    <style name="V5.Widget.TimePicker" >
+        <item name="*android:internalLayout">@layout/v5_time_picker</item>
+    </style>
+
+    <style name="V5.Widget.DateTimePicker">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:textSize">@miui:dimen/v5_widget_date_time_picker_text_size</item>
+    </style>
+
+    <style name="V5.Widget.ExpandableListView" parent="V5.Widget.ListView">
+        <item name="android:groupIndicator">?miui:attr/v5_expander_group_indicator</item>
+        <item name="android:indicatorLeft">?android:attr/expandableListPreferredItemIndicatorLeft</item>
+        <item name="android:indicatorRight">?android:attr/expandableListPreferredItemIndicatorRight</item>
+        <item name="android:childDivider">@null</item>
+    </style>
+
+    <style name="V5.Widget.ExpandableListView.White">
+        <item name="android:groupIndicator">@miui:drawable/v5_expander_group_indicator_light</item>
+    </style>
+    <style name="V5.Widget.ExpandableListView.GroupItem" parent="V5.Widget">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:background">?v5_expander_group_bg</item>
+        <item name="android:textAppearance">@miui:style/V5.TextAppearance.ExpandableListView.GroupItem</item>
+    </style>
+    <style name="V5.Widget.ActionBar" parent="android:Widget.Holo.Light.ActionBar.Solid">
+        <item name="android:background">?v5_title_bar_bg</item>
+        <item name="android:backgroundStacked">@null</item>
+        <item name="android:backgroundSplit">@null</item>
+        <item name="android:displayOptions">homeAsUp|showTitle</item>
+        <item name="android:divider">@null</item>
+        <item name="android:height">?android:attr/actionBarSize</item>
+        <item name="android:paddingTop">0dip</item>
+        <item name="android:paddingBottom">0dip</item>
+        <item name="android:titleTextStyle">@miui:style/V5.TextAppearance.Title</item>
+        <item name="android:subtitleTextStyle">@miui:style/V5.TextAppearance.Title.Medium.Secondary</item>
+        <item name="android:progressBarStyle">@miui:style/V5.Widget.ProgressBar.Horizontal</item>
+        <item name="android:indeterminateProgressStyle">@miui:style/V5.Widget.ProgressBar</item>
+        <item name="android:itemPadding">0dip</item>
+        <item name="android:homeLayout">@miui:layout/v5_action_bar_home</item>
+    </style>
+    <style name="V5.Widget.ActionBar.NoTitle">
+        <item name="android:displayOptions">@null</item>
+    </style>
+    <style name="V5.Widget.ActionBar.Split" parent="V5.Widget.ActionBar">
+        <item name="android:background">@null</item>
+        <item name="android:backgroundSplit">@null</item>
+    </style>
+
+    <style name="V5.Widget.ActionBar.TabBar" parent="android:Widget.ActionBar.TabBar">
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="V5.Widget.ActionBar.TabView" parent="android:Widget.ActionBar.TabView">
+        <item name="android:background">?v5_tab_bg</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="V5.Widget.ActionBar.TabText" parent="miui:style/V5.TextAppearance.Title">
+        <item name="android:textColor">?v5_tab_text_color</item>
+        <item name="android:textSize">@miui:dimen/v5_text_font_size_tab</item>
+    </style>
+
+    <style name="V5.Widget.ActionMode" >
+        <item name="android:background">?v5_edit_mode_top_bar_bg</item>
+        <item name="android:backgroundSplit">@null</item>
+        <item name="android:titleTextStyle">@miui:style/V5.TextAppearance.EditMode</item>
+        <item name="android:subtitleTextStyle">@null</item>
+    </style>
+
+    <style name="V5.Widget.ActionBarMovableLayout">
+        <item name="miui:v5_over_scroll_distance">?v5_over_scroll_distance</item>
+    </style>
+
+    <style name="V5.Widget.ActionBar.Large">
+        <item name="android:height">@miui:dimen/v5_action_bar_height_large</item>
+    </style>
+
+    <style name="AccountUnlockScreenInstructionTitleTextStyle">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="V5.Widget.MediaButton" parent="android:style/MediaButton">
+    </style>
+
+    <style name="V5.Widget.MediaButton.Previous">
+        <item name="android:src">@miui:drawable/v5_ic_media_previous</item>
+    </style>
+
+    <style name="V5.Widget.MediaButton.Next">
+        <item name="android:src">@miui:drawable/v5_ic_media_next</item>
+    </style>
+
+    <style name="V5.Widget.MediaButton.Play">
+        <item name="android:src">@miui:drawable/v5_ic_media_play</item>
+    </style>
+
+    <style name="V5.Widget.MediaButton.Ffwd">
+        <item name="android:src">@miui:drawable/v5_ic_media_ff</item>
+    </style>
+
+    <style name="V5.Widget.MediaButton.Rew">
+        <item name="android:src">@miui:drawable/v5_ic_media_rew</item>
+    </style>
+
+    <style name="V5.Widget.MediaButton.Pause">
+        <item name="android:src">@miui:drawable/v5_ic_media_pause</item>
+    </style>
+
+</resources>
