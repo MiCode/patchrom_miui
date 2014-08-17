@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2006 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+         The default miui theme. This is the theme used for activities
+         that have not explicitly set their own theme.
+         Our parent theme is android Holo theme. Any changes to the Holo theme
+         will defined here.
+    -->
+    <style name="ActionBar.ShowCustom" parent="@miui:style/V5.Widget.ActionBar">
+        <item name="android:displayOptions">showCustom</item>
+        <item name="android:background">@miui:drawable/v5_edit_mode_top_bar_no_shadow_bg_light</item>
+    </style>
+
+    <style name="Theme.SlideImage" parent="@miui:style/V5.Theme.Dark">
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="miui:v5_bottom_bar_icon_bg">@drawable/v5_option_menu_bg_light</item>
+        <item name="miui:v5_bottom_bar_bg">@miui:drawable/v5_edit_mode_bottom_bar_bg_light</item>
+        <item name="android:actionBarStyle">@style/ActionBar.ShowCustom</item>
+        <item name="miui:v5_over_scroll_edge">@drawable/overscroll_edge</item>
+        <item name="miui:v5_over_scroll_glow">@drawable/overscroll_glow</item>
+    </style>
+
+</resources>

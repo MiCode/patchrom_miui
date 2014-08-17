@@ -3,90 +3,74 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical" >
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="1"
-        android:overScrollMode="never">
+        android:overScrollMode="never" >
 
         <LinearLayout
-            android:paddingLeft="@dimen/express_confirm_padding_horizontal"
-            android:paddingRight="@dimen/express_confirm_padding_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/express_confirm_padding_horizontal"
+            android:paddingRight="@dimen/express_confirm_padding_horizontal" >
+
+            <ImageView
+                android:id="@+id/company_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/express_confirm_company_logo_margin_bottom"
+                android:layout_marginTop="@dimen/express_confirm_company_info_margin_top" />
 
             <TextView
                 android:id="@+id/company"
-                style="@miui:style/V5.TextAppearance.Large"
-                android:textStyle="bold"
-                android:paddingTop="@dimen/express_confirm_padding_vertical"
-                android:paddingBottom="@dimen/express_confirm_padding_vertical"
+                android:textAppearance="@miui:style/V5.TextAppearance.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/express_confirm_company_info_margin_bottom" />
+
+            <ImageView style="@style/SendExpressConfirmDivider" />
+
+            <TextView
+                style="@style/SendExpressConfirmLabel"
+                android:text="@string/express_contact_label" />
+
+            <TextView
+                android:id="@+id/number"
+                android:textAppearance="@miui:style/V5.TextAppearance.Large"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/express_confirm_phone_margin_top"
+                android:textSize="@dimen/express_confirm_phone_size"
+                android:textStyle="bold" />
 
-            <ImageView
-                android:layout_height="1dip"
+            <TextView
+                android:id="@+id/src_city"
+                android:textAppearance="@miui:style/V5.TextAppearance.Medium"
                 android:layout_width="match_parent"
-                android:background="@drawable/express_confirm_divider" />
+                android:layout_height="wrap_content"
+                android:singleLine="false" />
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:paddingTop="@dimen/express_confirm_padding_vertical"
-                android:paddingBottom="@dimen/express_confirm_padding_vertical"
+            <ImageView style="@style/SendExpressConfirmDivider" />
+
+            <TextView
+                style="@style/SendExpressConfirmLabel"
+                android:text="@string/express_dest_city_label" />
+
+            <TextView
+                android:id="@+id/dest_city"
+                android:textAppearance="@miui:style/V5.TextAppearance.Medium"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/express_confirm_dest_margin_top"
+                android:singleLine="false" />
 
-                <TextView
-                    android:id="@+id/number"
-                    android:textStyle="bold"
-                    style="@miui:style/V5.TextAppearance.Large"
-                    android:textSize="@dimen/express_confirm_phone_size"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/src_city"
-                    style="@miui:style/V5.TextAppearance.Large"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/detailed_address"
-                    style="@miui:style/V5.TextAppearance.Large"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
-
-            <ImageView
-                android:layout_height="1dip"
-                android:layout_width="match_parent"
-                android:background="@drawable/express_confirm_divider" />
-
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:paddingTop="@dimen/express_confirm_padding_vertical"
-                android:paddingBottom="@dimen/express_confirm_padding_vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:text="@string/express_confirm_dest_city_prefix"
-                    style="@miui:style/V5.TextAppearance.Large"
-                    android:textColor="@miui:color/v5_list_secondary_text_color_light"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/dest_city"
-                    style="@miui:style/V5.TextAppearance.Large"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+            <ImageView style="@style/SendExpressConfirmDivider" />
         </LinearLayout>
     </ScrollView>
 

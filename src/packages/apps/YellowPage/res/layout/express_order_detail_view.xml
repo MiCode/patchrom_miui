@@ -1,154 +1,134 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="15dip"
-    android:orientation="vertical">
+    android:layout_marginTop="6dp"
+    android:orientation="vertical" >
 
-    <!-- State Description ( state note) -->
-
-    <LinearLayout
-        android:id="@+id/state_note_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/ExpressOrderDetailLabelAppearance"
-                    android:text="@string/express_order_state_note" />
-
-                <TextView
-                    style="@style/ExpressOrderDetailLabelAppearance"
-                    android:text="@string/colon" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/state_note"
-                style="@style/ExpressOrderDetailPlaceholderAppearance" />
-        </LinearLayout>
-
-        <ImageView style="@style/Widget.Divider" />
-
-    </LinearLayout>
-
-    <!-- Express Company -->
+    <!-- Order Info -->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/express_company_label"
-                style="@style/ExpressOrderDetailLabelAppearance"
-                android:text="@string/express_company" />
-
-            <TextView
-                style="@style/ExpressOrderDetailLabelAppearance"
-                android:text="@string/colon" />
-        </LinearLayout>
+        android:orientation="horizontal" >
 
         <TextView
-            android:id="@+id/express_company"
-            style="@style/ExpressOrderDetailPlaceholderAppearance" />
+            style="@style/ExpressOrderDetailLabelAppearance"
+            android:text="@string/express_order_info" />
+
+        <TextView
+            style="@style/ExpressOrderDetailLabelAppearance"
+            android:text="@string/colon" />
     </LinearLayout>
 
-    <ImageView style="@style/Widget.Divider" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/ExpressOrderDetailContentAppearance"
+            android:text="@string/express_order_internal_id" />
+
+        <TextView
+            style="@style/ExpressOrderDetailContentAppearance"
+            android:text="@string/colon" />
+
+        <TextView
+            android:id="@+id/express_order_id"
+            style="@style/ExpressOrderDetailContentAppearance" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/ExpressOrderDetailContentAppearance"
+            android:text="@string/express_order_created_time" />
+
+        <TextView
+            style="@style/ExpressOrderDetailContentAppearance"
+            android:text="@string/colon" />
+
+        <TextView
+            android:id="@+id/express_order_create_time"
+            style="@style/ExpressOrderDetailContentAppearance" />
+    </LinearLayout>
 
     <!-- Sender Info -->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal" >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        <TextView
+            android:id="@+id/sender_label"
+            style="@style/ExpressOrderDetailLabelAppearance"
+            android:text="@string/express_contact_label" />
 
-            <TextView
-                android:id="@+id/sender_label"
-                style="@style/ExpressOrderDetailLabelAppearance"
-                android:text="@string/express_sender" />
-
-            <TextView
-                style="@style/ExpressOrderDetailLabelAppearance"
-                android:text="@string/colon" />
-        </LinearLayout>
-
-        <FrameLayout
-            android:id="@+id/sender_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.miui.yellowpage.widget.ExpressAddressView
-                android:id="@+id/sender"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/sender_placeholder"
-                style="@style/ExpressOrderDetailPlaceholderAppearance" />
-        </FrameLayout>
+        <TextView
+            style="@style/ExpressOrderDetailLabelAppearance"
+            android:text="@string/colon" />
     </LinearLayout>
 
-    <ImageView style="@style/Widget.Divider" />
+    <FrameLayout
+        android:id="@+id/sender_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/sender_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/phone"
+                style="@style/ExpressOrderDetailContentAppearance" />
+
+            <TextView
+                android:id="@+id/sender_address"
+                style="@style/ExpressOrderDetailContentAppearance" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/sender_placeholder"
+            style="@style/ExpressOrderDetailContentAppearance"
+            android:text="@string/express_field_empty" />
+    </FrameLayout>
 
     <!-- Addressee info -->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal" >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        <TextView
+            android:id="@+id/addressee_label"
+            style="@style/ExpressOrderDetailLabelAppearance"
+            android:text="@string/express_dest_city_label" />
 
-            <TextView
-                android:id="@+id/addressee_label"
-                style="@style/ExpressOrderDetailLabelAppearance"
-                android:text="@string/express_addressee" />
-
-            <TextView
-                style="@style/ExpressOrderDetailLabelAppearance"
-                android:text="@string/colon" />
-        </LinearLayout>
-
-        <FrameLayout
-            android:id="@+id/addressee_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.miui.yellowpage.widget.ExpressAddressView
-                android:id="@+id/addressee"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/addressee_placeholder"
-                style="@style/ExpressOrderDetailPlaceholderAppearance" />
-        </FrameLayout>
+        <TextView
+            style="@style/ExpressOrderDetailLabelAppearance"
+            android:text="@string/colon" />
     </LinearLayout>
 
-    <ImageView style="@style/Widget.Divider" />
+    <FrameLayout
+        android:id="@+id/addressee_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/addressee"
+            style="@style/ExpressOrderDetailContentAppearance" />
+
+        <TextView
+            android:id="@+id/addressee_placeholder"
+            style="@style/ExpressOrderDetailContentAppearance"
+            android:text="@string/express_field_empty" />
+    </FrameLayout>
 
 </LinearLayout>

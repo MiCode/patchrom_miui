@@ -1,7 +1,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="15dip" >
+    android:layout_height="wrap_content" >
 
     <LinearLayout
         android:id="@+id/root"
@@ -10,77 +9,74 @@
         android:orientation="vertical"
         android:visibility="gone" >
 
-        <RelativeLayout
-            android:id="@+id/meta_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/express_order_item_banner_padding_vertical"
-            android:paddingLeft="@dimen/express_order_item_banner_padding_horizontal"
-            android:paddingRight="@dimen/express_order_item_banner_padding_horizontal"
-            android:paddingTop="@dimen/express_order_item_banner_padding_vertical" >
+        <LinearLayout style="@style/ExpressOrderItemBannerStyle" >
 
             <LinearLayout
-                style="@style/ExpressProgressBannerStyle"
-                android:layout_toLeftOf="@+id/cancel"
-                android:orientation="vertical" >
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
-
-                    <TextView
-                        style="@style/ExpressProgressBannerPrefixAppearance.Primary"
-                        android:text="@string/express_inquiry_serial_number_prefix" />
-
-                    <TextView
-                        android:id="@+id/serial_number"
-                        style="@style/ExpressProgressBannerContentAppearance.Primary" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
-
-                    <TextView
-                        style="@style/ExpressProgressBannerPrefixAppearance.Secondary"
-                        android:text="@string/express_order_state" />
-
-                    <TextView
-                        android:id="@+id/state"
-                        style="@style/ExpressProgressBannerContentAppearance.Secondary" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
-
-                    <TextView
-                        style="@style/ExpressProgressBannerPrefixAppearance.Secondary"
-                        android:text="@string/express_order_created_time" />
-
-                    <TextView
-                        android:id="@+id/created_time"
-                        style="@style/ExpressProgressBannerContentAppearance.Secondary" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:background="@drawable/checkout_button_bg" />
-        </RelativeLayout>
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/express_company"
+                    style="@style/ExpressOrderItemBannerPrefixAppearance" />
+
+                <TextView
+                    style="@style/ExpressOrderItemBannerPrefixAppearance"
+                    android:text="@string/phone_info_divider"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/ExpressOrderItemBannerPrefixAppearance"
+                    android:text="@string/express_tracking_number" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tracking_number"
+                style="@style/ExpressOrderItemBannerTrackingNumberAppearance"
+                android:ellipsize="marquee" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/express_state_margin_horizontal"
+                android:layout_marginRight="@dimen/express_state_margin_horizontal"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/state"
+                    style="@style/ExpressOrderItemBannerStateAppearance"
+                    android:singleLine="true" />
+
+                <LinearLayout
+                    android:id="@+id/state_note_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        style="@style/ExpressOrderItemBannerStateAppearance"
+                        android:text="@string/phone_info_divider" />
+
+                    <TextView
+                        android:id="@+id/state_note"
+                        style="@style/ExpressOrderItemBannerStateAppearance"
+                        android:ellipsize="end"
+                        android:singleLine="true" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/express_progress_background"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/express_order_item_padding_horizontal"
+            android:paddingRight="@dimen/express_order_item_padding_horizontal" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@miui:drawable/v5_bottom_bar_top_line_light" />
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -97,22 +93,41 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/express_button_margin_horizontal"
-                android:orientation="horizontal" >
+                android:layout_marginBottom="@dimen/express_order_item_btn_margin_vertical"
+                android:layout_marginTop="@dimen/express_order_item_btn_margin_vertical"
+                android:orientation="vertical" >
 
-                <Button
-                    android:id="@+id/contact"
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
 
-                <Button
-                    android:id="@+id/view_status"
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/express_view_status"
-                    android:textColor="@miui:color/v5_text_color_hilighted_light" />
+                    <Button
+                        android:id="@+id/cancel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/contact"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/view_status"
+                        style="@style/Widget.Button.PositiveWarn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/express_view_status" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
