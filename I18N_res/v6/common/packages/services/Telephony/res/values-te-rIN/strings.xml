@@ -1,0 +1,933 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2012, The Linux Foundation. All rights reserved.
+     Not a Contribution.
+
+     Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="phoneAppLabel" product="tablet">మొబైల్ డేటా</string>
+    <string name="phoneAppLabel" product="default">ఫోన్</string>
+    <string name="emergencyDialerIconLabel">అత్యవసర డయలర్</string>
+    <string name="phoneIconLabel">ఫోన్</string>
+    <string name="fdnListLabel">FDN జాబితా</string>
+    <string name="unknown">తెలియదు</string>
+    <string name="private_num">ప్రైవేట్ నంబర్</string>
+    <string name="payphone">చెల్లింపు ఫోన్</string>
+    <string name="mmiStarted">MMI కోడ్ ప్రారంభమైంది</string>
+    <string name="ussdRunning">USSD కోడ్ అమలవుతోంది\u2026</string>
+    <string name="cancel">రద్దు చేయి</string>
+    <string name="enter_input">USSD సందేశం తప్పనిసరిగా <xliff:g id="min_len">%d</xliff:g> మరియు <xliff:g id="max_len">%d</xliff:g> అక్షరాల మధ్య ఉండాలి.</string>
+    <string name="ok">సరే</string>
+    <string name="send_button">పంపు</string>
+    <string name="no_vm_number">వాయిస్‌మెయిల్ నంబర్ లేదు</string>
+    <string name="no_vm_number_msg">సిమ్ కార్డ్‌లో వాయిస్‌మెయిల్ నంబర్ ఏదీ నిల్వ కాలేదు.</string>
+    <string name="add_vm_number_str">నంబర్‌ను జోడించు</string>
+    <string name="puk_unlocked">మీ సిమ్ కార్డ్ అనుమతించబడింది. మీ ఫోన్ అన్‌లాక్ అవుతోంది\u2026</string>
+    <string name="label_ndp">సిమ్ నెట్‌వర్క్ అన్‌లాక్ PIN</string>
+    <string name="label_nsdp">సిమ్ నెట్‌వర్క్ సబ్‌సెట్ అన్‌లాక్ PIN</string>
+    <string name="label_cdp">సిమ్ కార్పొరేట్ అన్‌లాక్ PIN</string>
+    <string name="label_spdp">SIM సేవా ప్రదాత అన్‌లాక్ PIN</string>
+    <string name="label_sdp">సిమ్ అన్‌లాక్ PIN</string>
+    <string name="label_rn1dp">RUIM నెట్‌వర్క్1 అన్‌లాక్ PIN</string>
+    <string name="label_rn2dp">RUIM నెట్‌వర్క్2 అన్‌లాక్ PIN</string>
+    <string name="label_rhrpd">RUIM hrpd అన్‌లాక్ PIN</string>
+    <string name="label_rcdp">RUIM కార్పొరేట్ అన్‌లాక్ PIN</string>
+    <string name="label_rspdp">SIM సేవా ప్రదాత అన్‌లాక్ PIN</string>
+    <string name="label_rdp">RUIM అన్‌లాక్ PIN</string>
+    <string name="label_puk">PUKని నమోదు చేయండి</string>
+    <string name="sim_ndp_unlock_text">అన్‌లాక్ చేయి</string>
+    <string name="sim_ndp_dismiss_text">తీసివేయి</string>
+    <string name="requesting_unlock">సిమ్ నెట్‌వర్క్ అన్‌లాక్‌ను అభ్యర్థిస్తోంది\u2026</string>
+    <string name="requesting_nw_subset_unlock">సిమ్ నెట్‌వర్క్ సబ్‌సెట్ అన్‌లాక్‌ను అభ్యర్థిస్తోంది\u2026</string>
+    <string name="requesting_sp_unlock">సిమ్ సేవా ప్రదాత అన్‌లాక్‌ను అభ్యర్థిస్తోంది\u2026</string>
+    <string name="requesting_corporate_unlock">సిమ్ కార్పొరేట్ అన్‌లాక్‌ను అభ్యర్థిస్తోంది\u2026</string>
+    <string name="requesting_sim_unlock">సిమ్ అన్‌లాక్‌ను అభ్యర్థిస్తోంది\u2026</string>
+    <string name="requesting_rnw1_unlock">RUIM నెట్‌వర్క్1 అన్‌లాక్‌ను అభ్యర్థిస్తోంది\u2026</string>
+    <string name="requesting_rnw2_unlock">RUIM నెట్‌వర్క్2 అన్‌లాక్‌ను అభ్యర్థిస్తోంది\u2026</string>
+    <string name="requesting_rhrpd_unlock">RUIM hrpd అన్‌లాక్‌ను అభ్యర్థిస్తోంది\u2026</string>
+    <string name="requesting_rsp_unlock">RUIM సేవా ప్రదాత అన్‌లాక్‌ను అభ్యర్థిస్తోంది\u2026</string>
+    <string name="requesting_rc_unlock">RUIM కార్పొరేట్ అన్‌లాక్‌ను అభ్యర్థిస్తోంది\u2026</string>
+    <string name="requesting_ruim_unlock">RUIM అన్‌లాక్‌ను అభ్యర్థిస్తోంది\u2026</string>
+    <string name="requesting_puk_unlock">PUK అన్‌లాక్‌ను అభ్యర్థిస్తోంది\u2026</string>
+    <string name="unlock_failed">సిమ్ నెట్‌వర్క్ అన్‌లాక్ అభ్యర్థన విజయవంతం కాలేదు.</string>
+    <string name="nw_subset_unlock_failed">సిమ్ నెట్‌వర్క్ సబ్‌సెట్ అన్‌లాక్ అభ్యర్థన విజయవంతం కాలేదు.</string>
+    <string name="sp_unlock_failed">సిమ్ సేవా ప్రదాత అన్‌లాక్ అభ్యర్థన విజయవంతం కాలేదు.</string>
+    <string name="corporate_unlock_failed">సిమ్ కార్పొరేట్ అన్‌లాక్ అభ్యర్థన విజయవంతం కాలేదు.</string>
+    <string name="sim_unlock_failed">సిమ్ అన్‌లాక్ అభ్యర్థన విజయవంతం కాలేదు.</string>
+    <string name="rnw1_unlock_failed">RUIM నెట్‌వర్క్1 అన్‌లాక్ అభ్యర్థన విజయవంతం కాలేదు.</string>
+    <string name="rnw2_unlock_failed">RUIM నెట్‌వర్క్2 అన్‌లాక్ అభ్యర్థన విజయవంతం కాలేదు.</string>
+    <string name="rhrpd_unlock_failed">RUIM Hrpd అన్‌లాక్ అభ్యర్థన విజయవంతం కాలేదు.</string>
+    <string name="rsp_unlock_failed">RUIM సేవా ప్రదాత అన్‌లాక్ అభ్యర్థన విజయవంతం కాలేదు.</string>
+    <string name="rc_unlock_failed">RUIM కార్పొరేట్ అన్‌లాక్ అభ్యర్థన విజయవంతం కాలేదు.</string>
+    <string name="ruim_unlock_failed">RUIM అన్‌లాక్ అభ్యర్థన విజయవంతం కాలేదు.</string>
+    <string name="puk_unlock_failed">PUK అన్‌లాక్ విజయవంతం కాలేదు.</string>
+    <string name="unlock_success">సిమ్ నెట్‌వర్క్ అన్‌లాక్ విజయవంతమైంది.</string>
+    <string name="nw_subset_unlock_success">సిమ్ నెట్‌వర్క్ సబ్‌సెట్ అన్‌లాక్ విజయవంతమైంది.</string>
+    <string name="sp_unlock_success">సిమ్ సేవా ప్రదాత అన్‌లాక్ విజయవంతమైంది.</string>
+    <string name="corporate_unlock_success">సిమ్ కార్పొరేట్ అన్‌లాక్ విజయవంతమైంది.</string>
+    <string name="sim_unlock_success">సిమ్ అన్‌లాక్ విజయవంతమైంది.</string>
+    <string name="rnw1_unlock_success">RUIM నెట్‌వర్క్1 అన్‌లాక్ విజయవంతమైంది.</string>
+    <string name="rnw2_unlock_success">RUIM నెట్‌వర్క్2 అన్‌లాక్ విజయవంతమైంది.</string>
+    <string name="rhrpd_unlock_success">RUIM Hrpd అన్‌లాక్ విజయవంతమైంది.</string>
+    <string name="rsp_unlock_success">RUIM సేవా ప్రదాత అన్‌లాక్ విజయవంతమైంది.</string>
+    <string name="rc_unlock_success">RUIM కార్పొరేట్ అన్‌లాక్ విజయవంతమైంది.</string>
+    <string name="ruim_unlock_success">RUIM అన్‌లాక్ విజయవంతమైంది.</string>
+    <string name="puk_unlock_success">PUK అన్‌లాక్ విజయవంతమైంది.</string>
+    <string name="labelGSMMore">GSM కాల్ సెట్టింగ్‌లు</string>
+    <string name="labelCDMAMore">CDMA కాల్ సెట్టింగ్‌లు</string>
+    <string name="apn_settings">ప్రవేశ స్థానం పేర్లు</string>
+    <string name="settings_label">నెట్‌వర్క్ సెట్టింగ్‌లు</string>
+    <string name="voicemail">వాయిస్‌మెయిల్</string>
+    <string name="voicemail_abbreviated">VM:</string>
+    <string name="networks">నెట్‌వర్క్ ఆపరేటర్‌లు</string>
+    <string name="call_settings">కాల్ సెట్టింగ్‌లు</string>
+    <string name="additional_gsm_call_settings">అదనపు సెట్టింగ్‌లు</string>
+    <string name="sum_gsm_call_settings">అదనపు GSM మాత్రమే కాల్ సెట్టింగ్‌లు</string>
+    <string name="additional_cdma_call_settings">అదనపు CDMA కాల్ సెట్టింగ్‌లు</string>
+    <string name="sum_cdma_call_settings">అదనపు CDMA మాత్రమే కాల్ సెట్టింగ్‌లు</string>
+    <string name="labelCallerId">కాలర్ ID</string>
+    <string name="sum_loading_settings">సెట్టింగ్‌లను లోడ్ చేస్తోంది\u2026</string>
+    <string name="sum_hide_caller_id">మీరు చేసే కాల్‌లలో నంబర్ దాచబడుతుంది</string>
+    <string name="sum_show_caller_id">మీరు చేసే కాల్‌లలో నంబర్ ప్రదర్శించబడుతుంది</string>
+    <string name="sum_default_caller_id">నేను చేసే కాల్‌లలో నా నంబర్‌ను ప్రదర్శించడానికి డిఫాల్ట్ ఆపరేటర్ సెట్టింగ్‌లను ఉపయోగించు</string>
+    <string name="labelCW">కాల్ నిరీక్షణ</string>
+    <string name="sum_cw_enabled">కాల్‌లో ఉన్నప్పుడు, నాకు వచ్చే కాల్‌ల గురించి తెలియజేయి</string>
+    <string name="sum_cw_disabled">కాల్‌లో ఉన్నప్పుడు, నాకు వచ్చే కాల్‌ల గురించి తెలియజేయి</string>
+    <string name="error_updating_title">కాల్ సెట్టింగ్‌ల లోపం</string>
+    <string name="reading_settings">సెట్టింగ్‌లను చదువుతోంది\u2026</string>
+    <string name="updating_settings">సెట్టింగ్‌లను అప్‌డేట్ చేస్తోంది\u2026</string>
+    <string name="reverting_settings">సెట్టింగ్‌లను తిరిగి మారుస్తోంది\u2026</string>
+    <string name="response_error">నెట్‌వర్క్ నుండి ఊహించని ప్రతిస్పందన.</string>
+    <string name="exception_error">నెట్‌వర్క్ లేదా సిమ్ కార్డ్ లోపం.</string>
+    <string name="stk_cc_ss_to_dial_error">SS అభ్యర్థన డయల్ అభ్యర్థనగా సవరించబడింది.</string>
+    <string name="stk_cc_ss_to_ussd_error">SS అభ్యర్థన USSD అభ్యర్థనగా సవరించబడింది.</string>
+    <string name="stk_cc_ss_to_ss_error">SS అభ్యర్థన కొత్త SS అభ్యర్థనగా సవరించబడింది.</string>
+    <string name="fdn_check_failure">మీ ఫోన్ అప్లికేషన్ యొక్క స్థిర డయలింగ్ నంబర్‌ల సెట్టింగ్ ఆన్‌లో ఉంది. ఫలితంగా, కొన్ని కాల్ సంబంధిత ఫీచర్‌లు పని చేయడం లేదు.</string>
+    <string name="radio_off_error">ఈ సెట్టింగ్‌లను చూడటానికి ముందు రేడియోను ఆన్ చేయండి.</string>
+    <string name="close_dialog">సరే</string>
+    <string name="enable">ఆన్ చేయి</string>
+    <string name="disable">ఆఫ్ చేయి</string>
+    <string name="change_num">అప్‌డేట్ చేయి</string>
+    <string name="vm_changed">వాయిస్‌మెయిల్ నంబర్ మారింది.</string>
+    <string name="vm_change_failed">వాయిస్‌మెయిల్ నంబర్‌ను మార్చలేకపోయాము.\nఈ సమస్య కొనసాగితే మీ క్యారియర్‌ని సంప్రదించండి.</string>
+    <string name="fw_change_failed">ఫార్వార్డింగ్ నంబర్‌ను మార్చలేకపోయాము.\nఈ సమస్య కొనసాగితే మీ క్యారియర్‌ని సంప్రదించండి.</string>
+    <string name="fw_get_in_vm_failed">ప్రస్తుత ఫార్వార్డింగ్ సెట్టింగ్‌లను తిరిగి పొందలేకపోయాము మరియు సేవ్ చేయలేకపోయాము.\nఏదేమైనా కొత్త ప్రదాతకి మార్చాలా?</string>
+    <string name="no_change">మార్పులు చేయలేదు.</string>
+    <string name="sum_voicemail_choose_provider">వాయిస్‌మెయిల్ సేవను ఎంచుకోండి</string>
+    <string name="voicemail_default">నా క్యారియర్</string>
+    <string name="mobile_networks">మొబైల్ నెట్‌వర్క్ సెట్టింగ్‌లు</string>
+    <string name="label_available">అందుబాటులో ఉన్న నెట్‌వర్క్‌లు</string>
+    <string name="load_networks_progress">శోధిస్తోంది\u2026</string>
+    <string name="empty_networks_list">నెట్‌వర్క్‌లు కనుగొనబడలేదు.</string>
+    <string name="register_on_network"><xliff:g id="network">%s</xliff:g>లో నమోదు చేస్తోంది\u2026</string>
+    <string name="not_allowed">మీ సిమ్ కార్డ్ ఈ నెట్‌వర్క్‌కి కనెక్షన్‌ను అనుమతించదు.</string>
+    <string name="connect_later">ప్రస్తుతం ఈ నెట్‌వర్క్‌కు కనెక్ట్ చేయలేము. తర్వాత మళ్లీ ప్రయత్నించండి.</string>
+    <string name="registration_done">పరికరంలో నమోదైంది.</string>
+    <string name="select_automatically">స్వయంగా ఎంచుకోండి</string>
+    <string name="sum_select_automatically">స్వయంగా ప్రాధాన్య నెట్‌వర్క్‌ను ఎంచుకోండి</string>
+    <string name="register_automatically">స్వయం నమోదు\u2026</string>
+    <string name="preferred_network_mode_title">ప్రాధాన్య నెట్‌వర్క్ రకం</string>
+    <string name="preferred_network_mode_summary">నెట్‌వర్క్ నిర్వహణ మోడ్‌ను మార్చండి</string>
+    <string name="preferred_network_mode_dialogtitle">ప్రాధాన్య నెట్‌వర్క్ రకం</string>
+    <string name="network_forbidden"><xliff:g id="network">%s</xliff:g> (నిషిద్ధం)</string>
+    <string-array name="preferred_network_mode_choices">
+        <item>TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO </item>
+        <item>TD-SCDMA/GSM/WCDMA/CDMA/EVDO </item>
+        <item>TD-SCDMA/GSM/WCDMA/LTE</item>
+        <item>TD-SCDMA/WCDMA/LTE</item>
+        <item>TD-SCDMA/GSM/WCDMA</item>
+        <item>TD-SCDMA/GSM/LTE</item>
+        <item>TD-SCDMA/GSM</item>
+        <item>TD-SCDMA/LTE</item>
+        <item>TD-SCDMA/WCDMA</item>
+        <item>TD-SCDMA మాత్రమే</item>
+        <item>LTE / WCDMA</item>
+        <item>LTE</item>
+        <item>సార్వజనీనం</item>
+        <item>GSM/WCDMA/LTE</item>
+        <item>CDMA + LTE/EvDo</item>
+        <item>CDMA/EvDo/GSM/WCDMA</item>
+        <item>EvDo మాత్రమే</item>
+        <item>CDMA w/o EvDo</item>
+        <item>CDMA/EvDo స్వయం</item>
+        <item>GSM/WCDMA స్వయం</item>
+        <item>WCDMA మాత్రమే</item>
+        <item>GSM మాత్రమే</item>
+        <item>GSM/WCDMA ప్రాధాన్యపరచబడింది</item>
+    </string-array>
+    <string name="data_enabled">డేటా ప్రారంభించబడింది</string>
+    <string name="data_enable_summary">మొబైల్ నెట్‌వర్క్ ద్వారా డేటా ప్రవేశాన్ని అనుమతించు</string>
+    <string name="roaming">డేటా రోమింగ్</string>
+    <string name="roaming_enable">రోమింగ్‌లో ఉన్నప్పుడు డేటా సేవలకు కనెక్ట్ చేయి</string>
+    <string name="roaming_disable">రోమింగ్‌లో ఉన్నప్పుడు డేటా సేవలకు కనెక్ట్ చేయి</string>
+    <string name="roaming_reenable_message">మీరు డేటా రోమింగ్‌ను ఆఫ్‌లో ఉంచి మీ హోమ్ నెట్‌వర్క్ కవరేజీ దాటినందున డేటా కనెక్టివిటీని కోల్పోయారు.</string>
+    <string name="roaming_warning">డేటా రోమింగ్‌ను అనుమతించాలా? మీకు గణనీయమైన రోమింగ్ ఛార్జీలు విధించబడవచ్చు!</string>
+    <string name="always_enable_mms">MMSని ఎల్లప్పుడూ స్వీకరించు</string>
+    <string name="always_enable_mms_summary">మొబైల్ డేటా ఆఫ్‌లో ఉన్నప్పటికీ MMSని స్వీకరించండి</string>
+    <string name="network_unlock">అన్‌లాక్</string>
+    <string name="networks_title">సెల్యులార్ నెట్‌వర్క్‌లు</string>
+    <string name="network_settings_warn_message">మీ పరికరం మీరు మాన్యువల్‌గా ఎంచుకునే నెట్‌వర్క్‌లకు మాత్రమే కనెక్ట్ అవుతుంది.</string>
+    <string name="network_settings_auto_select_title">"స్వయం ఎంపికను మూసివేయి"</string>
+    <string name="network_settings_next">తదుపరి</string>
+    <string name="network_settings_confirm_message">నెట్‌వర్క్ బహుశా అందుబాటులో లేదు, నిజమైనా?</string>
+    <string name="network_settings_query_failed_message">సెల్యులార్ నెట్‌వర్క్‌ల కోసం శోధించలేకపోయాము.</string>
+    <string name="retry_btn">మళ్లీ ప్రయత్నించు</string>
+    <string name="network_settings_information">"ముందుగా మొబైల్ డేటాను ఆఫ్ చేయండి"</string>
+    <string name="network_settings_duringcall">"కాల్‌లో ఉన్నప్పుడు నిర్వహణకు అనుమతి లేదు"</string>
+    <string name="network_settings_data_connected_change">"మీరు మరొక నెట్‌వర్క్‌కు మారుతున్నప్పుడు మొబైల్ డేటాను ఆఫ్ చేయాలి."</string>
+    <string name="network_settings_automatically_option">"స్వయంగా ప్రాధాన్య నెట్‌వర్క్‌ను (%s) ఎంచుకోండి"</string>
+    <string name="network_settings_turn_off">"ఆఫ్"</string>
+    <string name="network_settings_select_automatic_hint">"మీరు ఎంచుకున్న నెట్‌వర్క్‌లో నమోదు చేయలేము.\nబదులుగా ప్రాధాన్య నెట్‌వర్క్ ఉపయోగిస్తాము."</string>
+    <string name="network_settings_forbidden"><xliff:g id="network">%s</xliff:g> (నిషిద్ధం)</string>
+    <string name="preferred_network_type_title">ప్రాధాన్య నెట్‌వర్క్ రకం</string>
+    <string name="preferred_network_type_pref_entries_global">సార్వజనీనం</string>
+    <string name="preferred_network_type_pref_entries_auto">స్వయం</string>
+    <string name="preferred_network_type_pref_entries_4g_preferred">LTEని ప్రాధాన్యపరుచు</string>
+    <string name="preferred_network_type_pref_entries_3g_preferred">3Gని ప్రాధాన్యపరుచు</string>
+    <string name="preferred_network_type_pref_entries_4g_preferred_cdma">4G (CDMA)ని ప్రాధాన్యపరుచు</string>
+    <string name="preferred_network_type_pref_entries_3g_preferred_cdma">3G (CDMA)ని ప్రాధాన్యపరుచు</string>
+    <string name="preferred_network_type_pref_entries_only_2g">2G మాత్రమే (బ్యాటరీ ఆదా అవుతుంది)</string>
+    <string name="preferred_network_type_pref_entries_only_3g">3G మాత్రమే</string>
+    <string name="preferred_network_type_3g_only_warning">నెట్‌వర్క్‌కు కనెక్ట్ చేయడానికి మీ సిమ్ కార్డ్‌లో తప్పనిసరిగా 3Gకి మద్దతు ఉండాలి.</string>
+    <string name="preferred_network_restrict_network_changed_incall">కాల్ మధ్యలో ఉన్నప్పుడు మొబైల్ నెట్‌వర్క్‌ను మార్చలేము</string>
+    <string name="callwait_open_hint">\"కాల్ నిరీక్షణ\" ఫీచర్‌ను మీ క్యారియర్ అందించింది. మీరు లోపం నోటిఫికేషన్‌ను స్వీకరిస్తే, ఈ లక్షణానికి మద్దతు ఉందని నిర్ధారించుకోవడానికి మీ క్యారియర్‌ను సంప్రదించండి.</string>
+    <string name="open_miui">తెరవండి</string>
+    <string name="cdma_system_select_title">సిస్టమ్ ఎంపిక</string>
+    <string name="cdma_system_select_summary">CDMA రోమింగ్ మోడ్‌ను మార్చండి</string>
+    <string name="cdma_system_select_dialogtitle">సిస్టమ్ ఎంపిక</string>
+    <string-array name="cdma_system_select_choices">
+        <item>హోమ్ మాత్రమే</item>
+        <item>స్వయం</item>
+    </string-array>
+    <string name="cdma_subscription_title">CDMA సబ్‌స్క్రిప్షన్</string>
+    <string name="cdma_subscription_summary">RUIM/సిమ్ మరియు NV మధ్య మారండి</string>
+    <string name="cdma_subscription_dialogtitle">సబ్‌స్క్రిప్షన్</string>
+    <string-array name="cdma_subscription_choices">
+        <item>RUIM/సిమ్</item>
+        <item>NV</item>
+    </string-array>
+    <string-array name="cdma_subscription_values">
+        <item>"0"</item>
+        <item>"1"</item>
+    </string-array>
+    <string name="cdma_activate_device">పరికరాన్ని యాక్టివేట్ చేయండి</string>
+    <string name="cdma_lte_data_service">డేటా సేవను సెటప్ చేయండి</string>
+    <string name="network_settings_sel_sub">SUBS సెట్టింగ్‌లు</string>
+    <string name="summary_manage_subscriptions">ప్రతి సబ్‌స్క్రిప్షన్ నెట్‌వర్క్ సెట్టింగ్‌లను నిర్వహించండి</string>
+    <string name="gsm_umts_options">GSM/UMTS ఎంపికలు</string>
+    <string name="cdma_options">CDMA ఎంపికలు</string>
+    <string name="throttle_current_usage">ప్రస్తుత వ్యవధిలో వినియోగించిన డేటా</string>
+    <string name="throttle_time_frame">డేటా వినియోగ వ్యవధి</string>
+    <string name="throttle_rate">డేటా రేట్ విధానం</string>
+    <string name="throttle_help">మరింత తెలుసుకోండి</string>
+    <string name="cell_broadcast_sms">సెల్ ప్రసార SMS</string>
+    <string name="enable_disable_cell_bc_sms">సెల్ ప్రసార SMS</string>
+    <string name="cell_bc_sms_enable">సెల్ ప్రసార SMS ఆన్‌లో ఉంది</string>
+    <string name="cell_bc_sms_disable">సెల్ ప్రసార SMS ఆఫ్‌లో ఉంది</string>
+    <string name="cb_sms_settings">సెల్ ప్రసార SMS సెట్టింగ్‌లు</string>
+    <string name="enable_disable_emergency_broadcast">అత్యవసర ప్రసారం</string>
+    <string name="emergency_broadcast_enable">అత్యవసర ప్రసారం ఆన్‌లో ఉంది</string>
+    <string name="emergency_broadcast_disable">అత్యవసర ప్రసారం ఆఫ్‌లో ఉంది</string>
+    <string name="enable_disable_administrative">నిర్వాహకం</string>
+    <string name="administrative_enable">నిర్వాహకం ఆన్‌లో ఉంది</string>
+    <string name="administrative_disable">నిర్వాహకం ఆఫ్‌లో ఉంది</string>
+    <string name="enable_disable_maintenance">నిర్వహణ</string>
+    <string name="maintenance_enable">నిర్వహణ ఆన్‌లో ఉంది</string>
+    <string name="maintenance_disable">నిర్వహణ ఆఫ్‌లో ఉంది</string>
+    <string name="general_news_settings">సాధారణ వార్తలు</string>
+    <string name="bf_news_settings">వ్యాపార మరియు ఆర్థిక వార్తలు</string>
+    <string name="sports_news_settings">క్రీడా వార్తలు</string>
+    <string name="entertainment_news_settings">వినోద వార్తలు</string>
+    <string name="enable_disable_local">స్థానికం</string>
+    <string name="local_enable">స్థానిక వార్తలు ఆన్‌లో ఉన్నాయి</string>
+    <string name="local_disable">స్థానిక వార్తలు ఆఫ్‌లో ఉన్నాయి</string>
+    <string name="enable_disable_regional">ప్రాంతీయం</string>
+    <string name="regional_enable">ప్రాంతీయ వార్తలు ఆన్‌లో ఉన్నాయి</string>
+    <string name="regional_disable">ప్రాంతీయ వార్తలు ఆఫ్‌లో ఉన్నాయి</string>
+    <string name="enable_disable_national">జాతీయం</string>
+    <string name="national_enable">జాతీయ వార్తలు ఆన్‌లో ఉన్నాయి</string>
+    <string name="national_disable">జాతీయ వార్తలు ఆఫ్‌లో ఉన్నాయి</string>
+    <string name="enable_disable_international">అంతర్జాతీయం</string>
+    <string name="international_enable">అంతర్జాతీయ వార్తలు ఆన్‌లో ఉన్నాయి</string>
+    <string name="international_disable">అంతర్జాతీయ వార్తలు ఆఫ్‌లో ఉన్నాయి</string>
+    <string name="list_language_title">భాష</string>
+    <string name="list_language_summary">వార్తా భాషను ఎంచుకోండి</string>
+    <string-array name="list_language_entries">
+        <item>ఆంగ్లం</item>
+        <item>ఫ్రెంచ్</item>
+        <item>స్పానిష్</item>
+        <item>జపనీస్</item>
+        <item>కొరియన్</item>
+        <item>చైనీస్</item>
+        <item>హిబ్రూ</item>
+    </string-array>
+    <string-array name="list_language_values">
+        <item>"1"</item>
+        <item>"2"</item>
+        <item>"3"</item>
+        <item>"4"</item>
+        <item>"5"</item>
+        <item>"6"</item>
+        <item>"7"</item>
+    </string-array>
+    <string name="list_language_dtitle">భాషలు</string>
+    <string name="enable_disable_local_weather">స్థానిక వాతావరణం</string>
+    <string name="local_weather_enable">స్థానిక వాతావరణం ఆన్‌లో ఉంది</string>
+    <string name="local_weather_disable">స్థానిక వాతావరణం ఆఫ్‌లో ఉంది</string>
+    <string name="enable_disable_atr">ప్రాంతీయ ట్రాఫిక్ నివేదికలు</string>
+    <string name="atr_enable">ప్రాంతీయ ట్రాఫిక్ నివేదికలు ఆన్‌లో ఉన్నాయి</string>
+    <string name="atr_disable">ప్రాంతీయ ట్రాఫిక్ నివేదికలు ఆఫ్‌లో ఉన్నాయి</string>
+    <string name="enable_disable_lafs">స్థానిక విమానాశ్రయ విమాన షెడ్యూల్‌లు</string>
+    <string name="lafs_enable">స్థానిక విమానాశ్రయ విమాన షెడ్యూల్‌లు ఆన్‌లో ఉన్నాయి</string>
+    <string name="lafs_disable">స్థానిక విమానాశ్రయ విమాన షెడ్యూల్‌లు ఆఫ్‌లో ఉన్నాయి</string>
+    <string name="enable_disable_restaurants">రెస్టారెంట్‌లు</string>
+    <string name="restaurants_enable">రెస్టారెంట్‌లు ఆన్‌లో ఉన్నాయి</string>
+    <string name="restaurants_disable">రెస్టారెంట్‌లు ఆఫ్‌లో ఉన్నాయి</string>
+    <string name="enable_disable_lodgings">విడిది ప్రాంతాలు</string>
+    <string name="lodgings_enable">విడిది ప్రాంతాలు ఆన్‌లో ఉన్నాయి</string>
+    <string name="lodgings_disable">విడిది ప్రాంతాలు ఆఫ్‌లో ఉన్నాయి</string>
+    <string name="enable_disable_retail_directory">రిటైల్ డైరెక్టరీ</string>
+    <string name="retail_directory_enable">రిటైల్ డైరెక్టరీ ఆన్‌లో ఉంది</string>
+    <string name="retail_directory_disable">రిటైల్ డైరెక్టరీ ఆఫ్‌లో ఉంది</string>
+    <string name="enable_disable_advertisements">వ్యాపార ప్రకటనలు</string>
+    <string name="advertisements_enable">వ్యాపార ప్రకటనలు ఆన్‌లో ఉన్నాయి</string>
+    <string name="advertisements_disable">వ్యాపార ప్రకటనలు ఆఫ్‌లో ఉన్నాయి</string>
+    <string name="enable_disable_stock_quotes">స్టాక్ కోట్‌లు</string>
+    <string name="stock_quotes_enable">స్టాక్ కోట్‌లు ఆన్‌లో ఉన్నాయి</string>
+    <string name="stock_quotes_disable">స్టాక్ కోట్‌లు ఆఫ్‌లో ఉన్నాయి</string>
+    <string name="enable_disable_eo">ఉద్యోగావకాశాలు</string>
+    <string name="eo_enable">ఉద్యోగావకాశాలు ఆన్‌లో ఉన్నాయి</string>
+    <string name="eo_disable">ఉద్యోగావకాశాలు ఆఫ్‌లో ఉన్నాయి</string>
+    <string name="enable_disable_mhh">వైద్యం, ఆరోగ్యం మరియు ఆసుపత్రి</string>
+    <string name="mhh_enable">వైద్యం, ఆరోగ్యం మరియు ఆసుపత్రి ఆన్‌లో ఉన్నాయి</string>
+    <string name="mhh_disable">వైద్యం, ఆరోగ్యం మరియు ఆసుపత్రి ఆఫ్‌లో ఉన్నాయి</string>
+    <string name="enable_disable_technology_news">సాంకేతిక వార్తలు</string>
+    <string name="technology_news_enable">సాంకేతిక వార్తలు ఆన్‌లో ఉన్నాయి</string>
+    <string name="technology_news_disable">సాంకేతిక వార్తలు ఆఫ్‌లో ఉన్నాయి</string>
+    <string name="enable_disable_multi_category">బహుళ-వర్గం</string>
+    <string name="multi_category_enable">బహుళ-వర్గం ఆన్‌లో ఉంది</string>
+    <string name="multi_category_disable">బహుళ-వర్గం ఆఫ్‌లో ఉంది</string>
+    <string name="callind_multi_sim">SUBS సెట్టింగ్‌లు</string>
+    <string name="manage_fdn_list">FDN జాబితా</string>
+    <string name="fdn_activation">FDN యాక్టివేషన్</string>
+    <string name="fdn_enabled">స్థిర డయలింగ్ నంబర్‌లు ఆన్‌లో ఉన్నాయి</string>
+    <string name="fdn_disabled">ఫిక్స్‌డ్ డయలింగ్ నంబర్‌లు ఆఫ్‌లో ఉన్నాయి</string>
+    <string name="enable_fdn">FDNని ఆన్ చేయండి</string>
+    <string name="disable_fdn">FDNని ఆఫ్ చేయండి</string>
+    <string name="change_pin2">PIN2ని మార్చండి</string>
+    <string name="enable_fdn_ok">FDNని ఆఫ్ చేయండి</string>
+    <string name="disable_fdn_ok">FDNని ఆన్ చేయండి</string>
+    <string name="sum_fdn_change_pin">FDN ప్రవేశం కోసం PINను మార్చండి</string>
+    <string name="sum_fdn_manage_list">మీ స్థిర డయలింగ్ నంబర్‌ల జాబితాను నిర్వహించండి</string>
+    <string name="menu_add">పరిచయాన్ని జోడించు</string>
+    <string name="fdn">స్థిర డయలింగ్ నంబర్‌లు</string>
+    <string name="fdn_summary">నేను చేసే కాల్‌లను జాబితాలో ఉన్న FDNలకు లేదా నిర్దిష్ట ప్రిఫిక్స్ గల నంబర్‌లకు మాత్రమే పరిమితం చేయి</string>
+    <string name="get_pin2">PIN2ని టైప్ చేయండి</string>
+    <string name="name">పేరు</string>
+    <string name="number">నంబర్</string>
+    <string name="save">సేవ్ చేయి</string>
+    <string name="add_fdn_contact">స్థిర డయలింగ్ నంబర్‌ను జోడించు</string>
+    <string name="adding_fdn_contact">స్థిర డయలింగ్ నంబర్‌ను జోడిస్తోంది\u2026</string>
+    <string name="fdn_contact_added">స్థిర డయలింగ్ నంబర్ జోడించబడింది.</string>
+    <string name="edit_fdn_contact">స్థిర డయలింగ్ నంబర్‌ను సవరించు</string>
+    <string name="updating_fdn_contact">స్థిర డయలింగ్ నంబర్‌ను అప్‌డేట్ చేస్తోంది\u2026</string>
+    <string name="fdn_contact_updated">స్థిర డయలింగ్ నంబర్ అప్‌డేట్ అయ్యింది.</string>
+    <string name="delete_fdn_contact">స్థిర డయలింగ్ నంబర్‌ను తొలగించండి</string>
+    <string name="deleting_fdn_contact">స్థిర డయలింగ్ నంబర్‌ను తొలగిస్తోంది\u2026</string>
+    <string name="fdn_contact_deleted">స్థిర డయలింగ్ నంబర్ తొలగించబడింది.</string>
+    <string name="pin2_invalid">మీరు చెల్లని PINని నమోదు చేసినందున FDN అప్‌డేట్ కాలేదు.</string>
+    <string name="fdn_invalid_number">నంబర్ 20 అంకెలకు మించకూడదు కనుక FDN అప్‌డేట్ కాలేదు.</string>
+    <string name="fdn_contacts_empty">"FDN జాబితాలో పరిచయాలు లేవు."</string>
+    <string name="simContacts_emptyLoading">చదువుతోంది\u2026</string>
+    <string name="exportContacts">ఎగుమతి చేస్తోంది\u2026</string>
+    <string name="simContacts_title">సిమ్ కార్డ్ పరిచయాలను నిర్వహించండి</string>
+    <string name="simContacts_airplaneMode">సిమ్ కార్డ్ నుండి పరిచయాలను దిగుమతి చేయడానికి, విమాన మోడ్‌ను ఆఫ్ చేయండి.</string>
+    <string name="tty_mode_option_title">TTY మోడ్</string>
+    <string name="tty_mode_option_summary">TTY మోడ్‌ని సెట్ చేయండి</string>
+    <string name="enable_pin">సిమ్ PIN</string>
+    <string name="change_pin">సిమ్ PINని మార్చండి</string>
+    <string name="enter_pin_text">సిమ్ PIN:</string>
+    <string name="old_pin_label">పాత PIN</string>
+    <string name="new_pin_label">కొత్త PIN</string>
+    <string name="confirm_pin_label">కొత్త PINని నిర్ధారించండి</string>
+    <string name="bad_pin">మీరు నమోదు చేసిన PIN చెల్లదు.</string>
+    <string name="mismatch_pin">మీరు టైప్ చేసిన PINలు సరిపోలలేదు.</string>
+    <string name="invalid_pin">4 నుండి 8 సంఖ్యలు ఉండే PIN టైప్ చేయండి.</string>
+    <string name="disable_sim_pin">సిమ్ PINను ఆఫ్ చేయండి</string>
+    <string name="enable_sim_pin">సిమ్ PINను ఆన్ చేయండి</string>
+    <string name="enable_in_progress">ఒక్క సెకను\u2026</string>
+    <string name="enable_pin_ok">సిమ్ PIN ఆన్‌లో ఉంది.</string>
+    <string name="disable_pin_ok">సిమ్ PIN ఆఫ్‌లో ఉంది.</string>
+    <string name="pin_failed">మీరు టైప్ చేసిన PIN చెల్లదు.</string>
+    <string name="pin_changed">సిమ్ PIN విజయవంతంగా మారింది.</string>
+    <string name="puk_requested">పాస్‌వర్డ్ చెల్లదు, PIN నిరోధించబడింది. PUK అభ్యర్థించబడింది.</string>
+    <string name="bad_puk">మీరు టైప్ చేసిన PUK చెల్లదు.</string>
+    <string name="invalid_puk">4 నుండి 8 సంఖ్యలు ఉండే PUKని టైప్ చేయండి.</string>
+    <string name="pin_lock_warning">\nమరొక ప్రయత్నం విఫలమైతే, మీ ఫోన్ స్వయంగా లాక్ అవుతుంది</string>
+    <string name="puk_lock_warning">\nమరొక ప్రయత్నం విఫలమైతే, మీ సిమ్ కార్డ్‌లోని సమాచారం తొలగించబడుతుంది.</string>
+    <string name="puk_label">PUK కోడ్‌ను ఇన్‌పుట్ చేయండి</string>
+    <string name="enter_pin2_text">PIN2</string>
+    <string name="old_pin2_label">పాత PIN2</string>
+    <string name="new_pin2_label">కొత్త PIN2</string>
+    <string name="confirm_pin2_label">కొత్త PIN2ని నిర్ధారించండి</string>
+    <string name="bad_puk2">మీరు నమోదు చేసిన PUK2 చెల్లదు.</string>
+    <string name="bad_pin2">మీరు నమోదు చేసిన PIN2 చెల్లదు.</string>
+    <string name="mismatch_pin2">PIN2లు సరిపోలలేదు. మళ్లీ ప్రయత్నించండి.</string>
+    <string name="invalid_pin2">4 నుండి 8 సంఖ్యలు ఉండే PIN2ని టైప్ చేయండి.</string>
+    <string name="invalid_puk2">8 సంఖ్యలు ఉండే PUK2ని టైప్ చేయండి.</string>
+    <string name="pin2_changed">PIN2 విజయవంతంగా మారింది.</string>
+    <string name="label_puk2_code">PUK2 కోడ్‌ని టైప్ చేయండి</string>
+    <string name="fdn_enable_puk2_requested">పాస్‌వర్డ్ చెల్లదు, PIN2 నిరోధించబడింది. PIN2ని మార్చి, మళ్లీ ప్రయత్నించండి.</string>
+    <string name="pin2_lock_warning">\nమరొక ప్రయత్నం విఫలమైతే, PIN2 సంబంధిత విధులు లాక్ అవుతాయి.</string>
+    <string name="puk2_label">PUK2 కోడ్‌ను ఇన్‌పుట్ చేయండి</string>
+    <string name="pin_attempts">\n<xliff:g id="number">%d</xliff:g> ప్రయత్నాలు మిగిలి ఉన్నాయి.</string>
+    <string name="pin_progress_set_icc_lock">ICC లాక్ స్థితిని సెట్ చేస్తోంది\u2026</string>
+    <string name="pin_progress_set_fdn_lock">FDN లాక్ స్థితిని సెట్ చేస్తోంది\u2026</string>
+    <string name="pin_progress_change_pin">PINని మారుస్తోంది\u2026</string>
+    <string name="pin_progress_change_pin2">PIN2ని మారుస్తోంది\u2026</string>
+    <string name="pin_progress_unlock_icc">సిమ్ కార్డ్‌ను అన్‌లాక్ చేస్తోంది\u2026</string>
+    <string name="doneButton">పూర్తయింది</string>
+    <string name="card_title_unconditionalCF">షరతులు లేని కాల్ ఫార్వార్డ్ ఆన్‌లో ఉంది</string>
+    <string name="card_title_conditionalCF">షరతులతో కూడిన కాల్ ఫార్వార్డ్ ఆన్‌లో ఉంది</string>
+    <string name="card_title_MOcall_forwarding">మీరు చేసే కాల్ ఫార్వార్డ్ అయింది</string>
+    <string name="card_title_calliswaiting">కాల్ వేచి ఉంది</string>
+    <string name="card_title_cugcall">CUG కాల్</string>
+    <string name="card_title_outgoing_barred">మీరు చేసే కాల్‌లు నిషేధించబడ్డాయి</string>
+    <string name="card_title_incoming_barred">మీకు వచ్చే కాల్‌లు నిషేధించబడ్డాయి</string>
+    <string name="card_title_clir_suppression_rejected">CLIR నిరోధం తిరస్కరించబడింది</string>
+    <string name="card_title_call_deflected">కాల్ మళ్లించబడింది</string>
+    <string name="card_title_MTcall_forwarding">మీకు వచ్చే కాల్ ఫార్వార్డ్ అయింది</string>
+    <string name="card_title_forwarded_MTcall">మీకు వచ్చే కాల్ ఫార్వార్డ్ అయింది</string>
+    <string name="card_title_callonhold">హోల్డ్‌లో ఉంచు</string>
+    <string name="card_title_callretrieved">కాల్ పునరుద్ధరించబడింది</string>
+    <string name="card_title_multipartycall">మల్టీ పార్టీ కాల్</string>
+    <string name="card_title_callonhold_released">కాల్ విడుదలైంది</string>
+    <string name="card_title_forwardcheckreceived">ఫార్వార్డ్ తనిఖీ స్వీకరించబడింది</string>
+    <string name="card_title_callconnectingect">ECT ద్వారా కాల్ కనెక్ట్ అవుతోంది</string>
+    <string name="card_title_callconnectedect">ECT ద్వారా కాల్ కనెక్టయింది</string>
+    <string name="card_title_deflectedcall">మళ్లించిన కాల్</string>
+    <string name="notification_missedCallsTitle">మిస్‌డ్ కాల్‌లు</string>
+    <string name="notification_missedCallsMsg"><xliff:g id="num_missed_calls">%s</xliff:g> మిస్‌డ్ కాల్‌లు</string>
+    <string name="notification_missedCallTicker"><xliff:g id="missed_call_from">%s</xliff:g> నుండి మిస్‌డ్ కాల్</string>
+    <string name="notification_voicemail_title">కొత్త వాయిస్‌మెయిల్</string>
+    <string name="notification_voicemail_title_count">కొత్త వాయిస్‌మెయిల్ (<xliff:g id="count">%d</xliff:g>)</string>
+    <string name="notification_voicemail_text_format"><xliff:g id="voicemail_number">%s</xliff:g>కి డయల్ చేయండి</string>
+    <string name="notification_voicemail_no_vm_number">వాయిస్‌మెయిల్ నంబర్ తెలియదు</string>
+    <string name="notification_network_selection_title">సేవ లేదు</string>
+    <string name="notification_network_selection_text">ఎంచుకున్న (<xliff:g id="operator_name">%s</xliff:g>) నెట్‌వర్క్ అందుబాటులో లేదు</string>
+    <string name="notification_missedCall_call_back">తిరిగి కాల్ చేయండి</string>
+    <string name="notification_missedCall_message">సందేశం పంపండి</string>
+    <string name="incall_error_power_off">కాల్ చేయడానికి, విమాన మోడ్‌ను ఆఫ్ చేయండి.</string>
+    <string name="incall_error_emergency_only">నెట్‌వర్క్‌లో నమోదు కాలేదు.</string>
+    <string name="incall_error_out_of_service">మొబైల్ నెట్‌వర్క్ అందుబాటులో లేదు.</string>
+    <string name="incall_error_no_phone_number_supplied">మీరు నమోదు చేసిన నంబర్ చెల్లదు.</string>
+    <string name="incall_error_call_failed">కాల్ చేయలేకపోయాము.</string>
+    <string name="incall_status_dialed_mmi">MMI క్రమాన్ని ప్రారంభిస్తోంది\u2026</string>
+    <string name="incall_error_turn_off_airplane_mode">విమాన మోడ్‌ను ఆఫ్ చేయండి</string>
+    <string name="incall_error_no_active_sim">"SIM కార్డ్ యాక్టివేట్ కాలేదు"</string>
+    <string name="emergency_enable_radio_dialog_title">అత్యవసర కాల్</string>
+    <string name="dial_emergency_error"><xliff:g id="non_emergency_number">%s</xliff:g> అత్యవసర నంబర్ కాదు.</string>
+    <string name="dial_emergency_empty_error">మీరు నమోదు చేసిన నంబర్ అత్యవసర నంబర్‌గా నమోదు కాలేదు. అత్యవసర నంబర్‌కు డయల్ చేయండి.</string>
+    <string name="importSimEntry">దిగుమతి చేయి</string>
+    <string name="importAllSimEntries">అన్నీ దిగుమతి చేయి</string>
+    <string name="importingSimContacts">సిమ్ పరిచయాలను దిగుమతి చేస్తోంది</string>
+    <string name="importToFDNfromContacts">పరిచయాల నుండి దిగుమతి చేయి</string>
+    <string name="hac_mode_title">వినికిడి పరికరాలు</string>
+    <string name="hac_mode_summary">వినికిడి పరికరం అనుకూలతను ఆన్ చేయండి</string>
+    <string name="dtmf_tones_title">DTMF టోన్‌లు</string>
+    <string name="dtmf_tones_summary">DTMF టోన్‌ల నిడివిని సెట్ చేయండి</string>
+    <string name="xdivert_title">ఎక్స్-డైవర్ట్</string>
+    <string name="xdivert_summary">CFNRc సెట్టింగ్‌లు</string>
+    <string name="phone_numbers">ఫోన్ నంబర్‌లను నమోదు చేయండి</string>
+    <string name="sub1LineNumber">సబ్1 నంబర్:</string>
+    <string name="sub2LineNumber">సబ్2 నంబర్:</string>
+    <string name="proceed">కొనసాగించు</string>
+    <string name="xdivert_button">ఎక్స్-డైవర్ట్ సెట్టింగ్‌లు</string>
+    <string name="xdivert_setting">ఎక్స్-డైవర్ట్ సెట్టింగ్‌లు</string>
+    <string name="sum_xdivert_enabled">ఎక్స్-డైవర్ట్ ఆన్‌లో ఉంది</string>
+    <string name="sum_xdivert_disabled">ఎక్స్-డైవర్ట్ ఆఫ్‌లో ఉంది</string>
+    <string name="network_message">నెట్‌వర్క్ సందేశం</string>
+    <string name="managed_roaming_title">నిర్వహణీయ రోమింగ్</string>
+    <string name="managed_roaming_title_sub1">నిర్వహణీయ రోమింగ్ (సబ్1)</string>
+    <string name="managed_roaming_title_sub2">నిర్వహణీయ రోమింగ్ (సబ్2)</string>
+    <string name="managed_roaming_title_sub3">నిర్వహణీయ రోమింగ్ (సబ్3)</string>
+    <string name="managed_roaming_dialog_content">పరిమిత సేవ గల నెట్‌వర్క్ కనుగొనబడింది. అందుబాటులో ఉన్న నెట్‌వర్క్‌లను చూడాలా?</string>
+    <string name="managed_roaming_dialog_ok_button">చూడండి</string>
+    <string name="managed_roaming_dialog_cancel_button">వద్దు</string>
+    <string name="ota_title_activate">మీ ఫోన్‌ను యాక్టివేట్ చేయండి</string>
+    <string name="ota_touch_activate">మీ ఫోన్ సేవను క్రియాశీలం చేయడానికి ఒక ప్రత్యేక కాల్ చేయాలి.
+    \n\n\u201Cక్రియాశీలం చేయి\u201D నొక్కిన తర్వాత, మీ ఫోన్‌ను క్రియాశీలం చేయడానికి అందించిన సూచనలను వినండి.</string>
+    <string name="ota_hfa_activation_title">యాక్టివేట్ చేస్తోంది\u2026</string>
+    <string name="ota_hfa_activation_dialog_message">మీ మొబైల్ డేటా సేవను యాక్టివేట్ చేయడానికి గరిష్టంగా 5 నిమిషాలు పట్టవచ్చు.</string>
+    <string name="ota_skip_activation_dialog_title">యాక్టివేషన్‌ను దాటవేయాలా\?</string>
+    <string name="ota_skip_activation_dialog_message">మీరు క్రియాశీలం చేసే ప్రక్రియను దాటవేస్తే, కాల్‌లు చేయలేరు లేదా మొబైల్ డేటా నెట్‌వర్క్‌లకు కనెక్ట్ చేయలేరు (అయితే మీరు Wi-Fi నెట్‌వర్క్‌లకు కనెక్ట్ చేయగలరు). మీరు మీ ఫోన్‌ను క్రియాశీలం చేసే వరకు, దాన్ని ఆన్ చేసిన ప్రతిసారి క్రియాశీలం చేయమని మిమ్మల్ని అడుగుతూనే ఉంటుంది.</string>
+    <string name="ota_skip_activation_dialog_skip_label">దాటవేయి</string>
+    <string name="ota_activate">యాక్టివేట్ చేయి</string>
+    <string name="ota_title_activate_success">ఫోన్ విజయవంతంగా యాక్టివేట్ అయ్యింది.</string>
+    <string name="ota_title_problem_with_activation">యాక్టివేట్ చేయలేకపోయాము</string>
+    <string name="ota_listen">చదివి వినిపించిన సూచనలను అనుసరించండి.</string>
+    <string name="ota_speaker">స్పీకర్</string>
+    <string name="ota_progress">మీ ఫోన్ ప్రోగ్రామ్ అవుతున్నప్పుడు వేచి ఉండండి.</string>
+    <string name="ota_failure">ప్రోగ్రామ్ చేయలేకపోయాము</string>
+    <string name="ota_successful">మీ ఫోన్ యాక్టివేట్ అయ్యింది. సేవ ప్రారంభం కావడానికి గరిష్టంగా 15 నిమిషాలు పట్టవచ్చు.</string>
+    <string name="ota_unsuccessful">మీ ఫోన్ క్రియాశీలం కాలేదు.
+    \nమీరు కవరేజీ మెరుగ్గా ఉన్న ప్రాంతాన్ని గుర్తించి, అక్కడ ఉండాలి (కిటికీ దగ్గర లేదా బయటివైపు).
+    \n\nమళ్లీ ప్రయత్నించండి లేదా మరిన్ని ఎంపికల కోసం వినియోగదారు సేవకు కాల్ చేయండి.</string>
+    <string name="ota_spc_failure">అధిక SPC వైఫల్యాలు</string>
+    <string name="ota_call_end">వెనుకకు</string>
+    <string name="ota_try_again">మళ్లీ ప్రయత్నించు</string>
+    <string name="ota_next">తర్వాత</string>
+    <string name="ecm_exit_dialog">Ecm నిష్క్రమణ డైలాగ్</string>
+    <string name="phone_entered_ecm_text">అత్యవసర కాల్‌బ్యాక్ మోడ్‌లోకి ప్రవేశించారు</string>
+    <string name="phone_in_ecm_notification_title">అత్యవసర కాల్‌బ్యాక్ మోడ్</string>
+    <string name="phone_in_ecm_call_notification_text">డేటా కనెక్షన్ ఆఫ్‌లో ఉంది</string>
+    <plurals name="phone_in_ecm_notification_time">
+        <item quantity="one"><xliff:g id="count">%s</xliff:g> నిమిషం పాటు డేటా కనెక్షన్ లేదు</item>
+        <item quantity="other"><xliff:g id="count">%s</xliff:g> నిమిషాలుగా డేటా కనెక్షన్ లేదు</item>
+    </plurals>
+    <plurals name="alert_dialog_exit_ecm">
+        <item quantity="one">ఫోన్ <xliff:g id="count">%s</xliff:g> నిమిషం పాటు అత్యవసర కాల్‌బ్యాక్ మోడ్‌లో ఉంటుంది. ఈ మోడ్‌లో ఉన్నప్పుడు, డేటా కనెక్షన్‌ను ఉపయోగించే అప్లికేషన్‌లు ఏవీ ఉపయోగించలేరు. మీరు ఇప్పుడు నిష్క్రమించాలనుకుంటున్నారా?</item>
+        <item quantity="other">ఫోన్ <xliff:g id="count">%s</xliff:g> నిమిషాల పాటు అత్యవసర కాల్‌బ్యాక్ మోడ్‌లో ఉంటుంది. ఈ మోడ్‌లో ఉన్నప్పుడు, డేటా కనెక్షన్‌ను ఉపయోగించే అప్లికేషన్‌లు ఏవీ ఉపయోగించలేరు. మీరు ఇప్పుడు నిష్క్రమించాలనుకుంటున్నారా?</item>
+    </plurals>
+    <plurals name="alert_dialog_not_avaialble_in_ecm">
+        <item quantity="one">అత్యవసర కాల్‌బ్యాక్ మోడ్‌లో ఉన్నందున ఎంచుకున్న చర్య అందుబాటులో లేదు. ఫోన్ <xliff:g id="count">%s</xliff:g> నిమిషం పాటు ఈ మోడ్‌లో ఉంటుంది. మీరు ఇప్పుడు నిష్క్రమించాలనుకుంటున్నారా?</item>
+        <item quantity="other">అత్యవసర కాల్‌బ్యాక్ మోడ్‌లో ఉన్నందున ఎంచుకున్న చర్య అందుబాటులో లేదు. ఫోన్ <xliff:g id="count">%s</xliff:g> నిమిషాల పాటు ఈ మోడ్‌లో ఉంటుంది. మీరు ఇప్పుడు నిష్క్రమించాలనుకుంటున్నారా?</item>
+    </plurals>
+    <string name="alert_dialog_in_ecm_call">అత్యవసర కాల్‌లో ఉన్నందున ఎంచుకున్న చర్య అందుబాటులో లేదు.</string>
+    <string name="progress_dialog_exiting_ecm">అత్యవసర కాల్‌బ్యాక్ మోడ్ నుండి నిష్క్రమిస్తోంది</string>
+    <string name="alert_dialog_yes">అవును</string>
+    <string name="alert_dialog_no">వద్దు</string>
+    <string name="alert_dialog_dismiss">తీసివేయి</string>
+    <string name="other_settings">ఇతర కాల్ సెట్టింగ్‌లు</string>
+    <string name="selectContact">పరిచయాన్ని ఎంచుకోండి</string>
+    <string name="sip_settings">ఇంటర్నెట్ కాలింగ్</string>
+    <string name="sip_accounts">ఇంటర్నెట్ కాలింగ్ (SIP) ఖాతాలు</string>
+    <string name="sip_accounts_title">SIP ఖాతాలు</string>
+    <string name="sip_receive_calls">మీకు వచ్చే కాల్‌లను స్వీకరించు</string>
+    <string name="sip_receive_calls_summary">బ్యాటరీ జీవితకాలాన్ని తగ్గిస్తుంది</string>
+    <string name="sip_call_options_title">ఇంటర్నెట్ కాలింగ్‌ను ఉపయోగించండి</string>
+    <string name="sip_call_options_wifi_only_title">ఇంటర్నెట్ కాలింగ్‌ను (Wi-Fi మాత్రమే) ఉపయోగించండి</string>
+    <string name="sip_call_options_entry_1">మొబైల్ డేటా అందుబాటులో ఉన్నప్పుడు అన్ని కాల్‌ల కోసం</string>
+    <string name="sip_call_options_entry_2">ఇంటర్నెట్ కాల్‌ల కోసం మాత్రమే</string>
+    <string name="sip_call_options_entry_3">ప్రతి కాల్‌కు అడుగు</string>
+    <string name="sip_call_options_wifi_only_entry_1">అన్ని కాల్‌ల కోసం</string>
+    <string name="pick_outgoing_call_phone_type">కాల్ చేయండి</string>
+    <string name="pick_outgoing_sip_phone">ఇంటర్నెట్ కాలింగ్ ఖాతాను ఉపయోగించు\u0020</string>
+    <string name="remember_my_choice">ఇంటర్నెట్ కాల్‌లు చేయడానికి ఎల్లప్పుడూ ఉపయోగించు</string>
+    <string name="reset_my_choice_hint">మీరు మీ డిఫాల్ట్ ఇంటర్నెట్ కాలింగ్ ఖాతాను ఫోన్ &gt; సెట్టింగ్‌లు &gt; ఇంటర్నెట్ కాలింగ్ &gt; ఖాతాల్లో మార్చవచ్చు.</string>
+    <string name="pstn_phone">సెల్ ఫోన్ కాల్</string>
+    <string name="internet_phone">ఇంటర్నెట్ కాల్</string>
+    <string name="no_sip_account_found_title">ఇంటర్నెట్ కాలింగ్ ఖాతాలు లేవు.</string>
+    <string name="no_sip_account_found">ఈ ఫోన్‌లో ఇంటర్నెట్ కాలింగ్ ఖాతాలు ఏవీ లేవు. మీరు ఇప్పుడు ఒకదాన్ని జోడించాలనుకుంటున్నారా?</string>
+    <string name="sip_menu_add">జోడించు</string>
+    <string name="add_sip_account">ఖాతాను జోడించు</string>
+    <string name="remove_sip_account">ఖాతాను తీసివేయి</string>
+    <string name="sip_account_list">SIP ఖాతాలు</string>
+    <string name="saving_account">సేవ్ చేస్తోంది\u2026</string>
+    <string name="removing_account">తీసివేస్తోంది\u2026</string>
+    <string name="sip_menu_save">సేవ్ చేయి</string>
+    <string name="sip_menu_discard">విస్మరించు</string>
+    <string name="alert_dialog_close">ప్రొఫైల్‌ని మూసివేయండి</string>
+    <string name="alert_dialog_ok">సరే</string>
+    <string name="close_profile">మూసివేయి</string>
+    <string name="primary_account_summary_with">ప్రాథమిక ఖాతా. <xliff:g id="registration_status" example="Registering...">%s</xliff:g></string>
+    <string name="registration_status_checking_status">తనిఖీ చేస్తోంది\u2026</string>
+    <string name="registration_status_registering">నమోదు అవుతోంది\u2026</string>
+    <string name="registration_status_still_trying">ఒక్క సెకను\u2026</string>
+    <string name="registration_status_not_receiving">కాల్‌లను స్వీకరించడం లేదు.</string>
+    <string name="registration_status_no_data">మీరు నెట్‌వర్క్ కనెక్షన్‌ని కలిగి లేరు.</string>
+    <string name="registration_status_no_wifi_data">మీరు Wi-Fi నెట్‌వర్క్‌కు కనెక్ట్ చేయలేదు</string>
+    <string name="registration_status_not_running">ఖాతాను నమోదు చేయలేకపోయాము</string>
+    <string name="registration_status_done">కాల్‌లను స్వీకరిస్తోంది.</string>
+    <string name="registration_status_failed_try_later">ఖాతాను నమోదు చేయలేకపోయాము. <xliff:g id="registration_error_message" example="timed out">%s</xliff:g>)</string>
+    <string name="registration_status_invalid_credentials">మీరు నమోదు చేసిన వినియోగదారు పేరు లేదా పాస్‌వర్డ్ చెల్లదు.</string>
+    <string name="registration_status_server_unreachable">ఖాతాను నమోదు చేయలేకపోయాము. మీరు నమోదు చేసిన సర్వర్ పేరు సరైనదో కాదో నిర్ధారించుకోండి.</string>
+    <string name="third_party_account_summary">ఈ ఖాతాను <xliff:g id="account_owner" example="Google Talk">%s</xliff:g> ఉపయోగిస్తోంది.</string>
+    <string name="sip_edit_title">SIP ఖాతా వివరాలు</string>
+    <string name="sip_edit_new_title">SIP ఖాతా వివరాలు</string>
+    <string name="domain_address_title">సర్వర్</string>
+    <string name="username_title">వినియోగదారు పేరు</string>
+    <string name="password_title">పాస్‌వర్డ్</string>
+    <string name="display_name_title">ప్రదర్శిత పేరు</string>
+    <string name="proxy_address_title">అవుట్‌బౌండ్ ప్రాక్సీ చిరునామా</string>
+    <string name="port_title">పోర్ట్ సంఖ్య</string>
+    <string name="transport_title">బదిలీ రకం</string>
+    <string name="send_keepalive_title">కీప్-అలైవ్ పంపు</string>
+    <string name="set_primary_title">ప్రాథమిక ఖాతాగా సెట్ చేయి</string>
+    <string name="set_primary_summary">అవుట్‌బౌండ్ కాల్‌ల కోసం ఉపయోగించబడుతుంది</string>
+    <string name="advanced_settings">ఐచ్ఛిక సెట్టింగ్‌లు</string>
+    <string name="auth_username_title">ప్రామాణీకరణ వినియోగదారు పేరు</string>
+    <string name="auth_username_summary">ప్రామాణీకరణ కోసం ఉపయోగించిన వినియోగదారు పేరు</string>
+    <string name="default_preference_summary">&lt;సెట్ చేయలేదు&gt;</string>
+    <string name="display_name_summary">&lt;వినియోగదారు పేరుగా ఉండేది&gt;</string>
+    <string name="optional_summary">&lt;ఐచ్ఛికం&gt;</string>
+    <string name="advanced_settings_show">▷ అన్నీ చూపడానికి తాకండి</string>
+    <string name="advanced_settings_hide">▽ అన్నీ దాచడానికి తాకండి</string>
+    <string name="empty_alert"><xliff:g id="input_field_name" example="Username, Password...">%s</xliff:g>ని ఖాళీగా వదిలివేయకూడదు.</string>
+    <string name="not_a_valid_port">పోర్ట్ సంఖ్య 1000 మరియు 65534 మధ్య ఉండాలి.</string>
+    <string name="no_internet_available_title">ఇంటర్నెట్ కనెక్షన్ లేదు</string>
+    <string name="no_wifi_available_title">Wi-Fi కనెక్షన్ లేదు</string>
+    <string name="no_internet_available">ఇంటర్నెట్ కాల్ చేయడానికి, మీరు ఇంటర్నెట్ కనెక్షన్‌ను కలిగి ఉండాలి.</string>
+    <string name="no_wifi_available">మీరు ఇంటర్నెట్ కాల్‌లు చేయడానికి Wi-Fi నెట్‌వర్క్‌కి కనెక్ట్ చేయబడి ఉండాలి (వైర్‌లెస్ మరియు నెట్‌వర్క్ సెట్టింగ్‌లను ఉపయోగించండి).</string>
+    <string name="no_voip">ఇంటర్నెట్ కాలింగ్‌కు మద్దతు లేదు</string>
+    <string name="no_volte">IMS కాల్ చేయలేకపోయాము</string>
+    <string name="no_vt_allowed">వీడియో కాల్ చేయడానికి, TTY మోడ్‌ను ఆఫ్ చేయండి</string>
+    <string translatable="true" name="sip_system_decide">స్వయం</string>
+    <string translatable="true" name="sip_always_send_keepalive">ఎల్లప్పుడూ పంపు</string>
+    <string name="ims_edit_title">IMS ఖాతా వివరాలు</string>
+    <string name="ims_accounts_title">IMS ఖాతా</string>
+    <string name="mo_call_type_title">MO కాల్ రకం</string>
+    <string name="ims_service_capability">సేవ సామర్థ్యం</string>
+    <string name="ims_service_capability_title">IMS సేవ సామర్థ్యం</string>
+    <string name="ims_menu_save">సేవ్ చేయి</string>
+    <string name="ims_menu_discard">విస్మరించు</string>
+    <string name="remove_ims_account">ఖాతాను తీసివేయి</string>
+    <string name="not_voice_capable">వాయిస్ కాలింగ్‌కు మధ్దతు లేదు</string>
+    <string name="respond_via_sms_canned_response_1">ఇప్పుడు మాట్లాడలేను. నాకు తర్వాత కాల్ చేస్తారా?</string>
+    <string name="respond_via_sms_canned_response_2">నేను మీకు మళ్లీ కాల్ చేస్తాను.</string>
+    <string name="respond_via_sms_canned_response_3">నేను తర్వాత కాల్ చేస్తాను.</string>
+    <string name="respond_via_sms_canned_response_4">ఇప్పుడు మాట్లాడలేను. విషయమేమిటి?</string>
+    <string name="respond_via_sms_cannot_empty">తిరస్కరణ సందేశాలు ఖాళీగా ఉండకూడదు</string>
+    <string name="respond_via_sms_setting_title">శీఘ్ర ప్రతిస్పందనలు</string>
+    <string name="respond_via_sms_setting_summary">ముందే వ్రాసిన టెక్స్ట్ ప్రతిస్పందనలను సవరించండి</string>
+    <string name="respond_via_sms_edittext_dialog_title">శీఘ్ర ప్రతిస్పందన</string>
+    <string name="respond_via_sms_menu_reset_default_activity">డిఫాల్ట్‌లను పునరుద్ధరించు</string>
+    <string name="respond_via_sms_confirmation_format"><xliff:g id="phone_number">%s</xliff:g>కి సందేశం పంపబడింది.</string>
+    <string name="description_image_button_one">ఒకటి</string>
+    <string name="description_image_button_two">రెండు</string>
+    <string name="description_image_button_three">మూడు</string>
+    <string name="description_image_button_four">నాలుగు</string>
+    <string name="description_image_button_five">ఐదు</string>
+    <string name="description_image_button_six">ఆరు</string>
+    <string name="description_image_button_seven">ఏడు</string>
+    <string name="description_image_button_eight">ఎనిమిది</string>
+    <string name="description_image_button_nine">తొమ్మిది</string>
+    <string name="description_image_button_star">నక్షత్రం</string>
+    <string name="description_image_button_zero">సున్నా</string>
+    <string name="description_image_button_pound">పౌండ్</string>
+    <string name="description_dial_button">డయల్ చేయి</string>
+    <string name="description_delete_button">బ్యాక్‌స్పేస్</string>
+    <string name="ringtone_title" msgid="5379026328015343686">ఫోన్ రింగ్‌టోన్</string>
+    <string name="vibrate_on_ring_title">రింగ్ అవుతున్నప్పుడు వైబ్రేషన్</string>
+    <string name="dtmf_tone_enable_title">డయల్ ప్యాడ్ టచ్ టోన్‌లు</string>
+    <string name="dial_pad_autocomplete">డయల్ ప్యాడ్ స్వయంపూర్తి</string>
+    <string name="preference_category_ringtone">రింగ్‌టోన్ మరియు వైబ్రేషన్</string>
+    <string name="set_subscription">సబ్‌స్క్రిప్షన్‌లను ఎంచుకోండి</string>
+    <string name="place_a_call1">సబ్‌స్క్రిప్షన్ 1</string>
+    <string name="place_a_call2">సబ్‌స్క్రిప్షన్ 2</string>
+    <string name="place_a_call3">సబ్‌స్క్రిప్షన్ 3</string>
+    <string name="cancel_call">రద్దు చేయి</string>
+    <string name="sip_add_account_tip_text">ఇంటర్నెట్ కాలింగ్‌ను ఉపయోగించడానికి, SIP ఖాతాను జోడించండి</string>
+    <string name="clir_choices_network_default">నెట్‌వర్క్ డిఫాల్ట్</string>
+    <string name="clir_choices_hide_number">నంబర్‌ని దాచు</string>
+    <string name="clir_choices_show_number">నంబర్‌ని చూపు</string>
+    <string name="tty_mode_entries_full">TTY పూర్తి</string>
+    <string name="tty_mode_entries_hco">TTY HCO</string>
+    <string name="tty_mode_entries_off">TTY ఆఫ్‌లో ఉంది</string>
+    <string name="tty_mode_entries_vco">TTY VCO</string>
+    <string name="dtmf_tone_entries_normal">సాధారణం</string>
+    <string name="dtmf_tone_entries_long">ఎక్కువ నిడివి</string>
+    <string name="contactScreen"> సిమ్ పరిచయాన్ని జోడించు/సవరించు</string>
+    <string name="exportContactScreen"> ఫోన్ పరిచయాలను సిమ్‌కు ఎగుమతి చేయండి </string>
+    <string name="addSimEntries"> సిమ్ పరిచయాన్ని జోడించు</string>
+    <string name="deleteAllSimEntries"> అన్ని సిమ్ పరిచయాలను తొలగించు</string>
+    <string name="deleteSimContacts">తొలగిస్తోంది\u2026</string>
+    <string name="editContact"> సవరించు</string>
+    <string name="sendSms"> SMS పంపు</string>
+    <string name="delete"> తొలగించు</string>
+    <string name="dial"> డయల్ చేయి</string>
+    <string name="enterName"> పేరు:</string>
+    <string name="enterNumber"> ఫోన్ నంబర్:</string>
+    <string name="contactAddSuccess"> సిమ్‌కు పరిచయం జోడించబడింది </string>
+    <string name="contactAddFailed"> సిమ్‌కు పరిచయాన్ని జోడించలేము </string>
+    <string name="contactUpdateSuccess"> సిమ్‌లో పరిచయం అప్‌డేట్ అయ్యింది </string>
+    <string name="contactUpdateFailed"> సిమ్‌లో పరిచయం అప్‌డేట్ అయ్యింది </string>
+    <string name="contactdeleteSuccess"> సిమ్ నుండి పరిచయం తొలగించబడింది </string>
+    <string name="contactdeleteFailed"> సిమ్ నుండి పరిచయాన్ని తొలగించలేము</string>
+    <string name="allContactdeleteSuccess"> సిమ్ నుండి అన్ని పరిచయాలు తొలగించబడ్డాయి </string>
+    <string name="allContactdeleteFailed"> సిమ్ నుండి పరిచయాలను తొలగించలేము </string>
+    <string name="exportAllcontatsSuccess"> సిమ్‌కు అన్ని పరిచయాలు ఎగుమతి అయ్యాయి </string>
+    <string name="exportAllcontatsFailed"> సిమ్‌కు అన్ని పరిచయాలను ఎగుమతి చేయి </string>
+    <string name="exportAllcontatsNoContacts"> పరిచయాలు ఏవీ కనుగొనబడలేదు </string>
+    <string name="cursorError"> కర్సర్ లోపం </string>
+    <string name="alertdialogtitle"> ఫలితాలు </string>
+    <string name="name_hint_text">పేరు</string>
+    <string name="phone_number_hint_text">ఫోన్ నంబర్</string>
+    <string name="sim_contact_name">పేరు</string>
+    <string name="sim_contact_number">నంబర్</string>
+    <string name="pin2_invalid_or_name_is_too_long">మీరు చెల్లని PINని నమోదు చేసారు లేదా నమోదు చేసిన పేరు చాలా పొడవుగా ఉంది.</string>
+    <string name="voice_privacy">వాయిస్ గోప్యత</string>
+    <string name="back">వెనుకకు</string>
+    <string name="add">జోడించు</string>
+    <string name="undefined">ఏదీ కాదు</string>
+    <string name="remove">తొలగించు</string>
+    <string name="telocation_setting">ప్రదేశ సెట్టింగ్‌లు</string>
+    <string name="telocation_show_settings">ప్రదర్శన సెట్టింగ్‌లు</string>
+    <string name="telocation_enable_title">ప్రదేశాన్ని చూపు</string>
+    <string name="telocation_custom_location_title">నా ప్రదేశాలు</string>
+    <string name="telocation_custom_location_summary">సేవ్ చేసిన ప్రాంతం కోడ్‌లు మరియు సమూహం నంబర్‌లను నిర్వహించండి</string>
+    <string name="telocation_call_assistant">డయలింగ్ సహాయకం</string>
+    <string name="telocation_contacts_countrycode">డిఫాల్ట్ దేశం కోడ్</string>
+    <string name="telocation_contacts_countrycode_hint">దేశం కోడ్‌ను నమోదు చేయండి</string>
+    <string name="telocation_contacts_countrycode_summary">పరిచయాల డిఫాల్ట్ దేశం కోడ్ %s</string>
+    <string name="telocation_auto_country_code">దేశం కోడ్‌ను జోడించండి</string>
+    <string name="telocation_auto_country_code_summary">పరిచయాలకు డయల్ చేసే ముందు స్వయంగా దేశం కోడ్‌ను జోడించండి</string>
+    <string name="telocation_countrycode_alert_message_warning">మీరు నమోదు చేసిన దేశం కోడ్ చెల్లనిది కావచ్చు.</string>
+    <string name="telocation_countrycode_alert_title">హెచ్చరిక</string>
+    <string name="telocation_countrycode_alert_message_wrong">మీరు నమోదు చేసిన దేశం కోడ్ చెల్లదు.</string>
+    <string name="telocation_custom_empty">"జోడించు (+) బటన్‌ను తాకడం ద్వారా నంబర్‌ను జోడించండి"</string>
+    <string name="telocation_edit_custom_location_title">ప్రదేశాన్ని కాన్ఫిగర్ చేయండి</string>
+    <string name="telocation_custom_number_hint">ప్రాంతం కోడ్ లేదా సమూహం నంబర్</string>
+    <string name="telocation_custom_name_hint">పేరు</string>
+    <string name="telocation_number_type">నంబర్ రకం</string>
+    <string name="telocation_number_type_jituan"> సమూహం నంబర్</string>
+    <string name="telocation_number_type_mob">మొబైల్ ఫోన్</string>
+    <string name="telocation_number_type_tel">ల్యాండ్‌లైన్</string>
+    <string name="telocation_countrycode_alert_message">దేశం కోడ్ లేకుండా ఫోన్ నంబర్‌ను నమోదు చేయండి</string>
+    <string name="telocation_confim_delete_title">ఈ సందేశాన్ని తొలగించాలా?</string>
+    <string name="telocation_error_message_number">%s సంఖ్యలకు మాత్రమే మద్దతిస్తుంది</string>
+    <string name="telocation_jituan_error_message_number">%s సంఖ్యలు మరియు వైల్డ్‌కార్డ్‌లకు మాత్రమే మద్దతిస్తుంది</string>
+    <string name="call_description_recording">రికార్డ్ అవుతోంది\u2026</string>
+    <string name="call_record_auto_whitelist_no_item">జోడించు (+) బటన్‌ను తాకడం ద్వారా నంబర్‌ను జోడించండి</string>
+    <string name="call_record_auto_whitelist">అనుకూల జాబితా</string>
+    <string name="call_record_auto_unknown_number">తెలియని నంబర్‌లు</string>
+    <string name="auto_record_yellowpage">డైరెక్టరీ</string>
+    <string name="call_record_auto_title">కాల్‌లను స్వయంగా రికార్డ్ చేయండి</string>
+    <string name="call_record_auto_summary">రికార్డింగ్‌లు మీ పరికర అంతర్గత మెమరీలోని MIUI/sound_recorder/call_rec ఫోల్డర్‌లో సేవ్ అవుతాయి</string>
+    <string name="call_record_auto_scenario_title">దీని నుండి కాల్‌లను రికార్డ్ చేయండి</string>
+    <string name="call_record_whitelist_custom">ఎంచుకున్న నంబర్‌లు</string>
+    <string name="call_record_auto_whitelist_summary_for_one">1 నంబర్</string>
+    <string name="call_record_auto_whitelist_summary"> %d నంబర్‌లు</string>
+    <string name="call_recording_notification_title">కాల్ రికార్డ్ అయ్యింది</string>
+    <string name="call_recording_notification_title_error">కాల్‌ను రికార్డ్ చేయలేకపోయాము</string>
+    <string name="call_recording_setting">కాల్ రికార్డింగ్</string>
+    <string name="call_recording_notification_toggle_title">కాల్ రికార్డింగ్ నోటిఫికేషన్</string>
+    <plurals name="call_recording_notification_complete">
+        <item quantity="one">1 call recorded.</item>
+        <item quantity="other">%d calls recorded.</item>
+    </plurals>
+    <string name="call_recording_notification_summary">కాల్ రికార్డ్ అయ్యిన తర్వాత నోటిఫికేషన్‌ను చూపు</string>
+    <string name="call_recording_notification_message_low_storage">SD కార్డ్ నిండింది.</string>
+    <string name="call_recording_notification_message">వినడానికి తాకండి.</string>
+    <string name="call_recording_notification_message_sd_unmounted">SD కార్డ్ తీసివేయబడింది.</string>
+    <string name="call_record_add_numbers">నంబర్‌లను జోడించండి</string>
+    <string name="call_remove_exception_numbers_confirm">%d నంబర్‌లు తొలగించబడతాయి.</string>
+    <string name="call_record_auto_always">అన్ని నంబర్‌లు</string>
+    <string name="call_record_on_summary">కాల్‌లు స్వయంగా రికార్డ్ అవుతాయి</string>
+    <string name="call_record_off_summary">కాల్ రికార్డింగ్ ఆఫ్ అయింది</string>
+    <string name="autoip">స్వయం IP డయలింగ్</string>
+    <string name="autoip_prefix">IP ఆదిప్రత్యయం</string>
+    <string name="autoip_prefix_summary">క్యారియర్ IP ఆదిప్రత్యయం %s</string>
+    <string name="autoip_autoip_current_areacode_summary">\"ప్రస్తుత ప్రాంతం కోడ్ \"<xliff:g id="areacode_be_set">%s</xliff:g></string>
+    <string name="autoip_setting">స్వయం IP సెట్టింగ్‌లు</string>
+    <string name="autoip_summary">విదేశీ నంబర్‌కు IP ఆదిప్రత్యయాన్ని జోడించండి</string>
+    <string name="autoip_current_areacode">ప్రస్తుత ప్రాంతం కోడ్</string>
+    <string name="autoip_current_areacode_summary">మీ ప్రస్తుత ప్రదేశం యొక్క ప్రాంత కోడ్</string>
+    <string name="autoip_support_local_numbers">ఎల్లప్పుడూ IP ఆదిప్రత్యయాన్ని ఉపయోగించు</string>
+    <string name="autoip_add_zero_prefix">మొబైల్‌కు 0 ఆదిప్రత్యయాన్ని జోడించండి</string>
+    <string name="autoip_exception">IP ఆదిప్రత్యయం అవసరం లేని నంబర్‌లు</string>
+    <string name="autoip_exception_summary"> %d మొత్తం</string>
+    <string name="autoip_exception_summary_more">, %d మొత్తం</string>
+    <string name="autoip_no_exceptions">IP ఆదిప్రత్యయం అవసరం లేని నంబర్‌లను జోడించండి</string>
+    <string name="autoip_areacode_required">ప్రాంతం కోడ్ అవసరం</string>
+    <string name="autoip_areacode_required_accept">సరే</string>
+    <string name="emergency_call_area_code_edit_dialog_hint">ప్రాంతం కోడ్ నమోదు చేయండి</string>
+    <string name="autoip_areacode_required_for_emergency_number">అత్యవసర కాల్‌ల కోసం స్థానిక ప్రాంతం కోడ్ అవసరం</string>
+    <string name="emergency_call_area_code_edit_dialog_button">కాల్ చేయి</string>
+    <string name="dial_related_setting_catory">డయల్ చేయి</string>
+    <string name="t9_indexing_method_title">T9 శోధన ఇన్‌పుట్</string>
+    <string name="t9_indexing_method_pinyin">పిన్యిన్</string>
+    <string name="t9_indexing_method_zhuyin">జుయిన్</string>
+    <string name="t9_indexing_rebuilding_message">T9 సూచికలను పునర్నిర్మిస్తోంది\u2026</string>
+    <string name="auto_redial_pref_title">స్వయం-రీడయల్</string>
+    <string name="auto_redial_pref_summary">లైన్ బిజీగా ఉంటే, స్వయంగా రీడయల్ చేయి</string>
+    <string name="auto_retry_mode_title">స్వయం-పునఃప్రయత్నం</string>
+    <string name="auto_retry_mode_summary">స్వయం-పునఃప్రయత్నం మోడ్‌ను ఆన్ చేయండి</string>
+    <string name="answer_features_setting_category">సమాధానం</string>
+    <string name="auto_answer_setting_title">స్వయం-సమాధానం సెట్టింగ్‌లు</string>
+    <string name="auto_answer_pref_title">స్వయం-సమాధానం</string>
+    <string name="auto_answer_pref_summary">నాకు వచ్చే కాల్‌లకు స్వయంగా సమాధానమివ్వు</string>
+    <string name="auto_answer_delay_title">స్వయం-సమాధానం జాప్యం చేయి</string>
+    <string name="auto_answer_delay_entries_immediately">జాప్యం వద్దు</string>
+    <string name="auto_answer_delay_entries_delay_3s">3 సెకన్లు</string>
+    <string name="auto_answer_delay_entries_delay_5s">5 సెకన్లు</string>
+    <string name="auto_answer_delay_entries_delay_10s">10 సెకన్లు</string>
+    <string name="auto_answer_scenario_title">స్వయం-సమాధానం సెట్టింగ్‌లు</string>
+    <string name="auto_answer_scenario_enteries_always">ఎల్లప్పుడూ</string>
+    <string name="auto_answer_scenario_enteries_headset_only">హెడ్‌సెట్ మాత్రమే</string>
+    <string name="auto_answer_scenario_enteries_bluetooth_only">బ్లూటూత్ మాత్రమే</string>
+    <string name="auto_answer_scenario_enteries_headset_bluetooth">హెడ్‌సెట్ లేదా బ్లూటూత్ మాత్రమే</string>
+    <string name="auto_answer_summary_not_enabled">ఆఫ్</string>
+    <string name="auto_answer_summary_delay">" (జాప్యం: %s సెకన్లు)"</string>
+    <string name="answer_state_setting_title">మీకు వచ్చే కాల్ సెట్టింగ్‌లు</string>
+    <string name="answer_state_setting_summary">మీకు వచ్చే కాల్ అదనపు సెట్టింగ్‌లు</string>
+    <string name="turnover_mute_title">రింగ్ శబ్దం ఆపివేయడానికి తిప్పండి</string>
+    <string name="turnover_mute_summary">ఫోన్ అడ్డంగా తిప్పి ఉన్నప్పుడు, రింగ్ శబ్దం ఆపివేయడానికి దాన్ని వెనుకవైపుకి తిప్పండి</string>
+    <string name="handon_ringer_summary">ఫోన్ ఎత్తి ఉన్నప్పుడు మీకు వచ్చే కాల్ యొక్క రింగర్ శబ్ద స్థాయిని తగ్గించండి. మీకు వచ్చే కాల్‌ల కోసం వైబ్రేషన్ ఆన్‌లో ఉన్నప్పుడు ఈ ఫీచర్ పని చేయదు.</string>
+    <string name="handon_ringer_title">ఎత్తి ఉన్నప్పుడు రింగర్ శబ్దం ఆపివేయి</string>
+    <string name="flash_when_ring_summary">Flash notification light for incoming calls</string>
+    <string name="flash_when_ring_title">Flash when ringing</string>
+    <string name="enable_proximity_summary">కాల్‌ల్లో ఉన్నప్పుడు స్క్రీన్‌ను ఆఫ్ చేయి</string>
+    <string name="enable_proximity_title">సామీప్య సెన్సార్</string>
+    <string name="pocket_mode_summary">జేబులో పెట్టినప్పుడు స్వయంగా లాక్ చేయి</string>
+    <string name="pocket_mode_title">జేబులో ఉన్నప్పుడు పొరపాటున వెళ్లే డయల్‌లను నిరోధించు</string>
+    <string name="antispam_notification_title">తెలియని నంబర్</string>
+    <string name="enable_antispam_strange_title">మొదటి రింగ్‌కి మ్యూట్ చేయి</string>
+    <string name="enable_antispam_strange_summary">తెలియని నంబర్‌ల నుండి వచ్చే కాల్‌లను మొదటి రింగ్‌కి మ్యూట్ చేయి</string>
+    <string name="reject_via_sms">శీఘ్ర ప్రతిస్పందనలు</string>
+    <string name="reject_via_sms_summary">ముందే వ్రాసిన టెక్స్ట్ సందేశాలను సవరించండి</string>
+    <string name="reject_via_sms_title">శీఘ్ర ప్రతిస్పందనలు</string>
+    <string name="missed_call_notify_times_title">మిస్‌డ్ కాల్ రిమైండర్‌లు</string>
+    <string name="missed_call_notify_times_summary">మిస్‌డ్ కాల్‌ల గురించి మీకు ఎన్నిసార్లు గుర్తు చేయాలో ఎంచుకోండి (రిమైండర్‌ల మధ్య 5 నిమిషాల విరామం ఉంటుంది)</string>
+    <string name="missed_call_notify_none">రిమైండర్ వద్దు</string>
+    <string name="missed_call_notify_once">1 సారి</string>
+    <string name="missed_call_notify_twice">2 సార్లు</string>
+    <string name="missed_call_notify_thrice">3 సార్లు</string>
+    <string name="missed_call_notify_five_times">5 సార్లు</string>
+    <string name="missed_call_notify_ten_times">10 సార్లు</string>
+    <string name="labelCF">కాల్ ఫార్వార్డింగ్</string>
+    <string name="labelCFU">కాల్‌లను ఎల్లప్పుడూ ఫార్వార్డ్ చేయి</string>
+    <string name="messageCFU">కాల్‌లను దీనికి ఫార్వార్డ్ చేయి</string>
+    <string name="sum_cfu_enabled_indicator">అన్ని కాల్‌లను ఫార్వార్డ్ చేస్తోంది</string>
+    <string name="sum_cfu_enabled">అన్ని కాల్‌లను <xliff:g id="phonenumber" example="555-1212">{0}</xliff:g>కి ఫార్వార్డ్ చేస్తోంది</string>
+    <string name="sum_cfu_enabled_no_number">నంబర్ అందుబాటులో లేదు</string>
+    <string name="sum_cfu_disabled">ఆఫ్</string>
+    <string name="labelCFB">బిజీగా ఉన్నప్పుడు ఫార్వార్డ్ చేయి</string>
+    <string name="messageCFB">కాల్‌లను దీనికి ఫార్వార్డ్ చేయి</string>
+    <string name="sum_cfb_enabled"><xliff:g id="phonenumber" example="555-1212">{0}</xliff:g>కి ఫార్వార్డ్ చేస్తోంది</string>
+    <string name="sum_cfb_disabled">ఆఫ్</string>
+    <string name="disable_cfb_forbidden">మీ ఫోన్ బిజీగా ఉన్నప్పుడు కాల్ ఫార్వార్డింగ్‌ను ఆఫ్ చేయడానికి మీ క్యారియర్‌లో మద్దతు లేదు.</string>
+    <string name="labelCFNRy">సమాధానమివ్వనప్పుడు ఫార్వార్డ్ చేయి</string>
+    <string name="messageCFNRy">కాల్‌లను దీనికి ఫార్వార్డ్ చేయి</string>
+    <string name="sum_cfnry_enabled"><xliff:g id="phonenumber" example="555-1212">{0}</xliff:g>కి ఫార్వార్డ్ చేస్తోంది</string>
+    <string name="sum_cfnry_disabled">ఆఫ్</string>
+    <string name="disable_cfnry_forbidden">సమాధానమివ్వని కాల్‌ల కోసం కాల్ ఫార్వార్డింగ్‌ను ఆఫ్ చేయడానికి మీ క్యారియర్‌లో మద్దతు లేదు.</string>
+    <string name="labelCFNRc">చేరుకోలేనప్పుడు ఫార్వార్డ్ చేయి</string>
+    <string name="messageCFNRc">కాల్‌లను దీనికి ఫార్వార్డ్ చేయి</string>
+    <string name="sum_cfnrc_enabled"><xliff:g id="phonenumber" example="555-1212">{0}</xliff:g>కి ఫార్వార్డ్ చేస్తోంది</string>
+    <string name="sum_cfnrc_disabled">ఆఫ్</string>
+    <string name="disable_cfnrc_forbidden">మీ ఫోన్‌ను చేరుకోలేనప్పుడు కాల్ ఫార్వార్డింగ్‌ను ఆఫ్ చేయడానికి మీ క్యారియర్‌లో మద్దతు లేదు.</string>
+    <string name="call_forwarding_settings">కాల్ ఫార్వార్డింగ్</string>
+    <string name="call_forwarding_number_hint">కాల్‌లను దీనికి ఫార్వార్డ్ చేయి</string>
+    <string name="cfu_title">కాల్‌లను ఎల్లప్పుడూ ఫార్వార్డ్ చేయి</string>
+    <string name="cfb_title">బిజీగా ఉన్నప్పుడు ఫార్వార్డ్ చేయి</string>
+    <string name="cfnrc_title_cta">చేరుకోలేనప్పుడు ఫార్వార్డ్ చేయి</string>
+    <string name="cfnrc_title">చేరుకోలేనప్పుడు ఫార్వార్డ్ చేయి</string>
+    <string name="cfnry_title">సమాధానమివ్వనప్పుడు ఫార్వార్డ్ చేయి</string>
+    <string name="disable_all_cf">అన్ని కాల్ ఫార్వార్డింగ్ ఫీచర్‌లను ఆఫ్ చేయండి</string>
+    <string name="call_settings_category">కాల్‌లు</string>
+    <string name="connect_disconnect_vibrate_title">మీ కాల్‌కు సమాధానమిచ్చినప్పుడు వైబ్రేషన్</string>
+    <string name="connect_disconnect_vibrate_summary">మీరు కాల్ చేస్తున్న వ్యక్తి మీ కాల్‌కు సమాధానమిచ్చినప్పుడు వైబ్రేషన్</string>
+    <string name="connect_disconnect_vibrate_none">ఏదీ వద్దు</string>
+    <string name="connect_disconnect_vibrate_normal">సాధారణం</string>
+    <string name="connect_disconnect_vibrate_weak">స్వల్పం </string>
+    <string name="lable_call_barring">కాల్ నిషేధం </string>
+    <string name="lable_all_outgoing">మీరు చేసిన అన్ని కాల్‌లు</string>
+    <string name="lable_all_outgoing_international">మీరు చేసిన అంతర్జాతీయ కాల్‌లు</string>
+    <string name="lable_all_out_except">స్వదేశ PLMNకి మినహా అంతర్జాతీయంగా మీరు చేసే కాల్‌లు</string>
+    <string name="lable_all_incoming">మీకు వచ్చిన అన్ని కాల్‌లు</string>
+    <string name="lable_incoming_calls_except">రోమింగ్‌లో ఉన్నప్పుడు మీకు వచ్చే కాల్‌లు</string>
+    <string name="deactivate_all">అన్నీ రద్దు చేయి</string>
+    <string name="change_password">నిషేధం పాస్‌వర్డ్‌ను మార్చండి</string>
+    <string name="call_barring_sum">వాయిస్ కాల్ నిషేధం సెట్టింగ్‌లు</string>
+    <string name="lable_disable">ఆఫ్</string>
+    <string name="lable_enable">ఆన్</string>
+    <string name="old_password_label">ప్రస్తుత 4-అంకెల పాస్‌వర్డ్</string>
+    <string name="new_password_label">కొత్త 4-అంకెల పాస్‌వర్డ్</string>
+    <string name="invalid_password">4 సంఖ్యల పొడవు ఉండే పాస్‌వర్డ్‌ను నమోదు చేయండి</string>
+    <string name="confirm_password_label">కొత్త పాస్‌వర్డ్‌ను నిర్ధారించండి</string>
+    <string name="mismatch_password">మీరు నమోదు చేసిన పాస్‌వర్డ్‌లు సరిపోలలేదు</string>
+    <string name="password_changed">పాస్‌వర్డ్ మారింది</string>
+    <string name="enter_callbarring_password">కాల్ నిషేధం పాస్‌వర్డ్‌ను (4 అంకెలు) నమోదు చేయండి</string>
+    <string name="wrong_password">మీరు నమోదు చేసిన పాస్‌వర్డ్ చెల్లదు</string>
+    <string name="call_waiting_title">కాల్ నిరీక్షణ</string>
+    <string name="call_waiting_summary">కాల్‌లో ఉన్నప్పుడు, నాకు వచ్చే ఇతర కాల్‌ల గురించి తెలియజేయి</string>
+    <string name="call_waiting_tone_title">కాల్ నిరీక్షణ నోటిఫికేషన్</string>
+    <string name="call_waiting_tone_continuously">నోటిఫికేషన్ శబ్దాన్ని నిరంతరంగా ప్లే చేయి</string>
+    <string name="call_waiting_tone_twice_only">నోటిఫికేషన్ శబ్దాన్ని రెండుసార్లు ప్లే చేయి</string>
+    <string name="call_waiting_tone_twice_and_vibrate">రెండుసార్లు నోటిఫికేషన్ శబ్దాన్ని ప్లే చేయి మరియు వైబ్రేట్ చేయి</string>
+    <string name="cdma_display_precise_call_state_title">కాల్ స్థితిని ప్రదర్శించు</string>
+    <string name="cdma_display_precise_call_state_summary">మీ నెట్‌వర్క్ ప్రదాత ఈ విధికి మద్దతిస్తారో లేదో నిర్ధారించుకోండి</string>
+    <string name="cdma_display_precise_call_state_message">మీ నెట్‌వర్క్ ప్రదాత ఈ విధికి మద్దతివ్వకపోతే, కాల్ స్థితి నిర్దిష్టంగా ఉండకపోవచ్చు.</string>
+    <string name="other_settings_category">ఇతరం</string>
+    <string name="caller_id_title">కాలర్ ID</string>
+    <string name="caller_id_summary">నేను చేసే కాల్‌ల్లో నా నంబర్ దాచు (మీ క్యారియర్‌లో ఈ ఫీచర్‌కి మద్దతు ఉందో లేదో నిర్ధారించుకోండి)</string>
+    <string name="get_smsc_address_error">"నెట్‌వర్క్‌కు కనెక్ట్ చేయలేము."</string>
+    <string name="get_smsc_address_timeout">కనెక్షన్ గడువు సమయం ముగిసింది</string>
+    <string name="set_smsc_address_error">నంబర్‌ను సెట్ చేయలేము</string>
+    <string name="set_smsc_address_timeout">కనెక్షన్ గడువు సమయం ముగిసింది</string>
+    <string name="set_smsc_address_title">SMS కేంద్రం నంబర్‌ను సెట్ చేయండి</string>
+    <string name="voicemail_settings">వాయిస్‌మెయిల్ సెట్టింగ్‌లు</string>
+    <string name="voicemail_settings_number_hint">వాయిస్‌మెయిల్ బాక్స్ నంబర్ నమోదు చేయండి</string>
+    <string name="voicemail_settings_number_title">వాయిస్‌మెయిల్ నంబర్</string>
+    <string name="voicemail_settings_number_label">వాయిస్‌మెయిల్ నంబర్</string>
+    <string name="voicemail_provider">వాయిస్‌మెయిల్ సేవ</string>
+    <string name="voicemail_provider_summary">వాయిస్‌మెయిల్ సేవను ఎంచుకోండి</string>
+    <string name="voicemail_number_not_set">&lt;సెట్ చేయలేదు&gt;</string>
+    <string name="voicemail_notification_vibrate_when_title" msgid="8731372580674292759">వైబ్రేషన్</string>
+    <string name="voicemail_notification_ringtone_title">శబ్దం</string>
+    <string name="voice_report_incoming_call">కాల్ చేస్తున్నారు</string>
+    <string name="voice_report_unknown_num">తెలియని నంబర్</string>
+    <string name="command_error_fdn_failure">మీరు ముందుగా FDNని ఆన్ చేయాలి</string>
+    <string name="uplmn_list_setting_title">ప్రాధాన్య నెట్‌వర్క్‌లు</string>
+    <string name="network_id">నెట్‌వర్క్ ID</string>
+    <string name="dialog_network_priority_title">ప్రాధాన్యత</string>
+    <string name="uplmn_list_setting_add_plmn">కొత్త PLMN</string>
+    <string name="gsm_umts_network_preferences_title">నెట్‌వర్క్ ప్రాధాన్యతలు</string>
+    <string name="gsm_umts_network_preferences_dialogtitle">నెట్‌వర్క్ ప్రాధాన్యతలు</string>
+    <string name="uplmn_numeric_is_empty">నెట్‌వర్క్ ID నమోదు చేయండి</string>
+    <string name="voip_setting">VOIP సెట్టింగ్‌లు</string>
+    <string name="msim_setting_screen_title">SIM కార్డ్‌లు మరియు మొబైల్ నెట్‌వర్క్‌లు</string>
+    <string name="msim_setting_categery_title">SIM కార్డ్ సెట్టింగ్‌లు</string>
+    <string name="msim_general_setting">సెట్టింగ్‌లు</string>
+    <string name="msim_default_setting">డిఫాల్ట్ సెట్టింగ్‌లు</string>
+    <string name="msim_setting_no_sim_indicator">SIM కార్డ్ లేదు</string>
+    <string name="msim_setting_sim_info_editor_title">సిమ్ సమాచారాన్ని సవరించండి</string>
+    <string name="msim_setting_operator_network_title">"సెల్యులార్ నెట్‌వర్క్"</string>
+    <string name="msim_sim_lock">లాక్ అయ్యింది</string>
+    <string name="msim_sim_radio_off">ఆఫ్</string>
+    <string name="msim_enable_sim">ఆన్ చేయండి</string>
+    <string name="msim_set_icc_card_error">ICC కార్డ్ లోపం</string>
+    <string name="msim_info_editor_name">సిమ్ కార్డ్ పేరుని సవరించండి</string>
+    <string name="msim_info_editor_number">సిమ్ కార్డ్ నంబర్‌ను సవరించండి</string>
+    <string name="msim_info_editor_set_name_error">పేరు సేవ్ చేయలేకపోయాము</string>
+    <string name="msim_apn_not_set">సెట్ చేయలేదు</string>
+    <string name="msim_set_sub_not_supported_phone_in_call">కాల్ మధ్యలో ఉన్నప్పుడు సెట్ చేయలేము</string>
+    <string name="msim_set_sub_not_supported_slot_id_error">సిమ్ కార్డ్ లోపం</string>
+    <string name="msim_mode_progress_activating_message">ఆన్ చేస్తోంది</string>
+    <string name="msim_mode_progress_deactivating_message">ఆఫ్ చేస్తోంది</string>
+    <string name="msim_pref_title_voice">డయల్ చేయండి</string>
+    <string name="msim_pref_title_data">ఇంటర్నెట్</string>
+    <string name="msim_not_set_summary">సెట్ చేయలేదు</string>
+    <string name="msim_select_default_time_left">"(%d సె)"</string>
+    <string name="msim_switch_data_conn_toast">నెట్‌వర్క్ సెట్టింగ్‌లు LTE నెట్‌వర్క్‌లను ప్రాధాన్యపరచుకి మారాయి. మీరు దీన్ని సిమ్ కార్డ్ సెట్టింగ్‌ల్లో మార్చవచ్చు.</string>
+    <string name="msim_switch_data_conn_toast_for_h2xct">సిమ్ స్లాట్ 2 GSM నెట్‌వర్క్‌లకు మాత్రమే మద్దతిస్తుంది. ఈ స్లాట్ ప్రాధాన్య నెట్‌వర్క్ రకం 2G మాత్రమేకి మారింది.</string>
+    <string name="msim_has_been_disabled">"(నిలిపివేయబడింది)"</string>
+    <string name="select_voice_call_sim">సిమ్ కార్డ్‌ను ఎంచుకోండి</string>
+    <string name="general_setting">సెట్టింగ్‌లు</string>
+    <string name="call_record_setting">కాల్ రికార్డ్ సెట్టింగ్‌లు</string>
+    <string name="preference_telocation_title">ప్రదేశం</string>
+    <string name="cloud_antispam_title">తెలియని నంబర్‌లను గుర్తించండి</string>
+    <string name="preference_auto_ip_summary_disable">నిలిపివేశారు</string>
+    <string name="preference_dial_pad_touch_tone_title">డయల్ ప్యాడ్ టచ్ టోన్‌లు</string>
+    <string name="preference_telocation_summary_teloc_off">పరిచయం ప్రదేశాన్ని దాచు</string>
+    <string name="preference_telocation_summary_teloc_on">పరిచయం ప్రదేశాన్ని చూపు</string>
+    <string name="preference_telocation_summary_countrycode_on">దేశం కోడ్‌ను స్వయం-డయల్ చేయి</string>
+    <string name="preference_dial_pad_touch_tone_default">డిఫాల్ట్</string>
+    <string name="preference_dial_pad_touch_tone_piano">పియానో కీలు</string>
+    <string name="preference_telocation_summary_countrycode_off">దేశం కోడ్‌ను స్వయం-డయల్ చేయవద్దు</string>
+    <string name="telephony_setting">కాల్ సెట్టింగ్‌లు</string>
+    <string name="international_roaming_setting">అంతర్జాతీయ రోమింగ్</string>
+</resources>

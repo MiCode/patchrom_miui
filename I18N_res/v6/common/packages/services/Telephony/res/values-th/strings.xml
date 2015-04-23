@@ -1,0 +1,923 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2012, The Linux Foundation. All rights reserved.
+     Not a Contribution.
+
+     Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="phoneAppLabel" product="tablet">เครือข่ายข้อมูล</string>
+    <string name="phoneAppLabel" product="default">โทรศัพท์</string>
+    <string name="emergencyDialerIconLabel">โทรออกฉุกเฉิน</string>
+    <string name="phoneIconLabel">โทรศัพท์</string>
+    <string name="fdnListLabel">รายการ FDN</string>
+    <string name="unknown">ไม่ทราบ</string>
+    <string name="private_num">หมายเลขส่วนตัว</string>
+    <string name="payphone">โทรศัพท์สาธารณะ</string>
+    <string name="mmiStarted">เริ่มรหัส MMI แล้ว</string>
+    <string name="ussdRunning">กำลังรันรหัส USSD...</string>
+    <string name="cancel">ยกเลิก</string>
+    <string name="enter_input">ข้อความ USSD ต้องอยู่ระหว่าง <xliff:g id="min_len">%d</xliff:g> ถึง <xliff:g id="max_len">%d</xliff:g> ตัวอักษร</string>
+    <string name="ok">ตกลง</string>
+    <string name="send_button">ส่ง</string>
+    <string name="no_vm_number">ไม่มีหมายเลขข้อความเสียง</string>
+    <string name="no_vm_number_msg">ไม่มีหมายเลขข้อความเสียงจัดเก็บอยู่ในซิมการ์ด</string>
+    <string name="add_vm_number_str">เพิ่มหมายเลข</string>
+    <string name="puk_unlocked">ยกเลิกการปิดกั้นซิมการ์ดแล้ว กำลังปลดล็อคโทรศัพท์ของคุณ...</string>
+    <string name="label_ndp">PIN ปลดล็อคเครือข่ายซิม</string>
+    <string name="label_nsdp">หมายเลข PIN ปลดล็อคเครือข่ายย่อย</string>
+    <string name="label_cdp">หมายเลข PIN ปลดล็อคซิมองค์กร</string>
+    <string name="label_spdp">หมายเลข PIN ปลดล็อคเครือข่ายของผู้ให้บริการโครงข่าย</string>
+    <string name="label_sdp">หมายเลข PIN ปลดล็อค</string>
+    <string name="label_rn1dp">หมายเลข PIN ปลดล็อคเครือข่าย RUIM 1</string>
+    <string name="label_rn2dp">หมายเลข PIN ปลดล็อคเครือข่าย RUIM 2</string>
+    <string name="label_rhrpd">หมายเลข PIN ปลดล็อคเครือข่าย HRPD ของ RUIM</string>
+    <string name="label_rcdp">หมายเลข PIN ปลดล็อค RUIM องค์กร</string>
+    <string name="label_rspdp">หมายเลข PIN ปลดล็อคเครือข่ายของผู้ให้บริการโครงข่าย</string>
+    <string name="label_rdp">หมายเลข PIN ปลดล็อค</string>
+    <string name="label_puk">ป้อนรหัส PUK</string>
+    <string name="sim_ndp_unlock_text">ปลดล็อค</string>
+    <string name="sim_ndp_dismiss_text">เลิกแสดง</string>
+    <string name="requesting_unlock">กำลังขอปลดล็อคเครือข่าย...</string>
+    <string name="requesting_nw_subset_unlock">กำลังปลดล็อคเครือข่ายย่อยของซิม\u2026</string>
+    <string name="requesting_sp_unlock">กำลังปลดล็อคเครือข่ายของผู้ให้บริการโครงข่ายของซิม\u2026</string>
+    <string name="requesting_corporate_unlock">กำลังปลดล็อคซิมองค์กร\u2026</string>
+    <string name="requesting_sim_unlock">กำลังปลดล็อคซิม\u2026</string>
+    <string name="requesting_rnw1_unlock">กำลังปลดล็อคเครือข่ายของ RUIM 1\u2026</string>
+    <string name="requesting_rnw2_unlock">กำลังปลดล็อคเครือข่ายของ RUIM 2\u2026</string>
+    <string name="requesting_rhrpd_unlock">กำลังปลดล็อค HRPD ของ RUIM\u2026</string>
+    <string name="requesting_rsp_unlock">กำลังปลดล็อคเครือข่ายของผู้ให้บริการโครงข่ายของซิม\u2026</string>
+    <string name="requesting_rc_unlock">กำลังปลดล็อคซิมองค์กร\u2026</string>
+    <string name="requesting_ruim_unlock">กำลังปลดล็อคซิม\u2026</string>
+    <string name="requesting_puk_unlock">กำลังปลดล็อครหัส PUK\u2026</string>
+    <string name="unlock_failed">คำขอปลดล็อคเครือข่ายไม่สำเร็จ</string>
+    <string name="nw_subset_unlock_failed">ปลดล็อคเครือข่ายย่อยของซิมไม่สำเร็จ</string>
+    <string name="sp_unlock_failed">ปลดล็อคเครือข่ายของผู้ให้บริการโครงข่ายของซิมไม่สำเร็จ</string>
+    <string name="corporate_unlock_failed">ปลดล็อคซิมองค์กรไม่สำเร็จ</string>
+    <string name="sim_unlock_failed">ปลดล็อคซิมไม่สำเร็จ</string>
+    <string name="rnw1_unlock_failed">ปลดล็อคเครือข่ายของ RUIM 1 ไม่สำเร็จ</string>
+    <string name="rnw2_unlock_failed">ปลดล็อคเครือข่ายของ RUIM 2 ไม่สำเร็จ</string>
+    <string name="rhrpd_unlock_failed">ปลดล็อค HRPD ของ RUIM ไม่สำเร็จ</string>
+    <string name="rsp_unlock_failed">ปลดล็อคเครือข่ายของผู้ให้บริการโครงข่ายของซิมไม่สำเร็จ</string>
+    <string name="rc_unlock_failed">ปลดล็อค RUIM องค์กรไม่สำเร็จ</string>
+    <string name="ruim_unlock_failed">ปลดล็อคซิมไม่สำเร็จ</string>
+    <string name="puk_unlock_failed">ปลดล็อครหัส PUK ไม่สำเร็จ</string>
+    <string name="unlock_success">ปลดล็อคเครือข่ายไม่สำเร็จ</string>
+    <string name="nw_subset_unlock_success">การปลดล็อคเครือข่ายย่อยของซิมประสบความสำเร็จ</string>
+    <string name="sp_unlock_success">การปลดล็อคเครือข่ายของผู้ให้บริการโครงข่ายของซิมประสบความสำเร็จ</string>
+    <string name="corporate_unlock_success">การปลดล็อคซิมองค์กรประสบความสำเร็จ</string>
+    <string name="sim_unlock_success">การปลดล็อคซิมประสบความสำเร็จ</string>
+    <string name="rnw1_unlock_success">ปลดล็อคเครือข่ายของ RUIM 1 สำเร็จ</string>
+    <string name="rnw2_unlock_success">ปลดล็อคเครือข่ายของ RUIM 2 สำเร็จ</string>
+    <string name="rhrpd_unlock_success">การปลดล็อค HRPD ของ RUIM สำเร็จ</string>
+    <string name="rsp_unlock_success">การปลดล็อคเครือข่ายของผู้ให้บริการโครงข่ายของ RUIM ประสบความสำเร็จ</string>
+    <string name="rc_unlock_success">การปลดล็อค RUIM องค์กรประสบความสำเร็จ</string>
+    <string name="ruim_unlock_success">การปลดล็อคซิมประสบความสำเร็จ</string>
+    <string name="puk_unlock_success">ปลดล็อครหัส PUK ประสบความสำเร็จ</string>
+    <string name="labelGSMMore">การตั้งค่าการโทร GSM</string>
+    <string name="labelCDMAMore">การตั้งค่าการโทร CDMA</string>
+    <string name="apn_settings">ตั้งค่าจุดเข้าใช้งาน (APN)</string>
+    <string name="settings_label">การตั้งค่าเครือข่าย</string>
+    <string name="voicemail">ข้อความเสียง</string>
+    <string name="voicemail_abbreviated">VM:</string>
+    <string name="networks">ผู้ให้บริการเครือข่าย</string>
+    <string name="call_settings">การตั้งค่าการโทร</string>
+    <string name="additional_gsm_call_settings">การตั้งค่าเพิ่มเติม</string>
+    <string name="sum_gsm_call_settings">การตั้งค่าการโทรเฉพาะ GSM เพิ่มเติม</string>
+    <string name="additional_cdma_call_settings">การตั้งค่าการโทร CDMA เพิ่มเติม</string>
+    <string name="sum_cdma_call_settings">การตั้งค่าการโทรเฉพาะ CDMA เพิ่มเติม</string>
+    <string name="labelCallerId">หมายเลขผู้โทร</string>
+    <string name="sum_loading_settings">กำลังโหลดการตั้งค่า…</string>
+    <string name="sum_hide_caller_id">หมายเลขที่ซ่อนในสายโทรออก</string>
+    <string name="sum_show_caller_id">หมายเลขที่แสดงในสายโทรออก</string>
+    <string name="sum_default_caller_id">ใช้การตั้งค่าเริ่มต้นของผู้ให้บริการเพื่อแสดงหมายเลขของฉันขณะโทรออก</string>
+    <string name="labelCW">สายเรียกซ้อน</string>
+    <string name="sum_cw_enabled">แจ้งเตือนเมื่อมีสายเรียกซ้อนระหว่างสนทนา</string>
+    <string name="sum_cw_disabled">แจ้งเตือนเมื่อมีสายเรียกซ้อนระหว่างสนทนา</string>
+    <string name="error_updating_title">ข้อผิดพลาดในการตั้งค่าการโทร</string>
+    <string name="reading_settings">กำลังอ่านการตั้งค่า…</string>
+    <string name="updating_settings">กำลังอัพเดตการตั้งค่า...</string>
+    <string name="reverting_settings">กำลังย้อนกลับการตั้งค่า…</string>
+    <string name="response_error">พบการตอบกลับที่ไม่คาดหมายจากเครือข่าย</string>
+    <string name="exception_error">ข้อผิดพลาดของเครือข่ายหรือซิมการ์ด</string>
+    <string name="stk_cc_ss_to_dial_error">คำร้องขอ SS ได้แก้ไขเป็นการโทรออก.</string>
+    <string name="stk_cc_ss_to_ussd_error">คำร้องขอ SS ได้แก้ไขเป็นการส่งคำขอ USSD</string>
+    <string name="stk_cc_ss_to_ss_error">คำร้องขอ SS ได้แก้ไขเป็นการร้องขอ SS ใหม่</string>
+    <string name="fdn_check_failure">โทรศัพท์ของคุณตั้งค่าให้โทรออกเฉพาะเบอร์ที่กำหนด เพราะฉะนั้นคุณลักษณะการโทรบางส่วนจึงไม่สามารถเรียกใช้ได้.</string>
+    <string name="radio_off_error">เปิดวิทยุก่อนดูการตั้งค่าเหล่านี้</string>
+    <string name="close_dialog">ตกลง</string>
+    <string name="enable">เปิดใช้</string>
+    <string name="disable">ปิด</string>
+    <string name="change_num">อัพเดต</string>
+    <string name="vm_changed">เปลี่ยนหมายเลขข้อความเสียงแล้ว</string>
+    <string name="vm_change_failed">ไม่สามารถเปลี่ยนหมายเลขข้อความเสียง\nติดต่อผู้ให้บริการของคุณหากปัญหานี้ยังคงอยู่</string>
+    <string name="fw_change_failed">ไม่สามารถเปลี่ยนหมายเลขที่จะโอน\nติดต่อผู้ให้บริการของคุณหากปัญหานี้ยังคงอยู่</string>
+    <string name="fw_get_in_vm_failed">ไม่สามารถเรียกดูและบันทึกข้อมูลหมายเลขที่โอนสายที่ตั้งไว้ได้.\nต้องการเปลี่ยนผู้ให้บริการโครงข่ายเลยหรือไม่?</string>
+    <string name="no_change">ไม่มีการเปลี่ยนแปลง</string>
+    <string name="sum_voicemail_choose_provider">เลือกบริการข้อความเสียง</string>
+    <string name="voicemail_default">ผู้ให้บริการของฉัน</string>
+    <string name="mobile_networks">การตั้งค่าเครือข่ายมือถือ</string>
+    <string name="label_available">เครือข่ายที่พบสัญญาณ</string>
+    <string name="load_networks_progress">กำลังค้นหา…</string>
+    <string name="empty_networks_list">ไม่พบเครือข่าย</string>
+    <string name="register_on_network">กำลังลงทะเบียนบน <xliff:g id="NETWORK">%s</xliff:g>…</string>
+    <string name="not_allowed">ซิมการ์ดของคุณไม่อนุญาตให้เชื่อมต่อกับเครือข่ายนี้</string>
+    <string name="connect_later">ไม่สามารถเชื่อมต่อเครือข่ายนี้ได้ในขณะนี้ ลองอีกครั้งในภายหลัง</string>
+    <string name="registration_done">ลงทะเบียนบนเครือข่ายแล้ว</string>
+    <string name="select_automatically">เลือกอัตโนมัติ</string>
+    <string name="sum_select_automatically">เลือกเครือข่ายที่ต้องการอัตโนมัติ</string>
+    <string name="register_automatically">การลงทะเบียนอัตโนมัติ...</string>
+    <string name="preferred_network_mode_title">ประเภทเครือข่ายที่ต้องการ</string>
+    <string name="preferred_network_mode_summary">เปลี่ยนโหมดปฏิบัติการของเครือข่าย</string>
+    <string name="preferred_network_mode_dialogtitle">ประเภทเครือข่ายที่ต้องการ</string>
+    <string name="network_forbidden"><xliff:g id="network">%s</xliff:g> (ใช้งานไม่ได้)</string>
+    <string-array name="preferred_network_mode_choices">
+        <item>LTE / WCDMA</item>
+        <item>LTE</item>
+        <item>ทั่วโลก</item>
+        <item>GSM/WCDMA/LTE</item>
+        <item>CDMA + LTE/EvDo</item>
+        <item>CDMA/EvDo/GSM/WCDMA</item>
+        <item>EvDo เท่านั้น</item>
+        <item>CDMA ที่ไม่มี EvDo</item>
+        <item>CDMA/EvDo อัตโนมัติ</item>
+        <item>GSM/WCDMA อัตโนมัติ</item>
+        <item>WCDMA เท่านั้น</item>
+        <item>LTE</item>
+        <item>ต้องการ GSM/WCDMA</item>
+        <item>GSM/WCDMA/LTE</item>
+        <item>CDMA + LTE/EvDo</item>
+        <item>CDMA/EvDo/GSM/WCDMA</item>
+        <item>EvDo เท่านั้น</item>
+        <item>CDMA ยกเว้น EvDo</item>
+        <item>CDMA/EvDo อัตโนมัติ</item>
+        <item>GSM/WCDMA อัตโนมัติ</item>
+        <item>WCDMA เท่านั้น</item>
+        <item>GSM เท่านั้น</item>
+        <item>เลือก GSM/WCDMA ไว้ก่อน</item>
+    </string-array>
+    <string name="data_enabled">เปิดใช้งานข้อมูล</string>
+    <string name="data_enable_summary">เปิดใช้งานการเข้าถึงข้อมูลบนเครือข่ายมือถือ</string>
+    <string name="roaming">การโรมมิ่งข้อมูล</string>
+    <string name="roaming_enable">เชื่อมต่อเครือข่ายข้อมูลมือถือขณะโรมมิ่ง</string>
+    <string name="roaming_disable">เชื่อมต่อเครือข่ายข้อมูลมือถือขณะโรมมิ่ง</string>
+    <string name="roaming_reenable_message">การเชื่อมต่อข้อมูลของคุณหายไปเนื่องจากคุณออกจากเครือข่ายที่บ้านโดยปิดการโรมมิ่งข้อมูลไว้</string>
+    <string name="roaming_warning">อนุญาตโรมมิ่งข้อมูล? โรมมิ่งอาจมีค่าใช้จ่ายเพิ่มเติมจำนวนมาก!</string>
+    <string name="always_enable_mms">รับข้อความ MMS เสมอ</string>
+    <string name="always_enable_mms_summary">รับข้อความ MMS ขณะปิดเครือข่ายข้อมูลมือถือ</string>
+    <string name="network_unlock">ปลดล็อค</string>
+    <string name="networks_title">เครือข่ายข้อมูลมือถือ</string>
+    <string name="network_settings_warn_message">เครื่องของคุณจะเชื่อมต่อเฉพาะเครือข่ายที่คุณกำหนดไว้เท่านั้น</string>
+    <string name="network_settings_auto_select_title">"ปิดใช้การเลือกอัตโนมัติ"</string>
+    <string name="network_settings_next">ถัดไป</string>
+    <string name="network_settings_confirm_message">อาจทำให้เชื่อมต่อเครือข่ายไม่ได้ คุณแน่ใจหรือไม่?</string>
+    <string name="network_settings_query_failed_message">ไม่พบสัญญาณเครือข่ายมือถือ</string>
+    <string name="retry_btn">ลองใหม่</string>
+    <string name="network_settings_information">"ต้องปิดใช้งานข้อมูลมือถือก่อน"</string>
+    <string name="network_settings_duringcall">"ระบบไม่อนุญาตให้ใช้งานขณะโทร"</string>
+    <string name="network_settings_data_connected_change">"คุณต้องปิดใช้งานเครือข่ายข้อมูลก่อนที่จะเลือกใช้เครือข่ายข้อมูลอื่น"</string>
+    <string name="network_settings_automatically_option">"เลือกเครือข่ายที่ต้องการโดยอัตโนมัติ (%s)"</string>
+    <string name="network_settings_turn_off">"ปิดใช้"</string>
+    <string name="network_settings_select_automatic_hint">"ไม่สามารถลงทะเบียนในระบบเครือข่ายที่คุณเลือกได้\nระบบจะใช้งานเครือข่ายที่ต้องการไว้ทดแทน"</string>
+    <string name="network_settings_forbidden"><xliff:g id="network">%s</xliff:g> (ใช้งานไม่ได้)</string>
+    <string name="preferred_network_type_title">ประเภทเครือข่ายที่ต้องการ</string>
+    <string name="preferred_network_type_pref_entries_global">ทั่วโลก</string>
+    <string name="preferred_network_type_pref_entries_auto">อัตโนมัติ</string>
+    <string name="preferred_network_type_pref_entries_4g_preferred">เลือกใช้ 4G ก่อน</string>
+    <string name="preferred_network_type_pref_entries_3g_preferred">เลือกใช้ 3G ก่อน</string>
+    <string name="preferred_network_type_pref_entries_4g_preferred_cdma">เลือกใช้ 4G ก่อน (CDMA)</string>
+    <string name="preferred_network_type_pref_entries_3g_preferred_cdma">เลือกใช้ 3G ก่อน (CDMA)</string>
+    <string name="preferred_network_type_pref_entries_only_2g">2G เท่านั้น (ประหยัดพลังงาน)</string>
+    <string name="preferred_network_type_pref_entries_only_3g">3G เท่านั้น</string>
+    <string name="preferred_network_type_3g_only_warning">ในการเชื่อมต่อกับเครือข่าย ซิมการ์ดของคุณต้องรองรับระบบ 3G ด้วย</string>
+    <string name="preferred_network_restrict_network_changed_incall">ไม่สามารถแก้ไขค่าเครือข่ายโทรศัพท์ขณะสนทนาได้</string>
+    <string name="callwait_open_hint">บริการรับสายเรียกซ้อนเป็นบริการของผู้ให้บริการโครงข่ายมือถือ หากคุณได้รับการแจ้งข้อผิดพลาดจากระบบ กรุณาติดต่อผู้ให้บริการของคุณเพื่อตรวจสอบว่าเครือข่ายรองรับหรือไม่</string>
+    <string name="open_miui">เปิด</string>
+    <string name="cdma_system_select_title">การเลือกระบบ</string>
+    <string name="cdma_system_select_summary">เปลี่ยนโหมดการเชื่อมต่อกับเครือข่าย CDMA อื่น</string>
+    <string name="cdma_system_select_dialogtitle">การเลือกระบบ</string>
+    <string-array name="cdma_system_select_choices">
+        <item>โทรกลับบ้านเท่านั้น</item>
+        <item>อัตโนมัติ</item>
+    </string-array>
+    <string name="cdma_subscription_title">การสมัครรับข้อมูล CDMA</string>
+    <string name="cdma_subscription_summary">เปลี่ยนระหว่าง RUIM/SIM และ NV</string>
+    <string name="cdma_subscription_dialogtitle">การสมัครรับข้อมูล</string>
+    <string-array name="cdma_subscription_choices">
+        <item>RUIM/SIM</item>
+        <item>NV</item>
+    </string-array>
+    <string-array name="cdma_subscription_values">
+        <item>"0"</item>
+        <item>"1"</item>
+    </string-array>
+    <string name="cdma_activate_device">เปิดใช้งานอุปกรณ์</string>
+    <string name="cdma_lte_data_service">ตั้งค่าการใช้ข้อมูล</string>
+    <string name="network_settings_sel_sub">การตั้งค่าเครือข่ายย่อย</string>
+    <string name="summary_manage_subscriptions">จัดการการตั้งค่าเครือข่ายที่สมัครรับข้อมูล</string>
+    <string name="gsm_umts_options">ตัวเลือก GSM//UMTS</string>
+    <string name="cdma_options">ตัวเลือก CDMA</string>
+    <string name="throttle_current_usage">ข้อมูลที่ใช้ในช่วงเวลาปัจจุบัน</string>
+    <string name="throttle_time_frame">ช่วงเวลาการใช้ข้อมูล</string>
+    <string name="throttle_rate">อัตราค่าบริการการใช้งานข้อมูล</string>
+    <string name="throttle_help">เรียนรู้เพิ่มเติม</string>
+    <string name="cell_broadcast_sms">การับข้อความจากสถานีฐาน</string>
+    <string name="enable_disable_cell_bc_sms">การับข้อความจากสถานีฐาน</string>
+    <string name="cell_bc_sms_enable">การส่งข้อความจากสถานีฐานเปิดใช้งาน</string>
+    <string name="cell_bc_sms_disable">การส่งข้อความจากสถานีฐานปิดใช้</string>
+    <string name="cb_sms_settings">การตั้งค่าการรับข้อความจากสถานีฐาน</string>
+    <string name="enable_disable_emergency_broadcast">การรับข้อความกรณีฉุกเฉินหรือภัยพิบัติ</string>
+    <string name="emergency_broadcast_enable">ระบบข้อความฉุกเฉินเปิดใช้งาน</string>
+    <string name="emergency_broadcast_disable">ระบบข้อความฉุกเฉินปิดใช้</string>
+    <string name="enable_disable_administrative">การบริหาร</string>
+    <string name="administrative_enable">การบริหารจัดการเปิดใช้งาน</string>
+    <string name="administrative_disable">การบริหารจัดการปิดใช้</string>
+    <string name="enable_disable_maintenance">การดูแลรักษา</string>
+    <string name="maintenance_enable">การบำรุงรักษาเปิดใช้งาน</string>
+    <string name="maintenance_disable">การบำรุงรักษาปิดใช้</string>
+    <string name="general_news_settings">ข่าวทั่วไป</string>
+    <string name="bf_news_settings">ข่าวธุรกิจและการเงิน</string>
+    <string name="sports_news_settings">ข่าวกีฬา</string>
+    <string name="entertainment_news_settings">ข่าวบันเทิง</string>
+    <string name="enable_disable_local">ท้องถิ่น</string>
+    <string name="local_enable">ข่าวท้องถิ่นเปิดใช้งาน</string>
+    <string name="local_disable">ข่าวท้องถิ่นปิดใช้</string>
+    <string name="enable_disable_regional">ภูมิภาค</string>
+    <string name="regional_enable">ข่าวภูมิภาคเปิดใช้งาน</string>
+    <string name="regional_disable">ข่าวภูมิภาคปิดใช้</string>
+    <string name="enable_disable_national">ในประเทศ</string>
+    <string name="national_enable">ข่าวในประเทศเปิดใช้งาน</string>
+    <string name="national_disable">ข่าวในประเทศปิดใช้</string>
+    <string name="enable_disable_international">ต่างประเทศ</string>
+    <string name="international_enable">ข่าวระหว่างประเทศเปิดใช้งาน</string>
+    <string name="international_disable">ข่าวระหว่างประเทศปิดใช้</string>
+    <string name="list_language_title">ภาษา</string>
+    <string name="list_language_summary">เลือกภาษาสำหรับข่าว</string>
+    <string-array name="list_language_entries">
+        <item>อังกฤษ</item>
+        <item>ฝรั่งเศส</item>
+        <item>สเปน</item>
+        <item>ญี่ปุ่น</item>
+        <item>เกาหลี</item>
+        <item>จีน</item>
+        <item>ฮีบรู</item>
+    </string-array>
+    <string-array name="list_language_values">
+        <item>"1"</item>
+        <item>"2"</item>
+        <item>"3"</item>
+        <item>"4"</item>
+        <item>"5"</item>
+        <item>"6"</item>
+        <item>"7"</item>
+    </string-array>
+    <string name="list_language_dtitle">ภาษา</string>
+    <string name="enable_disable_local_weather">สภาพอากาศในพื้นที่</string>
+    <string name="local_weather_enable">รายงานสภาพอากาศในพื้นที่</string>
+    <string name="local_weather_disable">ไม่รายงานสภาพอากาศในพื้นที่</string>
+    <string name="enable_disable_atr">รายงานการจราจรในพื้นที่</string>
+    <string name="atr_enable">รายงานสภาพจราจรในพื้นที่เปิดใช้</string>
+    <string name="atr_disable">รายงานสภาพจราจรในพื้นที่ปิดใช้งาน</string>
+    <string name="enable_disable_lafs">ตารางเที่ยวบินในสนามบินท้องถิ่น</string>
+    <string name="lafs_enable">รายงานเที่ยวบินในพื้นที่เปิดใช้งาน</string>
+    <string name="lafs_disable">รายงานเที่ยวบินในพื้นที่ปิดใช้</string>
+    <string name="enable_disable_restaurants">ร้านอาหาร</string>
+    <string name="restaurants_enable">รายงานร้านอาหารเปิดใช้งาน</string>
+    <string name="restaurants_disable">รายงานร้านอาหารปิดใช้</string>
+    <string name="enable_disable_lodgings">ที่พัก</string>
+    <string name="lodgings_enable">รายงานที่พักเปิดใช้งาน</string>
+    <string name="lodgings_disable">รายงานที่พักปิดใช้</string>
+    <string name="enable_disable_retail_directory">รายนามร้านค้าปลีก</string>
+    <string name="retail_directory_enable">รายนามร้านค้าเปิดใช้งาน</string>
+    <string name="retail_directory_disable">รายนามร้านค้าปิดใช้</string>
+    <string name="enable_disable_advertisements">โฆษณา</string>
+    <string name="advertisements_enable">โฆษณาเปิดใช้งาน</string>
+    <string name="advertisements_disable">โฆษณาปิดใช้</string>
+    <string name="enable_disable_stock_quotes">ราคาหุ้น</string>
+    <string name="stock_quotes_enable">รายงานหุ้นเปิดใช้งาน</string>
+    <string name="stock_quotes_disable">รายงานหุ้นปิดใช้</string>
+    <string name="enable_disable_eo">โอกาสการจ้างงาน</string>
+    <string name="eo_enable">ประกาศสมัครงานเปิดใช้งาน</string>
+    <string name="eo_disable">ประกาศสมัครงานปิดใช้</string>
+    <string name="enable_disable_mhh">การแพทย์ สุขภาพ และโรงพยาบาล</string>
+    <string name="mhh_enable">ยา สุขภาพและโรงพยาบาลเปิดใช้งาน</string>
+    <string name="mhh_disable">ยา สุขภาพและโรงพยาบาลปิดใช้</string>
+    <string name="enable_disable_technology_news">ข่าวเทคโนโลยี</string>
+    <string name="technology_news_enable">ข่าวสารเทคโนโลยีเปิดใช้งาน</string>
+    <string name="technology_news_disable">ข่าวสารเทคโนโลยีปิดใช้</string>
+    <string name="enable_disable_multi_category">หลายหมวดหมู่</string>
+    <string name="multi_category_enable">การเลือกหลายหมวดหมู่เปิดใช้งาน</string>
+    <string name="multi_category_disable">การเลือกหลายหมวดหมู่ปิดใช้งานอยู่</string>
+    <string name="callind_multi_sim">การตั้งค่าเครือข่ายย่อย</string>
+    <string name="manage_fdn_list">รายการ FDN</string>
+    <string name="fdn_activation">การเปิดใช้งาน FDN</string>
+    <string name="fdn_enabled">การกำหนดเลขหมายโทรออกเปิดใช้งาน</string>
+    <string name="fdn_disabled">การกำหนดเลขหมายโทรออกปิดใช้</string>
+    <string name="enable_fdn">เปิดใช้ FDN</string>
+    <string name="disable_fdn">ปิดใช้ FDN</string>
+    <string name="change_pin2">เปลี่ยน PIN2</string>
+    <string name="enable_fdn_ok">ปิดใช้ FDN</string>
+    <string name="disable_fdn_ok">เปิดใช้ FDN</string>
+    <string name="sum_fdn_change_pin">เปลี่ยน PIN สำหรับการเข้าถึง FDN</string>
+    <string name="sum_fdn_manage_list">จัดการรายการหมายเลขโทรศัพท์</string>
+    <string name="menu_add">เพิ่มที่อยู่ติดต่อ</string>
+    <string name="fdn">การจำกัดหมายเลขโทรออก</string>
+    <string name="fdn_summary">กำหนดการโทรออกเฉพาะหมายเลขที่กำหนดไว้หรือกลุ่มหมายเลขที่ขึ้นต้นด้วยเลขหมายที่กำหนด</string>
+    <string name="get_pin2">พิมพ์ PIN2</string>
+    <string name="name">ชื่อ</string>
+    <string name="number">หมายเลข</string>
+    <string name="save">บันทึก</string>
+    <string name="add_fdn_contact">เพิ่มการจำกัดหมายเลขโทรออก</string>
+    <string name="adding_fdn_contact">กำลังเพิ่มการกำจัดหมายเลขโทรออก…</string>
+    <string name="fdn_contact_added">เพิ่มการจำกัดหมายเลขโทรออกแล้ว</string>
+    <string name="edit_fdn_contact">แก้ไขการจำกัดหมายเลขโทรออก</string>
+    <string name="updating_fdn_contact">กำลังอัพเดตการจำกัดหมายเลขโทรออก…</string>
+    <string name="fdn_contact_updated">อัพเดตการจำกัดหมายเลขโทรออกแล้ว</string>
+    <string name="delete_fdn_contact">ลบการจำกัดหมายเลขโทรออก</string>
+    <string name="deleting_fdn_contact">กำลังลบการจำกัดหมายเลขโทรออก…</string>
+    <string name="fdn_contact_deleted">ลบการจำกัดหมายเลขโทรออกแล้ว</string>
+    <string name="pin2_invalid">การแก้ไขบริการจำกัดหมายเลขโทรออกยังไม่ได้บันทึกเนื่องจากคุณใส่รหัสพินไม่ถูกต้อง</string>
+    <string name="fdn_invalid_number">FDN ไม่อัพเดตเพราะหมายเลขจะมีจำนวนเกิน 20 หลักไม่ได้</string>
+    <string name="fdn_contacts_empty">"ไม่พบรายชื่อผู้ติดต่อในรายการเลขหมายที่กำหนดให้โทรออกได้"</string>
+    <string name="simContacts_emptyLoading">กำลังอ่าน\u2026</string>
+    <string name="exportContacts">กำลังส่งออก\u2026</string>
+    <string name="simContacts_title">เลือกสมุดโทรศัพท์ที่จะนำเข้า</string>
+    <string name="simContacts_airplaneMode">ในการนำเข้ารายชื่อจากซิมการ์ด ต้องปิดโหมดเครื่องบิน</string>
+    <string name="tty_mode_option_title">โหมด TTY</string>
+    <string name="tty_mode_option_summary">ตั้งค่าโหมด TTY</string>
+    <string name="enable_pin">รหัส PIN ของซิม</string>
+    <string name="change_pin">เปลี่ยนรหัส PIN ของซิมการ์ด</string>
+    <string name="enter_pin_text">PIN ของซิม:</string>
+    <string name="old_pin_label">รหัส PIN เดิม</string>
+    <string name="new_pin_label">รหัส PIN ใหม่</string>
+    <string name="confirm_pin_label">ยืนยัน PIN ใหม่</string>
+    <string name="bad_pin">รหัส PIN ที่คุณป้อนไม่ถูกต้อง</string>
+    <string name="mismatch_pin">รหัส PIN ที่คุณป้อนไม่ตรงกัน</string>
+    <string name="invalid_pin">ป้อนรหัส PIN ระหว่าง 4 ถึง 8 หลัก</string>
+    <string name="disable_sim_pin">ปิดใช้งาน PIN ของซิมการ์ด</string>
+    <string name="enable_sim_pin">เปิดใช้งาน PIN ของซิมการ์ด</string>
+    <string name="enable_in_progress">รอสักครู่\u2026</string>
+    <string name="enable_pin_ok">การกำหนดพินของซิมเปิดใช้งาน</string>
+    <string name="disable_pin_ok">การกำหนดพินของซิมปิดใช้</string>
+    <string name="pin_failed">PIN ที่คุณพิมพ์ไม่ถูกต้อง</string>
+    <string name="pin_changed">เปลี่ยน PIN ของซิมสำเร็จแล้ว</string>
+    <string name="puk_requested">รหัสผ่านไม่ถูกต้อง รหัสพินปิดใช้แล้ว ต้องปลดล็อคด้วย PUK</string>
+    <string name="bad_puk">รหัส PUK ที่คุณป้อนไม่ถูกต้อง</string>
+    <string name="invalid_puk">ป้อนรหัส PUK ระหว่าง 4 ถึง 8 หลัก</string>
+    <string name="pin_lock_warning">\nโทรศัพท์จะถูกล็อคอัตโนมัติหากใส่รหัสผิดอีกครั้ง</string>
+    <string name="puk_lock_warning">\nระบบจะลบซิมการ์ดหากใส่รหัสผิดอีกครั้ง</string>
+    <string name="puk_label">ป้อนรหัส PUK</string>
+    <string name="enter_pin2_text">PIN2</string>
+    <string name="old_pin2_label">รหัส PIN2 เดิม</string>
+    <string name="new_pin2_label">รหัส PIN2 ใหม่</string>
+    <string name="confirm_pin2_label">ยืนยัน PIN2 ใหม่</string>
+    <string name="bad_puk2">รหัส PUK2 ที่คุณป้อนไม่ถูกต้อง</string>
+    <string name="bad_pin2">รหัส PIN2 ที่คุณป้อนไม่ถูกต้อง</string>
+    <string name="mismatch_pin2">รหัส PIN2 ไม่ตรงกัน กรุณาลองใหม่</string>
+    <string name="invalid_pin2">ป้อนรหัส PIN2 ระหว่าง 4 ถึง 8 หลัก</string>
+    <string name="invalid_puk2">กรุณาป้อนรหัส PUK2 จำนวน 8 หลัก</string>
+    <string name="pin2_changed">เปลี่ยน PIN2 เรียบร้อยแล้ว</string>
+    <string name="label_puk2_code">พิมพ์รหัส PUK2</string>
+    <string name="fdn_enable_puk2_requested">รหัสผ่านไม่ถูกต้อง รหัส PIN2 ปิดการใช้ กรุณาเปลี่ยนรหัส PIN2 แล้วลองใหม่</string>
+    <string name="pin2_lock_warning">\nระบบที่เกี่ยวข้องกับการทำงานของ PIN2 จะถูกล็อคหากใส่รหัสผิดอีกครั้ง.</string>
+    <string name="puk2_label">ป้อนรหัส PUK2</string>
+    <string name="pin_attempts">\nใส่ผิดได้อีกเพียง <xliff:g id="number">%d</xliff:g> ครั้ง</string>
+    <string name="pin_progress_set_icc_lock">ตั้งค่า สถานะการล็อค ICC\u2026</string>
+    <string name="pin_progress_set_fdn_lock">ตั้งค่าสถานะการล็อคหมายเลขที่กำหนดให้โทรออกได้เท่านั้น\u2026</string>
+    <string name="pin_progress_change_pin">กำลังเปลี่ยน PIN\u2026</string>
+    <string name="pin_progress_change_pin2">กำลังเปลี่ยน PIN2\u2026</string>
+    <string name="pin_progress_unlock_icc">กำลังปลดล็อคซิมการ์ด\u2026</string>
+    <string name="doneButton">เสร็จสิ้น</string>
+    <string name="card_title_unconditionalCF">การโอนสายทุกกรณีเปิดใช้งาน</string>
+    <string name="card_title_conditionalCF">การโอนสายทุกกรณีปิดใช้</string>
+    <string name="card_title_MOcall_forwarding">การโอนสายโทรออก</string>
+    <string name="card_title_calliswaiting">สายเรียกซ้อน</string>
+    <string name="card_title_cugcall">การโทรเลขหมายในกลุ่ม</string>
+    <string name="card_title_outgoing_barred">การโทรออกถูกจำกัด</string>
+    <string name="card_title_incoming_barred">รับรับสายเรียกเข้าถูกจำกัด</string>
+    <string name="card_title_clir_suppression_rejected">จำกัดการรับสายที่ไม่โชว์เบอร์</string>
+    <string name="card_title_call_deflected">โอนสาย</string>
+    <string name="card_title_MTcall_forwarding">โอนสายเรียกเข้า</string>
+    <string name="card_title_forwarded_MTcall">โอนสายเรียกเข้า</string>
+    <string name="card_title_callonhold">พักสาย</string>
+    <string name="card_title_callretrieved">รับสายที่รอ</string>
+    <string name="card_title_multipartycall">โทรสนทนาหลายสาย</string>
+    <string name="card_title_callonhold_released">รับสายต่อแล้ว</string>
+    <string name="card_title_forwardcheckreceived">รับสายที่โอนมาแล้ว</string>
+    <string name="card_title_callconnectingect">รวมสายสนทนา</string>
+    <string name="card_title_callconnectedect">สายสนทนารวมกันแล้ว</string>
+    <string name="card_title_deflectedcall">สายเรียกเข้าถูกโอน</string>
+    <string name="notification_missedCallsTitle">สายที่ไม่ได้รับ</string>
+    <string name="notification_missedCallsMsg"><xliff:g id="NUM_MISSED_CALLS">%s</xliff:g> สายที่ไม่ได้รับ</string>
+    <string name="notification_missedCallTicker">สายที่ไม่ได้รับจาก <xliff:g id="MISSED_CALL_FROM">%s</xliff:g></string>
+    <string name="notification_voicemail_title">ข้อความเสียงใหม่</string>
+    <string name="notification_voicemail_title_count">ข้อความเสียงใหม่ (<xliff:g id="COUNT">%d</xliff:g>)</string>
+    <string name="notification_voicemail_text_format">หมุนหมายเลข <xliff:g id="VOICEMAIL_NUMBER">%s</xliff:g></string>
+    <string name="notification_voicemail_no_vm_number">ไม่ทราบหมายเลขข้อความเสียง</string>
+    <string name="notification_network_selection_title">ไม่มีสัญญาณ</string>
+    <string name="notification_network_selection_text">เครือข่ายที่เลือกไว้ (<xliff:g id="OPERATOR_NAME">%s</xliff:g>) ใช้งานไม่ได้</string>
+    <string name="notification_missedCall_call_back">โทรกลับ</string>
+    <string name="notification_missedCall_message">ข้อความ</string>
+    <string name="incall_error_power_off">ในการใช้งานโทรออก ต้องปิดใช้โหมดเครื่องบินก่อน</string>
+    <string name="incall_error_emergency_only">ยังไม่ได้ลงทะเบียนบนเครือข่าย</string>
+    <string name="incall_error_out_of_service">เครือข่ายมือถือใช้งานไม่ได้</string>
+    <string name="incall_error_no_phone_number_supplied">หมายเลขที่คุณป้อนไม่ถูกต้อง</string>
+    <string name="incall_error_call_failed">ไม่สามารถโทรออกได้</string>
+    <string name="incall_status_dialed_mmi">กำลังเริ่มต้นลำดับ MMI...</string>
+    <string name="incall_error_turn_off_airplane_mode">ปิดโหมดเครื่องบิน</string>
+    <string name="incall_error_no_active_sim">"คุณยังไม่ได้เปิดใช้งานซิมการ์ดในระบบ"</string>
+    <string name="emergency_enable_radio_dialog_title">หมายเลขฉุกเฉิน</string>
+    <string name="dial_emergency_error">เลขหมาย <xliff:g id="non_emergency_number">%s</xliff:g> ไม่ใช่หมายเลขฉุกเฉิน</string>
+    <string name="dial_emergency_empty_error">หมายเลขที่คุณป้อนไม่ใช่หมายเลขที่ลงทะเบียนเป็นหมายเลขฉุกเฉิน กรุณาใส่หมายเลขฉุกเฉิน</string>
+    <string name="importSimEntry">นำเข้า</string>
+    <string name="importAllSimEntries">นำเข้าทั้งหมด</string>
+    <string name="importingSimContacts">กำลังนำเข้าสมุดโทรศัพท์ในซิม</string>
+    <string name="importToFDNfromContacts">นำเข้าจากสมุดโทรศัพท์</string>
+    <string name="hac_mode_title">เครื่องช่วยฟัง</string>
+    <string name="hac_mode_summary">เปิดการช่วยฟัง</string>
+    <string name="dtmf_tones_title">เสียงสัญญาณ DTMF</string>
+    <string name="dtmf_tones_summary">ตั้งค่าความยาวเสียงสัญญาณ DTMF</string>
+    <string name="xdivert_title">การโอนสาย X-Divert</string>
+    <string name="xdivert_summary">ตั้งค่าโอนสายเข้าบริการรับฝากข้อความเมื่อไม่มีสัญญาณ</string>
+    <string name="phone_numbers">ป้อนหมายเลขโทรศัพท์</string>
+    <string name="sub1LineNumber">หมายเลขย่อย 1:</string>
+    <string name="sub2LineNumber">หมายเลขย่อย 2:</string>
+    <string name="proceed">ดำเนินการต่อไป</string>
+    <string name="xdivert_button">การตั้งค่าโอนสาย</string>
+    <string name="xdivert_setting">การตั้งค่าโอนสาย</string>
+    <string name="sum_xdivert_enabled">โอนสายแบบระบุเลขหมายเปิดใช้งาน</string>
+    <string name="sum_xdivert_disabled">โอนสายแบบระบุเลขหมายปิดใช้</string>
+    <string name="network_message">ข้อความจากเครือข่าย</string>
+    <string name="managed_roaming_title">จัดการการโรมมิ่ง</string>
+    <string name="managed_roaming_title_sub1">การจัดการโรมมิ่ง (ย่อย 1)</string>
+    <string name="managed_roaming_title_sub2">การจัดการโรมมิ่ง (ย่อย 2)</string>
+    <string name="managed_roaming_title_sub3">การจัดการโรมมิ่ง (ย่อย 3)</string>
+    <string name="managed_roaming_dialog_content">พบเครือข่ายที่มีบริการจำกัด ต้องการเรียกดูเครือข่ายที่พบ?</string>
+    <string name="managed_roaming_dialog_ok_button">เรียกดู</string>
+    <string name="managed_roaming_dialog_cancel_button">ไม่ใช่</string>
+    <string name="ota_title_activate">เปิดการใช้งานโทรศัพท์ของคุณ</string>
+    <string name="ota_touch_activate">ต้องทำการโทรพิเศษเพื่อเปิดใช้บริการโทรศัพท์ของคุณ \n\nหลังจากกด “เปิดการใช้งาน” ให้ฟังคำแนะนำเพื่อเปิดใช้บริการโทรศัพท์ของคุณ</string>
+    <string name="ota_hfa_activation_title">กำลังเปิดใช้งาน\u2026</string>
+    <string name="ota_hfa_activation_dialog_message">ระยะเวลาการเปิดใช้งานเครือข่ายข้อมูลมือถืออาจใช้เวลาถึง 5 นาที</string>
+    <string name="ota_skip_activation_dialog_title">ข้ามการเปิดใช้งานหรือไม่</string>
+    <string name="ota_skip_activation_dialog_message">หากคุณข้ามการเปิดใช้งาน คุณจะโทรออกหรือเชื่อมต่อเครือข่ายข้อมูลมือถือไม่ได้ (แม้จะเชื่อมต่อเครือข่าย WiFi ได้ก็ตาม) และระบบจะขอให้คุณเปิดใช้งานทุกครั้งที่คุณเปิดเครื่องจนกว่าคุณจะเปิดใช้งานโทรศัพท์</string>
+    <string name="ota_skip_activation_dialog_skip_label">ข้าม</string>
+    <string name="ota_activate">เปิดการใช้งาน</string>
+    <string name="ota_title_activate_success">เปิดใช้งานโทรศัพท์เสร็จเรียบร้อยแล้ว</string>
+    <string name="ota_title_problem_with_activation">ไม่สามารถเปิดใช้งาน</string>
+    <string name="ota_listen">กรุณาปฏิบัติตามวิธีการตามเสียงพูดของระบบ</string>
+    <string name="ota_speaker">ลำโพง</string>
+    <string name="ota_progress">รอสักครู่ขณะที่กำลังตั้งโปรแกรมโทรศัพท์ของคุณ</string>
+    <string name="ota_failure">การตั้งค่าไม่สำเร็จ</string>
+    <string name="ota_successful">การเปิดใช้งานโทรศัพท์ของคุณเสร็จแล้ว อาจใช้เวลาถึง 15 นาทีในการเข้าสู่เครือข่าย.</string>
+    <string name="ota_unsuccessful">โทรศัพท์ของคุณไม่เปิดใช้งาน\nคุณอาจต้องหาพื้นที่ที่มีสัญญาณดีกว่านี้ (ใกล้หน้าต่างหรือออกไปข้างนอก)\n\nลองใหม่อีกครั้งหรือติดต่อศูนย์บริการลูกค้าเพื่อรับฟังตัวเลือกเพิ่มเติม</string>
+    <string name="ota_spc_failure">SPC ส่วนเกินล้มเหลว</string>
+    <string name="ota_call_end">ย้อนกลับ</string>
+    <string name="ota_try_again">ลองใหม่</string>
+    <string name="ota_next">ถัดไป</string>
+    <string name="ecm_exit_dialog">ออกจากโหมดโทรฉุกเฉิน</string>
+    <string name="phone_entered_ecm_text">เข้าสู่โหมดติดต่อกลับฉุกเฉิน</string>
+    <string name="phone_in_ecm_notification_title">โหมดติดต่อกลับฉุกเฉิน</string>
+    <string name="phone_in_ecm_call_notification_text">การเชื่อมต่อข้อมูลมือถือปิดใช้</string>
+    <plurals name="phone_in_ecm_notification_time">
+        <item quantity="other">ไม่มีการเชื่อมต่อข้อมูลนาน <xliff:g id="COUNT">%s</xliff:g> นาที</item>
+    </plurals>
+    <plurals name="alert_dialog_exit_ecm">
+        <item quantity="other">โทรศัพท์จะอยู่ในโหมดติดต่อกลับฉุกเฉินเป็นเวลา <xliff:g id="COUNT">%s</xliff:g> นาที ในระหว่างที่อยู่ในโหมดนี้ จะไม่สามารถใช้แอปพลิเคชันที่ใช้การเชื่อมต่อข้อมูลได้ คุณต้องการจะออกเดี๋ยวนี้หรือไม่</item>
+    </plurals>
+    <plurals name="alert_dialog_not_avaialble_in_ecm">
+        <item quantity="other">การทำงานที่เลือกจะไม่สามารถใช้ได้เมื่ออยู่ในโหมดติดต่อกลับฉุกเฉิน โทรศัพท์จะอยู่ในโหมดนี้เป็นเวลา <xliff:g id="COUNT">%s</xliff:g> นาที คุณต้องการจะออกเดี๋ยวนี้หรือไม่</item>
+    </plurals>
+    <string name="alert_dialog_in_ecm_call">การทำงานที่เลือกใช้ไม่ได้ในระหว่างโทรฉุกเฉิน</string>
+    <string name="progress_dialog_exiting_ecm">กำลังออกจากโหมดติดต่อกลับฉุกเฉิน</string>
+    <string name="alert_dialog_yes">ใช่</string>
+    <string name="alert_dialog_no">ไม่</string>
+    <string name="alert_dialog_dismiss">เลิกแสดง</string>
+    <string name="other_settings">การตั้งค่าการโทรอื่นๆ</string>
+    <string name="selectContact">เลือกรายชื่อติดต่อ</string>
+    <string name="sip_settings">การโทรทางอินเทอร์เน็ต</string>
+    <string name="sip_accounts">บัญชีการโทรทางอินเทอร์เน็ต (SIP)</string>
+    <string name="sip_accounts_title">บัญชี SIP</string>
+    <string name="sip_receive_calls">รับสายเรียกเข้า</string>
+    <string name="sip_receive_calls_summary">ลดอายุการใช้งานแบตเตอรี่</string>
+    <string name="sip_call_options_title">โทรผ่านอินเตอร์เน็ต</string>
+    <string name="sip_call_options_wifi_only_title">ใช้การโทรทางอินเทอร์เน็ต (WiFi เท่านั้น)</string>
+    <string name="sip_call_options_entry_1">ใช้โทรทุกกรณีหากมีสัญญาณเครือข่ายข้อมูล</string>
+    <string name="sip_call_options_entry_2">โทรผ่านอินเตอร์เน็ตเท่านั้น</string>
+    <string name="sip_call_options_entry_3">ถามทุกครั้งที่โทรออก</string>
+    <string name="sip_call_options_wifi_only_entry_1">สำหรับการโทรออกทั้งหมด</string>
+    <string name="pick_outgoing_call_phone_type">โทรออก</string>
+    <string name="pick_outgoing_sip_phone">ใช้บัญชีโทรอินเตอร์เน็ต\u0020</string>
+    <string name="remember_my_choice">ใช้เบอร์นี้โทรผ่านอินเตอร์เน็ตเสมอ</string>
+    <string name="reset_my_choice_hint">คุณสามารถตั้งค่าบัญชีสำหรับโทรผ่านเน็ตได้จากเมนูโทรศัพท์ &gt; การตั้งค่า &gt; โทรผ่านอินเตอร์เน็ต &gt; บัญชี</string>
+    <string name="pstn_phone">โทรออกด้วยโทรศัพท์มือถือ</string>
+    <string name="internet_phone">การโทรทางอินเทอร์เน็ต</string>
+    <string name="no_sip_account_found_title">ไม่พบบัญชีสำหรับโทรผ่านเน็ต</string>
+    <string name="no_sip_account_found">ไม่พบการตั้งค่าบัญชีสำหรับโทรผ่านเน็ตบนมือถือเครื่องนี้ ต้องการเพิ่มบัญชีตอนนี้หรือไม่?</string>
+    <string name="sip_menu_add">เพิ่ม</string>
+    <string name="add_sip_account">เพิ่มบัญชี</string>
+    <string name="remove_sip_account">นำบัญชีออก</string>
+    <string name="sip_account_list">บัญชี SIP</string>
+    <string name="saving_account">กำลังบันทึก\u2026</string>
+    <string name="removing_account">กำลังลบ\u2026</string>
+    <string name="sip_menu_save">บันทึก</string>
+    <string name="sip_menu_discard">ยกเลิก</string>
+    <string name="alert_dialog_close">ปิดโปรไฟล์</string>
+    <string name="alert_dialog_ok">ตกลง</string>
+    <string name="close_profile">ปิด</string>
+    <string name="primary_account_summary_with">บัญชีหลัก <xliff:g id="REGISTRATION_STATUS">%s</xliff:g></string>
+    <string name="registration_status_checking_status">กำลังตรวจ\u2026</string>
+    <string name="registration_status_registering">กำลังลงทะเบียน...</string>
+    <string name="registration_status_still_trying">รอสักครู่\u2026</string>
+    <string name="registration_status_not_receiving">ไม่รับสาย</string>
+    <string name="registration_status_no_data">คุณไม่ได้เชื่อมต่อเครือข่าย</string>
+    <string name="registration_status_no_wifi_data">คุณยังไม่ได้เชื่อมต่อเครือข่าย Wi-Fi</string>
+    <string name="registration_status_not_running">ไม่สามารถลงทะเบียนบัญชีได้</string>
+    <string name="registration_status_done">รับสาย</string>
+    <string name="registration_status_failed_try_later">ไม่สามารถลงทะเบียนบัญชีได้ <xliff:g id="registration_error_message" example="timed out">%s</xliff:g>)</string>
+    <string name="registration_status_invalid_credentials">ชื่อผู้ใช้หรือรหัสผ่านที่คุณป้อนไม่ถูกต้อง</string>
+    <string name="registration_status_server_unreachable">ไม่สามารถลงทะเบียนบัญชีได้ ตรวจสอบให้แน่ใจว่าชื่อเซิร์ฟเวอร์ที่คุณป้อนนั้นถูกต้อง</string>
+    <string name="third_party_account_summary">บัญชีนี้มีการใช้งานโดย <xliff:g id="account_owner" example="Google Talk">%s</xliff:g></string>
+    <string name="sip_edit_title">รายละเอียดบัญชี SIP</string>
+    <string name="sip_edit_new_title">รายละเอียดบัญชี SIP</string>
+    <string name="domain_address_title">เซิร์ฟเวอร์</string>
+    <string name="username_title">ชื่อผู้ใช้</string>
+    <string name="password_title">รหัสผ่าน</string>
+    <string name="display_name_title">ชื่อที่แสดง</string>
+    <string name="proxy_address_title">ที่อยู่พร็อกซีขาออก</string>
+    <string name="port_title">หมายเลขพอร์ต</string>
+    <string name="transport_title">ประเภทการส่งผ่านข้อมูล</string>
+    <string name="send_keepalive_title">ส่งแบบ keep-alive</string>
+    <string name="set_primary_title">ตั้งค่าเป็นบัญชีหลัก</string>
+    <string name="set_primary_summary">ใช้สำหรับการโทรออก</string>
+    <string name="advanced_settings">การตั้งค่าเพิ่มเติม</string>
+    <string name="auth_username_title">ชื่อผู้ใช้สำหรับตรวจสอบสิทธิ์</string>
+    <string name="auth_username_summary">ชื่อผู้ใช้ที่ใช้ในการตรวจสอบสิทธิ์</string>
+    <string name="default_preference_summary">&lt;ไม่ได้ตั้งค่า&gt;</string>
+    <string name="display_name_summary">&lt;เหมือนกับชื่อผู้ใช้&gt;</string>
+    <string name="optional_summary">&lt;ตัวเลือก&gt;</string>
+    <string name="advanced_settings_show">▷ แตะเพื่อแสดงทั้งหมด</string>
+    <string name="advanced_settings_hide">▽ แตะเพื่อซ่อนทั้งหมด</string>
+    <string name="empty_alert">ข้อมูล <xliff:g id="input_field_name" example="Username, Password...">%s</xliff:g> ไม่สามารถเว้นว่างได้</string>
+    <string name="not_a_valid_port">หมายเลขพอร์ตควรอยู่ระหว่าง 1000 ถึง 65534</string>
+    <string name="no_internet_available_title">ไม่มีการเชื่อมต่ออินเตอร์เน็ต</string>
+    <string name="no_wifi_available_title">ไม่มีการเชื่อมต่อ WiFi</string>
+    <string name="no_internet_available">ในการโทรออกผ่านเน็ต คุณต้องเชื่อมต่อกับอินเตอร์เน็ตก่อน</string>
+    <string name="no_wifi_available">คุณต้องเชื่อมต่อกับเครือข่าย Wi-Fi ก่อนเพื่อที่จะใช้การโทรผ่านเน็ต (ดูเมนูการตั้งค่าเครือข่าย &amp; เครือข่ายไร้สาย)</string>
+    <string name="no_voip">ระบบไม่รองรับการโทรผ่านเน็ต</string>
+    <string name="no_volte">ไม่สามารถโทรแบบ IMS ได้</string>
+    <string name="no_vt_allowed">หากต้องการโทรออกแบบวิดีโอ ให้ปิดโหมด TTY ก่อน</string>
+    <string translatable="true" name="sip_system_decide">อัตโนมัติ</string>
+    <string translatable="true" name="sip_always_send_keepalive">ส่งเสมอ</string>
+    <string name="ims_edit_title">รายละเอียดบัญชี IMS</string>
+    <string name="ims_accounts_title">บัญชี IMS</string>
+    <string name="mo_call_type_title">ประเภทของการโทร MO Call</string>
+    <string name="ims_service_capability">การรองรับ</string>
+    <string name="ims_service_capability_title">ความสามารถในการรองรับ IMS</string>
+    <string name="ims_menu_save">บันทึก</string>
+    <string name="ims_menu_discard">ยกเลิก</string>
+    <string name="remove_ims_account">ลบบัญชี</string>
+    <string name="not_voice_capable">ไม่สนับสนุนการโทรออกด้วยเสียง</string>
+    <string name="respond_via_sms_canned_response_1">ติดธุระอยู่ขณะนี้ ช่วยติดต่อกลับมาใหม่ภายหลังได้ไหม?</string>
+    <string name="respond_via_sms_canned_response_2">เดี๋ยวจะโทรกลับทันที</string>
+    <string name="respond_via_sms_canned_response_3">เดี๋ยวจะโทรหาทีหลัง</string>
+    <string name="respond_via_sms_canned_response_4">ฉันกำลังติดธุระอยู่ มีอะไรให้รับใช้?</string>
+    <string name="respond_via_sms_cannot_empty">ข้อความปฏิเสธไม่สามารถเว้นว่างได้</string>
+    <string name="respond_via_sms_setting_title">คำตอบด่วน</string>
+    <string name="respond_via_sms_setting_summary">แก้ไขข้อความตอบรับที่ตั้งไว้ล่วงหน้า</string>
+    <string name="respond_via_sms_edittext_dialog_title">คำตอบด่วน</string>
+    <string name="respond_via_sms_menu_reset_default_activity">คืนค่าเริ่มต้น</string>
+    <string name="respond_via_sms_confirmation_format">ส่งข้อความไปยัง <xliff:g id="PHONE_NUMBER">%s</xliff:g> แล้ว</string>
+    <string name="description_image_button_one">หนึ่ง</string>
+    <string name="description_image_button_two">สอง</string>
+    <string name="description_image_button_three">สาม</string>
+    <string name="description_image_button_four">สี่</string>
+    <string name="description_image_button_five">ห้า</string>
+    <string name="description_image_button_six">หก</string>
+    <string name="description_image_button_seven">เจ็ด</string>
+    <string name="description_image_button_eight">แปด</string>
+    <string name="description_image_button_nine">เก้า</string>
+    <string name="description_image_button_star">ดาว</string>
+    <string name="description_image_button_zero">ศูนย์</string>
+    <string name="description_image_button_pound">ปอนด์</string>
+    <string name="description_dial_button">หมุนหมายเลข</string>
+    <string name="description_delete_button">ถอยหลัง</string>
+    <string name="ringtone_title" msgid="5379026328015343686">เสียงเรียกเข้าโทรศัพท์</string>
+    <string name="vibrate_on_ring_title">สั่นเมื่อมีสายเข้า</string>
+    <string name="dtmf_tone_enable_title">เสียงแตะแป้นหมายเลข</string>
+    <string name="dial_pad_autocomplete">ช่วยเติมอัตโนมัติในแป้นหมายเลข</string>
+    <string name="preference_category_ringtone">เสียงเรียกเข้าและสั่น</string>
+    <string name="set_subscription">เลือกการบอกรับเป็นสมาชิก</string>
+    <string name="place_a_call1">บริการ 1</string>
+    <string name="place_a_call2">บริการ 2</string>
+    <string name="place_a_call3">บริการ 3</string>
+    <string name="cancel_call">ยกเลิก</string>
+    <string name="sip_add_account_tip_text">หากต้องการใช้งานโทรผ่านอินเตอร์เน็ต กรุณาเพิ่มบัญชี SIP</string>
+    <string name="clir_choices_network_default">ค่าตั้งต้นเครือข่าย</string>
+    <string name="clir_choices_hide_number">ซ่อนหมายเลข</string>
+    <string name="clir_choices_show_number">แสดงหมายเลข</string>
+    <string name="tty_mode_entries_full">โหมดพิมพ์สนทนาเต็มรูปแบบ (TTY Full)</string>
+    <string name="tty_mode_entries_hco">โหมดพิมพ์สนทนา-ผู้พิการทางการพูด (TTY HCO)</string>
+    <string name="tty_mode_entries_off">ปิดโหมดพิมพ์สนทนา (TTY Off)</string>
+    <string name="tty_mode_entries_vco">โหมดพิมพ์สนทนา-ผู้พิการทางการได้ยิน (TTY VCO)</string>
+    <string name="dtmf_tone_entries_normal">ปกติ</string>
+    <string name="dtmf_tone_entries_long">ยาว</string>
+    <string name="contactScreen"> เพิ่ม/แก้ไขรายชื่อในซิมการ์ด</string>
+    <string name="exportContactScreen"> ส่งออกรายชื่อในโทรศัพท์ไปยังซิมการ์ด </string>
+    <string name="addSimEntries"> เพิ่มผู้ติดต่อในซิมการ์ด</string>
+    <string name="deleteAllSimEntries"> ลบผู้ติดต่อทั้งหมดในซิมการ์ด</string>
+    <string name="deleteSimContacts">กำลังลบ\u2026</string>
+    <string name="editContact"> แก้ไข</string>
+    <string name="sendSms"> ส่ง SMS</string>
+    <string name="delete"> ลบ</string>
+    <string name="dial"> โทร</string>
+    <string name="enterName"> ชื่อ:</string>
+    <string name="enterNumber"> หมายเลขโทรศัพท์:</string>
+    <string name="contactAddSuccess"> เพิ่มผู้ติดต่อลงในซิมการ์ดแล้ว </string>
+    <string name="contactAddFailed"> ไม่สามารถเพิ่มผู้ติดต่อในซิมการ์ดได้ </string>
+    <string name="contactUpdateSuccess"> แก้ไขรายชื่อในซิมการ์ดแล้ว </string>
+    <string name="contactUpdateFailed"> แก้ไขรายชื่อในซิมการ์ดแล้ว </string>
+    <string name="contactdeleteSuccess"> ลบรายชื่อติดต่อจากซิมการ์ดแล้ว </string>
+    <string name="contactdeleteFailed"> ลบผู้ติดต่อในซิมการ์ดไม่ได้</string>
+    <string name="allContactdeleteSuccess"> ลบรายชื่อติดต่อทั้งหมดในซิมการ์ดแล้ว </string>
+    <string name="allContactdeleteFailed"> ลบผู้ติดต่อในซิมการ์ดไม่ได้ </string>
+    <string name="exportAllcontatsSuccess"> ส่งออกผู้ติดต่อทั้งหมดไปยังซิมการ์ดแล้ว </string>
+    <string name="exportAllcontatsFailed"> ส่งออกผู้ติดต่อทั้งหมดไปยังซิมการ์ด </string>
+    <string name="exportAllcontatsNoContacts"> ไม่พบรายชื่อผู้ติดต่อ </string>
+    <string name="cursorError"> พบข้อผิดพลาดของเคอร์เซอร์ </string>
+    <string name="alertdialogtitle"> ผลลัพธ์ </string>
+    <string name="name_hint_text">ชื่อ</string>
+    <string name="phone_number_hint_text">หมายเลขโทรศัพท์</string>
+    <string name="sim_contact_name">ชื่อ</string>
+    <string name="sim_contact_number">หมายเลข</string>
+    <string name="pin2_invalid_or_name_is_too_long">คุณป้อนรหัส PIN ไม่ถูกต้องหรือชื่อที่ป้อนยาวเกินกำหนด</string>
+    <string name="voice_privacy">ตั้งค่าความเป็นส่วนตัวสำหรับการโทรด้วยเสียง</string>
+    <string name="back">ย้อนกลับ</string>
+    <string name="add">เพิ่ม</string>
+    <string name="undefined">ไม่มี</string>
+    <string name="remove">ลบ</string>
+    <string name="telocation_setting">ตั้งค่าตำแหน่งพิกัด</string>
+    <string name="telocation_show_settings">ตั้งค่าแสดงผล</string>
+    <string name="telocation_enable_title">แสดงที่ตั้ง</string>
+    <string name="telocation_custom_location_title">ตำแหน่งพิกัดของฉัน</string>
+    <string name="telocation_custom_location_summary">จัดการรหัสพื้นที่และกลุ่มหมายเลข</string>
+    <string name="telocation_call_assistant">ผู้ช่วยการโทร</string>
+    <string name="telocation_contacts_countrycode">ค่าเริ่มต้นของรหัสประเทศ</string>
+    <string name="telocation_contacts_countrycode_hint">ป้อนรหัสประเทศ</string>
+    <string name="telocation_contacts_countrycode_summary">ค่าตั้งต้นของรหัสประเทศที่ใช้กับรายชื่อผู้ติดต่อคือ %s</string>
+    <string name="telocation_auto_country_code">เพิ่มรหัสประเทศ</string>
+    <string name="telocation_auto_country_code_summary">ใส่รหัสประเทศอัตโนมัติเมื่อโทรออกตามรายชื่อผู้ติดต่อ</string>
+    <string name="telocation_countrycode_alert_message_warning">รหัสประเทศที่คุณป้อนอาจไม่ถูกต้อง</string>
+    <string name="telocation_countrycode_alert_title">คำเตือน</string>
+    <string name="telocation_countrycode_alert_message_wrong">รหัสประเทศที่คุณป้อนไม่ถูกต้อง</string>
+    <string name="telocation_custom_empty">"เพิ่มหมายเลขโดยแตะที่ปุ่มบวก(+)"</string>
+    <string name="telocation_edit_custom_location_title">ตั้งค่าตำแหน่งพิกัด</string>
+    <string name="telocation_custom_number_hint">รหัสพื้นที่หรือกลุ่มหมายเลข</string>
+    <string name="telocation_custom_name_hint">ชื่อ</string>
+    <string name="telocation_number_type">ประเภทหมายเลข</string>
+    <string name="telocation_number_type_jituan"> กลุ่มเลขหมาย</string>
+    <string name="telocation_number_type_mob">โทรศัพท์มือถือ</string>
+    <string name="telocation_number_type_tel">โทรศัพท์ประจำที่</string>
+    <string name="telocation_countrycode_alert_message">ป้อนหมายเลขโทรศัพท์โดยไม่ต้องใส่รหัสประเทศ</string>
+    <string name="telocation_confim_delete_title">ลบข้อความนี้?</string>
+    <string name="telocation_error_message_number">%s รองรับเฉพาะหมายเลขเท่านั้น</string>
+    <string name="telocation_jituan_error_message_number">%s รองรับเฉพาะหมายเลขและดอกจันเท่านั้น</string>
+    <string name="call_description_recording">กำลังบันทึก\u2026</string>
+    <string name="call_record_auto_whitelist_no_item">เพิ่มหมายเลขโทรศัพท์โดยแตะปุ่มเพิ่ม (+)</string>
+    <string name="call_record_auto_whitelist">รายการกำหนดเอง</string>
+    <string name="call_record_auto_unknown_number">หมายเลขที่ไม่ทราบ</string>
+    <string name="auto_record_yellowpage">สมุดโทรศัพท์</string>
+    <string name="call_record_auto_title">บันทึกเสียงสนทนาอัตโนมัติ</string>
+    <string name="call_record_auto_summary">เสียงสนทนาจะถูกบันทึกไว้ที่ MIUI/sound recorder/call_rec ภายในที่เก็บข้อมูลของเครื่อง</string>
+    <string name="call_record_auto_scenario_title">บันทึกสายสนทนาที่โทรจาก</string>
+    <string name="call_record_whitelist_custom">หมายเลขที่เลือก</string>
+    <string name="call_record_auto_whitelist_summary_for_one">1 เลขหมาย</string>
+    <string name="call_record_auto_whitelist_summary"> %d เลขหมาย</string>
+    <string name="call_recording_notification_title">บันทึกการสนทนาแล้ว</string>
+    <string name="call_recording_notification_title_error">บันทึกการสนทนาไม่ได้</string>
+    <string name="call_recording_setting">บันทึกสายสนทนา</string>
+    <string name="call_recording_notification_toggle_title">แจ้งเตือนการบันทึกสายสนทนา</string>
+    <string name="call_recording_notification_summary">แสดงการแจ้งเตือนเมื่อมีการบันทึกการสนทนา</string>
+    <string name="call_recording_notification_message_low_storage">SD การ์ดเต็ม</string>
+    <string name="call_recording_notification_message">แตะเพื่อเรียกฟัง</string>
+    <string name="call_recording_notification_message_sd_unmounted">ไม่พบ SD การ์ด</string>
+    <string name="call_record_add_numbers">เพิ่มหมายเลข</string>
+    <string name="call_remove_exception_numbers_confirm">%d เลขหมายจะถูกลบ</string>
+    <string name="call_record_auto_always">เลขหมายทั้งหมด</string>
+    <string name="call_record_on_summary">สายสนทนาจะถูกบันทึกเสียงโดยอัตโนมัติ</string>
+    <string name="call_record_off_summary">การบันทึกเสียงสายสนทนาปิดใช้</string>
+    <string name="autoip">การโทรอัตโนมัติผ่าน IP</string>
+    <string name="autoip_prefix">หมายเลขขึ้นต้น IP</string>
+    <string name="autoip_prefix_summary">หมายเลขนำ IP ของผู้ให้บริการเครือข่ายคือ %s</string>
+    <string name="autoip_autoip_current_areacode_summary">\"รหัสพื้นที่ปัจจุบันคือ \"<xliff:g id="areacode_be_set">%s</xliff:g></string>
+    <string name="autoip_setting">การตั้งค่า IP โดยอัตโนมัติ</string>
+    <string name="autoip_summary">เพิ่มหมายเลข IP ตั้งต้นในหมายเลขต่างประเทศ</string>
+    <string name="autoip_current_areacode">รหัสพื้นที่ปัจจุบัน</string>
+    <string name="autoip_current_areacode_summary">รหัสพื้นที่สำหรับตำแหน่งพิกัดปัจจุบัน</string>
+    <string name="autoip_support_local_numbers">ใช้หมายเลขเริ่มต้น IP เสมอ</string>
+    <string name="autoip_add_zero_prefix">เพิ่มหมายเลขเริ่มต้น 0 สำหรับโทรมือถือ</string>
+    <string name="autoip_exception">หมายเลขที่ไม่ต้องใส่เลขหมายเริ่มต้น IP</string>
+    <string name="autoip_exception_summary"> %d ทั้งหมด</string>
+    <string name="autoip_exception_summary_more">, รวม %d รายการ</string>
+    <string name="autoip_no_exceptions">เพิ่มเลขหมายที่ไม่ต้องใส่หมายเลขเริ่มต้น IP</string>
+    <string name="autoip_areacode_required">ต้องใส่รหัสเมืองด้วย</string>
+    <string name="autoip_areacode_required_accept">ตกลง</string>
+    <string name="emergency_call_area_code_edit_dialog_hint">ป้อนรหัสพื้นที่</string>
+    <string name="autoip_areacode_required_for_emergency_number">ต้องใส่รหัสเมืองด้วยในการโทรออกฉุกเฉิน</string>
+    <string name="emergency_call_area_code_edit_dialog_button">โทร</string>
+    <string name="dial_related_setting_catory">โทร</string>
+    <string name="t9_indexing_method_title">การป้อนข้อมูลแบบ T9</string>
+    <string name="t9_indexing_method_pinyin">Pinyin</string>
+    <string name="t9_indexing_method_zhuyin">Zhuyin</string>
+    <string name="t9_indexing_rebuilding_message">จัดเรียงดัชนี T9\u2026</string>
+    <string name="auto_redial_pref_title">โทรซ้ำอัตโนมัติ</string>
+    <string name="auto_redial_pref_summary">โทรซ้ำอัตโนมัติเมื่อสายไม่ว่าง</string>
+    <string name="auto_retry_mode_title">ลองซ้ำอัตโนมัติ</string>
+    <string name="auto_retry_mode_summary">เปิดใช้การโทรซ้ำอัตโนมัติ</string>
+    <string name="answer_features_setting_category">รับสาย</string>
+    <string name="auto_answer_setting_title">ตั้งค่ารับสายอัตโนมัติ</string>
+    <string name="auto_answer_pref_title">รับสายอัตโนมัติ</string>
+    <string name="auto_answer_pref_summary">รับสายเรียกเข้าอัตโนมัติ</string>
+    <string name="auto_answer_delay_title">หน่วงเวลาการรับสายอัตโนมัติ</string>
+    <string name="auto_answer_delay_entries_immediately">ไม่ต้องหน่วง</string>
+    <string name="auto_answer_delay_entries_delay_3s">3 วินาที</string>
+    <string name="auto_answer_delay_entries_delay_5s">5 วินาที</string>
+    <string name="auto_answer_delay_entries_delay_10s">10 วินาที</string>
+    <string name="auto_answer_scenario_title">ตั้งค่ารับสายอัตโนมัติ</string>
+    <string name="auto_answer_scenario_enteries_always">เสมอ</string>
+    <string name="auto_answer_scenario_enteries_headset_only">ชุดหูฟังเท่านั้น</string>
+    <string name="auto_answer_scenario_enteries_bluetooth_only">บลูทูธเท่านั้น</string>
+    <string name="auto_answer_scenario_enteries_headset_bluetooth">ชุดหูฟังหรือบลูทูธเท่านั้น</string>
+    <string name="auto_answer_summary_not_enabled">ปิด</string>
+    <string name="auto_answer_summary_delay">" (หน่วงเวลา: %s วินาที)"</string>
+    <string name="answer_state_setting_title">การตั้งค่าสายเรียกเข้า</string>
+    <string name="answer_state_setting_summary">การตั้งค่าสายเรียกเข้าเพิ่มเติม</string>
+    <string name="turnover_mute_title">คว่ำจอเพื่อปิดเสียงเสียงเข้า</string>
+    <string name="turnover_mute_summary">เมื่อหมุนจออยู่ในแนวนอน คว่ำจอลงเพื่อปิดเสียง</string>
+    <string name="handon_ringer_summary">ลดระดับเสียงเรียกเข้าเมื่อหยิบโทรศัพท์ขึ้น คุณลักษณะนี้จะใช้งานไม่ได้หากตั้งค่าเตือนสายเรียกเข้าด้วยการสั่นไว้</string>
+    <string name="handon_ringer_title">ปิดเสียงเรียกเข้าเมื่อหยิบโทรศัพท์ขึ้นมา</string>
+    <string name="flash_when_ring_summary">กระพริบไฟสถานะเมื่อมีสายเรียกเข้า</string>
+    <string name="flash_when_ring_title">กระพริบไฟเมื่อโทรศัพท์ดัง</string>
+    <string name="enable_proximity_summary">ปิดหน้าจอระหว่างการสนทนา</string>
+    <string name="enable_proximity_title">เซนเซอร์ระยะใกล้</string>
+    <string name="pocket_mode_summary">ล็อคอัตโนมัติเมื่อใส่ไว้ในประเป๋า</string>
+    <string name="pocket_mode_title">ป้องกันการโทรเมื่ออยู่ในกระเป๋า</string>
+    <string name="antispam_notification_title">หมายเลขที่ไม่ทราบ</string>
+    <string name="enable_antispam_strange_title">ปิดเสียงโทรเข้าครั้งแรก</string>
+    <string name="enable_antispam_strange_summary">ปิดเสียงโทรเข้าครั้งแรกจากหมายเลขที่ไม่รู้จัก</string>
+    <string name="reject_via_sms">การตอบด่วน</string>
+    <string name="reject_via_sms_summary">แก้ไขข้อความที่ตั้งไว้ล่วงหน้า</string>
+    <string name="reject_via_sms_title">การตอบด่วน</string>
+    <string name="missed_call_notify_times_title">การแจ้งเตือนสายที่ไม่ได้รับ</string>
+    <string name="missed_call_notify_times_summary">เลือกจำนวนครั้งที่ต้องการให้แจ้งเตือนสายที่ไม่ได้รับ (การแจ้งเตือนจะเว้นระยะห่างกัน 5 นาที)</string>
+    <string name="missed_call_notify_none">ไม่ต้องแจ้งเตือน</string>
+    <string name="missed_call_notify_once">1 ครั้ง</string>
+    <string name="missed_call_notify_twice">2 ครั้ง</string>
+    <string name="missed_call_notify_thrice">3 ครั้ง</string>
+    <string name="missed_call_notify_five_times">5 ครั้ง</string>
+    <string name="missed_call_notify_ten_times">10 ครั้ง</string>
+    <string name="labelCF">การโอนสาย</string>
+    <string name="labelCFU">โอนสายเสมอ</string>
+    <string name="messageCFU">โอนสายเรียกเข้าไปยัง</string>
+    <string name="sum_cfu_enabled_indicator">โอนสายทั้งหมด</string>
+    <string name="sum_cfu_enabled">โอนสายทั้งหมดไปที่ <xliff:g id="PHONENUMBER">{0}</xliff:g></string>
+    <string name="sum_cfu_enabled_no_number">หมายเลขใช้งานไม่ได้</string>
+    <string name="sum_cfu_disabled">ปิดใช้</string>
+    <string name="labelCFB">โอนสายเมื่อสายไม่ว่าง</string>
+    <string name="messageCFB">โอนสายเรียกเข้าไปยัง</string>
+    <string name="sum_cfb_enabled">โอนสายไปที่ <xliff:g id="PHONENUMBER">{0}</xliff:g></string>
+    <string name="sum_cfb_disabled">ปิด</string>
+    <string name="disable_cfb_forbidden">เครือข่ายของคุณไม่รองรับการโอนสายเรียกเข้ากรณีสายไม่ว่าง</string>
+    <string name="labelCFNRy">โอนสายเมื่อไม่มีผู้รับ</string>
+    <string name="messageCFNRy">โอนสายเรียกเข้าไปยัง</string>
+    <string name="sum_cfnry_enabled">โอนสายไปที่ <xliff:g id="PHONENUMBER">{0}</xliff:g></string>
+    <string name="sum_cfnry_disabled">ปิด</string>
+    <string name="disable_cfnry_forbidden">เครือข่ายของคุณไม่รองรับการปิดโอนสายเรียกเข้ากรณีไม่มีผู้รับสาย</string>
+    <string name="labelCFNRc">โอนสายเมื่อติดต่อไม่ได้</string>
+    <string name="messageCFNRc">โอนสายเรียกเข้าไปยัง</string>
+    <string name="sum_cfnrc_enabled">โอนสายไปที่ <xliff:g id="PHONENUMBER">{0}</xliff:g></string>
+    <string name="sum_cfnrc_disabled">ปิด</string>
+    <string name="disable_cfnrc_forbidden">เครือข่ายของคุณไม่รองรับการปิดการโอนสายกรณีไม่มีสัญญาณ</string>
+    <string name="call_forwarding_settings">การโอนสาย</string>
+    <string name="call_forwarding_number_hint">โอนสายเรียกเข้าไปยัง</string>
+    <string name="cfu_title">โอนสายเสมอ</string>
+    <string name="cfb_title">โอนสายเมื่อสายไม่ว่าง</string>
+    <string name="cfnrc_title_cta">โอนสายเมื่อไม่สามารถติดต่อได้</string>
+    <string name="cfnrc_title">โอนสายเมื่อไม่สามารถติดต่อได้</string>
+    <string name="cfnry_title">โอนสายเมื่อไม่รับสาย</string>
+    <string name="disable_all_cf">ปิดใช้งานการโอนสายทั้งหมด</string>
+    <string name="call_settings_category">สายเรียกเข้า</string>
+    <string name="connect_disconnect_vibrate_title">สั่นเมื่อมีผู้รับสาย</string>
+    <string name="connect_disconnect_vibrate_summary">สั่นเมื่อผู้รับสายปลายทางยกหู</string>
+    <string name="connect_disconnect_vibrate_none">ไม่มี</string>
+    <string name="connect_disconnect_vibrate_normal">ปกติ</string>
+    <string name="connect_disconnect_vibrate_weak">เบา </string>
+    <string name="lable_call_barring">จำกัดการโทร </string>
+    <string name="lable_all_outgoing">การโทรออกทั้งหมด</string>
+    <string name="lable_all_outgoing_international">การโทรออกระหว่างประเทศ</string>
+    <string name="lable_all_out_except">การโทรออกระหว่างประเทศยกเว้นการโทรกลับประเทศแม่</string>
+    <string name="lable_all_incoming">สายเรียกเข้าทั้งหมด</string>
+    <string name="lable_incoming_calls_except">สายเรียกเข้าเมื่อกำลังใช้งานในโหมดโรมมิ่ง</string>
+    <string name="deactivate_all">ยกเลิกทั้งหมด</string>
+    <string name="change_password">เปลี่ยนรหัสผ่านจำกัดการโทร</string>
+    <string name="call_barring_sum">ตั้งค่าการจำกัดการโทร</string>
+    <string name="lable_disable">ปิด</string>
+    <string name="lable_enable">เปิด</string>
+    <string name="old_password_label">รหัสผ่านปัจจุบัน 4 หลัก</string>
+    <string name="new_password_label">รหัสผ่านใหม่ 4 หลัก</string>
+    <string name="invalid_password">ป้อนรหัสผ่านที่มีความยาว 4 หลัก</string>
+    <string name="confirm_password_label">ยืนยันรหัสผ่านใหม่</string>
+    <string name="mismatch_password">รหัสผ่านที่คุณป้อนไม่ตรงกัน</string>
+    <string name="password_changed">เปลี่ยนรหัสผ่านแล้ว</string>
+    <string name="enter_callbarring_password">ป้อนรหัสผ่านสำหรับจำกัดการโทร (4 หลัก)</string>
+    <string name="wrong_password">รหัสผ่านไม่ถูกต้อง</string>
+    <string name="call_waiting_title">การรับสายเรียกซ้อน</string>
+    <string name="call_waiting_summary">ระหว่างการใช้สาย ให้แจ้งเตือนเมื่อมีสายเรียกซ้อน</string>
+    <string name="call_waiting_tone_title">การแจ้งเตือนสายเรียกเข้าซ้อน</string>
+    <string name="call_waiting_tone_continuously">เสียงแจ้งเตือนต่อเนื่อง</string>
+    <string name="call_waiting_tone_twice_only">เสียงแจ้งเตือนสองครั้ง</string>
+    <string name="call_waiting_tone_twice_and_vibrate">เสียงแจ้งเตือนและสั่นสองครั้ง</string>
+    <string name="cdma_display_precise_call_state_title">แสดงสถานะการโทร</string>
+    <string name="cdma_display_precise_call_state_summary">กรุณายืนยันว่าผู้ให้บริการโครงข่ายรองรับการใช้งานนี้</string>
+    <string name="cdma_display_precise_call_state_message">หากผู้ให้บริการโครงข่ายไม่รองรับบริการนี้ การแสดงสถานะโทรอาจไม่ถูกต้อง</string>
+    <string name="other_settings_category">อื่นๆ</string>
+    <string name="caller_id_title">แสดงหมายเลขโทรเข้า</string>
+    <string name="caller_id_summary">ไม่แสดงหมายเลขของฉันเมื่อโทรออก (กรุณาแน่ใจว่าคุณลักษณะนี้รองรับโดยผู้ให้บริการโครงข่าย)</string>
+    <string name="get_smsc_address_error">"ไม่สามารถใช้งานเครือข่ายได้"</string>
+    <string name="get_smsc_address_timeout">ขาดการเชื่อมต่อในระยะเวลาที่กำหนด</string>
+    <string name="set_smsc_address_error">กำหนดค่านี้ไม่ได้</string>
+    <string name="set_smsc_address_timeout">ขาดการเชื่อมต่อในระยะเวลาที่กำหนด</string>
+    <string name="set_smsc_address_title">ใส่หมายเลขศูนย์บริการข้อความ SMS</string>
+    <string name="voicemail_settings">การตั้งค่า</string>
+    <string name="voicemail_settings_number_hint">ป้อนหมายเลขบริการรับฝากข้อความเสียง</string>
+    <string name="voicemail_settings_number_title">หมายเลขของระบบฝากข้อความ</string>
+    <string name="voicemail_settings_number_label">หมายเลขข้อความเสียง</string>
+    <string name="voicemail_provider">บริการ</string>
+    <string name="voicemail_provider_summary">เลือกบริการรับฝากข้อความเสียง</string>
+    <string name="voicemail_number_not_set">&lt;ไม่ได้ตั้งค่า&gt;</string>
+    <string name="voicemail_notification_vibrate_when_title" msgid="8731372580674292759">สั่น</string>
+    <string name="voicemail_notification_ringtone_title">เสียง</string>
+    <string name="voice_report_incoming_call">รายโทร</string>
+    <string name="voice_report_unknown_num">หมายเลขที่ไม่ทราบ</string>
+    <string name="command_error_fdn_failure">คุณต้องปิดใช้หมายเลขจำกัดการโทรก่อน</string>
+    <string name="uplmn_list_setting_title">เครือข่ายที่ต้องการ</string>
+    <string name="network_id">รหัสเครือข่าย</string>
+    <string name="dialog_network_priority_title">ลำดับความสำคัญ</string>
+    <string name="uplmn_list_setting_add_plmn">เครือข่าย PLMN ใหม่</string>
+    <string name="gsm_umts_network_preferences_title">ตั้งค่าตัวเลือกเครือข่าย</string>
+    <string name="gsm_umts_network_preferences_dialogtitle">ตั้งค่าตัวเลือกเครือข่าย</string>
+    <string name="uplmn_numeric_is_empty">ใส่รหัสเครือข่าย</string>
+    <string name="voip_setting">การตั้งค่าโทรผ่านเน็ต</string>
+    <string name="msim_setting_screen_title">ซิมการ์ด &amp; เครือข่ายมือถือ</string>
+    <string name="msim_setting_categery_title">ตั้งค่าซิมการ์ด</string>
+    <string name="msim_general_setting">การตั้งค่า</string>
+    <string name="msim_default_setting">การตั้งค่าเริ่มต้น</string>
+    <string name="msim_setting_no_sim_indicator">ไม่พบซิมการ์ด</string>
+    <string name="msim_setting_sim_info_editor_title">แก้ไขข้อมูลซิม</string>
+    <string name="msim_setting_operator_network_title">"เครือข่ายข้อมูลมือถือ"</string>
+    <string name="msim_sim_lock">ซิมการ์ดล็อคแล้ว</string>
+    <string name="msim_sim_radio_off">ปิด</string>
+    <string name="msim_enable_sim">เปิดใช้งาน</string>
+    <string name="msim_set_icc_card_error">ข้อผิดพลาดของการ์ด ICC</string>
+    <string name="msim_info_editor_name">แก้ไขชื่อซิมการ์ด</string>
+    <string name="msim_info_editor_number">แก้ไขหมายเลขซิมการ์ด</string>
+    <string name="msim_info_editor_set_name_error">ไม่สามารถบันทึกชื่อได้</string>
+    <string name="msim_apn_not_set">ไม่ตั้งค่า</string>
+    <string name="msim_set_sub_not_supported_phone_in_call">ไม่สามารถตั้งค่าขณะใช้สายได้</string>
+    <string name="msim_set_sub_not_supported_slot_id_error">ข้อผิดพลาดของซิมการ์ด</string>
+    <string name="msim_mode_progress_activating_message">กำลังเปิดใช้</string>
+    <string name="msim_mode_progress_deactivating_message">กำลังปิดใช้งาน</string>
+    <string name="msim_pref_title_voice">โทร</string>
+    <string name="msim_pref_title_data">อินเทอร์เน็ต</string>
+    <string name="msim_not_set_summary">ไม่ตั้งค่า</string>
+    <string name="msim_select_default_time_left">"(%d วิ)"</string>
+    <string name="msim_switch_data_conn_toast">ระบบได้แก้ไขการตั้งค่าเครือข่ายให้เลือกใช้งาน 4G ก่อน คุณสามารถแก้ไขการตั้งค่านี้ได้จากเมนูการตั้งค่าซิมการ์ด</string>
+    <string name="msim_switch_data_conn_toast_for_h2xct">ซิมการ์ด2 รองรับเครือข่าย GSM เท่านั้น หากต้องการเปลี่ยนประเภทเครือข่ายในช่องซิมการ๋ดนี้สามารถเปลี่ยนมาใช้2Gได้</string>
+    <string name="msim_has_been_disabled">"(ไม่ใช้งาน)"</string>
+    <string name="select_voice_call_sim">กรุณาเลือกซิมการ์ด</string>
+    <string name="general_setting">การตั้งค่า</string>
+    <string name="call_record_setting">ตั้งค่าการบันทึกเสียงสนทนา</string>
+    <string name="preference_telocation_title">ตำแหน่งพิกัด</string>
+    <string name="cloud_antispam_title">ระบุหมายเลขที่ไม่รู้จัก</string>
+    <string name="preference_auto_ip_summary_disable">ปิดใช้</string>
+    <string name="preference_dial_pad_touch_tone_title">เสียงปุ่มโทร</string>
+    <string name="preference_telocation_summary_teloc_off">ซ่อนตำแหน่งพิกัดของผู้ติดต่อ</string>
+    <string name="preference_telocation_summary_teloc_on">แสดงตำแหน่งพิกัดของผู้ติดต่อ</string>
+    <string name="preference_telocation_summary_countrycode_on">ใส่รหัสประเทศอัตโนมัติเมื่อโทร</string>
+    <string name="preference_dial_pad_touch_tone_default">ค่าเริ่มต้น</string>
+    <string name="preference_dial_pad_touch_tone_piano">เสียงปุ่มเปียโน</string>
+    <string name="preference_telocation_summary_countrycode_off">ไม่ต้องใส่รหัสประเทศอัตโนมัติในการโทร</string>
+    <string name="telephony_setting">การตั้งค่าการโทร</string>
+    <string name="international_roaming_setting">โรมมิ่งระหว่างประเทศ</string>
+</resources>
