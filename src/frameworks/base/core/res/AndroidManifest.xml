@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="android.miui" android:sharedUserId="android.uid.system">
+    <permission android:name="com.android.SystemUI.permission.TIGGER_TOGGLE"
+        android:protectionLevel="signatureOrSystem" />
+
+    <permission android:name="com.android.systemui.permission.NOTIFICATION"
+        android:protectionLevel="signatureOrSystem" />
+
+    <!-- Allows to access wifi provider -->
+    <permission
+        android:name="com.xiaomi.permission.ACCESS_WIFI"
+        android:protectionLevel="signature" />
+
+    <!-- Allows request intercept SMS -->
+    <permission
+        android:name="com.miui.permission.MANAGE_SMS_INTERCEPT"
+        android:protectionLevel="signatureOrSystem" />
+
+    <!-- Allow init miui env -->
+    <permission
+        android:name="miui.os.permisson.INIT_MIUI_ENVIRONMENT"
+        android:protectionLevel="signature" />
+
+    <!-- Allow request write boot time -->>
+    <permission
+        android:name="com.miui.permission.MANAGE_BOOT_TIME"
+        android:protectionLevel="signatureOrSystem" />
+
+    <!-- Allows to send mi push message -->
+    <permission
+        android:name="com.xiaomi.permission.SEND_PUSH"
+        android:label="@string/perm_send_push_lab"
+        android:description="@string/perm_send_push_dspt"
+        android:protectionLevel="signature" />
+
+    <!-- Broadcast indicate miui init completed -->
+    <protected-broadcast android:name="miui.intent.action.MIUI_INIT_COMPLETED" />
+
+    <application android:process="system"
+        android:persistent="true"
+        android:hasCode="false"
+        android:allowClearUserData="false"
+        android:killAfterRestore="false">
+        <activity android:name="miui.accounts.MiuiChooseAccountTypeActivity"
+            android:excludeFromRecents="true"
+            android:theme="@miui:style/Theme.Light.Settings"
+            android:label="@string/android_add_account_label"
+            android:process=":ui" />
+    </application>
+</manifest>
