@@ -8,6 +8,19 @@
     <permission android:name="com.android.systemui.permission.NOTIFICATION"
         android:protectionLevel="signatureOrSystem" />
 
+    <!-- Allows an application to manage location policies (such as disable
+     background location usage) and to define application-specific rules. @hide -->
+    <permission android:name="android.permission.MANAGE_LOCATION_POLICY"
+        android:label="@string/permlab_manageLocationPolicy"
+        android:description="@string/permdesc_manageLocationPolicy"
+        android:protectionLevel="signatureOrSystem" />
+
+    <!-- Allows an internal user to use privileged LocationPolicyManager APIs.
+    @hide -->
+    <permission android:name="android.permission.LOCATION_POLICY_INTERNAL"
+        android:permissionGroup="android.permission-group.LOCATION"
+        android:protectionLevel="signatureOrSystem" />
+
     <!-- Allows to access wifi provider -->
     <permission
         android:name="com.xiaomi.permission.ACCESS_WIFI"
