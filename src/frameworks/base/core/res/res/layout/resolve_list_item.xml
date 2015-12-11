@@ -22,9 +22,6 @@
               android:gravity="center"
               android:layout_height="wrap_content"
               android:layout_width="match_parent" >
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="10dip" />
     <!-- Extended activity info to distinguish between duplicate activity names -->
     <TextView android:id="@android:id/text2"
               android:textAppearance="@miui:style/TextAppearance.List.Secondary"
@@ -36,17 +33,27 @@
 
     <!-- Activity icon when presenting dialog
          Size will be filled in by ResolverActivity -->
-    <ImageView android:id="@android:id/icon"
+    <com.android.internal.widget.MaskLayout
+        android:id="@+id/masklayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+               android:id="@android:id/icon"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:scaleType="fitCenter" />
+    </com.android.internal.widget.MaskLayout>
     <!-- Activity name -->
     <TextView android:id="@android:id/text1"
               android:textAppearance="@miui:style/TextAppearance.List.Secondary"
               android:textColor="?android:attr/textColorAlertDialogListItem"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:gravity="center"
+              android:paddingTop="6dp"
+              android:paddingBottom="6dp"
+              android:gravity="center_horizontal|top"
+              android:lineSpacingMultiplier="0.8"
+              android:maxEms="5"
               android:minLines="2"
               android:maxLines="2" />
 </LinearLayout>
