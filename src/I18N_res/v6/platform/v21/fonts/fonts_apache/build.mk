@@ -121,6 +121,18 @@ font_src_files := \
 
 ifeq ($(MINIMAL_FONT_FOOTPRINT),true)
 
+font_src_files += \
+    NotoNaskh-Regular.ttf \
+    NotoNaskh-Bold.ttf \
+    NotoNaskhUI-Regular.ttf \
+    NotoNaskhUI-Bold.ttf \
+    NotoSansArmenian-Regular.ttf \
+    NotoSansArmenian-Bold.ttf \
+    NotoSansGeorgian-Regular.ttf \
+    NotoSansGeorgian-Bold.ttf \
+    NotoSansHebrew-Regular.ttf \
+    NotoSansHebrew-Bold.ttf
+
 $(eval $(call create-font-symlink,Roboto-Black.ttf,Roboto-Bold.ttf))
 $(eval $(call create-font-symlink,Roboto-BlackItalic.ttf,Roboto-BoldItalic.ttf))
 $(eval $(call create-font-symlink,Roboto-Light.ttf,Roboto-Regular.ttf))
