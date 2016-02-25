@@ -15,9 +15,9 @@
 # Warning: this is actually a product definition, to be inherited from
 
 PRODUCT_COPY_FILES := \
-    frameworks/base/data/fonts/system_fonts.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/system_fonts.xml \
-    frameworks/base/data/fonts/fallback_fonts.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/fallback_fonts.xml \
-    frameworks/base/data/fonts/fonts.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/fonts.xml
+    miui/I18N_res/v6/platform/v22/fonts/system_fonts.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/system_fonts.xml \
+    miui/I18N_res/v6/platform/v22/fonts/fallback_fonts.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/fallback_fonts.xml \
+    miui/I18N_res/v6/platform/v22/fonts/fonts.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/fonts.xml
 
 PRODUCT_PACKAGES := \
     DroidSansFallback.ttf \

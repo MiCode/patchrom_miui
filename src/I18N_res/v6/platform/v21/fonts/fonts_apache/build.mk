@@ -178,6 +178,8 @@ font_src_files += \
     NotoSansGurmukhiUI-Bold.ttf \
     NotoSansGurmukhiUI-Regular.ttf \
 
+# device customization
+-include miui/I18N_res/v6/device/$(TARGET_PRODUCT)-l/fonts/fonts.mk
 $(foreach f, $(font_src_files), $(call build-one-font-module, $(f)))
 
 build-one-font-module :=
