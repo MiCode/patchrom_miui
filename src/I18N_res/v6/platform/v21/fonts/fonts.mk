@@ -57,3 +57,4 @@ PRODUCT_PACKAGES := \
     NotoSansGurmukhi-Regular.ttf \
     NotoSansGurmukhiUI-Bold.ttf \
     NotoSansGurmukhiUI-Regular.ttf \
+    NotoSansTibetan-Regular.ttf \

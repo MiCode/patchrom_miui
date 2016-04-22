@@ -178,6 +178,14 @@ font_src_files += \
     NotoSansGurmukhiUI-Bold.ttf \
     NotoSansGurmukhiUI-Regular.ttf \
 
+#############################################################################
+# The following fonts are excluded from SMALLER_FONT_FOOTPRINT builds.
+#############################################################################
+ifneq ($(SMALLER_FONT_FOOTPRINT),true)
+font_src_files += \
+    NotoSansTibetan-Regular.ttf
+endif # !SMALLER_FONT_FOOTPRINT
+
 # device customization
 -include miui/I18N_res/v6/device/$(TARGET_PRODUCT)-l/fonts/fonts.mk
 $(foreach f, $(font_src_files), $(call build-one-font-module, $(f)))
