@@ -110,6 +110,7 @@
         <!-- The standard AOSP fused location provider -->
         <item>com.android.location.fused</item>
         <item>com.baidu.map.location</item>
+        <item>com.amap.android.location</item>
     </string-array>
 
     <!-- Whether camera shutter sound is forced or not (country specific). -->
@@ -127,4 +128,16 @@
          application is desired. -->
     <string name="default_sms_application" translatable="false">com.android.mms</string>
     <integer name="resumeboost_timeout_param">300</integer>
+
+    <!-- Flag indicating emergency calls will always use IMS irrespective of the state of the IMS connection -->
+    <bool name="useImsAlwaysForEmergencyCall">false</bool>
+
+    <!--for ntp network time sync -->
+    <!-- Try-again polling interval in milliseconds, in case the network request failed -->
+    <integer name="config_ntpPollingIntervalShorter">6000</integer>
+    <!-- Number of times to try again with the shorter interval, before backing
+         off until the normal polling interval. A value < 0 indicates infinite. -->
+    <integer name="config_ntpRetry">20</integer>
+    <!-- Timeout to wait for NTP server response. -->
+    <integer name="config_ntpTimeout">5000</integer>
 </resources>
