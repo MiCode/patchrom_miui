@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:internal="http://schemas.android.com/apk/prv/res/android"
+                android:id="@+id/status_bar_latest_event_content"
+                android:paddingStart="@dimen/notification_padding_left"
+                android:paddingEnd="@dimen/notification_padding_right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:tag="bigMedia"
+                >
+    <ImageView android:id="@+id/icon"
+               android:layout_width="@dimen/notification_large_icon_width"
+               android:layout_height="@dimen/notification_height"
+               android:gravity="start|center_vertical"
+               android:layout_marginEnd="@dimen/notification_content_margin_left_to_icon"
+               android:scaleType="centerInside"/>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/notification_height"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:layout_toRightOf="@id/icon">
+        <include layout="@layout/notification_template_part_line1" />
+        <include layout="@layout/notification_template_part_line2" />
+        <include layout="@layout/notification_template_part_line3" />
+    </LinearLayout>
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/notification_height"
+            android:layout_toRightOf="@id/icon"
+            android:id="@+id/action_divider"
+            android:background="@drawable/notification_template_divider_media" />
+    <LinearLayout
+            android:id="@+id/media_actions"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/notification_height"
+            android:layout_below="@id/action_divider"
+            android:layout_toRightOf="@id/icon"
+            android:orientation="horizontal"
+            android:layoutDirection="ltr"
+    >
+        <!-- media buttons will be added here -->
+    </LinearLayout>
+</RelativeLayout>

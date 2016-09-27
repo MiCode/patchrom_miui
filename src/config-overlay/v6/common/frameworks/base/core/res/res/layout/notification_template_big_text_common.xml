@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:internal="http://schemas.android.com/apk/prv/res/android">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/notification_height"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:id="@+id/big_text_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/notification_padding_left"
+            android:paddingEnd="@dimen/notification_padding_right"
+            android:orientation="horizontal"
+            >
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/notification_height" >
+                <ImageView
+                    android:id="@+id/icon"
+                    android:layout_width="@dimen/notification_large_icon_width"
+                    android:layout_height="@dimen/notification_large_icon_height"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerInside" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/content_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/notification_content_margin_left_to_icon"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                >
+                <LinearLayout
+                    android:id="@+id/line1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_weight="0"
+                    >
+                    <TextView android:id="@+id/title"
+                        android:textAppearance="@style/TextAppearance.StatusBar.EventContent.Title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:ellipsize="marquee"
+                        android:fadingEdge="horizontal"
+                        android:layout_weight="1"
+                        />
+                    <ViewStub android:id="@+id/time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0"
+                        android:visibility="gone"
+                        android:layout="@layout/notification_template_part_time"
+                        />
+                    <ViewStub android:id="@+id/chronometer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0"
+                        android:visibility="gone"
+                        android:layout="@layout/notification_template_part_chronometer"
+                        />
+                </LinearLayout>
+                <TextView android:id="@+id/text2"
+                    android:textAppearance="@style/TextAppearance.StatusBar.EventContent.Line2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-2dp"
+                    android:layout_marginBottom="-2dp"
+                    android:singleLine="true"
+                    android:fadingEdge="horizontal"
+                    android:layout_weight="0"
+                    android:ellipsize="marquee"
+                    android:visibility="gone"
+                    />
+                <miui.widget.ProgressBar
+                    android:id="@android:id/progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:layout_marginBottom="8dp"
+                    android:visibility="gone"
+                    android:layout_weight="0"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    />
+                <TextView android:id="@+id/big_text"
+                    android:textAppearance="@style/TextAppearance.StatusBar.EventContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="-2dp"
+                    android:singleLine="false"
+                    android:visibility="gone"
+                    android:maxLines="8"
+                    android:ellipsize="end"
+                    android:layout_weight="1"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+        <ImageView
+                android:layout_width="match_parent"
+                android:background="@drawable/list_dashed_divider"
+                android:layout_height="1px"
+                android:layout_marginTop="-1px"
+                android:id="@+id/action_divider"
+                android:visibility="gone"/>
+        <FrameLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="@dimen/notification_large_icon_width">
+            <include
+                layout="@layout/notification_action_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/notification_content_margin_left_to_icon"
+                android:visibility="gone"
+                />
+        </FrameLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:id="@+id/overflow_divider"
+            android:layout_marginBottom="8dp"
+            android:visibility="visible"
+            android:background="@drawable/list_dashed_divider" />
+        <LinearLayout
+            android:id="@+id/line3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:paddingStart="@dimen/notification_content_margin_left_to_icon"
+            android:layout_marginStart="@dimen/notification_large_icon_width"
+            android:paddingEnd="@dimen/notification_padding_right"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            >
+            <TextView android:id="@+id/text"
+                android:textAppearance="@style/TextAppearance.StatusBar.EventContent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                />
+            <TextView android:id="@+id/info"
+                android:textAppearance="@style/TextAppearance.StatusBar.EventContent.Info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:singleLine="true"
+                android:gravity="center"
+                android:paddingStart="8dp"
+                />
+            <ImageView android:id="@+id/profile_badge_line2"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:layout_marginStart="8dp"
+                android:scaleType="centerInside"
+                android:visibility="gone"
+                android:drawableAlpha="153"
+                />
+            <ImageView android:id="@+id/profile_badge_line3"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:layout_marginStart="8dp"
+                android:scaleType="centerInside"
+                android:visibility="gone"
+                android:drawableAlpha="153"
+                />
+            <ImageView android:id="@+id/profile_badge_large_template"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:layout_marginStart="8dp"
+                android:scaleType="centerInside"
+                android:visibility="gone"
+                android:drawableAlpha="153"
+                />
+            <ImageView android:id="@+id/right_icon"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="0"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </LinearLayout>
+</merge>

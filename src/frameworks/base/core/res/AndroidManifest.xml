@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="1040000" android:versionName="1.4.0.0"
+    package="android.miui" android:sharedUserId="android.uid.system">
+    <permission android:name="com.android.SystemUI.permission.TIGGER_TOGGLE"
+        android:protectionLevel="signatureOrSystem" />
+
+    <permission android:name="com.android.systemui.permission.NOTIFICATION"
+        android:protectionLevel="signatureOrSystem" />
+
+    <!-- Allows an application to manage location policies (such as disable
+     background location usage) and to define application-specific rules. @hide -->
+    <permission android:name="android.permission.MANAGE_LOCATION_POLICY"
+        android:label="@string/permlab_manageLocationPolicy"
+        android:description="@string/permdesc_manageLocationPolicy"
+        android:protectionLevel="signatureOrSystem" />
+
+    <!-- Allows an internal user to use privileged LocationPolicyManager APIs.
+    @hide -->
+    <permission android:name="android.permission.LOCATION_POLICY_INTERNAL"
+        android:permissionGroup="android.permission-group.LOCATION"
+        android:protectionLevel="signatureOrSystem" />
+
+    <!-- Allows to access wifi provider -->
+    <permission
+        android:name="com.xiaomi.permission.ACCESS_WIFI"
+        android:protectionLevel="signature" />
+
+    <!-- Allows request intercept SMS -->
+    <permission
+        android:name="com.miui.permission.MANAGE_SMS_INTERCEPT"
+        android:protectionLevel="signatureOrSystem" />
+
+    <!-- Allow init miui env -->
+    <permission
+        android:name="miui.os.permisson.INIT_MIUI_ENVIRONMENT"
+        android:protectionLevel="signature" />
+
+    <!-- Allow request write boot time -->>
+    <permission
+        android:name="com.miui.permission.MANAGE_BOOT_TIME"
+        android:protectionLevel="signatureOrSystem" />
+
+    <!-- Allows to send mi push message -->
+    <permission
+        android:name="com.xiaomi.permission.SEND_PUSH"
+        android:label="@string/perm_send_push_lab"
+        android:description="@string/perm_send_push_dspt"
+        android:protectionLevel="signature" />
+
+    <!-- Broadcast indicate miui init completed -->
+    <protected-broadcast android:name="miui.intent.action.DUMP_KLO_BUGREPORT" />
+    <protected-broadcast android:name="miui.intent.action.MIUI_INIT_COMPLETED" />
+    <protected-broadcast android:name="miui.intent.action.SWITCH_ON_MIUILOGS" />
+    <protected-broadcast android:name="miui.intent.action.SWITCH_OFF_MIUILOGS" />
+    <protected-broadcast android:name="miui.intent.action.REVERT_MIUILOG_SWITCHES" />
+
+    <application android:process="system"
+        android:persistent="true"
+        android:hasCode="false"
+        android:allowClearUserData="false"
+        android:killAfterRestore="false">
+
+        <meta-data android:name="com.miui.sdk.module" android:value="true" />
+        <meta-data android:name="com.miui.sdk.critical" android:value="true" />
+        <meta-data android:name="com.miui.sdk.manifest" android:resource="@xml/miui_manifest" />
+
+        <activity android:name="miui.accounts.MiuiChooseAccountTypeActivity"
+            android:excludeFromRecents="true"
+            android:theme="@miui:style/Theme.Light.Settings"
+            android:label="@string/android_add_account_label"
+            android:process=":ui" />
+    </application>
+</manifest>

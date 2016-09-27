@@ -1,0 +1,38 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:id="@+id/volume_dialog"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center_horizontal"
+             android:background="@drawable/volume_dialog_background">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/volume_dialog_padding_top"
+                    android:paddingStart="@dimen/volume_dialog_padding_left"
+                    android:paddingBottom="@dimen/volume_dialog_padding_bottom">
+
+        <ImageButton
+            android:id="@+id/volume_expand_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:clickable="true"
+            android:paddingStart="@dimen/volume_dialog_expand_button_padding_left"
+            android:paddingEnd="@dimen/volume_dialog_expand_button_padding_right"
+            android:paddingTop="@dimen/volume_dialog_expand_button_padding_top"
+            android:paddingBottom="@dimen/volume_dialog_expand_button_padding_bottom"
+            android:soundEffectsEnabled="false"
+            android:background="@android:color/transparent"
+            android:src="@drawable/volume_collapse_btn"/>
+
+        <LinearLayout
+            android:id="@+id/volume_dialog_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/volume_expand_button"
+            android:orientation="vertical">
+
+            <!-- volume rows added and removed here! :-) -->
+        </LinearLayout>
+
+</RelativeLayout>
+</FrameLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:internal="http://schemas.android.com/apk/prv/res/android"
+              android:id="@+id/status_bar_latest_event_content"
+              android:paddingStart="@dimen/notification_padding_left"
+              android:paddingEnd="@dimen/notification_padding_right"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center"
+              android:orientation="horizontal"
+              android:tag="media">
+
+    <ImageView android:id="@+id/icon"
+               android:layout_width="@dimen/notification_large_icon_width"
+               android:layout_height="@dimen/notification_large_icon_height"
+               android:layout_gravity="start|center_vertical"
+               android:layout_marginEnd="@dimen/notification_content_margin_left_to_icon"
+               android:scaleType="centerInside"/>
+    <LinearLayout
+            android:id="@+id/notification_content_container"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/notification_height"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+        <include layout="@layout/notification_template_part_line1" />
+        <include layout="@layout/notification_template_part_line2" />
+        <include layout="@layout/notification_template_part_line3" />
+    </LinearLayout>
+    <LinearLayout
+            android:id="@+id/media_actions"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical|end"
+            android:orientation="horizontal"
+            android:layoutDirection="ltr"
+    >
+        <!-- media buttons will be added here -->
+    </LinearLayout>
+</LinearLayout>

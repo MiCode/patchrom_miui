@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ * Copyright (C) 2016, Xiaomi Inc. All rights reserved.
+ */
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout android:id="@id/text_action_background_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/text_select_bg">
+
+        <ScrollView android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout android:id="@+id/text_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="18dip"
+                android:paddingStart="20dip"
+                android:paddingEnd="20dip"
+                android:orientation="vertical">
+
+                <TextView android:id="@android:id/text1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17.3sp"
+                    android:textColor="#e6000000"
+                    android:singleLine="true"
+                    android:visibility="gone" />
+
+                <TextView android:id="@android:id/text2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dip"
+                    android:textSize="12sp"
+                    android:textColor="#cc000000"
+                    android:lineSpacingExtra="3dip"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <TextView android:id="@+id/text_copyright"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|bottom"
+            android:paddingStart="20dip"
+            android:singleLine="true"
+            android:textSize="10.7sp"
+            android:textColor="#4d000000"
+            android:visibility="gone"/>
+
+        <miui.widget.ProgressBar android:id="@android:id/progress"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:max="10000" />
+    </FrameLayout>
+
+</RelativeLayout>

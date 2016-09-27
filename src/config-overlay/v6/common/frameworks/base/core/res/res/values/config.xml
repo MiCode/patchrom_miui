@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- These resources are around just to allow their values to be customized
+     for different hardware and product builds. -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Do not translate. Defines the slots for the right-hand side icons.  That is to say, the
+         icons in the status bar that are not notifications. -->
+    <string-array name="config_statusBarIcons">
+       <!-- Defines the slots for miui icons. -->
+       <item><xliff:g id="id">headset</xliff:g></item>
+       <item><xliff:g id="id">mikey</xliff:g></item>
+       <item><xliff:g id="id">call_record</xliff:g></item>
+       <item><xliff:g id="id">privacy_mode</xliff:g></item>
+       <item><xliff:g id="id">ble_unlock_mode</xliff:g></item>
+       <item><xliff:g id="id">quiet</xliff:g></item>
+       <item><xliff:g id="id">gps</xliff:g></item>
+       <item><xliff:g id="id">missed_call</xliff:g></item>
+
+       <item><xliff:g id="id">managed_profile</xliff:g></item>
+       <item><xliff:g id="id">ime</xliff:g></item>
+       <item><xliff:g id="id">sync_failing</xliff:g></item>
+       <item><xliff:g id="id">sync_active</xliff:g></item>
+       <item><xliff:g id="id">cast</xliff:g></item>
+       <item><xliff:g id="id">location</xliff:g></item>
+       <item><xliff:g id="id">bluetooth</xliff:g></item>
+       <item><xliff:g id="id">bluetooth_handsfree_battery</xliff:g></item>
+       <item><xliff:g id="id">nfc</xliff:g></item>
+       <item><xliff:g id="id">tty</xliff:g></item>
+       <item><xliff:g id="id">speakerphone</xliff:g></item>
+       <item><xliff:g id="id">zen</xliff:g></item>
+       <item><xliff:g id="id">mute</xliff:g></item>
+       <item><xliff:g id="id">volume</xliff:g></item>
+       <item><xliff:g id="id">wifi</xliff:g></item>
+       <item><xliff:g id="id">wimax</xliff:g></item>
+       <item><xliff:g id="id">cdma_eri</xliff:g></item>
+       <item><xliff:g id="id">data_connection</xliff:g></item>
+       <item><xliff:g id="id">phone_evdo_signal</xliff:g></item>
+       <item><xliff:g id="id">phone_signal</xliff:g></item>
+       <item><xliff:g id="id">battery</xliff:g></item>
+       <item><xliff:g id="id">alarm_clock</xliff:g></item>
+       <item><xliff:g id="id">secure</xliff:g></item>
+       <item><xliff:g id="id">clock</xliff:g></item>
+    </string-array>
+
+    <string-array translatable="false" name="networkAttributes">
+        <item>"wifi,1,1,1,-1,true"</item>
+        <item>"mobile,0,0,0,-1,true"</item>
+        <item>"mobile_mms,2,0,2,300000,true"</item>
+        <item>"mobile_supl,3,0,2,300000,true"</item>
+        <item>"mobile_dun,4,0,2,300000,true"</item>
+        <item>"mobile_hipri,5,0,3,300000,true"</item>
+        <item>"mobile_fota,10,0,2,300000,true"</item>
+        <item>"mobile_ims,11,0,2,300000,true"</item>
+        <item>"mobile_cbs,12,0,2,300000,true"</item>
+        <item>"bluetooth,7,7,2,-1,true"</item>
+        <item>"ethernet,9,9,4,-1,true"</item>
+    </string-array>
+
+    <string-array translatable="false" name="radioAttributes">
+        <item>"1,1"</item>
+        <item>"0,1"</item>
+        <item>"7,1"</item>
+        <item>"9,1"</item>
+    </string-array>
+
+    <integer name="config_overrideHasPermanentMenuKey">2</integer>
+
+    <!-- Don't show lock screen before unlock screen (PIN/pattern/password) -->
+    <bool name="config_enableLockBeforeUnlockScreen">true</bool>
+
+    <!-- Default color for notification LED is blue -->
+    <color name="config_defaultNotificationColor">#ff0000ff</color>
+
+    <!-- Default network policy warning threshold, in megabytes. -->
+    <integer name="config_networkPolicyDefaultWarning">10</integer>
+
+    <!-- Max space (in MB) allocated to DownloadManager to store the downloaded
+         files if they are to be stored in DownloadManager's data dir,
+         which typically is /data/data/com.android.providers.downloads/files -->
+    <integer name="config_downloadDataDirSize">256</integer>
+
+    <!-- Do not translate. -->
+    <!-- The default character set for GsmAlphabet -->
+    <!-- Empty string means MBCS is not considered -->
+    <string name="gsm_alphabet_default_charset"></string>
+
+    <bool name="config_lidControlsSleep">true</bool>
+    <bool name="config_unplugTurnsOnScreen">true</bool>
+
+    <!-- Max number of downloads allowed to proceed concurrently -->
+    <integer name="config_MaxConcurrentDownloadsAllowed">2</integer>
+
+    <integer name="config_longPressOnHomeBehavior">0</integer>
+
+    <bool name="config_enableNetworkLocationOverlay" translatable="false">false</bool>
+    <string name="config_networkLocationProviderPackageName" translatable="false">com.amap.android.location</string>
+    <!-- Package name(s) containing location provider support.
+         These packages can contain services implementing location providers,
+         such as the Geocode Provider, Network Location Provider, and
+         Fused Location Provider. They will each be searched for
+         service components implementing these providers.
+         It is strongly recommended that the packages explicitly named
+         below are on the system image, so that they will not map to
+         a 3rd party application.
+         The location framework also has support for installation
+         of new location providers at run-time. The new package does not
+         have to be explicitly listed here, however it must have a signature
+         that matches the signature of at least one package on this list.
+         -->
+    <string-array name="config_locationProviderPackageNames" translatable="false">
+        <!-- The standard AOSP fused location provider -->
+        <item>com.android.location.fused</item>
+        <item>com.baidu.map.location</item>
+        <item>com.amap.android.location</item>
+    </string-array>
+
+    <!-- Whether camera shutter sound is forced or not (country specific). -->
+    <bool name="config_camera_sound_forced">true</bool>
+    <bool name="config_useVolumeKeySounds">false</bool>
+    <!-- Use miui button light intead of original button light, so set false-->
+    <bool name="config_button_light_enabled">false</bool>
+
+    <integer name="config_virtualKeyQuietTimeMillis">100</integer>
+
+    <!-- Configuration to play sms ringtone during MO/MT call -->
+    <bool name="config_sms_ringtone_incall">true</bool>
+    <!-- Default SMS Application. This will be the default SMS application when
+         the phone first boots. The user can then change the default app to oe
+         of their choosing.
+         This can be overridden for devices where a different default SMS
+         application is desired. -->
+    <string name="default_sms_application" translatable="false">com.android.mms</string>
+    <integer name="resumeboost_timeout_param">300</integer>
+
+    <!-- Flag indicating emergency calls will always use IMS irrespective of the state of the IMS connection -->
+    <bool name="useImsAlwaysForEmergencyCall">false</bool>
+
+    <!--for ntp network time sync -->
+    <!-- Try-again polling interval in milliseconds, in case the network request failed -->
+    <integer name="config_ntpPollingIntervalShorter">6000</integer>
+    <!-- Number of times to try again with the shorter interval, before backing
+         off until the normal polling interval. A value < 0 indicates infinite. -->
+    <integer name="config_ntpRetry">20</integer>
+    <!-- Timeout to wait for NTP server response. -->
+    <integer name="config_ntpTimeout">5000</integer>
+
+    <integer name="config_lowMemoryWarningValue">700000</integer>
+    <integer name="config_releaseMemoryLimit">200000</integer>
+
+    <!-- User activity timeout: Maximum screen dim duration in milliseconds -->
+    <integer name="config_maximumScreenDimDuration">18000</integer>
+
+    <!--User activity timeout: Maximum screen dim duration as a percentage of screen off timeout. -->
+    <fraction name="config_maximumScreenDimRatio">30%</fraction>
+
+    <!-- Display low battery warning when battery level dips to this value -->
+    <integer name="config_lowBatteryWarningLevel">10</integer>
+
+    <!-- Keyguard component -->
+    <string name="config_keyguardComponent" translatable="false">com.android.keyguard/com.android.keyguard.KeyguardService</string>
+</resources>

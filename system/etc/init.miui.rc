@@ -1,0 +1,20 @@
+# miui init rc
+
+on init
+    class_start main
+
+service shelld /system/xbin/shelld
+    class main
+
+service tunman /system/xbin/tunman
+    socket tunman stream 0666 system system
+    class main
+    disabled
+
+on property:net.svc.tunman=start
+    start tunman
+
+service fdpp /system/bin/fdpp daemon
+    class main
+    user root
+    group root
