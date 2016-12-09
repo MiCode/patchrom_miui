@@ -15,19 +15,20 @@
 
         <ScrollView android:id="@+id/scroll_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingTop="18dip"
+            android:paddingStart="20dip"
+            android:paddingEnd="20dip">
 
             <LinearLayout android:id="@+id/text_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingTop="18dip"
-                android:paddingStart="20dip"
-                android:paddingEnd="20dip"
                 android:orientation="vertical">
 
                 <TextView android:id="@android:id/text1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dip"
                     android:textSize="17.3sp"
                     android:textColor="#e6000000"
                     android:singleLine="true"
@@ -36,7 +37,6 @@
                 <TextView android:id="@android:id/text2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dip"
                     android:textSize="12sp"
                     android:textColor="#cc000000"
                     android:lineSpacingExtra="3dip"
@@ -46,15 +46,39 @@
 
         </ScrollView>
 
-        <TextView android:id="@+id/text_copyright"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start|bottom"
+        <LinearLayout android:id="@+id/extra_info"
+            android:layout_width="match_parent"
+            android:layout_height="48.3dip"
             android:paddingStart="20dip"
-            android:singleLine="true"
-            android:textSize="10.7sp"
-            android:textColor="#4d000000"
-            android:visibility="gone"/>
+            android:paddingEnd="20dip"
+            android:layout_gravity="bottom"
+            android:visibility="gone">
+
+            <TextView android:id="@+id/text_copyright"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:singleLine="true"
+                android:textSize="10.7sp"
+                android:visibility="gone"
+                android:textColor="#4d000000" />
+
+            <TextView
+                android:id="@+id/text_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:singleLine="true"
+                android:textSize="12sp"
+                android:textColor="#e60091dc"
+                android:visibility="gone"
+                android:text="@string/translation_more"/>
+
+        </LinearLayout>
 
         <miui.widget.ProgressBar android:id="@android:id/progress"
             style="?android:attr/progressBarStyle"

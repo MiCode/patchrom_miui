@@ -25,8 +25,8 @@
         android:layout_height="@dimen/notification_height"
         >
         <ImageView android:id="@+id/icon"
-            android:layout_width="@dimen/notification_large_icon_width"
-            android:layout_height="@dimen/notification_large_icon_height"
+            android:layout_width="@dimen/notification_normal_icon_width"
+            android:layout_height="@dimen/notification_normal_icon_height"
             android:layout_gravity="center_vertical"
             android:scaleType="centerInside"
             />
@@ -34,7 +34,7 @@
             android:id="@+id/content_container"
             android:gravity="center_vertical"
             android:orientation="vertical"
-            android:layout_marginStart="@dimen/notification_large_icon_width"
+            android:layout_marginStart="@dimen/notification_normal_icon_width"
             android:paddingStart="@dimen/notification_content_margin_left_to_icon"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
-                android:minHeight="@dimen/notification_large_icon_height"
+                android:minHeight="@dimen/notification_normal_icon_height"
                 android:orientation="horizontal"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
@@ -57,14 +57,7 @@
                     android:fadingEdge="horizontal"
                     android:layout_weight="1"
                     />
-                <ViewStub android:id="@+id/time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0"
-                    android:visibility="gone"
-                    android:layout="@layout/notification_template_part_time"
-                    />
+                <include layout="@layout/notification_template_part_time"/>
                 <ViewStub android:id="@+id/chronometer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

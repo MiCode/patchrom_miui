@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    android:versionCode="1040000" android:versionName="1.4.0.0"
+    android:versionCode="1050000" android:versionName="1.5.0.0"
     package="android.miui" android:sharedUserId="android.uid.system">
     <permission android:name="com.android.SystemUI.permission.TIGGER_TOGGLE"
         android:protectionLevel="signatureOrSystem" />
@@ -56,6 +56,9 @@
     <protected-broadcast android:name="miui.intent.action.SWITCH_OFF_MIUILOGS" />
     <protected-broadcast android:name="miui.intent.action.REVERT_MIUILOG_SWITCHES" />
 
+    <!-- System account changed broadcast with info about changed accounts. -->
+    <protected-broadcast android:name="android.accounts.LOGIN_ACCOUNTS_CHANGED_SYS" />
+
     <application android:process="system"
         android:persistent="true"
         android:hasCode="false"
@@ -71,5 +74,15 @@
             android:theme="@miui:style/Theme.Light.Settings"
             android:label="@string/android_add_account_label"
             android:process=":ui" />
+
+        <activity android:name="miui.content.pm.PackageDeleteConfirmActivity"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@miui:style/Theme.Light.NoTitle" >
+            <intent-filter>
+                <action android:name="com.miui.action.PACKAGE_DELETE_CONFIRM" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 </manifest>

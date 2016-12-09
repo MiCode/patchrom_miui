@@ -11,18 +11,24 @@
                 android:orientation="horizontal"
                 android:tag="bigMedia"
                 >
-    <ImageView android:id="@+id/icon"
-               android:layout_width="@dimen/notification_large_icon_width"
-               android:layout_height="@dimen/notification_height"
-               android:gravity="start|center_vertical"
-               android:layout_marginEnd="@dimen/notification_content_margin_left_to_icon"
-               android:scaleType="centerInside"/>
+    <LinearLayout
+        android:id="@+id/icon_group"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/notification_height"
+        android:layout_marginEnd="@dimen/notification_content_margin_left_to_icon"
+        android:gravity="start|center_vertical"
+        android:orientation="vertical">
+        <ImageView android:id="@+id/icon"
+                   android:layout_width="@dimen/notification_normal_icon_width"
+                   android:layout_height="@dimen/notification_normal_icon_height"
+                   android:scaleType="centerInside"/>
+    </LinearLayout>
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/notification_height"
             android:gravity="center_vertical"
             android:orientation="vertical"
-            android:layout_toRightOf="@id/icon">
+            android:layout_toRightOf="@id/icon_group">
         <include layout="@layout/notification_template_part_line1" />
         <include layout="@layout/notification_template_part_line2" />
         <include layout="@layout/notification_template_part_line3" />
@@ -31,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginTop="@dimen/notification_height"
-            android:layout_toRightOf="@id/icon"
+            android:layout_toRightOf="@id/icon_group"
             android:id="@+id/action_divider"
             android:background="@drawable/notification_template_divider_media" />
     <LinearLayout
@@ -39,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/notification_height"
             android:layout_below="@id/action_divider"
-            android:layout_toRightOf="@id/icon"
+            android:layout_toRightOf="@id/icon_group"
             android:orientation="horizontal"
             android:layoutDirection="ltr"
     >

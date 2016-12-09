@@ -1,43 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e6000000"
-    >
+    android:background="#e6000000">
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearance"
-            android:textSize="27dip"
+            android:alpha="0.9"
             android:text="@string/screen_on_proximity_sensor_summary"
-            />
+            android:textAppearance="?android:attr/textAppearance"
+            android:textSize="27dp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="35dip"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_marginBottom="60dp"
+            android:layout_marginTop="13dp"
+            android:alpha="0.5"
             android:text="@string/screen_on_proximity_sensor_hint_has_navigation_bar"
-            />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="15dp" />
+
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/screen_on_proximity_sensor_hint_has_navigation_bar"
-            android:padding="0dip"
-            >
+            android:background="@drawable/screen_on_proximity_sensor_hint"
+            android:padding="0dip">
+
             <ImageView
                 android:id="@+id/screen_on_proximity_sensor_hint_animation"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/screen_on_proximity_sensor_hint_height"
-                android:background="@drawable/screen_on_proximity_sensor_hint_fg_has_navigation_bar"
-                />
+                android:background="@drawable/screen_on_proximity_sensor_hint_fg_has_navigation_bar" />
         </FrameLayout>
     </LinearLayout>
 </FrameLayout>
